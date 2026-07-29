@@ -57,6 +57,24 @@ Convergence on the real parameter set: **≤ 1pp on a held-out random stream**.
 guards it, because calibration uses common random numbers and could otherwise
 overfit its own sample.
 
+### Credible intervals
+
+The bracket on every forecast is the spread of *the probability itself* across
+parameter worlds, not the range of outcomes — the event either happens or it
+doesn't. Within-world binomial noise is deconvolved out, so a wide bracket means
+genuine model disagreement rather than an under-powered run.
+
+The interval is computed by shrinking each world's estimate toward the ensemble
+mean by `sqrt(V_epistemic / V_total)` and taking empirical quantiles of the
+result. A symmetric `mean ± z·sd` would hand any node above ~85% an upper bound
+past 1.0, clip it to ">99%", and thereby report an artefact of the arithmetic as
+a claim about certainty.
+
+The left-skew you'll see on high-probability nodes is real, not clipping: the
+epistemic offset sits on the *per-quarter hazard*, so across 42 quarters a
+higher-rate world drives such a node to near-certainty while a lower-rate one has
+room to fall a long way.
+
 ### Five worldviews
 
 Nothing is run under a single parameterisation. Research analysts produced one,
@@ -139,6 +157,20 @@ To exercise the pipeline without the research parameters:
 python tools/make_synthetic_params.py params/synthetic_model.json
 python run_simulation.py --quick --model params/synthetic_model.json
 ```
+
+### Reading the impact rating
+
+Analysts were asked for *global systemic impact if it occurs, 10 =
+civilization-altering*. That measures magnitude, not badness — a transformative
+AI capability milestone legitimately scores 9. Nothing here should be read as a
+count of catastrophes, and aggregate statistics are reported across four impact
+tiers because a single cutoff at 6+ spans both a US recession and a Taiwan
+contingency.
+
+Severity is also not comparable across domains: each was scored by a different
+analyst against the same nominal scale, and they don't use it identically.
+`validate.py` detects this rater drift automatically and the report states it.
+Compare probabilities across domains freely; compare severities within one.
 
 ## Limitations
 
