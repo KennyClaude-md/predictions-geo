@@ -71,13 +71,19 @@ def label_clusters(
         # from another, however large its z-score looks.
         destab &= overall_rates < 0.95
 
-        top = np.argsort(np.where(destab, z, -np.inf))[::-1][:6]
+        # Mask once and read the masked array everywhere below. Masking only the
+        # sort order lets an excluded event survive into the loop and name the
+        # cluster's theme whenever the feature list is short.
+        z_up = np.where(destab, z, -np.inf)
+        z_down = np.where(destab, z, np.inf)
+
+        top = np.argsort(z_up)[::-1][:6]
         dom_weight: dict[str, float] = {}
         for t in top:
-            if z[t] <= Z_THRESHOLD:
+            if z_up[t] <= Z_THRESHOLD:
                 continue
             d = domains[feature_idx[t]]
-            dom_weight[d] = dom_weight.get(d, 0.0) + float(z[t])
+            dom_weight[d] = dom_weight.get(d, 0.0) + float(z_up[t])
         ranked_doms = sorted(dom_weight, key=lambda d: -dom_weight[d])[:2]
 
         tier = _tier(float(c.get("peak_stress_pctile", 0.5)))
@@ -92,15 +98,15 @@ def label_clusters(
 
         signature = []
         for t in top:
-            if z[t] <= Z_THRESHOLD:
+            if z_up[t] <= Z_THRESHOLD:
                 continue
             signature.append(
                 f"**{names[feature_idx[t]]}** — {rates[t]*100:.0f}% here vs "
                 f"{overall_rates[t]*100:.0f}% overall"
             )
 
-        for t in np.argsort(np.where(destab, z, np.inf))[:3]:
-            if z[t] >= -Z_THRESHOLD:
+        for t in np.argsort(z_down)[:3]:
+            if z_down[t] >= -Z_THRESHOLD:
                 continue
             signature.append(
                 f"{names[feature_idx[t]]} — *suppressed*: {rates[t]*100:.0f}% here vs "
