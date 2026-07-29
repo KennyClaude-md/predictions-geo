@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 output/*.json
 params/synthetic_model.json
+output/shots/

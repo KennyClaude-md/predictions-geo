@@ -332,28 +332,48 @@ def timing_profile(fire_time: np.ndarray, idx: int) -> dict:
     }
 
 
-def top_pairs_by_lift(
+def top_pairs_by_association(
     fire_time: np.ndarray, quarter: int, candidate_idx: list[int], min_joint: float, top: int
-) -> list[tuple[int, int, float, float, float]]:
-    """Pairs whose co-occurrence is most amplified relative to independence."""
+) -> list[dict]:
+    """Pairs whose co-occurrence most exceeds independence, ranked by odds ratio.
+
+    Lift — P(both) / P(A)P(B) — is the intuitive measure but it is mechanically
+    bounded by the base rates: two events at 80% each cannot show a lift above
+    1.25 no matter how tightly coupled they are. Ranking the highest-impact
+    (hence highest-probability) nodes by lift therefore returns a table of 1.0x
+    entries and hides every real dependency in the model.
+
+    The odds ratio has no such ceiling, so it ranks honestly across base rates.
+    Both are reported, along with the contrast a reader can actually act on:
+    P(A | B) against P(A | not B).
+    """
     hit = ((fire_time >= 0) & (fire_time <= quarter))[:, candidate_idx].astype(np.float32)
     n = hit.shape[0]
     p = hit.mean(axis=0)
-    joint = (hit.T @ hit) / n
-    indep = np.outer(p, p)
-    lift = joint / np.maximum(indep, 1e-12)
+    n11 = (hit.T @ hit)
     out = []
     for i in range(len(candidate_idx)):
         for j in range(i + 1, len(candidate_idx)):
-            if joint[i, j] >= min_joint:
-                out.append(
-                    (
-                        candidate_idx[i],
-                        candidate_idx[j],
-                        float(joint[i, j]),
-                        float(lift[i, j]),
-                        float(joint[i, j] / max(p[j], 1e-9)),
-                    )
-                )
-    out.sort(key=lambda r: -r[3])
+            j11 = float(n11[i, j])
+            j10 = float(hit[:, i].sum() - j11)
+            j01 = float(hit[:, j].sum() - j11)
+            j00 = n - j11 - j10 - j01
+            joint = j11 / n
+            if joint < min_joint:
+                continue
+            odds = ((j11 + 0.5) * (j00 + 0.5)) / ((j10 + 0.5) * (j01 + 0.5))
+            p_a_given_b = j11 / max(j11 + j01, 1e-9)
+            p_a_given_not_b = j10 / max(j10 + j00, 1e-9)
+            out.append(
+                {
+                    "i": candidate_idx[i],
+                    "j": candidate_idx[j],
+                    "joint": joint,
+                    "lift": joint / max(p[i] * p[j], 1e-12),
+                    "odds_ratio": odds,
+                    "cond": p_a_given_b,
+                    "cond_not": p_a_given_not_b,
+                }
+            )
+    out.sort(key=lambda r: -r["odds_ratio"])
     return out[:top]

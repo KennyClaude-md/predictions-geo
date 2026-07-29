@@ -242,19 +242,22 @@ class ReportBuilder:
         self.w("## Where the correlations are")
         self.w()
         self.w(
-            "Pairs whose joint occurrence most exceeds what independence would predict. "
-            "*Lift* is P(both) ÷ P(A)·P(B): a lift of 3 means these two show up together "
-            "three times more often than chance. This is the part of the model that a "
-            "spreadsheet of independent probabilities cannot produce, and it is where "
-            "tail risk actually lives."
+            "The clearest way to read a dependency is the contrast between P(A given B) "
+            "and P(A given not-B) — how much learning one event would move your estimate "
+            "of the other. Ranked by odds ratio rather than by lift, because lift is "
+            "mechanically capped by the base rates: two events at 80% each cannot show a "
+            "lift above 1.25 however tightly coupled they are, so ranking high-probability "
+            "nodes by lift returns a table of 1.0× entries and hides every real dependency. "
+            "This is the part of the model a spreadsheet of independent probabilities "
+            "cannot produce, and it is where tail risk lives."
         )
         self.w()
-        self.w("| Event A | Event B | P(both) | Lift | P(A given B) |")
+        self.w("| Event A | Event B | P(A given B) | P(A given not-B) | Odds ratio |")
         self.w("|---|---|---:|---:|---:|")
         for p in self.ctx["pairs"]:
             self.w(
-                f"| {p['a']} | {p['b']} | {pct(p['joint'])} | {p['lift']:.1f}× | "
-                f"{pct(p['cond'])} |"
+                f"| {p['a']} | {p['b']} | **{pct(p['cond'])}** | {pct(p['cond_not'])} | "
+                f"{p['odds_ratio']:.1f}× |"
             )
         self.w()
 

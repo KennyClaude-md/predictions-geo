@@ -191,7 +191,25 @@ def _assemble(
     agg = analysis.aggregate_stats(ft, severity * (valence > 0) * counted, gssi, Q36)
 
     # --- archetypes -------------------------------------------------------
-    feature_idx = list(np.argsort(np.where(counted, impact, -np.inf))[::-1][:26])
+    # Stratify features across domains. Ranking purely by impact fills the list
+    # with AI and macro nodes, and every cluster then comes out with the same
+    # theme — the clustering is only as discriminating as the features it sees.
+    ranked = np.argsort(np.where(counted, impact, -np.inf))[::-1]
+    per_domain: dict[str, int] = {}
+    feature_idx: list[int] = []
+    for i in ranked:
+        d = domains[i]
+        if not np.isfinite(np.where(counted, impact, -np.inf)[i]):
+            continue
+        if per_domain.get(d, 0) >= 3:
+            continue
+        per_domain[d] = per_domain.get(d, 0) + 1
+        feature_idx.append(int(i))
+    for i in ranked:  # top up to 27 with the next best, regardless of domain
+        if len(feature_idx) >= 27:
+            break
+        if int(i) not in feature_idx and np.isfinite(np.where(counted, impact, -np.inf)[i]):
+            feature_idx.append(int(i))
     arch = analysis.archetypes(ft, gssi, feature_idx, k=5, seed=cfg.seed)
     labelled = labelling.label_clusters(
         arch["clusters"], feature_idx, names, domains, arch["overall_rates"], valence
@@ -210,13 +228,18 @@ def _assemble(
     ]
 
     # --- dependence -------------------------------------------------------
-    cand = list(np.argsort(destab_impact)[::-1][:34])
-    pairs_raw = analysis.top_pairs_by_lift(ft, Q36, cand, min_joint=0.012, top=18)
+    cand = list(np.argsort(destab_impact)[::-1][:40])
     pairs = [
         {
-            "a": names[i], "b": names[j], "joint": jt, "lift": lf, "cond": cd,
+            "a": names[r["i"]],
+            "b": names[r["j"]],
+            "joint": r["joint"],
+            "lift": r["lift"],
+            "odds_ratio": r["odds_ratio"],
+            "cond": r["cond"],
+            "cond_not": r["cond_not"],
         }
-        for i, j, jt, lf, cd in pairs_raw
+        for r in analysis.top_pairs_by_association(ft, Q36, cand, min_joint=0.010, top=18)
     ]
 
     # --- continuous -------------------------------------------------------

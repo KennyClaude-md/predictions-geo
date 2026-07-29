@@ -2,7 +2,7 @@
 
 **Simulation date:** 2026-07-29  
 **Horizon:** 2026Q3 → 2036Q4 (42 quarters)  
-**Paths:** 4,800 across 5 worldviews × 40 parameter worlds  
+**Paths:** 350,000 across 5 worldviews × 700 parameter worlds  
 **Risk nodes:** 218 · **causal edges:** 89 · **latent factors:** 6 · **continuous variables:** 104
 
 ---
@@ -13,7 +13,7 @@ Every number below is the output of a survival-process Monte Carlo, not a guess 
 
 **The bracketed range is not the range of outcomes** — the event either happens or it doesn't. It is the range of *the probability itself* across parameter worlds: how much the answer moves depending on whose model of the world you accept. A wide bracket means the forecast is fragile. Monte Carlo noise has been subtracted out, so what remains is real disagreement.
 
-**Calibration check:** simulated marginals reproduce the elicited cumulative probabilities to within 6.20 percentage points (worst node, worst worldview). This matters: the dependency network is tuned to reshape the *joint* distribution — which events co-occur — without inflating any individual probability above what the underlying analysis actually claimed.
+**Calibration check:** simulated marginals reproduce the elicited cumulative probabilities to within 0.96 percentage points (worst node, worst worldview). This matters: the dependency network is tuned to reshape the *joint* distribution — which events co-occur — without inflating any individual probability above what the underlying analysis actually claimed.
 
 ## Headline forecasts
 
@@ -21,28 +21,28 @@ Ranked by expected systemic impact — probability by 2036 multiplied by severit
 
 | # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Impact |
 |---|-------|--------:|--------:|--------:|:---------------:|----:|
-| 1 | **Frontier agent reaches a 1-work-month 50%-reliability task horizon** | 7.5% | 63% | 74% | [43%–97%] | 9 |
-| 2 | **Civil war onset in a country of 50 million or more that was at peace in mid-2026** | 28% | 65% | 82% | [58%–98%] | 8 |
-| 3 | **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** | 63% | 76% | 80% | [50%–98%] | 8 |
-| 4 | **Japan 10-year government bond yield reaches 3.00%** | 52% | 71% | 91% | [44%–99%] | 7 |
-| 5 | **Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window** | 87% | 93% | 99% | [96%–99%] | 6 |
-| 6 | **China's extraterritorial rare-earth export control regime enters into force** | 46% | 77% | 84% | [58%–98%] | 7 |
-| 7 | **China annual births fall below 7.0 million** | 44% | 94% | 96% | [88%–99%] | 6 |
-| 8 | **Renewed major US and/or Israeli air campaign against Iran** | 19% | 56% | 79% | [45%–99%] | 7 |
-| 9 | **A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test** | 17% | 46% | 67% | [26%–98%] | 8 |
-| 10 | **AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption** | 19% | 57% | 77% | [55%–96%] | 7 |
-| 11 | **Nvidia suffers a ≥50% peak-to-trough drawdown** | 26% | 64% | 85% | [59%–98%] | 6 |
-| 12 | **US recession with NBER-dated peak in the window** | 27% | 60% | 84% | [64%–98%] | 6 |
-| 13 | **A single training run of ≥1e28 FLOP is publicly reported** | 8.4% | 72% | 84% | [57%–98%] | 6 |
-| 14 | **A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem** | 15% | 45% | 63% | [37%–85%] | 8 |
-| 15 | **US unemployment rate ≥6.0% for three consecutive months** | 14% | 58% | 83% | [65%–97%] | 6 |
-| 16 | **China's officially reported population falls below 1.400 billion** | 58% | 97% | 99% | [94%–99%] | 5 |
-| 17 | **China reports annual real GDP growth below 4.0%** | 21% | 65% | 82% | [63%–97%] | 6 |
-| 18 | **PEPFAR terminated, absorbed, or cut by more than half from its FY2024 level** | 15% | 46% | 70% | [30%–98%] | 7 |
-| 19 | **A top-4 US hyperscaler guides annual capex down year-over-year** | 20% | 76% | 82% | [54%–98%] | 6 |
-| 20 | **New IPC/CH Famine (Phase 5) classification anywhere** | 69% | 94% | 97% | [92%–99%] | 5 |
-| 21 | **Multiple US states abolish or gut school-entry vaccine mandates** | 16% | 55% | 81% | [38%–99%] | 6 |
-| 22 | **Disintegration of the Thwaites Eastern Ice Shelf** | 13% | 39% | 60% | [21%–97%] | 8 |
+| 1 | **Frontier agent reaches a 1-work-month 50%-reliability task horizon** | 8.7% | 65% | 76% | [42%–98%] | 9 |
+| 2 | **Civil war onset in a country of 50 million or more that was at peace in mid-2026** | 28% | 65% | 83% | [59%–98%] | 8 |
+| 3 | **Japan 10-year government bond yield reaches 3.00%** | 58% | 75% | 91% | [50%–>99%] | 7 |
+| 4 | **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** | 63% | 76% | 80% | [44%–99%] | 8 |
+| 5 | **Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window** | 88% | 93% | 98% | [94%–>99%] | 6 |
+| 6 | **China's extraterritorial rare-earth export control regime enters into force** | 45% | 77% | 83% | [56%–98%] | 7 |
+| 7 | **China annual births fall below 7.0 million** | 45% | 95% | 97% | [91%–>99%] | 6 |
+| 8 | **Renewed major US and/or Israeli air campaign against Iran** | 20% | 55% | 78% | [38%–>99%] | 7 |
+| 9 | **A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test** | 15% | 45% | 68% | [29%–99%] | 8 |
+| 10 | **AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption** | 18% | 57% | 74% | [48%–94%] | 7 |
+| 11 | **Nvidia suffers a ≥50% peak-to-trough drawdown** | 28% | 65% | 83% | [57%–97%] | 6 |
+| 12 | **US recession with NBER-dated peak in the window** | 25% | 58% | 83% | [59%–98%] | 6 |
+| 13 | **A single training run of ≥1e28 FLOP is publicly reported** | 9.2% | 71% | 83% | [57%–98%] | 6 |
+| 14 | **China reports annual real GDP growth below 4.0%** | 21% | 67% | 82% | [56%–98%] | 6 |
+| 15 | **US unemployment rate ≥6.0% for three consecutive months** | 14% | 56% | 82% | [56%–98%] | 6 |
+| 16 | **China's officially reported population falls below 1.400 billion** | 58% | 96% | 98% | [93%–>99%] | 5 |
+| 17 | **New IPC/CH Famine (Phase 5) classification anywhere** | 69% | 93% | 97% | [92%–>99%] | 5 |
+| 18 | **A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem** | 15% | 44% | 61% | [34%–84%] | 8 |
+| 19 | **Disintegration of the Thwaites Eastern Ice Shelf** | 12% | 38% | 60% | [22%–96%] | 8 |
+| 20 | **A top-4 US hyperscaler guides annual capex down year-over-year** | 21% | 74% | 80% | [57%–96%] | 6 |
+| 21 | **Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt** | 15% | 45% | 68% | [29%–99%] | 7 |
+| 22 | **PEPFAR terminated, absorbed, or cut by more than half from its FY2024 level** | 15% | 45% | 68% | [27%–99%] | 7 |
 
 ## The decade in aggregate
 
@@ -52,12 +52,12 @@ Individual probabilities are the easy part. The question that actually determine
 
 | Impact tier | Nodes | Expected count | Median | P(none) | P(≥2) | P(≥3) |
 |---|---:|---:|---:|---:|---:|---:|
-| **6+ / 10** | 110 | 50.7 | 51 | <0.5% | >99% | >99% |
-| **7+ / 10** | 71 | 26.4 | 26 | <0.5% | >99% | >99% |
-| **8+ / 10** | 41 | 11.9 | 12 | <0.5% | >99% | >99% |
-| **9+ / 10** | 14 | 2.7 | 3 | 3.8% | 77% | 50% |
+| **6+ / 10** | 110 | 50.6 | 51 | <0.5% | >99% | >99% |
+| **7+ / 10** | 71 | 26.5 | 26 | <0.5% | >99% | >99% |
+| **8+ / 10** | 41 | 12.1 | 12 | <0.5% | >99% | >99% |
+| **9+ / 10** | 14 | 2.7 | 3 | 3.5% | 79% | 51% |
 
-The 6+ band is broad — it contains a US recession alongside a Taiwan contingency — so the headline that the median decade fires 51 of its 110 nodes says less about danger than it first appears. The discriminating number is the tier above: across 14 nodes rated 9 or 10 for global impact, the model expects 2.7 of them this decade, puts 96% on at least one and 77% on two or more. That is the finding: a decade with no order-changing event is a minority outcome, and the interesting variance is not *whether* they arrive but whether they arrive spaced out or together.
+The 6+ band is broad — it contains a US recession alongside a Taiwan contingency — so the headline that the median decade fires 51 of its 110 nodes says less about danger than it first appears. The discriminating number is the tier above: across 14 nodes rated 9 or 10 for global impact, the model expects 2.7 of them this decade, puts 96% on at least one and 79% on two or more. That is the finding: a decade with no order-changing event is a minority outcome, and the interesting variance is not *whether* they arrive but whether they arrive spaced out or together.
 
 **A caveat on cross-domain comparison.** Each domain was rated by a different analyst against the same nominal 0–10 scale, and they did not use it identically: *geopolitics* averages 7.7 while *foodwater* averages 5.5 (overall 6.4). Some of that gap is real — great-power conflict genuinely carries more systemic weight than a macro data print — but some of it is rater drift, and it means the impact ranking tilts toward whichever domain scored most generously. Compare probabilities across domains freely; compare severities within a domain.
 
@@ -65,57 +65,59 @@ The 6+ band is broad — it contains a US recession alongside a Taiwan contingen
 
 Paths were clustered on which major events fired and on the shape of the systemic-stress trajectory. These are not scenarios written in advance and then assigned probabilities — they are the shapes the simulation actually produced, priced by how much of the path mass fell into each.
 
-### Manageable decade — technological discontinuity and financial and macro stress — **29%**
+### Manageable decade — technological discontinuity and financial and macro stress — **31%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 34th percentile of all simulated paths.
-
-Distinguishing features (rate within this cluster vs. overall):
-
-- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 98% here vs 74% overall
-- **US recession with NBER-dated peak in the window** — 100% here vs 84% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 100% here vs 85% overall
-
-### Severe decade — technological discontinuity and financial and macro stress — **25%**
-
-Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 82th percentile of all simulated paths.
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 31th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 93% here vs 74% overall
-- **US recession with NBER-dated peak in the window** — 99% here vs 84% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 98% here vs 85% overall
+- **US unemployment rate ≥6.0% for three consecutive months** — 100% here vs 82% overall
+- **A top-4 US hyperscaler guides annual capex down year-over-year** — 98% here vs 80% overall
+- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 97% here vs 83% overall
+- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
 
-### Manageable decade — technological discontinuity and financial and macro stress (variant) — **20%**
+### Severe decade — technological discontinuity and financial and macro stress — **28%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 42th percentile of all simulated paths.
-
-Distinguishing features (rate within this cluster vs. overall):
-
-- **US recession with NBER-dated peak in the window** — 99% here vs 84% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 97% here vs 85% overall
-- **A top-4 US hyperscaler guides annual capex down year-over-year** — 94% here vs 82% overall
-- Frontier agent reaches a 1-work-month 50%-reliability task horizon — *suppressed*: 5% here vs 74% overall
-- AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption — *suppressed*: 43% here vs 77% overall
-- A single training run of ≥1e28 FLOP is publicly reported — *suppressed*: 66% here vs 84% overall
-
-### Manageable decade — technological discontinuity — **14%**
-
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity. Typical peak stress sits at the 40th percentile of all simulated paths.
+Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 81th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 86% here vs 74% overall
-- Nvidia suffers a ≥50% peak-to-trough drawdown — *suppressed*: 0% here vs 85% overall
-- A top-4 US hyperscaler guides annual capex down year-over-year — *suppressed*: 40% here vs 82% overall
+- **US unemployment rate ≥6.0% for three consecutive months** — 98% here vs 82% overall
+- **A top-4 US hyperscaler guides annual capex down year-over-year** — 95% here vs 80% overall
+- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 96% here vs 83% overall
+- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
 
-### Manageable decade — technological discontinuity (variant) — **12%**
+### Manageable decade — technological discontinuity and financial and macro stress (variant) — **18%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity. Typical peak stress sits at the 43th percentile of all simulated paths.
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 41th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 97% here vs 85% overall
-- US recession with NBER-dated peak in the window — *suppressed*: 0% here vs 84% overall
+- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
+- **US unemployment rate ≥6.0% for three consecutive months** — 94% here vs 82% overall
+- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 87% here vs 76% overall
+- A top-4 US hyperscaler guides annual capex down year-over-year — *suppressed*: 18% here vs 80% overall
+- Nvidia suffers a ≥50% peak-to-trough drawdown — *suppressed*: 35% here vs 83% overall
+
+### Turbulent decade — technological discontinuity and financial and macro stress — **15%**
+
+Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 46th percentile of all simulated paths.
+
+Distinguishing features (rate within this cluster vs. overall):
+
+- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
+- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 93% here vs 83% overall
+- **A top-4 US hyperscaler guides annual capex down year-over-year** — 90% here vs 80% overall
+- US unemployment rate ≥6.0% for three consecutive months — *suppressed*: 0% here vs 82% overall
+
+### Manageable decade — no dominant driver — **8.7%**
+
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. Typical peak stress sits at the 40th percentile of all simulated paths.
+
+Distinguishing features (rate within this cluster vs. overall):
+
+- Japan 10-year government bond yield reaches 3.00% — *suppressed*: 0% here vs 91% overall
+- Nvidia suffers a ≥50% peak-to-trough drawdown — *suppressed*: 72% here vs 83% overall
 
 ## Full results by domain
 
@@ -123,31 +125,31 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | 7.5% | 63% | 74% | [43%–97%] | 9 | 2029Q3 |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 19% | 57% | 77% | [55%–96%] | 7 | 2029Q4 |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | 26% | 64% | 85% | [59%–98%] | 6 | 2029Q3 |
-| A single training run of ≥1e28 FLOP is publicly reported | 8.4% | 72% | 84% | [57%–98%] | 6 | 2029Q2 |
-| US unemployment rate ≥6.0% for three consecutive months | 14% | 58% | 83% | [65%–97%] | 6 | 2030Q1 |
-| A top-4 US hyperscaler guides annual capex down year-over-year | 20% | 76% | 82% | [54%–98%] | 6 | 2028Q4 |
-| Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt | 16% | 45% | 67% | [28%–98%] | 7 | 2030Q1 |
-| A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 23% | 63% | 85% | [68%–97%] | 5 | 2029Q3 |
-| A top-5 Western frontier lab exits frontier training | 11% | 46% | 69% | [38%–90%] | 6 | 2030Q3 |
-| China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab | 4.2% | 28% | 58% | [16%–98%] | 7 | 2032Q1 |
-| A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month | 19% | 55% | 69% | [42%–90%] | 5 | 2029Q2 |
-| Frontier capability plateau: 24 months with no material aggregate benchmark advance | 7.3% | 25% | 42% | [11%–82%] | 8 | 2030Q4 |
-| US driverless robotaxi services exceed 5 million paid rides per week | 6.3% | 67% | 79% | [58%–97%] | 4 | 2029Q3 |
-| US licenses its current-flagship datacenter GPU for general commercial sale to China | 13% | 39% | 51% | [13%–88%] | 6 | 2029Q3 |
-| Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora | 9.3% | 28% | 50% | [16%–90%] | 6 | 2031Q2 |
-| Grid emergency or load-shed event officially attributed in part to datacenter demand | 12% | 38% | 58% | [16%–98%] | 5 | 2030Q2 |
-| US Congress enacts broad federal preemption of state AI laws | 11% | 33% | 53% | [27%–81%] | 5 | 2030Q2 |
-| Confirmed theft or leak of frontier model weights | 5.3% | 18% | 33% | [6.1%–72%] | 8 | 2031Q2 |
-| US enacts binding federal pre-deployment evaluation or licensing requirements for frontier models | 5.3% | 22% | 39% | [10%–79%] | 6 | 2031Q2 |
-| A top mathematics journal publishes a paper whose central theorem was found primarily by AI | 10% | 51% | 78% | [54%–96%] | 3 | 2030Q2 |
-| A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections | 12% | 37% | 50% | [27%–79%] | 4 | 2030Q1 |
-| Taiwan Strait event materially disrupts advanced-node or CoWoS output | 2.0% | 8.1% | 15% | [2.1%–39%] | 10 | 2031Q3 |
-| Binding US-China agreement on frontier AI compute or model thresholds | 2.0% | 8.9% | 16% | [5.3%–28%] | 4 | 2031Q2 |
-| AI-assisted biological attack causing ≥10 deaths, officially confirmed | 1.0% | 3.6% | 5.9% | [1.1%–21%] | 9 | 2031Q1 |
-| A quantum computer publicly factors an RSA-2048 modulus | <0.5% | 1.5% | 6.5% | [2.7%–15%] | 8 | 2033Q4 |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | 8.7% | 65% | 76% | [42%–98%] | 9 | 2029Q3 |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 18% | 57% | 74% | [48%–94%] | 7 | 2029Q4 |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | 28% | 65% | 83% | [57%–97%] | 6 | 2029Q2 |
+| A single training run of ≥1e28 FLOP is publicly reported | 9.2% | 71% | 83% | [57%–98%] | 6 | 2029Q2 |
+| US unemployment rate ≥6.0% for three consecutive months | 14% | 56% | 82% | [56%–98%] | 6 | 2030Q2 |
+| A top-4 US hyperscaler guides annual capex down year-over-year | 21% | 74% | 80% | [57%–96%] | 6 | 2028Q4 |
+| Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt | 15% | 45% | 68% | [29%–99%] | 7 | 2030Q2 |
+| A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 23% | 64% | 84% | [63%–98%] | 5 | 2029Q3 |
+| China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab | 3.5% | 28% | 59% | [21%–96%] | 7 | 2032Q1 |
+| A top-5 Western frontier lab exits frontier training | 11% | 45% | 67% | [37%–90%] | 6 | 2030Q3 |
+| A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month | 20% | 55% | 69% | [39%–93%] | 5 | 2029Q2 |
+| Frontier capability plateau: 24 months with no material aggregate benchmark advance | 7.8% | 25% | 43% | [12%–83%] | 8 | 2030Q4 |
+| US driverless robotaxi services exceed 5 million paid rides per week | 5.6% | 67% | 80% | [56%–97%] | 4 | 2029Q3 |
+| US licenses its current-flagship datacenter GPU for general commercial sale to China | 13% | 41% | 51% | [18%–87%] | 6 | 2029Q3 |
+| Confirmed theft or leak of frontier model weights | 6.7% | 22% | 38% | [10%–78%] | 8 | 2031Q1 |
+| Grid emergency or load-shed event officially attributed in part to datacenter demand | 12% | 38% | 60% | [21%–97%] | 5 | 2030Q2 |
+| Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora | 9.2% | 30% | 49% | [16%–90%] | 6 | 2030Q4 |
+| US Congress enacts broad federal preemption of state AI laws | 12% | 34% | 54% | [28%–81%] | 5 | 2030Q2 |
+| US enacts binding federal pre-deployment evaluation or licensing requirements for frontier models | 7.3% | 24% | 41% | [11%–82%] | 6 | 2031Q1 |
+| A top mathematics journal publishes a paper whose central theorem was found primarily by AI | 11% | 52% | 75% | [51%–95%] | 3 | 2030Q1 |
+| A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections | 14% | 38% | 51% | [26%–80%] | 4 | 2029Q4 |
+| Taiwan Strait event materially disrupts advanced-node or CoWoS output | 2.6% | 8.9% | 16% | [3.2%–40%] | 10 | 2031Q3 |
+| Binding US-China agreement on frontier AI compute or model thresholds | 1.5% | 7.9% | 16% | [6.3%–30%] | 4 | 2032Q1 |
+| AI-assisted biological attack causing ≥10 deaths, officially confirmed | 1.2% | 4.0% | 6.3% | [0.5%–18%] | 9 | 2031Q1 |
+| A quantum computer publicly factors an RSA-2048 modulus | <0.5% | 1.4% | 6.5% | [2.3%–14%] | 8 | 2033Q4 |
 
 <details><summary>Resolution criteria</summary>
 
@@ -159,16 +161,16 @@ Distinguishing features (rate within this cluster vs. overall):
 - **A top-4 US hyperscaler guides annual capex down year-over-year** — Microsoft, Alphabet, Amazon, or Meta states in an official earnings release or call that its expected full-fiscal-year capital expenditures will be LOWER than the prior fiscal year's actual capex.
 - **Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt** — A company or SPV whose primary business is AI/datacenter compute defaults on, or completes a distressed exchange of, >=$5B (2026 USD) of debt or lease obligations; or a rating agency downgrades >=$5B of AI-datacenter-backed debt to below investment grade.
 - **A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI** — A Fortune 500 (US) or Fortune Global 500 company announces a workforce reduction of ≥10,000 positions in a single announcement, and its official communications name AI/automation as the primary stated cause (not merely one factor among several).
-- **A top-5 Western frontier lab exits frontier training** — One of OpenAI, Anthropic, Google DeepMind, xAI, or Meta Superintelligence Labs is acquired, dissolved, files for bankruptcy protection, or publicly announces it will stop pretraining frontier-scale models.
 - **China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab** — Credible public confirmation (company announcement, government statement, or two independent major-outlet reports) that a China-built EUV scanner is exposing wafers in a commercial production fab, not merely a lab or prototype.
+- **A top-5 Western frontier lab exits frontier training** — One of OpenAI, Anthropic, Google DeepMind, xAI, or Meta Superintelligence Labs is acquired, dissolved, files for bankruptcy protection, or publicly announces it will stop pretraining frontier-scale models.
 - **A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month** — A model developed by a China-headquartered organization holds the top overall rank on Artificial Analysis's Intelligence Index or LMArena's overall text leaderboard continuously for at least 30 days.
 - **Frontier capability plateau: 24 months with no material aggregate benchmark advance** — The top score on Artificial Analysis's Intelligence Index (or an endorsed successor composite) increases by less than 5 index points over any 24-consecutive-month period beginning after 2027-01-01.
 - **US driverless robotaxi services exceed 5 million paid rides per week** — Publicly reported paid rides in fully driverless (no human safety operator in vehicle) commercial services in the US total ≥5,000,000 in a single week, summed across all operators.
 - **US licenses its current-flagship datacenter GPU for general commercial sale to China** — BIS policy permits general (not narrowly case-by-case) export to Chinese commercial customers of Nvidia's then-current top-of-line datacenter accelerator, within one product generation of the US-available flagship.
-- **Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora** — A US or EU court enters final judgment, or a lab announces a settlement, of >=$5B (2026 USD) arising from training-data copyright/IP claims; OR a court issues an injunction (not stayed within 90 days) barring a frontier lab from training on a major copyrighted corpus.
-- **Grid emergency or load-shed event officially attributed in part to datacenter demand** — A US RTO/ISO, NERC, or a state utility commission issues an official finding that a load-shed event, EEA-2/EEA-3 emergency, or rolling blackout affecting >100,000 customers was caused in part by datacenter load growth.
-- **US Congress enacts broad federal preemption of state AI laws** — A bill preempting state AI regulation across a broad category (beyond a single narrow domain like deepfakes) is signed into law by the President.
 - **Confirmed theft or leak of frontier model weights** — A frontier lab, a government agency, or two independent major outlets confirm that the full weights of a model within one generation of a Western frontier release were exfiltrated by an unauthorized party or publicly leaked.
+- **Grid emergency or load-shed event officially attributed in part to datacenter demand** — A US RTO/ISO, NERC, or a state utility commission issues an official finding that a load-shed event, EEA-2/EEA-3 emergency, or rolling blackout affecting >100,000 customers was caused in part by datacenter load growth.
+- **Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora** — A US or EU court enters final judgment, or a lab announces a settlement, of >=$5B (2026 USD) arising from training-data copyright/IP claims; OR a court issues an injunction (not stayed within 90 days) barring a frontier lab from training on a major copyrighted corpus.
+- **US Congress enacts broad federal preemption of state AI laws** — A bill preempting state AI regulation across a broad category (beyond a single narrow domain like deepfakes) is signed into law by the President.
 - **US enacts binding federal pre-deployment evaluation or licensing requirements for frontier models** — Federal legislation or a binding rule with statutory authority is enacted requiring pre-deployment safety evaluation, reporting, or licensing for models above a compute or capability threshold, applicable to private-sector deployment (not merely federal procurement).
 - **A top mathematics journal publishes a paper whose central theorem was found primarily by AI** — A paper appears in Annals of Mathematics, JAMS, Inventiones, Acta Mathematica, or Duke Mathematical Journal in which the authors explicitly state that the principal new theorem was discovered or proved primarily by an AI system rather than by the human authors.
 - **A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections** — A US state enacts into law (governor's signature or veto override) a moratorium, ban, or binding numerical cap on new datacenter grid interconnections above a stated size threshold, applying statewide.
@@ -179,34 +181,94 @@ Distinguishing features (rate within this cluster vs. overall):
 
 </details>
 
+### Global macroeconomy & finance
+
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
+|---|---:|---:|---:|:---:|---:|---|
+| Sustained effective closure of the Strait of Hormuz | 70% | 79% | 83% | [54%–98%] | 8 | 2026Q4 |
+| Japan 10-year government bond yield reaches 3.00% | 58% | 75% | 91% | [50%–>99%] | 7 | 2027Q2 |
+| US recession with NBER-dated peak in the window | 25% | 58% | 83% | [59%–98%] | 6 | 2029Q3 |
+| China reports annual real GDP growth below 4.0% | 21% | 67% | 82% | [56%–98%] | 6 | 2029Q2 |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | 12% | 38% | 62% | [39%–83%] | 7 | 2030Q4 |
+| US Treasury market dysfunction requiring emergency Fed intervention | 10% | 32% | 52% | [17%–93%] | 8 | 2030Q4 |
+| Brent crude settles above $120/bbl | 38% | 57% | 69% | [38%–91%] | 6 | 2027Q4 |
+| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | 6.8% | 40% | 57% | [21%–93%] | 7 | 2030Q1 |
+| Failure or extraordinary rescue of a bank with over $250bn in assets | 11% | 29% | 49% | [24%–74%] | 8 | 2031Q1 |
+| Wave of emerging-market sovereign defaults or restructurings | 31% | 60% | 76% | [48%–94%] | 5 | 2028Q4 |
+| S&P 500 falls 30%+ from its all-time closing high | 15% | 45% | 63% | [40%–84%] | 6 | 2030Q1 |
+| Large private-credit vehicle suspends redemptions or enters wind-down | 15% | 36% | 56% | [32%–80%] | 6 | 2030Q3 |
+| Disorderly yen move | 11% | 34% | 55% | [19%–94%] | 6 | 2030Q3 |
+| Disorderly broad dollar depreciation | 9.3% | 30% | 50% | [15%–91%] | 6 | 2030Q3 |
+| US 10-year Treasury yield closes at or above 6.00% | 5.8% | 24% | 37% | [17%–60%] | 8 | 2030Q3 |
+| Formal breach of Federal Reserve independence | 7.5% | 24% | 41% | [12%–83%] | 7 | 2030Q4 |
+| US CPI inflation returns to 5.0%+ year over year | 22% | 43% | 57% | [29%–82%] | 5 | 2029Q1 |
+| US dollar share of allocated FX reserves falls below 50% | 2.0% | 23% | 45% | [22%–70%] | 6 | 2031Q4 |
+| China announces a central-government property/LGFV rescue of RMB 5trn or more | 13% | 33% | 51% | [17%–89%] | 5 | 2030Q2 |
+| US average effective tariff rate exceeds 15% | 18% | 41% | 50% | [21%–82%] | 5 | 2029Q1 |
+| Systemic financial market infrastructure outage | 4.8% | 16% | 29% | [6.9%–65%] | 7 | 2031Q2 |
+| Taiwan semiconductor supply disruption with global market resolution | 3.2% | 11% | 20% | [4.4%–48%] | 9 | 2031Q2 |
+| France or Italy 10-year spread over Bunds exceeds 300bp | 4.6% | 15% | 24% | [5.9%–54%] | 7 | 2030Q4 |
+| Major stablecoin failure or sustained depeg | 17% | 29% | 39% | [10%–79%] | 4 | 2028Q4 |
+| US inflation undershoot / deflation scare | 6.0% | 20% | 35% | [9.1%–73%] | 4 | 2031Q1 |
+
+<details><summary>Resolution criteria</summary>
+
+- **Sustained effective closure of the Strait of Hormuz** — Seaborne crude and condensate transits through the Strait of Hormuz fall more than 50% below the 2025 monthly average for at least 14 consecutive days, per IEA, EIA, Kpler or Vortexa reporting, at any point from August 2026 onward.
+- **Japan 10-year government bond yield reaches 3.00%** — The 10-year JGB benchmark yield closes at or above 3.00% on any day in the window.
+- **US recession with NBER-dated peak in the window** — NBER Business Cycle Dating Committee assigns a business-cycle peak dated between August 2026 and the end of the stated year. Later announcement is fine; the peak date is what counts.
+- **China reports annual real GDP growth below 4.0%** — China's National Bureau of Statistics reports full-year real GDP growth below 4.0% for any calendar year in the window, in the initial annual release.
+- **Global recession (world real GDP growth below 2.0% in a calendar year)** — IMF WEO (October vintage of the following year) reports world real GDP growth at market or PPP weights below 2.0% for any calendar year in the window. Resolves YES on the first such year.
+- **US Treasury market dysfunction requiring emergency Fed intervention** — The Federal Reserve announces unscheduled purchases of Treasury securities, a new or expanded standing repo/dealer facility, or explicit market-functioning operations (not policy QE and not routine reserve management) in response to disorderly conditions in the Treasury or repo market, at any point in the window.
+- **Brent crude settles above $120/bbl** — ICE Brent front-month futures settle at or above $120.00/bbl on any trading day in the window.
+- **AI capex bust: aggregate hyperscaler capex falls 20%+ year over year** — Combined calendar-year capital expenditure of Microsoft, Alphabet, Amazon, Meta and Oracle, as reported in audited annual filings, comes in at least 20% below the prior calendar year's reported total, for any year in the window.
+- **Failure or extraordinary rescue of a bank with over $250bn in assets** — A bank holding company with more than $250bn in total assets in the US, EU, UK, Switzerland, Japan or China fails, is placed into resolution, is forced into a state-brokered merger, or receives an extraordinary government capital injection or central bank emergency liquidity facility created specifically for it.
+- **Wave of emerging-market sovereign defaults or restructurings** — At least three additional sovereigns, each with more than $10bn in external public debt, default on external commercial debt or formally enter a comprehensive debt restructuring or a new IMF Extended Fund Facility of at least $3bn, between August 2026 and the end of the stated year.
+- **S&P 500 falls 30%+ from its all-time closing high** — S&P 500 records a daily close at least 30% below its prior all-time closing high, at any point in the window.
+- **Large private-credit vehicle suspends redemptions or enters wind-down** — A private credit fund, BDC or interval fund with at least $20bn NAV fully suspends redemptions (beyond pro-rating within stated quarterly limits) for at least one month, or is placed into wind-down or forced sale, in the US, UK or EU.
+- **Disorderly yen move** — USD/JPY closes above 180, or moves more than 15 yen in either direction within any 20 trading days, in the window.
+- **Disorderly broad dollar depreciation** — The Fed's broad nominal trade-weighted dollar index falls 20% or more from its trailing 24-month high within any 24-month period in the window.
+- **US 10-year Treasury yield closes at or above 6.00%** — The constant-maturity 10-year US Treasury yield (H.15 / Treasury daily par yield curve) closes at or above 6.00% on any day in the window.
+- **Formal breach of Federal Reserve independence** — A sitting US president attempts to remove or demote a Federal Reserve governor or the chair for policy reasons, issues a directive on the policy rate that the Board acts on, or legislation altering the FOMC's control of the policy rate is enacted — any one, in the window.
+- **US CPI inflation returns to 5.0%+ year over year** — BLS reports headline CPI-U at or above 5.0% year over year for any single month in the window.
+- **US dollar share of allocated FX reserves falls below 50%** — IMF COFER reports the US dollar share of allocated global foreign exchange reserves below 50.0% for any quarter in the window.
+- **China announces a central-government property/LGFV rescue of RMB 5trn or more** — China's State Council, MOF or PBOC announces a single package of central-government fiscal support, debt assumption or recapitalization directed at the property sector and/or local government financing vehicles totalling at least RMB 5 trillion, announced as one program.
+- **US average effective tariff rate exceeds 15%** — Penn Wharton Budget Model or Yale Budget Lab reports a US average effective tariff rate on all imports above 15.0% for at least one full month in the window.
+- **Systemic financial market infrastructure outage** — A systemically important FMI — a major CCP, CLS, DTCC, Fedwire, TARGET2, SWIFT, or a top-three custodian — suffers an outage or compromise preventing settlement for more than 24 hours, or a central bank extends emergency liquidity explicitly because of it.
+- **Taiwan semiconductor supply disruption with global market resolution** — Monthly semiconductor exports from Taiwan fall more than 40% below the trailing twelve-month average for two consecutive months, for any reason (blockade, quarantine, conflict, or major natural disaster), in the window.
+- **France or Italy 10-year spread over Bunds exceeds 300bp** — The 10-year OAT-Bund or BTP-Bund spread closes above 300 basis points for five consecutive trading days, or the ECB formally activates the Transmission Protection Instrument for either sovereign.
+- **Major stablecoin failure or sustained depeg** — A stablecoin with at least $20bn market capitalization trades more than 5% below its peg for more than 24 consecutive hours, or its issuer suspends or fails to honor redemptions for more than 24 hours.
+- **US inflation undershoot / deflation scare** — US core PCE inflation prints below 1.0% year over year for three consecutive months, or headline CPI-U prints negative year over year for any month, in the window.
+
+</details>
+
 ### Political stability & governance
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Civil war onset in a country of 50 million or more that was at peace in mid-2026 | 28% | 65% | 82% | [58%–98%] | 8 | 2029Q1 |
-| AfD enters government at German federal or Land level | 12% | 49% | 72% | [44%–94%] | 7 | 2030Q2 |
-| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 15% | 45% | 63% | [37%–85%] | 8 | 2029Q4 |
-| Single US political-violence attack killing ten or more people | 24% | 63% | 79% | [52%–97%] | 6 | 2029Q1 |
-| Democrats control at least one chamber of Congress from January 2027 | 89% | 89% | 90% | [80%–96%] | 5 | 2026Q4 |
-| A calendar year with three or more successful coups d'etat worldwide | 46% | 75% | 85% | [62%–98%] | 5 | 2027Q4 |
-| Saudi succession from King Salman | 37% | 77% | 93% | [72%–>99%] | 4 | 2028Q3 |
-| Xi Jinping ceases to be CCP General Secretary | 5.0% | 17% | 41% | [13%–84%] | 9 | 2032Q2 |
-| Vladimir Putin ceases to be Russia's paramount leader | 4.7% | 19% | 45% | [24%–69%] | 8 | 2032Q3 |
-| National Rally (or RN-aligned candidate) wins the French presidency | 34% | 34% | 50% | [26%–76%] | 7 | 2027Q3 |
-| The Islamic Republic of Iran ceases to exist as a governing system | 13% | 27% | 36% | [12%–73%] | 9 | 2029Q2 |
-| Criminal conviction of a major US opposition figure in a prosecution widely coded as politically motivated | 9.0% | 27% | 44% | [13%–83%] | 7 | 2030Q4 |
-| Nigerian 2027 general election breakdown | 7.1% | 24% | 40% | [9.9%–79%] | 7 | 2031Q1 |
-| Overt US military strike inside Mexican territory without Mexican consent | 26% | 35% | 39% | [16%–73%] | 7 | 2027Q3 |
-| Major democratic rupture or mass communal violence in India | 4.9% | 16% | 28% | [5.7%–71%] | 8 | 2031Q1 |
-| US President formally invokes the Insurrection Act over a state's objection | 23% | 33% | 37% | [16%–68%] | 6 | 2027Q3 |
-| Reform UK leads a UK government | 2.7% | 26% | 37% | [13%–72%] | 6 | 2030Q2 |
-| Contested certification of the 2028 US presidential election | 3.4% | 12% | 22% | [2.3%–55%] | 9 | 2031Q3 |
-| US executive branch openly defies a final Supreme Court order | 8.4% | 15% | 18% | [2.1%–46%] | 9 | 2028Q2 |
-| Successful assassination of a sitting US President, VP, member of Congress, cabinet secretary or Supreme Court justice | 6.2% | 15% | 22% | [10%–37%] | 7 | 2029Q4 |
-| Global autocratization wave inflects | 9.9% | 32% | 52% | [16%–91%] | 2 | 2030Q3 |
-| Trump formally pursues a third presidential term | 4.7% | 8.4% | 9.8% | [4.0%–19%] | 8 | 2028Q2 |
-| An EU member state initiates exit from the EU | 1.8% | 6.5% | 9.1% | [3.6%–17%] | 8 | 2030Q2 |
-| Armed confrontation between US state-controlled forces and federal forces | 2.7% | 6.4% | 8.8% | [1.6%–26%] | 8 | 2029Q4 |
+| Civil war onset in a country of 50 million or more that was at peace in mid-2026 | 28% | 65% | 83% | [59%–98%] | 8 | 2029Q1 |
+| AfD enters government at German federal or Land level | 12% | 48% | 71% | [43%–93%] | 7 | 2030Q2 |
+| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 15% | 44% | 61% | [34%–84%] | 8 | 2029Q4 |
+| Single US political-violence attack killing ten or more people | 24% | 62% | 77% | [50%–96%] | 6 | 2029Q1 |
+| Democrats control at least one chamber of Congress from January 2027 | 90% | 90% | 90% | [79%–98%] | 5 | 2026Q4 |
+| A calendar year with three or more successful coups d'etat worldwide | 45% | 74% | 85% | [64%–99%] | 5 | 2027Q4 |
+| Vladimir Putin ceases to be Russia's paramount leader | 7.2% | 25% | 49% | [24%–77%] | 8 | 2031Q4 |
+| Saudi succession from King Salman | 35% | 80% | 95% | [77%–>99%] | 4 | 2028Q3 |
+| National Rally (or RN-aligned candidate) wins the French presidency | 35% | 35% | 52% | [27%–80%] | 7 | 2027Q3 |
+| Xi Jinping ceases to be CCP General Secretary | 4.6% | 17% | 40% | [10%–81%] | 9 | 2032Q3 |
+| Criminal conviction of a major US opposition figure in a prosecution widely coded as politically motivated | 8.1% | 26% | 44% | [13%–84%] | 7 | 2030Q4 |
+| The Islamic Republic of Iran ceases to exist as a governing system | 9.4% | 23% | 33% | [9.0%–68%] | 9 | 2029Q4 |
+| Overt US military strike inside Mexican territory without Mexican consent | 25% | 35% | 39% | [19%–69%] | 7 | 2027Q3 |
+| Nigerian 2027 general election breakdown | 6.6% | 22% | 38% | [10%–78%] | 7 | 2031Q1 |
+| Major democratic rupture or mass communal violence in India | 5.0% | 17% | 30% | [7.0%–69%] | 8 | 2031Q2 |
+| Reform UK leads a UK government | 3.0% | 28% | 38% | [11%–77%] | 6 | 2030Q2 |
+| Contested certification of the 2028 US presidential election | 4.1% | 14% | 25% | [5.8%–59%] | 9 | 2031Q2 |
+| US President formally invokes the Insurrection Act over a state's objection | 21% | 32% | 37% | [18%–65%] | 6 | 2027Q4 |
+| US executive branch openly defies a final Supreme Court order | 7.1% | 13% | 17% | [3.5%–43%] | 9 | 2028Q4 |
+| Successful assassination of a sitting US President, VP, member of Congress, cabinet secretary or Supreme Court justice | 5.4% | 13% | 20% | [7.9%–38%] | 7 | 2030Q2 |
+| Global autocratization wave inflects | 9.4% | 30% | 49% | [15%–90%] | 2 | 2030Q3 |
+| Trump formally pursues a third presidential term | 4.1% | 8.3% | 10% | [3.8%–19%] | 8 | 2028Q4 |
+| An EU member state initiates exit from the EU | 2.1% | 6.1% | 8.5% | [3.0%–18%] | 8 | 2030Q1 |
+| Armed confrontation between US state-controlled forces and federal forces | 3.3% | 6.5% | 8.4% | [1.4%–26%] | 8 | 2029Q1 |
 
 <details><summary>Resolution criteria</summary>
 
@@ -216,18 +278,18 @@ Distinguishing features (rate within this cluster vs. overall):
 - **Single US political-violence attack killing ten or more people** — A single attack on US soil kills at least 10 people (excluding perpetrators) and is officially determined by federal law enforcement, or coded by START/GTD, as politically, religiously, racially or ideologically motivated. Ordinary criminal and non-ideological mass shootings excluded.
 - **Democrats control at least one chamber of Congress from January 2027** — Following the 3 November 2026 elections, Democrats (including caucusing independents) hold a majority of seats in the US House and/or Senate when the new Congress convenes on 3 January 2027.
 - **A calendar year with three or more successful coups d'etat worldwide** — In any single calendar year from 2026 onward, at least three successful coups d'etat occur globally, where 'successful' means the coup leadership holds effective power for at least seven days, per Powell-Thyne / Cline Center coding.
-- **Saudi succession from King Salman** — King Salman bin Abdulaziz (b. December 1935) ceases to be King of Saudi Arabia through death, incapacity or abdication, and a successor is proclaimed, by end-2031.
-- **Xi Jinping ceases to be CCP General Secretary** — Xi Jinping is no longer General Secretary of the Chinese Communist Party for a continuous period exceeding 60 days, for any reason.
 - **Vladimir Putin ceases to be Russia's paramount leader** — Putin is no longer president of Russia (or, if the office is restructured, no longer the recognized paramount decision-maker) for a continuous period exceeding 60 days, through death, incapacity, resignation, removal or coup.
+- **Saudi succession from King Salman** — King Salman bin Abdulaziz (b. December 1935) ceases to be King of Saudi Arabia through death, incapacity or abdication, and a successor is proclaimed, by end-2031.
 - **National Rally (or RN-aligned candidate) wins the French presidency** — A candidate endorsed by, or a member of, Rassemblement National (or its formal successor) is elected President of France in the 2027 or 2032 presidential election and inaugurated.
-- **The Islamic Republic of Iran ceases to exist as a governing system** — A government controls Tehran that does not derive its authority from velayat-e faqih - the office of Supreme Leader is abolished, left vacant for more than 12 months with no successor, or subordinated to a non-clerical executive - sustained for at least 90 days.
+- **Xi Jinping ceases to be CCP General Secretary** — Xi Jinping is no longer General Secretary of the Chinese Communist Party for a continuous period exceeding 60 days, for any reason.
 - **Criminal conviction of a major US opposition figure in a prosecution widely coded as politically motivated** — By end-2031, a sitting or former US governor, senator, House member in leadership, cabinet secretary, presidential nominee, or FBI/CIA director is convicted at trial in a federal prosecution that at least three of AP/Reuters/NYT/WSJ/WaPo characterize as politically motivated or retaliatory, or that Protect Democracy's Retaliatory Action Tracker records as such.
-- **Nigerian 2027 general election breakdown** — The February 2027 Nigerian general election produces at least 500 election-related deaths within 90 days of polling per ACLED, OR the presidential result is annulled or the transfer of power prevented or delayed beyond the 29 May 2027 inauguration date, OR the military intervenes in the transfer of power.
+- **The Islamic Republic of Iran ceases to exist as a governing system** — A government controls Tehran that does not derive its authority from velayat-e faqih - the office of Supreme Leader is abolished, left vacant for more than 12 months with no successor, or subordinated to a non-clerical executive - sustained for at least 90 days.
 - **Overt US military strike inside Mexican territory without Mexican consent** — The US government publicly acknowledges, or three major wire services confirm, a US military kinetic strike (manned aircraft, drone, missile or ground raid) on a target inside Mexican sovereign territory that the Mexican federal government publicly states it did not consent to.
+- **Nigerian 2027 general election breakdown** — The February 2027 Nigerian general election produces at least 500 election-related deaths within 90 days of polling per ACLED, OR the presidential result is annulled or the transfer of power prevented or delayed beyond the 29 May 2027 inauguration date, OR the military intervenes in the transfer of power.
 - **Major democratic rupture or mass communal violence in India** — By end-2031, either (a) V-Dem downgrades India from electoral autocracy to closed autocracy, or (b) India records at least 1,000 deaths in communal, sectarian or state-repression political violence in a single calendar year per ACLED or UCDP coding, or (c) a national election is postponed beyond its constitutional deadline or its result is not accepted by the losing coalition.
-- **US President formally invokes the Insurrection Act over a state's objection** — A presidential proclamation expressly invoking 10 U.S.C. sections 251-255 (the Insurrection Act) to deploy federal troops or federalized National Guard for domestic law enforcement inside a US state whose governor has publicly objected, confirmed by the Federal Register and major wire services.
 - **Reform UK leads a UK government** — A Reform UK MP is appointed Prime Minister of the United Kingdom.
 - **Contested certification of the 2028 US presidential election** — Following the 7 November 2028 election, at least one state transmits competing slates of presidential electors to Congress, OR a state fails to certify by the Electoral Count Reform Act's safe-harbour deadline and the dispute reaches Congress or the Supreme Court, OR the joint session on 6 January 2029 sustains an objection to a state's electors.
+- **US President formally invokes the Insurrection Act over a state's objection** — A presidential proclamation expressly invoking 10 U.S.C. sections 251-255 (the Insurrection Act) to deploy federal troops or federalized National Guard for domestic law enforcement inside a US state whose governor has publicly objected, confirmed by the Federal Register and major wire services.
 - **US executive branch openly defies a final Supreme Court order** — The executive branch publicly and knowingly fails to comply with a final, non-stayed order of the US Supreme Court for more than 30 days, and this non-compliance is (a) asserted in a filing or opinion by the Court or a lower court on remand, or (b) reported as such by at least three of AP/Reuters/NYT/WSJ/WaPo. Slow-walking with a colorable legal argument does not count.
 - **Successful assassination of a sitting US President, VP, member of Congress, cabinet secretary or Supreme Court justice** — A sitting US president, vice president, member of the House or Senate, Senate-confirmed cabinet secretary, or Supreme Court justice is killed in an attack determined by federal law enforcement to be politically, ideologically or personally-grievance motivated. Natural death, accident and ordinary criminal robbery excluded.
 - **Global autocratization wave inflects** — In any V-Dem Democracy Report from 2028 through 2032, either the count of countries coded as currently autocratizing falls below 35, OR the number of democratizing countries exceeds the number autocratizing; alternatively, any Freedom in the World edition through 2032 records more countries improving than declining.
@@ -241,54 +303,54 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Durable Russia-Ukraine ceasefire (>=180 consecutive days) | 33% | 74% | 91% | [78%–98%] | 7 | 2028Q4 |
-| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 63% | 76% | 80% | [50%–98%] | 8 | 2027Q1 |
-| Renewed major US and/or Israeli air campaign against Iran | 19% | 56% | 79% | [45%–99%] | 7 | 2029Q4 |
-| A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test | 17% | 46% | 67% | [26%–98%] | 8 | 2029Q4 |
-| A second US kinetic operation to remove or kill a sitting foreign head of state or government | 14% | 40% | 62% | [29%–97%] | 7 | 2030Q3 |
-| PRC forces cause the death of a Philippine serviceman or coast guardsman | 12% | 40% | 62% | [25%–97%] | 7 | 2030Q2 |
-| Vladimir Putin ceases to hold effective power in Russia | 11% | 34% | 53% | [18%–90%] | 8 | 2030Q3 |
-| Iran formally withdraws from the Nuclear Non-Proliferation Treaty | 16% | 45% | 67% | [26%–98%] | 6 | 2029Q4 |
-| New US-Russia agreement capping deployed strategic nuclear warheads | 19% | 39% | 53% | [14%–90%] | 6 | 2029Q3 |
-| Lethal DPRK-ROK military exchange | 12% | 34% | 52% | [15%–90%] | 6 | 2030Q2 |
-| A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 5.8% | 19% | 34% | [12%–66%] | 8 | 2031Q2 |
-| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 5.2% | 19% | 28% | [12%–49%] | 9 | 2030Q3 |
-| The Islamic Republic ceases to govern Iran | 8.9% | 23% | 31% | [7.3%–74%] | 8 | 2029Q3 |
-| North Korea conducts a seventh nuclear explosive test | 11% | 32% | 45% | [23%–71%] | 5 | 2030Q1 |
-| India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months | 5.9% | 18% | 27% | [11%–46%] | 8 | 2030Q3 |
-| Iran tests or is confirmed to possess an assembled nuclear weapon | 2.5% | 10% | 20% | [3.3%–43%] | 8 | 2031Q3 |
-| Lethal armed clash between Chinese and Japanese state forces | 3.7% | 11% | 19% | [6.5%–39%] | 8 | 2031Q1 |
-| PRC seizes or occupies a Taiwan-administered offshore island | 3.3% | 12% | 21% | [3.2%–42%] | 7 | 2031Q2 |
-| State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country | 3.1% | 10% | 19% | [2.2%–48%] | 7 | 2031Q3 |
-| Direct US-PRC military exchange causing at least one fatality | 2.4% | 8.2% | 14% | [5.8%–26%] | 9 | 2031Q2 |
-| A jihadist insurgent group controls a Sahelian national capital for >=7 days | 6.6% | 18% | 25% | [11%–44%] | 5 | 2030Q1 |
-| PRC launches an amphibious or airborne assault on Taiwan's main island | 1.9% | 5.7% | 13% | [4.0%–25%] | 10 | 2032Q3 |
-| NATO invokes Article 5 in response to a Russian attack | 2.8% | 6.3% | 9.4% | [3.7%–17%] | 10 | 2029Q3 |
-| US initiates withdrawal from NATO, or any member formally invokes Article 13 | 1.8% | 4.6% | 8.0% | [2.9%–17%] | 9 | 2031Q2 |
-| A nuclear weapon is detonated in an act of war or hostility anywhere in the world | 0.8% | 3.4% | 5.8% | [1.6%–15%] | 10 | 2031Q2 |
-| UN Security Council permanent membership formally expanded | 0.6% | 1.2% | 3.0% | [1.6%–6.8%] | 3 | 2032Q4 |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 63% | 76% | 80% | [44%–99%] | 8 | 2027Q1 |
+| Durable Russia-Ukraine ceasefire (>=180 consecutive days) | 33% | 71% | 88% | [69%–98%] | 7 | 2028Q4 |
+| Renewed major US and/or Israeli air campaign against Iran | 20% | 55% | 78% | [38%–>99%] | 7 | 2029Q3 |
+| A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test | 15% | 45% | 68% | [29%–99%] | 8 | 2030Q1 |
+| A second US kinetic operation to remove or kill a sitting foreign head of state or government | 13% | 40% | 62% | [23%–97%] | 7 | 2030Q2 |
+| PRC forces cause the death of a Philippine serviceman or coast guardsman | 12% | 37% | 60% | [22%–96%] | 7 | 2030Q3 |
+| Iran formally withdraws from the Nuclear Non-Proliferation Treaty | 15% | 45% | 68% | [28%–99%] | 6 | 2030Q1 |
+| Vladimir Putin ceases to hold effective power in Russia | 7.4% | 26% | 49% | [15%–91%] | 8 | 2031Q3 |
+| A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 6.6% | 23% | 39% | [12%–74%] | 8 | 2031Q1 |
+| New US-Russia agreement capping deployed strategic nuclear warheads | 19% | 38% | 50% | [17%–88%] | 6 | 2029Q2 |
+| Lethal DPRK-ROK military exchange | 9.1% | 30% | 49% | [16%–89%] | 6 | 2030Q4 |
+| The Islamic Republic ceases to govern Iran | 9.4% | 23% | 33% | [8.0%–73%] | 8 | 2029Q4 |
+| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 6.2% | 19% | 28% | [11%–50%] | 9 | 2030Q2 |
+| North Korea conducts a seventh nuclear explosive test | 11% | 30% | 44% | [21%–73%] | 5 | 2030Q1 |
+| India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months | 6.1% | 17% | 27% | [12%–48%] | 8 | 2030Q3 |
+| Iran tests or is confirmed to possess an assembled nuclear weapon | 3.9% | 15% | 27% | [5.3%–63%] | 8 | 2031Q2 |
+| PRC seizes or occupies a Taiwan-administered offshore island | 3.4% | 12% | 23% | [5.6%–52%] | 7 | 2031Q3 |
+| State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country | 3.0% | 11% | 20% | [4.1%–52%] | 7 | 2031Q2 |
+| Lethal armed clash between Chinese and Japanese state forces | 2.9% | 10.0% | 17% | [3.8%–39%] | 8 | 2031Q1 |
+| Direct US-PRC military exchange causing at least one fatality | 2.1% | 7.7% | 14% | [5.5%–27%] | 9 | 2031Q3 |
+| A jihadist insurgent group controls a Sahelian national capital for >=7 days | 7.2% | 18% | 25% | [11%–45%] | 5 | 2029Q4 |
+| PRC launches an amphibious or airborne assault on Taiwan's main island | 2.2% | 5.5% | 12% | [4.0%–24%] | 10 | 2032Q2 |
+| NATO invokes Article 5 in response to a Russian attack | 3.0% | 7.3% | 12% | [4.0%–23%] | 10 | 2030Q1 |
+| US initiates withdrawal from NATO, or any member formally invokes Article 13 | 1.9% | 4.7% | 7.7% | [2.7%–15%] | 9 | 2030Q4 |
+| A nuclear weapon is detonated in an act of war or hostility anywhere in the world | 1.1% | 3.9% | 6.8% | [0.6%–17%] | 10 | 2031Q2 |
+| UN Security Council permanent membership formally expanded | <0.5% | 1.4% | 2.9% | [1.0%–6.5%] | 3 | 2032Q1 |
 
 <details><summary>Resolution criteria</summary>
 
-- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — A ceasefire covering the entire land front between Russian and Ukrainian forces holds for at least 180 consecutive days without resumption of sustained offensive ground operations or systematic long-range strikes on cities, as assessed by ISW/OSCE-successor monitoring or equivalent consensus reporting. Short holiday truces (e.g. April/May 2026) do NOT count.
 - **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** — Crude-plus-condensate transit through Hormuz, per EIA/Vortexa/Kpler monthly data, falls below 50% of the 2025 monthly average for at least 30 consecutive days, in an episode beginning on or after 1 August 2026.
+- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — A ceasefire covering the entire land front between Russian and Ukrainian forces holds for at least 180 consecutive days without resumption of sustained offensive ground operations or systematic long-range strikes on cities, as assessed by ISW/OSCE-successor monitoring or equivalent consensus reporting. Short holiday truces (e.g. April/May 2026) do NOT count.
 - **Renewed major US and/or Israeli air campaign against Iran** — At least 100 US and/or Israeli strikes on targets inside Iran within any 30-day window beginning on or after 1 August 2026, per credible multi-source reporting or US/Israeli government statement.
 - **A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test** — The United States, Russia or China conducts a supercritical nuclear explosive test (yield above zero, excluding subcritical and hydrodynamic experiments), confirmed by the testing state or by CTBTO/national technical means.
 - **A second US kinetic operation to remove or kill a sitting foreign head of state or government** — US forces, after 1 August 2026, conduct a military operation that captures, kills, or directly precipitates within 30 days the removal from power of the sitting head of state or government of a UN member state, excluding the January 2026 Venezuela and February 2026 Iran operations.
 - **PRC forces cause the death of a Philippine serviceman or coast guardsman** — An action by PLA, PLAN, China Coast Guard or maritime-militia units (including ramming, water cannon, boarding or fire) directly causes at least one death among Philippine armed forces, coast guard or government-chartered personnel, confirmed by the Philippine government.
-- **Vladimir Putin ceases to hold effective power in Russia** — Putin ceases to serve as President of the Russian Federation, or is assessed by consensus of major-power governments no longer to exercise effective control over Russian state decision-making, for any reason including death, incapacity, resignation or removal.
 - **Iran formally withdraws from the Nuclear Non-Proliferation Treaty** — Iran deposits formal notice of withdrawal under NPT Article X with the depositary governments and the UN Security Council, or that withdrawal takes effect.
+- **Vladimir Putin ceases to hold effective power in Russia** — Putin ceases to serve as President of the Russian Federation, or is assessed by consensus of major-power governments no longer to exercise effective control over Russian state decision-making, for any reason including death, incapacity, resignation or removal.
+- **A state that does not now possess nuclear weapons tests a device or is confirmed to possess one** — Any state other than the US, Russia, UK, France, China, India, Pakistan, Israel and North Korea either (a) conducts a nuclear explosive test, (b) officially declares possession of an assembled nuclear weapon, or (c) is assessed by the IAEA or by the US intelligence community in a public statement to possess one.
 - **New US-Russia agreement capping deployed strategic nuclear warheads** — The US and Russia sign a bilateral agreement (treaty, executive agreement, or formal reciprocal political commitment announced by both heads of state) that establishes a numerical ceiling on deployed strategic nuclear warheads or delivery vehicles.
 - **Lethal DPRK-ROK military exchange** — An exchange of fire or attack between DPRK and ROK forces causing at least five combined military or civilian deaths, confirmed by either government or by the UN Command.
-- **A state that does not now possess nuclear weapons tests a device or is confirmed to possess one** — Any state other than the US, Russia, UK, France, China, India, Pakistan, Israel and North Korea either (a) conducts a nuclear explosive test, (b) officially declares possession of an assembled nuclear weapon, or (c) is assessed by the IAEA or by the US intelligence community in a public statement to possess one.
-- **PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days** — PRC state organs (PLA, Coast Guard or maritime authorities) publicly declare a quarantine, inspection regime or blockade of Taiwan's ports/airspace AND enforce it by boarding, turning back or interdicting at least ten commercial vessels or aircraft, sustained for at least seven consecutive days.
 - **The Islamic Republic ceases to govern Iran** — The office of Supreme Leader (Velayat-e Faqih) is abolished, vacated without a successor for more than 90 days, or a government not derived from the clerical/IRGC establishment exercises effective control of Tehran; as assessed by consensus of major-power governments.
+- **PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days** — PRC state organs (PLA, Coast Guard or maritime authorities) publicly declare a quarantine, inspection regime or blockade of Taiwan's ports/airspace AND enforce it by boarding, turning back or interdicting at least ten commercial vessels or aircraft, sustained for at least seven consecutive days.
 - **North Korea conducts a seventh nuclear explosive test** — A nuclear explosive test on DPRK territory confirmed by CTBTO seismic/radionuclide detection or by US/ROK/Japanese government statement.
 - **India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months** — Direct state-on-state armed conflict between Indian and Pakistani forces producing at least 1,000 combined military and civilian deaths within any rolling 12-month period, per UCDP or ACLED coding.
 - **Iran tests or is confirmed to possess an assembled nuclear weapon** — Iran conducts a nuclear explosive test, publicly declares possession, or is publicly assessed by the IAEA or the US intelligence community to possess at least one assembled nuclear weapon.
-- **Lethal armed clash between Chinese and Japanese state forces** — An exchange of fire or deliberate ramming between PLA/CCG and JSDF/JCG units resulting in at least one death, confirmed by either government.
 - **PRC seizes or occupies a Taiwan-administered offshore island** — PLA, PAP or China Coast Guard forces land on and establish administrative or military control over Pratas (Dongsha), Taiping (Itu Aba), Kinmen, Matsu or Wuqiu, maintained for at least 72 consecutive hours, confirmed by Taiwan MND or US government statement.
 - **State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country** — A cyberattack publicly attributed by the victim government or by the EU/NATO to a state or state-sponsored actor causes loss of electrical supply to at least one million people for at least 24 consecutive hours in a NATO or OECD member state.
+- **Lethal armed clash between Chinese and Japanese state forces** — An exchange of fire or deliberate ramming between PLA/CCG and JSDF/JCG units resulting in at least one death, confirmed by either government.
 - **Direct US-PRC military exchange causing at least one fatality** — An exchange of fire (kinetic, including missile, air, naval or ground fire) between US and PLA/PAP/China Coast Guard forces resulting in at least one death on either side, acknowledged by either government or confirmed by credible multi-source reporting.
 - **A jihadist insurgent group controls a Sahelian national capital for >=7 days** — JNIM, ISSP/ISWAP or a successor jihadist organisation exercises effective control of Bamako, Ouagadougou or Niamey (including the presidential palace and central districts) for at least seven consecutive days, per ACLED coding or UN/Security Council reporting.
 - **PRC launches an amphibious or airborne assault on Taiwan's main island** — PLA forces conduct an opposed landing or airborne insertion on Taiwan proper (not offshore islands) involving at least 1,000 personnel, confirmed by Taiwan MND or US government statement.
@@ -299,117 +361,57 @@ Distinguishing features (rate within this cluster vs. overall):
 
 </details>
 
-### Global macroeconomy & finance
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Japan 10-year government bond yield reaches 3.00% | 52% | 71% | 91% | [44%–99%] | 7 | 2027Q3 |
-| US recession with NBER-dated peak in the window | 27% | 60% | 84% | [64%–98%] | 6 | 2029Q3 |
-| China reports annual real GDP growth below 4.0% | 21% | 65% | 82% | [63%–97%] | 6 | 2029Q2 |
-| Global recession (world real GDP growth below 2.0% in a calendar year) | 11% | 36% | 64% | [42%–81%] | 7 | 2031Q2 |
-| Brent crude settles above $120/bbl | 38% | 61% | 74% | [45%–93%] | 6 | 2027Q4 |
-| US Treasury market dysfunction requiring emergency Fed intervention | 8.9% | 30% | 51% | [17%–91%] | 8 | 2030Q4 |
-| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | 8.0% | 41% | 57% | [18%–91%] | 7 | 2030Q1 |
-| Failure or extraordinary rescue of a bank with over $250bn in assets | 11% | 27% | 49% | [23%–72%] | 8 | 2031Q2 |
-| Wave of emerging-market sovereign defaults or restructurings | 31% | 61% | 78% | [52%–93%] | 5 | 2028Q4 |
-| S&P 500 falls 30%+ from its all-time closing high | 14% | 45% | 64% | [42%–86%] | 6 | 2030Q2 |
-| Disorderly yen move | 10% | 34% | 55% | [17%–91%] | 6 | 2030Q4 |
-| Large private-credit vehicle suspends redemptions or enters wind-down | 16% | 36% | 55% | [30%–79%] | 6 | 2030Q1 |
-| US 10-year Treasury yield closes at or above 6.00% | 5.6% | 25% | 40% | [18%–66%] | 8 | 2030Q4 |
-| Formal breach of Federal Reserve independence | 8.3% | 27% | 44% | [13%–86%] | 7 | 2030Q4 |
-| Disorderly broad dollar depreciation | 9.0% | 32% | 50% | [10%–92%] | 6 | 2030Q3 |
-| US dollar share of allocated FX reserves falls below 50% | 2.5% | 26% | 47% | [22%–72%] | 6 | 2031Q3 |
-| US CPI inflation returns to 5.0%+ year over year | 23% | 43% | 57% | [30%–83%] | 5 | 2029Q1 |
-| US average effective tariff rate exceeds 15% | 17% | 41% | 51% | [24%–80%] | 5 | 2029Q2 |
-| China announces a central-government property/LGFV rescue of RMB 5trn or more | 14% | 32% | 50% | [11%–89%] | 5 | 2030Q2 |
-| Systemic financial market infrastructure outage | 4.9% | 17% | 31% | [6.7%–68%] | 7 | 2031Q2 |
-| Sustained effective closure of the Strait of Hormuz | 17% | 25% | 26% | [11%–44%] | 8 | 2027Q2 |
-| Taiwan semiconductor supply disruption with global market resolution | 2.8% | 10% | 20% | [2.3%–46%] | 9 | 2031Q4 |
-| France or Italy 10-year spread over Bunds exceeds 300bp | 4.2% | 14% | 22% | [6.9%–50%] | 7 | 2030Q4 |
-| Major stablecoin failure or sustained depeg | 17% | 30% | 39% | [10%–76%] | 4 | 2028Q4 |
-| US inflation undershoot / deflation scare | 5.8% | 20% | 34% | [8.8%–69%] | 4 | 2031Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Japan 10-year government bond yield reaches 3.00%** — The 10-year JGB benchmark yield closes at or above 3.00% on any day in the window.
-- **US recession with NBER-dated peak in the window** — NBER Business Cycle Dating Committee assigns a business-cycle peak dated between August 2026 and the end of the stated year. Later announcement is fine; the peak date is what counts.
-- **China reports annual real GDP growth below 4.0%** — China's National Bureau of Statistics reports full-year real GDP growth below 4.0% for any calendar year in the window, in the initial annual release.
-- **Global recession (world real GDP growth below 2.0% in a calendar year)** — IMF WEO (October vintage of the following year) reports world real GDP growth at market or PPP weights below 2.0% for any calendar year in the window. Resolves YES on the first such year.
-- **Brent crude settles above $120/bbl** — ICE Brent front-month futures settle at or above $120.00/bbl on any trading day in the window.
-- **US Treasury market dysfunction requiring emergency Fed intervention** — The Federal Reserve announces unscheduled purchases of Treasury securities, a new or expanded standing repo/dealer facility, or explicit market-functioning operations (not policy QE and not routine reserve management) in response to disorderly conditions in the Treasury or repo market, at any point in the window.
-- **AI capex bust: aggregate hyperscaler capex falls 20%+ year over year** — Combined calendar-year capital expenditure of Microsoft, Alphabet, Amazon, Meta and Oracle, as reported in audited annual filings, comes in at least 20% below the prior calendar year's reported total, for any year in the window.
-- **Failure or extraordinary rescue of a bank with over $250bn in assets** — A bank holding company with more than $250bn in total assets in the US, EU, UK, Switzerland, Japan or China fails, is placed into resolution, is forced into a state-brokered merger, or receives an extraordinary government capital injection or central bank emergency liquidity facility created specifically for it.
-- **Wave of emerging-market sovereign defaults or restructurings** — At least three additional sovereigns, each with more than $10bn in external public debt, default on external commercial debt or formally enter a comprehensive debt restructuring or a new IMF Extended Fund Facility of at least $3bn, between August 2026 and the end of the stated year.
-- **S&P 500 falls 30%+ from its all-time closing high** — S&P 500 records a daily close at least 30% below its prior all-time closing high, at any point in the window.
-- **Disorderly yen move** — USD/JPY closes above 180, or moves more than 15 yen in either direction within any 20 trading days, in the window.
-- **Large private-credit vehicle suspends redemptions or enters wind-down** — A private credit fund, BDC or interval fund with at least $20bn NAV fully suspends redemptions (beyond pro-rating within stated quarterly limits) for at least one month, or is placed into wind-down or forced sale, in the US, UK or EU.
-- **US 10-year Treasury yield closes at or above 6.00%** — The constant-maturity 10-year US Treasury yield (H.15 / Treasury daily par yield curve) closes at or above 6.00% on any day in the window.
-- **Formal breach of Federal Reserve independence** — A sitting US president attempts to remove or demote a Federal Reserve governor or the chair for policy reasons, issues a directive on the policy rate that the Board acts on, or legislation altering the FOMC's control of the policy rate is enacted — any one, in the window.
-- **Disorderly broad dollar depreciation** — The Fed's broad nominal trade-weighted dollar index falls 20% or more from its trailing 24-month high within any 24-month period in the window.
-- **US dollar share of allocated FX reserves falls below 50%** — IMF COFER reports the US dollar share of allocated global foreign exchange reserves below 50.0% for any quarter in the window.
-- **US CPI inflation returns to 5.0%+ year over year** — BLS reports headline CPI-U at or above 5.0% year over year for any single month in the window.
-- **US average effective tariff rate exceeds 15%** — Penn Wharton Budget Model or Yale Budget Lab reports a US average effective tariff rate on all imports above 15.0% for at least one full month in the window.
-- **China announces a central-government property/LGFV rescue of RMB 5trn or more** — China's State Council, MOF or PBOC announces a single package of central-government fiscal support, debt assumption or recapitalization directed at the property sector and/or local government financing vehicles totalling at least RMB 5 trillion, announced as one program.
-- **Systemic financial market infrastructure outage** — A systemically important FMI — a major CCP, CLS, DTCC, Fedwire, TARGET2, SWIFT, or a top-three custodian — suffers an outage or compromise preventing settlement for more than 24 hours, or a central bank extends emergency liquidity explicitly because of it.
-- **Sustained effective closure of the Strait of Hormuz** — Seaborne crude and condensate transits through the Strait of Hormuz fall more than 50% below the 2025 monthly average for at least 14 consecutive days, per IEA, EIA, Kpler or Vortexa reporting, at any point from August 2026 onward.
-- **Taiwan semiconductor supply disruption with global market resolution** — Monthly semiconductor exports from Taiwan fall more than 40% below the trailing twelve-month average for two consecutive months, for any reason (blockade, quarantine, conflict, or major natural disaster), in the window.
-- **France or Italy 10-year spread over Bunds exceeds 300bp** — The 10-year OAT-Bund or BTP-Bund spread closes above 300 basis points for five consecutive trading days, or the ECB formally activates the Transmission Protection Instrument for either sovereign.
-- **Major stablecoin failure or sustained depeg** — A stablecoin with at least $20bn market capitalization trades more than 5% below its peg for more than 24 consecutive hours, or its issuer suspends or fails to honor redemptions for more than 24 hours.
-- **US inflation undershoot / deflation scare** — US core PCE inflation prints below 1.0% year over year for three consecutive months, or headline CPI-U prints negative year over year for any month, in the window.
-
-</details>
-
 ### Climate & Earth systems
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | 87% | 93% | 99% | [96%–99%] | 6 | 2027Q1 |
-| Global fossil CO2 emissions confirmed to have peaked | 11% | 37% | 69% | [40%–97%] | 7 | 2031Q2 |
-| Disintegration of the Thwaites Eastern Ice Shelf | 13% | 39% | 60% | [21%–97%] | 8 | 2030Q2 |
-| Long-term (multi-decadal) 1.5C breach formally declared | 5.6% | 42% | 84% | [57%–98%] | 5 | 2032Q1 |
-| New record-low Antarctic sea ice minimum extent | 15% | 46% | 67% | [29%–98%] | 6 | 2030Q1 |
-| A calendar year at or above 1.65C above pre-industrial | 62% | 90% | 97% | [85%–99%] | 4 | 2027Q2 |
-| Global insured natural catastrophe losses exceed $200bn in a calendar year | 13% | 41% | 64% | [29%–98%] | 6 | 2030Q2 |
-| FAO Food Price Index exceeds 160 in any month | 13% | 34% | 63% | [31%–88%] | 6 | 2031Q2 |
-| The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C) | 70% | 74% | 74% | [54%–95%] | 5 | 2027Q1 |
-| Combined Lake Powell + Lake Mead storage falls below 20% of capacity | 19% | 44% | 64% | [31%–89%] | 5 | 2029Q4 |
-| Single heat event with >= 100,000 attributed excess deaths | 9.5% | 27% | 44% | [20%–74%] | 7 | 2030Q4 |
-| A new record warmest calendar year, exceeding 2024 | 78% | 94% | 99% | [97%–99%] | 3 | 2027Q2 |
-| A second G20 economy formally withdraws from the Paris Agreement | 6.7% | 22% | 36% | [9.0%–75%] | 7 | 2030Q4 |
-| Amazon basin becomes a net annual carbon source for three consecutive years | 1.8% | 13% | 26% | [5.8%–59%] | 8 | 2032Q1 |
-| Verified wet-bulb temperature of 35C sustained for three or more hours | 5.2% | 18% | 34% | [13%–62%] | 6 | 2031Q3 |
-| Formal international SRM governance decision adopted | 13% | 32% | 40% | [13%–77%] | 4 | 2029Q2 |
-| Final court judgment ordering >= $1bn in climate damages | 1.8% | 12% | 26% | [4.9%–61%] | 6 | 2032Q2 |
-| Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months | 3.6% | 10% | 19% | [1.8%–47%] | 8 | 2031Q2 |
-| Global mean methane annual growth rate falls to zero or below | 1.9% | 8.5% | 18% | [2.0%–49%] | 5 | 2032Q2 |
-| State-backed solar radiation management deployment announced or conducted | 0.8% | 6.2% | 11% | [1.7%–30%] | 8 | 2031Q3 |
-| VEI 6+ volcanic eruption with measurable global cooling | 2.5% | 10% | 17% | [1.9%–45%] | 5 | 2031Q2 |
-| AMOC declared to have crossed a tipping point | <0.5% | 1.7% | 5.4% | [1.1%–17%] | 10 | 2033Q2 |
-| Arctic Ocean practically ice-free (extent below 1.0 million km2) | <0.5% | 1.7% | 7.9% | [1.9%–24%] | 5 | 2033Q3 |
+| Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | 88% | 93% | 98% | [94%–>99%] | 6 | 2027Q1 |
+| Global fossil CO2 emissions confirmed to have peaked | 10% | 36% | 69% | [43%–93%] | 7 | 2031Q3 |
+| Disintegration of the Thwaites Eastern Ice Shelf | 12% | 38% | 60% | [22%–96%] | 8 | 2030Q3 |
+| FAO Food Price Index exceeds 160 in any month | 15% | 45% | 71% | [41%–92%] | 6 | 2030Q4 |
+| Long-term (multi-decadal) 1.5C breach formally declared | 5.2% | 40% | 83% | [59%–97%] | 5 | 2032Q1 |
+| New record-low Antarctic sea ice minimum extent | 15% | 45% | 68% | [28%–99%] | 6 | 2030Q1 |
+| A calendar year at or above 1.65C above pre-industrial | 62% | 90% | 97% | [88%–>99%] | 4 | 2027Q2 |
+| The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C) | 72% | 75% | 76% | [59%–95%] | 5 | 2027Q1 |
+| Global insured natural catastrophe losses exceed $200bn in a calendar year | 13% | 40% | 62% | [24%–97%] | 6 | 2030Q2 |
+| Combined Lake Powell + Lake Mead storage falls below 20% of capacity | 20% | 44% | 65% | [37%–89%] | 5 | 2029Q4 |
+| Single heat event with >= 100,000 attributed excess deaths | 8.9% | 26% | 44% | [22%–69%] | 7 | 2031Q1 |
+| A new record warmest calendar year, exceeding 2024 | 78% | 94% | 99% | [96%–>99%] | 3 | 2027Q2 |
+| A second G20 economy formally withdraws from the Paris Agreement | 6.5% | 22% | 38% | [11%–76%] | 7 | 2031Q1 |
+| Verified wet-bulb temperature of 35C sustained for three or more hours | 5.7% | 19% | 36% | [17%–66%] | 6 | 2031Q3 |
+| Amazon basin becomes a net annual carbon source for three consecutive years | 1.7% | 13% | 26% | [6.0%–62%] | 8 | 2032Q1 |
+| Formal international SRM governance decision adopted | 14% | 31% | 40% | [11%–79%] | 4 | 2029Q2 |
+| Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months | 4.1% | 11% | 19% | [3.9%–47%] | 8 | 2031Q1 |
+| Final court judgment ordering >= $1bn in climate damages | 1.8% | 11% | 25% | [6.1%–60%] | 6 | 2032Q2 |
+| State-backed solar radiation management deployment announced or conducted | 0.7% | 6.0% | 11% | [1.9%–30%] | 8 | 2031Q2 |
+| VEI 6+ volcanic eruption with measurable global cooling | 2.5% | 9.0% | 17% | [3.4%–41%] | 5 | 2031Q3 |
+| Global mean methane annual growth rate falls to zero or below | 1.8% | 8.0% | 17% | [3.4%–46%] | 5 | 2032Q1 |
+| AMOC declared to have crossed a tipping point | 0.6% | 2.0% | 4.8% | [<0.5%–13%] | 10 | 2032Q4 |
+| Arctic Ocean practically ice-free (extent below 1.0 million km2) | <0.5% | 1.7% | 8.1% | [2.0%–25%] | 5 | 2033Q4 |
 
 <details><summary>Resolution criteria</summary>
 
 - **Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window** — NOAA Coral Reef Watch reports that Alert Level 1 or higher bleaching-level heat stress affected at least 60% of the world's coral reef area within any rolling 12-month period.
 - **Global fossil CO2 emissions confirmed to have peaked** — The Global Carbon Project reports global fossil CO2 emissions below the previous all-time high in two consecutive calendar years, with the peak year identified in the published Global Carbon Budget.
 - **Disintegration of the Thwaites Eastern Ice Shelf** — Satellite observation (ESA/NASA, confirmed by NSIDC or a peer-reviewed publication) shows the Thwaites Eastern Ice Shelf has lost at least 50% of its 2020 area through fracture and calving within a three-year period.
+- **FAO Food Price Index exceeds 160 in any month** — The FAO Food Price Index (nominal, 2014-2016 = 100) records a monthly value above 160.0, exceeding the March 2022 all-time high of 160.3.
 - **Long-term (multi-decadal) 1.5C breach formally declared** — The WMO, IPCC (in AR7 or a special report), or the UNFCCC Global Stocktake formally states that the long-term global mean temperature increase - defined as a 20-year mean or current human-induced warming - has exceeded 1.5C above 1850-1900.
 - **New record-low Antarctic sea ice minimum extent** — NSIDC reports an Antarctic daily minimum sea ice extent below the February 2023 record of 1.79 million km2.
 - **A calendar year at or above 1.65C above pre-industrial** — ERA5 annual global mean surface temperature anomaly relative to 1850-1900 is >= 1.65C for a full calendar year, as published in the Copernicus Global Climate Highlights.
-- **Global insured natural catastrophe losses exceed $200bn in a calendar year** — Swiss Re sigma or Munich Re NatCatSERVICE reports global insured losses from natural catastrophes above US$200 billion (nominal) for a single calendar year.
-- **FAO Food Price Index exceeds 160 in any month** — The FAO Food Price Index (nominal, 2014-2016 = 100) records a monthly value above 160.0, exceeding the March 2022 all-time high of 160.3.
 - **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — NOAA CPC's Oceanic Nino Index (3-month running mean Nino3.4 anomaly, ERSSTv5 with the operational base period) reaches or exceeds +2.0C for at least one overlapping season during the 2026-27 event.
+- **Global insured natural catastrophe losses exceed $200bn in a calendar year** — Swiss Re sigma or Munich Re NatCatSERVICE reports global insured losses from natural catastrophes above US$200 billion (nominal) for a single calendar year.
 - **Combined Lake Powell + Lake Mead storage falls below 20% of capacity** — US Bureau of Reclamation end-of-month reservoir reports show combined active storage in Lake Powell and Lake Mead below 20% of combined live capacity.
 - **Single heat event with >= 100,000 attributed excess deaths** — A peer-reviewed study or national statistical office attributes at least 100,000 excess deaths to a single heat wave or heat season within one country or contiguous region over a window of 90 days or less.
 - **A new record warmest calendar year, exceeding 2024** — Copernicus ERA5 (with NASA GISTEMP and NOAA as corroboration) reports a calendar year with a global mean surface temperature anomaly exceeding the 2024 value (1.60C above 1850-1900) at the annual announcement in the following January.
 - **A second G20 economy formally withdraws from the Paris Agreement** — A G20 member other than the United States deposits formal notification of withdrawal from the Paris Agreement with the UN Secretary-General.
-- **Amazon basin becomes a net annual carbon source for three consecutive years** — Peer-reviewed literature (atmospheric inversion, aircraft profile, or eddy-covariance synthesis accepted by the Global Carbon Project) establishes that the Amazon basin as a whole was a net annual source of carbon to the atmosphere in three consecutive calendar years.
 - **Verified wet-bulb temperature of 35C sustained for three or more hours** — A quality-controlled surface station observation (or a national meteorological service's official record) documents a wet-bulb temperature of at least 35.0C sustained for at least three consecutive hours, confirmed in a peer-reviewed publication or by a national met service.
+- **Amazon basin becomes a net annual carbon source for three consecutive years** — Peer-reviewed literature (atmospheric inversion, aircraft profile, or eddy-covariance synthesis accepted by the Global Carbon Project) establishes that the Amazon basin as a whole was a net annual source of carbon to the atmosphere in three consecutive calendar years.
 - **Formal international SRM governance decision adopted** — UNEA, the UNFCCC COP, the CBD COP, or a comparable treaty body adopts a formal decision or instrument establishing an international governance framework for solar radiation modification (whether a non-use agreement, a research governance regime, or a moratorium codification), beyond the existing non-binding CBD language.
-- **Final court judgment ordering >= $1bn in climate damages** — A court of final instance (highest domestic court, or a binding international tribunal) issues a non-appealable judgment ordering a state or a company to pay at least US$1 billion in damages, compensation, or a compliance fund specifically for climate change harms.
 - **Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months** — The RAPID-MOCHA-WBTS array at 26N (or a successor observing system accepted as the reference by the AMOC research community) reports a 12-month running mean overturning transport at least 30% below the 2004-2023 mean, confirmed in a peer-reviewed publication.
-- **Global mean methane annual growth rate falls to zero or below** — NOAA GML reports a global mean CH4 annual increase of 0.0 ppb or less for a calendar year in its published trends series.
+- **Final court judgment ordering >= $1bn in climate damages** — A court of final instance (highest domestic court, or a binding international tribunal) issues a non-appealable judgment ordering a state or a company to pay at least US$1 billion in damages, compensation, or a compliance fund specifically for climate change harms.
 - **State-backed solar radiation management deployment announced or conducted** — A national government formally announces a stratospheric aerosol injection deployment programme (as distinct from research), or a state or state-backed entity conducts SAI at a scale exceeding 0.1 Tg of injected aerosol precursor per year, as confirmed by independent monitoring or official statement.
 - **VEI 6+ volcanic eruption with measurable global cooling** — A volcanic eruption of VEI 6 or greater (Smithsonian GVP classification) injects sufficient stratospheric sulphate that WMO, NASA GISS or Copernicus attributes at least 0.1C of global mean cooling to it in the following one to two years.
+- **Global mean methane annual growth rate falls to zero or below** — NOAA GML reports a global mean CH4 annual increase of 0.0 ppb or less for a calendar year in its published trends series.
 - **AMOC declared to have crossed a tipping point** — A major assessment body (IPCC, WMO, or a National Academies-equivalent) or a strong majority of the published AMOC literature states that the AMOC has crossed a critical threshold and is on an irreversible trajectory toward collapse (maximum strength below 5 Sv) under current forcing.
 - **Arctic Ocean practically ice-free (extent below 1.0 million km2)** — NSIDC daily sea ice extent for the Arctic falls below 1.0 million km2 on at least one day.
 
@@ -419,46 +421,46 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| China's extraterritorial rare-earth export control regime enters into force | 46% | 77% | 84% | [58%–98%] | 7 | 2027Q4 |
-| Strait of Hormuz closed again for 14+ consecutive days | 55% | 62% | 66% | [29%–92%] | 8 | 2027Q2 |
-| Qatari LNG force majeure removing 15%+ of global LNG supply for 60+ days | 20% | 58% | 80% | [40%–99%] | 6 | 2029Q3 |
-| Severe rare-earth supply cutoff to the US or EU | 27% | 45% | 53% | [14%–83%] | 8 | 2027Q4 |
-| Major producing state imposes an export ban or nationalisation on a critical mineral | 19% | 50% | 70% | [30%–98%] | 6 | 2029Q3 |
-| Loss of Russian uranium enrichment and conversion services to Western utilities | 13% | 39% | 59% | [18%–97%] | 7 | 2030Q2 |
-| Brent monthly average above $120/bbl | 37% | 54% | 65% | [30%–88%] | 6 | 2027Q4 |
-| Grid equipment supply chain forces cancellation or multi-year deferral of major interconnection programmes | 23% | 58% | 78% | [32%–99%] | 5 | 2029Q2 |
-| China energy-related CO2 emissions decline three consecutive years | 5.2% | 46% | 70% | [29%–98%] | 5 | 2030Q2 |
-| EU ETS2 delayed, price-capped or materially diluted | 24% | 63% | 83% | [49%–99%] | 4 | 2029Q2 |
-| Global oil demand declines year-on-year outside recession or supply shock | 8.5% | 39% | 64% | [24%–98%] | 5 | 2030Q3 |
-| US data-center electricity demand growth collapses | 11% | 34% | 52% | [19%–90%] | 6 | 2030Q2 |
-| Inverter-driven systemic grid collapse in a major OECD system | 8.6% | 30% | 50% | [13%–88%] | 6 | 2030Q4 |
-| LME copper exceeds $15,000/tonne | 12% | 39% | 53% | [16%–93%] | 5 | 2029Q3 |
-| A Western SMR delivers first commercial grid power | 3.8% | 64% | 88% | [68%–98%] | 3 | 2030Q1 |
-| Firm load shedding in a major US RTO | 17% | 47% | 62% | [33%–87%] | 4 | 2029Q2 |
-| European gas price returns to crisis levels | 30% | 40% | 46% | [18%–76%] | 5 | 2027Q3 |
-| Global coal demand falls 3%+ below the 2025 level | 7.2% | 47% | 73% | [47%–94%] | 3 | 2030Q3 |
-| Lithium carbonate price exceeds $40,000/tonne | 14% | 36% | 44% | [9.5%–84%] | 4 | 2029Q1 |
-| Cyberattack causes a major OECD power outage | 5.5% | 17% | 29% | [8.6%–57%] | 6 | 2030Q4 |
-| Brent monthly average below $45/bbl | 9.6% | 34% | 40% | [20%–69%] | 4 | 2029Q1 |
-| Annual global solar PV installations exceed 1,000 GW | 5.7% | 40% | 73% | [47%–97%] | 2 | 2031Q3 |
-| Nuclear accident rated INES Level 5 or above | 7.5% | 13% | 21% | [8.7%–42%] | 6 | 2030Q2 |
-| Coordinated physical attack causes a major OECD outage | 4.6% | 14% | 22% | [2.0%–58%] | 5 | 2030Q4 |
-| Global installed water electrolysis capacity reaches 25 GW | 1.9% | 19% | 49% | [24%–78%] | 2 | 2032Q4 |
+| China's extraterritorial rare-earth export control regime enters into force | 45% | 77% | 83% | [56%–98%] | 7 | 2027Q4 |
+| Strait of Hormuz closed again for 14+ consecutive days | 54% | 61% | 66% | [29%–90%] | 8 | 2027Q2 |
+| Qatari LNG force majeure removing 15%+ of global LNG supply for 60+ days | 19% | 55% | 79% | [41%–>99%] | 6 | 2029Q4 |
+| Major producing state imposes an export ban or nationalisation on a critical mineral | 16% | 49% | 71% | [31%–>99%] | 6 | 2030Q1 |
+| Loss of Russian uranium enrichment and conversion services to Western utilities | 12% | 38% | 60% | [22%–96%] | 7 | 2030Q2 |
+| Brent monthly average above $120/bbl | 38% | 56% | 68% | [38%–89%] | 6 | 2027Q4 |
+| Grid equipment supply chain forces cancellation or multi-year deferral of major interconnection programmes | 21% | 58% | 81% | [42%–>99%] | 5 | 2029Q3 |
+| Severe rare-earth supply cutoff to the US or EU | 27% | 44% | 50% | [18%–82%] | 8 | 2027Q4 |
+| China energy-related CO2 emissions decline three consecutive years | 4.8% | 45% | 71% | [31%–>99%] | 5 | 2030Q3 |
+| EU ETS2 delayed, price-capped or materially diluted | 24% | 62% | 84% | [49%–>99%] | 4 | 2029Q2 |
+| US data-center electricity demand growth collapses | 10% | 33% | 53% | [16%–94%] | 6 | 2030Q3 |
+| Global oil demand declines year-on-year outside recession or supply shock | 6.6% | 35% | 63% | [27%–97%] | 5 | 2031Q1 |
+| Inverter-driven systemic grid collapse in a major OECD system | 9.3% | 30% | 50% | [15%–90%] | 6 | 2030Q4 |
+| LME copper exceeds $15,000/tonne | 12% | 38% | 53% | [19%–90%] | 5 | 2029Q4 |
+| A Western SMR delivers first commercial grid power | 3.9% | 64% | 87% | [64%–>99%] | 3 | 2030Q1 |
+| Firm load shedding in a major US RTO | 17% | 46% | 61% | [36%–87%] | 4 | 2029Q2 |
+| European gas price returns to crisis levels | 31% | 42% | 48% | [20%–75%] | 5 | 2027Q3 |
+| Global coal demand falls 3%+ below the 2025 level | 6.7% | 46% | 73% | [45%–95%] | 3 | 2030Q3 |
+| Lithium carbonate price exceeds $40,000/tonne | 15% | 37% | 45% | [13%–86%] | 4 | 2029Q1 |
+| Cyberattack causes a major OECD power outage | 5.6% | 17% | 29% | [8.0%–64%] | 6 | 2031Q1 |
+| Brent monthly average below $45/bbl | 9.1% | 33% | 39% | [19%–66%] | 4 | 2029Q1 |
+| Annual global solar PV installations exceed 1,000 GW | 5.6% | 41% | 73% | [47%–96%] | 2 | 2031Q2 |
+| Nuclear accident rated INES Level 5 or above | 6.4% | 12% | 21% | [7.8%–38%] | 6 | 2030Q4 |
+| Coordinated physical attack causes a major OECD outage | 4.0% | 13% | 21% | [4.1%–55%] | 5 | 2030Q4 |
+| Global installed water electrolysis capacity reaches 25 GW | 2.0% | 19% | 49% | [23%–76%] | 2 | 2032Q3 |
 
 <details><summary>Resolution criteria</summary>
 
 - **China's extraterritorial rare-earth export control regime enters into force** — The October 2025 expanded rare-earth export control measures (extraterritorial 0.1% de minimis provisions and expanded element list) are in legal force and being applied to licence applications for at least 30 consecutive days, per MOFCOM announcements, at any point before the stated year-end.
 - **Strait of Hormuz closed again for 14+ consecutive days** — Commercial tanker transits through the Strait of Hormuz fall below 25% of the 2025 daily average for 14 or more consecutive days, per Lloyd's List / Kpler / IEA Oil Market Report tracking, at any point after 1 Aug 2026.
 - **Qatari LNG force majeure removing 15%+ of global LNG supply for 60+ days** — QatarEnergy declares force majeure or otherwise suspends loadings such that Qatari LNG exports fall below 40% of their 2025 monthly average for 60 or more consecutive days, per Kpler/ICIS tracking, at any point after 1 Aug 2026.
-- **Severe rare-earth supply cutoff to the US or EU** — Chinese exports of NdPr oxide/metal or heavy rare earths (Dy, Tb) to either the United States or the European Union fall by more than 50% year-on-year for three or more consecutive months, per China customs data.
 - **Major producing state imposes an export ban or nationalisation on a critical mineral** — A country accounting for 20% or more of global mined supply of lithium, cobalt, nickel, copper or rare earths imposes an export ban, export quota cut of 30%+, or nationalisation/forced-equity measure that removes 15% or more of global supply for 3+ months.
 - **Loss of Russian uranium enrichment and conversion services to Western utilities** — Rosatom/TENEX deliveries of enrichment (SWU) or conversion services to US and EU utilities fall by more than 70% year-on-year for four or more consecutive quarters, whether by sanction, counter-sanction or contract termination, per Euratom Supply Agency and US DOE/EIA reporting.
 - **Brent monthly average above $120/bbl** — The calendar-month average of front-month Brent futures settlements exceeds $120.00/bbl (nominal USD) in any month after 1 Aug 2026, per ICE settlement data.
 - **Grid equipment supply chain forces cancellation or multi-year deferral of major interconnection programmes** — A G7 transmission system operator or major US RTO publicly defers or cancels 10 GW or more of already-approved interconnection or transmission capacity, citing large power transformer, HVDC converter or gas turbine unavailability as the stated primary cause.
+- **Severe rare-earth supply cutoff to the US or EU** — Chinese exports of NdPr oxide/metal or heavy rare earths (Dy, Tb) to either the United States or the European Union fall by more than 50% year-on-year for three or more consecutive months, per China customs data.
 - **China energy-related CO2 emissions decline three consecutive years** — IEA or CREA reports China's energy-related CO2 emissions declining year-on-year in three consecutive calendar years, with the third such year at or before the stated year.
 - **EU ETS2 delayed, price-capped or materially diluted** — The EU formally postpones ETS2's start beyond 2027, or amends the directive to impose a binding price ceiling below EUR 60/tCO2, or exempts a whole covered sector (buildings or road transport), before 31 December 2028.
-- **Global oil demand declines year-on-year outside recession or supply shock** — IEA Oil Market Report reports total global oil demand for a calendar year below the preceding calendar year, in a year with positive global real GDP growth above 2% and no Hormuz-class supply disruption. 2026 is excluded from resolution due to the Hormuz shock.
 - **US data-center electricity demand growth collapses** — US data-center electricity consumption grows less than 3% year-on-year in any calendar year, or declines, per EIA/LBNL reporting — versus the 15-20%/yr trend.
+- **Global oil demand declines year-on-year outside recession or supply shock** — IEA Oil Market Report reports total global oil demand for a calendar year below the preceding calendar year, in a year with positive global real GDP growth above 2% and no Hormuz-class supply disruption. 2026 is excluded from resolution due to the Hormuz shock.
 - **Inverter-driven systemic grid collapse in a major OECD system** — A frequency, voltage or oscillation event causes loss of supply to 5 million or more customers for 6 or more hours across a national or multi-national synchronous area in the OECD, with the official investigation identifying inverter-based resource dynamics, insufficient system inertia or protection mis-coordination as a primary or contributing cause.
 - **LME copper exceeds $15,000/tonne** — LME 3-month copper settles above $15,000/tonne (nominal USD) on a monthly average basis.
 - **A Western SMR delivers first commercial grid power** — A small modular reactor (nameplate under 300 MWe) in an OECD member country, excluding South Korea's existing SMART-class designs, synchronises to the grid and delivers commercial electricity, confirmed by the national regulator or IAEA PRIS.
@@ -479,30 +481,30 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| China annual births fall below 7.0 million | 44% | 94% | 96% | [88%–99%] | 6 | 2028Q1 |
-| China's officially reported population falls below 1.400 billion | 58% | 97% | 99% | [94%–99%] | 5 | 2027Q3 |
-| Best-available global TFR estimate falls below 2.1 | 3.0% | 30% | 62% | [21%–98%] | 7 | 2032Q1 |
-| Next UN WPP revision moves peak world population below 10.0 billion or earlier than 2070 | 23% | 63% | 85% | [47%–99%] | 5 | 2029Q2 |
-| PISA 2025 shows no recovery in OECD-average mathematics | 69% | 69% | 69% | [41%–89%] | 6 | 2026Q4 |
-| India publishes provisional Census 2027 population totals | 54% | 92% | 95% | [82%–99%] | 4 | 2027Q3 |
-| Japan annual births (Japanese nationals) fall below 600,000 | 39% | 93% | 95% | [80%–99%] | 4 | 2028Q1 |
-| US removals plus returns exceed one million in a fiscal year | 13% | 40% | 62% | [25%–98%] | 6 | 2030Q2 |
-| US total fertility rate falls below 1.50 | 4.1% | 48% | 73% | [41%–97%] | 5 | 2030Q3 |
-| India enacts reapportionment of Lok Sabha seats on post-2026 census population | 9.4% | 31% | 52% | [19%–93%] | 7 | 2030Q4 |
-| Two million or more Ukrainian refugees return to Ukraine | 15% | 44% | 69% | [25%–98%] | 5 | 2030Q1 |
-| US life expectancy at birth reaches 80.0 years | 18% | 55% | 83% | [43%–99%] | 4 | 2029Q4 |
-| Global forced displacement exceeds 130 million | 11% | 32% | 54% | [27%–74%] | 6 | 2030Q4 |
-| US Census Bureau officially reports negative net international migration | 22% | 43% | 52% | [16%–91%] | 6 | 2028Q3 |
-| Remittances to low- and middle-income countries fall 10% or more year-on-year | 7.9% | 27% | 47% | [12%–86%] | 6 | 2031Q1 |
-| EU return hubs operationalized at scale | 11% | 32% | 47% | [14%–89%] | 5 | 2030Q1 |
-| Nigeria completes a national census and the result diverges more than 10% from the prior UN estimate | 7.4% | 23% | 36% | [6.0%–87%] | 6 | 2030Q3 |
-| Global life expectancy falls by 0.5 years or more in a single year | 3.9% | 14% | 27% | [5.2%–66%] | 8 | 2031Q3 |
-| Youth-led protests topple three or more Sub-Saharan African governments in a three-year window | 5.8% | 29% | 43% | [13%–79%] | 5 | 2030Q3 |
-| A G7 country cuts permanent immigration by three quarters | 4.1% | 23% | 29% | [2.4%–62%] | 7 | 2029Q3 |
-| South Korea total fertility rate reaches 1.00 or above | 2.4% | 18% | 36% | [14%–59%] | 4 | 2031Q4 |
-| Gulf Cooperation Council migrant worker stock falls 15% or more from its peak | 4.0% | 14% | 24% | [2.0%–60%] | 6 | 2031Q1 |
-| China's population is revised down by 15 million or more | 2.7% | 15% | 22% | [2.6%–49%] | 6 | 2030Q3 |
-| China's direct birth and childcare subsidies reach 0.5% of GDP | 3.2% | 20% | 32% | [5.8%–71%] | 4 | 2030Q4 |
+| China annual births fall below 7.0 million | 45% | 95% | 97% | [91%–>99%] | 6 | 2028Q1 |
+| China's officially reported population falls below 1.400 billion | 58% | 96% | 98% | [93%–>99%] | 5 | 2027Q3 |
+| Best-available global TFR estimate falls below 2.1 | 3.4% | 30% | 60% | [22%–97%] | 7 | 2032Q1 |
+| Next UN WPP revision moves peak world population below 10.0 billion or earlier than 2070 | 24% | 62% | 84% | [44%–>99%] | 5 | 2029Q2 |
+| PISA 2025 shows no recovery in OECD-average mathematics | 69% | 69% | 69% | [41%–90%] | 6 | 2026Q4 |
+| Japan annual births (Japanese nationals) fall below 600,000 | 41% | 93% | 96% | [85%–>99%] | 4 | 2028Q1 |
+| India publishes provisional Census 2027 population totals | 55% | 92% | 95% | [82%–>99%] | 4 | 2027Q3 |
+| US total fertility rate falls below 1.50 | 3.9% | 46% | 75% | [46%–96%] | 5 | 2030Q4 |
+| US removals plus returns exceed one million in a fiscal year | 13% | 40% | 62% | [23%–98%] | 6 | 2030Q2 |
+| India enacts reapportionment of Lok Sabha seats on post-2026 census population | 10% | 33% | 53% | [17%–93%] | 7 | 2030Q3 |
+| Two million or more Ukrainian refugees return to Ukraine | 15% | 45% | 68% | [29%–99%] | 5 | 2030Q1 |
+| US life expectancy at birth reaches 80.0 years | 18% | 55% | 83% | [38%–>99%] | 4 | 2029Q4 |
+| Global forced displacement exceeds 130 million | 11% | 33% | 55% | [27%–82%] | 6 | 2030Q4 |
+| US Census Bureau officially reports negative net international migration | 24% | 44% | 54% | [17%–93%] | 6 | 2028Q2 |
+| Remittances to low- and middle-income countries fall 10% or more year-on-year | 8.2% | 28% | 46% | [14%–88%] | 6 | 2030Q4 |
+| EU return hubs operationalized at scale | 12% | 33% | 47% | [15%–90%] | 5 | 2030Q1 |
+| Global life expectancy falls by 0.5 years or more in a single year | 4.9% | 16% | 29% | [6.8%–64%] | 8 | 2031Q1 |
+| Youth-led protests topple three or more Sub-Saharan African governments in a three-year window | 5.7% | 30% | 43% | [13%–81%] | 5 | 2030Q3 |
+| Nigeria completes a national census and the result diverges more than 10% from the prior UN estimate | 6.0% | 20% | 35% | [9.2%–74%] | 6 | 2031Q1 |
+| A G7 country cuts permanent immigration by three quarters | 4.1% | 23% | 30% | [3.8%–70%] | 7 | 2029Q3 |
+| Gulf Cooperation Council migrant worker stock falls 15% or more from its peak | 4.2% | 14% | 25% | [5.9%–59%] | 6 | 2031Q2 |
+| South Korea total fertility rate reaches 1.00 or above | 2.9% | 21% | 37% | [16%–62%] | 4 | 2031Q2 |
+| China's population is revised down by 15 million or more | 3.0% | 17% | 24% | [5.3%–59%] | 6 | 2030Q2 |
+| China's direct birth and childcare subsidies reach 0.5% of GDP | 2.9% | 19% | 31% | [8.0%–68%] | 4 | 2031Q1 |
 
 <details><summary>Resolution criteria</summary>
 
@@ -511,10 +513,10 @@ Distinguishing features (rate within this cluster vs. overall):
 - **Best-available global TFR estimate falls below 2.1** — A UN DESA World Population Prospects revision (or UN Population Division estimate) reports a global total fertility rate below 2.10 for the then-current year.
 - **Next UN WPP revision moves peak world population below 10.0 billion or earlier than 2070** — A UN DESA World Population Prospects revision published after July 2026 reports a medium-variant peak world population below 10,000,000,000, or a medium-variant peak year earlier than 2070.
 - **PISA 2025 shows no recovery in OECD-average mathematics** — OECD PISA 2025 results report an OECD-average mathematics score equal to or below the PISA 2022 OECD-average mathematics score (472 points).
-- **India publishes provisional Census 2027 population totals** — The Registrar General and Census Commissioner of India publishes provisional population totals from Census 2027, covering the population enumeration phase with a reference date of 1 March 2027.
 - **Japan annual births (Japanese nationals) fall below 600,000** — Japan's MHLW Vital Statistics report annual births to Japanese nationals below 600,000 for any calendar year, in preliminary or final figures.
-- **US removals plus returns exceed one million in a fiscal year** — DHS Office of Homeland Security Statistics (or ICE/CBP annual reporting) reports combined removals, returns, and expulsions exceeding 1,000,000 for a single fiscal year.
+- **India publishes provisional Census 2027 population totals** — The Registrar General and Census Commissioner of India publishes provisional population totals from Census 2027, covering the population enumeration phase with a reference date of 1 March 2027.
 - **US total fertility rate falls below 1.50** — CDC/NCHS reports a US total fertility rate below 1,500 births per 1,000 women (i.e. TFR < 1.50) for any calendar year, provisional or final.
+- **US removals plus returns exceed one million in a fiscal year** — DHS Office of Homeland Security Statistics (or ICE/CBP annual reporting) reports combined removals, returns, and expulsions exceeding 1,000,000 for a single fiscal year.
 - **India enacts reapportionment of Lok Sabha seats on post-2026 census population** — India enacts a constitutional amendment or Delimitation Act fixing revised Lok Sabha seat allocations across states based on Census 2027 (or later) population figures.
 - **Two million or more Ukrainian refugees return to Ukraine** — UNHCR reports cumulative refugee returns to Ukraine of 2,000,000 or more since the reporting baseline, or reports the Ukrainian refugee population in Europe falling by 2,000,000 or more from its peak.
 - **US life expectancy at birth reaches 80.0 years** — NCHS reports US period life expectancy at birth of 80.0 years or more for a single calendar year, in final or provisional mortality reports.
@@ -522,14 +524,68 @@ Distinguishing features (rate within this cluster vs. overall):
 - **US Census Bureau officially reports negative net international migration** — A Census Bureau Vintage population estimates release (or an official Census Bureau revision) reports negative net international migration for any 12-month estimating period.
 - **Remittances to low- and middle-income countries fall 10% or more year-on-year** — World Bank / KNOMAD reports nominal USD remittance flows to low- and middle-income countries declining 10% or more versus the prior year.
 - **EU return hubs operationalized at scale** — At least three EU member states have transferred a cumulative total of 1,000 or more rejected asylum applicants or asylum seekers to designated 'return hubs' or processing centres in non-EU third countries under the Returns Regulation or bilateral arrangements, as documented by the European Commission, EUAA, or a major NGO monitor.
-- **Nigeria completes a national census and the result diverges more than 10% from the prior UN estimate** — Nigeria's National Population Commission publishes national population totals from a census conducted after 2006, and the figure differs by more than 10% from the UN WPP estimate for Nigeria published immediately prior.
 - **Global life expectancy falls by 0.5 years or more in a single year** — UN WPP, IHME GBD, or WHO reports global period life expectancy at birth declining by 0.5 years or more relative to the prior year.
 - **Youth-led protests topple three or more Sub-Saharan African governments in a three-year window** — In any rolling 36-month window, heads of state or heads of government in three or more Sub-Saharan African countries resign, are removed, or flee within 90 days of the onset of mass protests that contemporaneous major-outlet reporting characterizes as youth-led or 'Gen Z' protests.
+- **Nigeria completes a national census and the result diverges more than 10% from the prior UN estimate** — Nigeria's National Population Commission publishes national population totals from a census conducted after 2006, and the figure differs by more than 10% from the UN WPP estimate for Nigeria published immediately prior.
 - **A G7 country cuts permanent immigration by three quarters** — A G7 member's official annual permanent-residence/settlement admissions (e.g. US lawful permanent residents, Canada PR admissions, UK settlement grants) fall below 25% of that country's 2024 level for a full fiscal or calendar year, per the responsible national agency.
-- **South Korea total fertility rate reaches 1.00 or above** — Statistics Korea reports an annual total fertility rate of 1.00 or higher for any calendar year.
 - **Gulf Cooperation Council migrant worker stock falls 15% or more from its peak** — UN DESA International Migrant Stock estimates, or combined national labour-force statistics for Saudi Arabia, UAE, Qatar, Kuwait, Oman and Bahrain, show the foreign-born or non-national workforce at least 15% below its post-2020 peak.
+- **South Korea total fertility rate reaches 1.00 or above** — Statistics Korea reports an annual total fertility rate of 1.00 or higher for any calendar year.
 - **China's population is revised down by 15 million or more** — An official Chinese government source (NBS communique, the 2030 national census, or a published statistical yearbook revision) reports a national population figure at least 15,000,000 below the previously published estimate for a comparable date.
 - **China's direct birth and childcare subsidies reach 0.5% of GDP** — Combined central and local government direct cash transfers for childbirth and childcare in China exceed 0.5% of nominal GDP in a single fiscal year, per Ministry of Finance budget documents or credible reporting aggregating central and provincial outlays.
+
+</details>
+
+### Food, water & agriculture
+
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
+|---|---:|---:|---:|:---:|---:|---|
+| New IPC/CH Famine (Phase 5) classification anywhere | 69% | 93% | 97% | [92%–>99%] | 5 | 2027Q2 |
+| Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously | 26% | 61% | 77% | [49%–96%] | 6 | 2029Q1 |
+| FAO Food Price Index reaches an all-time high above 160 | 15% | 45% | 71% | [41%–92%] | 6 | 2030Q3 |
+| GRFC reports more than 300 million people in acute food insecurity | 18% | 71% | 85% | [57%–99%] | 5 | 2029Q2 |
+| New World screwworm or FMD establishes in the US or EU cattle herd | 15% | 45% | 69% | [29%–99%] | 5 | 2030Q1 |
+| Thai 5% broken rice benchmark exceeds US$650/tonne | 8.9% | 27% | 49% | [23%–75%] | 7 | 2031Q2 |
+| WFP annual contributions fall below US$5 billion | 34% | 56% | 64% | [39%–88%] | 5 | 2027Q4 |
+| Cyberattack or physical sabotage halts a top-5 global agri-food processor or a major water utility | 20% | 55% | 78% | [38%–>99%] | 4 | 2029Q3 |
+| World Bank monthly urea price exceeds US$800/tonne | 27% | 47% | 61% | [34%–87%] | 5 | 2028Q3 |
+| Ukrainian seaborne grain exports fall below 1 Mt in a calendar month | 62% | 75% | 76% | [48%–96%] | 4 | 2027Q1 |
+| DAP/phosphate rock price exceeds US$1,000/tonne on a monthly average | 12% | 38% | 60% | [22%–96%] | 5 | 2030Q3 |
+| Mississippi River or Panama Canal low-water event materially disrupts US grain exports | 36% | 80% | 95% | [76%–>99%] | 3 | 2028Q3 |
+| Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months | 58% | 89% | 95% | [78%–>99%] | 3 | 2027Q3 |
+| World cereal production falls 4%+ year-on-year (multi-breadbasket failure) | 11% | 20% | 33% | [14%–62%] | 8 | 2030Q2 |
+| World cereal stocks-to-use ratio falls below 28% | 7.3% | 24% | 37% | [18%–59%] | 7 | 2030Q2 |
+| India physically curtails Indus western-river flows to Pakistan | 5.4% | 17% | 36% | [17%–59%] | 7 | 2032Q2 |
+| FAO declares a desert locust upsurge or plague affecting three or more countries | 13% | 40% | 62% | [22%–98%] | 4 | 2030Q2 |
+| Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab | 5.0% | 14% | 25% | [5.6%–58%] | 8 | 2031Q2 |
+| Three or more countries/territories in confirmed IPC Famine simultaneously | 5.8% | 17% | 27% | [6.3%–63%] | 7 | 2030Q4 |
+| Hormuz fertilizer flows normalise (downside-risk-off event) | 58% | 85% | 92% | [74%–>99%] | 2 | 2027Q2 |
+| Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water | 3.0% | 7.9% | 13% | [4.8%–25%] | 8 | 2030Q4 |
+| Colorado River enters 2027 without an agreed post-2026 framework | 34% | 34% | 34% | [17%–62%] | 3 | 2027Q1 |
+
+<details><summary>Resolution criteria</summary>
+
+- **New IPC/CH Famine (Phase 5) classification anywhere** — The IPC Famine Review Committee or a CH equivalent confirms Famine (IPC Phase 5) — with reasonable evidence or higher — for at least one geographic area not already so classified as of 2026-07-29, published on ipcinfo.org.
+- **Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously** — Per the IFPRI Food and Fertilizer Export Restrictions Tracker, at least two countries each ranking in the global top 10 for wheat, maize or rice exports have in force, simultaneously and for at least 60 consecutive days, a new (post-2026-07-29) export ban or quota estimated to cut that country's exports of the staple by 25% or more.
+- **FAO Food Price Index reaches an all-time high above 160** — The FAO Food Price Index (2014-2016=100, nominal) monthly value exceeds 160.0, surpassing the March 2022 record of 160.3.
+- **GRFC reports more than 300 million people in acute food insecurity** — Any edition of the Global Report on Food Crises published in 2027-2036 reports more than 300.0 million people in IPC/CH Phase 3 or above for its reference year.
+- **New World screwworm or FMD establishes in the US or EU cattle herd** — USDA APHIS, WOAH or the European Commission confirms sustained autochthonous transmission of New World screwworm (Cochliomyia hominivorax) north of the Mexico-US border, or an FMD outbreak in an FMD-free country of the G7, triggering a national movement standstill or export ban of 30+ days.
+- **Thai 5% broken rice benchmark exceeds US$650/tonne** — FAO GIEWS / Thai Rice Exporters Association monthly average f.o.b. price for Thai white rice 5% broken exceeds US$650 per tonne.
+- **WFP annual contributions fall below US$5 billion** — WFP's published annual contribution total for any calendar year 2026-2036 is below US$5.0 billion (nominal), per wfp.org contributions data.
+- **Cyberattack or physical sabotage halts a top-5 global agri-food processor or a major water utility** — A publicly confirmed cyber or sabotage incident forces a 7+ day shutdown of national-scale operations at a top-5 global meat, grain-trading or fertilizer company, or causes a 7+ day loss of service at a water utility serving 1m+ people, per company disclosure, CISA/ENISA advisory or national regulator.
+- **World Bank monthly urea price exceeds US$800/tonne** — World Bank Pink Sheet monthly average urea (Middle East, bulk, f.o.b.) exceeds US$800 per tonne in any month.
+- **Ukrainian seaborne grain exports fall below 1 Mt in a calendar month** — Ukrainian Ministry of Agrarian Policy or UGA monthly data show total seaborne grain and oilseed exports below 1.0 million tonnes in any single calendar month (normal 2024-26 range ~3-5 Mt/month).
+- **DAP/phosphate rock price exceeds US$1,000/tonne on a monthly average** — World Bank Pink Sheet monthly average DAP (f.o.b. US Gulf) exceeds US$1,000 per tonne in any month.
+- **Mississippi River or Panama Canal low-water event materially disrupts US grain exports** — USDA Grain Transportation Report or Army Corps data show either (a) Mississippi barge freight rates above 800% of tariff benchmark, or draft/tow restrictions in force on the Lower Mississippi, for 30+ consecutive days, or (b) Panama Canal transit slots cut 30%+ below normal for 60+ consecutive days.
+- **Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months** — USDA, Eurostat, WOAH or the national statistical agency of a G20 member reports a decline of 10% or more, within any rolling 12-month window, in national laying-hen inventory or national pig inventory, attributed principally to an animal disease epizootic (HPAI, ASF, FMD or successor).
+- **World cereal production falls 4%+ year-on-year (multi-breadbasket failure)** — FAO's Cereal Supply and Demand Brief reports world cereal production for a calendar year at least 4.0% below the prior year's outturn (using FAO's own revised series at the time of the following year's July brief).
+- **World cereal stocks-to-use ratio falls below 28%** — FAO's Cereal Supply and Demand Brief reports a world cereal stocks-to-use ratio below 28.0% for any marketing year.
+- **India physically curtails Indus western-river flows to Pakistan** — Pakistan's IRSA rim-station data, corroborated by satellite/independent hydrological analysis, show a sustained reduction of 20% or more over at least four consecutive weeks in Chenab or Jhelum inflows attributable to Indian storage operations or diversion, and not to natural hydrology.
+- **FAO declares a desert locust upsurge or plague affecting three or more countries** — FAO Desert Locust Watch raises the situation to 'Upsurge' or 'Plague' with swarms reported in three or more countries simultaneously for 60+ days.
+- **Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab** — CIMMYT, BGRI, FAO or a national plant protection agency confirms establishment of a Ug99-lineage stem rust race, a novel highly virulent stripe rust race defeating deployed resistance, or wheat blast (Magnaporthe oryzae Triticum), in Indian or Pakistani Punjab or Haryana, with documented field-scale infection.
+- **Three or more countries/territories in confirmed IPC Famine simultaneously** — At any point in a calendar year, IPC/FRC-confirmed Famine (Phase 5) classifications are simultaneously in force for areas in three or more distinct countries or territories.
+- **Hormuz fertilizer flows normalise (downside-risk-off event)** — World Bank or IFA data show Middle East seaborne urea and ammonia export volumes recovering to 90% or more of their 2024-25 monthly average for three consecutive months.
+- **Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water** — ACLED or equivalent records a state-attributed kinetic attack (air, missile, drone or special-forces) on the Grand Ethiopian Renaissance Dam or associated Ethiopian water infrastructure, or a direct armed exchange between Egyptian and Ethiopian forces publicly framed by either government as arising from the Nile water dispute.
+- **Colorado River enters 2027 without an agreed post-2026 framework** — On 1 January 2027, no seven-state consensus agreement and no signed federal Record of Decision governs Lake Powell/Lake Mead operations for calendar 2027, with operations instead running under an interim stopgap, unilateral federal action, or litigation.
 
 </details>
 
@@ -537,30 +593,30 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| PEPFAR terminated, absorbed, or cut by more than half from its FY2024 level | 15% | 46% | 70% | [30%–98%] | 7 | 2030Q2 |
-| Multiple US states abolish or gut school-entry vaccine mandates | 16% | 55% | 81% | [38%–99%] | 6 | 2029Q4 |
-| US federal government de-recommends a core routine childhood vaccine and the change survives | 36% | 56% | 62% | [26%–94%] | 6 | 2027Q3 |
-| Cholera resurgence with oral cholera vaccine stockpile failure | 18% | 51% | 74% | [36%–98%] | 5 | 2029Q4 |
-| United States formally loses measles elimination status | 78% | 86% | 89% | [67%–98%] | 4 | 2026Q4 |
-| A single US influenza season with at least 50,000 estimated deaths | 17% | 45% | 65% | [28%–98%] | 5 | 2029Q4 |
-| Officially acknowledged incident where AI materially enabled acquisition or design of a dangerous pathogen or toxin | 9.9% | 32% | 45% | [12%–80%] | 7 | 2030Q1 |
-| Large autochthonous arbovirus transmission in continental Europe or the continental US | 20% | 55% | 78% | [36%–99%] | 4 | 2029Q3 |
-| Two consecutive years of rising global new HIV infections | 1.8% | 42% | 50% | [14%–90%] | 6 | 2029Q4 |
-| WHO declares at least one new PHEIC beyond polio and the current Ebola BDBV emergency | 55% | 93% | 99% | [93%–>99%] | 3 | 2027Q3 |
-| WHO declares an influenza pandemic (any subtype) | 7.1% | 20% | 35% | [18%–53%] | 8 | 2031Q1 |
-| A newly emerged pathogen causes at least 1 million cumulative deaths worldwide | 1.8% | 12% | 27% | [3.4%–55%] | 10 | 2032Q2 |
-| Current DRC/Uganda Bundibugyo Ebola epidemic exceeds 10,000 confirmed cases | 42% | 45% | 45% | [14%–82%] | 6 | 2027Q1 |
-| PABS annex to the WHO Pandemic Agreement adopted by a World Health Assembly | 53% | 80% | 86% | [59%–99%] | 3 | 2027Q3 |
-| WHO Pandemic Agreement enters into force | 1.9% | 51% | 75% | [44%–95%] | 3 | 2030Q3 |
-| Paralytic poliomyelitis from circulating vaccine-derived poliovirus in a high-income country | 11% | 35% | 56% | [18%–93%] | 4 | 2030Q3 |
-| US reports at least 5,000 confirmed measles cases in a single calendar year | 17% | 56% | 70% | [39%–91%] | 3 | 2029Q3 |
-| Sustained human-to-human transmission of an H5 influenza virus | 2.5% | 8.8% | 20% | [9.2%–35%] | 9 | 2032Q3 |
-| United States formally rejoins the World Health Organization | 1.2% | 28% | 40% | [13%–70%] | 4 | 2030Q2 |
-| Global interruption of wild poliovirus type 1 transmission | 2.8% | 25% | 44% | [19%–74%] | 3 | 2031Q2 |
-| Laboratory accident causes an outbreak of 50+ confirmed human cases with official lab attribution | 2.3% | 7.5% | 14% | [1.8%–39%] | 7 | 2031Q2 |
-| Deliberate biological attack causes at least 10 confirmed human deaths | 2.2% | 4.8% | 8.9% | [1.7%–23%] | 8 | 2031Q2 |
-| Ebola causes a confirmed secondary transmission chain outside Africa | 6.5% | 12% | 16% | [6.2%–36%] | 4 | 2028Q4 |
-| WHO declares a global emergency over an antimicrobial-resistant pathogen | 0.9% | 3.5% | 7.0% | [3.0%–14%] | 5 | 2031Q4 |
+| PEPFAR terminated, absorbed, or cut by more than half from its FY2024 level | 15% | 45% | 68% | [27%–99%] | 7 | 2030Q1 |
+| Multiple US states abolish or gut school-entry vaccine mandates | 19% | 55% | 78% | [38%–>99%] | 6 | 2029Q4 |
+| US federal government de-recommends a core routine childhood vaccine and the change survives | 39% | 58% | 63% | [26%–95%] | 6 | 2027Q3 |
+| Cholera resurgence with oral cholera vaccine stockpile failure | 17% | 50% | 73% | [33%–>99%] | 5 | 2029Q4 |
+| United States formally loses measles elimination status | 80% | 88% | 90% | [72%–>99%] | 4 | 2026Q4 |
+| A single US influenza season with at least 50,000 estimated deaths | 15% | 45% | 68% | [29%–98%] | 5 | 2030Q1 |
+| Officially acknowledged incident where AI materially enabled acquisition or design of a dangerous pathogen or toxin | 11% | 33% | 46% | [13%–86%] | 7 | 2029Q4 |
+| Large autochthonous arbovirus transmission in continental Europe or the continental US | 19% | 55% | 78% | [38%–>99%] | 4 | 2029Q4 |
+| Two consecutive years of rising global new HIV infections | 1.7% | 42% | 50% | [17%–89%] | 6 | 2029Q4 |
+| WHO declares at least one new PHEIC beyond polio and the current Ebola BDBV emergency | 55% | 94% | 99% | [95%–>99%] | 3 | 2027Q4 |
+| WHO declares an influenza pandemic (any subtype) | 6.6% | 20% | 35% | [18%–55%] | 8 | 2031Q1 |
+| Current DRC/Uganda Bundibugyo Ebola epidemic exceeds 10,000 confirmed cases | 41% | 44% | 44% | [15%–82%] | 6 | 2027Q1 |
+| PABS annex to the WHO Pandemic Agreement adopted by a World Health Assembly | 52% | 80% | 86% | [63%–99%] | 3 | 2027Q3 |
+| A newly emerged pathogen causes at least 1 million cumulative deaths worldwide | 2.0% | 12% | 26% | [7.3%–52%] | 10 | 2032Q2 |
+| WHO Pandemic Agreement enters into force | 1.9% | 52% | 76% | [49%–96%] | 3 | 2030Q2 |
+| Paralytic poliomyelitis from circulating vaccine-derived poliovirus in a high-income country | 11% | 35% | 56% | [19%–94%] | 4 | 2030Q3 |
+| US reports at least 5,000 confirmed measles cases in a single calendar year | 18% | 59% | 72% | [42%–94%] | 3 | 2029Q2 |
+| Sustained human-to-human transmission of an H5 influenza virus | 3.1% | 10% | 21% | [8.5%–38%] | 9 | 2032Q1 |
+| United States formally rejoins the World Health Organization | 1.0% | 27% | 41% | [17%–68%] | 4 | 2030Q3 |
+| Global interruption of wild poliovirus type 1 transmission | 2.9% | 25% | 46% | [23%–72%] | 3 | 2031Q3 |
+| Deliberate biological attack causes at least 10 confirmed human deaths | 2.0% | 5.1% | 10% | [2.1%–25%] | 8 | 2031Q4 |
+| Laboratory accident causes an outbreak of 50+ confirmed human cases with official lab attribution | 2.0% | 6.1% | 11% | [1.9%–28%] | 7 | 2031Q2 |
+| Ebola causes a confirmed secondary transmission chain outside Africa | 6.7% | 12% | 18% | [6.8%–38%] | 4 | 2029Q2 |
+| WHO declares a global emergency over an antimicrobial-resistant pathogen | 1.0% | 4.0% | 7.9% | [2.8%–15%] | 5 | 2031Q4 |
 
 <details><summary>Resolution criteria</summary>
 
@@ -575,73 +631,19 @@ Distinguishing features (rate within this cluster vs. overall):
 - **Two consecutive years of rising global new HIV infections** — UNAIDS reports annual new HIV infections higher than the preceding year in two consecutive reporting years, reversing the multi-decade decline.
 - **WHO declares at least one new PHEIC beyond polio and the current Ebola BDBV emergency** — WHO's Director-General determines a new Public Health Emergency of International Concern (or pandemic emergency under the amended IHR) for an event distinct from the standing polio PHEIC and the Ebola Bundibugyo PHEIC declared 17 May 2026, at any point in the window.
 - **WHO declares an influenza pandemic (any subtype)** — WHO formally declares an influenza pandemic, or declares a PHEIC/pandemic emergency for a novel influenza A virus with confirmed sustained community-level human-to-human transmission in at least two WHO regions.
-- **A newly emerged pathogen causes at least 1 million cumulative deaths worldwide** — A pathogen not endemically circulating in humans as of 1 Jan 2026 is credibly estimated by WHO, IHME, or a peer-reviewed consensus source to have caused at least 1,000,000 cumulative human deaths (reported or excess) within the stated horizon.
 - **Current DRC/Uganda Bundibugyo Ebola epidemic exceeds 10,000 confirmed cases** — WHO/AFRO situation reports for the outbreak declared 15 May 2026 (or its recognized continuation) record at least 10,000 cumulative laboratory-confirmed cases across all affected countries.
 - **PABS annex to the WHO Pandemic Agreement adopted by a World Health Assembly** — A World Health Assembly (regular or special session) formally adopts the Pathogen Access and Benefit-Sharing annex to the WHO Pandemic Agreement.
+- **A newly emerged pathogen causes at least 1 million cumulative deaths worldwide** — A pathogen not endemically circulating in humans as of 1 Jan 2026 is credibly estimated by WHO, IHME, or a peer-reviewed consensus source to have caused at least 1,000,000 cumulative human deaths (reported or excess) within the stated horizon.
 - **WHO Pandemic Agreement enters into force** — The 60th instrument of ratification, acceptance, approval or accession to the WHO Pandemic Agreement is deposited, bringing the Agreement into force.
 - **Paralytic poliomyelitis from circulating vaccine-derived poliovirus in a high-income country** — A national health authority in a World Bank high-income country confirms at least one case of paralytic poliomyelitis caused by circulating vaccine-derived poliovirus (any type) with onset within the window.
 - **US reports at least 5,000 confirmed measles cases in a single calendar year** — CDC's official measles surveillance reports at least 5,000 confirmed cases for any single calendar year within the window.
 - **Sustained human-to-human transmission of an H5 influenza virus** — WHO or a national health authority publicly confirms an H5 (any neuraminidase) influenza cluster with at least three sequential generations of human-to-human transmission, or a cluster of at least 10 epidemiologically linked human cases with no plausible animal or environmental exposure for the majority.
 - **United States formally rejoins the World Health Organization** — The United States formally notifies WHO of resumption of membership, or deposits an instrument of acceptance of the WHO Constitution, and pays or commits to assessed contributions.
 - **Global interruption of wild poliovirus type 1 transmission** — Zero wild poliovirus type 1 cases with onset in any 12 consecutive calendar months, per GPEI reporting, with the 12-month window closing inside the horizon.
-- **Laboratory accident causes an outbreak of 50+ confirmed human cases with official lab attribution** — A national health authority, WHO, or an official government investigation publicly attributes an outbreak of at least 50 laboratory-confirmed human infections to a laboratory-acquired infection or a containment/biosafety breach.
 - **Deliberate biological attack causes at least 10 confirmed human deaths** — A government or international body attributes at least 10 human deaths to a deliberate release of a biological agent (state or non-state actor) in a single incident or campaign.
+- **Laboratory accident causes an outbreak of 50+ confirmed human cases with official lab attribution** — A national health authority, WHO, or an official government investigation publicly attributes an outbreak of at least 50 laboratory-confirmed human infections to a laboratory-acquired infection or a containment/biosafety breach.
 - **Ebola causes a confirmed secondary transmission chain outside Africa** — A national health authority in a country outside the WHO African Region confirms at least one locally acquired Ebola (any species) infection in a person who was not infected in Africa, at any point in the window.
 - **WHO declares a global emergency over an antimicrobial-resistant pathogen** — WHO declares a PHEIC, pandemic emergency, or equivalent formal global health emergency whose primary basis is an antimicrobial-resistant bacterial or fungal pathogen (for example pan-resistant Klebsiella, XDR typhoid, Candida auris, or drug-resistant gonorrhoea).
-
-</details>
-
-### Food, water & agriculture
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| New IPC/CH Famine (Phase 5) classification anywhere | 69% | 94% | 97% | [92%–99%] | 5 | 2027Q2 |
-| FAO Food Price Index reaches an all-time high above 160 | 18% | 55% | 78% | [47%–97%] | 6 | 2030Q1 |
-| Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously | 27% | 62% | 77% | [48%–97%] | 6 | 2029Q1 |
-| GRFC reports more than 300 million people in acute food insecurity | 18% | 71% | 85% | [59%–98%] | 5 | 2029Q2 |
-| New World screwworm or FMD establishes in the US or EU cattle herd | 14% | 43% | 70% | [30%–98%] | 5 | 2030Q3 |
-| Thai 5% broken rice benchmark exceeds US$650/tonne | 8.4% | 26% | 49% | [21%–80%] | 7 | 2031Q3 |
-| WFP annual contributions fall below US$5 billion | 37% | 59% | 68% | [44%–87%] | 5 | 2027Q4 |
-| World Bank monthly urea price exceeds US$800/tonne | 29% | 48% | 63% | [38%–87%] | 5 | 2028Q2 |
-| Cyberattack or physical sabotage halts a top-5 global agri-food processor or a major water utility | 20% | 54% | 78% | [40%–99%] | 4 | 2029Q4 |
-| DAP/phosphate rock price exceeds US$1,000/tonne on a monthly average | 11% | 36% | 59% | [22%–98%] | 5 | 2030Q3 |
-| Ukrainian seaborne grain exports fall below 1 Mt in a calendar month | 63% | 74% | 74% | [47%–93%] | 4 | 2027Q1 |
-| Mississippi River or Panama Canal low-water event materially disrupts US grain exports | 33% | 79% | 96% | [76%–>99%] | 3 | 2028Q3 |
-| Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months | 58% | 89% | 96% | [78%–99%] | 3 | 2027Q3 |
-| World cereal production falls 4%+ year-on-year (multi-breadbasket failure) | 11% | 20% | 32% | [13%–64%] | 8 | 2030Q3 |
-| World cereal stocks-to-use ratio falls below 28% | 7.8% | 23% | 37% | [16%–63%] | 7 | 2030Q4 |
-| India physically curtails Indus western-river flows to Pakistan | 4.8% | 16% | 36% | [17%–59%] | 7 | 2032Q2 |
-| FAO declares a desert locust upsurge or plague affecting three or more countries | 14% | 41% | 62% | [21%–98%] | 4 | 2030Q1 |
-| Three or more countries/territories in confirmed IPC Famine simultaneously | 6.9% | 19% | 29% | [4.3%–69%] | 7 | 2030Q3 |
-| Hormuz fertilizer flows normalise (downside-risk-off event) | 58% | 86% | 92% | [79%–98%] | 2 | 2027Q3 |
-| Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab | 4.2% | 13% | 22% | [2.0%–58%] | 8 | 2031Q1 |
-| Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water | 3.1% | 9.9% | 15% | [5.0%–27%] | 8 | 2030Q3 |
-| Colorado River enters 2027 without an agreed post-2026 framework | 33% | 34% | 34% | [15%–61%] | 3 | 2027Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **New IPC/CH Famine (Phase 5) classification anywhere** — The IPC Famine Review Committee or a CH equivalent confirms Famine (IPC Phase 5) — with reasonable evidence or higher — for at least one geographic area not already so classified as of 2026-07-29, published on ipcinfo.org.
-- **FAO Food Price Index reaches an all-time high above 160** — The FAO Food Price Index (2014-2016=100, nominal) monthly value exceeds 160.0, surpassing the March 2022 record of 160.3.
-- **Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously** — Per the IFPRI Food and Fertilizer Export Restrictions Tracker, at least two countries each ranking in the global top 10 for wheat, maize or rice exports have in force, simultaneously and for at least 60 consecutive days, a new (post-2026-07-29) export ban or quota estimated to cut that country's exports of the staple by 25% or more.
-- **GRFC reports more than 300 million people in acute food insecurity** — Any edition of the Global Report on Food Crises published in 2027-2036 reports more than 300.0 million people in IPC/CH Phase 3 or above for its reference year.
-- **New World screwworm or FMD establishes in the US or EU cattle herd** — USDA APHIS, WOAH or the European Commission confirms sustained autochthonous transmission of New World screwworm (Cochliomyia hominivorax) north of the Mexico-US border, or an FMD outbreak in an FMD-free country of the G7, triggering a national movement standstill or export ban of 30+ days.
-- **Thai 5% broken rice benchmark exceeds US$650/tonne** — FAO GIEWS / Thai Rice Exporters Association monthly average f.o.b. price for Thai white rice 5% broken exceeds US$650 per tonne.
-- **WFP annual contributions fall below US$5 billion** — WFP's published annual contribution total for any calendar year 2026-2036 is below US$5.0 billion (nominal), per wfp.org contributions data.
-- **World Bank monthly urea price exceeds US$800/tonne** — World Bank Pink Sheet monthly average urea (Middle East, bulk, f.o.b.) exceeds US$800 per tonne in any month.
-- **Cyberattack or physical sabotage halts a top-5 global agri-food processor or a major water utility** — A publicly confirmed cyber or sabotage incident forces a 7+ day shutdown of national-scale operations at a top-5 global meat, grain-trading or fertilizer company, or causes a 7+ day loss of service at a water utility serving 1m+ people, per company disclosure, CISA/ENISA advisory or national regulator.
-- **DAP/phosphate rock price exceeds US$1,000/tonne on a monthly average** — World Bank Pink Sheet monthly average DAP (f.o.b. US Gulf) exceeds US$1,000 per tonne in any month.
-- **Ukrainian seaborne grain exports fall below 1 Mt in a calendar month** — Ukrainian Ministry of Agrarian Policy or UGA monthly data show total seaborne grain and oilseed exports below 1.0 million tonnes in any single calendar month (normal 2024-26 range ~3-5 Mt/month).
-- **Mississippi River or Panama Canal low-water event materially disrupts US grain exports** — USDA Grain Transportation Report or Army Corps data show either (a) Mississippi barge freight rates above 800% of tariff benchmark, or draft/tow restrictions in force on the Lower Mississippi, for 30+ consecutive days, or (b) Panama Canal transit slots cut 30%+ below normal for 60+ consecutive days.
-- **Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months** — USDA, Eurostat, WOAH or the national statistical agency of a G20 member reports a decline of 10% or more, within any rolling 12-month window, in national laying-hen inventory or national pig inventory, attributed principally to an animal disease epizootic (HPAI, ASF, FMD or successor).
-- **World cereal production falls 4%+ year-on-year (multi-breadbasket failure)** — FAO's Cereal Supply and Demand Brief reports world cereal production for a calendar year at least 4.0% below the prior year's outturn (using FAO's own revised series at the time of the following year's July brief).
-- **World cereal stocks-to-use ratio falls below 28%** — FAO's Cereal Supply and Demand Brief reports a world cereal stocks-to-use ratio below 28.0% for any marketing year.
-- **India physically curtails Indus western-river flows to Pakistan** — Pakistan's IRSA rim-station data, corroborated by satellite/independent hydrological analysis, show a sustained reduction of 20% or more over at least four consecutive weeks in Chenab or Jhelum inflows attributable to Indian storage operations or diversion, and not to natural hydrology.
-- **FAO declares a desert locust upsurge or plague affecting three or more countries** — FAO Desert Locust Watch raises the situation to 'Upsurge' or 'Plague' with swarms reported in three or more countries simultaneously for 60+ days.
-- **Three or more countries/territories in confirmed IPC Famine simultaneously** — At any point in a calendar year, IPC/FRC-confirmed Famine (Phase 5) classifications are simultaneously in force for areas in three or more distinct countries or territories.
-- **Hormuz fertilizer flows normalise (downside-risk-off event)** — World Bank or IFA data show Middle East seaborne urea and ammonia export volumes recovering to 90% or more of their 2024-25 monthly average for three consecutive months.
-- **Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab** — CIMMYT, BGRI, FAO or a national plant protection agency confirms establishment of a Ug99-lineage stem rust race, a novel highly virulent stripe rust race defeating deployed resistance, or wheat blast (Magnaporthe oryzae Triticum), in Indian or Pakistani Punjab or Haryana, with documented field-scale infection.
-- **Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water** — ACLED or equivalent records a state-attributed kinetic attack (air, missile, drone or special-forces) on the Grand Ethiopian Renaissance Dam or associated Ethiopian water infrastructure, or a direct armed exchange between Egyptian and Ethiopian forces publicly framed by either government as arising from the Nile water dispute.
-- **Colorado River enters 2027 without an agreed post-2026 framework** — On 1 January 2027, no seven-state consensus agreement and no signed federal Record of Decision governs Lake Powell/Lake Mead operations for calendar 2027, with operations instead running under an interim stopgap, unilateral federal action, or litigation.
 
 </details>
 
@@ -651,20 +653,20 @@ Among paths where at least three high-severity events fired, these are the most 
 
 | Frequency | First | Then | Then |
 |---:|---|---|---|
-| 1.1% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million | PISA 2025 shows no recovery in OECD-average mathematics |
-| 0.8% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | China annual births fall below 7.0 million |
-| 0.7% | PISA 2025 shows no recovery in OECD-average mathematics | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million |
+| 1.3% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million | PISA 2025 shows no recovery in OECD-average mathematics |
+| 0.9% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | China annual births fall below 7.0 million |
 | 0.6% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | US Census Bureau officially reports negative net international migration |
+| 0.6% | PISA 2025 shows no recovery in OECD-average mathematics | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million |
 | 0.6% | China annual births fall below 7.0 million | PISA 2025 shows no recovery in OECD-average mathematics | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window |
 | 0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | China reports annual real GDP growth below 4.0% |
-| 0.5% | Nvidia suffers a ≥50% peak-to-trough drawdown | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
-| <0.5% | New record-low Antarctic sea ice minimum extent | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
-| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | Global insured natural catastrophe losses exceed $200bn in a calendar year |
-| <0.5% | US unemployment rate ≥6.0% for three consecutive months | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million |
-| <0.5% | Nvidia suffers a ≥50% peak-to-trough drawdown | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | China annual births fall below 7.0 million |
-| <0.5% | A top-4 US hyperscaler guides annual capex down year-over-year | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
+| <0.5% | Nvidia suffers a ≥50% peak-to-trough drawdown | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | Nvidia suffers a ≥50% peak-to-trough drawdown |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | A top-4 US hyperscaler guides annual capex down year-over-year |
+| <0.5% | China annual births fall below 7.0 million | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
+| <0.5% | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | PISA 2025 shows no recovery in OECD-average mathematics | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption |
 
-The most common opening — Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window → China annual births fall below 7.0 million → PISA 2025 shows no recovery in OECD-average mathematics — accounts for 1.1% of all paths. No single sequence dominates, which is itself informative: the model does not support a story in which one specific trigger reliably starts the cascade. What recurs is the *pattern* — a shock in one domain degrading the capacity to absorb the next.
+The most common opening — Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window → China annual births fall below 7.0 million → PISA 2025 shows no recovery in OECD-average mathematics — accounts for 1.3% of all paths. No single sequence dominates, which is itself informative: the model does not support a story in which one specific trigger reliably starts the cascade. What recurs is the *pattern* — a shock in one domain degrading the capacity to absorb the next.
 
 ## Where the correlations are
 
@@ -672,24 +674,24 @@ Pairs whose joint occurrence most exceeds what independence would predict. *Lift
 
 | Event A | Event B | P(both) | Lift | P(A given B) |
 |---|---|---:|---:|---:|
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 63% | 1.1× | 82% |
-| US recession with NBER-dated peak in the window | Global recession (world real GDP growth below 2.0% in a calendar year) | 58% | 1.1× | 91% |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | A top-4 US hyperscaler guides annual capex down year-over-year | 75% | 1.1× | 91% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 67% | 1.1× | 79% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A single training run of ≥1e28 FLOP is publicly reported | 65% | 1.1× | 78% |
-| FAO Food Price Index reaches an all-time high above 160 | GRFC reports more than 300 million people in acute food insecurity | 69% | 1.0× | 82% |
-| US unemployment rate ≥6.0% for three consecutive months | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 73% | 1.0× | 86% |
-| Civil war onset in a country of 50 million or more that was at peace in mid-2026 | A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 54% | 1.0× | 85% |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 67% | 1.0× | 79% |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | Global recession (world real GDP growth below 2.0% in a calendar year) | 56% | 1.0× | 87% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | US unemployment rate ≥6.0% for three consecutive months | 63% | 1.0× | 76% |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A single training run of ≥1e28 FLOP is publicly reported | 66% | 1.0× | 79% |
-| US recession with NBER-dated peak in the window | A top-4 US hyperscaler guides annual capex down year-over-year | 71% | 1.0× | 86% |
-| Disintegration of the Thwaites Eastern Ice Shelf | A second US kinetic operation to remove or kill a sitting foreign head of state or government | 39% | 1.0× | 62% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | PRC forces cause the death of a Philippine serviceman or coast guardsman | 47% | 1.0× | 76% |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | US unemployment rate ≥6.0% for three consecutive months | 65% | 1.0× | 79% |
-| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Global recession (world real GDP growth below 2.0% in a calendar year) | 52% | 1.0× | 81% |
-| A top-4 US hyperscaler guides annual capex down year-over-year | Global recession (world real GDP growth below 2.0% in a calendar year) | 53% | 1.0× | 84% |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 62% | 1.1× | 83% |
+| US recession with NBER-dated peak in the window | Global recession (world real GDP growth below 2.0% in a calendar year) | 56% | 1.1× | 91% |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | A top-4 US hyperscaler guides annual capex down year-over-year | 72% | 1.1× | 91% |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 68% | 1.1× | 81% |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A single training run of ≥1e28 FLOP is publicly reported | 66% | 1.1× | 80% |
+| FAO Food Price Index reaches an all-time high above 160 | GRFC reports more than 300 million people in acute food insecurity | 64% | 1.1× | 75% |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 65% | 1.0× | 77% |
+| US unemployment rate ≥6.0% for three consecutive months | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 71% | 1.0× | 85% |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A single training run of ≥1e28 FLOP is publicly reported | 63% | 1.0× | 76% |
+| Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously | FAO Food Price Index reaches an all-time high above 160 | 56% | 1.0× | 79% |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Global recession (world real GDP growth below 2.0% in a calendar year) | 51% | 1.0× | 82% |
+| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | Single US political-violence attack killing ten or more people | 48% | 1.0× | 62% |
+| US recession with NBER-dated peak in the window | A top-4 US hyperscaler guides annual capex down year-over-year | 68% | 1.0× | 85% |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | US unemployment rate ≥6.0% for three consecutive months | 64% | 1.0× | 78% |
+| Civil war onset in a country of 50 million or more that was at peace in mid-2026 | A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 51% | 1.0× | 84% |
+| China reports annual real GDP growth below 4.0% | Global recession (world real GDP growth below 2.0% in a calendar year) | 52% | 1.0× | 84% |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | Global recession (world real GDP growth below 2.0% in a calendar year) | 53% | 1.0× | 85% |
+| A single training run of ≥1e28 FLOP is publicly reported | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 71% | 1.0× | 84% |
 
 ## Continuous indicators
 
@@ -697,110 +699,110 @@ These evolve on a Gaussian copula driven by each path's own systemic-stress inde
 
 | Indicator | Now | 2031 (p10 / p50 / p90) | 2036 (p10 / p50 / p90) |
 |---|---:|:---:|:---:|
-| World military expenditure as share of global GDP (percent of global GDP) | 2.5 | 2.59 / **2.89** / 3.25 | 2.71 / **3.12** / 3.6 |
-| Global state-based armed conflict battle deaths per year (thousands of deaths per year) | 160 | 54.6 / **129** / 243 | 10.2 / **115** / 273 |
-| Brent crude oil price (USD per barrel (annual average)) | 86 | 45.2 / **71.9** / 140 | 27.2 / **65.8** / 159 |
-| US military expenditure as share of US GDP (percent of GDP) | 3.2 | 2.95 / **3.3** / 3.7 | 2.87 / **3.35** / 3.9 |
-| European NATO members' aggregate defence spending as share of GDP (percent of GDP) | 2.65 | 3 / **3.35** / 3.75 | 3.26 / **3.73** / 4.27 |
-| PLA aircraft sorties entering Taiwan's ADIZ per year (sorties per year) | 3600 | 2.46e+03 / **4.98e+03** / 7.82e+03 | 2.07e+03 / **5.77e+03** / 9.7e+03 |
-| US dollar share of allocated global FX reserves (percent) | 58 | 51 / **54** / 57.1 | 47.6 / **51.8** / 56 |
-| Weekly container-ship transits of the Suez Canal (transits per week) | 30 | 22.1 / **61.4** / 87.8 | 24.4 / **80.1** / 116 |
-| Combined US + Russia deployed strategic nuclear warheads (warheads) | 3200 | 3.14e+03 / **3.71e+03** / 4.34e+03 | 3.22e+03 / **3.99e+03** / 4.87e+03 |
-| Net monthly Russian territorial gain in Ukraine (km2 per month (negative = Ukrainian recapture)) | 104 | -29.3 / **9.01** / 179 | -96.9 / **-44.4** / 182 |
-| Number of active state-based armed conflicts (>=25 battle deaths/year) (count) | 61 | 48 / **57.8** / 68.1 | 42.3 / **56.4** / 70.1 |
-| Crude and condensate transiting the Strait of Hormuz (million barrels per day) | 8 | 5.36 / **18** / 21 | 5.1 / **23.4** / 27.7 |
+| World military expenditure as share of global GDP (percent of global GDP) | 2.5 | 2.6 / **2.9** / 3.25 | 2.7 / **3.12** / 3.6 |
+| Global state-based armed conflict battle deaths per year (thousands of deaths per year) | 160 | 54.7 / **130** / 245 | 9.82 / **114** / 272 |
+| Brent crude oil price (USD per barrel (annual average)) | 86 | 45.1 / **72.2** / 140 | 27.1 / **64.2** / 159 |
+| US military expenditure as share of US GDP (percent of GDP) | 3.2 | 2.95 / **3.3** / 3.7 | 2.87 / **3.35** / 3.91 |
+| European NATO members' aggregate defence spending as share of GDP (percent of GDP) | 2.65 | 3 / **3.35** / 3.75 | 3.25 / **3.73** / 4.28 |
+| PLA aircraft sorties entering Taiwan's ADIZ per year (sorties per year) | 3600 | 2.39e+03 / **4.99e+03** / 7.78e+03 | 2.15e+03 / **5.76e+03** / 9.63e+03 |
+| US dollar share of allocated global FX reserves (percent) | 58 | 51 / **54** / 57 | 47.7 / **51.8** / 56 |
+| Weekly container-ship transits of the Suez Canal (transits per week) | 30 | 22.1 / **61.9** / 88.1 | 24.1 / **79.5** / 115 |
+| Combined US + Russia deployed strategic nuclear warheads (warheads) | 3200 | 3.15e+03 / **3.72e+03** / 4.35e+03 | 3.22e+03 / **4.01e+03** / 4.87e+03 |
+| Net monthly Russian territorial gain in Ukraine (km2 per month (negative = Ukrainian recapture)) | 104 | -30.3 / **7.77** / 175 | -96.8 / **-43.9** / 187 |
+| Number of active state-based armed conflicts (>=25 battle deaths/year) (count) | 61 | 47.9 / **58** / 67.9 | 42.5 / **56.3** / 70.2 |
+| Crude and condensate transiting the Strait of Hormuz (million barrels per day) | 8 | 5.04 / **18** / 21 | 5.51 / **23.4** / 27.6 |
 | Annual global mean surface temperature anomaly (ERA5, vs 1850-1900) (C) | 1.47 | 1.48 / **1.62** / 1.78 | 1.51 / **1.7** / 1.92 |
 | Annual mean CO2 concentration at Mauna Loa (ppm) | 429.4 | 440 / **442** / 445 | 446 / **449** / 452 |
 | NOAA global mean atmospheric methane (ppb) | 1945 | 1.97e+03 / **1.98e+03** / 2e+03 | 1.98e+03 / **2e+03** / 2.02e+03 |
-| Global fossil CO2 emissions (Global Carbon Project) (GtCO2/yr) | 38.1 | 35.6 / **38.3** / 40 | 34.7 / **38.3** / 40.9 |
+| Global fossil CO2 emissions (Global Carbon Project) (GtCO2/yr) | 38.1 | 35.6 / **38.3** / 40.1 | 34.7 / **38.4** / 40.9 |
 | Global mean sea level (satellite altimetry, above 1993 baseline) (mm) | 112 | 132 / **138** / 144 | 144 / **152** / 160 |
-| Arctic sea ice September minimum extent (NSIDC) (million km2) | 4.3 | 3.35 / **3.98** / 4.56 | 2.94 / **3.83** / 4.62 |
-| Annual maximum 3-month ONI (Nino3.4) (C) | 2.4 | -0.882 / **0.433** / 1.73 | -2.48 / **-0.711** / 1.18 |
-| Share of global reef area under Alert Level 1+ heat stress, rolling 12 months (% of global reef area) | 55 | 31.6 / **61.9** / 87 | 23.7 / **66.1** / 102 |
-| Brazilian Legal Amazon annual deforestation (INPE PRODES) (km2/yr) | 5796 | 3.09e+03 / **4.96e+03** / 9.95e+03 | 1.84e+03 / **4.37e+03** / 1.1e+04 |
-| FAO Food Price Index (nominal) (index, 2014-2016 = 100) | 130.3 | 121 / **140** / 167 | 119 / **145** / 182 |
-| Annual increase in global 0-2000m ocean heat content (ZJ/yr) | 23 | 13.1 / **25** / 37.2 | 9.45 / **26.3** / 42.8 |
-| Brent crude oil price (USD per barrel) | 84 | 41.3 / **77.9** / 150 | 25.6 / **75.5** / 175 |
-| US 10-year Treasury yield (percent) | 4.62 | 3.1 / **4.81** / 6.34 | 2.61 / **4.94** / 7.02 |
-| US CPI inflation, year over year (percent) | 3.5 | 1.2 / **2.61** / 4.95 | 0.244 / **2.1** / 5.29 |
-| Federal funds target rate, upper bound (percent) | 3.75 | 1.82 / **3.53** / 5.24 | 0.875 / **3.35** / 5.81 |
-| S&P 500 index level (index points) | 7412 | 6.13e+03 / **1e+04** / 1.61e+04 | 6.02e+03 / **1.15e+04** / 1.97e+04 |
-| Global real GDP growth (percent per year) | 3 | 1.61 / **3.21** / 4.24 | 1.12 / **3.26** / 4.7 |
-| China reported real GDP growth (percent per year) | 4.6 | 1.87 / **3.39** / 4.78 | 0.66 / **2.71** / 4.72 |
+| Arctic sea ice September minimum extent (NSIDC) (million km2) | 4.3 | 3.35 / **3.98** / 4.55 | 2.93 / **3.81** / 4.6 |
+| Annual maximum 3-month ONI (Nino3.4) (C) | 2.4 | -0.895 / **0.398** / 1.7 | -2.49 / **-0.694** / 1.12 |
+| Share of global reef area under Alert Level 1+ heat stress, rolling 12 months (% of global reef area) | 55 | 32 / **62** / 87.9 | 24.2 / **65.8** / 102 |
+| Brazilian Legal Amazon annual deforestation (INPE PRODES) (km2/yr) | 5796 | 3.1e+03 / **4.9e+03** / 9.81e+03 | 1.95e+03 / **4.46e+03** / 1.12e+04 |
+| FAO Food Price Index (nominal) (index, 2014-2016 = 100) | 130.3 | 121 / **140** / 167 | 119 / **145** / 183 |
+| Annual increase in global 0-2000m ocean heat content (ZJ/yr) | 23 | 13 / **25** / 37.1 | 9.46 / **26.1** / 42.7 |
+| Brent crude oil price (USD per barrel) | 84 | 41.9 / **78.2** / 150 | 25.3 / **74.5** / 175 |
+| US 10-year Treasury yield (percent) | 4.62 | 3.08 / **4.8** / 6.3 | 2.55 / **4.91** / 6.97 |
+| US CPI inflation, year over year (percent) | 3.5 | 1.2 / **2.6** / 4.89 | 0.176 / **2.11** / 5.29 |
+| Federal funds target rate, upper bound (percent) | 3.75 | 1.75 / **3.5** / 5.25 | 0.937 / **3.36** / 5.79 |
+| S&P 500 index level (index points) | 7412 | 6.09e+03 / **9.99e+03** / 1.6e+04 | 6e+03 / **1.14e+04** / 1.97e+04 |
+| Global real GDP growth (percent per year) | 3 | 1.61 / **3.2** / 4.2 | 1.12 / **3.32** / 4.68 |
+| China reported real GDP growth (percent per year) | 4.6 | 1.9 / **3.4** / 4.81 | 0.661 / **2.75** / 4.69 |
 | US federal debt held by the public / GDP (percent) | 100 | 106 / **111** / 119 | 110 / **117** / 128 |
-| USD share of allocated FX reserves (IMF COFER) (percent) | 56.5 | 46.9 / **52.1** / 57.1 | 42.6 / **49.5** / 56.3 |
-| Gold price (USD per troy ounce) | 4040 | 3.09e+03 / **4.69e+03** / 7.25e+03 | 2.85e+03 / **5.03e+03** / 8.62e+03 |
-| USD/JPY exchange rate (yen per dollar) | 163.6 | 118 / **151** / 193 | 97.6 / **145** / 201 |
-| US average effective tariff rate on all imports (percent) | 6 | 2.92 / **7.96** / 18.1 | 2.04 / **9.05** / 22.9 |
-| Log10 of training compute for the largest publicly-known training run (log10(FLOP)) | 26.7 | 28 / **28.8** / 29.5 | 28.8 / **30** / 30.9 |
-| Global data center electricity consumption (TWh per year) | 590 | 834 / **1.03e+03** / 1.34e+03 | 999 / **1.28e+03** / 1.72e+03 |
-| Combined annual capex, Microsoft + Alphabet + Amazon + Meta (USD billions per year) | 700 | 477 / **985** / 1.49e+03 | 428 / **1.14e+03** / 1.87e+03 |
-| Nvidia annual data center revenue (USD billions per year) | 330 | 232 / **537** / 861 | 233 / **652** / 1.12e+03 |
-| Combined annualized revenue run-rate, OpenAI + Anthropic (USD billions) | 72 | 165 / **348** / 617 | 248 / **500** / 867 |
-| Log2 of METR 50%-reliability task time horizon (log2(hours of human-expert task time)) | 1.6 | 5.39 / **8.09** / 10.9 | 7.76 / **11.6** / 15.4 |
-| Log10 of API price for GPT-4-class capability (log10(USD per million input tokens)) | -0.4 | -2.19 / **-1.79** / -1.4 | -3.13 / **-2.57** / -2.02 |
-| Chinese open-weight models' share of OpenRouter tokens (percent) | 61 | 32.2 / **60.1** / 83.3 | 20.6 / **59** / 92.3 |
-| Log10 of US paid fully-driverless rides per week (millions) (log10(millions of rides per week)) | -0.3 | 0.183 / **0.901** / 1.39 | 0.588 / **1.58** / 2.27 |
-| US AI adoption in production, employment-weighted (Census BTOS) (percent of employment at AI-using firms) | 32 | 45 / **56.2** / 67.9 | 54.2 / **69** / 85.7 |
-| Global total fertility rate (births per woman) | 2.23 | 2.03 / **2.12** / 2.21 | 1.94 / **2.06** / 2.19 |
-| China annual births (million births per year) | 7.92 | 4.63 / **5.91** / 7.4 | 3.05 / **4.83** / 6.87 |
+| USD share of allocated FX reserves (IMF COFER) (percent) | 56.5 | 47 / **52** / 57 | 42.6 / **49.5** / 56.4 |
+| Gold price (USD per troy ounce) | 4040 | 3.1e+03 / **4.7e+03** / 7.29e+03 | 2.85e+03 / **5.06e+03** / 8.66e+03 |
+| USD/JPY exchange rate (yen per dollar) | 163.6 | 118 / **152** / 193 | 98.9 / **146** / 202 |
+| US average effective tariff rate on all imports (percent) | 6 | 3 / **8.02** / 18.1 | 2.14 / **9.08** / 22.9 |
+| Log10 of training compute for the largest publicly-known training run (log10(FLOP)) | 26.7 | 28 / **28.8** / 29.5 | 28.8 / **29.9** / 30.9 |
+| Global data center electricity consumption (TWh per year) | 590 | 830 / **1.03e+03** / 1.35e+03 | 992 / **1.27e+03** / 1.71e+03 |
+| Combined annual capex, Microsoft + Alphabet + Amazon + Meta (USD billions per year) | 700 | 469 / **980** / 1.5e+03 | 431 / **1.13e+03** / 1.85e+03 |
+| Nvidia annual data center revenue (USD billions per year) | 330 | 231 / **539** / 869 | 227 / **655** / 1.11e+03 |
+| Combined annualized revenue run-rate, OpenAI + Anthropic (USD billions) | 72 | 165 / **351** / 621 | 247 / **502** / 875 |
+| Log2 of METR 50%-reliability task time horizon (log2(hours of human-expert task time)) | 1.6 | 5.4 / **8.1** / 10.8 | 7.9 / **11.6** / 15.4 |
+| Log10 of API price for GPT-4-class capability (log10(USD per million input tokens)) | -0.4 | -2.2 / **-1.8** / -1.4 | -3.11 / **-2.56** / -2.01 |
+| Chinese open-weight models' share of OpenRouter tokens (percent) | 61 | 32.1 / **60.1** / 83 | 20.9 / **59.4** / 91.2 |
+| Log10 of US paid fully-driverless rides per week (millions) (log10(millions of rides per week)) | -0.3 | 0.2 / **0.902** / 1.4 | 0.585 / **1.56** / 2.24 |
+| US AI adoption in production, employment-weighted (Census BTOS) (percent of employment at AI-using firms) | 32 | 45 / **56** / 68 | 54 / **69.1** / 85.7 |
+| Global total fertility rate (births per woman) | 2.23 | 2.03 / **2.12** / 2.21 | 1.94 / **2.06** / 2.18 |
+| China annual births (million births per year) | 7.92 | 4.6 / **5.9** / 7.4 | 3.02 / **4.8** / 6.88 |
 | US total fertility rate (births per woman) | 1.585 | 1.44 / **1.51** / 1.59 | 1.37 / **1.47** / 1.58 |
-| Global forcibly displaced persons (million people) | 117.8 | 102 / **120** / 141 | 96.7 / **121** / 149 |
-| US net international migration (thousand persons per year) | 320 | -129 / **631** / 1.41e+03 | -287 / **799** / 1.9e+03 |
-| EU+ annual asylum applications (thousand applications per year) | 822 | 324 / **688** / 1.35e+03 | 116 / **644** / 1.54e+03 |
-| India total fertility rate (births per woman) | 1.9 | 1.62 / **1.73** / 1.83 | 1.49 / **1.64** / 1.77 |
+| Global forcibly displaced persons (million people) | 117.8 | 103 / **120** / 140 | 97.7 / **121** / 149 |
+| US net international migration (thousand persons per year) | 320 | -154 / **618** / 1.4e+03 | -281 / **790** / 1.86e+03 |
+| EU+ annual asylum applications (thousand applications per year) | 822 | 321 / **701** / 1.35e+03 | 110 / **632** / 1.53e+03 |
+| India total fertility rate (births per woman) | 1.9 | 1.62 / **1.73** / 1.83 | 1.49 / **1.64** / 1.78 |
 | World population (billion people) | 8.3 | 8.57 / **8.63** / 8.69 | 8.73 / **8.81** / 8.89 |
-| China population aged 60 and over (percent of total population) | 22.9 | 27.1 / **28** / 28.8 | 29.6 / **30.8** / 31.9 |
-| US annual drug overdose deaths (thousand deaths per year) | 70 | 34.7 / **55.1** / 79.8 | 18.7 / **47.6** / 82.7 |
-| South Korea total fertility rate (births per woman) | 0.8 | 0.746 / **0.87** / 1 | 0.728 / **0.905** / 1.09 |
-| Japan annual births (Japanese nationals) (thousand births per year) | 670 | 467 / **538** / 606 | 363 / **466** / 564 |
-| Brent crude oil price (USD/bbl (nominal)) | 73 | 42.4 / **71.4** / 128 | 29.5 / **70.8** / 149 |
-| Annual global solar PV capacity additions (GWdc/yr) | 650 | 642 / **882** / 1.18e+03 | 670 / **1.01e+03** / 1.42e+03 |
-| Lithium-ion battery pack price (volume-weighted, all segments) (USD/kWh (nominal)) | 105 | 54.5 / **71.6** / 95.3 | 30.5 / **54.3** / 85.1 |
-| China share of global rare-earth separation and refining (% of global refined output) | 87 | 72.1 / **79.1** / 86.9 | 65 / **74.5** / 85.8 |
-| US data center electricity consumption (TWh/yr) | 225 | 326 / **471** / 686 | 400 / **600** / 890 |
-| EU average wholesale electricity price (EUR/MWh (nominal)) | 80 | 40.2 / **66.5** / 119 | 23.2 / **59.3** / 131 |
-| Global coal demand (Mt/yr) | 8800 | 7.66e+03 / **8.47e+03** / 9.05e+03 | 7.2e+03 / **8.29e+03** / 9.1e+03 |
-| Uranium spot price (USD/lb U3O8) | 88 | 54.5 / **106** / 187 | 41.9 / **115** / 226 |
+| China population aged 60 and over (percent of total population) | 22.9 | 27.1 / **28** / 28.8 | 29.5 / **30.8** / 31.9 |
+| US annual drug overdose deaths (thousand deaths per year) | 70 | 34 / **55** / 80.2 | 17.8 / **46.8** / 81.2 |
+| South Korea total fertility rate (births per woman) | 0.8 | 0.74 / **0.869** / 1 | 0.729 / **0.908** / 1.09 |
+| Japan annual births (Japanese nationals) (thousand births per year) | 670 | 464 / **538** / 608 | 364 / **466** / 562 |
+| Brent crude oil price (USD/bbl (nominal)) | 73 | 42.1 / **72.1** / 128 | 30.2 / **71.4** / 149 |
+| Annual global solar PV capacity additions (GWdc/yr) | 650 | 643 / **881** / 1.18e+03 | 674 / **1e+03** / 1.42e+03 |
+| Lithium-ion battery pack price (volume-weighted, all segments) (USD/kWh (nominal)) | 105 | 55.2 / **72** / 95.1 | 30.5 / **53.9** / 85.7 |
+| China share of global rare-earth separation and refining (% of global refined output) | 87 | 72 / **79** / 87 | 65 / **74.6** / 85.6 |
+| US data center electricity consumption (TWh/yr) | 225 | 321 / **465** / 680 | 396 / **597** / 896 |
+| EU average wholesale electricity price (EUR/MWh (nominal)) | 80 | 39.9 / **66** / 118 | 22.3 / **58.4** / 130 |
+| Global coal demand (Mt/yr) | 8800 | 7.7e+03 / **8.47e+03** / 9.05e+03 | 7.22e+03 / **8.29e+03** / 9.09e+03 |
+| Uranium spot price (USD/lb U3O8) | 88 | 55.1 / **105** / 185 | 45.3 / **114** / 224 |
 | Global oil (liquids) demand (million b/d) | 104.5 | 102 / **106** / 109 | 102 / **107** / 112 |
-| Global LNG liquefaction nameplate capacity (Mtpa) | 510 | 655 / **712** / 754 | 744 / **822** / 882 |
-| Global EV share of new light-vehicle sales (% of new sales) | 22.4 | 32.1 / **40** / 47.8 | 38.6 / **49.8** / 60.7 |
-| Henry Hub natural gas price (USD/MMBtu (nominal)) | 3.7 | 2.52 / **4.29** / 7.01 | 2.07 / **4.5** / 8.39 |
-| Cumulative confirmed H5N1-infected US dairy herds (herds) | 1166 | 1.3e+03 / **1.82e+03** / 2.58e+03 | 1.45e+03 / **2.18e+03** / 3.26e+03 |
-| Confirmed human H5 (any NA) influenza cases reported globally per year (cases/year) | 14 | 2.92 / **16.7** / 65.5 | -0.909 / **18.4** / 85.3 |
-| US confirmed measles cases per calendar year (cases/year) | 2900 | 916 / **3.79e+03** / 8.85e+03 | 182 / **4.24e+03** / 1.16e+04 |
-| US kindergarten MMR vaccination coverage (% of kindergartners) | 92.5 | 89 / **90.6** / 92.2 | 87.3 / **89.5** / 91.8 |
-| Global DTP3 immunization coverage (% of surviving infants) | 85 | 81.9 / **83.9** / 86 | 80.3 / **83.3** / 86.1 |
+| Global LNG liquefaction nameplate capacity (Mtpa) | 510 | 655 / **712** / 755 | 743 / **822** / 882 |
+| Global EV share of new light-vehicle sales (% of new sales) | 22.4 | 32 / **40** / 47.9 | 38.6 / **49.6** / 60.6 |
+| Henry Hub natural gas price (USD/MMBtu (nominal)) | 3.7 | 2.5 / **4.2** / 7 | 2.12 / **4.47** / 8.35 |
+| Cumulative confirmed H5N1-infected US dairy herds (herds) | 1166 | 1.3e+03 / **1.82e+03** / 2.6e+03 | 1.46e+03 / **2.17e+03** / 3.26e+03 |
+| Confirmed human H5 (any NA) influenza cases reported globally per year (cases/year) | 14 | 3.04 / **16.1** / 64.9 | -0.82 / **17.1** / 84.7 |
+| US confirmed measles cases per calendar year (cases/year) | 2900 | 912 / **3.83e+03** / 9.07e+03 | 282 / **4.3e+03** / 1.15e+04 |
+| US kindergarten MMR vaccination coverage (% of kindergartners) | 92.5 | 89 / **90.6** / 92.2 | 87.4 / **89.6** / 91.8 |
+| Global DTP3 immunization coverage (% of surviving infants) | 85 | 81.8 / **83.9** / 86 | 80.4 / **83.3** / 86.2 |
 | Deaths directly attributable to bacterial AMR (million deaths/year) | 1.2 | 1.16 / **1.31** / 1.46 | 1.16 / **1.37** / 1.58 |
-| International financing for HIV in low- and middle-income countries (US$ billions/year) | 7.3 | 3.15 / **5.39** / 7.86 | 1.36 / **4.39** / 7.71 |
-| US adults currently using GLP-1 drugs for weight loss (% of adults) | 12.4 | 16.1 / **23.2** / 31 | 19 / **29** / 40 |
-| US adult obesity prevalence (Gallup self-reported) (% of adults) | 36.4 | 31.5 / **33.4** / 35.3 | 29.2 / **31.7** / 34.3 |
-| WHO approved base programme budget per biennium (US$ billions/biennium) | 4.2 | 3.42 / **4.09** / 5.08 | 3.06 / **4.05** / 5.44 |
-| Global malaria deaths (thousand deaths/year) | 610 | 560 / **636** / 716 | 544 / **650** / 762 |
-| CDC full-time federal workforce (thousand FTEs) | 9 | 6.63 / **8.2** / 9.86 | 5.48 / **7.72** / 10.1 |
-| US presidential net approval (approve minus disapprove, aggregate) (percentage points) | -19 | -29.1 / **-9.99** / 5.98 | -30.3 / **-4.76** / 16.9 |
-| Number of countries coded as currently autocratizing by V-Dem (countries) | 44 | 37 / **45** / 53.9 | 34.6 / **45.5** / 57.8 |
-| Countries with net decline in Freedom House score in a given year (countries) | 54 | 39.9 / **51** / 62.9 | 34.1 / **49.4** / 65.9 |
-| Share of world population living in Freedom House 'Free' countries (percent) | 21 | 15 / **20.1** / 24 | 12.5 / **19.5** / 24.9 |
-| AfD federal voting intention (percent) | 27 | 19 / **27.9** / 36 | 15.8 / **28.5** / 39.7 |
-| French RN first-round national vote share (presidential/legislative) (percent) | 35 | 27.9 / **35.9** / 44.2 | 25.1 / **36.6** / 47.9 |
-| Reform UK voting intention (percent) | 26 | 14 / **23.9** / 34.9 | 8.99 / **23** / 38.4 |
-| Successful coups d'etat worldwide per calendar year (coups) | 2 | -0.0357 / **1.96** / 4.91 | -0.77 / **2.09** / 6.13 |
-| US terrorism and targeted-violence events per year (START/BDI coding) (events) | 1050 | 712 / **1.22e+03** / 1.76e+03 | 617 / **1.33e+03** / 2.08e+03 |
-| Gallup average 'great deal / quite a lot' confidence across nine US institutions (percent) | 27 | 20.9 / **26** / 31.1 | 18.7 / **25.4** / 32.3 |
-| ACLED-recorded political violence events worldwide per year (events) | 1.85e+05 | 1.5e+05 / **1.96e+05** / 2.47e+05 | 1.39e+05 / **2.04e+05** / 2.73e+05 |
-| FAO Food Price Index (nominal) (index, 2014-2016=100) | 130.3 | 112 / **146** / 196 | 107 / **154** / 227 |
-| World cereal stocks-to-use ratio (percent) | 32 | 27.7 / **31.2** / 34.5 | 25.9 / **30.7** / 35.3 |
-| World cereal production (million tonnes per calendar year) | 2983 | 2.95e+03 / **3.13e+03** / 3.29e+03 | 2.96e+03 / **3.19e+03** / 3.43e+03 |
-| Urea price (Middle East granular, f.o.b.) (USD per tonne) | 520 | 231 / **440** / 849 | 110 / **399** / 957 |
-| People in acute food insecurity (IPC/CH Phase 3+, GRFC) (million people) | 266 | 227 / **291** / 357 | 213 / **303** / 396 |
-| People in IPC/CH Phase 5 (Catastrophe) (million people) | 1.4 | 0.351 / **1.6** / 3.48 | -0.0697 / **1.72** / 4.34 |
-| CBOT front-month wheat price (USD per bushel) | 6.9 | 5.05 / **7.68** / 12.1 | 4.67 / **8.16** / 14.3 |
-| Thai white rice 5% broken, f.o.b. (USD per tonne) | 365 | 247 / **408** / 659 | 210 / **426** / 775 |
-| Lake Mead elevation (feet above mean sea level) | 1053 | 991 / **1.03e+03** / 1.07e+03 | 964 / **1.02e+03** / 1.07e+03 |
-| WFP annual contributions received (USD billion, nominal) | 6.5 | 3.33 / **5.54** / 7.82 | 2.01 / **4.92** / 8.14 |
-| Global undernourishment headcount (PoU) (million people) | 645 | 531 / **602** / 675 | 481 / **580** / 678 |
-| Share of marine fish stocks within biologically sustainable levels (percent) | 62.4 | 57.5 / **60** / 62.4 | 55.3 / **58.7** / 62.1 |
+| International financing for HIV in low- and middle-income countries (US$ billions/year) | 7.3 | 3.21 / **5.4** / 7.8 | 1.32 / **4.36** / 7.67 |
+| US adults currently using GLP-1 drugs for weight loss (% of adults) | 12.4 | 16 / **23** / 31 | 19.1 / **28.8** / 39.9 |
+| US adult obesity prevalence (Gallup self-reported) (% of adults) | 36.4 | 31.5 / **33.4** / 35.3 | 29.1 / **31.8** / 34.4 |
+| WHO approved base programme budget per biennium (US$ billions/biennium) | 4.2 | 3.4 / **4.1** / 5.1 | 3.08 / **4.05** / 5.43 |
+| Global malaria deaths (thousand deaths/year) | 610 | 560 / **635** / 715 | 546 / **649** / 759 |
+| CDC full-time federal workforce (thousand FTEs) | 9 | 6.6 / **8.2** / 9.9 | 5.55 / **7.76** / 10.1 |
+| US presidential net approval (approve minus disapprove, aggregate) (percentage points) | -19 | -29 / **-9.98** / 6.03 | -31.2 / **-5.03** / 17.1 |
+| Number of countries coded as currently autocratizing by V-Dem (countries) | 44 | 37 / **45** / 54 | 34.6 / **45.6** / 58 |
+| Countries with net decline in Freedom House score in a given year (countries) | 54 | 40 / **51** / 63 | 34.2 / **49.4** / 66 |
+| Share of world population living in Freedom House 'Free' countries (percent) | 21 | 15 / **20** / 24 | 12.5 / **19.4** / 25 |
+| AfD federal voting intention (percent) | 27 | 19 / **28** / 35.9 | 16.1 / **28.6** / 39.6 |
+| French RN first-round national vote share (presidential/legislative) (percent) | 35 | 28 / **36** / 44 | 25.5 / **36.6** / 47.6 |
+| Reform UK voting intention (percent) | 26 | 14 / **23.9** / 34.9 | 9.14 / **22.9** / 38.1 |
+| Successful coups d'etat worldwide per calendar year (coups) | 2 | 3.38e-05 / **2.01** / 5 | -0.757 / **2** / 6.15 |
+| US terrorism and targeted-violence events per year (START/BDI coding) (events) | 1050 | 722 / **1.23e+03** / 1.78e+03 | 628 / **1.33e+03** / 2.09e+03 |
+| Gallup average 'great deal / quite a lot' confidence across nine US institutions (percent) | 27 | 21 / **26** / 31 | 18.6 / **25.5** / 32.4 |
+| ACLED-recorded political violence events worldwide per year (events) | 1.85e+05 | 1.5e+05 / **1.97e+05** / 2.48e+05 | 1.38e+05 / **2.04e+05** / 2.74e+05 |
+| FAO Food Price Index (nominal) (index, 2014-2016=100) | 130.3 | 112 / **146** / 198 | 108 / **154** / 226 |
+| World cereal stocks-to-use ratio (percent) | 32 | 27.8 / **31.2** / 34.6 | 26.1 / **30.8** / 35.5 |
+| World cereal production (million tonnes per calendar year) | 2983 | 2.95e+03 / **3.12e+03** / 3.29e+03 | 2.97e+03 / **3.2e+03** / 3.43e+03 |
+| Urea price (Middle East granular, f.o.b.) (USD per tonne) | 520 | 232 / **441** / 852 | 107 / **396** / 963 |
+| People in acute food insecurity (IPC/CH Phase 3+, GRFC) (million people) | 266 | 225 / **290** / 356 | 214 / **303** / 395 |
+| People in IPC/CH Phase 5 (Catastrophe) (million people) | 1.4 | 0.355 / **1.61** / 3.51 | -0.0188 / **1.7** / 4.34 |
+| CBOT front-month wheat price (USD per bushel) | 6.9 | 5.11 / **7.71** / 12.2 | 4.56 / **8.13** / 14.3 |
+| Thai white rice 5% broken, f.o.b. (USD per tonne) | 365 | 248 / **405** / 659 | 211 / **428** / 778 |
+| Lake Mead elevation (feet above mean sea level) | 1053 | 992 / **1.03e+03** / 1.07e+03 | 965 / **1.02e+03** / 1.07e+03 |
+| WFP annual contributions received (USD billion, nominal) | 6.5 | 3.3 / **5.5** / 7.8 | 1.91 / **4.96** / 8.14 |
+| Global undernourishment headcount (PoU) (million people) | 645 | 530 / **602** / 675 | 479 / **579** / 680 |
+| Share of marine fish stocks within biologically sustainable levels (percent) | 62.4 | 57.5 / **60** / 62.4 | 55.2 / **58.7** / 62 |
 
 ## What drives the outcome
 
@@ -810,24 +812,24 @@ Share of the variance in peak systemic stress attributable to each event firing 
 
 | Event | Variance share | P(by 2036) | Impact |
 |---|---:|---:|---:|
-| Global recession (world real GDP growth below 2.0% in a calendar year) | 5.1% | 64% | 7 |
-| S&P 500 falls 30%+ from its all-time closing high | 3.5% | 64% | 6 |
-| Severe rare-earth supply cutoff to the US or EU | 3.4% | 53% | 8 |
-| Direct US-PRC military exchange causing at least one fatality | 2.7% | 14% | 9 |
-| PRC launches an amphibious or airborne assault on Taiwan's main island | 2.6% | 13% | 10 |
-| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 2.4% | 28% | 9 |
-| US average effective tariff rate exceeds 15% | 2.3% | 51% | 5 |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | 4.6% | 62% | 7 |
+| Severe rare-earth supply cutoff to the US or EU | 3.7% | 50% | 8 |
+| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 3.2% | 28% | 9 |
+| S&P 500 falls 30%+ from its all-time closing high | 3.0% | 63% | 6 |
+| Direct US-PRC military exchange causing at least one fatality | 2.9% | 14% | 9 |
+| US average effective tariff rate exceeds 15% | 2.8% | 50% | 5 |
+| PRC launches an amphibious or airborne assault on Taiwan's main island | 2.2% | 12% | 10 |
 | Failure or extraordinary rescue of a bank with over $250bn in assets | 2.0% | 49% | 8 |
-| US 10-year Treasury yield closes at or above 6.00% | 1.8% | 40% | 8 |
-| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 1.6% | 80% | 8 |
-| Wave of emerging-market sovereign defaults or restructurings | 1.5% | 78% | 5 |
-| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 1.5% | 63% | 8 |
-| China reports annual real GDP growth below 4.0% | 1.4% | 82% | 6 |
-| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | 1.3% | 57% | 7 |
-| WFP annual contributions fall below US$5 billion | 1.3% | 68% | 5 |
-| Large private-credit vehicle suspends redemptions or enters wind-down | 1.3% | 55% | 6 |
-| France or Italy 10-year spread over Bunds exceeds 300bp | 1.3% | 22% | 7 |
-| World cereal production falls 4%+ year-on-year (multi-breadbasket failure) | 1.2% | 32% | 8 |
+| US 10-year Treasury yield closes at or above 6.00% | 2.0% | 37% | 8 |
+| Large private-credit vehicle suspends redemptions or enters wind-down | 1.9% | 56% | 6 |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 1.7% | 80% | 8 |
+| Wave of emerging-market sovereign defaults or restructurings | 1.7% | 76% | 5 |
+| US federal government de-recommends a core routine childhood vaccine and the change survives | 1.4% | 63% | 6 |
+| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 1.4% | 61% | 8 |
+| NATO invokes Article 5 in response to a Russian attack | 1.3% | 12% | 10 |
+| WFP annual contributions fall below US$5 billion | 1.3% | 64% | 5 |
+| China reports annual real GDP growth below 4.0% | 1.3% | 82% | 6 |
+| Brent crude settles above $120/bbl | 1.2% | 69% | 6 |
 
 ## Where the worldviews disagree most
 
@@ -835,26 +837,26 @@ The five parameterisations — raw analyst, audited, outside-view base rates, st
 
 | Event | Analyst | Audited | Outside view | Structural break | Market check | Spread |
 |---|---:|---:|---:|---:|---:|---:|
-| Japan 10-year government bond yield reaches 3.00% | 61% | 95% | 97% | 94% | 95% | 36pp |
-| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 76% | 86% | 56% | 89% | 87% | 33pp |
-| Strait of Hormuz closed again for 14+ consecutive days | 41% | 70% | 69% | 70% | 70% | 29pp |
-| A G7 country cuts permanent immigration by three quarters | 19% | 36% | 8.8% | 37% | 37% | 28pp |
-| Brent monthly average above $120/bbl | 43% | 66% | 70% | 66% | 68% | 27pp |
-| US life expectancy at birth reaches 80.0 years | 62% | 86% | 87% | 86% | 85% | 25pp |
-| Severe rare-earth supply cutoff to the US or EU | 32% | 54% | 54% | 55% | 54% | 23pp |
-| Global oil demand declines year-on-year outside recession or supply shock | 68% | 59% | 59% | 80% | 58% | 22pp |
-| FAO Food Price Index reaches an all-time high above 160 | 60% | 80% | 81% | 82% | 81% | 22pp |
-| Failure or extraordinary rescue of a bank with over $250bn in assets | 39% | 46% | 60% | 47% | 48% | 21pp |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | 68% | 87% | 87% | 87% | 88% | 21pp |
-| State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country | 33% | 17% | 13% | 18% | 17% | 20pp |
-| Verified wet-bulb temperature of 35C sustained for three or more hours | 51% | 34% | 31% | 34% | 35% | 20pp |
-| China reports annual real GDP growth below 4.0% | 71% | 81% | 83% | 91% | 81% | 20pp |
-| Colorado River enters 2027 without an agreed post-2026 framework | 51% | 32% | 31% | 35% | 32% | 20pp |
-| China's extraterritorial rare-earth export control regime enters into force | 67% | 85% | 86% | 85% | 87% | 20pp |
+| Japan 10-year government bond yield reaches 3.00% | 61% | 94% | 94% | 94% | 99% | 38pp |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 76% | 88% | 56% | 88% | 88% | 33pp |
+| Strait of Hormuz closed again for 14+ consecutive days | 41% | 69% | 69% | 69% | 69% | 28pp |
+| A G7 country cuts permanent immigration by three quarters | 21% | 38% | 10% | 37% | 38% | 28pp |
+| US life expectancy at birth reaches 80.0 years | 62% | 86% | 86% | 86% | 86% | 24pp |
+| Brent crude settles above $120/bbl | 51% | 71% | 70% | 71% | 75% | 24pp |
+| Brent monthly average above $120/bbl | 51% | 70% | 70% | 69% | 74% | 23pp |
+| US reports at least 5,000 confirmed measles cases in a single calendar year | 58% | 72% | 72% | 72% | 80% | 22pp |
+| Global oil demand declines year-on-year outside recession or supply shock | 69% | 58% | 58% | 79% | 58% | 21pp |
+| FAO Food Price Index reaches an all-time high above 160 | 54% | 74% | 76% | 74% | 72% | 21pp |
+| FAO Food Price Index exceeds 160 in any month | 54% | 74% | 75% | 74% | 72% | 21pp |
+| Severe rare-earth supply cutoff to the US or EU | 33% | 53% | 53% | 53% | 53% | 20pp |
+| Verified wet-bulb temperature of 35C sustained for three or more hours | 50% | 36% | 31% | 36% | 36% | 20pp |
+| Failure or extraordinary rescue of a bank with over $250bn in assets | 40% | 48% | 59% | 48% | 47% | 19pp |
+| China reports annual real GDP growth below 4.0% | 71% | 82% | 82% | 90% | 83% | 19pp |
+| Sustained effective closure of the Strait of Hormuz | 76% | 88% | 70% | 88% | 88% | 19pp |
 
 ## What the red team said
 
-Two lenses attacked the parameter set from different directions. Their numeric corrections are already in the forecast, carried by their own worldviews. Their reasoning is reproduced here because some of it is more useful than the numbers — and because a reader deserves to see the case against the model alongside its output.
+Three lenses attacked the parameter set from different directions. Their numeric corrections are already in the forecast, carried by their own worldviews. Their reasoning is reproduced here because some of it is more useful than the numbers — and because a reader deserves to see the case against the model alongside its output.
 
 ### Structural-break / inside-view: where the 1950-2025 generating process is dead and the model is still sampling from it
 
@@ -926,6 +928,39 @@ The structural problems are worse than the level problem and matter more for a s
 - Financial market-structure failure. There are nodes for yields, bank failure and private credit, but none for Treasury market dysfunction, a failed auction, or a central counterparty (CCP) failure. The 2019 repo squeeze and the March 2020 dash-for-cash give a real base rate of roughly one plumbing crisis per 5-7 years, and the stablecoin node's own reasoning identifies the T-bill market as the transmission channel without a node to transmit into.
 - Non-influenza pandemic emergence. health_influenza_pandemic_declared covers flu and health_pandemic_1m_deaths is the only catch-all. There is no node for a coronavirus, paramyxovirus (Nipah) or arbovirus emergence with sustained transmission below the 1m-death bar — which is where most of the actual probability mass sits, and which is what a PHEIC node at 92% is implicitly absorbing without structure.
 - A biosafety recurrence with better historical grounding. health_lab_origin_outbreak_confirmed sits at 6%, but the 2019-20 Lanzhou brucellosis leak (10,000+ officially attributed human infections, official attribution to a vaccine plant) would have resolved that criterion YES within the last decade. Including it in the reference class roughly doubles the anchor. Its omission is a further instance of the pattern above: a populated reference class treated as empty.
+
+### Market / consensus-calibration red team: node-by-node comparison against live Polymarket, Kalshi, Metaculus prices and published institutional forecasts (NOAA/CPC, IMF, FAO, PAHO, METR), as of 29 July 2026.
+
+*14 specific corrections proposed.*
+
+Judged against actual prices, this parameter set is not uniformly "too dramatic." It is bimodally miscalibrated, and the split falls almost exactly along the line of whether a tradeable contract exists.
+
+Where a liquid market or an issuing agency publishes a number, the set is systematically BELOW it. Polymarket prices "China blockade Taiwan in 2026" at 8% for five remaining months; the model prices 5% for seventeen (geopolitics_china_taiwan_quarantine_or_blockade). Polymarket prices "Iran Nuke before 2027" at 22-35%; the model says 5%. Polymarket prices Taiwan invasion by 30 Jun 2027 at 10%; the model says 1.5% through end-2027. NOAA/CPC's July 2026 discussion gives 81% for a very strong El Nino in OND; the model says 74% and then illegally accrues it to 85/90 on a criterion locked to the 2026-27 event. Kalshi has 2027 recession at 41% on top of 17.5% for 2026; the model says 33% for a window covering both. Metaculus implies ~5% for a non-test nuclear detonation by 2030; the model says 3.5% by 2031. The 10y JGB closed at 2.76% on 28 July and printed 2.901% mid-month; the model's own reasoning text still says "from ~2% to 3%" and prices 26%/50%.
+
+Where no market exists, the set runs hot on vivid, unprecedented events: a 1M-people/24h state cyber-blackout at 20%, a practically ice-free Arctic at 4%/21%, a sustained 35C wet-bulb at 30%, UNSC expansion at 2.5%.
+
+Worse than either is an outright axiom violation. economy_hormuz_closure (>50% below baseline for 14+ days) is strictly implied by geopolitics_hormuz_major_closure (same threshold, 30+ days) yet is priced 22% against 70% — a 48-point coherence break, with energy_hormuz_reclosure at 34% as a third inconsistent copy. climate_food_price_shock (FFPI >160) sits at 33% while the strictly harder foodwater_ffpi_above_160 (all-time high >160.3) sits at 42%. Any aggregation over this catalog is currently summing incoherent and double-counted mass.
+
+**Systematic bias estimate.** Not uniformly biased — bimodally biased, with the split determined by whether a price exists.
+
+(A) Market-comparable nodes: systematically TOO COMPLACENT by roughly 2x. Taking the eight nodes above where I could source a live contract or an issuing-agency number and applying a standard longshot/criteria haircut to the market, the model's values average about 0.45-0.55x the defensible market-consistent value. Worst offenders: economy_jgb_3pct (~0.5x at 2027, ~0.54x at 2031, and factually anchored to a stale spot level), geopolitics_iran_nuclear_weapon (~0.4x), geopolitics_china_taiwan_quarantine_or_blockade (~0.55x), geopolitics_china_taiwan_invasion (~0.4x). Even the flagship tail, geopolitics_nuclear_use_in_anger, sits below Metaculus.
+
+(B) Non-market catastrophe nodes: TOO DRAMATIC by roughly 1.8-2.0x. Where the event is vivid, unprecedented and unpriceable — grid_cyberattack_nato, arctic_practically_ice_free, wetbulb_35c_sustained, amazon_net_carbon_source, climate_billion_dollar_climate_judgment, unsc_permanent_expansion — the numbers run about double what base rates plus the stated resolution wording support. The tell is that in almost every case the model's own contrarian paragraph contains the correct argument and the headline number ignores it.
+
+(C) Coherence: the catalog is not a probability distribution. Three overlapping Hormuz nodes violate monotonicity by up to 48 points; two FFPI nodes are inverted; Iran regime change is double-listed across domains (26% and 27%) and would be double-counted by any severity aggregation; el_nino accrues probability on a criterion locked to a single 2026-27 event. Fix these before tuning any levels — they corrupt the aggregate more than any single mis-priced node.
+
+Net effect on a simulation: because the complacent nodes cluster in high-frequency macro/geopolitical drivers and the dramatic nodes cluster in low-frequency terminal states, the parameter set will under-generate ordinary turbulence and over-generate exotic catastrophe. The world it simulates is too quiet on the way to being too apocalyptic. The single highest-value fix is economy_jgb_3pct; the single highest-value structural fix is the Hormuz monotonicity violation.
+
+**Scenarios it says are missing entirely:**
+
+- US-Venezuela / Western Hemisphere escalation. The catalog's reasoning text repeatedly cites 'the Venezuela intervention' and 'the 2026 Venezuela/Iran precedents' as drivers of OTHER risks, but there is no risk_id for it. An active US military operation in the hemisphere is being used as an exogenous input while carrying no probability, no severity and no uncertainty of its own. politics_us_strike_inside_mexico (44%) is the only hemispheric node and covers a different country.
+- Taiwan semiconductor supply disruption WITHOUT invasion or blockade. There is no node for a TSMC production halt from earthquake, drought, grid failure, cyber incident, or export-control retaliation. This is plausibly the largest single economic tail in the entire catalog and it is only reachable through two nodes priced at 6% and 14%. The 2024 Hualien quake and Taiwan's recurring water crises are the base-rate evidence.
+- Frontier model weight exfiltration by a state actor. The AI domain covers cyberattacks BY AI (ai_major_cyber_incident) and bio-misuse (ai_bio_mass_casualty) but not theft of frontier weights, which is the modal proliferation pathway named in essentially every lab and USG threat model and which would invalidate ai_export_controls_relaxed, ai_china_leaderboard_top and ai_us_china_binding_agreement simultaneously.
+- Advanced-economy sovereign funding accident distinct from spread widening. economy_euro_periphery_stress measures a 300bp spread and economy_ust_6pct measures a yield level, but neither captures a failed or tailed auction, a gilt-LDI-style forced-deleveraging spiral, or an emergency central bank intervention in the primary market. The 2022 UK episode resolved NO on both existing criteria while being the closest advanced-economy funding accident in decades.
+- Measurement-infrastructure failure as a first-class risk. At least six nodes depend on observing systems that may not survive the window: RAPID (climate_amoc_30pct_weakening, flagged as funding-fragile in the model's own text), METR's ability to run 167-hour evals, IMF COFER continuity, NOAA Coral Reef Watch methodology, PISA participation, and the Global Carbon Project. The catalog treats resolution machinery as exogenous and certain. Several risks should carry an explicit 'unresolvable' branch.
+- Climate-driven insurance and mortgage market withdrawal. No node covers a major insurer exiting a US state or an EU country at scale, a state residual-market insolvency, or GSE/lender repricing of coastal and wildfire mortgage risk. This is the transmission channel by which climate becomes a financial-stability event, and it is absent from both the climate and economy domains.
+- Undersea cable, GPS and space-segment disruption. The catalog has grid cyber and grid physical sabotage nodes but nothing on subsea telecom/data cables, GNSS jamming or spoofing at scale, or an anti-satellite event or Kessler cascade. Baltic and Red Sea cable incidents in 2024-2026 are the live base rate, and a serious event would hit finance, aviation and energy simultaneously.
+- Assassination or sudden incapacity of a major non-US leader. politics_us_federal_official_assassinated (12%) covers the US; politics_russia_leadership_change and politics_xi_departure cover departure generically. There is no node for the violent or sudden removal of a leader in India, Saudi Arabia, Pakistan, Israel, Turkey or a G7 state, despite several of these being single points of failure for other nodes in the catalog.
 
 ## What to watch, and when
 

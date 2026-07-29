@@ -429,10 +429,13 @@
 <section id="pairs">
   <div class="sec-head">
     <h2>Where the correlations are</h2>
-    <p class="lede">Pairs whose joint occurrence most exceeds what independence would predict.
-      Lift is P(both) ÷ P(A)·P(B) — a lift of 3 means these two show up together three times
-      more often than chance. This is the part a spreadsheet of independent probabilities cannot
-      produce, and it is where tail risk actually lives.</p>
+    <p class="lede">The clearest way to read a dependency is the contrast between P(A given B)
+      and P(A given not-B) — how much learning one event would move your estimate of the other.
+      Ranked by odds ratio rather than lift, because lift is mechanically capped by the base
+      rates: two events at 80% each cannot exceed 1.25× however tightly coupled they are, so
+      ranking high-probability nodes by lift returns a table of 1.0× entries and hides every
+      real dependency. This is the part a spreadsheet of independent probabilities cannot
+      produce, and it is where tail risk lives.</p>
   </div>
   <div class="tbl-wrap"><table id="pair-table"></table></div>
 </section>
@@ -779,11 +782,11 @@
   $("chain-note").innerHTML = D.chain_note;
 
   $("pair-table").innerHTML =
-    `<thead><tr><th>Event A</th><th>Event B</th><th>P(both)</th><th>Lift</th>
-      <th>P(A given B)</th></tr></thead><tbody>` +
+    `<thead><tr><th>Event A</th><th>Event B</th><th>P(A given B)</th>
+      <th>P(A given not-B)</th><th>Odds ratio</th></tr></thead><tbody>` +
     D.pairs.map((p) => `<tr><td class="name">${esc(p.a)}</td><td class="name">${esc(p.b)}</td>
-      <td class="num">${pct(p.joint)}</td><td class="num lead">${p.lift.toFixed(1)}×</td>
-      <td class="num">${pct(p.cond)}</td></tr>`).join("") + `</tbody>`;
+      <td class="num lead">${pct(p.cond)}</td><td class="num">${pct(p.cond_not)}</td>
+      <td class="num">${p.odds_ratio.toFixed(1)}×</td></tr>`).join("") + `</tbody>`;
 
   $("sens-table").innerHTML =
     `<thead><tr><th>Event</th><th>Variance share</th><th>P(by 2036)</th><th>Impact</th></tr></thead><tbody>` +
