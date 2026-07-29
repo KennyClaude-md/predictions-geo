@@ -53,10 +53,19 @@ class Risk:
     reasoning: str = ""
     base_rate_anchor: str = ""
     contrarian_case: str = ""
+    # +1 destabilising, -1 stabilising, 0 ambiguous. Analysts were asked for the
+    # *magnitude* of an event's global impact, so severity is unsigned — a durable
+    # ceasefire and a nuclear detonation can both score 7. Without a sign the
+    # stress index counts good news as stress.
+    valence: float = 1.0
 
     @property
     def sigma(self) -> float:
         return CONFIDENCE_SIGMA.get(self.confidence, DEFAULT_SIGMA)
+
+    @property
+    def signed_severity(self) -> float:
+        return self.severity * self.valence
 
 
 @dataclass
@@ -141,9 +150,22 @@ def _num(x, default=0.0) -> float:
         return default
 
 
-def load_base_model(path: str | Path) -> tuple[WorldModel, dict]:
-    """Read the research workflow's JSON output into a WorldModel."""
+def load_base_model(
+    path: str | Path, valence_path: str | Path | None = None
+) -> tuple[WorldModel, dict]:
+    """Read the research workflow's JSON output into a WorldModel.
+
+    `valence_path` points at an optional {risk_id: -1|0|1} map. Anything missing
+    defaults to destabilising, which is the right prior — most enumerated risks
+    are bad news — but a model run without the map will treat good news as stress,
+    so the loader reports how many nodes were classified.
+    """
     raw = json.loads(Path(path).read_text())
+    valence: dict[str, float] = {}
+    if valence_path and Path(valence_path).exists():
+        valence = {
+            k: float(v) for k, v in json.loads(Path(valence_path).read_text()).items()
+        }
 
     risks: dict[str, Risk] = {}
     continuous: dict[str, ContinuousVar] = {}
@@ -174,6 +196,7 @@ def load_base_model(path: str | Path) -> tuple[WorldModel, dict]:
                 reasoning=str(r.get("reasoning", "")),
                 base_rate_anchor=str(r.get("base_rate_anchor", "")),
                 contrarian_case=str(r.get("contrarian_case", "")),
+                valence=valence.get(rid, 1.0),
             )
         for c in research.get("continuous_variables", []) or []:
             cid = str(c.get("id", "")).strip()
@@ -257,6 +280,8 @@ def load_base_model(path: str | Path) -> tuple[WorldModel, dict]:
         "dropped_edges": dropped_edges,
         "n_latents": len(latents),
         "n_blocks": len(blocks),
+        "n_valence_classified": sum(1 for r in risks if r in valence),
+        "n_stabilising": sum(1 for r in risks.values() if r.valence < 0),
     }
     return model, meta
 

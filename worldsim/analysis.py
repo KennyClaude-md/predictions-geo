@@ -217,6 +217,7 @@ def archetypes(
         dd = ((block[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2)
         labels[s : s + 50_000] = dd.argmin(axis=1)
 
+    overall = hit.mean(axis=0)
     clusters = []
     for c in range(k):
         m = labels == c
@@ -228,13 +229,21 @@ def archetypes(
                 "cluster": int(c),
                 "probability": float(m.mean()),
                 "peak_stress_median": float(np.median(peak[m])),
+                # Where this cluster's typical peak sits in the distribution of
+                # peaks across *all* paths. A rank among five clusters would say
+                # only "calmest of five"; this says how calm in absolute terms.
+                "peak_stress_pctile": float((peak[:, 0] < np.median(peak[m])).mean()),
                 "terminal_stress_median": float(np.median(late[m])),
                 "event_rates": rates,
+                # Standardised excess: raw excess penalised by how variable the
+                # event is. Without this the "distinguishing" features are just
+                # the near-universal events, which distinguish nothing.
+                "excess_z": (rates - overall) / np.sqrt(np.maximum(overall * (1 - overall), 1e-6)),
                 "n_events_mean": float(hit[m].sum(axis=1).mean()),
             }
         )
     clusters.sort(key=lambda c: -c["probability"])
-    return {"clusters": clusters, "labels": labels}
+    return {"clusters": clusters, "labels": labels, "overall_rates": overall}
 
 
 # --------------------------------------------------------------------------
@@ -266,6 +275,11 @@ def first_order_sensitivity(fire_time: np.ndarray, target: np.ndarray) -> np.nda
 def aggregate_stats(
     fire_time: np.ndarray, severity: np.ndarray, gssi: np.ndarray, quarter: int
 ) -> dict:
+    """Counts of *destabilising* events only — pass signed severity.
+
+    Counting a durable ceasefire toward "severe events this decade" would make
+    good news raise the alarm level.
+    """
     hit = ((fire_time >= 0) & (fire_time <= quarter))
     sev6 = severity >= 6
     sev8 = severity >= 8

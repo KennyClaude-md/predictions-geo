@@ -42,7 +42,7 @@ def main() -> None:
 
     t0 = time.time()
     raw = json.loads(Path(args.model).read_text())
-    base, meta = load_base_model(args.model)
+    base, meta = load_base_model(args.model, PARAMS / "valence.json")
     print(f"loaded model: {meta}")
 
     vres = validate.check(base)
@@ -94,15 +94,17 @@ def main() -> None:
         for rid, r in m.risks.items():
             lookup.setdefault(rid, r)
     severity = np.array([lookup[r].severity for r in risk_ids], dtype=np.float32)
+    valence = np.array([lookup[r].valence for r in risk_ids], dtype=np.float32)
+    signed = severity * valence
     names = [lookup[r].name for r in risk_ids]
     domains = [lookup[r].domain for r in risk_ids]
 
     marg = analysis.marginal_with_interval(ft, pooled["group"], [Q27, Q31, Q36])
-    gssi = continuous.systemic_stress(ft, severity)
+    gssi = continuous.systemic_stress(ft, signed)
 
     ctx = _assemble(
-        raw, cfg, meta, results, weights, pooled, marg, gssi, severity, names,
-        domains, risk_ids, lookup, calib_report, base, rng,
+        raw, cfg, meta, results, weights, pooled, marg, gssi, severity, valence,
+        names, domains, risk_ids, lookup, calib_report, base, rng,
     )
     report.write_outputs(ctx, OUTPUT)
     print(f"\nwrote {OUTPUT/'forecast_report.md'} and {OUTPUT/'forecast.json'}")
@@ -129,8 +131,8 @@ def _align(results: list[dict]) -> list[dict]:
 
 
 def _assemble(
-    raw, cfg, meta, results, weights, pooled, marg, gssi, severity, names,
-    domains, risk_ids, lookup, calib_report, base, rng,
+    raw, cfg, meta, results, weights, pooled, marg, gssi, severity, valence,
+    names, domains, risk_ids, lookup, calib_report, base, rng,
 ) -> dict:
     R = len(risk_ids)
     p27, p31, p36 = marg[Q27]["mean"], marg[Q31]["mean"], marg[Q36]["mean"]
@@ -151,30 +153,33 @@ def _assemble(
             "hi2036": float(hi36[i]),
             "epistemic_sd": float(marg[Q36]["epistemic_sd"][i]),
             "severity": float(severity[i]),
+            "valence": float(valence[i]),
             "median_quarter": tp.get("median_quarter"),
         }
 
     all_rows = [row(i) for i in range(R)]
 
     impact = p36 * severity
-    headline = [all_rows[i] for i in np.argsort(impact)[::-1][:22]]
+    # Ranking "most impactful" by unsigned severity would put an outbreak of
+    # peace at the top of a risk table.
+    destab_impact = np.where(valence > 0, impact, -np.inf)
+    headline = [all_rows[i] for i in np.argsort(destab_impact)[::-1][:22]]
 
     by_domain: dict[str, list[dict]] = {}
     for r in sorted(all_rows, key=lambda r: -r["p2036"] * r["severity"]):
         by_domain.setdefault(r["domain"], []).append(r)
 
-    agg = analysis.aggregate_stats(ft, severity, gssi, Q36)
+    agg = analysis.aggregate_stats(ft, severity * (valence > 0), gssi, Q36)
 
     # --- archetypes -------------------------------------------------------
     feature_idx = list(np.argsort(impact)[::-1][:26])
     arch = analysis.archetypes(ft, gssi, feature_idx, k=5, seed=cfg.seed)
-    overall_rates = (ft[:, feature_idx] >= 0).mean(axis=0)
     labelled = labelling.label_clusters(
-        arch["clusters"], feature_idx, names, domains, overall_rates
+        arch["clusters"], feature_idx, names, domains, arch["overall_rates"], valence
     )
 
     # --- cascades ---------------------------------------------------------
-    severe_idx = [i for i in range(R) if severity[i] >= 6][:40]
+    severe_idx = [i for i in range(R) if severity[i] >= 6 and valence[i] > 0][:40]
     chains_raw = analysis.first_chains(ft, severe_idx, depth=3, top=12)
     n_paths = ft.shape[0]
     chains = [
@@ -183,7 +188,7 @@ def _assemble(
     ]
 
     # --- dependence -------------------------------------------------------
-    cand = list(np.argsort(impact)[::-1][:34])
+    cand = list(np.argsort(destab_impact)[::-1][:34])
     pairs_raw = analysis.top_pairs_by_lift(ft, Q36, cand, min_joint=0.012, top=18)
     pairs = [
         {

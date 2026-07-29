@@ -36,10 +36,14 @@ ANCHOR_Q = 22  # end-2031
 def systemic_stress(fire_time: np.ndarray, severity: np.ndarray) -> np.ndarray:
     """Global Systemic Stress Index per path per quarter, shape (n_paths, T).
 
-    Every fired event contributes its severity, decaying exponentially afterwards.
-    A world where three severity-8 events fire in the same 18 months scores far
-    higher than one where the same three are spread across a decade — which is
-    the point: simultaneity is what breaks systems, not the count.
+    Every fired event contributes its *signed* severity, decaying exponentially
+    afterwards. A world where three severity-8 events fire in the same 18 months
+    scores far higher than one where the same three are spread across a decade —
+    which is the point: simultaneity is what breaks systems, not the count.
+
+    Pass signed severity (severity x valence). Stabilising events — a durable
+    ceasefire, emissions peaking — then subtract from stress rather than adding to
+    it. With unsigned severity the index reads good news as a crisis.
     """
     n = fire_time.shape[0]
     out = np.zeros((n, N_QUARTERS), dtype=np.float32)

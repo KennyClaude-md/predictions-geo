@@ -21,18 +21,26 @@ DOMAIN_WORDS = {
     "foodwater": "food and water stress",
 }
 
+# Tiers are keyed to where the cluster's typical peak stress sits in the
+# distribution of peaks across every simulated path — an absolute statement about
+# the model's own output, not a rank among however many clusters we asked for.
 STRESS_TIERS = [
-    (0.15, "Quiet"),
-    (0.40, "Manageable"),
-    (0.65, "Turbulent"),
-    (0.85, "Severe"),
+    (0.20, "Contained"),
+    (0.45, "Manageable"),
+    (0.70, "Turbulent"),
+    (0.88, "Severe"),
     (1.01, "Compound crisis"),
 ]
 
+# A feature must be this many standard deviations from its overall rate to count
+# as distinguishing. Raw excess would surface the near-universal events, which by
+# definition distinguish nothing.
+Z_THRESHOLD = 0.25
 
-def _tier(rank: float) -> str:
+
+def _tier(pctile: float) -> str:
     for cut, name in STRESS_TIERS:
-        if rank <= cut:
+        if pctile <= cut:
             return name
     return "Compound crisis"
 
@@ -43,27 +51,36 @@ def label_clusters(
     names: list[str],
     domains: list[str],
     overall_rates: np.ndarray,
+    valence: np.ndarray | None = None,
 ) -> list[dict]:
-    peaks = np.array([c["peak_stress_median"] for c in clusters])
-    order = np.argsort(np.argsort(peaks)) / max(len(peaks) - 1, 1)
-
     out = []
     used: set[str] = set()
-    for i, c in enumerate(clusters):
+    for c in clusters:
         rates = c["event_rates"]
+        z = c["excess_z"]
         excess = rates - overall_rates
-        top = np.argsort(excess)[::-1][:6]
 
-        # Which domains are over-represented, weighted by how over-represented.
+        # Only destabilising events name the cluster's theme. A cluster
+        # distinguished by an outbreak of peace is not a "conflict" decade.
+        destab = (
+            np.ones(len(feature_idx), dtype=bool)
+            if valence is None
+            else np.array([valence[i] > 0 for i in feature_idx])
+        )
+        # An event that fires in almost every path cannot distinguish one cluster
+        # from another, however large its z-score looks.
+        destab &= overall_rates < 0.95
+
+        top = np.argsort(np.where(destab, z, -np.inf))[::-1][:6]
         dom_weight: dict[str, float] = {}
         for t in top:
-            if excess[t] <= 0.03:
+            if z[t] <= Z_THRESHOLD:
                 continue
             d = domains[feature_idx[t]]
-            dom_weight[d] = dom_weight.get(d, 0.0) + float(excess[t])
+            dom_weight[d] = dom_weight.get(d, 0.0) + float(z[t])
         ranked_doms = sorted(dom_weight, key=lambda d: -dom_weight[d])[:2]
 
-        tier = _tier(float(order[i]))
+        tier = _tier(float(c.get("peak_stress_pctile", 0.5)))
         if ranked_doms:
             theme = " and ".join(DOMAIN_WORDS.get(d, d) for d in ranked_doms)
             label = f"{tier} decade — {theme}"
@@ -75,30 +92,29 @@ def label_clusters(
 
         signature = []
         for t in top:
-            if excess[t] <= 0.04:
+            if z[t] <= Z_THRESHOLD:
                 continue
             signature.append(
                 f"**{names[feature_idx[t]]}** — {rates[t]*100:.0f}% here vs "
                 f"{overall_rates[t]*100:.0f}% overall"
             )
 
-        below = np.argsort(excess)[:3]
-        for t in below:
-            if excess[t] >= -0.08:
+        for t in np.argsort(np.where(destab, z, np.inf))[:3]:
+            if z[t] >= -Z_THRESHOLD:
                 continue
             signature.append(
                 f"{names[feature_idx[t]]} — *suppressed*: {rates[t]*100:.0f}% here vs "
                 f"{overall_rates[t]*100:.0f}% overall"
             )
 
-        desc = _describe(tier, ranked_doms, c)
         out.append(
             {
                 "label": label,
                 "probability": c["probability"],
-                "description": desc,
+                "description": _describe(tier, ranked_doms, c),
                 "signature": signature,
                 "peak_stress_median": c["peak_stress_median"],
+                "peak_stress_pctile": c.get("peak_stress_pctile"),
                 "n_events_mean": c["n_events_mean"],
             }
         )
@@ -106,9 +122,8 @@ def label_clusters(
 
 
 def _describe(tier: str, doms: list[str], c: dict) -> str:
-    n = c["n_events_mean"]
     base = {
-        "Quiet": (
+        "Contained": (
             "Trend continuation. The scheduled stresses arrive on schedule and are "
             "absorbed; nothing in this cluster forces a structural break."
         ),
@@ -137,4 +152,10 @@ def _describe(tier: str, doms: list[str], c: dict) -> str:
             + " compounded by ".join(DOMAIN_WORDS.get(d, d) for d in doms)
             + "."
         )
-    return f"{base}{driver} Mean count of tracked major events: {n:.1f}."
+    pk = c.get("peak_stress_pctile")
+    where = (
+        f" Typical peak stress sits at the {pk*100:.0f}th percentile of all simulated paths."
+        if pk is not None
+        else ""
+    )
+    return f"{base}{driver}{where}"
