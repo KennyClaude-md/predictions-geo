@@ -62,6 +62,14 @@ def marginal_with_interval(
     within-world binomial noise subtracted off. Skipping that subtraction is the
     classic way to report intervals that are mostly Monte Carlo error dressed up
     as knowledge.
+
+    The subtraction is done by *shrinking* each world's estimate toward the
+    ensemble mean by sqrt(V_epistemic / V_total) and then taking empirical
+    quantiles of the shrunken estimates. Reporting mean +/- z*sd instead would be
+    wrong at the edges: a node at 88% would be handed an upper bound above 1 and
+    clipped to ">99%", which reads as a claim about certainty when it is really
+    an artefact of forcing a symmetric interval onto a bounded quantity. Shrinking
+    keeps the interval inside [0, 1] and keeps its asymmetry.
     """
     order = np.argsort(group, kind="stable")
     g_sorted = group[order]
@@ -86,10 +94,15 @@ def marginal_with_interval(
         v_binom = (w[:, None] * (p_g * (1 - p_g) / np.maximum(m_g, 1)[:, None])).sum(axis=0)
         v_epi = np.maximum(v_total - v_binom, 0.0)
         sd = np.sqrt(v_epi)
+
+        lam = np.sqrt(v_epi / np.maximum(v_total, 1e-12))
+        shrunk = mean[None, :] + lam[None, :] * (p_g - mean[None, :])
+        lo, hi = np.quantile(shrunk, [0.05, 0.95], axis=0)
+
         out[q] = {
             "mean": mean,
-            "lo": np.clip(mean - Z90 * sd, 0.0, 1.0),
-            "hi": np.clip(mean + Z90 * sd, 0.0, 1.0),
+            "lo": np.clip(np.minimum(lo, mean), 0.0, 1.0),
+            "hi": np.clip(np.maximum(hi, mean), 0.0, 1.0),
             "epistemic_sd": sd,
         }
     return out

@@ -1,0 +1,831 @@
+<title>World Futures Forecast 2026–2036</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ground:        #fbfbfc;
+    --surface:       #ffffff;
+    --surface-sunk:  #f4f5f8;
+    --ink:           #0f1115;
+    --ink-2:         #474b55;
+    --ink-3:         #767b87;
+    --rule:          #e2e4ea;
+    --rule-strong:   #c8ccd6;
+    --accent:        #2a78d6;
+    --accent-sunk:   #eaf1fc;
+    --series:        #2a78d6;
+    --band-outer:    rgba(42,120,214,0.13);
+    --band-inner:    rgba(42,120,214,0.26);
+    --grid:          #e6e8ee;
+    --good:          #0ca30c;
+    --warning:       #fab219;
+    --serious:       #ec835a;
+    --critical:      #d03b3b;
+    --ord-1: #86b6ef; --ord-2: #5598e7; --ord-3: #2a78d6; --ord-4: #1c5cab; --ord-5: #0d366b;
+    --shadow: 0 1px 2px rgba(15,17,21,.05), 0 8px 24px -16px rgba(15,17,21,.22);
+
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground:       #14161a;
+      --surface:      #191c21;
+      --surface-sunk: #101215;
+      --ink:          #eceef2;
+      --ink-2:        #b0b5c0;
+      --ink-3:        #7e848f;
+      --rule:         #292d34;
+      --rule-strong:  #3b414a;
+      --accent:       #5c9df0;
+      --accent-sunk:  #17253a;
+      --series:       #3987e5;
+      --band-outer:   rgba(57,135,229,0.16);
+      --band-inner:   rgba(57,135,229,0.30);
+      --grid:         #242830;
+      --good:         #0ca30c;
+      --warning:      #fab219;
+      --serious:      #ec835a;
+      --critical:     #d03b3b;
+      --ord-1: #184f95; --ord-2: #256abf; --ord-3: #3987e5; --ord-4: #6da7ec; --ord-5: #cde2fb;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:       #14161a;
+    --surface:      #191c21;
+    --surface-sunk: #101215;
+    --ink:          #eceef2;
+    --ink-2:        #b0b5c0;
+    --ink-3:        #7e848f;
+    --rule:         #292d34;
+    --rule-strong:  #3b414a;
+    --accent:       #5c9df0;
+    --accent-sunk:  #17253a;
+    --series:       #3987e5;
+    --band-outer:   rgba(57,135,229,0.16);
+    --band-inner:   rgba(57,135,229,0.30);
+    --grid:         #242830;
+    --ord-1: #184f95; --ord-2: #256abf; --ord-3: #3987e5; --ord-4: #6da7ec; --ord-5: #cde2fb;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px 96px; }
+  .col  { max-width: 68ch; }
+
+  /* ---- masthead ---- */
+  header.mast {
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 56px 0 26px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: -0.032em;
+    font-size: clamp(2rem, 5.4vw, 3.2rem);
+    line-height: 1.04;
+    text-wrap: balance;
+    margin: 0 0 20px;
+  }
+  .standfirst { font-size: 1.12rem; color: var(--ink-2); max-width: 62ch; margin: 0 0 26px; }
+  .runline {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .runline b { color: var(--ink-2); font-weight: 500; }
+
+  /* ---- sections ---- */
+  section { margin: 0 0 72px; scroll-margin-top: 20px; }
+  h2 {
+    font-family: var(--sans);
+    font-weight: 650;
+    letter-spacing: -0.022em;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.06rem;
+    letter-spacing: -0.012em;
+    margin: 0 0 6px;
+  }
+  .sec-head { border-top: 1px solid var(--rule-strong); padding-top: 22px; margin-bottom: 26px; }
+  .lede { color: var(--ink-2); margin: 10px 0 0; max-width: 68ch; }
+  p { margin: 0 0 1em; }
+  a { color: var(--accent); }
+  strong { font-weight: 600; }
+
+  /* ---- stat tiles ---- */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 0 0 14px;
+  }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow);
+  }
+  .tile .lab {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .tile .val {
+    font-family: var(--sans);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    display: block;
+  }
+  .tile .sub {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    display: block;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ---- figure shell ---- */
+  figure { margin: 0 0 12px; }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 22px 22px 14px;
+    box-shadow: var(--shadow);
+  }
+  .fig-head { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; margin-bottom: 4px; flex-wrap: wrap; }
+  .fig-title { font-family: var(--sans); font-weight: 600; font-size: .98rem; letter-spacing: -0.01em; }
+  figcaption { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); line-height: 1.55; margin-top: 12px; }
+  .scroller { overflow-x: auto; }
+  svg { display: block; max-width: 100%; }
+  .key { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; color: var(--ink-2); align-items: center; }
+  .key i { width: 15px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: -1px; }
+
+  button.toggle {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--ink-3);
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  button.toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+  button.toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---- tables ---- */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: 13.5px; }
+  th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+    background: var(--surface);
+  }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: middle; color: var(--ink-2); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--surface-sunk); }
+  td.name { color: var(--ink); font-weight: 500; min-width: 240px; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .num.lead { color: var(--ink); font-weight: 600; }
+  .band { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+
+  /* ---- probability rail: the repeating motif ---- */
+  .rail { display: flex; align-items: center; gap: 10px; min-width: 168px; }
+  .rail .track { position: relative; flex: 1; height: 9px; background: var(--surface-sunk); border-radius: 2px; min-width: 96px; }
+  .rail .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--series); border-radius: 0 4px 4px 0; }
+  .rail .ci { position: absolute; top: 50%; height: 1px; background: var(--rule-strong); transform: translateY(-50%); }
+  .rail .ci::before, .rail .ci::after {
+    content: ""; position: absolute; top: -3px; width: 1px; height: 7px; background: var(--rule-strong);
+  }
+  .rail .ci::before { left: 0; } .rail .ci::after { right: 0; }
+  .rail .pv { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--ink); min-width: 42px; text-align: right; font-weight: 600; }
+
+  .chip {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+    padding: 2px 6px; border-radius: 2px; white-space: nowrap;
+    border: 1px solid currentColor;
+  }
+  .chip.sev-low { color: var(--ink-3); }
+  .chip.sev-mod { color: var(--warning); }
+  .chip.sev-high { color: var(--serious); }
+  .chip.sev-crit { color: var(--critical); }
+
+  details { border-top: 1px solid var(--rule); padding: 14px 0 2px; }
+  details summary {
+    cursor: pointer; font-family: var(--mono); font-size: 11px;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3);
+  }
+  details summary:hover { color: var(--ink); }
+  details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  details[open] summary { margin-bottom: 14px; }
+  .crit-list { font-size: 14px; color: var(--ink-2); }
+  .crit-list li { margin-bottom: 9px; }
+  .crit-list b { color: var(--ink); font-weight: 600; }
+
+  /* ---- archetypes ---- */
+  .arch { border-top: 1px solid var(--rule); padding: 22px 0; display: grid; grid-template-columns: 96px 1fr; gap: 24px; }
+  .arch .mass { font-family: var(--sans); font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .arch .masslab { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-top: 7px; }
+  .arch .swatch { width: 34px; height: 4px; border-radius: 2px; margin-bottom: 12px; }
+  .arch ul { margin: 12px 0 0; padding-left: 18px; font-size: 14px; color: var(--ink-2); }
+  .arch li { margin-bottom: 5px; }
+
+  .note {
+    background: var(--accent-sunk);
+    border-left: 2px solid var(--accent);
+    padding: 16px 20px;
+    font-size: 15px;
+    color: var(--ink-2);
+    margin: 0 0 22px;
+    border-radius: 0 3px 3px 0;
+  }
+  .note b { color: var(--ink); }
+
+  ul.limits { padding-left: 20px; color: var(--ink-2); font-size: 15.5px; }
+  ul.limits li { margin-bottom: 12px; }
+  ul.limits b { color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+
+  .tip {
+    position: fixed; pointer-events: none; z-index: 50; opacity: 0;
+    transition: opacity .1s;
+    background: var(--ink); color: var(--ground);
+    font-family: var(--mono); font-size: 11.5px; line-height: 1.55;
+    padding: 8px 10px; border-radius: 3px; max-width: 280px;
+    box-shadow: 0 6px 20px -6px rgba(0,0,0,.5);
+  }
+  .tip.on { opacity: 1; }
+  .tip .t-lab { color: var(--ground); opacity: .65; display: block; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 18px 72px; }
+    .arch { grid-template-columns: 1fr; gap: 10px; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Monte Carlo world-futures simulation · run <span id="m-asof"></span></p>
+  <h1>What the next ten years probably look like</h1>
+  <p class="standfirst">
+    A survival-process simulation of <span id="m-risks"></span> coupled global risks across nine
+    domains, run <span id="m-paths"></span> times over 2026Q3–2036Q4. Every probability below is
+    derived from the model, not asserted — and every one carries the range it moves across
+    depending on whose reading of the world you accept.
+  </p>
+  <div class="runline">
+    <span><b id="m-paths2"></b> simulated decades</span>
+    <span><b id="m-worlds"></b> parameter worlds × 5 worldviews</span>
+    <span><b id="m-edges"></b> causal edges</span>
+    <span>calibration residual <b id="m-cal"></b></span>
+  </div>
+</header>
+
+<section id="topline">
+  <div class="sec-head">
+    <h2>The topline</h2>
+    <p class="lede">Individual probabilities are the easy part. What determines how the decade
+      actually feels is how many serious shocks land — and whether they land together.</p>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="topline-note"></p>
+</section>
+
+<section id="stress">
+  <div class="sec-head">
+    <h2>Systemic stress over the decade</h2>
+    <p class="lede">Every fired event contributes its severity to a global stress index and then
+      decays. A decade with three severity-8 events inside eighteen months scores far higher
+      than one where the same three are spread across ten years — which is the point.
+      Simultaneity breaks systems, not the count.</p>
+  </div>
+  <figure class="panel">
+    <div class="fig-head">
+      <span class="fig-title">Global Systemic Stress Index, 2026Q3–2036Q4</span>
+      <button class="toggle" data-table="tbl-stress" type="button">Table view</button>
+    </div>
+    <div class="scroller"><svg id="fan" role="img" aria-label="Fan chart of systemic stress index over time"></svg></div>
+    <div class="key" style="margin-top:12px">
+      <span><i style="background:var(--series)"></i>Median path</span>
+      <span><i style="background:var(--band-inner)"></i>25th–75th percentile</span>
+      <span><i style="background:var(--band-outer)"></i>5th–95th percentile</span>
+    </div>
+    <figcaption id="fan-cap"></figcaption>
+    <div class="tbl-wrap" id="tbl-stress" hidden style="margin-top:16px"></div>
+  </figure>
+</section>
+
+<section id="headline">
+  <div class="sec-head">
+    <h2>Headline forecasts</h2>
+    <p class="lede">Ranked by expected systemic impact — probability by 2036 times severity —
+      rather than by probability alone, because a 12% chance of something that reorders the world
+      outranks a near-certainty that doesn't. The bracket is not the range of outcomes; the event
+      either happens or it doesn't. It is the range of <em>the probability itself</em> across
+      parameter worlds. Monte Carlo noise has been subtracted, so what is left is real
+      disagreement.</p>
+  </div>
+  <figure class="panel">
+    <div class="fig-head">
+      <span class="fig-title">Probability by 2036, with 90% credible interval</span>
+      <button class="toggle" data-table="tbl-headline" type="button">Table view</button>
+    </div>
+    <div class="scroller"><svg id="bars" role="img" aria-label="Headline event probabilities with credible intervals"></svg></div>
+    <figcaption>Bar is the ensemble probability by end-2036. Whisker spans the 90% credible
+      interval on that probability across parameter worlds. Wide whisker = fragile forecast.</figcaption>
+    <div class="tbl-wrap" id="tbl-headline" hidden style="margin-top:16px"></div>
+  </figure>
+  <div class="tbl-wrap" style="margin-top:22px">
+    <table id="headline-table"></table>
+  </div>
+</section>
+
+<section id="archetypes">
+  <div class="sec-head">
+    <h2>Five shapes the decade takes</h2>
+    <p class="lede">Paths were clustered on which major events fired and on the shape of their
+      stress trajectory. These are not scenarios written in advance and then assigned
+      probabilities — they are the shapes the simulation actually produced, priced by how much
+      of the path mass fell into each.</p>
+  </div>
+  <div id="arch-list"></div>
+</section>
+
+<section id="cascades">
+  <div class="sec-head">
+    <h2>How bad decades begin</h2>
+    <p class="lede">Among paths where at least three high-severity events fired, the most common
+      opening sequences in order of occurrence.</p>
+  </div>
+  <div class="tbl-wrap"><table id="chain-table"></table></div>
+  <p class="lede" id="chain-note" style="margin-top:18px"></p>
+</section>
+
+<section id="pairs">
+  <div class="sec-head">
+    <h2>Where the correlations are</h2>
+    <p class="lede">Pairs whose joint occurrence most exceeds what independence would predict.
+      Lift is P(both) ÷ P(A)·P(B) — a lift of 3 means these two show up together three times
+      more often than chance. This is the part a spreadsheet of independent probabilities cannot
+      produce, and it is where tail risk actually lives.</p>
+  </div>
+  <div class="tbl-wrap"><table id="pair-table"></table></div>
+</section>
+
+<section id="drivers">
+  <div class="sec-head">
+    <h2>What to watch</h2>
+    <p class="lede">Share of the variance in peak systemic stress attributable to each event
+      firing at all. High-scoring nodes are worth watching because learning how they resolve
+      collapses the most uncertainty about everything else.</p>
+  </div>
+  <div class="tbl-wrap"><table id="sens-table"></table></div>
+</section>
+
+<section id="disagree">
+  <div class="sec-head">
+    <h2>Where the worldviews disagree</h2>
+    <p class="lede">Five parameterisations — raw analyst, audited, outside-view base rates,
+      structural-break inside view, and prediction-market check — converge on most nodes.
+      These are the ones where they don't, and they are exactly the forecasts to hold most
+      loosely.</p>
+  </div>
+  <div class="tbl-wrap"><table id="dis-table"></table></div>
+</section>
+
+<section id="domains">
+  <div class="sec-head">
+    <h2>Full results by domain</h2>
+    <p class="lede">Every node in the model, with the resolution criteria each was scored
+      against. Read the criteria before quoting a number — several of these forecasts move by
+      tens of percentage points on the wording of what counts.</p>
+  </div>
+  <div id="domain-list"></div>
+</section>
+
+<section id="indicators">
+  <div class="sec-head">
+    <h2>Continuous indicators</h2>
+    <p class="lede">These evolve on a Gaussian copula driven by each path's own stress index, so
+      the bad tails here are populated by the same paths that fired the bad events — not by
+      independent noise.</p>
+  </div>
+  <div class="tbl-wrap"><table id="cont-table"></table></div>
+</section>
+
+<section id="limits">
+  <div class="sec-head">
+    <h2>What this cannot do</h2>
+    <p class="lede">The engine is exact. The parameters are informed judgement. Simulation
+      precision does not create forecast accuracy, and the gap between those two things is
+      where every failure of a model like this one lives.</p>
+  </div>
+  <ul class="limits" id="limit-list"></ul>
+</section>
+
+<footer>
+  Generated by the <b>worldsim</b> Monte Carlo engine · <span id="f-paths"></span> paths ·
+  seed <span id="f-seed"></span> · run <span id="f-asof"></span><br>
+  Parameters, coupling structure and red-team corrections live in <code>params/</code>;
+  rerun with <code>python run_simulation.py</code>.
+</footer>
+
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script id="payload" type="application/json">{"meta":{"as_of":"2026-07-29","n_paths":4800,"n_worlds":200,"n_risks":108,"n_edges":70,"calibration_pp":3.6333333333332996,"seed":20260729},"tiles":[{"label":"Severe events expected","value":"27.9","sub":"severity \u2265 6, through 2036 \u00b7 10th\u201390th pct 24\u201332"},{"label":"A decade with none","value":"<0.5%","sub":"probability no severity \u2265 6 event fires at all \u2014 the quiet case is a tail, not the base case"},{"label":"At least one catastrophic","value":">99%","sub":"severity \u2265 8 \u00b7 two or more: >99%"},{"label":"Three or more severe","value":">99%","sub":"five or more: >99% \u2014 the compound case is where the coupling structure dominates"}],"topline_note":"The modal decade contains 28 events the model rates severity 6 or above, and the probability of getting through to 2036 with none is 0%. That asymmetry is the single most robust finding here: across every worldview and every parameter draw, a decade with no major disruption is a tail outcome, not the base case. The interesting variance is not *whether* shocks arrive but whether they arrive spaced out or together.","stress":{"labels":["2026Q3","2026Q4","2027Q1","2027Q2","2027Q3","2027Q4","2028Q1","2028Q2","2028Q3","2028Q4","2029Q1","2029Q2","2029Q3","2029Q4","2030Q1","2030Q2","2030Q3","2030Q4","2031Q1","2031Q2","2031Q3","2031Q4","2032Q1","2032Q2","2032Q3","2032Q4","2033Q1","2033Q2","2033Q3","2033Q4","2034Q1","2034Q2","2034Q3","2034Q4","2035Q1","2035Q2","2035Q3","2035Q4","2036Q1","2036Q2","2036Q3","2036Q4"],"p5":[2.9,12.9,22.73,31.85,38.53,45.45,50.52,54.74,57.78,60.31,62.6,62.99,64.81,65.03,65.43,64.32,63.87,63.14,62.24,61.51,60.47,59.4,60.05,59.91,59.42,58.68,57.26,55.72,54.34,52.12,50.18,48.58,46.95,45.15,43.27,41.59,39.54,38.12,36.72,35.15,33.38,31.85],"p25":[10.9,24.25,36.37,46.88,55.7,63.29,67.9,72.06,75.03,77.17,78.26,79.17,80.01,79.86,79.59,78.55,78.02,76.47,75.72,74.5,73.39,71.56,72.45,72.01,71.22,70.11,68.71,66.76,64.77,62.81,60.83,58.64,56.52,54.5,52.59,50.67,48.65,46.83,45.07,43.37,41.92,40.24],"p50":[17.7,33.34,47.21,58.72,68.22,75.77,81.08,84.99,87.58,89.0,90.43,90.77,90.87,91.05,90.25,89.25,88.45,87.05,85.34,83.79,82.34,80.79,81.93,81.13,80.05,78.87,77.17,74.91,73.07,70.82,68.72,66.26,63.78,61.77,59.43,57.55,55.55,53.67,51.89,50.03,48.43,46.86],"p75":[25.5,44.12,59.28,71.53,81.53,90.16,94.92,98.64,100.87,102.2,103.37,103.49,103.17,102.87,101.93,100.73,99.32,97.8,95.9,93.99,92.18,90.15,91.05,90.77,89.66,88.24,85.99,83.62,81.43,79.32,76.78,74.3,72.03,69.69,67.74,65.17,63.17,61.2,59.3,57.38,55.39,54.02],"p95":[38.9,60.45,77.75,91.88,102.22,111.02,115.45,119.4,121.78,121.91,122.27,122.1,121.19,120.32,119.42,117.51,115.84,113.86,110.98,109.29,108.06,104.99,106.56,106.06,103.82,102.07,99.77,96.9,94.56,92.21,89.7,87.1,84.18,81.61,78.84,77.07,75.1,72.5,70.91,69.24,66.62,64.69],"caption":"Index units are severity-weighted and decay-discounted, so the level is only meaningful relative to itself. The widening gap between the median and the 95th percentile is the model saying the downside is far more variable than the central case."},"headline":[{"name":"Synthetic energy event 5","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.2572916683500321,"p2031":0.8127083334326747,"p2036":0.9914583329980576,"lo2036":0.9525354425110649,"hi2036":1.0,"severity":8.300000190734863,"timing":"2028Q4"},{"name":"Synthetic geopolitics event 6","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.2102083345890666,"p2031":0.6345833344850688,"p2036":0.974166665064792,"lo2036":0.9118524042711509,"hi2036":1.0,"severity":8.399999618530273,"timing":"2030Q1"},{"name":"Synthetic geopolitics event 9","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.24000000268919391,"p2031":0.693125001185884,"p2036":0.8974999982491129,"lo2036":0.7874185409601765,"hi2036":1.0,"severity":7.800000190734863,"timing":"2029Q2"},{"name":"Synthetic health event 9","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.28145833606986936,"p2031":0.5781250020628793,"p2036":0.9199999986526864,"lo2036":0.7546090942985292,"hi2036":1.0,"severity":7.300000190734863,"timing":"2030Q1"},{"name":"Synthetic health event 10","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.19104166918123772,"p2031":0.5104166697493445,"p2036":0.8458333328024795,"lo2036":0.5570713798036505,"hi2036":1.0,"severity":7.699999809265137,"timing":"2030Q1"},{"name":"Synthetic climate event 7","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.24645833471557113,"p2031":0.5531250008816521,"p2036":0.8954166646177573,"lo2036":0.6738586900282966,"hi2036":1.0,"severity":6.800000190734863,"timing":"2030Q1"},{"name":"Synthetic ai event 2","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.19791666831821197,"p2031":0.8229166653395319,"p2036":0.9941666660209497,"lo2036":0.9459543046612247,"hi2036":1.0,"severity":6.0,"timing":"2028Q4"},{"name":"Synthetic energy event 11","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.21895833517036709,"p2031":0.5914583331206815,"p2036":0.9770833326255283,"lo2036":0.877557528923404,"hi2036":1.0,"severity":6.099999904632568,"timing":"2030Q2"},{"name":"Synthetic demographics event 3","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.25645833566629633,"p2031":0.7897916683740913,"p2036":0.9916666654869914,"lo2036":0.9685130453744141,"hi2036":1.0,"severity":6.0,"timing":"2029Q1"},{"name":"Synthetic foodwater event 7","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.18500000158906915,"p2031":0.5954166668513787,"p2036":0.7814583327062429,"lo2036":0.4633808693662093,"hi2036":1.0,"severity":7.599999904632568,"timing":"2029Q2"},{"name":"Synthetic health event 11","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.2377083345960515,"p2031":0.6889583324454721,"p2036":0.9841666664804023,"lo2036":0.9144937734036278,"hi2036":1.0,"severity":5.800000190734863,"timing":"2029Q2"},{"name":"Synthetic foodwater event 9","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.24520833555531385,"p2031":0.5185416687854256,"p2036":0.8089583339022172,"lo2036":0.5592933543041357,"hi2036":1.0,"severity":6.900000095367432,"timing":"2030Q1"},{"name":"Synthetic economy event 1","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.15729166771828504,"p2031":0.5475000012596136,"p2036":0.6918750019115398,"lo2036":0.27881475720815074,"hi2036":1.0,"severity":7.5,"timing":"2029Q2"},{"name":"Synthetic energy event 7","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.19104166820296095,"p2031":0.5422916689647048,"p2036":0.8747916656701515,"lo2036":0.6192675102001888,"hi2036":1.0,"severity":5.900000095367432,"timing":"2030Q2"},{"name":"Synthetic energy event 1","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.18270833504851908,"p2031":0.5166666690229128,"p2036":0.6577083359720809,"lo2036":0.45132060600514523,"hi2036":0.8640960659390166,"severity":7.599999904632568,"timing":"2029Q2"},{"name":"Synthetic health event 3","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.254791668340719,"p2031":0.5135416680605461,"p2036":0.7000000011983011,"lo2036":0.34257921932004354,"hi2036":1.0,"severity":7.099999904632568,"timing":"2029Q1"},{"name":"Synthetic demographics event 8","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.19604166782073051,"p2031":0.56645833291579,"p2036":0.8127083332588279,"lo2036":0.5448459669988652,"hi2036":1.0,"severity":6.099999904632568,"timing":"2029Q4"},{"name":"Synthetic economy event 5","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.21708333569074362,"p2031":0.36479166933723406,"p2036":0.5633333344128914,"lo2036":0.05885006100724666,"hi2036":1.0,"severity":8.699999809265137,"timing":"2029Q2"},{"name":"Synthetic demographics event 9","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.27770833533412453,"p2031":0.5347916678572071,"p2036":0.6431250021016846,"lo2036":0.21281163171093215,"hi2036":1.0,"severity":7.599999904632568,"timing":"2028Q3"},{"name":"Synthetic ai event 11","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.23645833547653944,"p2031":0.7862499999472249,"p2036":0.8635416660085317,"lo2036":0.5472127630608936,"hi2036":1.0,"severity":5.5,"timing":"2028Q3"},{"name":"Synthetic demographics event 1","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.1960416683795241,"p2031":0.6152083352472013,"p2036":0.7627083321909114,"lo2036":0.4661777846776125,"hi2036":1.0,"severity":6.199999809265137,"timing":"2029Q2"},{"name":"Synthetic foodwater event 8","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.2831250021338929,"p2031":0.5754166667143971,"p2036":0.8435416669708986,"lo2036":0.5344737762342405,"hi2036":1.0,"severity":5.400000095367432,"timing":"2029Q2"}],"archetypes":[{"label":"Quiet decade \u2014 great-power conflict and health emergency","probability":0.4579166666666667,"description":"Trend continuation. The scheduled stresses arrive on schedule and are absorbed; nothing in this cluster forces a structural break. The distinguishing driver is great-power conflict compounded by health emergency. Mean count of tracked major events: 20.4.","signature":["**Synthetic geopolitics event 9** \u2014 100% here vs 90% overall","**Synthetic health event 9** \u2014 100% here vs 92% overall"],"peak_stress_median":97.98003387451172,"n_events_mean":20.435396194458008},{"label":"Compound crisis decade \u2014 health emergency and energy disruption","probability":0.3595833333333333,"description":"Correlated systemic failure. Multiple high-severity events fire in a narrow window and reinforce each other; this is the cluster where the coupling structure dominates the marginals. The distinguishing driver is health emergency compounded by energy disruption. Mean count of tracked major events: 21.9.","signature":["**Synthetic geopolitics event 9** \u2014 100% here vs 90% overall","**Synthetic health event 9** \u2014 100% here vs 92% overall","**Synthetic energy event 1** \u2014 73% here vs 66% overall","**Synthetic health event 3** \u2014 77% here vs 70% overall","**Synthetic demographics event 9** \u2014 72% here vs 64% overall","**Synthetic energy event 2** \u2014 65% here vs 58% overall"],"peak_stress_median":117.70272827148438,"n_events_mean":21.903823852539062},{"label":"Turbulent decade \u2014 health emergency and financial and macro stress","probability":0.094375,"description":"Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is health emergency compounded by financial and macro stress. Mean count of tracked major events: 20.1.","signature":["**Synthetic health event 9** \u2014 100% here vs 92% overall","**Synthetic economy event 1** \u2014 75% here vs 69% overall","Synthetic geopolitics event 9 \u2014 *suppressed*: 0% here vs 90% overall"],"peak_stress_median":103.01322174072266,"n_events_mean":20.114789962768555},{"label":"Severe decade \u2014 no dominant driver","probability":0.07958333333333334,"description":"Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. Mean count of tracked major events: 19.8.","signature":["Synthetic health event 9 \u2014 *suppressed*: 0% here vs 92% overall"],"peak_stress_median":103.20465850830078,"n_events_mean":19.808900833129883},{"label":"Manageable decade \u2014 energy disruption and financial and macro stress","probability":0.008541666666666666,"description":"Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is energy disruption compounded by financial and macro stress. Mean count of tracked major events: 19.2.","signature":["**Synthetic energy event 1** \u2014 76% here vs 66% overall","**Synthetic economy event 5** \u2014 66% here vs 56% overall","**Synthetic demographics event 8** \u2014 88% here vs 81% overall","**Synthetic ai event 11** \u2014 93% here vs 86% overall","Synthetic energy event 5 \u2014 *suppressed*: 0% here vs 99% overall","Synthetic climate event 5 \u2014 *suppressed*: 46% here vs 64% overall","Synthetic foodwater event 9 \u2014 *suppressed*: 66% here vs 81% overall"],"peak_stress_median":101.47425842285156,"n_events_mean":19.2439022064209}],"chains":[{"names":["Synthetic climate event 7","Synthetic demographics event 6","Synthetic demographics event 9"],"share":0.0010416666666666667},{"names":["Synthetic demographics event 6","Synthetic demographics event 9","Synthetic economy event 1"],"share":0.0008333333333333334},{"names":["Synthetic ai event 0","Synthetic climate event 7","Synthetic energy event 2"],"share":0.0008333333333333334},{"names":["Synthetic ai event 6","Synthetic demographics event 3","Synthetic climate event 5"],"share":0.0008333333333333334},{"names":["Synthetic ai event 0","Synthetic demographics event 4","Synthetic demographics event 9"],"share":0.0008333333333333334},{"names":["Synthetic demographics event 3","Synthetic demographics event 9","Synthetic economy event 1"],"share":0.0008333333333333334},{"names":["Synthetic climate event 10","Synthetic economy event 1","Synthetic foodwater event 11"],"share":0.0008333333333333334},{"names":["Synthetic demographics event 9","Synthetic energy event 2","Synthetic energy event 5"],"share":0.0008333333333333334},{"names":["Synthetic climate event 5","Synthetic demographics event 3","Synthetic demographics event 6"],"share":0.0008333333333333334},{"names":["Synthetic climate event 5","Synthetic climate event 7","Synthetic economy event 2"],"share":0.0008333333333333334}],"chain_note":"The most common opening \u2014 Synthetic climate event 7 \u2192 Synthetic demographics event 6 \u2192 Synthetic demographics event 9 \u2014 accounts for 0.1% of all paths. No single sequence dominates, which is itself informative: the model does not support a story in which one specific trigger reliably starts the cascade. What recurs is the *pattern* \u2014 a shock in one domain degrading the capacity to absorb the next.","pairs":[{"a":"Synthetic economy event 1","b":"Synthetic foodwater event 0","joint":0.4077083468437195,"lift":1.1206600666046143,"cond":0.775356650352478},{"a":"Synthetic economy event 5","b":"Synthetic ai event 8","joint":0.2839583456516266,"lift":1.0734368562698364,"cond":0.6047027707099915},{"a":"Synthetic economy event 5","b":"Synthetic demographics event 4","joint":0.3870833218097687,"lift":1.055431842803955,"cond":0.5945599675178528},{"a":"Synthetic economy event 5","b":"Synthetic demographics event 6","joint":0.33000001311302185,"lift":1.0445150136947632,"cond":0.5884101390838623},{"a":"Synthetic energy event 2","b":"Synthetic foodwater event 0","joint":0.31687501072883606,"lift":1.0389913320541382,"cond":0.6026149392127991},{"a":"Synthetic economy event 1","b":"Synthetic ai event 11","joint":0.6187499761581421,"lift":1.035629153251648,"cond":0.7165259122848511},{"a":"Synthetic health event 3","b":"Synthetic geopolitics event 10","joint":0.3172916769981384,"lift":1.0355613231658936,"cond":0.7248929142951965},{"a":"Synthetic health event 2","b":"Synthetic geopolitics event 1","joint":0.3812499940395355,"lift":1.0325638055801392,"cond":0.5388692617416382},{"a":"Synthetic demographics event 9","b":"Synthetic foodwater event 0","joint":0.3477083444595337,"lift":1.0281858444213867,"cond":0.6612520217895508},{"a":"Synthetic ai event 11","b":"Synthetic climate event 5","joint":0.5724999904632568,"lift":1.027856469154358,"cond":0.8875969052314758},{"a":"Synthetic energy event 7","b":"Synthetic foodwater event 0","joint":0.47062501311302185,"lift":1.023109793663025,"cond":0.8950079679489136},{"a":"Synthetic health event 10","b":"Synthetic ai event 8","joint":0.40625,"lift":1.0228121280670166,"cond":0.8651286363601685},{"a":"Synthetic demographics event 8","b":"Synthetic ai event 8","joint":0.38999998569488525,"lift":1.0219206809997559,"cond":0.8305234909057617},{"a":"Synthetic foodwater event 7","b":"Synthetic foodwater event 0","joint":0.4195833206176758,"lift":1.0210906267166138,"cond":0.7979397773742676},{"a":"Synthetic climate event 7","b":"Synthetic foodwater event 0","joint":0.4802083373069763,"lift":1.019897222518921,"cond":0.9132330417633057},{"a":"Synthetic health event 3","b":"Synthetic energy event 2","joint":0.413958340883255,"lift":1.019601821899414,"cond":0.7137212753295898},{"a":"Synthetic foodwater event 9","b":"Synthetic health event 2","joint":0.4300000071525574,"lift":1.018534541130066,"cond":0.8239520788192749},{"a":"Synthetic foodwater event 7","b":"Synthetic energy event 1","joint":0.5233333110809326,"lift":1.018214225769043,"cond":0.7956920862197876}],"sensitivity":[{"name":"Synthetic foodwater event 10","share":0.030129210140837547,"p2036":0.5810416702274234,"severity":5.0},{"name":"Synthetic demographics event 7","share":0.029300224808714498,"p2036":0.43687500250836186,"severity":6.800000190734863},{"name":"Synthetic foodwater event 0","share":0.02365116418102142,"p2036":0.5258333358230688,"severity":7.400000095367432},{"name":"Synthetic geopolitics event 2","share":0.021175306623529903,"p2036":0.3110416694637388,"severity":7.900000095367432},{"name":"Synthetic ai event 3","share":0.02043706254546441,"p2036":0.32416666860071336,"severity":3.700000047683716},{"name":"Synthetic economy event 11","share":0.02036169874417676,"p2036":0.4789583344610099,"severity":8.600000381469727},{"name":"Synthetic climate event 6","share":0.01896003823064517,"p2036":0.522291669525827,"severity":4.599999904632568},{"name":"Synthetic foodwater event 6","share":0.018896738349984912,"p2036":0.5527083352673801,"severity":6.199999809265137},{"name":"Synthetic health event 3","share":0.017605058151217736,"p2036":0.7000000011983011,"severity":7.099999904632568},{"name":"Synthetic foodwater event 2","share":0.01658314325521487,"p2036":0.33250000327127044,"severity":8.600000381469727},{"name":"Synthetic economy event 2","share":0.01628057484366928,"p2036":0.47437500252388404,"severity":7.099999904632568},{"name":"Synthetic demographics event 5","share":0.016118020377741498,"p2036":0.1679166682083935,"severity":6.900000095367432},{"name":"Synthetic politics event 6","share":0.0159871893583187,"p2036":0.4262500008102506,"severity":5.5},{"name":"Synthetic economy event 0","share":0.015845158324050864,"p2036":0.44604166855725147,"severity":4.5},{"name":"Synthetic ai event 0","share":0.01474055245722036,"p2036":0.31187500290417414,"severity":6.099999904632568},{"name":"Synthetic energy event 2","share":0.01441257335146706,"p2036":0.5800000029057262,"severity":7.300000190734863},{"name":"Synthetic economy event 7","share":0.01416504689037998,"p2036":0.5020833354528682,"severity":4.199999809265137},{"name":"Synthetic economy event 10","share":0.014072353691162665,"p2036":0.33854166799380125,"severity":6.0}],"disagreement":[{"name":"Synthetic climate event 9","by_view":[0.8989583333333333,0.901875,0.27145833333333336,0.8847916666666666,0.891875],"spread":0.6304166666666666},{"name":"Synthetic energy event 9","by_view":[0.023958333333333335,0.021041666666666667,0.03270833333333333,0.5504166666666667,0.021458333333333333],"spread":0.529375},{"name":"Synthetic politics event 9","by_view":[0.9408333333333333,0.9495833333333333,0.95,0.443125,0.9377083333333334],"spread":0.506875},{"name":"Synthetic economy event 7","by_view":[0.5754166666666667,0.57875,0.5810416666666667,0.10229166666666667,0.5875],"spread":0.48520833333333335},{"name":"Synthetic ai event 7","by_view":[0.245625,0.255,0.2575,0.7225,0.25145833333333334],"spread":0.47687500000000005},{"name":"Synthetic ai event 0","by_view":[0.22520833333333334,0.20375,0.2025,0.35083333333333333,0.6225],"spread":0.42000000000000004},{"name":"Synthetic economy event 10","by_view":[0.443125,0.45708333333333334,0.2608333333333333,0.0525,0.4429166666666667],"spread":0.40458333333333335},{"name":"Synthetic health event 6","by_view":[0.2577083333333333,0.250625,0.550625,0.2604166666666667,0.6410416666666666],"spread":0.39041666666666663},{"name":"Synthetic ai event 11","by_view":[0.9529166666666666,0.9416666666666667,0.943125,0.9533333333333334,0.5741666666666667],"spread":0.37916666666666665},{"name":"Synthetic climate event 4","by_view":[0.180625,0.21979166666666666,0.5302083333333333,0.556875,0.20125],"spread":0.37625},{"name":"Synthetic economy event 1","by_view":[0.835,0.8147916666666667,0.5897916666666667,0.8041666666666667,0.464375],"spread":0.370625},{"name":"Synthetic climate event 10","by_view":[0.324375,0.28979166666666667,0.13104166666666667,0.456875,0.30833333333333335],"spread":0.3258333333333333},{"name":"Synthetic geopolitics event 7","by_view":[0.870625,0.881875,0.6066666666666667,0.8883333333333333,0.9014583333333334],"spread":0.2947916666666667},{"name":"Synthetic health event 5","by_view":[0.480625,0.45958333333333334,0.20625,0.48875,0.4891666666666667],"spread":0.2829166666666667},{"name":"Synthetic ai event 5","by_view":[0.16708333333333333,0.18354166666666666,0.18333333333333332,0.1625,0.43083333333333335],"spread":0.2683333333333333},{"name":"Synthetic geopolitics event 10","by_view":[0.3745833333333333,0.3722916666666667,0.3647916666666667,0.384375,0.631875],"spread":0.2670833333333333}],"continuous":[{"name":"Synthetic geopolitics indicator 0","unit":"units","current":17.1,"q2031":[15.7,20.9,29.3],"q2036":[15.9,23.2,35.0]},{"name":"Synthetic geopolitics indicator 1","unit":"units","current":96.5,"q2031":[90.6,121.0,170.0],"q2036":[92.6,136.0,201.0]},{"name":"Synthetic geopolitics indicator 2","unit":"units","current":57.3,"q2031":[50.0,66.7,93.2],"q2036":[48.3,71.2,108.0]},{"name":"Synthetic geopolitics indicator 3","unit":"units","current":21.9,"q2031":[19.9,26.7,37.0],"q2036":[20.0,29.3,43.5]},{"name":"Synthetic geopolitics indicator 4","unit":"units","current":57.8,"q2031":[41.0,54.3,76.0],"q2036":[34.2,53.2,83.0]},{"name":"Synthetic climate indicator 0","unit":"units","current":47.2,"q2031":[40.8,54.2,75.5],"q2036":[39.2,57.2,86.5]},{"name":"Synthetic climate indicator 1","unit":"units","current":35.9,"q2031":[31.0,41.8,57.9],"q2036":[30.2,44.3,67.1]},{"name":"Synthetic climate indicator 2","unit":"units","current":74.1,"q2031":[44.5,60.3,84.6],"q2036":[32.2,52.3,85.5]},{"name":"Synthetic climate indicator 3","unit":"units","current":7.0,"q2031":[5.95,7.98,11.2],"q2036":[5.77,8.52,13.0]},{"name":"Synthetic climate indicator 4","unit":"units","current":96.4,"q2031":[67.3,90.1,126.0],"q2036":[54.1,84.9,134.0]},{"name":"Synthetic economy indicator 0","unit":"units","current":98.7,"q2031":[75.5,101.0,142.0],"q2036":[67.7,101.0,156.0]},{"name":"Synthetic economy indicator 1","unit":"units","current":95.1,"q2031":[90.3,120.0,168.0],"q2036":[92.1,133.0,199.0]},{"name":"Synthetic economy indicator 2","unit":"units","current":23.0,"q2031":[20.3,26.9,37.8],"q2036":[19.9,29.2,43.9]},{"name":"Synthetic economy indicator 3","unit":"units","current":83.8,"q2031":[71.0,94.9,133.0],"q2036":[69.0,101.0,154.0]},{"name":"Synthetic economy indicator 4","unit":"units","current":52.4,"q2031":[37.1,49.2,69.1],"q2036":[31.1,47.9,74.9]},{"name":"Synthetic ai indicator 0","unit":"units","current":16.5,"q2031":[10.5,13.8,19.3],"q2036":[7.7,12.3,20.2]},{"name":"Synthetic ai indicator 1","unit":"units","current":39.2,"q2031":[29.2,39.1,54.6],"q2036":[25.5,38.9,60.8]},{"name":"Synthetic ai indicator 2","unit":"units","current":31.1,"q2031":[21.6,29.0,40.7],"q2036":[17.8,27.8,43.7]},{"name":"Synthetic ai indicator 3","unit":"units","current":98.8,"q2031":[74.5,99.5,140.0],"q2036":[67.2,101.0,156.0]},{"name":"Synthetic ai indicator 4","unit":"units","current":13.6,"q2031":[8.16,10.9,15.3],"q2036":[5.63,9.5,15.7]},{"name":"Synthetic energy indicator 0","unit":"units","current":4.59,"q2031":[4.12,5.44,7.59],"q2036":[3.98,5.83,8.88]},{"name":"Synthetic energy indicator 1","unit":"units","current":51.6,"q2031":[45.0,59.9,83.7],"q2036":[43.7,64.5,97.2]},{"name":"Synthetic energy indicator 2","unit":"units","current":11.6,"q2031":[10.2,13.6,19.2],"q2036":[10.0,14.7,22.2]},{"name":"Synthetic energy indicator 3","unit":"units","current":93.5,"q2031":[57.3,77.1,107.0],"q2036":[41.9,68.2,110.0]},{"name":"Synthetic energy indicator 4","unit":"units","current":33.1,"q2031":[26.9,35.8,50.2],"q2036":[24.7,37.2,56.9]},{"name":"Synthetic demographics indicator 0","unit":"units","current":83.6,"q2031":[75.9,101.0,140.0],"q2036":[76.0,111.0,168.0]},{"name":"Synthetic demographics indicator 1","unit":"units","current":56.2,"q2031":[44.4,58.9,81.6],"q2036":[39.9,59.5,92.2]},{"name":"Synthetic demographics indicator 2","unit":"units","current":72.3,"q2031":[66.7,89.3,125.0],"q2036":[68.6,98.6,146.0]},{"name":"Synthetic demographics indicator 3","unit":"units","current":40.6,"q2031":[35.3,47.3,66.2],"q2036":[35.0,50.8,76.8]},{"name":"Synthetic demographics indicator 4","unit":"units","current":96.1,"q2031":[73.4,99.1,138.0],"q2036":[66.5,102.0,156.0]},{"name":"Synthetic health indicator 0","unit":"units","current":67.0,"q2031":[53.5,70.4,98.7],"q2036":[47.8,72.5,113.0]},{"name":"Synthetic health indicator 1","unit":"units","current":6.89,"q2031":[4.86,6.51,9.12],"q2036":[4.06,6.28,9.79]},{"name":"Synthetic health indicator 2","unit":"units","current":73.1,"q2031":[63.4,85.5,119.0],"q2036":[62.4,92.0,139.0]},{"name":"Synthetic health indicator 3","unit":"units","current":64.9,"q2031":[56.5,75.4,105.0],"q2036":[54.6,81.9,123.0]},{"name":"Synthetic health indicator 4","unit":"units","current":15.8,"q2031":[11.6,15.4,21.8],"q2036":[10.0,15.4,24.0]},{"name":"Synthetic politics indicator 0","unit":"units","current":95.0,"q2031":[71.1,94.1,133.0],"q2036":[61.9,94.1,146.0]},{"name":"Synthetic politics indicator 1","unit":"units","current":55.7,"q2031":[45.7,61.1,85.6],"q2036":[42.5,63.9,97.8]},{"name":"Synthetic politics indicator 2","unit":"units","current":63.7,"q2031":[61.5,82.5,116.0],"q2036":[64.5,92.2,139.0]},{"name":"Synthetic politics indicator 3","unit":"units","current":69.0,"q2031":[48.9,65.0,91.9],"q2036":[40.1,63.5,99.9]},{"name":"Synthetic politics indicator 4","unit":"units","current":86.1,"q2031":[67.4,90.4,125.0],"q2036":[60.6,91.9,142.0]},{"name":"Synthetic foodwater indicator 0","unit":"units","current":18.9,"q2031":[17.6,23.6,33.2],"q2036":[17.7,26.1,39.3]},{"name":"Synthetic foodwater indicator 1","unit":"units","current":72.2,"q2031":[53.7,71.0,99.7],"q2036":[46.7,71.2,110.0]},{"name":"Synthetic foodwater indicator 2","unit":"units","current":37.7,"q2031":[30.1,40.2,56.4],"q2036":[27.8,41.7,62.9]},{"name":"Synthetic foodwater indicator 3","unit":"units","current":60.1,"q2031":[41.2,54.7,76.5],"q2036":[33.1,51.8,82.1]},{"name":"Synthetic foodwater indicator 4","unit":"units","current":1.27,"q2031":[0.864,1.15,1.61],"q2036":[0.69,1.1,1.72]}],"domains":[{"key":"energy","label":"Energy systems & critical materials","rows":[{"name":"Synthetic energy event 5","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.2572916683500321,"p2031":0.8127083334326747,"p2036":0.9914583329980576,"lo2036":0.9525354425110649,"hi2036":1.0,"severity":8.300000190734863,"timing":"2028Q4"},{"name":"Synthetic energy event 11","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.21895833517036709,"p2031":0.5914583331206815,"p2036":0.9770833326255283,"lo2036":0.877557528923404,"hi2036":1.0,"severity":6.099999904632568,"timing":"2030Q2"},{"name":"Synthetic energy event 7","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.19104166820296095,"p2031":0.5422916689647048,"p2036":0.8747916656701515,"lo2036":0.6192675102001888,"hi2036":1.0,"severity":5.900000095367432,"timing":"2030Q2"},{"name":"Synthetic energy event 1","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.18270833504851908,"p2031":0.5166666690229128,"p2036":0.6577083359720809,"lo2036":0.45132060600514523,"hi2036":0.8640960659390166,"severity":7.599999904632568,"timing":"2029Q2"},{"name":"Synthetic energy event 2","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.2643750014482066,"p2031":0.39354167155300585,"p2036":0.5800000029057262,"lo2036":0.30198557977873913,"hi2036":0.8580144260327132,"severity":7.300000190734863,"timing":"2028Q4"},{"name":"Synthetic energy event 8","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.2637500022041301,"p2031":0.6681250022972623,"p2036":0.8918749979945523,"lo2036":0.7136393508362306,"hi2036":1.0,"severity":3.700000047683716,"timing":"2029Q2"},{"name":"Synthetic energy event 0","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.23062500224914398,"p2031":0.46000000195577745,"p2036":0.8589583333861083,"lo2036":0.624576867301712,"hi2036":1.0,"severity":2.299999952316284,"timing":"2031Q2"},{"name":"Synthetic energy event 10","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.22916666867133847,"p2031":0.49354166996160864,"p2036":0.8164583325417095,"lo2036":0.46217755686686324,"hi2036":1.0,"severity":2.200000047683716,"timing":"2030Q1"},{"name":"Synthetic energy event 3","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.12270833485876208,"p2031":0.3241666686969499,"p2036":0.45166666965931646,"lo2036":0.22427611068498207,"hi2036":0.6790572286336508,"severity":3.700000047683716,"timing":"2029Q4"},{"name":"Synthetic energy event 4","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.1147916678102532,"p2031":0.25520833509780144,"p2036":0.3802083363252068,"lo2036":0.0,"hi2036":0.8017072554119631,"severity":3.5999999046325684,"timing":"2030Q2"},{"name":"Synthetic energy event 6","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.046458333977498115,"p2031":0.10875000138107373,"p2036":0.17208333506869775,"lo2036":0.08650966175785076,"hi2036":0.25765700837954475,"severity":7.099999904632568,"timing":"2030Q3"},{"name":"Synthetic energy event 9","domain":"energy","domain_label":"Energy","resolution":"placeholder criterion for pipeline testing","p2027":0.06187500035157425,"p2031":0.06708333377183105,"p2036":0.11062500090377095,"lo2036":0.0,"hi2036":0.4625960375907393,"severity":8.199999809265137,"timing":"2027Q4"}]},{"key":"demographics","label":"Demography & migration","rows":[{"name":"Synthetic demographics event 3","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.25645833566629633,"p2031":0.7897916683740913,"p2036":0.9916666654869914,"lo2036":0.9685130453744141,"hi2036":1.0,"severity":6.0,"timing":"2029Q1"},{"name":"Synthetic demographics event 8","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.19604166782073051,"p2031":0.56645833291579,"p2036":0.8127083332588279,"lo2036":0.5448459669988652,"hi2036":1.0,"severity":6.099999904632568,"timing":"2029Q4"},{"name":"Synthetic demographics event 9","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.27770833533412453,"p2031":0.5347916678572071,"p2036":0.6431250021016846,"lo2036":0.21281163171093215,"hi2036":1.0,"severity":7.599999904632568,"timing":"2028Q3"},{"name":"Synthetic demographics event 1","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.1960416683795241,"p2031":0.6152083352472013,"p2036":0.7627083321909114,"lo2036":0.4661777846776125,"hi2036":1.0,"severity":6.199999809265137,"timing":"2029Q2"},{"name":"Synthetic demographics event 4","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.20937500169849962,"p2031":0.47937500313467674,"p2036":0.651041668042696,"lo2036":0.2763510417566651,"hi2036":1.0,"severity":6.5,"timing":"2029Q2"},{"name":"Synthetic demographics event 6","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.1731250013255824,"p2031":0.4910416693907849,"p2036":0.5608333346092447,"lo2036":0.15482334901496808,"hi2036":0.9668433202035213,"severity":7.300000190734863,"timing":"2028Q4"},{"name":"Synthetic demographics event 7","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.19562500138844674,"p2031":0.36500000418008616,"p2036":0.43687500250836186,"lo2036":0.16823652920877147,"hi2036":0.7055134758079522,"severity":6.800000190734863,"timing":"2028Q2"},{"name":"Synthetic demographics event 2","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.1647916680477405,"p2031":0.5366666680745158,"p2036":0.6835416671478504,"lo2036":0.38328494276354985,"hi2036":0.9837983915321509,"severity":3.5999999046325684,"timing":"2029Q4"},{"name":"Synthetic demographics event 0","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.24645833618318033,"p2031":0.3395833354148393,"p2036":0.5445833361428228,"lo2036":0.32717272348376425,"hi2036":0.7619939488018814,"severity":3.700000047683716,"timing":"2029Q1"},{"name":"Synthetic demographics event 11","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.12604166777532855,"p2031":0.3347916688001712,"p2036":0.518750002547167,"lo2036":0.3380963403456203,"hi2036":0.6994036647487136,"severity":3.4000000953674316,"timing":"2030Q3"},{"name":"Synthetic demographics event 5","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.05145833383197896,"p2031":0.12208333464339376,"p2036":0.1679166682083935,"lo2036":0.025663602536127567,"hi2036":0.3101697338806594,"severity":6.900000095367432,"timing":"2029Q3"},{"name":"Synthetic demographics event 10","domain":"demographics","domain_label":"Demography","resolution":"placeholder criterion for pipeline testing","p2027":0.0639583338346953,"p2031":0.11916666799108498,"p2036":0.1508333348750603,"lo2036":0.0,"hi2036":0.3605883943206095,"severity":7.400000095367432,"timing":"2028Q4"}]},{"key":"health","label":"Pandemics, biosecurity & global health","rows":[{"name":"Synthetic health event 9","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.28145833606986936,"p2031":0.5781250020628793,"p2036":0.9199999986526864,"lo2036":0.7546090942985292,"hi2036":1.0,"severity":7.300000190734863,"timing":"2030Q1"},{"name":"Synthetic health event 10","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.19104166918123772,"p2031":0.5104166697493445,"p2036":0.8458333328024795,"lo2036":0.5570713798036505,"hi2036":1.0,"severity":7.699999809265137,"timing":"2030Q1"},{"name":"Synthetic health event 11","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.2377083345960515,"p2031":0.6889583324454721,"p2036":0.9841666664804023,"lo2036":0.9144937734036278,"hi2036":1.0,"severity":5.800000190734863,"timing":"2029Q2"},{"name":"Synthetic health event 3","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.254791668340719,"p2031":0.5135416680605461,"p2036":0.7000000011983011,"lo2036":0.34257921932004354,"hi2036":1.0,"severity":7.099999904632568,"timing":"2029Q1"},{"name":"Synthetic health event 2","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.1777083346399013,"p2031":0.48145833396740856,"p2036":0.5218750003484697,"lo2036":0.09610822869682067,"hi2036":0.9476417720001187,"severity":8.5,"timing":"2028Q4"},{"name":"Synthetic health event 6","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.21729166758828797,"p2031":0.2789583341253455,"p2036":0.4016666678901915,"lo2036":0.01661998614206439,"hi2036":0.7867133496383186,"severity":7.199999809265137,"timing":"2027Q4"},{"name":"Synthetic health event 1","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.26312500095809804,"p2031":0.4891666690737471,"p2036":0.5631250008781598,"lo2036":0.11915875160185929,"hi2036":1.0,"severity":3.799999952316284,"timing":"2028Q1"},{"name":"Synthetic health event 5","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.13562500098953023,"p2031":0.38687500263952324,"p2036":0.4116666698587748,"lo2036":0.093972678721149,"hi2036":0.7293606609964006,"severity":4.300000190734863,"timing":"2028Q4"},{"name":"Synthetic health event 8","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.14312500150330998,"p2031":0.29958333583859104,"p2036":0.41395833523478354,"lo2036":0.25344481801522134,"hi2036":0.5744718524543457,"severity":3.799999952316284,"timing":"2029Q2"},{"name":"Synthetic health event 0","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.0779166677535977,"p2031":0.10625000105743913,"p2036":0.20312500236245498,"lo2036":0.0,"hi2036":0.48623126807992423,"severity":6.699999809265137,"timing":"2031Q2"},{"name":"Synthetic health event 7","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.1254166681540664,"p2031":0.2754166697221807,"p2036":0.31395833581065136,"lo2036":0.1647693913325847,"hi2036":0.463147280288718,"severity":3.9000000953674316,"timing":"2028Q4"},{"name":"Synthetic health event 4","domain":"health","domain_label":"Health","resolution":"placeholder criterion for pipeline testing","p2027":0.037916667014360445,"p2031":0.07416666744587323,"p2036":0.12145833417734439,"lo2036":0.003516265234618607,"hi2036":0.23940040312007016,"severity":2.299999952316284,"timing":"2030Q1"}]},{"key":"foodwater","label":"Food, water & agriculture","rows":[{"name":"Synthetic foodwater event 7","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.18500000158906915,"p2031":0.5954166668513787,"p2036":0.7814583327062429,"lo2036":0.4633808693662093,"hi2036":1.0,"severity":7.599999904632568,"timing":"2029Q2"},{"name":"Synthetic foodwater event 9","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.24520833555531385,"p2031":0.5185416687854256,"p2036":0.8089583339022172,"lo2036":0.5592933543041357,"hi2036":1.0,"severity":6.900000095367432,"timing":"2030Q1"},{"name":"Synthetic foodwater event 8","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.2831250021338929,"p2031":0.5754166667143971,"p2036":0.8435416669708986,"lo2036":0.5344737762342405,"hi2036":1.0,"severity":5.400000095367432,"timing":"2029Q2"},{"name":"Synthetic foodwater event 0","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.19270833508344365,"p2031":0.360208335982946,"p2036":0.5258333358230688,"lo2036":0.36066509726747364,"hi2036":0.6910015743786639,"severity":7.400000095367432,"timing":"2029Q4"},{"name":"Synthetic foodwater event 6","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.21770833553785135,"p2031":0.35958333587196345,"p2036":0.5527083352673801,"lo2036":0.1729289350142728,"hi2036":0.9324877355204872,"severity":6.199999809265137,"timing":"2029Q3"},{"name":"Synthetic foodwater event 10","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.1747916686154591,"p2031":0.4197916694559776,"p2036":0.5810416702274234,"lo2036":0.37923808987530894,"hi2036":0.7828452505795378,"severity":5.0,"timing":"2029Q4"},{"name":"Synthetic foodwater event 2","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.07354166720955009,"p2031":0.20520833495693902,"p2036":0.33250000327127044,"lo2036":0.01924045295270338,"hi2036":0.6457595535898375,"severity":8.600000381469727,"timing":"2030Q4"},{"name":"Synthetic foodwater event 3","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.17062500154056273,"p2031":0.5708333371269203,"p2036":0.90666666404965,"lo2036":0.70897389491092,"hi2036":1.0,"severity":2.9000000953674316,"timing":"2030Q2"},{"name":"Synthetic foodwater event 11","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.16875000174778207,"p2031":0.24104166916183503,"p2036":0.32312500242687137,"lo2036":0.11156645834323889,"hi2036":0.5346835465105039,"severity":6.800000190734863,"timing":"2027Q4"},{"name":"Synthetic foodwater event 4","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.15083333517774003,"p2031":0.24666666875282947,"p2036":0.3391666685215505,"lo2036":0.0,"hi2036":0.6885764638959899,"severity":3.5999999046325684,"timing":"2028Q4"},{"name":"Synthetic foodwater event 5","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.1460416679138628,"p2031":0.2058333357959056,"p2036":0.26875000249982484,"lo2036":0.0683400647860081,"hi2036":0.4691599402136416,"severity":4.300000190734863,"timing":"2027Q4"},{"name":"Synthetic foodwater event 1","domain":"foodwater","domain_label":"Food & water","resolution":"placeholder criterion for pipeline testing","p2027":0.07687500081723558,"p2031":0.12125000125456913,"p2036":0.18416666918822258,"lo2036":0.06194770569994379,"hi2036":0.3063856326765014,"severity":3.4000000953674316,"timing":"2029Q1"}]},{"key":"geopolitics","label":"Great-power conflict & geopolitics","rows":[{"name":"Synthetic geopolitics event 6","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.2102083345890666,"p2031":0.6345833344850688,"p2036":0.974166665064792,"lo2036":0.9118524042711509,"hi2036":1.0,"severity":8.399999618530273,"timing":"2030Q1"},{"name":"Synthetic geopolitics event 9","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.24000000268919391,"p2031":0.693125001185884,"p2036":0.8974999982491129,"lo2036":0.7874185409601765,"hi2036":1.0,"severity":7.800000190734863,"timing":"2029Q2"},{"name":"Synthetic geopolitics event 1","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.17041666840707578,"p2031":0.43062500282501187,"p2036":0.7075000017012159,"lo2036":0.5451943638695146,"hi2036":0.8698056395329171,"severity":5.300000190734863,"timing":"2030Q3"},{"name":"Synthetic geopolitics event 10","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.13708333461545416,"p2031":0.3145833347194517,"p2036":0.43770833619715027,"lo2036":0.1908047817045854,"hi2036":0.6846118906897152,"severity":8.300000190734863,"timing":"2029Q3"},{"name":"Synthetic geopolitics event 11","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.2693750019503445,"p2031":0.4020833360512431,"p2036":0.4908333349833265,"lo2036":0.3147438724977062,"hi2036":0.6669227974689468,"severity":6.199999809265137,"timing":"2027Q4"},{"name":"Synthetic geopolitics event 2","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.06708333386030668,"p2031":0.22625000219869754,"p2036":0.3110416694637388,"lo2036":0.0987396979254982,"hi2036":0.5233436410019794,"severity":7.900000095367432,"timing":"2030Q1"},{"name":"Synthetic geopolitics event 7","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.19166666849205893,"p2031":0.49562500175049806,"p2036":0.8164583309708785,"lo2036":0.5058215323548312,"hi2036":1.0,"severity":2.9000000953674316,"timing":"2030Q3"},{"name":"Synthetic geopolitics event 0","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.10020833417773249,"p2031":0.17437500178697515,"p2036":0.27812500210362484,"lo2036":0.07123475260840817,"hi2036":0.4850152515988415,"severity":6.199999809265137,"timing":"2030Q2"},{"name":"Synthetic geopolitics event 3","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.11541666801281582,"p2031":0.3372916683383909,"p2036":0.40458333583238215,"lo2036":0.22752137992903776,"hi2036":0.5816452917357265,"severity":3.0999999046325684,"timing":"2029Q2"},{"name":"Synthetic geopolitics event 4","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.1216666682177068,"p2031":0.16729166835391276,"p2036":0.2693750027474015,"lo2036":0.15516452134041814,"hi2036":0.38358548415438487,"severity":3.0999999046325684,"timing":"2029Q1"},{"name":"Synthetic geopolitics event 8","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.04729166691036276,"p2031":0.07291666693248167,"p2036":0.08770833388281365,"lo2036":0.0,"hi2036":0.2209803991804828,"severity":8.800000190734863,"timing":"2027Q4"},{"name":"Synthetic geopolitics event 5","domain":"geopolitics","domain_label":"Geopolitics","resolution":"placeholder criterion for pipeline testing","p2027":0.009166666798215982,"p2031":0.03916666710594049,"p2036":0.06520833406985423,"lo2036":0.023900061228653874,"hi2036":0.10651660691105458,"severity":3.9000000953674316,"timing":"2031Q2"}]},{"key":"economy","label":"Global macroeconomy & finance","rows":[{"name":"Synthetic economy event 1","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.15729166771828504,"p2031":0.5475000012596136,"p2036":0.6918750019115398,"lo2036":0.27881475720815074,"hi2036":1.0,"severity":7.5,"timing":"2029Q2"},{"name":"Synthetic economy event 5","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.21708333569074362,"p2031":0.36479166933723406,"p2036":0.5633333344128914,"lo2036":0.05885006100724666,"hi2036":1.0,"severity":8.699999809265137,"timing":"2029Q2"},{"name":"Synthetic economy event 11","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.2610416686938455,"p2031":0.45479166897867485,"p2036":0.4789583344610099,"lo2036":0.30236572114360094,"hi2036":0.6555509477784188,"severity":8.600000381469727,"timing":"2027Q4"},{"name":"Synthetic economy event 2","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.23187500217851872,"p2031":0.3366666680271737,"p2036":0.47437500252388404,"lo2036":0.16105980899302896,"hi2036":0.7876901960547391,"severity":7.099999904632568,"timing":"2028Q1"},{"name":"Synthetic economy event 6","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.1004166678222827,"p2031":0.2377083360721978,"p2036":0.4108333345836338,"lo2036":0.0022951043554751416,"hi2036":0.8193715648117925,"severity":5.199999809265137,"timing":"2030Q4"},{"name":"Synthetic economy event 3","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.15708333514514375,"p2031":0.40375000226466595,"p2036":0.4929166698642073,"lo2036":0.3252461599991484,"hi2036":0.6605871797292662,"severity":4.300000190734863,"timing":"2029Q2"},{"name":"Synthetic economy event 7","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.21000000126582272,"p2031":0.304583335039982,"p2036":0.5020833354528682,"lo2036":0.17697500320800813,"hi2036":0.8271916676977282,"severity":4.199999809265137,"timing":"2030Q1"},{"name":"Synthetic economy event 10","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.09312500066977618,"p2031":0.2662500025184515,"p2036":0.33854166799380125,"lo2036":0.0,"hi2036":0.7606026320013004,"severity":6.0,"timing":"2029Q2"},{"name":"Synthetic economy event 0","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.1281250013488656,"p2031":0.24458333574701116,"p2036":0.44604166855725147,"lo2036":0.16178012293710115,"hi2036":0.7303032141774017,"severity":4.5,"timing":"2031Q3"},{"name":"Synthetic economy event 4","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.17104166774661284,"p2031":0.3941666693178315,"p2036":0.436458335413287,"lo2036":0.1773955978002229,"hi2036":0.695521073026351,"severity":4.300000190734863,"timing":"2028Q4"},{"name":"Synthetic economy event 9","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.10208333452270982,"p2031":0.17125000196470253,"p2036":0.22291666892163145,"lo2036":0.045283220014509795,"hi2036":0.4005501178287531,"severity":7.599999904632568,"timing":"2028Q3"},{"name":"Synthetic economy event 8","domain":"economy","domain_label":"Economy","resolution":"placeholder criterion for pipeline testing","p2027":0.059791667350412664,"p2031":0.11645833470703412,"p2036":0.1872916686092503,"lo2036":0.08440691028019302,"hi2036":0.2901764269383076,"severity":6.5,"timing":"2030Q2"}]},{"key":"climate","label":"Climate & Earth systems","rows":[{"name":"Synthetic climate event 7","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.24645833471557113,"p2031":0.5531250008816521,"p2036":0.8954166646177573,"lo2036":0.6738586900282966,"hi2036":1.0,"severity":6.800000190734863,"timing":"2030Q1"},{"name":"Synthetic climate event 5","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.24812500179046756,"p2031":0.5181250017819305,"p2036":0.6450000024773177,"lo2036":0.338726984980162,"hi2036":0.9512730199744734,"severity":6.800000190734863,"timing":"2028Q4"},{"name":"Synthetic climate event 8","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.177083335154845,"p2031":0.5870833355095239,"p2036":0.8074999990686778,"lo2036":0.6269529898414312,"hi2036":0.9880470082959243,"severity":5.0,"timing":"2029Q4"},{"name":"Synthetic climate event 9","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.16125000196276237,"p2031":0.5825000018595407,"p2036":0.7654166667287547,"lo2036":0.2992872920533176,"hi2036":1.0,"severity":3.799999952316284,"timing":"2029Q3"},{"name":"Synthetic climate event 6","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.09083333428871508,"p2031":0.31208333577572667,"p2036":0.522291669525827,"lo2036":0.2274185427095176,"hi2036":0.8171647963421362,"severity":4.599999904632568,"timing":"2031Q1"},{"name":"Synthetic climate event 3","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.2143750016010987,"p2031":0.5168750005657786,"p2036":0.6143750006162247,"lo2036":0.16275613452282423,"hi2036":1.0,"severity":3.700000047683716,"timing":"2028Q4"},{"name":"Synthetic climate event 11","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.11125000147575824,"p2031":0.2683333350054454,"p2036":0.30687500238845417,"lo2036":0.07717993366118131,"hi2036":0.5365700711157271,"severity":6.400000095367432,"timing":"2028Q4"},{"name":"Synthetic climate event 1","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.13562500142492356,"p2031":0.2058333350485191,"p2036":0.2516666682561239,"lo2036":0.0,"hi2036":0.5596787976325359,"severity":7.400000095367432,"timing":"2027Q4"},{"name":"Synthetic climate event 10","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.15770833440474227,"p2031":0.22208333417501613,"p2036":0.2952083347714504,"lo2036":0.0,"hi2036":0.6382163642695801,"severity":6.099999904632568,"timing":"2027Q4"},{"name":"Synthetic climate event 4","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.16500000132092588,"p2031":0.23937500101552964,"p2036":0.3191666680865457,"lo2036":0.0,"hi2036":0.734095427946004,"severity":2.200000047683716,"timing":"2027Q4"},{"name":"Synthetic climate event 0","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.02916666687621424,"p2031":0.05666666719713246,"p2036":0.13854166756772118,"lo2036":0.0,"hi2036":0.3410559036835799,"severity":2.5999999046325684,"timing":"2032Q4"},{"name":"Synthetic climate event 2","domain":"climate","domain_label":"Climate","resolution":"placeholder criterion for pipeline testing","p2027":0.015416666905706129,"p2031":0.03541666716686449,"p2036":0.040000000546375925,"lo2036":0.015638054575330167,"hi2036":0.06436194651742168,"severity":7.0,"timing":"2029Q1"}]},{"key":"ai","label":"AI, compute & transformative technology","rows":[{"name":"Synthetic ai event 2","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.19791666831821197,"p2031":0.8229166653395319,"p2036":0.9941666660209497,"lo2036":0.9459543046612247,"hi2036":1.0,"severity":6.0,"timing":"2028Q4"},{"name":"Synthetic ai event 11","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.23645833547653944,"p2031":0.7862499999472249,"p2036":0.8635416660085317,"lo2036":0.5472127630608936,"hi2036":1.0,"severity":5.5,"timing":"2028Q3"},{"name":"Synthetic ai event 8","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.1252083346228271,"p2031":0.35083333629687935,"p2036":0.4695833345960515,"lo2036":0.07611402470815049,"hi2036":0.8630526444839526,"severity":7.300000190734863,"timing":"2029Q3"},{"name":"Synthetic ai event 4","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.12416666803532281,"p2031":0.29812500196276237,"p2036":0.5291666681536782,"lo2036":0.19012703575007134,"hi2036":0.8682063005572851,"severity":6.300000190734863,"timing":"2031Q1"},{"name":"Synthetic ai event 0","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.17958333479550992,"p2031":0.2141666690112713,"p2036":0.31187500290417414,"lo2036":0.0,"hi2036":0.6442143973872495,"severity":6.099999904632568,"timing":"2027Q3"},{"name":"Synthetic ai event 5","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.049166667089254296,"p2031":0.16083333372332467,"p2036":0.23291666819752804,"lo2036":0.0,"hi2036":0.5755696456905146,"severity":7.699999809265137,"timing":"2030Q2"},{"name":"Synthetic ai event 10","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.24895833453396343,"p2031":0.704375001663963,"p2036":0.7612500002669789,"lo2036":0.468678655039116,"hi2036":1.0,"severity":2.299999952316284,"timing":"2028Q4"},{"name":"Synthetic ai event 6","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.09708333377144301,"p2031":0.17208333515174065,"p2036":0.2272916680628744,"lo2036":0.0,"hi2036":0.5883141089237447,"severity":7.699999809265137,"timing":"2028Q4"},{"name":"Synthetic ai event 9","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.07104166722546021,"p2031":0.18125000193365862,"p2036":0.23354166934266687,"lo2036":0.0,"hi2036":0.5073561572487223,"severity":5.300000190734863,"timing":"2029Q3"},{"name":"Synthetic ai event 3","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.1262500012126595,"p2031":0.22458333587273951,"p2036":0.32416666860071336,"lo2036":0.024913781291029224,"hi2036":0.6234195559103974,"severity":3.700000047683716,"timing":"2029Q4"},{"name":"Synthetic ai event 7","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.1256250008905772,"p2031":0.18937500197595605,"p2036":0.32625000199458226,"lo2036":0.0,"hi2036":0.7493830732219053,"severity":2.9000000953674316,"timing":"2030Q1"},{"name":"Synthetic ai event 1","domain":"ai","domain_label":"AI & tech","resolution":"placeholder criterion for pipeline testing","p2027":0.03875000042219955,"p2031":0.07145833413543488,"p2036":0.07833333412767383,"lo2036":0.03248032274857777,"hi2036":0.12418634550676991,"severity":7.599999904632568,"timing":"2028Q1"}]},{"key":"politics","label":"Political stability & governance","rows":[{"name":"Synthetic politics event 0","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.30250000225923307,"p2031":0.47666666841289657,"p2036":0.7025000020178658,"lo2036":0.4485442034345754,"hi2036":0.9564558006011561,"severity":5.900000095367432,"timing":"2029Q1"},{"name":"Synthetic politics event 1","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.20229166812496252,"p2031":0.49125000208461045,"p2036":0.650416667078001,"lo2036":0.21701944329571432,"hi2036":1.0,"severity":4.099999904632568,"timing":"2029Q2"},{"name":"Synthetic politics event 5","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.08979166730307049,"p2031":0.2414583352285748,"p2036":0.3289583367093776,"lo2036":0.050856231733092894,"hi2036":0.6070604416856622,"severity":8.100000381469727,"timing":"2029Q4"},{"name":"Synthetic politics event 9","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.22166666803260654,"p2031":0.6139583328987167,"p2036":0.8658333336934452,"lo2036":0.5167542541909252,"hi2036":1.0,"severity":3.0,"timing":"2029Q3"},{"name":"Synthetic politics event 6","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.13437500180870612,"p2031":0.39562500163912767,"p2036":0.4262500008102506,"lo2036":0.056964365206320366,"hi2036":0.7955356364141808,"severity":5.5,"timing":"2028Q4"},{"name":"Synthetic politics event 10","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.24354166866745794,"p2031":0.5925000032782556,"p2036":0.6816666678649681,"lo2036":0.4189354712342104,"hi2036":0.9443978644957258,"severity":3.299999952316284,"timing":"2028Q4"},{"name":"Synthetic politics event 11","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.10750000103532019,"p2031":0.19812500153590604,"p2036":0.3256250014264757,"lo2036":0.04478992240331153,"hi2036":0.6064600804496398,"severity":5.099999904632568,"timing":"2030Q2"},{"name":"Synthetic politics event 8","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.03875000043733355,"p2031":0.11250000106054359,"p2036":0.15541666777843305,"lo2036":0.0,"hi2036":0.3283720017782097,"severity":6.699999809265137,"timing":"2030Q1"},{"name":"Synthetic politics event 7","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.04083333384556074,"p2031":0.11416666772798638,"p2036":0.16333333552465787,"lo2036":0.054043425368796305,"hi2036":0.27262324568051943,"severity":6.0,"timing":"2030Q1"},{"name":"Synthetic politics event 3","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.0645833339022162,"p2031":0.14250000110478148,"p2036":0.19229166815173815,"lo2036":0.0,"hi2036":0.4575999171319907,"severity":4.699999809265137,"timing":"2029Q4"},{"name":"Synthetic politics event 2","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.13500000093209855,"p2031":0.2641666689918686,"p2036":0.3108333359239622,"lo2036":0.20295722403796607,"hi2036":0.4187094478099583,"severity":2.5,"timing":"2028Q3"},{"name":"Synthetic politics event 4","domain":"politics","domain_label":"Politics","resolution":"placeholder criterion for pipeline testing","p2027":0.08208333425805905,"p2031":0.16729166819481187,"p2036":0.2954166684811934,"lo2036":0.1604556649721176,"hi2036":0.4303776719902692,"severity":2.299999952316284,"timing":"2031Q1"}]}],"limits":["**The parameters are elicited judgement, not measurement.** The engine is exact; the inputs are informed opinion, audited and red-teamed but still opinion. Simulation precision does not create forecast accuracy, and the 90% bands cover disagreement between the modelled worldviews, not the possibility that all five are wrong together.","**Correlated error is unmodelled.** If the analysts share a blind spot, the ensemble inherits it silently and reports narrow bands over a wrong centre.","**Resolution criteria carry real weight.** Several forecasts move by tens of percentage points on the wording of what counts. Read the criteria before quoting a number.","**Nothing outside the risk set can happen.** The events that most reshape a decade are frequently ones nobody enumerated in advance. Treat the 'no severe event' probability as an upper bound on calm.","**Causal edges are assumed, not estimated.** The dependency structure comes from domain reasoning about transmission channels, not from fitting historical co-occurrence \u2014 there is no dataset of decades to fit it to.","**Hazards are conditionally memoryless within each segment.** Real crises have internal dynamics \u2014 mobilisation, negotiation, exhaustion \u2014 that a piecewise exponential cannot represent.","*geopolitics*: synthetic uncertainty","*climate*: synthetic uncertainty","*economy*: synthetic uncertainty","*ai*: synthetic uncertainty","*energy*: synthetic uncertainty","*demographics*: synthetic uncertainty","*health*: synthetic uncertainty","*politics*: synthetic uncertainty","*foodwater*: synthetic uncertainty"]}</script>
+<script>
+(function () {
+  "use strict";
+  const D = JSON.parse(document.getElementById("payload").textContent);
+  const $ = (id) => document.getElementById(id);
+  const SVGNS = "http://www.w3.org/2000/svg";
+
+  const pct = (x) => {
+    const v = x * 100;
+    if (v >= 99.5) return ">99%";
+    if (v < 0.5) return "<0.5%";
+    if (v < 10) return v.toFixed(1) + "%";
+    return Math.round(v) + "%";
+  };
+  const el = (tag, attrs, text) => {
+    const n = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const sevClass = (s) => s >= 8 ? "sev-crit" : s >= 6 ? "sev-high" : s >= 4 ? "sev-mod" : "sev-low";
+  const sevLabel = (s) => s >= 8 ? "CRITICAL" : s >= 6 ? "SEVERE" : s >= 4 ? "SERIOUS" : "MODERATE";
+
+  // ---- tooltip -----------------------------------------------------------
+  const tip = $("tip");
+  function showTip(evt, html) {
+    tip.innerHTML = html;
+    tip.classList.add("on");
+    const r = tip.getBoundingClientRect();
+    let x = evt.clientX + 14, y = evt.clientY - r.height - 10;
+    if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+    if (y < 8) y = evt.clientY + 18;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  const hideTip = () => tip.classList.remove("on");
+
+  // ---- masthead ----------------------------------------------------------
+  const M = D.meta;
+  $("m-asof").textContent = M.as_of;
+  $("m-risks").textContent = M.n_risks;
+  $("m-paths").textContent = M.n_paths.toLocaleString();
+  $("m-paths2").textContent = M.n_paths.toLocaleString();
+  $("m-worlds").textContent = M.n_worlds.toLocaleString();
+  $("m-edges").textContent = M.n_edges;
+  $("m-cal").textContent = "≤" + M.calibration_pp.toFixed(2) + "pp";
+  $("f-paths").textContent = M.n_paths.toLocaleString();
+  $("f-seed").textContent = M.seed;
+  $("f-asof").textContent = M.as_of;
+
+  // ---- stat tiles --------------------------------------------------------
+  $("tiles").innerHTML = D.tiles.map((t) => `
+    <div class="tile">
+      <span class="lab">${esc(t.label)}</span>
+      <span class="val">${esc(t.value)}</span>
+      <span class="sub">${esc(t.sub)}</span>
+    </div>`).join("");
+  $("topline-note").innerHTML = D.topline_note;
+
+  // ---- fan chart ---------------------------------------------------------
+  function fanChart() {
+    const s = D.stress;
+    const W = Math.max(680, Math.min(1060, innerWidth - 100));
+    const H = 320, ml = 46, mr = 18, mt = 14, mb = 34;
+    const iw = W - ml - mr, ih = H - mt - mb;
+    const n = s.p50.length;
+    const ymax = Math.max(...s.p95) * 1.06 || 1;
+    const X = (i) => ml + (i / (n - 1)) * iw;
+    const Y = (v) => mt + ih - (v / ymax) * ih;
+
+    const svg = $("fan");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    const ticks = 4;
+    for (let t = 0; t <= ticks; t++) {
+      const v = (ymax / ticks) * t;
+      svg.appendChild(el("line", { x1: ml, x2: ml + iw, y1: Y(v), y2: Y(v),
+        stroke: "var(--grid)", "stroke-width": 1 }));
+      const lb = el("text", { x: ml - 9, y: Y(v) + 4, "text-anchor": "end",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" }, v.toFixed(0));
+      svg.appendChild(lb);
+    }
+
+    const areaPath = (lo, hi) => {
+      let d = "";
+      for (let i = 0; i < n; i++) d += (i ? "L" : "M") + X(i) + " " + Y(hi[i]);
+      for (let i = n - 1; i >= 0; i--) d += "L" + X(i) + " " + Y(lo[i]);
+      return d + "Z";
+    };
+    svg.appendChild(el("path", { d: areaPath(s.p5, s.p95), fill: "var(--band-outer)" }));
+    svg.appendChild(el("path", { d: areaPath(s.p25, s.p75), fill: "var(--band-inner)" }));
+
+    let line = "";
+    for (let i = 0; i < n; i++) line += (i ? "L" : "M") + X(i) + " " + Y(s.p50[i]);
+    svg.appendChild(el("path", { d: line, fill: "none", stroke: "var(--series)",
+      "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+    for (let i = 0; i < n; i += 8) {
+      svg.appendChild(el("text", { x: X(i), y: H - 10, "text-anchor": "middle",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" }, s.labels[i]));
+    }
+
+    const cross = el("line", { y1: mt, y2: mt + ih, stroke: "var(--rule-strong)",
+      "stroke-width": 1, opacity: 0 });
+    svg.appendChild(cross);
+    const dot = el("circle", { r: 4.5, fill: "var(--series)", stroke: "var(--surface)",
+      "stroke-width": 2, opacity: 0 });
+    svg.appendChild(dot);
+
+    svg.addEventListener("mousemove", (e) => {
+      const box = svg.getBoundingClientRect();
+      const px = ((e.clientX - box.left) / box.width) * W;
+      let i = Math.round(((px - ml) / iw) * (n - 1));
+      i = Math.max(0, Math.min(n - 1, i));
+      cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i));
+      cross.setAttribute("opacity", 1);
+      dot.setAttribute("cx", X(i)); dot.setAttribute("cy", Y(s.p50[i]));
+      dot.setAttribute("opacity", 1);
+      showTip(e, `<span class="t-lab">${esc(s.labels[i])}</span>
+        median ${s.p50[i].toFixed(1)}<br>
+        50% band ${s.p25[i].toFixed(1)}–${s.p75[i].toFixed(1)}<br>
+        90% band ${s.p5[i].toFixed(1)}–${s.p95[i].toFixed(1)}`);
+    });
+    svg.addEventListener("mouseleave", () => {
+      hideTip(); cross.setAttribute("opacity", 0); dot.setAttribute("opacity", 0);
+    });
+
+    $("fan-cap").textContent = s.caption;
+    $("tbl-stress").innerHTML = `<table><thead><tr><th>Quarter</th><th>p5</th><th>p25</th>
+      <th>Median</th><th>p75</th><th>p95</th></tr></thead><tbody>` +
+      s.labels.map((L, i) => i % 4 === 0 ? `<tr><td class="num">${esc(L)}</td>
+        <td class="num">${s.p5[i].toFixed(1)}</td><td class="num">${s.p25[i].toFixed(1)}</td>
+        <td class="num lead">${s.p50[i].toFixed(1)}</td><td class="num">${s.p75[i].toFixed(1)}</td>
+        <td class="num">${s.p95[i].toFixed(1)}</td></tr>` : "").join("") + `</tbody></table>`;
+  }
+
+  // ---- headline bars -----------------------------------------------------
+  function barChart() {
+    const rows = D.headline.slice(0, 14);
+    const W = Math.max(680, Math.min(1060, innerWidth - 100));
+    const rowH = 30, ml = 300, mr = 54, mt = 8;
+    const H = mt + rows.length * rowH + 26;
+    const iw = W - ml - mr;
+    const xmax = Math.min(1, Math.max(...rows.map((r) => r.hi2036)) * 1.08) || 1;
+    const X = (v) => ml + (v / xmax) * iw;
+
+    const svg = $("bars");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    for (let t = 0; t <= 4; t++) {
+      const v = (xmax / 4) * t;
+      svg.appendChild(el("line", { x1: X(v), x2: X(v), y1: mt, y2: mt + rows.length * rowH,
+        stroke: "var(--grid)", "stroke-width": 1 }));
+      svg.appendChild(el("text", { x: X(v), y: H - 8, "text-anchor": "middle",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" },
+        Math.round(v * 100) + "%"));
+    }
+
+    rows.forEach((r, i) => {
+      const cy = mt + i * rowH + rowH / 2;
+      const g = el("g", { style: "cursor:default" });
+
+      const nm = r.name.length > 42 ? r.name.slice(0, 41) + "…" : r.name;
+      g.appendChild(el("text", { x: ml - 14, y: cy + 4, "text-anchor": "end",
+        fill: "var(--ink-2)", "font-size": 12, "font-family": "var(--sans)" }, nm));
+
+      // Bar: ≤24px thick, 4px rounded data-end, square at the baseline.
+      const bw = Math.max(X(r.p2036) - ml, 1.5);
+      g.appendChild(el("path", {
+        d: `M${ml} ${cy - 7} H${ml + Math.max(bw - 4, 0)} a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 H${ml} Z`,
+        fill: "var(--series)"
+      }));
+
+      // Credible interval whisker, drawn over the bar with a surface-coloured gap.
+      const x1 = X(r.lo2036), x2 = X(r.hi2036);
+      if (x2 - x1 > 2) {
+        g.appendChild(el("line", { x1, x2, y1: cy, y2: cy,
+          stroke: "var(--ink-3)", "stroke-width": 1 }));
+        [x1, x2].forEach((x) => g.appendChild(el("line", { x1: x, x2: x, y1: cy - 5, y2: cy + 5,
+          stroke: "var(--ink-3)", "stroke-width": 1 })));
+      }
+
+      g.appendChild(el("text", { x: X(r.p2036) + 9, y: cy + 4, fill: "var(--ink)",
+        "font-size": 11.5, "font-family": "var(--mono)", "font-weight": 600 }, pct(r.p2036)));
+
+      const hit = el("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH,
+        fill: "transparent" });
+      hit.addEventListener("mousemove", (e) => showTip(e,
+        `<span class="t-lab">${esc(r.name)}</span>
+         by 2036 &nbsp;<b>${pct(r.p2036)}</b><br>
+         90% band ${pct(r.lo2036)}–${pct(r.hi2036)}<br>
+         by 2031 ${pct(r.p2031)} · by 2027 ${pct(r.p2027)}<br>
+         severity ${r.severity.toFixed(0)}/10`));
+      hit.addEventListener("mouseleave", hideTip);
+      g.appendChild(hit);
+      svg.appendChild(g);
+    });
+
+    $("tbl-headline").innerHTML = `<table><thead><tr><th>Event</th><th>2027</th><th>2031</th>
+      <th>2036</th><th>90% band</th></tr></thead><tbody>` + rows.map((r) =>
+      `<tr><td class="name">${esc(r.name)}</td><td class="num">${pct(r.p2027)}</td>
+       <td class="num">${pct(r.p2031)}</td><td class="num lead">${pct(r.p2036)}</td>
+       <td class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</td></tr>`).join("") +
+      `</tbody></table>`;
+  }
+
+  // ---- probability rail --------------------------------------------------
+  const rail = (r) => {
+    const w = (r.p2036 * 100).toFixed(1);
+    const lo = (r.lo2036 * 100).toFixed(1), hi = (r.hi2036 * 100).toFixed(1);
+    return `<div class="rail"><span class="pv">${pct(r.p2036)}</span>
+      <span class="track"><span class="fill" style="width:${w}%"></span>
+      <span class="ci" style="left:${lo}%;width:${Math.max(hi - lo, 0.4)}%"></span></span></div>`;
+  };
+
+  // ---- tables ------------------------------------------------------------
+  $("headline-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Domain</th><th>by 2027</th><th>by 2031</th>
+      <th>by 2036 (90% band)</th><th>Severity</th></tr></thead><tbody>` +
+    D.headline.map((r) => `<tr>
+      <td class="name">${esc(r.name)}</td>
+      <td class="num" style="text-align:left;font-size:11px;color:var(--ink-3)">${esc(r.domain_label)}</td>
+      <td class="num">${pct(r.p2027)}</td>
+      <td class="num">${pct(r.p2031)}</td>
+      <td>${rail(r)}<span class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</span></td>
+      <td class="num"><span class="chip ${sevClass(r.severity)}">${sevLabel(r.severity)}</span></td>
+    </tr>`).join("") + `</tbody>`;
+
+  $("chain-table").innerHTML =
+    `<thead><tr><th>Share of all paths</th><th>Opens with</th><th>Then</th><th>Then</th></tr></thead><tbody>` +
+    D.chains.map((c) => `<tr><td class="num lead">${pct(c.share)}</td>
+      <td class="name">${esc(c.names[0])}</td><td>${esc(c.names[1])}</td>
+      <td>${esc(c.names[2])}</td></tr>`).join("") + `</tbody>`;
+  $("chain-note").innerHTML = D.chain_note;
+
+  $("pair-table").innerHTML =
+    `<thead><tr><th>Event A</th><th>Event B</th><th>P(both)</th><th>Lift</th>
+      <th>P(A given B)</th></tr></thead><tbody>` +
+    D.pairs.map((p) => `<tr><td class="name">${esc(p.a)}</td><td class="name">${esc(p.b)}</td>
+      <td class="num">${pct(p.joint)}</td><td class="num lead">${p.lift.toFixed(1)}×</td>
+      <td class="num">${pct(p.cond)}</td></tr>`).join("") + `</tbody>`;
+
+  $("sens-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Variance share</th><th>P(by 2036)</th><th>Severity</th></tr></thead><tbody>` +
+    D.sensitivity.map((s) => `<tr><td class="name">${esc(s.name)}</td>
+      <td class="num lead">${(s.share * 100).toFixed(1)}%</td>
+      <td class="num">${pct(s.p2036)}</td>
+      <td class="num"><span class="chip ${sevClass(s.severity)}">${sevLabel(s.severity)}</span></td>
+      </tr>`).join("") + `</tbody>`;
+
+  $("dis-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Analyst</th><th>Audited</th><th>Outside view</th>
+      <th>Structural break</th><th>Market check</th><th>Spread</th></tr></thead><tbody>` +
+    D.disagreement.map((d) => `<tr><td class="name">${esc(d.name)}</td>` +
+      d.by_view.map((v) => `<td class="num">${pct(v)}</td>`).join("") +
+      `<td class="num lead">${(d.spread * 100).toFixed(0)}pp</td></tr>`).join("") + `</tbody>`;
+
+  $("cont-table").innerHTML =
+    `<thead><tr><th>Indicator</th><th>Now</th><th>2031 p10</th><th>2031 median</th>
+      <th>2031 p90</th><th>2036 median</th></tr></thead><tbody>` +
+    D.continuous.map((v) => `<tr>
+      <td class="name">${esc(v.name)}<br>
+        <span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3)">${esc(v.unit)}</span></td>
+      <td class="num">${v.current}</td><td class="num">${v.q2031[0]}</td>
+      <td class="num lead">${v.q2031[1]}</td><td class="num">${v.q2031[2]}</td>
+      <td class="num lead">${v.q2036[1]}</td></tr>`).join("") + `</tbody>`;
+
+  // ---- archetypes --------------------------------------------------------
+  $("arch-list").innerHTML = D.archetypes.map((a, i) => `
+    <div class="arch">
+      <div>
+        <div class="swatch" style="background:var(--ord-${i + 1})"></div>
+        <div class="mass">${pct(a.probability)}</div>
+        <div class="masslab">of paths</div>
+      </div>
+      <div>
+        <h3>${esc(a.label)}</h3>
+        <p style="margin:6px 0 0;color:var(--ink-2)">${esc(a.description)}</p>
+        ${a.signature.length ? "<ul>" + a.signature.map((s) => `<li>${s}</li>`).join("") + "</ul>" : ""}
+      </div>
+    </div>`).join("");
+
+  // ---- domains -----------------------------------------------------------
+  $("domain-list").innerHTML = D.domains.map((d) => `
+    <details>
+      <summary>${esc(d.label)} — ${d.rows.length} nodes</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Event</th><th>2027</th><th>2031</th><th>by 2036 (90% band)</th>
+          <th>Severity</th><th>Median timing</th></tr></thead>
+        <tbody>${d.rows.map((r) => `<tr>
+          <td class="name">${esc(r.name)}</td>
+          <td class="num">${pct(r.p2027)}</td><td class="num">${pct(r.p2031)}</td>
+          <td>${rail(r)}<span class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</span></td>
+          <td class="num"><span class="chip ${sevClass(r.severity)}">${sevLabel(r.severity)}</span></td>
+          <td class="num">${esc(r.timing)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <details style="margin-top:14px;border-top:none">
+        <summary>Resolution criteria</summary>
+        <ul class="crit-list">${d.rows.map((r) =>
+          `<li><b>${esc(r.name)}</b> — ${esc(r.resolution)}</li>`).join("")}</ul>
+      </details>
+    </details>`).join("");
+
+  $("limit-list").innerHTML = D.limits.map((l) => `<li>${l}</li>`).join("");
+
+  // ---- table-view toggles ------------------------------------------------
+  document.querySelectorAll("button.toggle").forEach((b) => {
+    b.addEventListener("click", () => {
+      const t = $(b.dataset.table);
+      t.hidden = !t.hidden;
+      b.textContent = t.hidden ? "Table view" : "Hide table";
+    });
+  });
+
+  fanChart();
+  barChart();
+  let rt;
+  addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { fanChart(); barChart(); }, 160);
+  });
+})();
+</script>

@@ -23,8 +23,8 @@ from .timeline import YEARS_PER_QUARTER
 
 # Epistemic spread on each risk's baseline log-odds, by the analyst's own stated
 # confidence. These are wide on purpose: stated confidence is itself overconfident.
-CONFIDENCE_SIGMA = {"high": 0.35, "medium": 0.60, "low": 0.95}
-DEFAULT_SIGMA = 0.60
+CONFIDENCE_SIGMA = {"high": 0.30, "medium": 0.50, "low": 0.80}
+DEFAULT_SIGMA = 0.50
 
 # How much weight each worldview carries in the ensemble. Grounded in the
 # forecasting-tournament result that base-rate discipline and market deference

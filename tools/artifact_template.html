@@ -1,0 +1,831 @@
+<title>World Futures Forecast 2026–2036</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ground:        #fbfbfc;
+    --surface:       #ffffff;
+    --surface-sunk:  #f4f5f8;
+    --ink:           #0f1115;
+    --ink-2:         #474b55;
+    --ink-3:         #767b87;
+    --rule:          #e2e4ea;
+    --rule-strong:   #c8ccd6;
+    --accent:        #2a78d6;
+    --accent-sunk:   #eaf1fc;
+    --series:        #2a78d6;
+    --band-outer:    rgba(42,120,214,0.13);
+    --band-inner:    rgba(42,120,214,0.26);
+    --grid:          #e6e8ee;
+    --good:          #0ca30c;
+    --warning:       #fab219;
+    --serious:       #ec835a;
+    --critical:      #d03b3b;
+    --ord-1: #86b6ef; --ord-2: #5598e7; --ord-3: #2a78d6; --ord-4: #1c5cab; --ord-5: #0d366b;
+    --shadow: 0 1px 2px rgba(15,17,21,.05), 0 8px 24px -16px rgba(15,17,21,.22);
+
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground:       #14161a;
+      --surface:      #191c21;
+      --surface-sunk: #101215;
+      --ink:          #eceef2;
+      --ink-2:        #b0b5c0;
+      --ink-3:        #7e848f;
+      --rule:         #292d34;
+      --rule-strong:  #3b414a;
+      --accent:       #5c9df0;
+      --accent-sunk:  #17253a;
+      --series:       #3987e5;
+      --band-outer:   rgba(57,135,229,0.16);
+      --band-inner:   rgba(57,135,229,0.30);
+      --grid:         #242830;
+      --good:         #0ca30c;
+      --warning:      #fab219;
+      --serious:      #ec835a;
+      --critical:     #d03b3b;
+      --ord-1: #184f95; --ord-2: #256abf; --ord-3: #3987e5; --ord-4: #6da7ec; --ord-5: #cde2fb;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:       #14161a;
+    --surface:      #191c21;
+    --surface-sunk: #101215;
+    --ink:          #eceef2;
+    --ink-2:        #b0b5c0;
+    --ink-3:        #7e848f;
+    --rule:         #292d34;
+    --rule-strong:  #3b414a;
+    --accent:       #5c9df0;
+    --accent-sunk:  #17253a;
+    --series:       #3987e5;
+    --band-outer:   rgba(57,135,229,0.16);
+    --band-inner:   rgba(57,135,229,0.30);
+    --grid:         #242830;
+    --ord-1: #184f95; --ord-2: #256abf; --ord-3: #3987e5; --ord-4: #6da7ec; --ord-5: #cde2fb;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px 96px; }
+  .col  { max-width: 68ch; }
+
+  /* ---- masthead ---- */
+  header.mast {
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 56px 0 26px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: -0.032em;
+    font-size: clamp(2rem, 5.4vw, 3.2rem);
+    line-height: 1.04;
+    text-wrap: balance;
+    margin: 0 0 20px;
+  }
+  .standfirst { font-size: 1.12rem; color: var(--ink-2); max-width: 62ch; margin: 0 0 26px; }
+  .runline {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .runline b { color: var(--ink-2); font-weight: 500; }
+
+  /* ---- sections ---- */
+  section { margin: 0 0 72px; scroll-margin-top: 20px; }
+  h2 {
+    font-family: var(--sans);
+    font-weight: 650;
+    letter-spacing: -0.022em;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.06rem;
+    letter-spacing: -0.012em;
+    margin: 0 0 6px;
+  }
+  .sec-head { border-top: 1px solid var(--rule-strong); padding-top: 22px; margin-bottom: 26px; }
+  .lede { color: var(--ink-2); margin: 10px 0 0; max-width: 68ch; }
+  p { margin: 0 0 1em; }
+  a { color: var(--accent); }
+  strong { font-weight: 600; }
+
+  /* ---- stat tiles ---- */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 0 0 14px;
+  }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow);
+  }
+  .tile .lab {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .tile .val {
+    font-family: var(--sans);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    display: block;
+  }
+  .tile .sub {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    display: block;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ---- figure shell ---- */
+  figure { margin: 0 0 12px; }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 22px 22px 14px;
+    box-shadow: var(--shadow);
+  }
+  .fig-head { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; margin-bottom: 4px; flex-wrap: wrap; }
+  .fig-title { font-family: var(--sans); font-weight: 600; font-size: .98rem; letter-spacing: -0.01em; }
+  figcaption { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); line-height: 1.55; margin-top: 12px; }
+  .scroller { overflow-x: auto; }
+  svg { display: block; max-width: 100%; }
+  .key { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; color: var(--ink-2); align-items: center; }
+  .key i { width: 15px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: -1px; }
+
+  button.toggle {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--ink-3);
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  button.toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+  button.toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---- tables ---- */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: 13.5px; }
+  th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+    background: var(--surface);
+  }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: middle; color: var(--ink-2); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--surface-sunk); }
+  td.name { color: var(--ink); font-weight: 500; min-width: 240px; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  .num.lead { color: var(--ink); font-weight: 600; }
+  .band { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+
+  /* ---- probability rail: the repeating motif ---- */
+  .rail { display: flex; align-items: center; gap: 10px; min-width: 168px; }
+  .rail .track { position: relative; flex: 1; height: 9px; background: var(--surface-sunk); border-radius: 2px; min-width: 96px; }
+  .rail .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--series); border-radius: 0 4px 4px 0; }
+  .rail .ci { position: absolute; top: 50%; height: 1px; background: var(--rule-strong); transform: translateY(-50%); }
+  .rail .ci::before, .rail .ci::after {
+    content: ""; position: absolute; top: -3px; width: 1px; height: 7px; background: var(--rule-strong);
+  }
+  .rail .ci::before { left: 0; } .rail .ci::after { right: 0; }
+  .rail .pv { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 12px; color: var(--ink); min-width: 42px; text-align: right; font-weight: 600; }
+
+  .chip {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+    padding: 2px 6px; border-radius: 2px; white-space: nowrap;
+    border: 1px solid currentColor;
+  }
+  .chip.sev-low { color: var(--ink-3); }
+  .chip.sev-mod { color: var(--warning); }
+  .chip.sev-high { color: var(--serious); }
+  .chip.sev-crit { color: var(--critical); }
+
+  details { border-top: 1px solid var(--rule); padding: 14px 0 2px; }
+  details summary {
+    cursor: pointer; font-family: var(--mono); font-size: 11px;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3);
+  }
+  details summary:hover { color: var(--ink); }
+  details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  details[open] summary { margin-bottom: 14px; }
+  .crit-list { font-size: 14px; color: var(--ink-2); }
+  .crit-list li { margin-bottom: 9px; }
+  .crit-list b { color: var(--ink); font-weight: 600; }
+
+  /* ---- archetypes ---- */
+  .arch { border-top: 1px solid var(--rule); padding: 22px 0; display: grid; grid-template-columns: 96px 1fr; gap: 24px; }
+  .arch .mass { font-family: var(--sans); font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .arch .masslab { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-top: 7px; }
+  .arch .swatch { width: 34px; height: 4px; border-radius: 2px; margin-bottom: 12px; }
+  .arch ul { margin: 12px 0 0; padding-left: 18px; font-size: 14px; color: var(--ink-2); }
+  .arch li { margin-bottom: 5px; }
+
+  .note {
+    background: var(--accent-sunk);
+    border-left: 2px solid var(--accent);
+    padding: 16px 20px;
+    font-size: 15px;
+    color: var(--ink-2);
+    margin: 0 0 22px;
+    border-radius: 0 3px 3px 0;
+  }
+  .note b { color: var(--ink); }
+
+  ul.limits { padding-left: 20px; color: var(--ink-2); font-size: 15.5px; }
+  ul.limits li { margin-bottom: 12px; }
+  ul.limits b { color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 22px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+
+  .tip {
+    position: fixed; pointer-events: none; z-index: 50; opacity: 0;
+    transition: opacity .1s;
+    background: var(--ink); color: var(--ground);
+    font-family: var(--mono); font-size: 11.5px; line-height: 1.55;
+    padding: 8px 10px; border-radius: 3px; max-width: 280px;
+    box-shadow: 0 6px 20px -6px rgba(0,0,0,.5);
+  }
+  .tip.on { opacity: 1; }
+  .tip .t-lab { color: var(--ground); opacity: .65; display: block; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 700px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 18px 72px; }
+    .arch { grid-template-columns: 1fr; gap: 10px; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Monte Carlo world-futures simulation · run <span id="m-asof"></span></p>
+  <h1>What the next ten years probably look like</h1>
+  <p class="standfirst">
+    A survival-process simulation of <span id="m-risks"></span> coupled global risks across nine
+    domains, run <span id="m-paths"></span> times over 2026Q3–2036Q4. Every probability below is
+    derived from the model, not asserted — and every one carries the range it moves across
+    depending on whose reading of the world you accept.
+  </p>
+  <div class="runline">
+    <span><b id="m-paths2"></b> simulated decades</span>
+    <span><b id="m-worlds"></b> parameter worlds × 5 worldviews</span>
+    <span><b id="m-edges"></b> causal edges</span>
+    <span>calibration residual <b id="m-cal"></b></span>
+  </div>
+</header>
+
+<section id="topline">
+  <div class="sec-head">
+    <h2>The topline</h2>
+    <p class="lede">Individual probabilities are the easy part. What determines how the decade
+      actually feels is how many serious shocks land — and whether they land together.</p>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="topline-note"></p>
+</section>
+
+<section id="stress">
+  <div class="sec-head">
+    <h2>Systemic stress over the decade</h2>
+    <p class="lede">Every fired event contributes its severity to a global stress index and then
+      decays. A decade with three severity-8 events inside eighteen months scores far higher
+      than one where the same three are spread across ten years — which is the point.
+      Simultaneity breaks systems, not the count.</p>
+  </div>
+  <figure class="panel">
+    <div class="fig-head">
+      <span class="fig-title">Global Systemic Stress Index, 2026Q3–2036Q4</span>
+      <button class="toggle" data-table="tbl-stress" type="button">Table view</button>
+    </div>
+    <div class="scroller"><svg id="fan" role="img" aria-label="Fan chart of systemic stress index over time"></svg></div>
+    <div class="key" style="margin-top:12px">
+      <span><i style="background:var(--series)"></i>Median path</span>
+      <span><i style="background:var(--band-inner)"></i>25th–75th percentile</span>
+      <span><i style="background:var(--band-outer)"></i>5th–95th percentile</span>
+    </div>
+    <figcaption id="fan-cap"></figcaption>
+    <div class="tbl-wrap" id="tbl-stress" hidden style="margin-top:16px"></div>
+  </figure>
+</section>
+
+<section id="headline">
+  <div class="sec-head">
+    <h2>Headline forecasts</h2>
+    <p class="lede">Ranked by expected systemic impact — probability by 2036 times severity —
+      rather than by probability alone, because a 12% chance of something that reorders the world
+      outranks a near-certainty that doesn't. The bracket is not the range of outcomes; the event
+      either happens or it doesn't. It is the range of <em>the probability itself</em> across
+      parameter worlds. Monte Carlo noise has been subtracted, so what is left is real
+      disagreement.</p>
+  </div>
+  <figure class="panel">
+    <div class="fig-head">
+      <span class="fig-title">Probability by 2036, with 90% credible interval</span>
+      <button class="toggle" data-table="tbl-headline" type="button">Table view</button>
+    </div>
+    <div class="scroller"><svg id="bars" role="img" aria-label="Headline event probabilities with credible intervals"></svg></div>
+    <figcaption>Bar is the ensemble probability by end-2036. Whisker spans the 90% credible
+      interval on that probability across parameter worlds. Wide whisker = fragile forecast.</figcaption>
+    <div class="tbl-wrap" id="tbl-headline" hidden style="margin-top:16px"></div>
+  </figure>
+  <div class="tbl-wrap" style="margin-top:22px">
+    <table id="headline-table"></table>
+  </div>
+</section>
+
+<section id="archetypes">
+  <div class="sec-head">
+    <h2>Five shapes the decade takes</h2>
+    <p class="lede">Paths were clustered on which major events fired and on the shape of their
+      stress trajectory. These are not scenarios written in advance and then assigned
+      probabilities — they are the shapes the simulation actually produced, priced by how much
+      of the path mass fell into each.</p>
+  </div>
+  <div id="arch-list"></div>
+</section>
+
+<section id="cascades">
+  <div class="sec-head">
+    <h2>How bad decades begin</h2>
+    <p class="lede">Among paths where at least three high-severity events fired, the most common
+      opening sequences in order of occurrence.</p>
+  </div>
+  <div class="tbl-wrap"><table id="chain-table"></table></div>
+  <p class="lede" id="chain-note" style="margin-top:18px"></p>
+</section>
+
+<section id="pairs">
+  <div class="sec-head">
+    <h2>Where the correlations are</h2>
+    <p class="lede">Pairs whose joint occurrence most exceeds what independence would predict.
+      Lift is P(both) ÷ P(A)·P(B) — a lift of 3 means these two show up together three times
+      more often than chance. This is the part a spreadsheet of independent probabilities cannot
+      produce, and it is where tail risk actually lives.</p>
+  </div>
+  <div class="tbl-wrap"><table id="pair-table"></table></div>
+</section>
+
+<section id="drivers">
+  <div class="sec-head">
+    <h2>What to watch</h2>
+    <p class="lede">Share of the variance in peak systemic stress attributable to each event
+      firing at all. High-scoring nodes are worth watching because learning how they resolve
+      collapses the most uncertainty about everything else.</p>
+  </div>
+  <div class="tbl-wrap"><table id="sens-table"></table></div>
+</section>
+
+<section id="disagree">
+  <div class="sec-head">
+    <h2>Where the worldviews disagree</h2>
+    <p class="lede">Five parameterisations — raw analyst, audited, outside-view base rates,
+      structural-break inside view, and prediction-market check — converge on most nodes.
+      These are the ones where they don't, and they are exactly the forecasts to hold most
+      loosely.</p>
+  </div>
+  <div class="tbl-wrap"><table id="dis-table"></table></div>
+</section>
+
+<section id="domains">
+  <div class="sec-head">
+    <h2>Full results by domain</h2>
+    <p class="lede">Every node in the model, with the resolution criteria each was scored
+      against. Read the criteria before quoting a number — several of these forecasts move by
+      tens of percentage points on the wording of what counts.</p>
+  </div>
+  <div id="domain-list"></div>
+</section>
+
+<section id="indicators">
+  <div class="sec-head">
+    <h2>Continuous indicators</h2>
+    <p class="lede">These evolve on a Gaussian copula driven by each path's own stress index, so
+      the bad tails here are populated by the same paths that fired the bad events — not by
+      independent noise.</p>
+  </div>
+  <div class="tbl-wrap"><table id="cont-table"></table></div>
+</section>
+
+<section id="limits">
+  <div class="sec-head">
+    <h2>What this cannot do</h2>
+    <p class="lede">The engine is exact. The parameters are informed judgement. Simulation
+      precision does not create forecast accuracy, and the gap between those two things is
+      where every failure of a model like this one lives.</p>
+  </div>
+  <ul class="limits" id="limit-list"></ul>
+</section>
+
+<footer>
+  Generated by the <b>worldsim</b> Monte Carlo engine · <span id="f-paths"></span> paths ·
+  seed <span id="f-seed"></span> · run <span id="f-asof"></span><br>
+  Parameters, coupling structure and red-team corrections live in <code>params/</code>;
+  rerun with <code>python run_simulation.py</code>.
+</footer>
+
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+  const D = JSON.parse(document.getElementById("payload").textContent);
+  const $ = (id) => document.getElementById(id);
+  const SVGNS = "http://www.w3.org/2000/svg";
+
+  const pct = (x) => {
+    const v = x * 100;
+    if (v >= 99.5) return ">99%";
+    if (v < 0.5) return "<0.5%";
+    if (v < 10) return v.toFixed(1) + "%";
+    return Math.round(v) + "%";
+  };
+  const el = (tag, attrs, text) => {
+    const n = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const sevClass = (s) => s >= 8 ? "sev-crit" : s >= 6 ? "sev-high" : s >= 4 ? "sev-mod" : "sev-low";
+  const sevLabel = (s) => s >= 8 ? "CRITICAL" : s >= 6 ? "SEVERE" : s >= 4 ? "SERIOUS" : "MODERATE";
+
+  // ---- tooltip -----------------------------------------------------------
+  const tip = $("tip");
+  function showTip(evt, html) {
+    tip.innerHTML = html;
+    tip.classList.add("on");
+    const r = tip.getBoundingClientRect();
+    let x = evt.clientX + 14, y = evt.clientY - r.height - 10;
+    if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+    if (y < 8) y = evt.clientY + 18;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  const hideTip = () => tip.classList.remove("on");
+
+  // ---- masthead ----------------------------------------------------------
+  const M = D.meta;
+  $("m-asof").textContent = M.as_of;
+  $("m-risks").textContent = M.n_risks;
+  $("m-paths").textContent = M.n_paths.toLocaleString();
+  $("m-paths2").textContent = M.n_paths.toLocaleString();
+  $("m-worlds").textContent = M.n_worlds.toLocaleString();
+  $("m-edges").textContent = M.n_edges;
+  $("m-cal").textContent = "≤" + M.calibration_pp.toFixed(2) + "pp";
+  $("f-paths").textContent = M.n_paths.toLocaleString();
+  $("f-seed").textContent = M.seed;
+  $("f-asof").textContent = M.as_of;
+
+  // ---- stat tiles --------------------------------------------------------
+  $("tiles").innerHTML = D.tiles.map((t) => `
+    <div class="tile">
+      <span class="lab">${esc(t.label)}</span>
+      <span class="val">${esc(t.value)}</span>
+      <span class="sub">${esc(t.sub)}</span>
+    </div>`).join("");
+  $("topline-note").innerHTML = D.topline_note;
+
+  // ---- fan chart ---------------------------------------------------------
+  function fanChart() {
+    const s = D.stress;
+    const W = Math.max(680, Math.min(1060, innerWidth - 100));
+    const H = 320, ml = 46, mr = 18, mt = 14, mb = 34;
+    const iw = W - ml - mr, ih = H - mt - mb;
+    const n = s.p50.length;
+    const ymax = Math.max(...s.p95) * 1.06 || 1;
+    const X = (i) => ml + (i / (n - 1)) * iw;
+    const Y = (v) => mt + ih - (v / ymax) * ih;
+
+    const svg = $("fan");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    const ticks = 4;
+    for (let t = 0; t <= ticks; t++) {
+      const v = (ymax / ticks) * t;
+      svg.appendChild(el("line", { x1: ml, x2: ml + iw, y1: Y(v), y2: Y(v),
+        stroke: "var(--grid)", "stroke-width": 1 }));
+      const lb = el("text", { x: ml - 9, y: Y(v) + 4, "text-anchor": "end",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" }, v.toFixed(0));
+      svg.appendChild(lb);
+    }
+
+    const areaPath = (lo, hi) => {
+      let d = "";
+      for (let i = 0; i < n; i++) d += (i ? "L" : "M") + X(i) + " " + Y(hi[i]);
+      for (let i = n - 1; i >= 0; i--) d += "L" + X(i) + " " + Y(lo[i]);
+      return d + "Z";
+    };
+    svg.appendChild(el("path", { d: areaPath(s.p5, s.p95), fill: "var(--band-outer)" }));
+    svg.appendChild(el("path", { d: areaPath(s.p25, s.p75), fill: "var(--band-inner)" }));
+
+    let line = "";
+    for (let i = 0; i < n; i++) line += (i ? "L" : "M") + X(i) + " " + Y(s.p50[i]);
+    svg.appendChild(el("path", { d: line, fill: "none", stroke: "var(--series)",
+      "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+    for (let i = 0; i < n; i += 8) {
+      svg.appendChild(el("text", { x: X(i), y: H - 10, "text-anchor": "middle",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" }, s.labels[i]));
+    }
+
+    const cross = el("line", { y1: mt, y2: mt + ih, stroke: "var(--rule-strong)",
+      "stroke-width": 1, opacity: 0 });
+    svg.appendChild(cross);
+    const dot = el("circle", { r: 4.5, fill: "var(--series)", stroke: "var(--surface)",
+      "stroke-width": 2, opacity: 0 });
+    svg.appendChild(dot);
+
+    svg.addEventListener("mousemove", (e) => {
+      const box = svg.getBoundingClientRect();
+      const px = ((e.clientX - box.left) / box.width) * W;
+      let i = Math.round(((px - ml) / iw) * (n - 1));
+      i = Math.max(0, Math.min(n - 1, i));
+      cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i));
+      cross.setAttribute("opacity", 1);
+      dot.setAttribute("cx", X(i)); dot.setAttribute("cy", Y(s.p50[i]));
+      dot.setAttribute("opacity", 1);
+      showTip(e, `<span class="t-lab">${esc(s.labels[i])}</span>
+        median ${s.p50[i].toFixed(1)}<br>
+        50% band ${s.p25[i].toFixed(1)}–${s.p75[i].toFixed(1)}<br>
+        90% band ${s.p5[i].toFixed(1)}–${s.p95[i].toFixed(1)}`);
+    });
+    svg.addEventListener("mouseleave", () => {
+      hideTip(); cross.setAttribute("opacity", 0); dot.setAttribute("opacity", 0);
+    });
+
+    $("fan-cap").textContent = s.caption;
+    $("tbl-stress").innerHTML = `<table><thead><tr><th>Quarter</th><th>p5</th><th>p25</th>
+      <th>Median</th><th>p75</th><th>p95</th></tr></thead><tbody>` +
+      s.labels.map((L, i) => i % 4 === 0 ? `<tr><td class="num">${esc(L)}</td>
+        <td class="num">${s.p5[i].toFixed(1)}</td><td class="num">${s.p25[i].toFixed(1)}</td>
+        <td class="num lead">${s.p50[i].toFixed(1)}</td><td class="num">${s.p75[i].toFixed(1)}</td>
+        <td class="num">${s.p95[i].toFixed(1)}</td></tr>` : "").join("") + `</tbody></table>`;
+  }
+
+  // ---- headline bars -----------------------------------------------------
+  function barChart() {
+    const rows = D.headline.slice(0, 14);
+    const W = Math.max(680, Math.min(1060, innerWidth - 100));
+    const rowH = 30, ml = 300, mr = 54, mt = 8;
+    const H = mt + rows.length * rowH + 26;
+    const iw = W - ml - mr;
+    const xmax = Math.min(1, Math.max(...rows.map((r) => r.hi2036)) * 1.08) || 1;
+    const X = (v) => ml + (v / xmax) * iw;
+
+    const svg = $("bars");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    for (let t = 0; t <= 4; t++) {
+      const v = (xmax / 4) * t;
+      svg.appendChild(el("line", { x1: X(v), x2: X(v), y1: mt, y2: mt + rows.length * rowH,
+        stroke: "var(--grid)", "stroke-width": 1 }));
+      svg.appendChild(el("text", { x: X(v), y: H - 8, "text-anchor": "middle",
+        fill: "var(--ink-3)", "font-size": 10.5, "font-family": "var(--mono)" },
+        Math.round(v * 100) + "%"));
+    }
+
+    rows.forEach((r, i) => {
+      const cy = mt + i * rowH + rowH / 2;
+      const g = el("g", { style: "cursor:default" });
+
+      const nm = r.name.length > 42 ? r.name.slice(0, 41) + "…" : r.name;
+      g.appendChild(el("text", { x: ml - 14, y: cy + 4, "text-anchor": "end",
+        fill: "var(--ink-2)", "font-size": 12, "font-family": "var(--sans)" }, nm));
+
+      // Bar: ≤24px thick, 4px rounded data-end, square at the baseline.
+      const bw = Math.max(X(r.p2036) - ml, 1.5);
+      g.appendChild(el("path", {
+        d: `M${ml} ${cy - 7} H${ml + Math.max(bw - 4, 0)} a4 4 0 0 1 4 4 v6 a4 4 0 0 1 -4 4 H${ml} Z`,
+        fill: "var(--series)"
+      }));
+
+      // Credible interval whisker, drawn over the bar with a surface-coloured gap.
+      const x1 = X(r.lo2036), x2 = X(r.hi2036);
+      if (x2 - x1 > 2) {
+        g.appendChild(el("line", { x1, x2, y1: cy, y2: cy,
+          stroke: "var(--ink-3)", "stroke-width": 1 }));
+        [x1, x2].forEach((x) => g.appendChild(el("line", { x1: x, x2: x, y1: cy - 5, y2: cy + 5,
+          stroke: "var(--ink-3)", "stroke-width": 1 })));
+      }
+
+      g.appendChild(el("text", { x: X(r.p2036) + 9, y: cy + 4, fill: "var(--ink)",
+        "font-size": 11.5, "font-family": "var(--mono)", "font-weight": 600 }, pct(r.p2036)));
+
+      const hit = el("rect", { x: 0, y: cy - rowH / 2, width: W, height: rowH,
+        fill: "transparent" });
+      hit.addEventListener("mousemove", (e) => showTip(e,
+        `<span class="t-lab">${esc(r.name)}</span>
+         by 2036 &nbsp;<b>${pct(r.p2036)}</b><br>
+         90% band ${pct(r.lo2036)}–${pct(r.hi2036)}<br>
+         by 2031 ${pct(r.p2031)} · by 2027 ${pct(r.p2027)}<br>
+         severity ${r.severity.toFixed(0)}/10`));
+      hit.addEventListener("mouseleave", hideTip);
+      g.appendChild(hit);
+      svg.appendChild(g);
+    });
+
+    $("tbl-headline").innerHTML = `<table><thead><tr><th>Event</th><th>2027</th><th>2031</th>
+      <th>2036</th><th>90% band</th></tr></thead><tbody>` + rows.map((r) =>
+      `<tr><td class="name">${esc(r.name)}</td><td class="num">${pct(r.p2027)}</td>
+       <td class="num">${pct(r.p2031)}</td><td class="num lead">${pct(r.p2036)}</td>
+       <td class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</td></tr>`).join("") +
+      `</tbody></table>`;
+  }
+
+  // ---- probability rail --------------------------------------------------
+  const rail = (r) => {
+    const w = (r.p2036 * 100).toFixed(1);
+    const lo = (r.lo2036 * 100).toFixed(1), hi = (r.hi2036 * 100).toFixed(1);
+    return `<div class="rail"><span class="pv">${pct(r.p2036)}</span>
+      <span class="track"><span class="fill" style="width:${w}%"></span>
+      <span class="ci" style="left:${lo}%;width:${Math.max(hi - lo, 0.4)}%"></span></span></div>`;
+  };
+
+  // ---- tables ------------------------------------------------------------
+  $("headline-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Domain</th><th>by 2027</th><th>by 2031</th>
+      <th>by 2036 (90% band)</th><th>Severity</th></tr></thead><tbody>` +
+    D.headline.map((r) => `<tr>
+      <td class="name">${esc(r.name)}</td>
+      <td class="num" style="text-align:left;font-size:11px;color:var(--ink-3)">${esc(r.domain_label)}</td>
+      <td class="num">${pct(r.p2027)}</td>
+      <td class="num">${pct(r.p2031)}</td>
+      <td>${rail(r)}<span class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</span></td>
+      <td class="num"><span class="chip ${sevClass(r.severity)}">${sevLabel(r.severity)}</span></td>
+    </tr>`).join("") + `</tbody>`;
+
+  $("chain-table").innerHTML =
+    `<thead><tr><th>Share of all paths</th><th>Opens with</th><th>Then</th><th>Then</th></tr></thead><tbody>` +
+    D.chains.map((c) => `<tr><td class="num lead">${pct(c.share)}</td>
+      <td class="name">${esc(c.names[0])}</td><td>${esc(c.names[1])}</td>
+      <td>${esc(c.names[2])}</td></tr>`).join("") + `</tbody>`;
+  $("chain-note").innerHTML = D.chain_note;
+
+  $("pair-table").innerHTML =
+    `<thead><tr><th>Event A</th><th>Event B</th><th>P(both)</th><th>Lift</th>
+      <th>P(A given B)</th></tr></thead><tbody>` +
+    D.pairs.map((p) => `<tr><td class="name">${esc(p.a)}</td><td class="name">${esc(p.b)}</td>
+      <td class="num">${pct(p.joint)}</td><td class="num lead">${p.lift.toFixed(1)}×</td>
+      <td class="num">${pct(p.cond)}</td></tr>`).join("") + `</tbody>`;
+
+  $("sens-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Variance share</th><th>P(by 2036)</th><th>Severity</th></tr></thead><tbody>` +
+    D.sensitivity.map((s) => `<tr><td class="name">${esc(s.name)}</td>
+      <td class="num lead">${(s.share * 100).toFixed(1)}%</td>
+      <td class="num">${pct(s.p2036)}</td>
+      <td class="num"><span class="chip ${sevClass(s.severity)}">${sevLabel(s.severity)}</span></td>
+      </tr>`).join("") + `</tbody>`;
+
+  $("dis-table").innerHTML =
+    `<thead><tr><th>Event</th><th>Analyst</th><th>Audited</th><th>Outside view</th>
+      <th>Structural break</th><th>Market check</th><th>Spread</th></tr></thead><tbody>` +
+    D.disagreement.map((d) => `<tr><td class="name">${esc(d.name)}</td>` +
+      d.by_view.map((v) => `<td class="num">${pct(v)}</td>`).join("") +
+      `<td class="num lead">${(d.spread * 100).toFixed(0)}pp</td></tr>`).join("") + `</tbody>`;
+
+  $("cont-table").innerHTML =
+    `<thead><tr><th>Indicator</th><th>Now</th><th>2031 p10</th><th>2031 median</th>
+      <th>2031 p90</th><th>2036 median</th></tr></thead><tbody>` +
+    D.continuous.map((v) => `<tr>
+      <td class="name">${esc(v.name)}<br>
+        <span style="font-family:var(--mono);font-size:10.5px;color:var(--ink-3)">${esc(v.unit)}</span></td>
+      <td class="num">${v.current}</td><td class="num">${v.q2031[0]}</td>
+      <td class="num lead">${v.q2031[1]}</td><td class="num">${v.q2031[2]}</td>
+      <td class="num lead">${v.q2036[1]}</td></tr>`).join("") + `</tbody>`;
+
+  // ---- archetypes --------------------------------------------------------
+  $("arch-list").innerHTML = D.archetypes.map((a, i) => `
+    <div class="arch">
+      <div>
+        <div class="swatch" style="background:var(--ord-${i + 1})"></div>
+        <div class="mass">${pct(a.probability)}</div>
+        <div class="masslab">of paths</div>
+      </div>
+      <div>
+        <h3>${esc(a.label)}</h3>
+        <p style="margin:6px 0 0;color:var(--ink-2)">${esc(a.description)}</p>
+        ${a.signature.length ? "<ul>" + a.signature.map((s) => `<li>${s}</li>`).join("") + "</ul>" : ""}
+      </div>
+    </div>`).join("");
+
+  // ---- domains -----------------------------------------------------------
+  $("domain-list").innerHTML = D.domains.map((d) => `
+    <details>
+      <summary>${esc(d.label)} — ${d.rows.length} nodes</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Event</th><th>2027</th><th>2031</th><th>by 2036 (90% band)</th>
+          <th>Severity</th><th>Median timing</th></tr></thead>
+        <tbody>${d.rows.map((r) => `<tr>
+          <td class="name">${esc(r.name)}</td>
+          <td class="num">${pct(r.p2027)}</td><td class="num">${pct(r.p2031)}</td>
+          <td>${rail(r)}<span class="band">${pct(r.lo2036)}–${pct(r.hi2036)}</span></td>
+          <td class="num"><span class="chip ${sevClass(r.severity)}">${sevLabel(r.severity)}</span></td>
+          <td class="num">${esc(r.timing)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <details style="margin-top:14px;border-top:none">
+        <summary>Resolution criteria</summary>
+        <ul class="crit-list">${d.rows.map((r) =>
+          `<li><b>${esc(r.name)}</b> — ${esc(r.resolution)}</li>`).join("")}</ul>
+      </details>
+    </details>`).join("");
+
+  $("limit-list").innerHTML = D.limits.map((l) => `<li>${l}</li>`).join("");
+
+  // ---- table-view toggles ------------------------------------------------
+  document.querySelectorAll("button.toggle").forEach((b) => {
+    b.addEventListener("click", () => {
+      const t = $(b.dataset.table);
+      t.hidden = !t.hidden;
+      b.textContent = t.hidden ? "Table view" : "Hide table";
+    });
+  });
+
+  fanChart();
+  barChart();
+  let rt;
+  addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { fanChart(); barChart(); }, 160);
+  });
+})();
+</script>

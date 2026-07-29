@@ -224,3 +224,24 @@ def test_epistemic_interval_widens_with_stated_uncertainty():
     m = marginal_with_interval(res["fire_time"], res["world_id"], [Q36])[Q36]
     assert m["epistemic_sd"][0] > 0.04
     assert m["hi"][0] > m["mean"][0] > m["lo"][0]
+
+
+def test_interval_stays_bounded_and_asymmetric_near_certainty():
+    """A high-probability node must not be handed an upper bound of 1.0.
+
+    A symmetric mean +/- z*sd interval would clip to ">99%" here, which reads as a
+    claim about certainty rather than what it is: an artefact of forcing a
+    symmetric interval onto a bounded quantity.
+    """
+    c = cfg()
+    risks = {"a": Risk("a", "A", "d", "", 55.0, 85.0, 93.0, 6.0, "low")}
+    cm = CompiledModel(make_model(risks=risks), c)
+    res = simulate(cm, 400, 300, np.random.default_rng(31), c.batch_paths)
+    m = marginal_with_interval(res["fire_time"], res["world_id"], [Q36])[Q36]
+    lo, mean, hi = m["lo"][0], m["mean"][0], m["hi"][0]
+    assert 0.0 <= lo < mean < hi < 1.0, "interval must stay strictly inside [0,1]"
+    # The offset sits on the per-quarter hazard, so over 42 quarters a
+    # higher-rate world drives this node to near-certainty while a lower-rate
+    # one has room to fall a long way. The lower arm must therefore be longer —
+    # a symmetric interval would have overflowed the ceiling instead.
+    assert (mean - lo) > (hi - mean)

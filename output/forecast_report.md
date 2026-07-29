@@ -3,7 +3,7 @@
 **Simulation date:** 2026-07-29  
 **Horizon:** 2026Q3 → 2036Q4 (42 quarters)  
 **Paths:** 4,800 across 5 worldviews × 40 parameter worlds  
-**Risk nodes:** 108 · **causal edges:** 70 · **latent factors:** 4 · **continuous variables:** 45
+**Risk nodes:** 72 · **causal edges:** 0 · **latent factors:** 0 · **continuous variables:** 45
 
 ---
 
@@ -13,7 +13,7 @@ Every number below is the output of a survival-process Monte Carlo, not a guess 
 
 **The bracketed range is not the range of outcomes** — the event either happens or it doesn't. It is the range of *the probability itself* across parameter worlds: how much the answer moves depending on whose model of the world you accept. A wide bracket means the forecast is fragile. Monte Carlo noise has been subtracted out, so what remains is real disagreement.
 
-**Calibration check:** simulated marginals reproduce the elicited cumulative probabilities to within 3.63 percentage points (worst node, worst worldview). This matters: the dependency network is tuned to reshape the *joint* distribution — which events co-occur — without inflating any individual probability above what the underlying analysis actually claimed.
+**Calibration check:** simulated marginals reproduce the elicited cumulative probabilities to within 0.63 percentage points (worst node, worst worldview). This matters: the dependency network is tuned to reshape the *joint* distribution — which events co-occur — without inflating any individual probability above what the underlying analysis actually claimed.
 
 ## Headline forecasts
 
@@ -21,28 +21,28 @@ Ranked by expected systemic impact — probability by 2036 multiplied by severit
 
 | # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Sev |
 |---|-------|--------:|--------:|--------:|:---------------:|----:|
-| 1 | **Synthetic energy event 5** | 26% | 81% | 99% | [95%–>99%] | 8 |
-| 2 | **Synthetic geopolitics event 6** | 21% | 63% | 97% | [91%–>99%] | 8 |
-| 3 | **Synthetic geopolitics event 9** | 24% | 69% | 90% | [79%–>99%] | 8 |
-| 4 | **Synthetic health event 9** | 28% | 58% | 92% | [75%–>99%] | 7 |
-| 5 | **Synthetic health event 10** | 19% | 51% | 85% | [56%–>99%] | 8 |
-| 6 | **Synthetic climate event 7** | 25% | 55% | 90% | [67%–>99%] | 7 |
-| 7 | **Synthetic ai event 2** | 20% | 82% | 99% | [95%–>99%] | 6 |
-| 8 | **Synthetic energy event 11** | 22% | 59% | 98% | [88%–>99%] | 6 |
-| 9 | **Synthetic demographics event 3** | 26% | 79% | 99% | [97%–>99%] | 6 |
-| 10 | **Synthetic foodwater event 7** | 19% | 60% | 78% | [46%–>99%] | 8 |
-| 11 | **Synthetic health event 11** | 24% | 69% | 98% | [91%–>99%] | 6 |
-| 12 | **Synthetic foodwater event 9** | 25% | 52% | 81% | [56%–>99%] | 7 |
-| 13 | **Synthetic economy event 1** | 16% | 55% | 69% | [28%–>99%] | 8 |
-| 14 | **Synthetic energy event 7** | 19% | 54% | 87% | [62%–>99%] | 6 |
-| 15 | **Synthetic energy event 1** | 18% | 52% | 66% | [45%–86%] | 8 |
-| 16 | **Synthetic health event 3** | 25% | 51% | 70% | [34%–>99%] | 7 |
-| 17 | **Synthetic demographics event 8** | 20% | 57% | 81% | [54%–>99%] | 6 |
-| 18 | **Synthetic economy event 5** | 22% | 36% | 56% | [5.9%–>99%] | 9 |
-| 19 | **Synthetic demographics event 9** | 28% | 53% | 64% | [21%–>99%] | 8 |
-| 20 | **Synthetic ai event 11** | 24% | 79% | 86% | [55%–>99%] | 6 |
-| 21 | **Synthetic demographics event 1** | 20% | 62% | 76% | [47%–>99%] | 6 |
-| 22 | **Synthetic foodwater event 8** | 28% | 58% | 84% | [53%–>99%] | 5 |
+| 1 | **Frontier agent reaches a 1-work-month 50%-reliability task horizon** | 11% | 55% | 77% | [43%–>99%] | 9 |
+| 2 | **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** | 57% | 70% | 78% | [54%–>99%] | 8 |
+| 3 | **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** | 40% | 77% | 88% | [66%–>99%] | 7 |
+| 4 | **Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window** | 82% | 93% | 96% | [89%–>99%] | 6 |
+| 5 | **Global fossil CO2 emissions confirmed to have peaked** | 8.4% | 50% | 79% | [55%–>99%] | 7 |
+| 6 | **US recession with NBER-dated peak in the window** | 34% | 66% | 85% | [63%–>99%] | 6 |
+| 7 | **A top-4 US hyperscaler guides annual capex down year-over-year** | 16% | 61% | 80% | [58%–>99%] | 6 |
+| 8 | **China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab** | 6.8% | 41% | 68% | [30%–>99%] | 7 |
+| 9 | **AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption** | 20% | 49% | 66% | [35%–98%] | 7 |
+| 10 | **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** | 72% | 85% | 90% | [79%–>99%] | 5 |
+| 11 | **A single training run of ≥1e28 FLOP is publicly reported** | 13% | 57% | 74% | [44%–>99%] | 6 |
+| 12 | **US unemployment rate ≥6.0% for three consecutive months** | 18% | 56% | 73% | [43%–>99%] | 6 |
+| 13 | **Global recession (world real GDP growth below 2.0% in a calendar year)** | 12% | 38% | 62% | [31%–93%] | 7 |
+| 14 | **AI capex bust: aggregate hyperscaler capex falls 20%+ year over year** | 4.4% | 35% | 61% | [25%–98%] | 7 |
+| 15 | **China reports annual real GDP growth below 4.0%** | 18% | 52% | 71% | [43%–99%] | 6 |
+| 16 | **Japan 10-year government bond yield reaches 3.00%** | 24% | 49% | 60% | [28%–93%] | 7 |
+| 17 | **A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI** | 35% | 71% | 82% | [58%–>99%] | 5 |
+| 18 | **Nvidia suffers a ≥50% peak-to-trough drawdown** | 29% | 55% | 67% | [38%–96%] | 6 |
+| 19 | **S&P 500 falls 30%+ from its all-time closing high** | 16% | 46% | 64% | [34%–95%] | 6 |
+| 20 | **Long-term (multi-decadal) 1.5C breach formally declared** | 4.8% | 31% | 74% | [46%–>99%] | 5 |
+| 21 | **A calendar year at or above 1.65C above pre-industrial** | 56% | 81% | 92% | [75%–>99%] | 4 |
+| 22 | **Brent crude settles above $120/bbl** | 37% | 50% | 60% | [27%–94%] | 6 |
 
 ## The decade in aggregate
 
@@ -50,107 +50,122 @@ Individual probabilities are the easy part. The question that actually determine
 
 | Statistic (through 2036) | Value |
 |---|---|
-| Expected number of severity ≥ 6 events | **27.9** |
-| Severe-event count, 10th–90th percentile | 24 – 32 (median 28) |
+| Expected number of severity ≥ 6 events | **22.1** |
+| Severe-event count, 10th–90th percentile | 18 – 26 (median 22) |
 | P(no severity ≥ 6 event at all) | <0.5% |
 | P(3 or more severe events) | >99% |
 | P(5 or more severe events) | >99% |
 | P(at least one severity ≥ 8 event) | **>99%** |
-| P(two or more severity ≥ 8 events) | >99% |
+| P(two or more severity ≥ 8 events) | 99% |
 
-The modal decade contains 28 events the model rates severity 6 or above, and the probability of getting through to 2036 with none is 0%. That asymmetry is the single most robust finding here: across every worldview and every parameter draw, a decade with no major disruption is a tail outcome, not the base case. The interesting variance is not *whether* shocks arrive but whether they arrive spaced out or together.
+The modal decade contains 22 events the model rates severity 6 or above, and the probability of getting through to 2036 with none is 0%. That asymmetry is the single most robust finding here: across every worldview and every parameter draw, a decade with no major disruption is a tail outcome, not the base case. The interesting variance is not *whether* shocks arrive but whether they arrive spaced out or together.
 
 ## Scenario archetypes
 
 Paths were clustered on which major events fired and on the shape of the systemic-stress trajectory. These are not scenarios written in advance and then assigned probabilities — they are the shapes the simulation actually produced, priced by how much of the path mass fell into each.
 
-### Quiet decade — great-power conflict and health emergency — **46%**
+### Quiet decade — great-power conflict and climate stress — **27%**
 
-Trend continuation. The scheduled stresses arrive on schedule and are absorbed; nothing in this cluster forces a structural break. The distinguishing driver is great-power conflict compounded by health emergency. Mean count of tracked major events: 20.4.
-
-Distinguishing features (rate within this cluster vs. overall):
-
-- **Synthetic geopolitics event 9** — 100% here vs 90% overall
-- **Synthetic health event 9** — 100% here vs 92% overall
-
-### Compound crisis decade — health emergency and energy disruption — **36%**
-
-Correlated systemic failure. Multiple high-severity events fire in a narrow window and reinforce each other; this is the cluster where the coupling structure dominates the marginals. The distinguishing driver is health emergency compounded by energy disruption. Mean count of tracked major events: 21.9.
+Trend continuation. The scheduled stresses arrive on schedule and are absorbed; nothing in this cluster forces a structural break. The distinguishing driver is great-power conflict compounded by climate stress. Mean count of tracked major events: 17.2.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **Synthetic geopolitics event 9** — 100% here vs 90% overall
-- **Synthetic health event 9** — 100% here vs 92% overall
-- **Synthetic energy event 1** — 73% here vs 66% overall
-- **Synthetic health event 3** — 77% here vs 70% overall
-- **Synthetic demographics event 9** — 72% here vs 64% overall
-- **Synthetic energy event 2** — 65% here vs 58% overall
+- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — 100% here vs 88% overall
+- **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — 100% here vs 90% overall
+- Frontier agent reaches a 1-work-month 50%-reliability task horizon — *suppressed*: 61% here vs 77% overall
+- Failure or extraordinary rescue of a bank with over $250bn in assets — *suppressed*: 25% here vs 40% overall
+- Large private-credit vehicle suspends redemptions or enters wind-down — *suppressed*: 41% here vs 55% overall
 
-### Turbulent decade — health emergency and financial and macro stress — **9.4%**
+### Severe decade — financial and macro stress and climate stress — **26%**
 
-Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is health emergency compounded by financial and macro stress. Mean count of tracked major events: 20.1.
-
-Distinguishing features (rate within this cluster vs. overall):
-
-- **Synthetic health event 9** — 100% here vs 92% overall
-- **Synthetic economy event 1** — 75% here vs 69% overall
-- Synthetic geopolitics event 9 — *suppressed*: 0% here vs 90% overall
-
-### Severe decade — no dominant driver — **8.0%**
-
-Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. Mean count of tracked major events: 19.8.
+Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. The distinguishing driver is financial and macro stress compounded by climate stress. Mean count of tracked major events: 20.0.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- Synthetic health event 9 — *suppressed*: 0% here vs 92% overall
+- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — 100% here vs 88% overall
+- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 87% here vs 77% overall
+- **AI capex bust: aggregate hyperscaler capex falls 20%+ year over year** — 71% here vs 61% overall
+- **Global recession (world real GDP growth below 2.0% in a calendar year)** — 73% here vs 62% overall
+- **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — 100% here vs 90% overall
+- **Global fossil CO2 emissions confirmed to have peaked** — 88% here vs 79% overall
 
-### Manageable decade — energy disruption and financial and macro stress — **0.9%**
+### Compound crisis decade — financial and macro stress and great-power conflict — **26%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is energy disruption compounded by financial and macro stress. Mean count of tracked major events: 19.2.
+Correlated systemic failure. Multiple high-severity events fire in a narrow window and reinforce each other; this is the cluster where the coupling structure dominates the marginals. The distinguishing driver is financial and macro stress compounded by great-power conflict. Mean count of tracked major events: 19.8.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **Synthetic energy event 1** — 76% here vs 66% overall
-- **Synthetic economy event 5** — 66% here vs 56% overall
-- **Synthetic demographics event 8** — 88% here vs 81% overall
-- **Synthetic ai event 11** — 93% here vs 86% overall
-- Synthetic energy event 5 — *suppressed*: 0% here vs 99% overall
-- Synthetic climate event 5 — *suppressed*: 46% here vs 64% overall
-- Synthetic foodwater event 9 — *suppressed*: 66% here vs 81% overall
+- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — 100% here vs 88% overall
+- **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** — 88% here vs 78% overall
+- **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — 100% here vs 90% overall
+- **Brent crude settles above $120/bbl** — 69% here vs 60% overall
+- **Failure or extraordinary rescue of a bank with over $250bn in assets** — 48% here vs 40% overall
+- **Large private-credit vehicle suspends redemptions or enters wind-down** — 63% here vs 55% overall
+
+### Manageable decade — financial and macro stress and climate stress — **11%**
+
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is financial and macro stress compounded by climate stress. Mean count of tracked major events: 18.0.
+
+Distinguishing features (rate within this cluster vs. overall):
+
+- **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — 100% here vs 90% overall
+- **Japan 10-year government bond yield reaches 3.00%** — 67% here vs 60% overall
+- Durable Russia-Ukraine ceasefire (>=180 consecutive days) — *suppressed*: 0% here vs 88% overall
+
+### Turbulent decade — technological discontinuity — **9.5%**
+
+Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is technological discontinuity. Mean count of tracked major events: 17.9.
+
+Distinguishing features (rate within this cluster vs. overall):
+
+- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 72% here vs 67% overall
+- The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C) — *suppressed*: 0% here vs 90% overall
 
 ## Full results by domain
 
-### Energy systems & critical materials
+### AI, compute & transformative technology
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Synthetic energy event 5 | 26% | 81% | 99% | [95%–>99%] | 8 | 2028Q4 |
-| Synthetic energy event 11 | 22% | 59% | 98% | [88%–>99%] | 6 | 2030Q2 |
-| Synthetic energy event 7 | 19% | 54% | 87% | [62%–>99%] | 6 | 2030Q2 |
-| Synthetic energy event 1 | 18% | 52% | 66% | [45%–86%] | 8 | 2029Q2 |
-| Synthetic energy event 2 | 26% | 39% | 58% | [30%–86%] | 7 | 2028Q4 |
-| Synthetic energy event 8 | 26% | 67% | 89% | [71%–>99%] | 4 | 2029Q2 |
-| Synthetic energy event 0 | 23% | 46% | 86% | [62%–>99%] | 2 | 2031Q2 |
-| Synthetic energy event 10 | 23% | 49% | 82% | [46%–>99%] | 2 | 2030Q1 |
-| Synthetic energy event 3 | 12% | 32% | 45% | [22%–68%] | 4 | 2029Q4 |
-| Synthetic energy event 4 | 11% | 26% | 38% | [<0.5%–80%] | 4 | 2030Q2 |
-| Synthetic energy event 6 | 4.6% | 11% | 17% | [8.7%–26%] | 7 | 2030Q3 |
-| Synthetic energy event 9 | 6.2% | 6.7% | 11% | [<0.5%–46%] | 8 | 2027Q4 |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | 11% | 55% | 77% | [43%–>99%] | 9 | 2029Q4 |
+| A top-4 US hyperscaler guides annual capex down year-over-year | 16% | 61% | 80% | [58%–>99%] | 6 | 2029Q3 |
+| China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab | 6.8% | 41% | 68% | [30%–>99%] | 7 | 2030Q4 |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 20% | 49% | 66% | [35%–98%] | 7 | 2029Q3 |
+| A single training run of ≥1e28 FLOP is publicly reported | 13% | 57% | 74% | [44%–>99%] | 6 | 2029Q3 |
+| US unemployment rate ≥6.0% for three consecutive months | 18% | 56% | 73% | [43%–>99%] | 6 | 2029Q2 |
+| A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 35% | 71% | 82% | [58%–>99%] | 5 | 2028Q2 |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | 29% | 55% | 67% | [38%–96%] | 6 | 2028Q3 |
+| US driverless robotaxi services exceed 5 million paid rides per week | 10% | 58% | 79% | [54%–>99%] | 4 | 2029Q4 |
+| A top-5 Western frontier lab exits frontier training | 10% | 36% | 52% | [24%–80%] | 6 | 2030Q1 |
+| A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month | 21% | 46% | 59% | [26%–92%] | 5 | 2029Q1 |
+| US licenses its current-flagship datacenter GPU for general commercial sale to China | 18% | 37% | 49% | [12%–86%] | 6 | 2029Q1 |
+| A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections | 29% | 59% | 67% | [34%–99%] | 4 | 2028Q2 |
+| US Congress enacts broad federal preemption of state AI laws | 19% | 41% | 53% | [22%–84%] | 5 | 2029Q1 |
+| A top mathematics journal publishes a paper whose central theorem was found primarily by AI | 22% | 59% | 74% | [46%–>99%] | 3 | 2029Q2 |
+| A quantum computer publicly factors an RSA-2048 modulus | <0.5% | 2.9% | 11% | [<0.5%–24%] | 8 | 2033Q3 |
+| AI-assisted biological attack causing ≥10 deaths, officially confirmed | 1.5% | 4.4% | 9.9% | [<0.5%–25%] | 9 | 2032Q3 |
+| Binding US-China agreement on frontier AI compute or model thresholds | 1.5% | 8.5% | 18% | [1.2%–34%] | 4 | 2032Q1 |
 
 <details><summary>Resolution criteria</summary>
 
-- **Synthetic energy event 5** — placeholder criterion for pipeline testing
-- **Synthetic energy event 11** — placeholder criterion for pipeline testing
-- **Synthetic energy event 7** — placeholder criterion for pipeline testing
-- **Synthetic energy event 1** — placeholder criterion for pipeline testing
-- **Synthetic energy event 2** — placeholder criterion for pipeline testing
-- **Synthetic energy event 8** — placeholder criterion for pipeline testing
-- **Synthetic energy event 0** — placeholder criterion for pipeline testing
-- **Synthetic energy event 10** — placeholder criterion for pipeline testing
-- **Synthetic energy event 3** — placeholder criterion for pipeline testing
-- **Synthetic energy event 4** — placeholder criterion for pipeline testing
-- **Synthetic energy event 6** — placeholder criterion for pipeline testing
-- **Synthetic energy event 9** — placeholder criterion for pipeline testing
+- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — METR (or a successor methodology it endorses) publishes a 50%-reliability time horizon of ≥167 hours of human-expert task time for a publicly deployed or externally evaluated frontier model.
+- **A top-4 US hyperscaler guides annual capex down year-over-year** — Microsoft, Alphabet, Amazon, or Meta states in an official earnings release or call that its expected full-fiscal-year capital expenditures will be LOWER than the prior fiscal year's actual capex.
+- **China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab** — Credible public confirmation (company announcement, government statement, or two independent major-outlet reports) that a China-built EUV scanner is exposing wafers in a commercial production fab, not merely a lab or prototype.
+- **AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption** — A government agency, CERT, or the victim organization publicly confirms an attack in which AI agents autonomously executed the majority of intrusion steps, AND documented direct losses exceed $1B (2026 USD) or the attack disrupted power, water, telecom, or payments service for >1 million people for >6 hours.
+- **A single training run of ≥1e28 FLOP is publicly reported** — Epoch AI, a lab's own technical report, or two independent credible technical analyses attribute ≥1e28 FLOP of training compute to a single model training run.
+- **US unemployment rate ≥6.0% for three consecutive months** — BLS headline U-3 seasonally adjusted unemployment rate is at or above 6.0% in three consecutive monthly releases.
+- **A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI** — A Fortune 500 (US) or Fortune Global 500 company announces a workforce reduction of ≥10,000 positions in a single announcement, and its official communications name AI/automation as the primary stated cause (not merely one factor among several).
+- **Nvidia suffers a ≥50% peak-to-trough drawdown** — Nvidia's split-adjusted closing share price falls at least 50% below its all-time closing high, at any point in the window.
+- **US driverless robotaxi services exceed 5 million paid rides per week** — Publicly reported paid rides in fully driverless (no human safety operator in vehicle) commercial services in the US total ≥5,000,000 in a single week, summed across all operators.
+- **A top-5 Western frontier lab exits frontier training** — One of OpenAI, Anthropic, Google DeepMind, xAI, or Meta Superintelligence Labs is acquired, dissolved, files for bankruptcy protection, or publicly announces it will stop pretraining frontier-scale models.
+- **A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month** — A model developed by a China-headquartered organization holds the top overall rank on Artificial Analysis's Intelligence Index or LMArena's overall text leaderboard continuously for at least 30 days.
+- **US licenses its current-flagship datacenter GPU for general commercial sale to China** — BIS policy permits general (not narrowly case-by-case) export to Chinese commercial customers of Nvidia's then-current top-of-line datacenter accelerator, within one product generation of the US-available flagship.
+- **A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections** — A US state enacts into law (governor's signature or veto override) a moratorium, ban, or binding numerical cap on new datacenter grid interconnections above a stated size threshold, applying statewide.
+- **US Congress enacts broad federal preemption of state AI laws** — A bill preempting state AI regulation across a broad category (beyond a single narrow domain like deepfakes) is signed into law by the President.
+- **A top mathematics journal publishes a paper whose central theorem was found primarily by AI** — A paper appears in Annals of Mathematics, JAMS, Inventiones, Acta Mathematica, or Duke Mathematical Journal in which the authors explicitly state that the principal new theorem was discovered or proved primarily by an AI system rather than by the human authors.
+- **A quantum computer publicly factors an RSA-2048 modulus** — A verifiable public demonstration in which a quantum computer factors a 2048-bit RSA modulus, with the factorization independently confirmed and the computation not reducible to classical pre-processing or special-structure moduli.
+- **AI-assisted biological attack causing ≥10 deaths, officially confirmed** — A national government, WHO, or equivalent official body confirms a deliberate biological release causing ≥10 human deaths, and officially states that AI tools materially assisted the design, synthesis planning, or acquisition of the agent.
+- **Binding US-China agreement on frontier AI compute or model thresholds** — The US and China both sign a treaty, executive agreement, or equivalent binding instrument containing specific, verifiable commitments on frontier AI training compute limits, model capability thresholds, or mutual inspection.
 
 </details>
 
@@ -158,67 +173,45 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Synthetic geopolitics event 6 | 21% | 63% | 97% | [91%–>99%] | 8 | 2030Q1 |
-| Synthetic geopolitics event 9 | 24% | 69% | 90% | [79%–>99%] | 8 | 2029Q2 |
-| Synthetic geopolitics event 1 | 17% | 43% | 71% | [55%–87%] | 5 | 2030Q3 |
-| Synthetic geopolitics event 10 | 14% | 31% | 44% | [19%–68%] | 8 | 2029Q3 |
-| Synthetic geopolitics event 11 | 27% | 40% | 49% | [31%–67%] | 6 | 2027Q4 |
-| Synthetic geopolitics event 2 | 6.7% | 23% | 31% | [9.9%–52%] | 8 | 2030Q1 |
-| Synthetic geopolitics event 7 | 19% | 50% | 82% | [51%–>99%] | 3 | 2030Q3 |
-| Synthetic geopolitics event 0 | 10% | 17% | 28% | [7.1%–49%] | 6 | 2030Q2 |
-| Synthetic geopolitics event 3 | 12% | 34% | 40% | [23%–58%] | 3 | 2029Q2 |
-| Synthetic geopolitics event 4 | 12% | 17% | 27% | [16%–38%] | 3 | 2029Q1 |
-| Synthetic geopolitics event 8 | 4.7% | 7.3% | 8.8% | [<0.5%–22%] | 9 | 2027Q4 |
-| Synthetic geopolitics event 5 | 0.9% | 3.9% | 6.5% | [2.4%–11%] | 4 | 2031Q2 |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 57% | 70% | 78% | [54%–>99%] | 8 | 2027Q2 |
+| Durable Russia-Ukraine ceasefire (>=180 consecutive days) | 40% | 77% | 88% | [66%–>99%] | 7 | 2028Q2 |
+| A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 5.9% | 21% | 38% | [3.6%–72%] | 8 | 2031Q2 |
+| North Korea conducts a seventh nuclear explosive test | 17% | 43% | 57% | [27%–87%] | 5 | 2029Q3 |
+| The Islamic Republic ceases to govern Iran | 8.2% | 24% | 35% | [<0.5%–73%] | 8 | 2030Q1 |
+| New US-Russia agreement capping deployed strategic nuclear warheads | 11% | 31% | 44% | [4.4%–83%] | 6 | 2029Q4 |
+| State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country | 6.2% | 20% | 33% | [<0.5%–69%] | 7 | 2030Q4 |
+| Iran tests or is confirmed to possess an assembled nuclear weapon | 5.8% | 18% | 27% | [<0.5%–58%] | 8 | 2030Q1 |
+| India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months | 6.1% | 17% | 26% | [6.0%–47%] | 8 | 2030Q2 |
+| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 4.8% | 13% | 21% | [4.0%–37%] | 9 | 2030Q3 |
+| Direct US-PRC military exchange causing at least one fatality | 3.7% | 12% | 20% | [1.5%–39%] | 9 | 2031Q1 |
+| NATO invokes Article 5 in response to a Russian attack | 2.8% | 10% | 15% | [1.0%–29%] | 10 | 2030Q3 |
+| PRC launches an amphibious or airborne assault on Taiwan's main island | 1.5% | 6.5% | 14% | [<0.5%–29%] | 10 | 2032Q2 |
+| Lethal armed clash between Chinese and Japanese state forces | 3.1% | 9.0% | 16% | [<0.5%–41%] | 8 | 2031Q2 |
+| A jihadist insurgent group controls a Sahelian national capital for >=7 days | 7.7% | 19% | 25% | [<0.5%–50%] | 5 | 2029Q3 |
+| US initiates withdrawal from NATO, or any member formally invokes Article 13 | 2.5% | 4.8% | 8.3% | [<0.5%–18%] | 9 | 2030Q4 |
+| A nuclear weapon is detonated in an act of war or hostility anywhere in the world | 0.9% | 4.1% | 7.3% | [<0.5%–21%] | 10 | 2031Q2 |
+| UN Security Council permanent membership formally expanded | <0.5% | 2.4% | 5.9% | [2.5%–9.2%] | 3 | 2032Q3 |
 
 <details><summary>Resolution criteria</summary>
 
-- **Synthetic geopolitics event 6** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 9** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 1** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 10** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 11** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 2** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 7** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 0** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 3** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 4** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 8** — placeholder criterion for pipeline testing
-- **Synthetic geopolitics event 5** — placeholder criterion for pipeline testing
-
-</details>
-
-### Pandemics, biosecurity & global health
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Synthetic health event 9 | 28% | 58% | 92% | [75%–>99%] | 7 | 2030Q1 |
-| Synthetic health event 10 | 19% | 51% | 85% | [56%–>99%] | 8 | 2030Q1 |
-| Synthetic health event 11 | 24% | 69% | 98% | [91%–>99%] | 6 | 2029Q2 |
-| Synthetic health event 3 | 25% | 51% | 70% | [34%–>99%] | 7 | 2029Q1 |
-| Synthetic health event 2 | 18% | 48% | 52% | [9.6%–95%] | 8 | 2028Q4 |
-| Synthetic health event 6 | 22% | 28% | 40% | [1.7%–79%] | 7 | 2027Q4 |
-| Synthetic health event 1 | 26% | 49% | 56% | [12%–>99%] | 4 | 2028Q1 |
-| Synthetic health event 5 | 14% | 39% | 41% | [9.4%–73%] | 4 | 2028Q4 |
-| Synthetic health event 8 | 14% | 30% | 41% | [25%–57%] | 4 | 2029Q2 |
-| Synthetic health event 0 | 7.8% | 11% | 20% | [<0.5%–49%] | 7 | 2031Q2 |
-| Synthetic health event 7 | 13% | 28% | 31% | [16%–46%] | 4 | 2028Q4 |
-| Synthetic health event 4 | 3.8% | 7.4% | 12% | [<0.5%–24%] | 2 | 2030Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Synthetic health event 9** — placeholder criterion for pipeline testing
-- **Synthetic health event 10** — placeholder criterion for pipeline testing
-- **Synthetic health event 11** — placeholder criterion for pipeline testing
-- **Synthetic health event 3** — placeholder criterion for pipeline testing
-- **Synthetic health event 2** — placeholder criterion for pipeline testing
-- **Synthetic health event 6** — placeholder criterion for pipeline testing
-- **Synthetic health event 1** — placeholder criterion for pipeline testing
-- **Synthetic health event 5** — placeholder criterion for pipeline testing
-- **Synthetic health event 8** — placeholder criterion for pipeline testing
-- **Synthetic health event 0** — placeholder criterion for pipeline testing
-- **Synthetic health event 7** — placeholder criterion for pipeline testing
-- **Synthetic health event 4** — placeholder criterion for pipeline testing
+- **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** — Crude-plus-condensate transit through Hormuz, per EIA/Vortexa/Kpler monthly data, falls below 50% of the 2025 monthly average for at least 30 consecutive days, in an episode beginning on or after 1 August 2026.
+- **Durable Russia-Ukraine ceasefire (>=180 consecutive days)** — A ceasefire covering the entire land front between Russian and Ukrainian forces holds for at least 180 consecutive days without resumption of sustained offensive ground operations or systematic long-range strikes on cities, as assessed by ISW/OSCE-successor monitoring or equivalent consensus reporting. Short holiday truces (e.g. April/May 2026) do NOT count.
+- **A state that does not now possess nuclear weapons tests a device or is confirmed to possess one** — Any state other than the US, Russia, UK, France, China, India, Pakistan, Israel and North Korea either (a) conducts a nuclear explosive test, (b) officially declares possession of an assembled nuclear weapon, or (c) is assessed by the IAEA or by the US intelligence community in a public statement to possess one.
+- **North Korea conducts a seventh nuclear explosive test** — A nuclear explosive test on DPRK territory confirmed by CTBTO seismic/radionuclide detection or by US/ROK/Japanese government statement.
+- **The Islamic Republic ceases to govern Iran** — The office of Supreme Leader (Velayat-e Faqih) is abolished, vacated without a successor for more than 90 days, or a government not derived from the clerical/IRGC establishment exercises effective control of Tehran; as assessed by consensus of major-power governments.
+- **New US-Russia agreement capping deployed strategic nuclear warheads** — The US and Russia sign a bilateral agreement (treaty, executive agreement, or formal reciprocal political commitment announced by both heads of state) that establishes a numerical ceiling on deployed strategic nuclear warheads or delivery vehicles.
+- **State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country** — A cyberattack publicly attributed by the victim government or by the EU/NATO to a state or state-sponsored actor causes loss of electrical supply to at least one million people for at least 24 consecutive hours in a NATO or OECD member state.
+- **Iran tests or is confirmed to possess an assembled nuclear weapon** — Iran conducts a nuclear explosive test, publicly declares possession, or is publicly assessed by the IAEA or the US intelligence community to possess at least one assembled nuclear weapon.
+- **India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months** — Direct state-on-state armed conflict between Indian and Pakistani forces producing at least 1,000 combined military and civilian deaths within any rolling 12-month period, per UCDP or ACLED coding.
+- **PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days** — PRC state organs (PLA, Coast Guard or maritime authorities) publicly declare a quarantine, inspection regime or blockade of Taiwan's ports/airspace AND enforce it by boarding, turning back or interdicting at least ten commercial vessels or aircraft, sustained for at least seven consecutive days.
+- **Direct US-PRC military exchange causing at least one fatality** — An exchange of fire (kinetic, including missile, air, naval or ground fire) between US and PLA/PAP/China Coast Guard forces resulting in at least one death on either side, acknowledged by either government or confirmed by credible multi-source reporting.
+- **NATO invokes Article 5 in response to a Russian attack** — The North Atlantic Council formally invokes Article 5 of the Washington Treaty citing an armed attack attributable to Russia or Belarus.
+- **PRC launches an amphibious or airborne assault on Taiwan's main island** — PLA forces conduct an opposed landing or airborne insertion on Taiwan proper (not offshore islands) involving at least 1,000 personnel, confirmed by Taiwan MND or US government statement.
+- **Lethal armed clash between Chinese and Japanese state forces** — An exchange of fire or deliberate ramming between PLA/CCG and JSDF/JCG units resulting in at least one death, confirmed by either government.
+- **A jihadist insurgent group controls a Sahelian national capital for >=7 days** — JNIM, ISSP/ISWAP or a successor jihadist organisation exercises effective control of Bamako, Ouagadougou or Niamey (including the presidential palace and central districts) for at least seven consecutive days, per ACLED coding or UN/Security Council reporting.
+- **US initiates withdrawal from NATO, or any member formally invokes Article 13** — The US President formally notifies the depositary of intent to withdraw under Article 13 of the North Atlantic Treaty, or any other member state does so.
+- **A nuclear weapon is detonated in an act of war or hostility anywhere in the world** — A nuclear explosive device is detonated with hostile intent against a state, non-state actor or territory (excluding tests, accidents and demonstration detonations over unpopulated own territory), confirmed by the detonating state or by CTBTO/national technical means.
+- **UN Security Council permanent membership formally expanded** — An amendment to the UN Charter expanding the number of permanent Security Council members enters into force following ratification by two-thirds of member states including all five current permanent members.
 
 </details>
 
@@ -226,135 +219,45 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Synthetic climate event 7 | 25% | 55% | 90% | [67%–>99%] | 7 | 2030Q1 |
-| Synthetic climate event 5 | 25% | 52% | 65% | [34%–95%] | 7 | 2028Q4 |
-| Synthetic climate event 8 | 18% | 59% | 81% | [63%–99%] | 5 | 2029Q4 |
-| Synthetic climate event 9 | 16% | 58% | 77% | [30%–>99%] | 4 | 2029Q3 |
-| Synthetic climate event 6 | 9.1% | 31% | 52% | [23%–82%] | 5 | 2031Q1 |
-| Synthetic climate event 3 | 21% | 52% | 61% | [16%–>99%] | 4 | 2028Q4 |
-| Synthetic climate event 11 | 11% | 27% | 31% | [7.7%–54%] | 6 | 2028Q4 |
-| Synthetic climate event 1 | 14% | 21% | 25% | [<0.5%–56%] | 7 | 2027Q4 |
-| Synthetic climate event 10 | 16% | 22% | 30% | [<0.5%–64%] | 6 | 2027Q4 |
-| Synthetic climate event 4 | 17% | 24% | 32% | [<0.5%–73%] | 2 | 2027Q4 |
-| Synthetic climate event 0 | 2.9% | 5.7% | 14% | [<0.5%–34%] | 3 | 2032Q4 |
-| Synthetic climate event 2 | 1.5% | 3.5% | 4.0% | [1.6%–6.4%] | 7 | 2029Q1 |
+| Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | 82% | 93% | 96% | [89%–>99%] | 6 | 2027Q1 |
+| Global fossil CO2 emissions confirmed to have peaked | 8.4% | 50% | 79% | [55%–>99%] | 7 | 2030Q3 |
+| The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C) | 72% | 85% | 90% | [79%–>99%] | 5 | 2027Q1 |
+| Long-term (multi-decadal) 1.5C breach formally declared | 4.8% | 31% | 74% | [46%–>99%] | 5 | 2032Q2 |
+| A calendar year at or above 1.65C above pre-industrial | 56% | 81% | 92% | [75%–>99%] | 4 | 2027Q3 |
+| Amazon basin becomes a net annual carbon source for three consecutive years | 9.1% | 23% | 39% | [<0.5%–82%] | 8 | 2030Q4 |
+| Verified wet-bulb temperature of 35C sustained for three or more hours | 13% | 31% | 50% | [20%–80%] | 6 | 2030Q3 |
+| FAO Food Price Index exceeds 160 in any month | 19% | 35% | 50% | [21%–78%] | 6 | 2029Q2 |
+| Single heat event with >= 100,000 attributed excess deaths | 8.6% | 26% | 42% | [13%–72%] | 7 | 2030Q4 |
+| A new record warmest calendar year, exceeding 2024 | 79% | 94% | 97% | [92%–>99%] | 3 | 2027Q1 |
+| Combined Lake Powell + Lake Mead storage falls below 20% of capacity | 21% | 42% | 54% | [24%–84%] | 5 | 2028Q4 |
+| Final court judgment ordering >= $1bn in climate damages | 4.7% | 17% | 34% | [<0.5%–69%] | 6 | 2031Q4 |
+| Global mean methane annual growth rate falls to zero or below | 3.9% | 16% | 31% | [<0.5%–69%] | 5 | 2031Q3 |
+| Formal international SRM governance decision adopted | 7.4% | 23% | 39% | [2.7%–75%] | 4 | 2031Q1 |
+| Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months | 4.0% | 11% | 19% | [<0.5%–44%] | 8 | 2030Q4 |
+| State-backed solar radiation management deployment announced or conducted | 1.7% | 6.8% | 17% | [<0.5%–37%] | 8 | 2032Q4 |
+| Arctic Ocean practically ice-free (extent below 1.0 million km2) | 0.7% | 4.2% | 21% | [2.3%–40%] | 5 | 2033Q3 |
+| AMOC declared to have crossed a tipping point | 0.7% | 1.6% | 3.8% | [<0.5%–9.0%] | 10 | 2032Q2 |
 
 <details><summary>Resolution criteria</summary>
 
-- **Synthetic climate event 7** — placeholder criterion for pipeline testing
-- **Synthetic climate event 5** — placeholder criterion for pipeline testing
-- **Synthetic climate event 8** — placeholder criterion for pipeline testing
-- **Synthetic climate event 9** — placeholder criterion for pipeline testing
-- **Synthetic climate event 6** — placeholder criterion for pipeline testing
-- **Synthetic climate event 3** — placeholder criterion for pipeline testing
-- **Synthetic climate event 11** — placeholder criterion for pipeline testing
-- **Synthetic climate event 1** — placeholder criterion for pipeline testing
-- **Synthetic climate event 10** — placeholder criterion for pipeline testing
-- **Synthetic climate event 4** — placeholder criterion for pipeline testing
-- **Synthetic climate event 0** — placeholder criterion for pipeline testing
-- **Synthetic climate event 2** — placeholder criterion for pipeline testing
-
-</details>
-
-### AI, compute & transformative technology
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Synthetic ai event 2 | 20% | 82% | 99% | [95%–>99%] | 6 | 2028Q4 |
-| Synthetic ai event 11 | 24% | 79% | 86% | [55%–>99%] | 6 | 2028Q3 |
-| Synthetic ai event 8 | 13% | 35% | 47% | [7.6%–86%] | 7 | 2029Q3 |
-| Synthetic ai event 4 | 12% | 30% | 53% | [19%–87%] | 6 | 2031Q1 |
-| Synthetic ai event 0 | 18% | 21% | 31% | [<0.5%–64%] | 6 | 2027Q3 |
-| Synthetic ai event 5 | 4.9% | 16% | 23% | [<0.5%–58%] | 8 | 2030Q2 |
-| Synthetic ai event 10 | 25% | 70% | 76% | [47%–>99%] | 2 | 2028Q4 |
-| Synthetic ai event 6 | 9.7% | 17% | 23% | [<0.5%–59%] | 8 | 2028Q4 |
-| Synthetic ai event 9 | 7.1% | 18% | 23% | [<0.5%–51%] | 5 | 2029Q3 |
-| Synthetic ai event 3 | 13% | 22% | 32% | [2.5%–62%] | 4 | 2029Q4 |
-| Synthetic ai event 7 | 13% | 19% | 33% | [<0.5%–75%] | 3 | 2030Q1 |
-| Synthetic ai event 1 | 3.9% | 7.1% | 7.8% | [3.2%–12%] | 8 | 2028Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Synthetic ai event 2** — placeholder criterion for pipeline testing
-- **Synthetic ai event 11** — placeholder criterion for pipeline testing
-- **Synthetic ai event 8** — placeholder criterion for pipeline testing
-- **Synthetic ai event 4** — placeholder criterion for pipeline testing
-- **Synthetic ai event 0** — placeholder criterion for pipeline testing
-- **Synthetic ai event 5** — placeholder criterion for pipeline testing
-- **Synthetic ai event 10** — placeholder criterion for pipeline testing
-- **Synthetic ai event 6** — placeholder criterion for pipeline testing
-- **Synthetic ai event 9** — placeholder criterion for pipeline testing
-- **Synthetic ai event 3** — placeholder criterion for pipeline testing
-- **Synthetic ai event 7** — placeholder criterion for pipeline testing
-- **Synthetic ai event 1** — placeholder criterion for pipeline testing
-
-</details>
-
-### Demography & migration
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Synthetic demographics event 3 | 26% | 79% | 99% | [97%–>99%] | 6 | 2029Q1 |
-| Synthetic demographics event 8 | 20% | 57% | 81% | [54%–>99%] | 6 | 2029Q4 |
-| Synthetic demographics event 9 | 28% | 53% | 64% | [21%–>99%] | 8 | 2028Q3 |
-| Synthetic demographics event 1 | 20% | 62% | 76% | [47%–>99%] | 6 | 2029Q2 |
-| Synthetic demographics event 4 | 21% | 48% | 65% | [28%–>99%] | 6 | 2029Q2 |
-| Synthetic demographics event 6 | 17% | 49% | 56% | [15%–97%] | 7 | 2028Q4 |
-| Synthetic demographics event 7 | 20% | 37% | 44% | [17%–71%] | 7 | 2028Q2 |
-| Synthetic demographics event 2 | 16% | 54% | 68% | [38%–98%] | 4 | 2029Q4 |
-| Synthetic demographics event 0 | 25% | 34% | 54% | [33%–76%] | 4 | 2029Q1 |
-| Synthetic demographics event 11 | 13% | 33% | 52% | [34%–70%] | 3 | 2030Q3 |
-| Synthetic demographics event 5 | 5.1% | 12% | 17% | [2.6%–31%] | 7 | 2029Q3 |
-| Synthetic demographics event 10 | 6.4% | 12% | 15% | [<0.5%–36%] | 7 | 2028Q4 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Synthetic demographics event 3** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 8** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 9** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 1** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 4** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 6** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 7** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 2** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 0** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 11** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 5** — placeholder criterion for pipeline testing
-- **Synthetic demographics event 10** — placeholder criterion for pipeline testing
-
-</details>
-
-### Food, water & agriculture
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Synthetic foodwater event 7 | 19% | 60% | 78% | [46%–>99%] | 8 | 2029Q2 |
-| Synthetic foodwater event 9 | 25% | 52% | 81% | [56%–>99%] | 7 | 2030Q1 |
-| Synthetic foodwater event 8 | 28% | 58% | 84% | [53%–>99%] | 5 | 2029Q2 |
-| Synthetic foodwater event 0 | 19% | 36% | 53% | [36%–69%] | 7 | 2029Q4 |
-| Synthetic foodwater event 6 | 22% | 36% | 55% | [17%–93%] | 6 | 2029Q3 |
-| Synthetic foodwater event 10 | 17% | 42% | 58% | [38%–78%] | 5 | 2029Q4 |
-| Synthetic foodwater event 2 | 7.4% | 21% | 33% | [1.9%–65%] | 9 | 2030Q4 |
-| Synthetic foodwater event 3 | 17% | 57% | 91% | [71%–>99%] | 3 | 2030Q2 |
-| Synthetic foodwater event 11 | 17% | 24% | 32% | [11%–53%] | 7 | 2027Q4 |
-| Synthetic foodwater event 4 | 15% | 25% | 34% | [<0.5%–69%] | 4 | 2028Q4 |
-| Synthetic foodwater event 5 | 15% | 21% | 27% | [6.8%–47%] | 4 | 2027Q4 |
-| Synthetic foodwater event 1 | 7.7% | 12% | 18% | [6.2%–31%] | 3 | 2029Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Synthetic foodwater event 7** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 9** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 8** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 0** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 6** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 10** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 2** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 3** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 11** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 4** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 5** — placeholder criterion for pipeline testing
-- **Synthetic foodwater event 1** — placeholder criterion for pipeline testing
+- **Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window** — NOAA Coral Reef Watch reports that Alert Level 1 or higher bleaching-level heat stress affected at least 60% of the world's coral reef area within any rolling 12-month period.
+- **Global fossil CO2 emissions confirmed to have peaked** — The Global Carbon Project reports global fossil CO2 emissions below the previous all-time high in two consecutive calendar years, with the peak year identified in the published Global Carbon Budget.
+- **The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)** — NOAA CPC's Oceanic Nino Index (3-month running mean Nino3.4 anomaly, ERSSTv5 with the operational base period) reaches or exceeds +2.0C for at least one overlapping season during the 2026-27 event.
+- **Long-term (multi-decadal) 1.5C breach formally declared** — The WMO, IPCC (in AR7 or a special report), or the UNFCCC Global Stocktake formally states that the long-term global mean temperature increase - defined as a 20-year mean or current human-induced warming - has exceeded 1.5C above 1850-1900.
+- **A calendar year at or above 1.65C above pre-industrial** — ERA5 annual global mean surface temperature anomaly relative to 1850-1900 is >= 1.65C for a full calendar year, as published in the Copernicus Global Climate Highlights.
+- **Amazon basin becomes a net annual carbon source for three consecutive years** — Peer-reviewed literature (atmospheric inversion, aircraft profile, or eddy-covariance synthesis accepted by the Global Carbon Project) establishes that the Amazon basin as a whole was a net annual source of carbon to the atmosphere in three consecutive calendar years.
+- **Verified wet-bulb temperature of 35C sustained for three or more hours** — A quality-controlled surface station observation (or a national meteorological service's official record) documents a wet-bulb temperature of at least 35.0C sustained for at least three consecutive hours, confirmed in a peer-reviewed publication or by a national met service.
+- **FAO Food Price Index exceeds 160 in any month** — The FAO Food Price Index (nominal, 2014-2016 = 100) records a monthly value above 160.0, exceeding the March 2022 all-time high of 160.3.
+- **Single heat event with >= 100,000 attributed excess deaths** — A peer-reviewed study or national statistical office attributes at least 100,000 excess deaths to a single heat wave or heat season within one country or contiguous region over a window of 90 days or less.
+- **A new record warmest calendar year, exceeding 2024** — Copernicus ERA5 (with NASA GISTEMP and NOAA as corroboration) reports a calendar year with a global mean surface temperature anomaly exceeding the 2024 value (1.60C above 1850-1900) at the annual announcement in the following January.
+- **Combined Lake Powell + Lake Mead storage falls below 20% of capacity** — US Bureau of Reclamation end-of-month reservoir reports show combined active storage in Lake Powell and Lake Mead below 20% of combined live capacity.
+- **Final court judgment ordering >= $1bn in climate damages** — A court of final instance (highest domestic court, or a binding international tribunal) issues a non-appealable judgment ordering a state or a company to pay at least US$1 billion in damages, compensation, or a compliance fund specifically for climate change harms.
+- **Global mean methane annual growth rate falls to zero or below** — NOAA GML reports a global mean CH4 annual increase of 0.0 ppb or less for a calendar year in its published trends series.
+- **Formal international SRM governance decision adopted** — UNEA, the UNFCCC COP, the CBD COP, or a comparable treaty body adopts a formal decision or instrument establishing an international governance framework for solar radiation modification (whether a non-use agreement, a research governance regime, or a moratorium codification), beyond the existing non-binding CBD language.
+- **Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months** — The RAPID-MOCHA-WBTS array at 26N (or a successor observing system accepted as the reference by the AMOC research community) reports a 12-month running mean overturning transport at least 30% below the 2004-2023 mean, confirmed in a peer-reviewed publication.
+- **State-backed solar radiation management deployment announced or conducted** — A national government formally announces a stratospheric aerosol injection deployment programme (as distinct from research), or a state or state-backed entity conducts SAI at a scale exceeding 0.1 Tg of injected aerosol precursor per year, as confirmed by independent monitoring or official statement.
+- **Arctic Ocean practically ice-free (extent below 1.0 million km2)** — NSIDC daily sea ice extent for the Arctic falls below 1.0 million km2 on at least one day.
+- **AMOC declared to have crossed a tipping point** — A major assessment body (IPCC, WMO, or a National Academies-equivalent) or a strong majority of the published AMOC literature states that the AMOC has crossed a critical threshold and is on an irreversible trajectory toward collapse (maximum strength below 5 Sv) under current forcing.
 
 </details>
 
@@ -362,67 +265,45 @@ Distinguishing features (rate within this cluster vs. overall):
 
 | Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
-| Synthetic economy event 1 | 16% | 55% | 69% | [28%–>99%] | 8 | 2029Q2 |
-| Synthetic economy event 5 | 22% | 36% | 56% | [5.9%–>99%] | 9 | 2029Q2 |
-| Synthetic economy event 11 | 26% | 45% | 48% | [30%–66%] | 9 | 2027Q4 |
-| Synthetic economy event 2 | 23% | 34% | 47% | [16%–79%] | 7 | 2028Q1 |
-| Synthetic economy event 6 | 10% | 24% | 41% | [<0.5%–82%] | 5 | 2030Q4 |
-| Synthetic economy event 3 | 16% | 40% | 49% | [33%–66%] | 4 | 2029Q2 |
-| Synthetic economy event 7 | 21% | 30% | 50% | [18%–83%] | 4 | 2030Q1 |
-| Synthetic economy event 10 | 9.3% | 27% | 34% | [<0.5%–76%] | 6 | 2029Q2 |
-| Synthetic economy event 0 | 13% | 24% | 45% | [16%–73%] | 4 | 2031Q3 |
-| Synthetic economy event 4 | 17% | 39% | 44% | [18%–70%] | 4 | 2028Q4 |
-| Synthetic economy event 9 | 10% | 17% | 22% | [4.5%–40%] | 8 | 2028Q3 |
-| Synthetic economy event 8 | 6.0% | 12% | 19% | [8.4%–29%] | 6 | 2030Q2 |
+| US recession with NBER-dated peak in the window | 34% | 66% | 85% | [63%–>99%] | 6 | 2028Q4 |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | 12% | 38% | 62% | [31%–93%] | 7 | 2030Q3 |
+| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | 4.4% | 35% | 61% | [25%–98%] | 7 | 2031Q1 |
+| China reports annual real GDP growth below 4.0% | 18% | 52% | 71% | [43%–99%] | 6 | 2029Q3 |
+| Japan 10-year government bond yield reaches 3.00% | 24% | 49% | 60% | [28%–93%] | 7 | 2028Q4 |
+| S&P 500 falls 30%+ from its all-time closing high | 16% | 46% | 64% | [34%–95%] | 6 | 2029Q4 |
+| Brent crude settles above $120/bbl | 37% | 50% | 60% | [27%–94%] | 6 | 2027Q3 |
+| Large private-credit vehicle suspends redemptions or enters wind-down | 26% | 44% | 55% | [24%–87%] | 6 | 2028Q2 |
+| Failure or extraordinary rescue of a bank with over $250bn in assets | 10% | 26% | 40% | [13%–68%] | 8 | 2030Q2 |
+| Wave of emerging-market sovereign defaults or restructurings | 22% | 47% | 61% | [31%–92%] | 5 | 2029Q1 |
+| China announces a central-government property/LGFV rescue of RMB 5trn or more | 22% | 42% | 52% | [7.0%–98%] | 5 | 2028Q3 |
+| US average effective tariff rate exceeds 15% | 29% | 41% | 51% | [14%–87%] | 5 | 2027Q3 |
+| US dollar share of allocated FX reserves falls below 50% | 2.0% | 18% | 40% | [11%–68%] | 6 | 2032Q2 |
+| US 10-year Treasury yield closes at or above 6.00% | 5.2% | 18% | 30% | [5.0%–54%] | 8 | 2030Q4 |
+| US CPI inflation returns to 5.0%+ year over year | 20% | 36% | 47% | [17%–77%] | 5 | 2028Q4 |
+| Sustained effective closure of the Strait of Hormuz | 15% | 23% | 28% | [2.3%–53%] | 8 | 2027Q4 |
+| France or Italy 10-year spread over Bunds exceeds 300bp | 6.9% | 18% | 26% | [<0.5%–59%] | 7 | 2030Q1 |
+| Major stablecoin failure or sustained depeg | 17% | 32% | 40% | [<0.5%–83%] | 4 | 2028Q3 |
 
 <details><summary>Resolution criteria</summary>
 
-- **Synthetic economy event 1** — placeholder criterion for pipeline testing
-- **Synthetic economy event 5** — placeholder criterion for pipeline testing
-- **Synthetic economy event 11** — placeholder criterion for pipeline testing
-- **Synthetic economy event 2** — placeholder criterion for pipeline testing
-- **Synthetic economy event 6** — placeholder criterion for pipeline testing
-- **Synthetic economy event 3** — placeholder criterion for pipeline testing
-- **Synthetic economy event 7** — placeholder criterion for pipeline testing
-- **Synthetic economy event 10** — placeholder criterion for pipeline testing
-- **Synthetic economy event 0** — placeholder criterion for pipeline testing
-- **Synthetic economy event 4** — placeholder criterion for pipeline testing
-- **Synthetic economy event 9** — placeholder criterion for pipeline testing
-- **Synthetic economy event 8** — placeholder criterion for pipeline testing
-
-</details>
-
-### Political stability & governance
-
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
-|---|---:|---:|---:|:---:|---:|---|
-| Synthetic politics event 0 | 30% | 48% | 70% | [45%–96%] | 6 | 2029Q1 |
-| Synthetic politics event 1 | 20% | 49% | 65% | [22%–>99%] | 4 | 2029Q2 |
-| Synthetic politics event 5 | 9.0% | 24% | 33% | [5.1%–61%] | 8 | 2029Q4 |
-| Synthetic politics event 9 | 22% | 61% | 87% | [52%–>99%] | 3 | 2029Q3 |
-| Synthetic politics event 6 | 13% | 40% | 43% | [5.7%–80%] | 6 | 2028Q4 |
-| Synthetic politics event 10 | 24% | 59% | 68% | [42%–94%] | 3 | 2028Q4 |
-| Synthetic politics event 11 | 11% | 20% | 33% | [4.5%–61%] | 5 | 2030Q2 |
-| Synthetic politics event 8 | 3.9% | 11% | 16% | [<0.5%–33%] | 7 | 2030Q1 |
-| Synthetic politics event 7 | 4.1% | 11% | 16% | [5.4%–27%] | 6 | 2030Q1 |
-| Synthetic politics event 3 | 6.5% | 14% | 19% | [<0.5%–46%] | 5 | 2029Q4 |
-| Synthetic politics event 2 | 14% | 26% | 31% | [20%–42%] | 2 | 2028Q3 |
-| Synthetic politics event 4 | 8.2% | 17% | 30% | [16%–43%] | 2 | 2031Q1 |
-
-<details><summary>Resolution criteria</summary>
-
-- **Synthetic politics event 0** — placeholder criterion for pipeline testing
-- **Synthetic politics event 1** — placeholder criterion for pipeline testing
-- **Synthetic politics event 5** — placeholder criterion for pipeline testing
-- **Synthetic politics event 9** — placeholder criterion for pipeline testing
-- **Synthetic politics event 6** — placeholder criterion for pipeline testing
-- **Synthetic politics event 10** — placeholder criterion for pipeline testing
-- **Synthetic politics event 11** — placeholder criterion for pipeline testing
-- **Synthetic politics event 8** — placeholder criterion for pipeline testing
-- **Synthetic politics event 7** — placeholder criterion for pipeline testing
-- **Synthetic politics event 3** — placeholder criterion for pipeline testing
-- **Synthetic politics event 2** — placeholder criterion for pipeline testing
-- **Synthetic politics event 4** — placeholder criterion for pipeline testing
+- **US recession with NBER-dated peak in the window** — NBER Business Cycle Dating Committee assigns a business-cycle peak dated between August 2026 and the end of the stated year. Later announcement is fine; the peak date is what counts.
+- **Global recession (world real GDP growth below 2.0% in a calendar year)** — IMF WEO (October vintage of the following year) reports world real GDP growth at market or PPP weights below 2.0% for any calendar year in the window. Resolves YES on the first such year.
+- **AI capex bust: aggregate hyperscaler capex falls 20%+ year over year** — Combined calendar-year capital expenditure of Microsoft, Alphabet, Amazon, Meta and Oracle, as reported in audited annual filings, comes in at least 20% below the prior calendar year's reported total, for any year in the window.
+- **China reports annual real GDP growth below 4.0%** — China's National Bureau of Statistics reports full-year real GDP growth below 4.0% for any calendar year in the window, in the initial annual release.
+- **Japan 10-year government bond yield reaches 3.00%** — The 10-year JGB benchmark yield closes at or above 3.00% on any day in the window.
+- **S&P 500 falls 30%+ from its all-time closing high** — S&P 500 records a daily close at least 30% below its prior all-time closing high, at any point in the window.
+- **Brent crude settles above $120/bbl** — ICE Brent front-month futures settle at or above $120.00/bbl on any trading day in the window.
+- **Large private-credit vehicle suspends redemptions or enters wind-down** — A private credit fund, BDC or interval fund with at least $20bn NAV fully suspends redemptions (beyond pro-rating within stated quarterly limits) for at least one month, or is placed into wind-down or forced sale, in the US, UK or EU.
+- **Failure or extraordinary rescue of a bank with over $250bn in assets** — A bank holding company with more than $250bn in total assets in the US, EU, UK, Switzerland, Japan or China fails, is placed into resolution, is forced into a state-brokered merger, or receives an extraordinary government capital injection or central bank emergency liquidity facility created specifically for it.
+- **Wave of emerging-market sovereign defaults or restructurings** — At least three additional sovereigns, each with more than $10bn in external public debt, default on external commercial debt or formally enter a comprehensive debt restructuring or a new IMF Extended Fund Facility of at least $3bn, between August 2026 and the end of the stated year.
+- **China announces a central-government property/LGFV rescue of RMB 5trn or more** — China's State Council, MOF or PBOC announces a single package of central-government fiscal support, debt assumption or recapitalization directed at the property sector and/or local government financing vehicles totalling at least RMB 5 trillion, announced as one program.
+- **US average effective tariff rate exceeds 15%** — Penn Wharton Budget Model or Yale Budget Lab reports a US average effective tariff rate on all imports above 15.0% for at least one full month in the window.
+- **US dollar share of allocated FX reserves falls below 50%** — IMF COFER reports the US dollar share of allocated global foreign exchange reserves below 50.0% for any quarter in the window.
+- **US 10-year Treasury yield closes at or above 6.00%** — The constant-maturity 10-year US Treasury yield (H.15 / Treasury daily par yield curve) closes at or above 6.00% on any day in the window.
+- **US CPI inflation returns to 5.0%+ year over year** — BLS reports headline CPI-U at or above 5.0% year over year for any single month in the window.
+- **Sustained effective closure of the Strait of Hormuz** — Seaborne crude and condensate transits through the Strait of Hormuz fall more than 50% below the 2025 monthly average for at least 14 consecutive days, per IEA, EIA, Kpler or Vortexa reporting, at any point from August 2026 onward.
+- **France or Italy 10-year spread over Bunds exceeds 300bp** — The 10-year OAT-Bund or BTP-Bund spread closes above 300 basis points for five consecutive trading days, or the ECB formally activates the Transmission Protection Instrument for either sovereign.
+- **Major stablecoin failure or sustained depeg** — A stablecoin with at least $20bn market capitalization trades more than 5% below its peg for more than 24 consecutive hours, or its issuer suspends or fails to honor redemptions for more than 24 hours.
 
 </details>
 
@@ -432,20 +313,20 @@ Among paths where at least three high-severity events fired, these are the most 
 
 | Frequency | First | Then | Then |
 |---:|---|---|---|
-| <0.5% | Synthetic climate event 7 | Synthetic demographics event 6 | Synthetic demographics event 9 |
-| <0.5% | Synthetic demographics event 6 | Synthetic demographics event 9 | Synthetic economy event 1 |
-| <0.5% | Synthetic ai event 0 | Synthetic climate event 7 | Synthetic energy event 2 |
-| <0.5% | Synthetic ai event 6 | Synthetic demographics event 3 | Synthetic climate event 5 |
-| <0.5% | Synthetic ai event 0 | Synthetic demographics event 4 | Synthetic demographics event 9 |
-| <0.5% | Synthetic demographics event 3 | Synthetic demographics event 9 | Synthetic economy event 1 |
-| <0.5% | Synthetic climate event 10 | Synthetic economy event 1 | Synthetic foodwater event 11 |
-| <0.5% | Synthetic demographics event 9 | Synthetic energy event 2 | Synthetic energy event 5 |
-| <0.5% | Synthetic climate event 5 | Synthetic demographics event 3 | Synthetic demographics event 6 |
-| <0.5% | Synthetic climate event 5 | Synthetic climate event 7 | Synthetic economy event 2 |
-| <0.5% | Synthetic climate event 5 | Synthetic climate event 7 | Synthetic demographics event 1 |
-| <0.5% | Synthetic climate event 1 | Synthetic demographics event 3 | Synthetic energy event 5 |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | US recession with NBER-dated peak in the window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Brent crude settles above $120/bbl | Large private-credit vehicle suspends redemptions or enters wind-down |
+| <0.5% | Nvidia suffers a ≥50% peak-to-trough drawdown | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Brent crude settles above $120/bbl | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | US licenses its current-flagship datacenter GPU for general commercial sale to China |
+| <0.5% | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | Nvidia suffers a ≥50% peak-to-trough drawdown | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Large private-credit vehicle suspends redemptions or enters wind-down | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Brent crude settles above $120/bbl |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Nvidia suffers a ≥50% peak-to-trough drawdown |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Japan 10-year government bond yield reaches 3.00% | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
+| <0.5% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Brent crude settles above $120/bbl | US recession with NBER-dated peak in the window |
+| <0.5% | FAO Food Price Index exceeds 160 in any month | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) |
 
-The most common opening — Synthetic climate event 7 → Synthetic demographics event 6 → Synthetic demographics event 9 — accounts for 0.1% of all paths. No single sequence dominates, which is itself informative: the model does not support a story in which one specific trigger reliably starts the cascade. What recurs is the *pattern* — a shock in one domain degrading the capacity to absorb the next.
+The most common opening — Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window → US recession with NBER-dated peak in the window → Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) — accounts for 0.4% of all paths. No single sequence dominates, which is itself informative: the model does not support a story in which one specific trigger reliably starts the cascade. What recurs is the *pattern* — a shock in one domain degrading the capacity to absorb the next.
 
 ## Where the correlations are
 
@@ -453,24 +334,24 @@ Pairs whose joint occurrence most exceeds what independence would predict. *Lift
 
 | Event A | Event B | P(both) | Lift | P(A given B) |
 |---|---|---:|---:|---:|
-| Synthetic economy event 1 | Synthetic foodwater event 0 | 41% | 1.1× | 78% |
-| Synthetic economy event 5 | Synthetic ai event 8 | 28% | 1.1× | 60% |
-| Synthetic economy event 5 | Synthetic demographics event 4 | 39% | 1.1× | 59% |
-| Synthetic economy event 5 | Synthetic demographics event 6 | 33% | 1.0× | 59% |
-| Synthetic energy event 2 | Synthetic foodwater event 0 | 32% | 1.0× | 60% |
-| Synthetic economy event 1 | Synthetic ai event 11 | 62% | 1.0× | 72% |
-| Synthetic health event 3 | Synthetic geopolitics event 10 | 32% | 1.0× | 72% |
-| Synthetic health event 2 | Synthetic geopolitics event 1 | 38% | 1.0× | 54% |
-| Synthetic demographics event 9 | Synthetic foodwater event 0 | 35% | 1.0× | 66% |
-| Synthetic ai event 11 | Synthetic climate event 5 | 57% | 1.0× | 89% |
-| Synthetic energy event 7 | Synthetic foodwater event 0 | 47% | 1.0× | 90% |
-| Synthetic health event 10 | Synthetic ai event 8 | 41% | 1.0× | 87% |
-| Synthetic demographics event 8 | Synthetic ai event 8 | 39% | 1.0× | 83% |
-| Synthetic foodwater event 7 | Synthetic foodwater event 0 | 42% | 1.0× | 80% |
-| Synthetic climate event 7 | Synthetic foodwater event 0 | 48% | 1.0× | 91% |
-| Synthetic health event 3 | Synthetic energy event 2 | 41% | 1.0× | 71% |
-| Synthetic foodwater event 9 | Synthetic health event 2 | 43% | 1.0× | 82% |
-| Synthetic foodwater event 7 | Synthetic energy event 1 | 52% | 1.0× | 80% |
+| Large private-credit vehicle suspends redemptions or enters wind-down | Amazon basin becomes a net annual carbon source for three consecutive years | 23% | 1.1× | 59% |
+| Large private-credit vehicle suspends redemptions or enters wind-down | A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 22% | 1.0× | 58% |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Amazon basin becomes a net annual carbon source for three consecutive years | 31% | 1.0× | 81% |
+| Failure or extraordinary rescue of a bank with over $250bn in assets | A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 16% | 1.0× | 42% |
+| Verified wet-bulb temperature of 35C sustained for three or more hours | Single heat event with >= 100,000 attributed excess deaths | 22% | 1.0× | 52% |
+| Japan 10-year government bond yield reaches 3.00% | Single heat event with >= 100,000 attributed excess deaths | 26% | 1.0× | 62% |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | Amazon basin becomes a net annual carbon source for three consecutive years | 31% | 1.0× | 79% |
+| Large private-credit vehicle suspends redemptions or enters wind-down | Failure or extraordinary rescue of a bank with over $250bn in assets | 23% | 1.0× | 57% |
+| Brent crude settles above $120/bbl | A top-5 Western frontier lab exits frontier training | 33% | 1.0× | 62% |
+| Large private-credit vehicle suspends redemptions or enters wind-down | A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month | 34% | 1.0× | 57% |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | FAO Food Price Index exceeds 160 in any month | 32% | 1.0× | 64% |
+| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | Verified wet-bulb temperature of 35C sustained for three or more hours | 32% | 1.0× | 63% |
+| A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | A Chinese-developed model holds #1 on a major independent aggregate leaderboard for ≥1 month | 23% | 1.0× | 39% |
+| Wave of emerging-market sovereign defaults or restructurings | US licenses its current-flagship datacenter GPU for general commercial sale to China | 31% | 1.0× | 63% |
+| AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | US licenses its current-flagship datacenter GPU for general commercial sale to China | 31% | 1.0× | 63% |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | AI capex bust: aggregate hyperscaler capex falls 20%+ year over year | 39% | 1.0× | 64% |
+| China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab | A top-5 Western frontier lab exits frontier training | 36% | 1.0× | 70% |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | Failure or extraordinary rescue of a bank with over $250bn in assets | 28% | 1.0× | 68% |
 
 ## Continuous indicators
 
@@ -478,51 +359,51 @@ These evolve on a Gaussian copula driven by each path's own systemic-stress inde
 
 | Indicator | Now | 2031 (p10 / p50 / p90) | 2036 (p10 / p50 / p90) |
 |---|---:|:---:|:---:|
-| Synthetic geopolitics indicator 0 (units) | 17.15 | 15.7 / **20.9** / 29.3 | 15.9 / **23.2** / 35 |
-| Synthetic geopolitics indicator 1 (units) | 96.5 | 90.6 / **121** / 170 | 92.6 / **136** / 201 |
-| Synthetic geopolitics indicator 2 (units) | 57.34 | 50 / **66.7** / 93.2 | 48.3 / **71.2** / 108 |
-| Synthetic geopolitics indicator 3 (units) | 21.9 | 19.9 / **26.7** / 37 | 20 / **29.3** / 43.5 |
-| Synthetic geopolitics indicator 4 (units) | 57.78 | 41 / **54.3** / 76 | 34.2 / **53.2** / 83 |
-| Synthetic climate indicator 0 (units) | 47.16 | 40.8 / **54.2** / 75.5 | 39.2 / **57.2** / 86.5 |
-| Synthetic climate indicator 1 (units) | 35.91 | 31 / **41.8** / 57.9 | 30.2 / **44.3** / 67.1 |
-| Synthetic climate indicator 2 (units) | 74.06 | 44.5 / **60.3** / 84.6 | 32.2 / **52.3** / 85.5 |
-| Synthetic climate indicator 3 (units) | 6.997 | 5.95 / **7.98** / 11.2 | 5.77 / **8.52** / 13 |
-| Synthetic climate indicator 4 (units) | 96.37 | 67.3 / **90.1** / 126 | 54.1 / **84.9** / 134 |
-| Synthetic economy indicator 0 (units) | 98.7 | 75.5 / **101** / 142 | 67.7 / **101** / 156 |
-| Synthetic economy indicator 1 (units) | 95.07 | 90.3 / **120** / 168 | 92.1 / **133** / 199 |
-| Synthetic economy indicator 2 (units) | 22.99 | 20.3 / **26.9** / 37.8 | 19.9 / **29.2** / 43.9 |
-| Synthetic economy indicator 3 (units) | 83.83 | 71 / **94.9** / 133 | 69 / **101** / 154 |
-| Synthetic economy indicator 4 (units) | 52.38 | 37.1 / **49.2** / 69.1 | 31.1 / **47.9** / 74.9 |
-| Synthetic ai indicator 0 (units) | 16.55 | 10.5 / **13.8** / 19.3 | 7.7 / **12.3** / 20.2 |
-| Synthetic ai indicator 1 (units) | 39.19 | 29.2 / **39.1** / 54.6 | 25.5 / **38.9** / 60.8 |
-| Synthetic ai indicator 2 (units) | 31.11 | 21.6 / **29** / 40.7 | 17.8 / **27.8** / 43.7 |
-| Synthetic ai indicator 3 (units) | 98.81 | 74.5 / **99.5** / 140 | 67.2 / **101** / 156 |
-| Synthetic ai indicator 4 (units) | 13.63 | 8.16 / **10.9** / 15.3 | 5.63 / **9.5** / 15.7 |
-| Synthetic energy indicator 0 (units) | 4.591 | 4.12 / **5.44** / 7.59 | 3.98 / **5.83** / 8.88 |
-| Synthetic energy indicator 1 (units) | 51.62 | 45 / **59.9** / 83.7 | 43.7 / **64.5** / 97.2 |
-| Synthetic energy indicator 2 (units) | 11.57 | 10.2 / **13.6** / 19.2 | 10 / **14.7** / 22.2 |
-| Synthetic energy indicator 3 (units) | 93.52 | 57.3 / **77.1** / 107 | 41.9 / **68.2** / 110 |
-| Synthetic energy indicator 4 (units) | 33.1 | 26.9 / **35.8** / 50.2 | 24.7 / **37.2** / 56.9 |
-| Synthetic demographics indicator 0 (units) | 83.63 | 75.9 / **101** / 140 | 76 / **111** / 168 |
-| Synthetic demographics indicator 1 (units) | 56.16 | 44.4 / **58.9** / 81.6 | 39.9 / **59.5** / 92.2 |
-| Synthetic demographics indicator 2 (units) | 72.35 | 66.7 / **89.3** / 125 | 68.6 / **98.6** / 146 |
-| Synthetic demographics indicator 3 (units) | 40.63 | 35.3 / **47.3** / 66.2 | 35 / **50.8** / 76.8 |
-| Synthetic demographics indicator 4 (units) | 96.07 | 73.4 / **99.1** / 138 | 66.5 / **102** / 156 |
-| Synthetic health indicator 0 (units) | 67.02 | 53.5 / **70.4** / 98.7 | 47.8 / **72.5** / 113 |
-| Synthetic health indicator 1 (units) | 6.893 | 4.86 / **6.51** / 9.12 | 4.06 / **6.28** / 9.79 |
-| Synthetic health indicator 2 (units) | 73.06 | 63.4 / **85.5** / 119 | 62.4 / **92** / 139 |
-| Synthetic health indicator 3 (units) | 64.94 | 56.5 / **75.4** / 105 | 54.6 / **81.9** / 123 |
-| Synthetic health indicator 4 (units) | 15.8 | 11.6 / **15.4** / 21.8 | 10 / **15.4** / 24 |
-| Synthetic politics indicator 0 (units) | 94.98 | 71.1 / **94.1** / 133 | 61.9 / **94.1** / 146 |
-| Synthetic politics indicator 1 (units) | 55.71 | 45.7 / **61.1** / 85.6 | 42.5 / **63.9** / 97.8 |
-| Synthetic politics indicator 2 (units) | 63.73 | 61.5 / **82.5** / 116 | 64.5 / **92.2** / 139 |
-| Synthetic politics indicator 3 (units) | 68.98 | 48.9 / **65** / 91.9 | 40.1 / **63.5** / 99.9 |
-| Synthetic politics indicator 4 (units) | 86.14 | 67.4 / **90.4** / 125 | 60.6 / **91.9** / 142 |
-| Synthetic foodwater indicator 0 (units) | 18.88 | 17.6 / **23.6** / 33.2 | 17.7 / **26.1** / 39.3 |
-| Synthetic foodwater indicator 1 (units) | 72.25 | 53.7 / **71** / 99.7 | 46.7 / **71.2** / 110 |
-| Synthetic foodwater indicator 2 (units) | 37.73 | 30.1 / **40.2** / 56.4 | 27.8 / **41.7** / 62.9 |
-| Synthetic foodwater indicator 3 (units) | 60.05 | 41.2 / **54.7** / 76.5 | 33.1 / **51.8** / 82.1 |
-| Synthetic foodwater indicator 4 (units) | 1.267 | 0.864 / **1.15** / 1.61 | 0.69 / **1.1** / 1.72 |
+| World military expenditure as share of global GDP (percent of global GDP) | 2.5 | 2.61 / **2.9** / 3.25 | 2.69 / **3.11** / 3.62 |
+| Global state-based armed conflict battle deaths per year (thousands of deaths per year) | 160 | 52.9 / **134** / 246 | 12.7 / **113** / 272 |
+| Brent crude oil price (USD per barrel (annual average)) | 86 | 44.5 / **71.8** / 140 | 28.1 / **64.3** / 154 |
+| US military expenditure as share of US GDP (percent of GDP) | 3.2 | 2.93 / **3.3** / 3.7 | 2.89 / **3.35** / 3.88 |
+| European NATO members' aggregate defence spending as share of GDP (percent of GDP) | 2.65 | 2.99 / **3.35** / 3.76 | 3.25 / **3.73** / 4.29 |
+| PLA aircraft sorties entering Taiwan's ADIZ per year (sorties per year) | 3600 | 2.45e+03 / **5.03e+03** / 7.9e+03 | 2.11e+03 / **5.69e+03** / 9.56e+03 |
+| US dollar share of allocated global FX reserves (percent) | 58 | 51 / **54** / 57 | 47.6 / **51.8** / 55.9 |
+| Weekly container-ship transits of the Suez Canal (transits per week) | 30 | 21.9 / **62.2** / 87.6 | 24 / **78.5** / 115 |
+| Combined US + Russia deployed strategic nuclear warheads (warheads) | 3200 | 3.15e+03 / **3.73e+03** / 4.35e+03 | 3.19e+03 / **4.01e+03** / 4.86e+03 |
+| Net monthly Russian territorial gain in Ukraine (km2 per month (negative = Ukrainian recapture)) | 104 | -29.4 / **8.99** / 170 | -96 / **-44.4** / 190 |
+| Number of active state-based armed conflicts (>=25 battle deaths/year) (count) | 61 | 47.9 / **57.9** / 68 | 42.4 / **56** / 70.2 |
+| Crude and condensate transiting the Strait of Hormuz (million barrels per day) | 8 | 4.85 / **17.8** / 21 | 5.47 / **23.3** / 27.6 |
+| Annual global mean surface temperature anomaly (ERA5, vs 1850-1900) (C) | 1.47 | 1.48 / **1.63** / 1.78 | 1.51 / **1.7** / 1.92 |
+| Annual mean CO2 concentration at Mauna Loa (ppm) | 429.4 | 440 / **442** / 445 | 446 / **449** / 452 |
+| NOAA global mean atmospheric methane (ppb) | 1945 | 1.97e+03 / **1.98e+03** / 2e+03 | 1.98e+03 / **2e+03** / 2.02e+03 |
+| Global fossil CO2 emissions (Global Carbon Project) (GtCO2/yr) | 38.1 | 35.6 / **38.2** / 40.1 | 34.7 / **38.4** / 40.9 |
+| Global mean sea level (satellite altimetry, above 1993 baseline) (mm) | 112 | 132 / **138** / 144 | 144 / **152** / 160 |
+| Arctic sea ice September minimum extent (NSIDC) (million km2) | 4.3 | 3.34 / **3.98** / 4.54 | 2.92 / **3.78** / 4.59 |
+| Annual maximum 3-month ONI (Nino3.4) (C) | 2.4 | -0.906 / **0.384** / 1.68 | -2.47 / **-0.671** / 1.08 |
+| Share of global reef area under Alert Level 1+ heat stress, rolling 12 months (% of global reef area) | 55 | 32.4 / **62.2** / 88.4 | 25.4 / **66.4** / 102 |
+| Brazilian Legal Amazon annual deforestation (INPE PRODES) (km2/yr) | 5796 | 3.13e+03 / **5e+03** / 9.94e+03 | 1.99e+03 / **4.58e+03** / 1.12e+04 |
+| FAO Food Price Index (nominal) (index, 2014-2016 = 100) | 130.3 | 121 / **140** / 167 | 119 / **146** / 182 |
+| Annual increase in global 0-2000m ocean heat content (ZJ/yr) | 23 | 12.9 / **25** / 36.6 | 8.77 / **26.2** / 42.5 |
+| Brent crude oil price (USD per barrel) | 84 | 41.4 / **77.3** / 148 | 25 / **75.4** / 174 |
+| US 10-year Treasury yield (percent) | 4.62 | 3.1 / **4.81** / 6.35 | 2.53 / **4.88** / 6.95 |
+| US CPI inflation, year over year (percent) | 3.5 | 1.18 / **2.6** / 4.91 | 0.205 / **2.12** / 5.29 |
+| Federal funds target rate, upper bound (percent) | 3.75 | 1.8 / **3.51** / 5.25 | 0.872 / **3.33** / 5.78 |
+| S&P 500 index level (index points) | 7412 | 6.12e+03 / **1.01e+04** / 1.61e+04 | 6.01e+03 / **1.14e+04** / 1.98e+04 |
+| Global real GDP growth (percent per year) | 3 | 1.62 / **3.21** / 4.18 | 1.13 / **3.28** / 4.67 |
+| China reported real GDP growth (percent per year) | 4.6 | 1.85 / **3.41** / 4.8 | 0.709 / **2.76** / 4.67 |
+| US federal debt held by the public / GDP (percent) | 100 | 106 / **111** / 119 | 110 / **117** / 128 |
+| USD share of allocated FX reserves (IMF COFER) (percent) | 56.5 | 47.1 / **51.9** / 56.9 | 42.7 / **49.6** / 56.5 |
+| Gold price (USD per troy ounce) | 4040 | 3.1e+03 / **4.69e+03** / 7.23e+03 | 2.8e+03 / **5.03e+03** / 8.67e+03 |
+| USD/JPY exchange rate (yen per dollar) | 163.6 | 119 / **153** / 194 | 98.5 / **145** / 203 |
+| US average effective tariff rate on all imports (percent) | 6 | 3.14 / **8.09** / 18 | 2.26 / **9** / 22.4 |
+| Log10 of training compute for the largest publicly-known training run (log10(FLOP)) | 26.7 | 28 / **28.8** / 29.5 | 28.8 / **29.9** / 30.9 |
+| Global data center electricity consumption (TWh per year) | 590 | 827 / **1.03e+03** / 1.34e+03 | 1e+03 / **1.27e+03** / 1.71e+03 |
+| Combined annual capex, Microsoft + Alphabet + Amazon + Meta (USD billions per year) | 700 | 484 / **984** / 1.5e+03 | 441 / **1.14e+03** / 1.87e+03 |
+| Nvidia annual data center revenue (USD billions per year) | 330 | 245 / **552** / 884 | 233 / **661** / 1.11e+03 |
+| Combined annualized revenue run-rate, OpenAI + Anthropic (USD billions) | 72 | 166 / **354** / 617 | 245 / **501** / 879 |
+| Log2 of METR 50%-reliability task time horizon (log2(hours of human-expert task time)) | 1.6 | 5.42 / **8.05** / 10.8 | 7.86 / **11.7** / 15.3 |
+| Log10 of API price for GPT-4-class capability (log10(USD per million input tokens)) | -0.4 | -2.2 / **-1.8** / -1.4 | -3.13 / **-2.57** / -2 |
+| Chinese open-weight models' share of OpenRouter tokens (percent) | 61 | 32.3 / **60.6** / 83.3 | 20.8 / **59.7** / 90.8 |
+| Log10 of US paid fully-driverless rides per week (millions) (log10(millions of rides per week)) | -0.3 | 0.202 / **0.886** / 1.39 | 0.594 / **1.54** / 2.24 |
+| US AI adoption in production, employment-weighted (Census BTOS) (percent of employment at AI-using firms) | 32 | 44.5 / **56** / 68.1 | 53.9 / **68.9** / 85.5 |
 
 ## What drives the outcome
 
@@ -530,24 +411,24 @@ Share of the variance in peak systemic stress attributable to each event firing 
 
 | Event | Variance share | P(by 2036) | Severity |
 |---|---:|---:|---:|
-| Synthetic foodwater event 10 | 3.0% | 58% | 5 |
-| Synthetic demographics event 7 | 2.9% | 44% | 7 |
-| Synthetic foodwater event 0 | 2.4% | 53% | 7 |
-| Synthetic geopolitics event 2 | 2.1% | 31% | 8 |
-| Synthetic ai event 3 | 2.0% | 32% | 4 |
-| Synthetic economy event 11 | 2.0% | 48% | 9 |
-| Synthetic climate event 6 | 1.9% | 52% | 5 |
-| Synthetic foodwater event 6 | 1.9% | 55% | 6 |
-| Synthetic health event 3 | 1.8% | 70% | 7 |
-| Synthetic foodwater event 2 | 1.7% | 33% | 9 |
-| Synthetic economy event 2 | 1.6% | 47% | 7 |
-| Synthetic demographics event 5 | 1.6% | 17% | 7 |
-| Synthetic politics event 6 | 1.6% | 43% | 6 |
-| Synthetic economy event 0 | 1.6% | 45% | 4 |
-| Synthetic ai event 0 | 1.5% | 31% | 6 |
-| Synthetic energy event 2 | 1.4% | 58% | 7 |
-| Synthetic economy event 7 | 1.4% | 50% | 4 |
-| Synthetic economy event 10 | 1.4% | 34% | 6 |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | 2.1% | 77% | 9 |
+| NATO invokes Article 5 in response to a Russian attack | 1.6% | 15% | 10 |
+| Failure or extraordinary rescue of a bank with over $250bn in assets | 1.5% | 40% | 8 |
+| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 1.4% | 78% | 8 |
+| Sustained effective closure of the Strait of Hormuz | 1.4% | 28% | 8 |
+| PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days | 1.3% | 21% | 9 |
+| Global recession (world real GDP growth below 2.0% in a calendar year) | 1.2% | 62% | 7 |
+| Iran tests or is confirmed to possess an assembled nuclear weapon | 1.1% | 27% | 8 |
+| New US-Russia agreement capping deployed strategic nuclear warheads | 1.1% | 44% | 6 |
+| Brent crude settles above $120/bbl | 1.1% | 60% | 6 |
+| Direct US-PRC military exchange causing at least one fatality | 1.0% | 20% | 9 |
+| China reports annual real GDP growth below 4.0% | 1.0% | 71% | 6 |
+| US average effective tariff rate exceeds 15% | 0.9% | 51% | 5 |
+| Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months | 0.9% | 19% | 8 |
+| US licenses its current-flagship datacenter GPU for general commercial sale to China | 0.9% | 49% | 6 |
+| The Islamic Republic ceases to govern Iran | 0.9% | 35% | 8 |
+| France or Italy 10-year spread over Bunds exceeds 300bp | 0.9% | 26% | 7 |
+| India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months | 0.8% | 26% | 8 |
 
 ## Where the worldviews disagree most
 
@@ -555,22 +436,22 @@ The five parameterisations — raw analyst, audited, outside-view base rates, st
 
 | Event | Analyst | Audited | Outside view | Structural break | Market check | Spread |
 |---|---:|---:|---:|---:|---:|---:|
-| Synthetic climate event 9 | 90% | 90% | 27% | 88% | 89% | 63pp |
-| Synthetic energy event 9 | 2.4% | 2.1% | 3.3% | 55% | 2.1% | 53pp |
-| Synthetic politics event 9 | 94% | 95% | 95% | 44% | 94% | 51pp |
-| Synthetic economy event 7 | 58% | 58% | 58% | 10% | 59% | 49pp |
-| Synthetic ai event 7 | 25% | 26% | 26% | 72% | 25% | 48pp |
-| Synthetic ai event 0 | 23% | 20% | 20% | 35% | 62% | 42pp |
-| Synthetic economy event 10 | 44% | 46% | 26% | 5.2% | 44% | 40pp |
-| Synthetic health event 6 | 26% | 25% | 55% | 26% | 64% | 39pp |
-| Synthetic ai event 11 | 95% | 94% | 94% | 95% | 57% | 38pp |
-| Synthetic climate event 4 | 18% | 22% | 53% | 56% | 20% | 38pp |
-| Synthetic economy event 1 | 84% | 81% | 59% | 80% | 46% | 37pp |
-| Synthetic climate event 10 | 32% | 29% | 13% | 46% | 31% | 33pp |
-| Synthetic geopolitics event 7 | 87% | 88% | 61% | 89% | 90% | 29pp |
-| Synthetic health event 5 | 48% | 46% | 21% | 49% | 49% | 28pp |
-| Synthetic ai event 5 | 17% | 18% | 18% | 16% | 43% | 27pp |
-| Synthetic geopolitics event 10 | 37% | 37% | 36% | 38% | 63% | 27pp |
+| Iran tests or is confirmed to possess an assembled nuclear weapon | 31% | 26% | 25% | 26% | 26% | 6pp |
+| Amazon basin becomes a net annual carbon source for three consecutive years | 35% | 38% | 40% | 38% | 39% | 6pp |
+| A jihadist insurgent group controls a Sahelian national capital for >=7 days | 24% | 28% | 25% | 25% | 26% | 4pp |
+| State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country | 32% | 33% | 33% | 34% | 30% | 4pp |
+| Final court judgment ordering >= $1bn in climate damages | 34% | 34% | 35% | 31% | 32% | 3pp |
+| PRC launches an amphibious or airborne assault on Taiwan's main island | 14% | 14% | 14% | 12% | 15% | 3pp |
+| US recession with NBER-dated peak in the window | 86% | 84% | 87% | 83% | 86% | 3pp |
+| State-backed solar radiation management deployment announced or conducted | 18% | 16% | 17% | 15% | 15% | 3pp |
+| Global mean methane annual growth rate falls to zero or below | 29% | 33% | 30% | 30% | 30% | 3pp |
+| Durable Russia-Ukraine ceasefire (>=180 consecutive days) | 88% | 88% | 88% | 91% | 88% | 3pp |
+| The Islamic Republic ceases to govern Iran | 34% | 35% | 37% | 35% | 34% | 3pp |
+| A state that does not now possess nuclear weapons tests a device or is confirmed to possess one | 40% | 37% | 37% | 38% | 37% | 3pp |
+| US dollar share of allocated FX reserves falls below 50% | 41% | 39% | 40% | 38% | 40% | 3pp |
+| France or Italy 10-year spread over Bunds exceeds 300bp | 25% | 27% | 25% | 25% | 24% | 3pp |
+| Global fossil CO2 emissions confirmed to have peaked | 79% | 78% | 79% | 81% | 81% | 3pp |
+| A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 81% | 84% | 83% | 82% | 83% | 3pp |
 
 ## What this model cannot do
 
@@ -580,15 +461,10 @@ The five parameterisations — raw analyst, audited, outside-view base rates, st
 - **Nothing outside the risk set can happen.** The events that most reshape a decade are frequently ones nobody enumerated in advance. Treat the 'no severe event' probability as an upper bound on calm.
 - **Causal edges are assumed, not estimated.** The dependency structure comes from domain reasoning about transmission channels, not from fitting historical co-occurrence — there is no dataset of decades to fit it to.
 - **Hazards are conditionally memoryless within each segment.** Real crises have internal dynamics — mobilisation, negotiation, exhaustion — that a piecewise exponential cannot represent.
-- *geopolitics*: synthetic uncertainty
-- *climate*: synthetic uncertainty
-- *economy*: synthetic uncertainty
-- *ai*: synthetic uncertainty
-- *energy*: synthetic uncertainty
-- *demographics*: synthetic uncertainty
-- *health*: synthetic uncertainty
-- *politics*: synthetic uncertainty
-- *foodwater*: synthetic uncertainty
+- *geopolitics*: Leadership mortality and succession are the largest unmodelled discontinuity. Putin (73), Trump (80), Khamenei's untested successor Mojtaba, Kim Jong Un's health, and Xi's post-purge PLA all sit on single points of failure. A single actuarial event could invert the sign of several of these forecasts within weeks, and no reference class gives useful conditional probabilities for what follows. The 2026 Iranian case shows that even an externally-imposed succession produces outcomes (short-run consolidation) opposite to the intuitive prediction.
+- *climate*: The post-2023 warming acceleration is not fully explained. The 2023-24 jump exceeded CMIP6 expectations and candidate causes - declining planetary albedo from reduced low-cloud cover, aerosol unmasking, Hunga Tonga stratospheric water vapour - have very different implications. If reduced cloud cover is a genuine positive feedback newly engaged, every temperature trajectory here shifts up 0.2-0.4C by 2036 and effective climate sensitivity is higher than assumed. If it was a transient confluence, current anomalies partially relax and the trend reasserts at 0.25C/decade. This single uncertainty dominates the temperature distribution and I cannot resolve it.
+- *economy*: AI as a genuine total factor productivity shock. If AI raises trend productivity growth by even 0.5-1.0pp, then debt/GDP paths, equity valuations at CAPE 40.9, and the sustainability of a 4.6% 10-year all look completely different — the denominator grows out of the problem, and what looks like a bubble is a correctly-priced regime change. Every risk in this model that is anchored on debt sustainability or valuation reversion is conditionally wrong in that world. Conversely, if AI capex proves to be a depreciating expense rather than a productive asset, the same nodes are far too optimistic. I have no reliable way to distinguish these ex ante and the model should be run under both regimes.
+- *ai*: Measurement collapse: there is no agreed capability metric that survives saturation. MMLU is dead, HLE is at 53%, ARC-AGI-2 is at 85% while ARC-AGI-3 is under 1%, and METR's time-horizon figures differ by 6x across sources I searched this session. Every capability-conditioned probability in this model inherits that ambiguity, and 'AGI' questions may be permanently unresolvable rather than merely uncertain.
 
 ---
 
