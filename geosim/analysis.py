@@ -173,7 +173,7 @@ def scenario_clusters(P: CompiledParams, res: dict, k=6, seed=11, feature_keys=N
     from sklearn.cluster import KMeans
 
     P_ = P
-    zx = (res["x_final"] - P_.attractor[None, :]) / P_.scale[None, :]
+    zx = (res["x_final"] - P_.zref[None, :]) / P_.scale[None, :]
     zx = np.clip(zx, -6, 6)
 
     if feature_keys:
@@ -268,7 +268,7 @@ def sensitivity(P: CompiledParams, res: dict, outcome_ids: list[str], horizon="2
          "spearman": _rho(rankdata(cm), ry)}
     )
 
-    zx = np.clip((res["x_final"] - P.attractor[None, :]) / P.scale[None, :], -6, 6)
+    zx = np.clip((res["x_final"] - P.zref[None, :]) / P.scale[None, :], -6, 6)
     # Rank-correlating 200k x K directly is wasteful; a 40k subsample is ample
     # for ordering drivers by influence.
     sub = np.random.default_rng(3).choice(zx.shape[0], size=min(40_000, zx.shape[0]), replace=False)

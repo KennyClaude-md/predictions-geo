@@ -10,10 +10,10 @@ elasticities, event impacts, coupling strengths -- the SD in question is the
 indicator's *stationary* standard deviation, computed from its annual
 innovation volatility and its mean-reversion rate rather than taken on faith.
 
-z-scores are measured against the indicator's attractor, not against its
-starting value. That is deliberate: an indicator that starts far from its
-long-run attractor should register as stressed from quarter zero, and one with
-a persistent drift should register as increasingly stressed over the horizon.
+z-scores are measured against the indicator's value *today*, not its attractor.
+See the note on P.zref in _build() for why: attractors mean different things for
+mean-reverting and structurally trending series, and today's elevated conditions
+are already priced into each event's hazard_multiplier_now.
 """
 
 from __future__ import annotations
@@ -158,6 +158,7 @@ class CompiledParams:
     kappa: np.ndarray = None
     attractor: np.ndarray = None
     scale: np.ndarray = None
+    zref: np.ndarray = None
     coupling_by_lag: dict[int, np.ndarray] = field(default_factory=dict)
     chol: np.ndarray = None
     base_hazard: np.ndarray = None
@@ -358,6 +359,22 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     P.attractor = np.array([i.attractor for i in P.indicators], dtype=np.float64)
     P.scale = np.array([i.scale for i in P.indicators], dtype=np.float64)
 
+    # z-scores are measured against TODAY's value, not the attractor.
+    #
+    # Analysts use "attractor" inconsistently: for mean-reverting series it is a
+    # historical norm, but for structurally trending ones (PLA capability, CO2,
+    # compute) it is a destination the series has never been near. Referencing z
+    # to the attractor puts those indicators 15 SDs from their reference at
+    # t=0, pinning them against the clip and saturating every elasticity that
+    # mentions them before the simulation starts.
+    #
+    # Referencing to x0 also removes a double-count: analysts already priced
+    # today's elevated conditions into hazard_multiplier_now, so letting today's
+    # level ALSO push the hazard through z charges for the same fact twice.
+    # With this convention, z is unambiguously "how far has this moved from
+    # where it is now", which is what an elasticity per SD naturally means.
+    P.zref = P.x0.copy()
+
     # --- couplings, grouped by lag so each lag is one dense matmul -----------
     by_lag: dict[int, np.ndarray] = {}
     for c in P.couplings:
@@ -453,7 +470,21 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     P.stab_idx = (np.array(st, dtype=np.int64), np.array(sd, dtype=np.int64), np.array(ss))
 
     # --- regimes -------------------------------------------------------------
+    # A parameter set may legitimately declare no regimes at all (the test
+    # fixtures do, to isolate the continuous dynamics), so every regime array
+    # has to survive being empty.
     Rn = len(P.regimes)
+    if Rn == 0:
+        P.regime_p0 = np.zeros(0)
+        P.regime_hazard = np.zeros(0)
+        P.regime_vol = np.zeros(0)
+        P.regime_growth = np.zeros(0)
+        P.regime_coop = np.zeros(0)
+        P.regime_trans_q = np.zeros((0, 0))
+        P.growth_idx = _find(P.ikey, ["global_gdp_growth", "world_gdp_growth", "gdp_growth"])
+        P.coop_idx = _find(P.ikey, ["multilateral_cooperation_index", "institutional_trust_index"])
+        return
+
     p0 = np.array([r.p0 for r in P.regimes], dtype=np.float64)
     p0 = p0 / p0.sum() if p0.sum() > 0 else np.full(Rn, 1.0 / Rn)
     P.regime_p0 = p0

@@ -33,6 +33,8 @@ reported as a first-class output.
 
 from __future__ import annotations
 
+import math
+
 import numpy as np
 
 from .params import CompiledParams
@@ -46,16 +48,29 @@ DT = 1.0 / QPY
 # tail risk.
 NU = 5.0
 
-Z_CLIP = 6.0          # z-scores beyond this stop moving hazards
-LOGH_CLIP = 4.0       # total log-hazard modulation, i.e. 0.018x .. 55x
+Z_CLIP = 4.0          # z-scores beyond this stop moving hazards
+LOGH_CLIP = 3.0       # total log-hazard modulation, i.e. 0.05x .. 20x
 MAX_Q_PROB = 0.6      # no event may be near-certain within a single quarter
+
+# Fraction of each event's log-hazard uncertainty that is common across all
+# events rather than idiosyncratic -- i.e. how correlated the analysts'
+# errors are. Set from the forecasting-aggregation convention that a
+# meaningful minority of elicitation error is method-level rather than
+# question-level.
+HAZARD_SHARED = 0.35
 
 
 class Simulator:
-    def __init__(self, P: CompiledParams, horizon_years: float = 10.5, seed: int = 20260729):
+    def __init__(self, P: CompiledParams, horizon_years: float = 10.5, seed: int = 20260729,
+                 param_uncertainty: bool = True):
         self.P = P
         self.T = int(round(horizon_years * QPY))
         self.seed = seed
+        # When False, every path uses the analysts' central parameter values.
+        # Running both ways decomposes the forecast's uncertainty into the part
+        # that is irreducible given the parameters and the part that is just not
+        # knowing them -- and makes the engine analytically testable.
+        self.param_uncertainty = param_uncertainty
         self.K = len(P.indicators)
         self.E = len(P.events)
         self.R = len(P.regimes)
@@ -67,34 +82,59 @@ class Simulator:
     def _draw_params(self, rng, n, coupled: bool):
         P = self.P
         d = {}
-
-        # Hazards: lognormal around the elicited value, width set by the
-        # analyst's own stated confidence.
+        jit = self.param_uncertainty
         logh = np.log(np.maximum(P.base_hazard, 1e-9))[None, :] + P.calib_offset[None, :]
-        d["hazard"] = np.exp(logh + P.conf_sigma[None, :] * rng.standard_normal((n, self.E)))
 
-        # Volatility is itself uncertain, and uncertainty about volatility is
-        # multiplicative -- hence lognormal rather than additive jitter.
-        d["vol"] = P.vol[None, :] * np.exp(0.22 * rng.standard_normal((n, self.K)))
+        if jit:
+            # Hazards: lognormal around the elicited value, width set by the
+            # analyst's own stated confidence.
+            #
+            # The error is split into a shared component and an idiosyncratic
+            # one. Purely independent jitter would say the analysts are wrong
+            # about each event in unrelated directions, so their errors cancel
+            # in aggregate and the *number* of shocks in a decade is known far
+            # better than any individual shock. That is not how forecasting
+            # miscalibration works: an elicitation process that is systematically
+            # too jumpy is too jumpy about everything at once. HAZARD_SHARED is
+            # the fraction of log-hazard error variance that is common, and it
+            # is what keeps the tail of the shock-count distribution honest.
+            c = rng.standard_normal((n, 1))
+            i = rng.standard_normal((n, self.E))
+            err = math.sqrt(HAZARD_SHARED) * c + math.sqrt(1.0 - HAZARD_SHARED) * i
+            d["hazard"] = np.exp(logh + P.conf_sigma[None, :] * err)
 
-        # Drift uncertainty has a floor so that indicators the analysts marked
-        # as trendless are not treated as known to be trendless.
-        drift_sd = 0.35 * np.abs(P.drift) + 0.12 * P.vol
-        d["drift"] = P.drift[None, :] + drift_sd[None, :] * rng.standard_normal((n, self.K))
+            # Volatility is itself uncertain, and uncertainty about volatility is
+            # multiplicative -- hence lognormal rather than additive jitter.
+            d["vol"] = P.vol[None, :] * np.exp(0.22 * rng.standard_normal((n, self.K)))
 
-        # Mean reversion: how fast the world snaps back is genuinely contested.
-        d["kappa"] = np.clip(
-            P.kappa[None, :] * np.exp(0.30 * rng.standard_normal((n, self.K))), 0.0, 2.5
-        )
+            # Drift uncertainty has a floor so that indicators the analysts
+            # marked as trendless are not treated as known to be trendless.
+            drift_sd = 0.35 * np.abs(P.drift) + 0.12 * P.vol
+            d["drift"] = P.drift[None, :] + drift_sd[None, :] * rng.standard_normal((n, self.K))
+
+            # Mean reversion: how fast the world snaps back is genuinely contested.
+            d["kappa"] = np.clip(
+                P.kappa[None, :] * np.exp(0.30 * rng.standard_normal((n, self.K))), 0.0, 2.5
+            )
+        else:
+            d["hazard"] = np.repeat(np.exp(logh), n, axis=0)
+            d["vol"] = np.repeat(P.vol[None, :], n, axis=0)
+            d["drift"] = np.repeat(P.drift[None, :], n, axis=0)
+            d["kappa"] = np.repeat(P.kappa[None, :], n, axis=0)
 
         # Coupling strengths get one shared multiplier per path per lag matrix.
         # A common factor is the right structure: the live disagreement is
         # whether the world is tightly or loosely coupled overall, not whether
         # any individual edge is mis-signed.
-        d["coup_mult"] = 1.0 + 0.35 * rng.standard_normal((n, 1, 1)) if coupled else np.zeros((n, 1, 1))
-        d["contagion_mult"] = (
-            np.clip(1.0 + 0.30 * rng.standard_normal((n, 1)), 0.0, None) if coupled else np.zeros((n, 1))
-        )
+        if not coupled:
+            d["coup_mult"] = np.zeros((n, 1, 1))
+            d["contagion_mult"] = np.zeros((n, 1))
+        elif jit:
+            d["coup_mult"] = 1.0 + 0.35 * rng.standard_normal((n, 1, 1))
+            d["contagion_mult"] = np.clip(1.0 + 0.30 * rng.standard_normal((n, 1)), 0.0, None)
+        else:
+            d["coup_mult"] = np.ones((n, 1, 1))
+            d["contagion_mult"] = np.ones((n, 1))
         return d
 
     # ------------------------------------------------------------------ #
@@ -159,8 +199,14 @@ class Simulator:
             # Correlated Student-t innovations. One chi-square mixing variable
             # per path per quarter keeps the correlation structure intact while
             # producing joint tail events -- the crises that arrive together.
+            #
+            # The (NU-2) numerator normalises the mixture to unit variance.
+            # A t_nu variate has variance nu/(nu-2), so the naive sqrt(nu/chi2)
+            # scaling silently inflates every indicator's volatility by 29% at
+            # nu=5 -- the analysts' elicited annual_vol would not mean what they
+            # said it meant.
             g = rng.standard_normal((n, K)) @ P.chol.T
-            mix = np.sqrt(NU / rng.chisquare(NU, size=(n, 1)))
+            mix = np.sqrt((NU - 2.0) / rng.chisquare(NU, size=(n, 1)))
             shock = g * mix * pd["vol"] * np.sqrt(DT) * rv[:, None]
             dx += shock
 
@@ -172,14 +218,14 @@ class Simulator:
             # is that societies mobilise responses in proportion to visible
             # stress, and only once it is visible.
             if coupled and len(s_trig):
-                z_now = np.clip((x - P.attractor[None, :]) / P.scale[None, :], -Z_CLIP, Z_CLIP)
+                z_now = np.clip((x - P.zref[None, :]) / P.scale[None, :], -Z_CLIP, Z_CLIP)
                 stress = np.maximum(np.abs(z_now[:, s_trig]) - 1.0, 0.0) * np.sign(z_now[:, s_trig])
                 damp = stress * s_str[None, :] * P.scale[s_damp][None, :] * DT
                 np.subtract.at(x.T, s_damp, damp.T)
 
             x = np.clip(x, P.lo[None, :], P.hi[None, :])
 
-            z = np.clip((x - P.attractor[None, :]) / P.scale[None, :], -Z_CLIP, Z_CLIP)
+            z = np.clip((x - P.zref[None, :]) / P.scale[None, :], -Z_CLIP, Z_CLIP)
             peak_z = np.maximum(peak_z, np.abs(z))
             hist.append(z)
             if len(hist) > self.max_lag + 1:
