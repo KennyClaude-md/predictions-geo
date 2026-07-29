@@ -1,0 +1,333 @@
+"""Turning the ensemble into something a person can read and argue with."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import numpy as np
+
+from .timeline import ANCHOR_LABELS, horizon_label, quarter_at
+
+DOMAIN_TITLES = {
+    "geopolitics": "Great-power conflict & geopolitics",
+    "climate": "Climate & Earth systems",
+    "economy": "Global macroeconomy & finance",
+    "ai": "AI, compute & transformative technology",
+    "energy": "Energy systems & critical materials",
+    "demographics": "Demography & migration",
+    "health": "Pandemics, biosecurity & global health",
+    "politics": "Political stability & governance",
+    "foodwater": "Food, water & agriculture",
+}
+
+
+def pct(x: float) -> str:
+    v = x * 100
+    if v >= 99.5:
+        return ">99%"
+    if v < 0.5:
+        return "<0.5%"
+    if v < 10:
+        return f"{v:.1f}%"
+    return f"{v:.0f}%"
+
+
+def band(lo: float, hi: float) -> str:
+    return f"[{pct(lo)}–{pct(hi)}]"
+
+
+class ReportBuilder:
+    def __init__(self, ctx: dict):
+        self.ctx = ctx
+        self.lines: list[str] = []
+
+    def w(self, s: str = "") -> None:
+        self.lines.append(s)
+
+    def build(self) -> str:
+        c = self.ctx
+        self._header()
+        self._method()
+        self._headline()
+        self._aggregate()
+        self._archetypes()
+        self._by_domain()
+        self._cascades()
+        self._dependence()
+        self._continuous()
+        self._sensitivity()
+        self._disagreement()
+        self._limits()
+        return "\n".join(self.lines)
+
+    # -- sections ---------------------------------------------------------
+
+    def _header(self) -> None:
+        c = self.ctx
+        self.w("# World Futures Simulation — Forecast Report")
+        self.w()
+        self.w(f"**Simulation date:** {c['as_of']}  ")
+        self.w(f"**Horizon:** 2026Q3 → 2036Q4 (42 quarters)  ")
+        self.w(
+            f"**Paths:** {c['n_paths_total']:,} across "
+            f"{c['n_worldviews']} worldviews × {c['n_worlds']} parameter worlds  "
+        )
+        self.w(f"**Risk nodes:** {c['n_risks']} · **causal edges:** {c['n_edges']} · "
+               f"**latent factors:** {c['n_latents']} · "
+               f"**continuous variables:** {c['n_continuous']}")
+        self.w()
+        self.w("---")
+        self.w()
+
+    def _method(self) -> None:
+        self.w("## How to read this")
+        self.w()
+        self.w(
+            "Every number below is the output of a survival-process Monte Carlo, not a "
+            "guess written directly. Nine domains were parameterised against current "
+            "sources, audited for base-rate discipline, then red-teamed from three "
+            "directions. Each of those opinions is run as a separate worldview and the "
+            "results are pooled by weight."
+        )
+        self.w()
+        self.w(
+            "**The bracketed range is not the range of outcomes** — the event either "
+            "happens or it doesn't. It is the range of *the probability itself* across "
+            "parameter worlds: how much the answer moves depending on whose model of the "
+            "world you accept. A wide bracket means the forecast is fragile. Monte Carlo "
+            "noise has been subtracted out, so what remains is real disagreement."
+        )
+        self.w()
+        cal = self.ctx["calibration"]
+        self.w(
+            f"**Calibration check:** simulated marginals reproduce the elicited "
+            f"cumulative probabilities to within "
+            f"{max(v['final_error_pp'] for v in cal.values()):.2f} percentage points "
+            f"(worst node, worst worldview). This matters: the dependency network is "
+            f"tuned to reshape the *joint* distribution — which events co-occur — "
+            f"without inflating any individual probability above what the underlying "
+            f"analysis actually claimed."
+        )
+        self.w()
+
+    def _headline(self) -> None:
+        self.w("## Headline forecasts")
+        self.w()
+        self.w(
+            "Ranked by expected systemic impact — probability by 2036 multiplied by "
+            "severity — rather than by probability alone, because a 12% chance of "
+            "something that reorders the world outranks a near-certainty that doesn't."
+        )
+        self.w()
+        self.w("| # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Sev |")
+        self.w("|---|-------|--------:|--------:|--------:|:---------------:|----:|")
+        for i, r in enumerate(self.ctx["headline"], 1):
+            self.w(
+                f"| {i} | **{r['name']}** | {pct(r['p2027'])} | {pct(r['p2031'])} | "
+                f"{pct(r['p2036'])} | {band(r['lo2036'], r['hi2036'])} | {r['severity']:.0f} |"
+            )
+        self.w()
+
+    def _aggregate(self) -> None:
+        a = self.ctx["aggregate"]
+        self.w("## The decade in aggregate")
+        self.w()
+        self.w(
+            "Individual probabilities are the easy part. The question that actually "
+            "determines whether the 2030s feel survivable is how many serious shocks "
+            "land, and whether they land together."
+        )
+        self.w()
+        self.w("| Statistic (through 2036) | Value |")
+        self.w("|---|---|")
+        self.w(f"| Expected number of severity ≥ 6 events | **{a['expected_severe_events']:.1f}** |")
+        d = a["severe_event_deciles"]
+        self.w(
+            f"| Severe-event count, 10th–90th percentile | {d[0]:.0f} – {d[4]:.0f} "
+            f"(median {d[2]:.0f}) |"
+        )
+        self.w(f"| P(no severity ≥ 6 event at all) | {pct(a['p_zero_severe'])} |")
+        self.w(f"| P(3 or more severe events) | {pct(a['p_ge_3_severe'])} |")
+        self.w(f"| P(5 or more severe events) | {pct(a['p_ge_5_severe'])} |")
+        self.w(f"| P(at least one severity ≥ 8 event) | **{pct(a['p_any_catastrophic'])}** |")
+        self.w(f"| P(two or more severity ≥ 8 events) | {pct(a['p_two_plus_catastrophic'])} |")
+        self.w()
+        self.w(self.ctx["aggregate_commentary"])
+        self.w()
+
+    def _archetypes(self) -> None:
+        self.w("## Scenario archetypes")
+        self.w()
+        self.w(
+            "Paths were clustered on which major events fired and on the shape of the "
+            "systemic-stress trajectory. These are not scenarios written in advance and "
+            "then assigned probabilities — they are the shapes the simulation actually "
+            "produced, priced by how much of the path mass fell into each."
+        )
+        self.w()
+        for a in self.ctx["archetypes"]:
+            self.w(f"### {a['label']} — **{pct(a['probability'])}**")
+            self.w()
+            self.w(a["description"])
+            self.w()
+            if a["signature"]:
+                self.w("Distinguishing features (rate within this cluster vs. overall):")
+                self.w()
+                for s in a["signature"]:
+                    self.w(f"- {s}")
+                self.w()
+
+    def _by_domain(self) -> None:
+        self.w("## Full results by domain")
+        self.w()
+        for dom, rows in self.ctx["by_domain"].items():
+            self.w(f"### {DOMAIN_TITLES.get(dom, dom)}")
+            self.w()
+            self.w("| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |")
+            self.w("|---|---:|---:|---:|:---:|---:|---|")
+            for r in rows:
+                timing = (
+                    quarter_at(int(round(r["median_quarter"]))).label
+                    if r["median_quarter"] is not None
+                    else "—"
+                )
+                self.w(
+                    f"| {r['name']} | {pct(r['p2027'])} | {pct(r['p2031'])} | "
+                    f"{pct(r['p2036'])} | {band(r['lo2036'], r['hi2036'])} | "
+                    f"{r['severity']:.0f} | {timing} |"
+                )
+            self.w()
+            self.w("<details><summary>Resolution criteria</summary>")
+            self.w()
+            for r in rows:
+                self.w(f"- **{r['name']}** — {r['resolution']}")
+            self.w()
+            self.w("</details>")
+            self.w()
+
+    def _cascades(self) -> None:
+        self.w("## How bad decades begin")
+        self.w()
+        self.w(
+            "Among paths where at least three high-severity events fired, these are the "
+            "most common opening sequences, in order of occurrence."
+        )
+        self.w()
+        self.w("| Frequency | First | Then | Then |")
+        self.w("|---:|---|---|---|")
+        for ch in self.ctx["chains"]:
+            self.w(
+                f"| {pct(ch['share'])} | {ch['names'][0]} | {ch['names'][1]} | "
+                f"{ch['names'][2]} |"
+            )
+        self.w()
+        self.w(self.ctx["chain_commentary"])
+        self.w()
+
+    def _dependence(self) -> None:
+        self.w("## Where the correlations are")
+        self.w()
+        self.w(
+            "Pairs whose joint occurrence most exceeds what independence would predict. "
+            "*Lift* is P(both) ÷ P(A)·P(B): a lift of 3 means these two show up together "
+            "three times more often than chance. This is the part of the model that a "
+            "spreadsheet of independent probabilities cannot produce, and it is where "
+            "tail risk actually lives."
+        )
+        self.w()
+        self.w("| Event A | Event B | P(both) | Lift | P(A given B) |")
+        self.w("|---|---|---:|---:|---:|")
+        for p in self.ctx["pairs"]:
+            self.w(
+                f"| {p['a']} | {p['b']} | {pct(p['joint'])} | {p['lift']:.1f}× | "
+                f"{pct(p['cond'])} |"
+            )
+        self.w()
+
+    def _continuous(self) -> None:
+        self.w("## Continuous indicators")
+        self.w()
+        self.w(
+            "These evolve on a Gaussian copula driven by each path's own systemic-stress "
+            "index, so the bad tails of these distributions are populated by the same "
+            "paths that fired the bad events — not by independent noise."
+        )
+        self.w()
+        self.w("| Indicator | Now | 2031 (p10 / p50 / p90) | 2036 (p10 / p50 / p90) |")
+        self.w("|---|---:|:---:|:---:|")
+        for v in self.ctx["continuous"]:
+            self.w(
+                f"| {v['name']} ({v['unit']}) | {v['current']:.4g} | "
+                f"{v['q2031'][0]:.3g} / **{v['q2031'][1]:.3g}** / {v['q2031'][2]:.3g} | "
+                f"{v['q2036'][0]:.3g} / **{v['q2036'][1]:.3g}** / {v['q2036'][2]:.3g} |"
+            )
+        self.w()
+
+    def _sensitivity(self) -> None:
+        self.w("## What drives the outcome")
+        self.w()
+        self.w(
+            "Share of the variance in peak systemic stress attributable to each event "
+            "firing at all. High-scoring nodes are the ones worth watching, because "
+            "learning their resolution collapses the most uncertainty about everything "
+            "else."
+        )
+        self.w()
+        self.w("| Event | Variance share | P(by 2036) | Severity |")
+        self.w("|---|---:|---:|---:|")
+        for s in self.ctx["sensitivity"]:
+            self.w(
+                f"| {s['name']} | {s['share']*100:.1f}% | {pct(s['p2036'])} | "
+                f"{s['severity']:.0f} |"
+            )
+        self.w()
+
+    def _disagreement(self) -> None:
+        self.w("## Where the worldviews disagree most")
+        self.w()
+        self.w(
+            "The five parameterisations — raw analyst, audited, outside-view base rates, "
+            "structural-break inside view, and prediction-market check — converge on most "
+            "nodes. These are the ones where they don't, and they are exactly the "
+            "forecasts you should hold most loosely."
+        )
+        self.w()
+        self.w("| Event | Analyst | Audited | Outside view | Structural break | Market check | Spread |")
+        self.w("|---|---:|---:|---:|---:|---:|---:|")
+        for d in self.ctx["disagreement"]:
+            vals = " | ".join(pct(v) for v in d["by_view"])
+            self.w(f"| {d['name']} | {vals} | {d['spread']*100:.0f}pp |")
+        self.w()
+
+    def _limits(self) -> None:
+        self.w("## What this model cannot do")
+        self.w()
+        for line in self.ctx["limits"]:
+            self.w(f"- {line}")
+        self.w()
+        self.w("---")
+        self.w()
+        self.w(
+            "*Generated by the `worldsim` Monte Carlo engine. Parameters, dependency "
+            "structure, and red-team corrections are in `params/`; rerun with "
+            "`python run_simulation.py`.*"
+        )
+
+
+def write_outputs(ctx: dict, outdir: Path) -> None:
+    outdir.mkdir(parents=True, exist_ok=True)
+    (outdir / "forecast_report.md").write_text(ReportBuilder(ctx).build())
+
+    serialisable = json.loads(json.dumps(ctx, default=_json_default))
+    (outdir / "forecast.json").write_text(json.dumps(serialisable, indent=2))
+
+
+def _json_default(o):
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, np.ndarray):
+        return o.tolist()
+    return str(o)

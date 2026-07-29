@@ -1,0 +1,327 @@
+"""Reading answers out of the path ensemble.
+
+Everything here operates on the pooled fire-time matrix. The pooling is weighted
+sampling across worldviews, so a statistic computed on the pool is already the
+ensemble-averaged statistic; and because every path still carries the id of the
+parameter world it came from, we can separate "the world is uncertain" from "we
+are uncertain about the world".
+"""
+
+from __future__ import annotations
+
+from collections import Counter
+
+import numpy as np
+from scipy.cluster.vq import kmeans2
+
+from .timeline import N_QUARTERS, horizon_label
+
+Z90 = 1.6448536269514722
+
+
+# --------------------------------------------------------------------------
+# Pooling across worldviews
+# --------------------------------------------------------------------------
+
+
+def pool_worldviews(results: list[dict], weights: list[float], n_target: int, rng) -> dict:
+    """Weighted resample of paths across worldviews into one ensemble sample.
+
+    Each path keeps a `group` label identifying (worldview, parameter world), so
+    downstream code can decompose variance into epistemic and Monte Carlo parts.
+    """
+    fires, groups, views = [], [], []
+    offset = 0
+    for vi, (res, w) in enumerate(zip(results, weights)):
+        take = int(round(n_target * w))
+        n_avail = res["fire_time"].shape[0]
+        idx = rng.choice(n_avail, size=min(take, n_avail), replace=take > n_avail)
+        fires.append(res["fire_time"][idx])
+        groups.append(res["world_id"][idx].astype(np.int64) + offset)
+        views.append(np.full(len(idx), vi, dtype=np.int8))
+        offset += int(res["world_id"].max()) + 1
+    return {
+        "fire_time": np.concatenate(fires, axis=0),
+        "group": np.concatenate(groups),
+        "view": np.concatenate(views),
+        "risk_ids": results[0]["risk_ids"],
+    }
+
+
+# --------------------------------------------------------------------------
+# Marginals with epistemic intervals
+# --------------------------------------------------------------------------
+
+
+def marginal_with_interval(
+    fire_time: np.ndarray, group: np.ndarray, quarters: list[int]
+) -> dict[int, dict[str, np.ndarray]]:
+    """P(risk fires by q) plus a 90% credible interval on that probability.
+
+    The interval is the spread of the estimate across parameter worlds, with the
+    within-world binomial noise subtracted off. Skipping that subtraction is the
+    classic way to report intervals that are mostly Monte Carlo error dressed up
+    as knowledge.
+    """
+    order = np.argsort(group, kind="stable")
+    g_sorted = group[order]
+    ft_sorted = fire_time[order]
+    bounds = np.flatnonzero(np.diff(g_sorted)) + 1
+    starts = np.concatenate(([0], bounds))
+    ends = np.concatenate((bounds, [len(g_sorted)]))
+
+    R = fire_time.shape[1]
+    out: dict[int, dict[str, np.ndarray]] = {}
+    for q in quarters:
+        hit = ((ft_sorted >= 0) & (ft_sorted <= q)).astype(np.float32)
+        n_groups = len(starts)
+        p_g = np.empty((n_groups, R), dtype=np.float64)
+        m_g = np.empty(n_groups, dtype=np.float64)
+        for i, (s, e) in enumerate(zip(starts, ends)):
+            p_g[i] = hit[s:e].mean(axis=0)
+            m_g[i] = e - s
+        w = m_g / m_g.sum()
+        mean = (p_g * w[:, None]).sum(axis=0)
+        v_total = (w[:, None] * (p_g - mean) ** 2).sum(axis=0)
+        v_binom = (w[:, None] * (p_g * (1 - p_g) / np.maximum(m_g, 1)[:, None])).sum(axis=0)
+        v_epi = np.maximum(v_total - v_binom, 0.0)
+        sd = np.sqrt(v_epi)
+        out[q] = {
+            "mean": mean,
+            "lo": np.clip(mean - Z90 * sd, 0.0, 1.0),
+            "hi": np.clip(mean + Z90 * sd, 0.0, 1.0),
+            "epistemic_sd": sd,
+        }
+    return out
+
+
+def view_disagreement(results: list[dict], quarters: list[int]) -> dict[int, np.ndarray]:
+    """Spread of the point estimate across the five worldviews (max - min)."""
+    out = {}
+    for q in quarters:
+        est = np.stack(
+            [
+                ((r["fire_time"] >= 0) & (r["fire_time"] <= q)).mean(axis=0)
+                for r in results
+            ]
+        )
+        out[q] = est
+    return out
+
+
+# --------------------------------------------------------------------------
+# Joint structure
+# --------------------------------------------------------------------------
+
+
+def conditional_lift(
+    fire_time: np.ndarray, quarter: int, idx_a: list[int], idx_b: list[int]
+) -> tuple[np.ndarray, np.ndarray]:
+    """P(A by q | B by q) and its lift over the unconditional P(A by q)."""
+    hit = ((fire_time >= 0) & (fire_time <= quarter))
+    base = hit.mean(axis=0)
+    A = hit[:, idx_a].astype(np.float32)
+    B = hit[:, idx_b].astype(np.float32)
+    joint = (B.T @ A) / fire_time.shape[0]  # (|B|, |A|)
+    pb = B.mean(axis=0)
+    cond = joint / np.maximum(pb[:, None], 1e-9)
+    lift = cond / np.maximum(base[idx_a][None, :], 1e-9)
+    return cond, lift
+
+
+def first_chains(
+    fire_time: np.ndarray, severe_idx: list[int], depth: int = 3, top: int = 25
+) -> list[tuple[list[int], int]]:
+    """Most common opening sequences of high-severity events.
+
+    Answers "when a bad decade starts, what does it start with, and what follows",
+    which is a more useful thing to know than any single marginal.
+    """
+    ft = fire_time[:, severe_idx].astype(np.int16)
+    ft = np.where(ft < 0, 9999, ft)
+    order = np.argsort(ft, axis=1, kind="stable")
+    sorted_t = np.take_along_axis(ft, order, axis=1)
+    valid = sorted_t[:, :depth] < 9999
+    keep = valid.all(axis=1)
+    if keep.sum() == 0:
+        return []
+    seq = order[keep][:, :depth]
+    base = len(severe_idx) + 1
+    code = np.zeros(seq.shape[0], dtype=np.int64)
+    for d in range(depth):
+        code = code * base + seq[:, d]
+    uniq, counts = np.unique(code, return_counts=True)
+    best = np.argsort(counts)[::-1][:top]
+    out = []
+    for b in best:
+        c = int(uniq[b])
+        chain = []
+        for _ in range(depth):
+            chain.append(severe_idx[c % base])
+            c //= base
+        out.append((chain[::-1], int(counts[b])))
+    return out
+
+
+# --------------------------------------------------------------------------
+# Scenario archetypes
+# --------------------------------------------------------------------------
+
+
+def archetypes(
+    fire_time: np.ndarray,
+    gssi: np.ndarray,
+    feature_idx: list[int],
+    k: int = 6,
+    seed: int = 7,
+    sample: int = 80_000,
+) -> dict:
+    """Cluster paths into recognisable futures and price each one.
+
+    The clustering is on which major events fired plus the shape of the stress
+    trajectory, so clusters come out as things like "contained decade",
+    "fragmentation without war", "compound crisis". The output that matters is
+    the probability mass on each.
+    """
+    n = fire_time.shape[0]
+    hit = ((fire_time[:, feature_idx] >= 0)).astype(np.float32)
+    peak = gssi.max(axis=1, keepdims=True)
+    late = gssi[:, -8:].mean(axis=1, keepdims=True)
+    early = gssi[:, :12].mean(axis=1, keepdims=True)
+    X = np.hstack([hit, peak, late, early]).astype(np.float32)
+
+    mu, sd = X.mean(axis=0), X.std(axis=0) + 1e-6
+    Xs = (X - mu) / sd
+
+    rng = np.random.default_rng(seed)
+    sub = rng.choice(n, size=min(sample, n), replace=False)
+    centroids, _ = kmeans2(Xs[sub], k, minit="++", seed=seed, iter=60)
+    d = ((Xs[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2) if n < 20000 else None
+    if d is None:
+        labels = np.empty(n, dtype=np.int32)
+        step = 50_000
+        for s in range(0, n, step):
+            block = Xs[s : s + step]
+            dd = ((block[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2)
+            labels[s : s + step] = dd.argmin(axis=1)
+    else:
+        labels = d.argmin(axis=1)
+
+    clusters = []
+    for c in range(k):
+        m = labels == c
+        if m.sum() == 0:
+            continue
+        rates = hit[m].mean(axis=0)
+        clusters.append(
+            {
+                "cluster": int(c),
+                "probability": float(m.mean()),
+                "peak_stress_median": float(np.median(peak[m])),
+                "terminal_stress_median": float(np.median(late[m])),
+                "event_rates": rates,
+                "n_events_mean": float(hit[m].sum(axis=1).mean()),
+            }
+        )
+    clusters.sort(key=lambda c: -c["probability"])
+    return {"clusters": clusters, "labels": labels}
+
+
+# --------------------------------------------------------------------------
+# Sensitivity and aggregate outcome statistics
+# --------------------------------------------------------------------------
+
+
+def first_order_sensitivity(fire_time: np.ndarray, target: np.ndarray) -> np.ndarray:
+    """Share of the variance in `target` explained by each risk firing at all.
+
+    For a binary driver this is exact rather than an approximation:
+    Var(E[Y|X]) = p(1-p)(E[Y|1] - E[Y|0])^2.
+    """
+    hit = (fire_time >= 0)
+    p = hit.mean(axis=0)
+    var_y = target.var()
+    n = fire_time.shape[0]
+    sums = hit.T.astype(np.float64) @ target
+    counts = hit.sum(axis=0)
+    m1 = sums / np.maximum(counts, 1)
+    m0 = (target.sum() - sums) / np.maximum(n - counts, 1)
+    # A risk that never fires (or always fires) explains no variance by definition.
+    never_varies = (counts == 0) | (counts == n)
+    contrib = p * (1 - p) * (m1 - m0) ** 2
+    contrib[never_varies] = 0.0
+    return contrib / max(var_y, 1e-12)
+
+
+def aggregate_stats(
+    fire_time: np.ndarray, severity: np.ndarray, gssi: np.ndarray, quarter: int
+) -> dict:
+    hit = ((fire_time >= 0) & (fire_time <= quarter))
+    sev6 = severity >= 6
+    sev8 = severity >= 8
+    n_sev6 = hit[:, sev6].sum(axis=1)
+    n_sev8 = hit[:, sev8].sum(axis=1)
+    peak = gssi[:, :quarter].max(axis=1)
+    return {
+        "expected_severe_events": float(n_sev6.mean()),
+        "severe_event_deciles": np.quantile(n_sev6, [0.1, 0.25, 0.5, 0.75, 0.9]).tolist(),
+        "p_zero_severe": float((n_sev6 == 0).mean()),
+        "p_ge_3_severe": float((n_sev6 >= 3).mean()),
+        "p_ge_5_severe": float((n_sev6 >= 5).mean()),
+        "expected_catastrophic_events": float(n_sev8.mean()),
+        "p_any_catastrophic": float((n_sev8 >= 1).mean()),
+        "p_two_plus_catastrophic": float((n_sev8 >= 2).mean()),
+        "peak_stress_quantiles": np.quantile(peak, [0.05, 0.25, 0.5, 0.75, 0.95]).tolist(),
+    }
+
+
+def stress_trajectory(gssi: np.ndarray) -> dict:
+    return {
+        "quarters": list(range(1, N_QUARTERS + 1)),
+        "labels": [horizon_label(q) for q in range(1, N_QUARTERS + 1)],
+        **{
+            f"p{int(q*100)}": np.quantile(gssi, q, axis=0).tolist()
+            for q in (0.05, 0.25, 0.5, 0.75, 0.95)
+        },
+    }
+
+
+def timing_profile(fire_time: np.ndarray, idx: int) -> dict:
+    """When, conditional on happening at all, does this event tend to land?"""
+    ft = fire_time[:, idx]
+    fired = ft[ft >= 0]
+    if fired.size == 0:
+        return {"p_ever": 0.0}
+    return {
+        "p_ever": float((ft >= 0).mean()),
+        "median_quarter": float(np.median(fired)),
+        "q25": float(np.quantile(fired, 0.25)),
+        "q75": float(np.quantile(fired, 0.75)),
+    }
+
+
+def top_pairs_by_lift(
+    fire_time: np.ndarray, quarter: int, candidate_idx: list[int], min_joint: float, top: int
+) -> list[tuple[int, int, float, float, float]]:
+    """Pairs whose co-occurrence is most amplified relative to independence."""
+    hit = ((fire_time >= 0) & (fire_time <= quarter))[:, candidate_idx].astype(np.float32)
+    n = hit.shape[0]
+    p = hit.mean(axis=0)
+    joint = (hit.T @ hit) / n
+    indep = np.outer(p, p)
+    lift = joint / np.maximum(indep, 1e-12)
+    out = []
+    for i in range(len(candidate_idx)):
+        for j in range(i + 1, len(candidate_idx)):
+            if joint[i, j] >= min_joint:
+                out.append(
+                    (
+                        candidate_idx[i],
+                        candidate_idx[j],
+                        float(joint[i, j]),
+                        float(lift[i, j]),
+                        float(joint[i, j] / max(p[j], 1e-9)),
+                    )
+                )
+    out.sort(key=lambda r: -r[3])
+    return out[:top]

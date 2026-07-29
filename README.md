@@ -1,0 +1,122 @@
+# worldsim
+
+A Monte Carlo engine for probabilistic world-futures forecasting, running
+2026Q3 → 2036Q4 across nine coupled domains.
+
+The point of this project is to produce probabilities that are *derived* rather
+than asserted — and to be honest about which parts are simulation and which parts
+are judgement. The engine is exact. The parameters are elicited opinion, audited
+and red-teamed. Simulation precision does not create forecast accuracy, and the
+report says so.
+
+## What it actually does
+
+Every risk is a **survival process** rather than a coin flip. Each quarter, each
+event that hasn't happened yet draws against a hazard built from four terms:
+
+```
+logit(hazard) = baseline          # inverted from the elicited cumulative probabilities
+              + epistemic offset  # this parameter world's opinion, scaled by stated confidence
+              + latent factors    # slow global moods: hostility, fragility, forcing, erosion
+              + parent effects    # what has already fired, with causal lags
+```
+
+Because events have *times*, a Taiwan contingency in 2027 can propagate into
+semiconductor and financial nodes by 2028, while the same event in 2035 cannot.
+That's the whole reason for the survival formulation.
+
+### Two-level sampling
+
+The outer loop draws a **parameter world** — one coherent opinion about every
+hazard at once. The inner loop draws paths within it. Spread across the outer
+level is *epistemic* uncertainty (we don't know the rates); spread within it is
+*aleatory* (the world is stochastic). Reporting one number blends the two and
+hides which is doing the work, so the report gives both.
+
+Parameter worlds are drawn in antithetic pairs (+θ matched by −θ), which makes
+the sample mean of the offsets exactly zero and roughly halves the standard error
+on every marginal for free.
+
+### The central invariant
+
+**Coupling reshapes the joint distribution, not the marginals.**
+
+Adding a causal network naively inflates everything: latent factors add convexity
+(the logistic is convex below 50%, so zero-mean noise on the log-odds raises the
+average probability), and parent effects only ever push hazard up. You'd end up
+reporting numbers higher than any analyst actually claimed, while implying they
+came from the analysts.
+
+So the engine runs an iterative calibration that tunes each baseline until the
+*simulated* marginals reproduce the *elicited* ones. The coupling then does only
+what it should: produce correlated world-states, cascades, and non-trivial
+conditional probabilities, at fixed marginals.
+
+Convergence on the real parameter set: **≤ 1pp on a held-out random stream**.
+`tests/test_engine.py::test_calibration_generalises_to_an_unseen_random_stream`
+guards it, because calibration uses common random numbers and could otherwise
+overfit its own sample.
+
+### Five worldviews
+
+Nothing is run under a single parameterisation. Research analysts produced one,
+a per-domain calibration auditor corrected it, and three red-team lenses
+(outside-view base rates, structural-break inside view, prediction-market check)
+corrected it further. Each is simulated separately and the paths are pooled by
+weight, so the reported bands contain real model disagreement — not just Monte
+Carlo error. The report ranks the nodes where the five disagree most; those are
+the forecasts to hold most loosely.
+
+### Continuous variables
+
+GDP growth, temperature anomaly, Brent, cereal stocks-to-use and friends evolve
+on a **Gaussian copula driven by each path's own systemic-stress index**. The
+marginal distribution at each date comes straight from the elicited deciles
+(fitted as a two-piece normal, so skew survives); only the dependence comes from
+the simulation. This avoids inventing hundreds of "event X moves Brent by $Y"
+coefficients while still ensuring the bad tail of oil is populated by the same
+paths that fired the bad events.
+
+## Layout
+
+```
+worldsim/
+  timeline.py    quarterly clock; elicitation anchors land on exact boundaries
+  hazard.py      cumulative probabilities -> per-quarter hazard, isotonic repair
+  params.py      loading, validation, worldview construction
+  engine.py      the Monte Carlo core and the marginal-calibration loop
+  continuous.py  systemic stress index + copula-driven continuous variables
+  analysis.py    marginals with epistemic intervals, joints, cascades, archetypes
+  labelling.py   rule-based naming of the clusters the simulation produced
+  report.py      markdown + json output
+params/          research output, coupling structure, red-team corrections
+tools/           synthetic parameter generator for smoke tests
+tests/           hazard inversion, engine mechanics, the central invariant
+```
+
+## Running it
+
+```bash
+pip install -r requirements.txt
+python run_simulation.py                 # full run, ~12 min on 4 cores
+python run_simulation.py --quick         # smoke test
+pytest tests/ -q
+```
+
+Output lands in `output/forecast_report.md` and `output/forecast.json`.
+
+To exercise the pipeline without the research parameters:
+
+```bash
+python tools/make_synthetic_params.py params/synthetic_model.json
+python run_simulation.py --quick --model params/synthetic_model.json
+```
+
+## Limitations
+
+Stated in full at the end of every generated report, and worth repeating here:
+the parameters are informed judgement, not measurement; correlated analyst error
+is unmodelled and would produce narrow bands around a wrong centre; causal edges
+are reasoned rather than estimated, because there is no dataset of decades to fit
+them to; and nothing outside the enumerated risk set can happen, which makes the
+"quiet decade" probability an upper bound on calm.
