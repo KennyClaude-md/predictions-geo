@@ -6384,9 +6384,794 @@
         ]
       },
       "calibration": null
+    },
+    {
+      "domain": "foodwater",
+      "title": "Food, water, and agricultural systems",
+      "research": {
+        "domain": "Food, water, and agricultural systems",
+        "state_of_play": "As of late July 2026 the global food system is in a two-track regime: physically well-supplied in aggregate, but under acute stress from three simultaneous shocks \u2014 a Middle East energy/fertilizer disruption, a Black Sea logistics collapse, and a developing strong El Ni\u00f1o \u2014 while the humanitarian financing that buffers the poorest has been structurally cut.\n\nVERIFIED AGGREGATE SUPPLY. FAO's July 2026 Cereal Supply and Demand Brief puts 2026 world cereal production at 2,983 Mt, 1.9% below the 2025 all-time high but still second-largest on record; utilization 2,961 Mt; end-2027 stocks 957.8 Mt; stocks-to-use 32.0% (revised up from 31.7%). That is comfortable by historical standards \u2014 the 2007/08 crisis ratio was far lower. USDA's 10 July WASDE cut world 2026/27 wheat ending stocks to 272.8 Mt (from 275.4 Mt) and maize to 275.3 Mt (~24 Mt below last year). Rice is the standout buffer: world milled stocks hit a record 196.2 Mt entering 2026, India's stocks a record 68.4 Mt in June, India has lifted all export restrictions and targets ~30 Mt of exports, and rice export prices are roughly 35% below year-ago levels. So the \"staple of the poor\" is currently cheap and abundant \u2014 a materially different configuration from 2008 or 2022.\n\nVERIFIED PRICE/SHOCK PICTURE. The FAO Food Price Index averaged 130.3 in June 2026 (-0.3% m/m, +2.2% y/y), with the cereal sub-index at 110.2 (-3.5% m/m) \u2014 i.e., benign through June. July broke that. Russia-Ukraine escalation in the Black Sea and Sea of Azov (23 strikes on Ukrainian seaports and 17 attacks on civilian vessels in the first two weeks of July; Kernel suspending its Chornomorsk terminal; Ukraine losing roughly a third of seaborne export capacity at peak harvest) pushed Chicago wheat to ~$6.80\u20137.00/bu, up ~16% in July and the highest since May 2024. Compounding this, USDA has US all-wheat production at 1.536 bn bu, the smallest US wheat crop in over 50 years, with hard red winter down ~41% on southern Plains drought.\n\nVERIFIED INPUT SHOCK. The 2026 US/Israel\u2013Iran war (began 28 Feb 2026) effectively closed the Strait of Hormuz; traffic fell >90% and remains far below the ~138 vessels/day norm (~25/day recently). Iran halted ammonia output, Qatar suspended urea/ammonia/sulfur; the World Bank estimates ~36% of traded urea and ~50% of traded sulfur were removed from the market. Urea spiked to $725.6/t in March (+53.7% m/m, four-year high); the World Bank projects the fertilizer index +31% in 2026 (urea ~+60%, MOP ~+12%, DAP up sharply on doubled sulfur). Benchmark urea was ~$435/t on 28 July, +18% m/m. Russia and China maintain fertilizer export restrictions; IFPRI's tracker reports no broad new food-export-restriction crisis yet.\n\nVERIFIED HUNGER/HUMANITARIAN. GRFC 2026: 266 million people in IPC/CH Phase 3+ in 2025 across 47 countries (22.9% of analysed population), with 1.4 million in Phase 5 across six countries and 35.5 million children acutely malnourished. SOFI 2026 (July): 645 million hungry (7.8%), a third consecutive annual decline, and 2.1 billion moderately/severely food insecure. Sudan: famine confirmed in El Fasher and Kadugli in Sept 2025; the May 2026 IPC found no area currently in Famine but projects 200,000 in Catastrophe across 15 areas for Jun\u2013Sep 2026, with El Fasher unreachable by road for over a year. Gaza: the 23 July 2026 IPC has the whole Strip in Phase 3 with 1.4 million in Phase 3+ through Dec 2026 and 212,000 in Phase 4 \u2014 improved post-ceasefire but aid-dependent and declining since February. WFP needs $13bn for 2026 against $6.5bn raised in 2025, faces a ~34% budget cut and a $622m six-month shortfall.\n\nVERIFIED WATER. Indus Waters Treaty remains in abeyance (reaffirmed 3 July 2026); India rejected the 15 May 2026 Court of Arbitration award. GERD operating with no Egypt\u2013Ethiopia agreement; Ethiopia has announced three further Blue Nile dams. Iraq had its driest year since 1933 in 2025 (reserves from ~60 BCM in 2020 to <4 BCM) with a partial winter 2025/26 reprieve and a June 2026 Iraq\u2013Syria water MoU; Tehran reservoirs fell to ~12%. Colorado: 2007 Guidelines and 2019 DCP expire 31 Dec 2026, no seven-state deal on post-2026 rules, Reclamation advancing its own plan, Lake Mead projected to a record-low ~1,037 ft by July 2027; a two-year interim agreement was reportedly near signature in July. Counter-trend: North China Plain groundwater has been rising ~0.7 m/yr since 2020, exceeding 2005 levels by 2024.\n\nNOT VERIFIED / INFERRED. I could not directly reach FAO, NOAA CPC, or USDA primary pages (403s). The El Ni\u00f1o picture \u2014 CPC advisory issued 11 June 2026, ~63% chance of a very strong peak in Nov 2026\u2013Jan 2027 \u2014 rests on secondary sources and should be treated as directionally right but numerically soft. Claims circulating of an \"18% global wheat harvest collapse\" and \"318 million in crisis hunger\" appear on low-quality aggregator sites and are inconsistent with FAO/USDA balance sheets; I do not use them. Current Lake Mead elevation, exact Ukrainian monthly export tonnages, and the July FAO index (due ~7 Aug) are estimates.",
+        "indicators": [
+          {
+            "name": "FAO Food Price Index",
+            "value": "130.3",
+            "unit": "index, 2014-16=100",
+            "as_of": "2026-06",
+            "trend": "volatile",
+            "source": "FAO Food Price Index release, June 2026 (-0.3% m/m, +2.2% y/y)",
+            "verified": true
+          },
+          {
+            "name": "FAO Cereal Price Index",
+            "value": "110.2",
+            "unit": "index, 2014-16=100",
+            "as_of": "2026-06",
+            "trend": "rising",
+            "source": "FAO, June 2026 (-3.5% m/m in June; sharply higher in July on Black Sea escalation)",
+            "verified": true
+          },
+          {
+            "name": "World cereal production 2026 forecast",
+            "value": "2983",
+            "unit": "million tonnes",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "FAO Cereal Supply and Demand Brief, July 2026 (-1.9% vs 2025 record)",
+            "verified": true
+          },
+          {
+            "name": "World cereal stocks-to-use ratio 2026/27",
+            "value": "32.0",
+            "unit": "percent",
+            "as_of": "2026-07",
+            "trend": "flat",
+            "source": "FAO Cereal Supply and Demand Brief, July 2026 (revised up from 31.7%)",
+            "verified": true
+          },
+          {
+            "name": "World cereal ending stocks (close of 2027 seasons)",
+            "value": "957.8",
+            "unit": "million tonnes",
+            "as_of": "2026-07",
+            "trend": "flat",
+            "source": "FAO Cereal Supply and Demand Brief, July 2026",
+            "verified": true
+          },
+          {
+            "name": "World wheat ending stocks 2026/27 (USDA)",
+            "value": "272.8",
+            "unit": "million tonnes",
+            "as_of": "2026-07-10",
+            "trend": "falling",
+            "source": "USDA WASDE July 2026 (cut from 275.4 Mt in June)",
+            "verified": true
+          },
+          {
+            "name": "World maize ending stocks 2026/27 (USDA)",
+            "value": "275.3",
+            "unit": "million tonnes",
+            "as_of": "2026-07-10",
+            "trend": "falling",
+            "source": "USDA WASDE July 2026 (~24 Mt below prior year)",
+            "verified": true
+          },
+          {
+            "name": "US all-wheat production 2026",
+            "value": "1.536",
+            "unit": "billion bushels",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "USDA July 2026 crop production; smallest US wheat crop in 50+ years, HRW -41% y/y on southern Plains drought",
+            "verified": true
+          },
+          {
+            "name": "CBOT front-month wheat",
+            "value": "6.80-7.00",
+            "unit": "USD per bushel",
+            "as_of": "2026-07-27",
+            "trend": "rising",
+            "source": "TradingEconomics / market reports; ~+16% in July, highest since May 2024",
+            "verified": true
+          },
+          {
+            "name": "Urea benchmark price",
+            "value": "435",
+            "unit": "USD per tonne",
+            "as_of": "2026-07-28",
+            "trend": "rising",
+            "source": "TradingEconomics urea; +18.2% m/m, -5.7% y/y",
+            "verified": true
+          },
+          {
+            "name": "Urea (Middle East granular) peak 2026",
+            "value": "725.6",
+            "unit": "USD per tonne",
+            "as_of": "2026-03",
+            "trend": "volatile",
+            "source": "World Bank commodity data; +53.7% m/m, four-year high after Hormuz closure",
+            "verified": true
+          },
+          {
+            "name": "World Bank fertilizer price index 2026 forecast change",
+            "value": "+31",
+            "unit": "percent y/y",
+            "as_of": "2026-04",
+            "trend": "rising",
+            "source": "World Bank Commodity Markets Outlook April 2026; urea ~+60%, MOP ~+12%",
+            "verified": true
+          },
+          {
+            "name": "Share of traded urea removed by Hormuz disruption",
+            "value": "36",
+            "unit": "percent of world traded volume",
+            "as_of": "2026-06",
+            "trend": "volatile",
+            "source": "World Bank data blog, June 2026 (sulfur ~50% removed)",
+            "verified": true
+          },
+          {
+            "name": "World milled rice ending stocks",
+            "value": "196.2",
+            "unit": "million tonnes",
+            "as_of": "2026-01",
+            "trend": "rising",
+            "source": "USDA/industry; record; India stocks record 68.4 Mt in June 2026",
+            "verified": true
+          },
+          {
+            "name": "Global rice export price change",
+            "value": "-35",
+            "unit": "percent from prior peak",
+            "as_of": "2026-06",
+            "trend": "falling",
+            "source": "Trade press / USDA Rice Outlook; India lifted all export bans, targets ~30 Mt exports",
+            "verified": true
+          },
+          {
+            "name": "People in acute food insecurity (IPC/CH Phase 3+)",
+            "value": "266",
+            "unit": "million (2025 reference year)",
+            "as_of": "2026-04-24",
+            "trend": "volatile",
+            "source": "Global Report on Food Crises 2026; 47 countries, 22.9% of analysed population",
+            "verified": true
+          },
+          {
+            "name": "People in IPC/CH Phase 5 (Catastrophe)",
+            "value": "1.4",
+            "unit": "million (2025)",
+            "as_of": "2026-04-24",
+            "trend": "rising",
+            "source": "GRFC 2026; Haiti, Mali, Gaza, South Sudan, Sudan, Yemen",
+            "verified": true
+          },
+          {
+            "name": "Global hunger (prevalence of undernourishment)",
+            "value": "645",
+            "unit": "million people (7.8% of world)",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "SOFI 2026; third consecutive annual decline, down ~14m vs 2024",
+            "verified": true
+          },
+          {
+            "name": "Moderate or severe food insecurity (FIES)",
+            "value": "2100",
+            "unit": "million people",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "SOFI 2026; ~86m fewer than 2024",
+            "verified": true
+          },
+          {
+            "name": "WFP 2026 funding requirement vs 2025 receipts",
+            "value": "13.0 vs 6.5",
+            "unit": "USD billion",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "WFP 2026 Global Outlook; ~34% budget cut, $622m six-month shortfall",
+            "verified": true
+          },
+          {
+            "name": "Gaza population in IPC Phase 3+",
+            "value": "1.4",
+            "unit": "million (of ~2.1m), incl. 212,000 in Phase 4",
+            "as_of": "2026-07-23",
+            "trend": "rising",
+            "source": "IPC Gaza Strip analysis, 23 July 2026; whole Strip in Phase 3, aid-dependent",
+            "verified": true
+          },
+          {
+            "name": "Sudan population projected in IPC Phase 5",
+            "value": "200000",
+            "unit": "people across 15 areas, Jun-Sep 2026",
+            "as_of": "2026-05",
+            "trend": "rising",
+            "source": "IPC Sudan May 2026; up from 135,000 in Feb-May 2026",
+            "verified": true
+          },
+          {
+            "name": "Share of marine fish stocks within biologically sustainable levels",
+            "value": "62.4",
+            "unit": "percent",
+            "as_of": "2026-06",
+            "trend": "falling",
+            "source": "FAO SOFIA 2026 (down from 64.5%); 72.6% of assessed landings from sustainable stocks",
+            "verified": true
+          },
+          {
+            "name": "Ukraine seaborne grain export capacity lost",
+            "value": "~33",
+            "unit": "percent",
+            "as_of": "2026-07-15",
+            "trend": "falling",
+            "source": "Reuters/Ukrainska Pravda; 23 port strikes and 17 vessel attacks in first half of July 2026",
+            "verified": true
+          },
+          {
+            "name": "Lake Mead projected elevation, July 2027",
+            "value": "1037",
+            "unit": "feet above sea level",
+            "as_of": "2026-07-15",
+            "trend": "falling",
+            "source": "Reclamation 24-Month Study July 2026; would break 2022 record low of 1,041 ft",
+            "verified": true
+          }
+        ],
+        "scheduled_events": [
+          {
+            "name": "FAO Food Price Index, July 2026 release",
+            "date": "2026-08-07",
+            "why_it_matters": "First index reading capturing the July Black Sea escalation and the urea spike; a jump above ~136 would signal the benign H1 regime has ended."
+          },
+          {
+            "name": "USDA August WASDE with first survey-based US corn/soybean yields",
+            "date": "2026-08-12",
+            "why_it_matters": "Resolves the biggest single uncertainty in the 2026/27 global maize balance sheet after a heat-stressed US summer and a 24 Mt y/y stock draw."
+          },
+          {
+            "name": "Reclamation August 24-Month Study sets 2027 Colorado River shortage tier",
+            "date": "2026-08-15",
+            "why_it_matters": "Determines mandatory Lower Basin cuts for 2027 and is the operative trigger for Arizona/Nevada/Mexico agricultural curtailment."
+          },
+          {
+            "name": "Expiry of 2007 Colorado River Interim Guidelines and 2019 Drought Contingency Plans",
+            "date": "2026-12-31",
+            "why_it_matters": "Without a seven-state deal or a federal Record of Decision, Colorado River operations enter legal limbo; litigation risk and Lower Basin irrigation uncertainty spike."
+          },
+          {
+            "name": "Forecast peak of the 2026-27 El Nino (Nino3.4 maximum)",
+            "date": "2026-12",
+            "why_it_matters": "Peak-phase El Nino drives the Southern Africa maize failure window, Australian wheat drought, SE Asian rice deficits and Indian rabi/kharif anomalies for 2027."
+          },
+          {
+            "name": "Southern Africa maize harvest (El Nino-exposed)",
+            "date": "2027-04",
+            "why_it_matters": "The 2015-16 and 2023-24 analogues each produced regional maize deficits of 20-40% and multi-million-person IPC deteriorations in Zambia, Zimbabwe, Malawi."
+          },
+          {
+            "name": "Global Report on Food Crises 2027 (2026 reference year)",
+            "date": "2027-04",
+            "why_it_matters": "First full accounting of the effect of the 2025-26 humanitarian funding collapse on acute food insecurity headcounts."
+          },
+          {
+            "name": "Indian southwest monsoon 2027 (El Nino-year)",
+            "date": "2027-06",
+            "why_it_matters": "El Nino years historically raise Indian deficient-monsoon odds to ~50-60%; a deficit would put India's rice and wheat export liberalisation immediately at risk."
+          },
+          {
+            "name": "India general election",
+            "date": "2029-05",
+            "why_it_matters": "Food/fertilizer subsidy and grain export policy in India are electorally driven; pre-election periods reliably tighten export policy and expand stockholding."
+          },
+          {
+            "name": "SDG 2 (Zero Hunger) target year",
+            "date": "2030-12",
+            "why_it_matters": "Forcing function for reporting, financing pledges and a probable wave of replenishment conferences in 2028-2030 as the target is visibly missed."
+          },
+          {
+            "name": "Nile Basin Cooperative Framework Agreement institutionalisation / Nile River Basin Commission build-out",
+            "date": "2027-06",
+            "why_it_matters": "Egypt and Sudan remain outside; formal operation of a basin commission without them hardens the legal split over Nile allocation."
+          },
+          {
+            "name": "WTO Ministerial Conference (MC15 cycle) on agriculture and export restrictions",
+            "date": "2028-03",
+            "why_it_matters": "Only venue with any prospect of disciplining staple export bans and the WFP humanitarian-purchase exemption."
+          },
+          {
+            "name": "Mekong River Commission Basin Development Strategy period ends",
+            "date": "2030-12",
+            "why_it_matters": "Renewal negotiation with China's Lancang cascade now able to hold >20% of wet-season flow; sets data-sharing and dry-season release terms."
+          },
+          {
+            "name": "US Farm Bill reauthorisation cycle",
+            "date": "2029-09",
+            "why_it_matters": "Sets US crop insurance, conservation and domestic nutrition spending, plus Food for Peace/Title II international food aid authority after USAID's dismantlement."
+          },
+          {
+            "name": "FAO SOFI 2027 release",
+            "date": "2027-07",
+            "why_it_matters": "Tests whether the three-year decline in global hunger survives the aid cuts and 2026 input-price shock."
+          }
+        ],
+        "discrete_risks": [
+          {
+            "id": "foodwater_new_famine_ipc5",
+            "name": "New IPC/CH Famine (Phase 5) classification anywhere",
+            "resolution_criteria": "The IPC Famine Review Committee or a CH equivalent confirms Famine (IPC Phase 5) \u2014 with reasonable evidence or higher \u2014 for at least one geographic area not already so classified as of 2026-07-29, published on ipcinfo.org.",
+            "p_by_2027_pct": 74,
+            "p_by_2031_pct": 93,
+            "p_by_2036_pct": 97,
+            "reasoning": "Sudan already has 200,000 people projected in Catastrophe across 15 areas for Jun-Sep 2026 with El Fasher road-inaccessible for over a year; WFP is running a ~34% budget cut against a $13bn requirement; Gaza's Phase 3 status is explicitly aid-dependent and coverage has fallen since February. A strong El Nino peaking Dec 2026 adds Southern Africa and Horn exposure for 2027. The binding constraint on declarations is data access, not conditions.",
+            "base_rate_anchor": "IPC/FRC famine confirmations: Somalia 2011, South Sudan 2017, Sudan (Zamzam) Aug 2024, Gaza Aug 2025, Sudan (El Fasher/Kadugli) Sept 2025 \u2014 5 events in 16 years, but 3 in the last 24 months. Recent-cluster rate ~1.5/yr, long-run ~0.3/yr.",
+            "severity_0_10": 5,
+            "confidence": "high",
+            "contrarian_case": "Declarations require survey access that is collapsing along with humanitarian budgets \u2014 conditions can worsen while confirmations fall, as happened for years in Yemen. Sudan's May 2026 analysis already de-classified active famine. A Sudan ceasefire plus continued Gaza aid flow could plausibly produce zero new confirmations through 2027 despite deteriorating reality."
+          },
+          {
+            "id": "foodwater_ukraine_export_collapse",
+            "name": "Ukrainian seaborne grain exports fall below 1 Mt in a calendar month",
+            "resolution_criteria": "Ukrainian Ministry of Agrarian Policy or UGA monthly data show total seaborne grain and oilseed exports below 1.0 million tonnes in any single calendar month (normal 2024-26 range ~3-5 Mt/month).",
+            "p_by_2027_pct": 62,
+            "p_by_2031_pct": 70,
+            "p_by_2036_pct": 74,
+            "reasoning": "Verified: 23 strikes on Ukrainian seaports and 17 attacks on civilian vessels in the first two weeks of July 2026, with periods of zero corridor transits, Kernel suspending Chornomorsk, and about a third of seaborne capacity lost at peak harvest. Insurance withdrawal is the transmission mechanism and it moves faster than physical damage. This may already be occurring in July-August 2026 without a formal data print yet.",
+            "base_rate_anchor": "Since Feb 2022 Ukraine has had sub-1 Mt seaborne months in Mar-Jun 2022 and again Aug-Oct 2023 after the BSGI collapse \u2014 roughly 8 of 53 months, ~15% unconditional monthly rate, far higher conditional on active port strikes.",
+            "severity_0_10": 4,
+            "confidence": "medium",
+            "contrarian_case": "Ukraine rebuilt exports twice before under fire, via Danube ports, Romanian rail and a hugged-coast corridor, and did so within weeks. Odesa-region terminals have hardened air defence. A negotiated maritime de-escalation \u2014 which both sides have economic reasons to want during harvest \u2014 could restore flows before any month prints below 1 Mt."
+          },
+          {
+            "id": "foodwater_urea_above_800",
+            "name": "World Bank monthly urea price exceeds US$800/tonne",
+            "resolution_criteria": "World Bank Pink Sheet monthly average urea (Middle East, bulk, f.o.b.) exceeds US$800 per tonne in any month.",
+            "p_by_2027_pct": 44,
+            "p_by_2031_pct": 58,
+            "p_by_2036_pct": 66,
+            "reasoning": "Urea already hit $725.6/t in March 2026 on Hormuz closure; Iran's ammonia is offline, Qatar suspended urea/ammonia/sulfur, ~36% of traded urea is off the market, sulfur has doubled, and the World Bank projects urea ~+60% for 2026. The war is unresolved as of late July 2026 with no active US-Iran negotiations. Only a modest further escalation is needed to clear $800.",
+            "base_rate_anchor": "Urea exceeded $800/t in 2008 (peak ~$770-820) and 2021-22 (peak ~$925). Roughly 2 episodes in 20 years unconditionally (~10%/yr), but conditional on an active chokepoint disruption the near-term rate is far higher.",
+            "severity_0_10": 5,
+            "confidence": "medium",
+            "contrarian_case": "Urea was $435/t on 28 July, actually below year-ago levels \u2014 the March spike was a squeeze that already unwound as Chinese and US Gulf capacity filled the gap and northern-hemisphere application season ended. Global nameplate urea capacity has expanded materially since 2022. If Hormuz partially reopens, urea could fall toward $300 and never approach $800."
+          },
+          {
+            "id": "foodwater_ffpi_above_160",
+            "name": "FAO Food Price Index reaches an all-time high above 160",
+            "resolution_criteria": "The FAO Food Price Index (2014-2016=100, nominal) monthly value exceeds 160.0, surpassing the March 2022 record of 160.3.",
+            "p_by_2027_pct": 18,
+            "p_by_2031_pct": 42,
+            "p_by_2036_pct": 60,
+            "reasoning": "From 130.3 in June 2026 this requires a ~23% rise. Two simultaneous shocks (Black Sea, fertilizer) are live and a strong El Nino peaks in Dec 2026, but stocks-to-use at 32.0% and a record 196 Mt rice stockpile with India exporting freely are powerful dampers \u2014 the rice complex, which drove the 2008 spike, is currently in glut. Over longer horizons nominal drift alone (~2%/yr) closes about half the gap.",
+            "base_rate_anchor": "Episodes of >20% FFPI rise within 18 months: 1973-74, 2007-08, 2010-11, 2021-22 \u2014 4 in ~52 years, ~8%/yr, with strong clustering and autocorrelation.",
+            "severity_0_10": 6,
+            "confidence": "medium",
+            "contrarian_case": "The FFPI is a nominal index in a world with 3% inflation and a weakening dollar; reaching 160 by 2031 may be near-trivial rather than a crisis signal, which argues my 2031/2036 numbers are too low. Conversely, the index is heavily weighted to vegetable oils and dairy, which are supply-elastic, so a pure cereal shock struggles to move the headline 23%."
+          },
+          {
+            "id": "foodwater_new_staple_export_bans",
+            "name": "Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously",
+            "resolution_criteria": "Per the IFPRI Food and Fertilizer Export Restrictions Tracker, at least two countries each ranking in the global top 10 for wheat, maize or rice exports have in force, simultaneously and for at least 60 consecutive days, a new (post-2026-07-29) export ban or quota estimated to cut that country's exports of the staple by 25% or more.",
+            "p_by_2027_pct": 26,
+            "p_by_2031_pct": 54,
+            "p_by_2036_pct": 68,
+            "reasoning": "Export restrictions are the canonical amplifier: they appeared within months in 2007-08, 2010, 2022 and 2023. Russia already uses seasonal wheat quotas and export taxes; India's liberalisation is reversible in a single cabinet decision and is politically fragile in an El Nino monsoon year. The trigger is domestic price inflation, not global scarcity, which makes it fast and hard to deter.",
+            "base_rate_anchor": "Multi-country simultaneous staple restriction episodes: 2007-08, 2010-11, 2020 (brief, COVID), 2022-23 \u2014 4 clusters in 20 years, each lasting 6-18 months; unconditional onset rate ~15-20%/yr but strongly conditioned on price spikes.",
+            "severity_0_10": 6,
+            "confidence": "medium",
+            "contrarian_case": "India's incentive today runs the other way \u2014 record 68.4 Mt stocks and a 30 Mt export target mean it needs to move grain, not hoard it. Russia earns hard currency from wheat under sanctions. WTO and G20 commitments plus the 2022 humanitarian-purchase exemption have raised the reputational cost. The last two years have seen restrictions unwind, not tighten."
+          },
+          {
+            "id": "foodwater_livestock_epizootic_g20",
+            "name": "Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months",
+            "resolution_criteria": "USDA, Eurostat, WOAH or the national statistical agency of a G20 member reports a decline of 10% or more, within any rolling 12-month window, in national laying-hen inventory or national pig inventory, attributed principally to an animal disease epizootic (HPAI, ASF, FMD or successor).",
+            "p_by_2027_pct": 48,
+            "p_by_2031_pct": 76,
+            "p_by_2036_pct": 87,
+            "reasoning": "H5N1 clade 2.3.4.4b is now panzootic across six continents including Antarctica, with >180 million US poultry affected since 2022 and >1,000 US dairy herds infected. ASF remains entrenched in Eurasia. Layer flocks are structurally concentrated, so single-site outbreaks propagate to national inventories. This class of event now recurs roughly biennially somewhere in the G20.",
+            "base_rate_anchor": "Qualifying events: China ASF 2019 (pig herd -40%), US layer flock 2015 (-12%), US layer flock 2022 and again 2024-25 (~-10-13%), Japan/Korea 2020-21 poultry, EU 2021-22. Roughly 6-7 events in 12 years across the G20 \u2248 50-55%/yr.",
+            "severity_0_10": 3,
+            "confidence": "medium",
+            "contrarian_case": "Vaccination policy is shifting \u2014 France vaccinated ducks from 2023, and the US has moved toward conditional poultry vaccination \u2014 which could break the recurrence pattern within a few years. Better biosecurity and rapid depopulation have also shortened outbreak tails. My 2036 number may over-extrapolate a technology-static world."
+          },
+          {
+            "id": "foodwater_grfc_above_300m",
+            "name": "GRFC reports more than 300 million people in acute food insecurity",
+            "resolution_criteria": "Any edition of the Global Report on Food Crises published in 2027-2036 reports more than 300.0 million people in IPC/CH Phase 3 or above for its reference year.",
+            "p_by_2027_pct": 38,
+            "p_by_2031_pct": 64,
+            "p_by_2036_pct": 74,
+            "reasoning": "The series ran 258m (2022), 281.6m (2023), 295.3m (2024), 266m (2025) \u2014 300m has been approached but not crossed. Humanitarian funding is falling hard (WFP $6.5bn against a $13bn need, US share down from >33% to 15.6%) and WFP estimates cuts could push 13.7m people from Phase 3 to Phase 4. A strong El Nino peaking in Dec 2026 loads the 2027 reference year. Against this, the underlying SOFI hunger trend has fallen three years running.",
+            "base_rate_anchor": "In the 8-year GRFC series, the year-on-year change has exceeded +20m twice (2020, 2022) out of 7 transitions \u2248 29%/yr; from 266m a +34m jump is needed.",
+            "severity_0_10": 5,
+            "confidence": "medium",
+            "contrarian_case": "The headcount is partly an artefact of analysed-population coverage, which grew from ~1.0bn to ~1.16bn people as GRFC added countries. Coverage expansion, not deterioration, drove much of the 2020-24 rise; with assessment budgets being cut, coverage may now shrink and mechanically suppress the headline. Ceasefires in Sudan or a Ukraine settlement would each subtract tens of millions."
+          },
+          {
+            "id": "foodwater_global_cereal_drop_4pct",
+            "name": "World cereal production falls 4%+ year-on-year (multi-breadbasket failure)",
+            "resolution_criteria": "FAO's Cereal Supply and Demand Brief reports world cereal production for a calendar year at least 4.0% below the prior year's outturn (using FAO's own revised series at the time of the following year's July brief).",
+            "p_by_2027_pct": 11,
+            "p_by_2031_pct": 31,
+            "p_by_2036_pct": 47,
+            "reasoning": "2026 is already -1.9%. The developing El Nino, if it reaches very strong intensity peaking Dec 2026-Jan 2027, historically pairs with Australian wheat drought, Southern African maize failure, SE Asian rice deficits and an Indian monsoon deficit \u2014 the closest thing to a physically correlated multi-breadbasket mechanism. Compound heat-drought exposure of breadbasket regions is rising in the literature. But global cereal area and yield trends are still adding ~1%/yr, which must be overcome first.",
+            "base_rate_anchor": "World cereal production y/y declines of 4%+ since 1961: 1974 (-4.5%), 1983 (-5.0%), 1988 (-5.4%), and narrowly 2003 \u2014 roughly 3-4 events in 65 years \u2248 5-6%/yr, and none since 1988 as area expansion and irrigation grew.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "The global system has not had a 4% single-year drop in nearly 40 years despite 1997-98 and 2015-16 super El Ninos; geographic diversification, irrigation, and hemispheric offsetting have made the aggregate remarkably robust. The dramatic 'simultaneous breadbasket failure' literature measures regional stress, not global production, and the two have repeatedly decoupled."
+          },
+          {
+            "id": "foodwater_stocks_to_use_below_28",
+            "name": "World cereal stocks-to-use ratio falls below 28%",
+            "resolution_criteria": "FAO's Cereal Supply and Demand Brief reports a world cereal stocks-to-use ratio below 28.0% for any marketing year.",
+            "p_by_2027_pct": 7,
+            "p_by_2031_pct": 24,
+            "p_by_2036_pct": 36,
+            "reasoning": "Current ratio is 32.0%, revised up. FAO regards below ~30% as tight and the series low on the current methodology is around 29% (2007/08). Getting to 28% requires either a large production shortfall or sustained stock drawdown, most plausibly via China releasing or reclassifying reserves. USDA already shows maize stocks down ~24 Mt y/y, so the direction is right but the level has far to fall.",
+            "base_rate_anchor": "On FAO's current series, the ratio has been below 28% in zero of the last 25 years; the 2007/08 crisis trough was ~29%. Two-consecutive-year drawdowns of >2 points occurred in 2002-03, 2006-07 and 2012-13 \u2014 ~3 in 25 years.",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "China holds well over half of reported world wheat and maize stocks, and those are largely inaccessible to world trade. The effective ex-China ratio is already far below 28%, meaning the headline metric may simply be the wrong instrument \u2014 the risk could materialise as a price crisis with the headline ratio unchanged, making this event both understated as a signal and overstated as a threshold."
+          },
+          {
+            "id": "foodwater_rice_price_650",
+            "name": "Thai 5% broken rice benchmark exceeds US$650/tonne",
+            "resolution_criteria": "FAO GIEWS / Thai Rice Exporters Association monthly average f.o.b. price for Thai white rice 5% broken exceeds US$650 per tonne.",
+            "p_by_2027_pct": 9,
+            "p_by_2031_pct": 27,
+            "p_by_2036_pct": 40,
+            "reasoning": "Rice is the single most reassuring number in the current dataset: record 196.2 Mt world stocks, record 68.4 Mt Indian stocks, India exporting without restriction and targeting 30 Mt, prices ~35% off. A move to $650 requires both a large Asian production shock (El Nino is the plausible mechanism for 2027) and an Indian export reversal. Both are needed; neither alone suffices given the stock overhang.",
+            "base_rate_anchor": "Thai 5% has exceeded $650/t in 2008 (peak ~$1,000) and briefly 2023-24 (~$650) \u2014 2 episodes in 20 years \u2248 10%/yr, both triggered by Indian export bans rather than by production alone.",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "The 2023 episode showed how fast this can flip: India banned non-basmati white rice exports in July 2023 and Thai prices rose ~50% within four months from an equally comfortable-looking stock position. Political triggers can outrun physical buffers, so my 2027 number of 9% may be too low if the 2027 monsoon disappoints."
+          },
+          {
+            "id": "foodwater_indus_physical_curtailment",
+            "name": "India physically curtails Indus western-river flows to Pakistan",
+            "resolution_criteria": "Pakistan's IRSA rim-station data, corroborated by satellite/independent hydrological analysis, show a sustained reduction of 20% or more over at least four consecutive weeks in Chenab or Jhelum inflows attributable to Indian storage operations or diversion, and not to natural hydrology.",
+            "p_by_2027_pct": 9,
+            "p_by_2031_pct": 24,
+            "p_by_2036_pct": 36,
+            "reasoning": "The Treaty has been in abeyance since April 2025, reaffirmed 3 July 2026, and India rejected the 15 May 2026 Court of Arbitration award as null. Reservoir flushing at Baglihar and Salal in 2025 produced short flow perturbations already. India has publicly accelerated storage and diversion planning. The constraint is physical: India currently has only ~1 MAF of live storage on the western rivers against ~135 MAF of flow, and building meaningful storage or the Chenab-Ravi link takes 5-12 years \u2014 which is exactly why the risk rises steeply toward 2036.",
+            "base_rate_anchor": "In 65 years the Treaty survived three wars and Kargil with zero deliberate flow curtailment \u2014 an unconditional base rate near zero. But the treaty-in-abeyance regime has only existed for 15 months, so the reference class is now 'unilateral riparian abrogation with construction underway,' which historically resolves into curtailment in a substantial minority of cases (Turkey-Euphrates 1990, Israel-Jordan pre-1994).",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "India gains little and risks enormously: curtailment would be an unambiguous casus belli against a nuclear state, would set a precedent China could apply to the Brahmaputra, and would flood Indian Kashmir if storage were operated aggressively. 'Abeyance' has so far been legal signalling with almost no hydrological content, and may remain so indefinitely \u2014 the cheapest option for Delhi is to keep the threat rather than exercise it."
+          },
+          {
+            "id": "foodwater_nile_armed_incident",
+            "name": "Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water",
+            "resolution_criteria": "ACLED or equivalent records a state-attributed kinetic attack (air, missile, drone or special-forces) on the Grand Ethiopian Renaissance Dam or associated Ethiopian water infrastructure, or a direct armed exchange between Egyptian and Ethiopian forces publicly framed by either government as arising from the Nile water dispute.",
+            "p_by_2027_pct": 3,
+            "p_by_2031_pct": 8,
+            "p_by_2036_pct": 13,
+            "reasoning": "Egypt has made explicit existential rhetoric for 15 years, GERD was inaugurated in Sept 2025 with no agreement, and Ethiopia announced three further Blue Nile dams in 2026 \u2014 each new dam is a fresh escalation point. Egypt has also drawn closer to Somalia and Eritrea, giving it proxy options. But the dam is now full and operating: destroying it would create a catastrophic flood wave onto Sudan and Egypt itself, which inverts the military logic.",
+            "base_rate_anchor": "Interstate armed attacks specifically over shared water infrastructure since 1945 are extremely rare \u2014 Israel-Syria 1965-67 headwater diversion clashes, Israel's 1981 and 2007 strikes were on nuclear not water targets. Roughly 1-2 clear cases in 80 years. Loaded rhetoric is a very weak predictor of strikes.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "The strongest counter to my low number: Egypt's leverage window is closing permanently as GERD normalises, and Egypt is simultaneously facing Nile flow limits with 98% freshwater dependence and a fast-growing population. Leaders facing irreversible loss sometimes act late and badly. Also, a strike on a construction-phase new dam is militarily far cheaper than one on GERD itself."
+          },
+          {
+            "id": "foodwater_colorado_no_deal",
+            "name": "Colorado River enters 2027 without an agreed post-2026 framework",
+            "resolution_criteria": "On 1 January 2027, no seven-state consensus agreement and no signed federal Record of Decision governs Lake Powell/Lake Mead operations for calendar 2027, with operations instead running under an interim stopgap, unilateral federal action, or litigation.",
+            "p_by_2027_pct": 45,
+            "p_by_2031_pct": 48,
+            "p_by_2036_pct": 50,
+            "reasoning": "Verified as of July 2026: the 2007 Guidelines and 2019 DCP expire 31 December 2026, the seven states still have no consensus, Reclamation released a Draft EIS in January 2026 and is proceeding with its own plan, and a two-year interim agreement was only 'set to be signed' as of late July. The interim deal, if signed, is itself a stopgap rather than the post-2026 framework \u2014 so partial resolution is the modal outcome. Note this risk is near-binary in 2027 and barely moves afterward, since by 2031 something will govern operations.",
+            "base_rate_anchor": "Colorado River negotiations have missed federal deadlines repeatedly: the 2023 consensus deadline slipped, the March 2024 and November 2024 milestones both slipped, and the 2025 deadline produced no Upper/Lower Basin agreement. 4-5 missed deadlines in 4 years.",
+            "severity_0_10": 3,
+            "confidence": "medium",
+            "contrarian_case": "An 8NewsNow report in July 2026 says the states are on the verge of signing a two-year deal, and Metropolitan Water District and IID have both inked large conservation agreements. If the interim deal is signed and a ROD issues in the autumn, this resolves NO and my 45% is roughly double what it should be. The parties have also never actually let operations fall into litigation."
+          },
+          {
+            "id": "foodwater_wfp_below_5bn",
+            "name": "WFP annual contributions fall below US$5 billion",
+            "resolution_criteria": "WFP's published annual contribution total for any calendar year 2026-2036 is below US$5.0 billion (nominal), per wfp.org contributions data.",
+            "p_by_2027_pct": 34,
+            "p_by_2031_pct": 56,
+            "p_by_2036_pct": 64,
+            "reasoning": "Verified trajectory: $9.8bn (2022) to $8.3bn (2023) to ~$9.8bn peak then $6.5bn (2025) against a $13bn 2026 requirement, with a ~34% budget cut and the US share falling from over a third to 15.6% after USAID's dismantlement and an upheld $8bn congressional rescission. Two more years of the same slope lands below $5bn. European fiscal consolidation and defence reallocation point the same way.",
+            "base_rate_anchor": "WFP contributions fell year-on-year in 2016, 2023, 2024 and 2025 \u2014 4 of the last 12 years, but the last three are consecutive and driven by a structural donor-base change, not cyclical variation.",
+            "severity_0_10": 5,
+            "confidence": "medium",
+            "contrarian_case": "Famine imagery has historically reversed donor retrenchment sharply and quickly \u2014 2011 Somalia and 2017 quadruple-famine appeal both produced step-changes in funding. Gulf donors, China and philanthropic capital are partially substituting. And a US administration change in Jan 2029 could restore a large share of the cut within one budget cycle."
+          },
+          {
+            "id": "foodwater_wheat_rust_south_asia",
+            "name": "Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab",
+            "resolution_criteria": "CIMMYT, BGRI, FAO or a national plant protection agency confirms establishment of a Ug99-lineage stem rust race, a novel highly virulent stripe rust race defeating deployed resistance, or wheat blast (Magnaporthe oryzae Triticum), in Indian or Pakistani Punjab or Haryana, with documented field-scale infection.",
+            "p_by_2027_pct": 5,
+            "p_by_2031_pct": 14,
+            "p_by_2036_pct": 25,
+            "reasoning": "Ug99 emerged in Uganda in 1998 and reached Iran by 2007 \u2014 one wind-corridor step from South Asia \u2014 then stalled there for nearly 20 years. Wheat blast, however, jumped from South America to Bangladesh in 2016 and Zambia in 2018, demonstrating that seed-borne long-distance introduction works. The Indo-Gangetic Plain is ~100 Mt of wheat on a narrow resistance base, and warming expands the rust-favourable window.",
+            "base_rate_anchor": "Major transcontinental establishment of a wheat pathogen in a new mega-region: Ug99 into Yemen/Iran (2006-07), stripe rust race Yr27 across South/West Asia (2009-10), wheat blast into Bangladesh (2016) and Zambia (2018) \u2014 roughly 4 events in 20 years globally, of which ~1 landed in South Asia.",
+            "severity_0_10": 8,
+            "confidence": "low",
+            "contrarian_case": "Two decades of BGRI/DRRW surveillance and pre-emptive breeding have deployed Sr2-complex and multi-gene resistance across most South Asian mega-varieties, and India rotates cultivars faster than in the 1960s. The 2036 number could reasonably be half what I give. Conversely, if surveillance funding follows aid funding downward, detection lags could make it look like a sudden emergence."
+          },
+          {
+            "id": "foodwater_three_concurrent_famines",
+            "name": "Three or more countries/territories in confirmed IPC Famine simultaneously",
+            "resolution_criteria": "At any point in a calendar year, IPC/FRC-confirmed Famine (Phase 5) classifications are simultaneously in force for areas in three or more distinct countries or territories.",
+            "p_by_2027_pct": 10,
+            "p_by_2031_pct": 25,
+            "p_by_2036_pct": 34,
+            "reasoning": "2025 was the first year with two concurrent famine confirmations (Gaza and Sudan) in IPC history. The candidate set for a third is real \u2014 Haiti, Mali, South Sudan and Yemen all had Phase 5 populations in 2025, and Afghanistan and Syria are deteriorating. The funding cut is the common cause that could correlate these. But confirmation requires all three IPC famine thresholds plus survey access in three places at once, which is a high bar.",
+            "base_rate_anchor": "Concurrent confirmed famines: 0 instances in 2004-2023, 1 instance (2 countries) in 2025. Never 3. Reference class of 'multiple concurrent famines' has one observation in 20 years.",
+            "severity_0_10": 7,
+            "confidence": "low",
+            "contrarian_case": "Three simultaneous confirmations may be institutionally near-impossible rather than merely unlikely \u2014 FRC processes are slow, politically contested (Israel and Sudan both disputed their classifications), and resource-constrained. The failure mode is under-declaration. My 2036 figure of 34% could be double the truth for the resolvable event even if the underlying reality is worse."
+          },
+          {
+            "id": "foodwater_hormuz_fertilizer_normalisation",
+            "name": "Hormuz fertilizer flows normalise (downside-risk-off event)",
+            "resolution_criteria": "World Bank or IFA data show Middle East seaborne urea and ammonia export volumes recovering to 90% or more of their 2024-25 monthly average for three consecutive months.",
+            "p_by_2027_pct": 58,
+            "p_by_2031_pct": 85,
+            "p_by_2036_pct": 92,
+            "reasoning": "Included deliberately as the balancing counterpart to the fertilizer spike risk. As of 27 July 2026 the US has paused strikes, Iran-Oman talks on Strait transit are underway, and traffic has partially recovered (25 vessels/day from a near-total stop). Both belligerents and every Gulf producer have strong economic incentives to restore flows; Qatari and Saudi plants are repairable in months, and Iranian ammonia restarts quickly once gas and shipping resume.",
+            "base_rate_anchor": "Chokepoint closures historically resolve fast: Suez 1967-75 is the outlier; Bab el-Mandeb Houthi disruption (2023-25) never fully closed, Hormuz tanker war 1984-88 saw traffic continue throughout at reduced rates. Median major chokepoint disruption duration is well under 24 months.",
+            "severity_0_10": 2,
+            "confidence": "medium",
+            "contrarian_case": "Iran has stated it wants a new transit regime with tolls, i.e. a permanently altered rather than restored status quo. If Iran institutionalises partial control, 'normalisation' to 90% of prior volumes may never resolve YES even with peace \u2014 flows would reroute permanently to non-Gulf suppliers and Middle East export share would fall structurally."
+          }
+        ],
+        "continuous_variables": [
+          {
+            "id": "ffpi",
+            "name": "FAO Food Price Index (nominal)",
+            "unit": "index, 2014-2016=100",
+            "current_value": 130.3,
+            "annual_drift": 2.8,
+            "annual_vol": 12,
+            "p10_2031": 112,
+            "p50_2031": 146,
+            "p90_2031": 198,
+            "notes": "June 2026 verified value; July will print materially higher on Black Sea escalation. Drift ~2%/yr nominal reflects general inflation plus modest real softening; vol calibrated to the 1990-2025 monthly series (~9% annualised) with a fat right tail for crisis years. p90 of 198 exceeds the March 2022 record of 160.3, consistent with a ~40% chance of an all-time high by 2031."
+          },
+          {
+            "id": "cereal_stocks_to_use",
+            "name": "World cereal stocks-to-use ratio",
+            "unit": "percent",
+            "current_value": 32,
+            "annual_drift": -0.15,
+            "annual_vol": 1.5,
+            "p10_2031": 27.8,
+            "p50_2031": 31.2,
+            "p90_2031": 34.6,
+            "notes": "FAO July 2026 brief, verified. Strongly mean-reverting via price-induced supply response, so the effective sigma over 5.4 years (~2.7 pts) is well below the random-walk value (~3.5 pts). Note that over half of reported stocks are Chinese and not tradeable, so the ex-China ratio is roughly 18-20% and far more volatile."
+          },
+          {
+            "id": "world_cereal_production",
+            "name": "World cereal production",
+            "unit": "million tonnes per calendar year",
+            "current_value": 2983,
+            "annual_drift": 26,
+            "annual_vol": 62,
+            "p10_2031": 2955,
+            "p50_2031": 3123,
+            "p90_2031": 3291,
+            "notes": "FAO July 2026 forecast, verified (-1.9% vs 2025 record). Drift ~0.9%/yr reflects yield trend net of decelerating area expansion and warming drag. Vol from the 1961-2025 detrended residual series (~2% of level). Left tail should be modelled with negative skew and ENSO-conditional correlation across breadbaskets."
+          },
+          {
+            "id": "urea_price",
+            "name": "Urea price (Middle East granular, f.o.b.)",
+            "unit": "USD per tonne",
+            "current_value": 520,
+            "annual_drift": -0.03,
+            "annual_vol": 0.22,
+            "p10_2031": 232,
+            "p50_2031": 442,
+            "p90_2031": 852,
+            "notes": "Current value is a 2026 blended estimate: benchmark spot was $435/t on 28 July but the Middle East series peaked at $725.6/t in March; use ~$520 as the year-average anchor. Drift and vol are LOG (fractional) \u2014 negative drift encodes post-shock mean reversion toward the ~$350 marginal-cost band as Gulf and US Gulf Coast capacity returns. Strongly gas-price-coupled: correlate with TTF/Henry Hub."
+          },
+          {
+            "id": "acute_food_insecure",
+            "name": "People in acute food insecurity (IPC/CH Phase 3+, GRFC)",
+            "unit": "million people",
+            "current_value": 266,
+            "annual_drift": 4.5,
+            "annual_vol": 21,
+            "p10_2031": 225,
+            "p50_2031": 290,
+            "p90_2031": 356,
+            "notes": "GRFC 2026 verified value for reference year 2025. Drift is modestly positive: humanitarian funding contraction and conflict persistence push up, while the underlying SOFI hunger trend pushes down. Vol reflects observed year-on-year swings of +/- 20-35m. Caution: the analysed population is itself a moving denominator, adding ~10m of pure measurement noise."
+          },
+          {
+            "id": "ipc5_catastrophe",
+            "name": "People in IPC/CH Phase 5 (Catastrophe)",
+            "unit": "million people",
+            "current_value": 1.4,
+            "annual_drift": 0.06,
+            "annual_vol": 0.7,
+            "p10_2031": 0.35,
+            "p50_2031": 1.6,
+            "p90_2031": 3.5,
+            "notes": "GRFC 2026 verified (2025 reference year, 6 countries). Highly right-skewed and effectively floored near zero; model as a lognormal or compound-Poisson with famine-event jumps rather than a Gaussian random walk. Sudan alone accounts for a large share and is bimodal on ceasefire/no-ceasefire."
+          },
+          {
+            "id": "cbot_wheat",
+            "name": "CBOT front-month wheat price",
+            "unit": "USD per bushel",
+            "current_value": 6.9,
+            "annual_drift": 0.02,
+            "annual_vol": 0.23,
+            "p10_2031": 5.1,
+            "p50_2031": 7.7,
+            "p90_2031": 12.2,
+            "notes": "Verified late-July 2026 level, a two-year high. Drift and vol are LOG. Left tail is bounded near ~$4.50 by North American and Black Sea cash costs of production; right tail is fat (2008 peak $13, 2022 peak $13.6). Correlate strongly with urea (input cost pass-through, ~0.4) and with Black Sea conflict indicators."
+          },
+          {
+            "id": "thai_rice_price",
+            "name": "Thai white rice 5% broken, f.o.b.",
+            "unit": "USD per tonne",
+            "current_value": 365,
+            "annual_drift": 0.02,
+            "annual_vol": 0.2,
+            "p10_2031": 248,
+            "p50_2031": 405,
+            "p90_2031": 660,
+            "notes": "Currently depressed ~35% on record 196.2 Mt world stocks and India's full export liberalisation. Drift/vol are LOG. The distribution is strongly regime-dependent rather than continuous: an Indian export ban is a discrete jump of +40-60% within months, so pair this variable with foodwater_new_staple_export_bans rather than modelling it as pure diffusion."
+          },
+          {
+            "id": "lake_mead_elevation",
+            "name": "Lake Mead elevation",
+            "unit": "feet above mean sea level",
+            "current_value": 1053,
+            "annual_drift": -4,
+            "annual_vol": 13,
+            "p10_2031": 992,
+            "p50_2031": 1031,
+            "p90_2031": 1071,
+            "notes": "Current value is INFERRED (Reclamation's July 2026 24-Month Study projects 1,037 ft by July 2027, verified). Negative drift reflects structural over-allocation of ~1.2-1.5 MAF/yr against a declining flow trend. Hard floors: 1,000 ft (Hoover minimum power pool ~950; deadpool ~895). Anti-correlated with El Nino in the Lower Basin, which typically brings wet Southwest winters."
+          },
+          {
+            "id": "wfp_contributions",
+            "name": "WFP annual contributions received",
+            "unit": "USD billion, nominal",
+            "current_value": 6.5,
+            "annual_drift": -0.18,
+            "annual_vol": 0.85,
+            "p10_2031": 3.3,
+            "p50_2031": 5.5,
+            "p90_2031": 7.8,
+            "notes": "2025 verified against a stated $13bn 2026 requirement. Drift encodes the structural US withdrawal (share fell from >33% to 15.6%) partially offset by Gulf and EU substitution. Vol reflects appeal-driven spikes. Should be modelled with a regime switch on US administration change in Jan 2029."
+          },
+          {
+            "id": "undernourishment",
+            "name": "Global undernourishment headcount (PoU)",
+            "unit": "million people",
+            "current_value": 645,
+            "annual_drift": -8,
+            "annual_vol": 22,
+            "p10_2031": 530,
+            "p50_2031": 602,
+            "p90_2031": 675,
+            "notes": "SOFI 2026 verified (7.8% of world population, third consecutive decline). Drift continues the recent improvement but at a decaying rate; the SDG2 2030 target is unreachable. Note the PoU is a modelled series revised retroactively by several tens of millions, so real-time uncertainty exceeds the stated vol."
+          },
+          {
+            "id": "sustainable_fish_stocks",
+            "name": "Share of marine fish stocks within biologically sustainable levels",
+            "unit": "percent",
+            "current_value": 62.4,
+            "annual_drift": -0.45,
+            "annual_vol": 0.9,
+            "p10_2031": 57.5,
+            "p50_2031": 60,
+            "p90_2031": 62.4,
+            "notes": "FAO SOFIA 2026 verified, down from 64.5%. FAO notes part of the fall is methodological (new stocks added), so drift is uncertain in sign for well-managed regions \u2014 North Atlantic and NE Pacific stocks are improving while Mediterranean, SE Asian and West African stocks decline. Reported only biennially, so the simulation should hold the value flat between SOFIA editions."
+          }
+        ],
+        "feedback_loops": [
+          {
+            "name": "Export-restriction cascade",
+            "sign": "reinforcing",
+            "mechanism": "A price rise raises domestic food inflation in exporting countries; governments impose bans or quotas to protect consumers; the withdrawn volume tightens the thin world market further, raising prices and triggering the next country. Importers respond with panic procurement and stock-building, amplifying again. This loop, not physical scarcity, converted a modest 2007-08 rice deficit into a tripling of prices and did the same in 2023.",
+            "strength_0_1": 0.75,
+            "timescale_years": 0.5
+          },
+          {
+            "name": "Price-induced supply response",
+            "sign": "balancing",
+            "mechanism": "High grain prices raise expected margins, so farmers expand planted area, apply more fertilizer, and shift toward the high-priced crop; northern and southern hemisphere plantings give two shots per year. Global cereal area and yield respond with an elasticity of roughly 0.1-0.2 within two seasons. This is the single most reliable damper in the system and is why 4%+ global production drops have not occurred since 1988.",
+            "strength_0_1": 0.85,
+            "timescale_years": 1.5
+          },
+          {
+            "name": "Stock buffer nonlinearity",
+            "sign": "balancing",
+            "mechanism": "Held stocks absorb production shortfalls with little price movement while the stocks-to-use ratio is above ~30%, but price sensitivity to a given shortfall rises hyperbolically as the ratio falls below ~25%. The buffer is therefore a damper that fails abruptly rather than gradually \u2014 and because over half of reported world stocks sit in China and are not tradeable, the effective buffer is far smaller than the headline 32.0% implies.",
+            "strength_0_1": 0.8,
+            "timescale_years": 1
+          },
+          {
+            "name": "Fertilizer-price to yield-erosion loop",
+            "sign": "reinforcing",
+            "mechanism": "An energy or chokepoint shock raises ammonia and urea costs; smallholders and margin-constrained farmers cut application rates; nitrogen-limited yields fall one to two seasons later, especially in sub-Saharan Africa and South Asia; the resulting grain tightness raises crop prices, which sustains fertilizer demand and prices. The 2021-22 shock is estimated to have cost sub-Saharan African maize yields several percent in 2022-23 via exactly this channel.",
+            "strength_0_1": 0.55,
+            "timescale_years": 1.5
+          },
+          {
+            "name": "Aid-funding to hunger to instability loop",
+            "sign": "reinforcing",
+            "mechanism": "Falling humanitarian budgets reduce food transfers; acute malnutrition and displacement rise; displacement and grievance feed conflict recruitment and disrupt planting and market access; conflict raises the caseload, which raises the appeal, which is met at a lower coverage ratio. WFP's own estimate that cuts could push 13.7 million people from Phase 3 to Phase 4 is the first turn of this loop.",
+            "strength_0_1": 0.5,
+            "timescale_years": 2
+          },
+          {
+            "name": "Demand-side substitution valve",
+            "sign": "balancing",
+            "mechanism": "Roughly 40% of world maize goes to animal feed and ~10% to ethanol. When grain prices spike, feed rations shift toward wheat, byproducts and oilseed meal, ethanol blending economics deteriorate and mandates get waived, and livestock herds are liquidated. This releases large volumes back to food use within a single season \u2014 a much faster elastic margin than supply expansion.",
+            "strength_0_1": 0.6,
+            "timescale_years": 0.5
+          },
+          {
+            "name": "Logistics rerouting under interdiction",
+            "sign": "balancing",
+            "mechanism": "When a corridor is interdicted, trade reroutes: Ukraine shifted to Danube barges, Romanian and Polish rail and a hugged-coast Black Sea route within weeks in both 2022 and 2023; Hormuz fertilizer flows are being partially substituted by Chinese, North African and US Gulf Coast supply. Rerouting raises freight costs by 20-60% but restores most volume, capping the duration of chokepoint shocks well below their initial headline severity.",
+            "strength_0_1": 0.6,
+            "timescale_years": 0.5
+          },
+          {
+            "name": "Groundwater depletion and the efficiency trap",
+            "sign": "reinforcing",
+            "mechanism": "Falling water tables raise pumping energy costs; farmers respond by installing drip and sprinkler systems, but because subsidised efficiency raises returns per unit water they expand irrigated area or shift to thirstier high-value crops, so basin-scale consumptive use rises rather than falls. Documented in the Indian Punjab, the Ogallala and the Guadiana. The North China Plain's post-2020 recovery of ~0.7 m/yr is the counter-example, achieved only via massive inter-basin transfer plus enforced pumping caps.",
+            "strength_0_1": 0.5,
+            "timescale_years": 10
+          },
+          {
+            "name": "Adaptation and breeding vs climate yield drag",
+            "sign": "balancing",
+            "mechanism": "Warming and compound heat-drought erode potential yields, but cultivar turnover, heat-escape sowing dates, expanded irrigation and increasingly genomic selection and gene editing have so far offset the drag, keeping global yield trends near +1%/yr. Whether this stays balancing depends on sustained CGIAR and national R&D funding, which is currently falling alongside humanitarian budgets.",
+            "strength_0_1": 0.65,
+            "timescale_years": 10
+          }
+        ],
+        "structural_uncertainties": [
+          "Chinese stock opacity. China is reported to hold roughly half of world wheat and over 60% of world maize stocks. The headline 32.0% stocks-to-use ratio, which is the model's main comfort signal, may be materially overstated as a global buffer \u2014 the tradeable ex-China ratio is closer to 18-20%. If Chinese reserves are also smaller or lower-quality than reported, the entire price-response function of this model is miscalibrated and shocks would transmit far more violently than simulated.",
+          "Measurement regime change in hunger statistics. The GRFC headcount depends on an analysed population that has grown from ~1.0bn to ~1.16bn people, and IPC/CH assessments are themselves funded by the same donors now cutting budgets. Hunger could rise while measured hunger falls, or vice versa. Any risk defined on a published IPC number is partly a forecast of surveillance capacity, not of the world.",
+          "Yield-trend regime break in either direction. The model assumes ~+0.9%/yr global cereal production growth. Gene editing, hybrid wheat, AI-accelerated breeding and biologicals could plausibly push this to 1.5-2%/yr by the 2030s and make most scarcity risks obsolete; alternatively a step-change in compound heat-drought frequency over the Indo-Gangetic Plain, North China Plain and Central Europe, plus stagnating R&D funding, could flatten it to near zero. These branches diverge by 300+ Mt by 2036 and I cannot distinguish them.",
+          "Fast geopolitical resolution. Two of the three live shocks \u2014 the Black Sea interdiction and the Hormuz closure \u2014 could each end within months of a political decision. A Ukraine settlement plus a US-Iran deal would simultaneously restore ~40 Mt of grain exports and ~36% of traded urea, collapsing most of the near-term risk distribution. My probabilities implicitly assume grinding continuation, which is the modal but not dominant path.",
+          "Correlated-shock structure is under-modelled. I treat breadbasket outcomes as weakly correlated, but ENSO teleconnections and persistent jet-stream wave patterns can synchronise failures across the Northern Hemisphere mid-latitudes in ways historical covariance matrices understate. If the true correlation in a strong El Nino year is 0.5 rather than 0.2, multi-breadbasket failure probability is roughly double what I state.",
+          "Transboundary hydrological data is politically produced. Indus rim-station flows, Nile releases from GERD, and Lancang-Mekong dam operations are all reported by parties with an interest in the number. Several of my water risks are defined on data the interested party controls, so they may be unresolvable or resolvable falsely. Satellite altimetry and gravimetry partially substitute but with months of lag.",
+          "Demand-side technology shock. Sustained GLP-1 uptake, cultivated and fermentation-derived protein, and continued Chinese pork demand decline could reduce feed-grain demand growth by 0.5-1%/yr by the mid-2030s \u2014 enough to make the entire scarcity framing of this domain wrong on the 10-year horizon while leaving the distributional and famine risks, which are about conflict and money rather than calories, completely unchanged.",
+          "Fertilizer-energy decoupling. Green ammonia at scale, US shale-gas-based capacity expansion, and precision-agriculture nitrogen reduction could sever the gas-fertilizer-food price chain that drives several of my risks. Conversely, a carbon price on ammonia without substitutes available would tighten it further. I have no confident view on which dominates by 2031."
+        ],
+        "sources": [
+          "FAO Cereal Supply and Demand Brief, July 2026 \u2014 world cereal production 2,983 Mt, utilization 2,961 Mt, stocks 957.8 Mt, stocks-to-use 32.0% (via mtsinsights.com summary and ukragroconsult, FAO original returned 403)",
+          "FAO Food Price Index, June 2026 release \u2014 FFPI 130.3, cereal index 110.2 (fao.org/worldfoodsituation/foodpricesindex; via foodsecurityportal.org and FAOnews)",
+          "USDA WASDE, 10 July 2026 \u2014 world wheat ending stocks 272.8 Mt, world maize 275.3 Mt, US all-wheat 1.536 bn bu (dtnpf.com, agweb.com, americanagnetwork.com)",
+          "https://blogs.worldbank.org/en/opendata/fertilizer-prices-surge-as-strait-of-hormuz-disruptions-tighten- \u2014 World Bank, June 2026: urea +46% m/m, 36% of traded urea and 50% of traded sulfur removed, fertilizer index forecast +31% in 2026",
+          "World Bank Commodity Markets Outlook, April 2026 \u2014 fertilizer +31%, food index +2%, grains +4% (via ecofinagency.com, fertilizerdaily.com)",
+          "World Bank Food and Nutrition Security Update No. 122, 29 May 2026 (thedocs.worldbank.org)",
+          "Global Report on Food Crises 2026, released 24 April 2026 \u2014 266 million in IPC/CH Phase 3+ in 2025 across 47 countries, 1.4 million in Phase 5 (fscluster.org, news.un.org/en/story/2026/04/1167374, ec.europa.eu JRC)",
+          "FAO/IFAD/UNICEF/WFP/WHO, The State of Food Security and Nutrition in the World 2026, July 2026 \u2014 645 million hungry (7.8%), 2.1 billion moderately/severely food insecure (fao.org, who.int, wfpusa.org)",
+          "IPC Gaza Strip acute food insecurity analysis, 23 July 2026 \u2014 whole Strip Phase 3, 1.4 million Phase 3+ through Dec 2026, 212,000 in Phase 4 (ipcinfo.org issue-154, unicef.org)",
+          "IPC Sudan acute food insecurity analysis, May 2026 and Special Report Sept 2025-May 2026 \u2014 famine confirmed El Fasher and Kadugli Sept 2025, 200,000 projected in Phase 5 Jun-Sep 2026 (ipcinfo.org, wfp.org, unicef.org)",
+          "https://www.wfp.org/news/wfp-warns-six-critical-operations-are-facing-significant-food-aid-pipeline-breaks-year-end and WFP 2026 Global Outlook \u2014 $13bn requirement vs $6.5bn raised in 2025, $622m six-month shortfall, ~34% budget cut",
+          "https://www.pravda.com.ua/eng/news/2026/07/15/8044220/ \u2014 Ukraine loses about one-third of Black Sea grain export capacity (Reuters)",
+          "https://gcaptain.com/russia-and-ukraine-strikes-hit-key-grain-sea-export-ports/ and Bloomberg, 20 July 2026 \u2014 23 port strikes and 17 vessel attacks in first half of July 2026; wheat to two-year high",
+          "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis and https://commonslibrary.parliament.uk/research-briefings/cbp-10637/ \u2014 crisis began 28 Feb 2026, traffic down >90%, ceasefire of 8 April 2026 collapsed, no negotiations as of 27 July 2026",
+          "FAO SOFIA 2026, June 2026 \u2014 62.4% of stocks biologically sustainable (down from 64.5%), 72.6% of landings sustainable, aquaculture overtakes capture (fao.org, msc.org, globalseafood.org)",
+          "https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html and Reclamation July 2026 24-Month Study \u2014 2007 Guidelines and 2019 DCP expire 31 Dec 2026, Draft EIS 9 Jan 2026, Lake Mead projected 1,037 ft July 2027",
+          "https://www.chathamhouse.org/2026/04/india-and-pakistan-still-cannot-agree-restore-indus-waters-treaty-re-engagement-could-help and India MEA statement 3 July 2026 \u2014 Indus Waters Treaty remains in abeyance; Court of Arbitration award 15 May 2026 rejected by India",
+          "https://www.worldweatherattribution.org/human-induced-climate-change-compounded-by-socio-economic-water-stressors-increased-severity-of-5-year-drought-in-iran-and-euphrates-and-tigris-basin/ \u2014 Iraq driest year since 1933 in 2025, reserves from ~60 BCM to <4 BCM; Tehran reservoirs ~12%",
+          "https://www.atlanticcouncil.org/blogs/menasource/the-nile-at-a-crossroads-navigating-the-gerd-dispute-as-egypts-floodwaters-rise/ and theafricareport.com 'The Nile in 2026' \u2014 GERD inaugurated Sept 2025 with no agreement, Ethiopia plans three further Blue Nile dams",
+          "https://www.nature.com/articles/s41467-025-62719-5 \u2014 North China Plain groundwater recovery of ~0.7 m/yr since 2020, exceeding 2005 levels by 2024",
+          "USDA Rice Outlook April 2026 and S&P Global Commodity Insights \u2014 record 196.2 Mt world milled rice stocks, India stocks 68.4 Mt, India targeting ~30 Mt exports, prices down ~35%",
+          "https://www.foodsecurityportal.org/tools/COVID-19-food-trade-policy-tracker \u2014 IFPRI Food and Fertilizer Export Restrictions Tracker, current status July 2026; next update 15 Aug 2026",
+          "NOAA CPC ENSO Diagnostic Discussion, El Nino Advisory issued 11 June 2026 (accessed via secondary sources; cpc.ncep.noaa.gov returned 403) \u2014 El Nino expected to persist through winter 2026-27, ~63% chance of very strong peak Nov 2026-Jan 2027 (single-source, treat as soft)",
+          "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL118650 \u2014 Sabut et al. 2026, escalating compound drought-heatwaves and simultaneous global breadbasket failure risk",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12890143/ \u2014 potential impact of wheat stem rust on global agricultural supply and food security, 2026-2050 scenarios",
+          "CDC/WOAH avian influenza situation reports to May 2026 \u2014 71 US human H5N1 cases and 2 deaths since 2024, >180 million poultry affected, >1,000 dairy herds; panzootic spread to all continents"
+        ]
+      },
+      "calibration": null
     }
   ],
   "coupling": {},
   "redteam": [],
-  "risk_count": 142
+  "risk_count": 159
 }

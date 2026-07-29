@@ -123,6 +123,21 @@ LOADINGS: dict[str, float] = {
     "afd_federal_poll_share": 0.25,
     "rn_first_round_vote_share": 0.25,
     "reform_uk_poll_share": 0.25,
+
+    # --- food and water: the most direct stress transmission channel there is ---
+    "acute_food_insecure": 0.60,
+    "ipc5_catastrophe": 0.60,
+    "ffpi": 0.55,
+    "urea_price": 0.50,
+    "cbot_wheat": 0.50,
+    "thai_rice_price": 0.50,
+    "undernourishment": 0.50,
+    "cereal_stocks_to_use": -0.50,
+    "wfp_contributions": -0.40,
+    "world_cereal_production": -0.35,
+    "lake_mead_elevation": -0.30,
+    # Fisheries decline on a slow structural clock, only weakly on the crisis cycle.
+    "sustainable_fish_stocks": -0.20,
 }
 
 # Fallback for variables added by domains that ran after this file was written.

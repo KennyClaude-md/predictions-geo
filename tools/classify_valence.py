@@ -46,9 +46,8 @@ STABILISING = {
     # Demography: a fertility floor being escaped, and lifespan recovering
     "demographics_korea_tfr_reaches_1",
     "demographics_us_life_expectancy_80",
-    # Food and water (ids provisional until that domain lands)
-    "foodwater_transboundary_water_treaty",
-    "foodwater_famine_declarations_end",
+    # Food and water: the analysts flagged exactly one risk-off node
+    "foodwater_hormuz_fertilizer_normalisation",
 }
 
 # 0 : genuinely ambiguous. Contributes no signed stress, still simulated and
