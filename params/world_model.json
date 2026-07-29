@@ -9867,7 +9867,1227 @@
       }
     }
   ],
-  "coupling": {},
+  "coupling": {
+    "conditional_edges": [
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "geopolitics_china_taiwan_invasion",
+        "odds_multiplier": 12,
+        "lag_years": 0.5,
+        "mechanism": "A blockade is the escalation rung below invasion: it mobilizes forces, burns the surprise option, and creates a use-it-or-lose-it dynamic if coercion fails to produce political capitulation.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "geopolitics_us_china_lethal_clash",
+        "odds_multiplier": 9,
+        "lag_years": 0.1,
+        "mechanism": "Enforcing a quarantine requires interdicting shipping the US Navy is likely escorting or shadowing; close-quarters intercepts around a contested exclusion zone are the most likely path to a first fatality.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_invasion",
+        "target_id": "geopolitics_us_china_lethal_clash",
+        "odds_multiplier": 22,
+        "lag_years": 0.05,
+        "mechanism": "US forces are forward-deployed in the first island chain; an assault puts American ISR, submarine and air assets in direct contact almost immediately regardless of formal intervention decisions.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_invasion",
+        "target_id": "geopolitics_china_japan_lethal_clash",
+        "odds_multiplier": 10,
+        "lag_years": 0.1,
+        "mechanism": "Yonaguni and the Senkakus sit inside the operational area, and US basing on Okinawa makes Japanese territory a belligerent staging ground with SDF units drawn into escort, minesweeping and air defense.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "economy_equity_bear_30pct",
+        "odds_multiplier": 8,
+        "lag_years": 0.1,
+        "mechanism": "Roughly 90% of leading-edge logic and most advanced packaging transits Taiwan; even a non-kinetic quarantine forces a global repricing of technology earnings and of the equity risk premium.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_invasion",
+        "target_id": "economy_global_recession",
+        "odds_multiplier": 14,
+        "lag_years": 0.3,
+        "mechanism": "Loss of Taiwanese foundry output plus sanctions on the largest manufacturing economy is a simultaneous supply shock to autos, electronics and capital goods, with contagion through trade credit and shipping insurance.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "economy_tariff_reescalation",
+        "odds_multiplier": 9,
+        "lag_years": 0.3,
+        "mechanism": "Coercion against Taiwan triggers immediate US and allied economic retaliation; average effective tariff rates jump as decoupling shifts from managed to punitive.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "energy_ree_supply_cutoff",
+        "odds_multiplier": 11,
+        "lag_years": 0.2,
+        "mechanism": "Rare earths and magnets are Beijing's principal non-military retaliation lever; a Taiwan crisis converts the standing export-control regime into an actual embargo on the US and EU.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+        "target_id": "economy_china_sub4_growth",
+        "odds_multiplier": 6,
+        "lag_years": 0.5,
+        "mechanism": "Sanctions, capital flight, withdrawal of shipping insurance and collapse of export orders hit an economy already carrying a property and LGFV overhang.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_invasion",
+        "target_id": "ai_1e28_flop_run",
+        "odds_multiplier": 0.3,
+        "lag_years": 0.7,
+        "mechanism": "Frontier training scale-up depends on TSMC N3/N2 wafer starts and CoWoS packaging; losing that supply caps accelerator production for years and delays the largest runs.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_china_taiwan_invasion",
+        "target_id": "ai_export_controls_relaxed",
+        "odds_multiplier": 0.08,
+        "lag_years": 0.1,
+        "mechanism": "Open conflict makes licensing flagship datacenter GPUs to China politically impossible; the policy space collapses to full embargo.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_hormuz_major_closure",
+        "target_id": "economy_oil_120",
+        "odds_multiplier": 14,
+        "lag_years": 0.05,
+        "mechanism": "Roughly a fifth of global liquids transits Hormuz and non-Gulf spare capacity cannot replace it; a sustained halving of transit is the canonical $120+ Brent trigger.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_hormuz_major_closure",
+        "target_id": "energy_hormuz_reclosure",
+        "odds_multiplier": 10,
+        "lag_years": 0.5,
+        "mechanism": "Once interdiction capability is demonstrated and the escalation taboo broken, repeat closures become a standing coercive tool rather than a one-off.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_hormuz_major_closure",
+        "target_id": "foodwater_urea_above_800",
+        "odds_multiplier": 6,
+        "lag_years": 0.1,
+        "mechanism": "Qatari, Saudi and Iranian urea and ammonia plus their gas feedstock are chokepoint-dependent; loss of that tonnage alongside higher gas prices pushes urea above $800.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_oil_120",
+        "target_id": "energy_oil_price_spike_120",
+        "odds_multiplier": 15,
+        "lag_years": 0.05,
+        "mechanism": "Near-definitional overlap: a settle above $120 during a sustained episode almost always drags the monthly average above the same threshold.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_oil_120",
+        "target_id": "economy_us_cpi_5pct",
+        "odds_multiplier": 4,
+        "lag_years": 0.3,
+        "mechanism": "Energy passes directly into headline CPI and indirectly into goods and transport services within two to three quarters.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_oil_120",
+        "target_id": "economy_global_recession",
+        "odds_multiplier": 2.6,
+        "lag_years": 0.7,
+        "mechanism": "A doubling of crude acts as a tax on oil-importing consumers while forcing central banks to hold rates high into weakening demand.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "energy_oil_price_spike_120",
+        "target_id": "foodwater_ffpi_above_160",
+        "odds_multiplier": 2.8,
+        "lag_years": 0.5,
+        "mechanism": "Fuel, freight and nitrogen fertilizer are the dominant non-land cost lines in grain production; crude spikes propagate into the FAO index with a two- to three-quarter lag.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_iran_nuclear_weapon",
+        "target_id": "geopolitics_new_nuclear_weapons_state",
+        "odds_multiplier": 20,
+        "lag_years": 0,
+        "mechanism": "Iran crossing the threshold is itself an instance of the target event, and additionally raises Saudi and Turkish hedging.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_iran_regime_change",
+        "target_id": "politics_iran_islamic_republic_ends",
+        "odds_multiplier": 25,
+        "lag_years": 0,
+        "mechanism": "Near-identical event definitions; these should be treated as one underlying state transition observed by two indicators.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_ukraine_durable_ceasefire",
+        "target_id": "geopolitics_nato_article5_invoked",
+        "odds_multiplier": 0.3,
+        "lag_years": 0.2,
+        "mechanism": "A durable ceasefire removes the active front where NATO-Russia incidents originate and signals Russian acceptance of a frozen line.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_ukraine_durable_ceasefire",
+        "target_id": "foodwater_ukraine_export_collapse",
+        "odds_multiplier": 0.28,
+        "lag_years": 0.2,
+        "mechanism": "Odesa corridor throughput depends almost entirely on the absence of strikes on port infrastructure and on war-risk insurance rates.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_ukraine_durable_ceasefire",
+        "target_id": "energy_europe_gas_price_crisis",
+        "odds_multiplier": 0.55,
+        "lag_years": 0.3,
+        "mechanism": "Ceasefire strips the war-risk premium out of European gas and reopens the possibility of partial transit resumption.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_ukraine_durable_ceasefire",
+        "target_id": "geopolitics_us_russia_strategic_arms_deal",
+        "odds_multiplier": 4,
+        "lag_years": 0.8,
+        "mechanism": "Arms control historically requires a baseline of non-belligerency; a ceasefire restores the diplomatic channel needed for a deployed-warhead cap.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_russia_leadership_change",
+        "target_id": "geopolitics_ukraine_durable_ceasefire",
+        "odds_multiplier": 2.6,
+        "lag_years": 0.7,
+        "mechanism": "A successor lacks personal ownership of the war and typically needs to consolidate domestically, making a settlement politically cheaper.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_us_nato_withdrawal",
+        "target_id": "geopolitics_new_nuclear_weapons_state",
+        "odds_multiplier": 6,
+        "lag_years": 1.5,
+        "mechanism": "Loss of the US extended-deterrence guarantee is the strongest documented driver of indigenous proliferation decisions in Poland, South Korea and Japan.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_grid_cyberattack_nato",
+        "target_id": "energy_grid_cyber_major_outage",
+        "odds_multiplier": 16,
+        "lag_years": 0,
+        "mechanism": "Overlapping definitions of the same class of event, differing mainly in attribution requirement and outage threshold.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "geopolitics_grid_cyberattack_nato",
+        "target_id": "geopolitics_nato_article5_invoked",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.1,
+        "mechanism": "Allied doctrine since 2021 explicitly contemplates cyber operations meeting the armed-attack threshold; a state-attributed multi-day blackout is the canonical test case.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_nato_article5_invoked",
+        "target_id": "geopolitics_nuclear_use_in_anger",
+        "odds_multiplier": 9,
+        "lag_years": 0.3,
+        "mechanism": "Direct NATO-Russia conventional war is the highest-probability pathway to first nuclear use, via Russian escalate-to-de-escalate doctrine under conventional disadvantage.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_india_pakistan_major_conflict",
+        "target_id": "geopolitics_nuclear_use_in_anger",
+        "odds_multiplier": 8,
+        "lag_years": 0.2,
+        "mechanism": "Short warning times, Pakistani first-use doctrine under conventional inferiority, and the absence of a reliable crisis-communication channel make this the second most likely nuclear pathway.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "foodwater_indus_physical_curtailment",
+        "target_id": "geopolitics_india_pakistan_major_conflict",
+        "odds_multiplier": 4,
+        "lag_years": 0.5,
+        "mechanism": "Pakistan has repeatedly declared physical interference with western-river flows an act of war; roughly 80% of its irrigated agriculture depends on them.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "geopolitics_india_pakistan_major_conflict",
+        "target_id": "foodwater_indus_physical_curtailment",
+        "odds_multiplier": 5,
+        "lag_years": 0.2,
+        "mechanism": "Water is India's principal sub-kinetic escalation lever and has been threatened in every recent crisis.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_ai_capex_bust",
+        "target_id": "ai_capex_guide_down",
+        "odds_multiplier": 22,
+        "lag_years": 0,
+        "mechanism": "An aggregate 20% decline in hyperscaler capex is essentially impossible without at least one top-4 firm guiding down; the indicators nest.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "ai_capex_guide_down",
+        "target_id": "ai_nvidia_50pct_drawdown",
+        "odds_multiplier": 6,
+        "lag_years": 0.1,
+        "mechanism": "Hyperscaler capex is the dominant revenue line for accelerator demand; a guide-down invalidates the growth narrative supporting the multiple.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "ai_nvidia_50pct_drawdown",
+        "target_id": "economy_equity_bear_30pct",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.2,
+        "mechanism": "Extreme index concentration means the AI complex now dominates S&P drawdown risk; a halving of the largest constituent mechanically drags the index.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_ai_capex_bust",
+        "target_id": "economy_us_recession",
+        "odds_multiplier": 3,
+        "lag_years": 0.4,
+        "mechanism": "Datacenter construction and equipment have become a material share of US private fixed investment growth; its reversal removes the main non-consumption growth impulse.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_ai_capex_bust",
+        "target_id": "ai_top_lab_fails",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.7,
+        "mechanism": "Frontier training is funded by continuous external capital; a funding-window closure forces the marginal lab to exit, merge, or retreat to applications.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_ai_capex_bust",
+        "target_id": "energy_us_firm_load_shed",
+        "odds_multiplier": 0.55,
+        "lag_years": 0.7,
+        "mechanism": "Datacenter interconnection queues are a leading driver of tight-reserve-margin risk in PJM and ERCOT; capex retrenchment relieves near-term load growth.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "ai_1e28_flop_run",
+        "target_id": "ai_metr_month_horizon",
+        "odds_multiplier": 2.6,
+        "lag_years": 0.5,
+        "mechanism": "Task-horizon length has tracked effective compute closely; an order-of-magnitude larger run is the main mechanism by which the horizon extends.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "ai_metr_month_horizon",
+        "target_id": "ai_mega_layoff_attributed",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.7,
+        "mechanism": "Month-long autonomous task reliability is the threshold at which agents substitute for whole job functions rather than tasks, making explicit AI attribution of large cuts defensible to boards.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "ai_mega_layoff_attributed",
+        "target_id": "ai_unemployment_6pct",
+        "odds_multiplier": 2,
+        "lag_years": 0.8,
+        "mechanism": "Attribution cascades are self-reinforcing across peer firms; concentrated white-collar displacement raises aggregate unemployment when the hiring rate is already low.",
+        "confidence": "low"
+      },
+      {
+        "source_id": "ai_metr_month_horizon",
+        "target_id": "ai_major_cyber_incident",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.4,
+        "mechanism": "Long-horizon autonomy is precisely the capability that converts model-assisted intrusion into end-to-end autonomous campaigns at scale.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "ai_major_cyber_incident",
+        "target_id": "ai_federal_preemption_enacted",
+        "odds_multiplier": 0.45,
+        "lag_years": 0.5,
+        "mechanism": "A salient AI-caused catastrophe shifts Congress toward regulation and makes broad preemption of state safety laws politically toxic.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "health_ai_enabled_bio_incident",
+        "target_id": "ai_bio_mass_casualty",
+        "odds_multiplier": 9,
+        "lag_years": 0.7,
+        "mechanism": "An acknowledged uplift incident demonstrates the capability pathway is reachable, indicating the barrier between design assistance and lethal deployment has thinned.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "ai_bio_mass_casualty",
+        "target_id": "health_bioterror_attack_10_deaths",
+        "odds_multiplier": 20,
+        "lag_years": 0,
+        "mechanism": "Definitionally nested: an AI-assisted biological attack with 10+ deaths is a deliberate biological attack with 10+ deaths.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "ai_china_domestic_euv",
+        "target_id": "ai_export_controls_relaxed",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.7,
+        "mechanism": "Domestic EUV destroys the leverage rationale for controls; the policy argument shifts to capturing revenue before the market is lost permanently.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "energy_us_firm_load_shed",
+        "target_id": "ai_state_datacenter_moratorium",
+        "odds_multiplier": 2.8,
+        "lag_years": 0.4,
+        "mechanism": "Visible load shedding converts diffuse ratepayer resentment about datacenter-driven bills into statutory action by state legislatures.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_us_recession",
+        "target_id": "economy_global_recession",
+        "odds_multiplier": 6,
+        "lag_years": 0.2,
+        "mechanism": "US demand plus dollar funding conditions dominate the world growth aggregate; sub-2% world growth rarely occurs without a US contraction.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_global_recession",
+        "target_id": "economy_em_default_wave",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.5,
+        "mechanism": "Commodity revenue collapse plus dollar strength plus closed primary markets is the standard EM sovereign distress transmission chain.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_global_recession",
+        "target_id": "energy_oil_price_collapse_45",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.3,
+        "mechanism": "Demand destruction against sticky OPEC+ and shale supply produces sharp price undershoots.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_equity_bear_30pct",
+        "target_id": "economy_private_credit_gate",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.3,
+        "mechanism": "Valuation marks lag public markets; redemption demand concentrates on semi-liquid vehicles precisely when exits and refinancing close.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_private_credit_gate",
+        "target_id": "economy_large_bank_failure",
+        "odds_multiplier": 3,
+        "lag_years": 0.4,
+        "mechanism": "Bank lending to private credit and NDFI exposures has grown to systemic scale; gating reveals mark inadequacy and triggers funding withdrawal from the most levered intermediaries.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_large_bank_failure",
+        "target_id": "economy_global_recession",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.4,
+        "mechanism": "Credit intermediation shocks transmit to investment and hiring faster than any other financial channel.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_us_cpi_5pct",
+        "target_id": "economy_ust_6pct",
+        "odds_multiplier": 4,
+        "lag_years": 0.3,
+        "mechanism": "A second inflation peak destroys the disinflation term-premium narrative and forces repricing of both the policy path and the inflation risk premium.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_jgb_3pct",
+        "target_id": "economy_ust_6pct",
+        "odds_multiplier": 2.8,
+        "lag_years": 0.4,
+        "mechanism": "Japanese institutions are the largest foreign holders of Treasuries; domestic yields above hedged foreign returns trigger repatriation and steepen the global long end.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_ust_6pct",
+        "target_id": "economy_euro_periphery_stress",
+        "odds_multiplier": 3,
+        "lag_years": 0.2,
+        "mechanism": "Global duration shocks hit the most fiscally exposed sovereigns first; French and Italian debt trajectories have no room for a higher risk-free anchor.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_euro_periphery_stress",
+        "target_id": "economy_large_bank_failure",
+        "odds_multiplier": 2.6,
+        "lag_years": 0.3,
+        "mechanism": "The sovereign-bank doom loop remains intact: domestic banks hold the sovereign paper whose spread widens.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "economy_china_sub4_growth",
+        "target_id": "economy_china_mega_bailout",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.3,
+        "mechanism": "Growth materially below target is the historical trigger for central-government balance-sheet deployment on property and LGFV debt.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "economy_china_sub4_growth",
+        "target_id": "energy_copper_price_shock",
+        "odds_multiplier": 0.5,
+        "lag_years": 0.3,
+        "mechanism": "China is roughly half of refined copper demand; a growth shortfall removes the marginal buyer that a $15,000 print requires.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "energy_china_ree_extraterritorial_controls",
+        "target_id": "energy_ree_supply_cutoff",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.5,
+        "mechanism": "The licensing architecture is the precondition for a targeted cutoff; once in force, denial becomes an administrative decision rather than a new policy.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "energy_ree_supply_cutoff",
+        "target_id": "economy_tariff_reescalation",
+        "odds_multiplier": 3,
+        "lag_years": 0.3,
+        "mechanism": "A magnet embargo halting Western auto and defense production forces immediate tariff retaliation.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_us_insurrection_act_invoked",
+        "target_id": "politics_us_armed_federal_state_confrontation",
+        "odds_multiplier": 7,
+        "lag_years": 0.2,
+        "mechanism": "Invocation over a state's objection places federalized forces and state-controlled National Guard under competing command authorities in the same physical space.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_us_open_defiance_supreme_court",
+        "target_id": "politics_us_armed_federal_state_confrontation",
+        "odds_multiplier": 5,
+        "lag_years": 0.3,
+        "mechanism": "Once judicial arbitration is removed, states have no non-physical remedy against federal action they deem unlawful.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_us_open_defiance_supreme_court",
+        "target_id": "politics_established_democracy_downgraded",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.7,
+        "mechanism": "V-Dem's electoral-autocracy coding weights judicial constraints on the executive heavily; open defiance is close to a scoring trigger on its own.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_trump_third_term_bid",
+        "target_id": "politics_us_open_defiance_supreme_court",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.3,
+        "mechanism": "A third-term bid is unambiguously barred by the 22nd Amendment, so pursuing it presupposes willingness to override adverse judicial rulings.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_rn_holds_french_presidency",
+        "target_id": "economy_euro_periphery_stress",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.3,
+        "mechanism": "Fiscal-expansion commitments plus confrontation with the EU framework from the euro area's second-largest economy widen OAT-Bund directly.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "climate_very_strong_elnino_verifies",
+        "target_id": "climate_new_record_year",
+        "odds_multiplier": 7,
+        "lag_years": 0.5,
+        "mechanism": "ENSO explains most interannual global-mean temperature variance; a very strong event delivers its peak warming to the following calendar year.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "climate_very_strong_elnino_verifies",
+        "target_id": "climate_global_bleaching_60pct",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.5,
+        "mechanism": "Very strong El Nino produces the basin-scale thermal stress patterns that drove the 1998, 2016 and 2023-24 global bleaching events.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "climate_very_strong_elnino_verifies",
+        "target_id": "foodwater_global_cereal_drop_4pct",
+        "odds_multiplier": 2.8,
+        "lag_years": 0.7,
+        "mechanism": "Strong El Nino is the main known driver of spatially correlated breadbasket failure, hitting Australian wheat, Southeast Asian rice and Southern African maize simultaneously.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "climate_year_ge_1p6c",
+        "target_id": "climate_longterm_1p5_declared",
+        "odds_multiplier": 3.5,
+        "lag_years": 1.5,
+        "mechanism": "Repeated single years well above 1.6C are the empirical basis on which assessment bodies declare the multi-decadal mean breached.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "climate_wetbulb_35c_sustained",
+        "target_id": "climate_heat_event_100k_deaths",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.3,
+        "mechanism": "Sustained wet-bulb 35C exceeds unassisted human thermoregulation; in a densely populated, grid-fragile region it produces mass mortality directly.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "climate_srm_unilateral_deployment",
+        "target_id": "climate_srm_governance_regime",
+        "odds_multiplier": 4,
+        "lag_years": 1,
+        "mechanism": "Governance regimes for novel technologies are almost always reactive; unilateral deployment forces the negotiation that voluntary processes have not produced.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "climate_amoc_30pct_weakening",
+        "target_id": "climate_amoc_tipping_declared",
+        "odds_multiplier": 18,
+        "lag_years": 1.5,
+        "mechanism": "Observed 30% weakening is the primary empirical evidence any tipping declaration would rest on.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_global_cereal_drop_4pct",
+        "target_id": "foodwater_stocks_to_use_below_28",
+        "odds_multiplier": 6,
+        "lag_years": 0.3,
+        "mechanism": "Stocks absorb the production shortfall first; a 4% global drop draws the buffer down within one marketing year.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_stocks_to_use_below_28",
+        "target_id": "foodwater_ffpi_above_160",
+        "odds_multiplier": 5,
+        "lag_years": 0.3,
+        "mechanism": "Grain price convexity to low stocks-to-use is the best-established relationship in agricultural economics.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_stocks_to_use_below_28",
+        "target_id": "foodwater_new_staple_export_bans",
+        "odds_multiplier": 3.5,
+        "lag_years": 0.2,
+        "mechanism": "Thin buffers plus rising domestic prices produce the beggar-thy-neighbour export-restriction cascade seen in 2008, 2010 and 2022.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_new_staple_export_bans",
+        "target_id": "foodwater_rice_price_650",
+        "odds_multiplier": 4.5,
+        "lag_years": 0.1,
+        "mechanism": "Rice is the thinnest major staple market; Indian or Vietnamese restrictions move the Thai benchmark within weeks.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_ffpi_above_160",
+        "target_id": "climate_food_price_shock",
+        "odds_multiplier": 22,
+        "lag_years": 0,
+        "mechanism": "Same underlying index and threshold observed by two separate nodes.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_ffpi_above_160",
+        "target_id": "foodwater_grfc_above_300m",
+        "odds_multiplier": 3.2,
+        "lag_years": 0.5,
+        "mechanism": "Import-dependent low-income countries convert world price shocks into acute food insecurity within two quarters, amplified by currency depreciation.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_ffpi_above_160",
+        "target_id": "demographics_africa_youth_uprisings",
+        "odds_multiplier": 2.5,
+        "lag_years": 0.5,
+        "mechanism": "Urban staple price spikes are the most reliable precursor of mass protest in low-income urbanizing states.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "foodwater_grfc_above_300m",
+        "target_id": "foodwater_three_concurrent_famines",
+        "odds_multiplier": 3,
+        "lag_years": 0.4,
+        "mechanism": "The tail of the acute-insecurity distribution scales with its mass; more people in IPC3+ mechanically raises the count of populations tipping into IPC5.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_wfp_below_5bn",
+        "target_id": "foodwater_three_concurrent_famines",
+        "odds_multiplier": 2.6,
+        "lag_years": 0.5,
+        "mechanism": "Famine declarations in recent decades have been prevented mainly by external ration delivery; funding collapse removes the suppressing intervention.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "foodwater_wheat_rust_south_asia",
+        "target_id": "foodwater_global_cereal_drop_4pct",
+        "odds_multiplier": 3,
+        "lag_years": 0.5,
+        "mechanism": "The Indo-Gangetic plain produces roughly a seventh of global wheat; a virulent rust or blast epidemic there is one of few single-region events large enough to move the world aggregate.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "health_h5_sustained_human_transmission",
+        "target_id": "health_influenza_pandemic_declared",
+        "odds_multiplier": 22,
+        "lag_years": 0.2,
+        "mechanism": "Sustained human-to-human transmission of a novel subtype is the operative criterion for WHO pandemic declaration.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "health_influenza_pandemic_declared",
+        "target_id": "health_pandemic_1m_deaths",
+        "odds_multiplier": 12,
+        "lag_years": 0.5,
+        "mechanism": "Every declared influenza pandemic of the modern era except 2009 exceeded a million deaths; H5 case fatality would make the threshold near-certain.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "health_pandemic_1m_deaths",
+        "target_id": "economy_global_recession",
+        "odds_multiplier": 5,
+        "lag_years": 0.3,
+        "mechanism": "Behavioural withdrawal and policy restrictions produce simultaneous supply and demand contraction across all major economies.",
+        "confidence": "high"
+      },
+      {
+        "source_id": "foodwater_livestock_epizootic_g20",
+        "target_id": "health_h5_sustained_human_transmission",
+        "odds_multiplier": 2.2,
+        "lag_years": 0.5,
+        "mechanism": "Large poultry and swine epizootics expand the mammalian and human exposure surface where reassortment and adaptive mutation occur.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "health_us_routine_vaccine_derecommended",
+        "target_id": "health_us_measles_5000_cases",
+        "odds_multiplier": 3.5,
+        "lag_years": 1,
+        "mechanism": "Federal de-recommendation removes insurance coverage mandates and school-entry justification, dropping MMR coverage below the herd-immunity threshold in additional counties.",
+        "confidence": "medium"
+      },
+      {
+        "source_id": "politics_large_country_civil_war_onset",
+        "target_id": "demographics_displacement_above_130m",
+        "odds_multiplier": 3,
+        "lag_years": 0.7,
+        "mechanism": "Civil war in a 50-million-plus country is the dominant single source of new large-scale forced displacement.",
+        "confidence": "high"
+      }
+    ],
+    "latent_factors": [
+      {
+        "name": "Great-power hostility and bloc hardening",
+        "description": "Unobserved intensity of confrontation between the US-led bloc and the China/Russia/Iran/DPRK alignment. Drives simultaneous escalation across theatres, weaponization of trade and technology chokepoints, arms-control failure, and proliferation hedging, even where no direct causal link exists between specific incidents.",
+        "loadings": [
+          {
+            "risk_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+            "loading": 0.75
+          },
+          {
+            "risk_id": "geopolitics_china_taiwan_invasion",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "geopolitics_us_china_lethal_clash",
+            "loading": 0.75
+          },
+          {
+            "risk_id": "geopolitics_china_japan_lethal_clash",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "geopolitics_nato_article5_invoked",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "geopolitics_dprk_nuclear_test",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "geopolitics_new_nuclear_weapons_state",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "geopolitics_grid_cyberattack_nato",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "geopolitics_hormuz_major_closure",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "energy_china_ree_extraterritorial_controls",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "energy_ree_supply_cutoff",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "economy_tariff_reescalation",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "economy_usd_reserve_below_50",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "geopolitics_us_russia_strategic_arms_deal",
+            "loading": -0.6
+          },
+          {
+            "risk_id": "ai_us_china_binding_agreement",
+            "loading": -0.65
+          },
+          {
+            "risk_id": "ai_export_controls_relaxed",
+            "loading": -0.5
+          },
+          {
+            "risk_id": "geopolitics_ukraine_durable_ceasefire",
+            "loading": -0.45
+          },
+          {
+            "risk_id": "geopolitics_unsc_permanent_expansion",
+            "loading": -0.35
+          }
+        ]
+      },
+      {
+        "name": "Global fiscal and financial fragility",
+        "description": "Latent thinness of balance-sheet buffers: sovereign debt trajectories, term premia, leverage in non-bank intermediation, and stretched risk-asset valuations. Raises the probability that any given shock propagates into funding stress rather than being absorbed.",
+        "loadings": [
+          {
+            "risk_id": "economy_ust_6pct",
+            "loading": 0.75
+          },
+          {
+            "risk_id": "economy_jgb_3pct",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "economy_euro_periphery_stress",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "economy_private_credit_gate",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "economy_large_bank_failure",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "economy_equity_bear_30pct",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "economy_em_default_wave",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "economy_global_recession",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "economy_us_recession",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "economy_stablecoin_run",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "economy_usd_reserve_below_50",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "economy_china_mega_bailout",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "economy_china_sub4_growth",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "foodwater_wfp_below_5bn",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "ai_nvidia_50pct_drawdown",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "economy_ai_capex_bust",
+            "loading": 0.45
+          }
+        ]
+      },
+      {
+        "name": "Climate forcing and hydrological stress intensity",
+        "description": "Realized strength of the physical climate signal over the window: ocean heat content, ENSO amplitude, land-carbon feedback and continental drought severity. Correlates temperature records, ecosystem thresholds, extreme heat mortality and agricultural shortfalls without any of them causing the others.",
+        "loadings": [
+          {
+            "risk_id": "climate_new_record_year",
+            "loading": 0.8
+          },
+          {
+            "risk_id": "climate_year_ge_1p6c",
+            "loading": 0.8
+          },
+          {
+            "risk_id": "climate_longterm_1p5_declared",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "climate_global_bleaching_60pct",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "climate_wetbulb_35c_sustained",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "climate_heat_event_100k_deaths",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "climate_amazon_net_carbon_source",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "climate_arctic_practically_ice_free",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "climate_colorado_storage_below_20pct",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "foodwater_colorado_no_deal",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "foodwater_global_cereal_drop_4pct",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "foodwater_new_famine_ipc5",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "climate_amoc_30pct_weakening",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "climate_srm_unilateral_deployment",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "energy_us_firm_load_shed",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "climate_fossil_co2_confirmed_peak",
+            "loading": -0.3
+          },
+          {
+            "risk_id": "climate_methane_growth_halts",
+            "loading": -0.3
+          }
+        ]
+      },
+      {
+        "name": "Institutional legitimacy erosion and state capacity decay",
+        "description": "Unobserved decline in the ability of governments and international bodies to command compliance, deliver public goods and constrain executives. Correlates democratic backsliding, coups, political violence, public-health governance failure and multilateral paralysis across otherwise unrelated countries and domains.",
+        "loadings": [
+          {
+            "risk_id": "politics_established_democracy_downgraded",
+            "loading": 0.75
+          },
+          {
+            "risk_id": "politics_coup_cluster_year",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "politics_us_open_defiance_supreme_court",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "politics_us_insurrection_act_invoked",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "politics_us_armed_federal_state_confrontation",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "politics_us_mass_casualty_political_attack",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "politics_large_country_civil_war_onset",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "demographics_africa_youth_uprisings",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "geopolitics_sahel_capital_falls",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "politics_afd_enters_government",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "politics_rn_holds_french_presidency",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "politics_reform_uk_leads_government",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "politics_eu_exit_process_initiated",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "health_us_routine_vaccine_derecommended",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "health_us_measles_elimination_revoked",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "demographics_g7_immigration_collapse",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "foodwater_wfp_below_5bn",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "demographics_pisa_no_recovery",
+            "loading": 0.3
+          },
+          {
+            "risk_id": "health_pandemic_agreement_in_force",
+            "loading": -0.4
+          },
+          {
+            "risk_id": "health_us_rejoins_who",
+            "loading": -0.5
+          },
+          {
+            "risk_id": "geopolitics_unsc_permanent_expansion",
+            "loading": -0.3
+          },
+          {
+            "risk_id": "climate_srm_governance_regime",
+            "loading": -0.3
+          }
+        ]
+      },
+      {
+        "name": "AI capability and compute-investment intensity",
+        "description": "Latent rate of frontier capability progress and the capital cycle financing it. High values pull capability, energy-demand, labour-displacement and misuse nodes together; the factor's collapse phase pulls the capex, valuation and lab-failure nodes together instead, hence their negative loadings.",
+        "loadings": [
+          {
+            "risk_id": "ai_metr_month_horizon",
+            "loading": 0.8
+          },
+          {
+            "risk_id": "ai_1e28_flop_run",
+            "loading": 0.75
+          },
+          {
+            "risk_id": "ai_ai_theorem_top_journal",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "ai_robotaxi_5m_weekly",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "ai_mega_layoff_attributed",
+            "loading": 0.6
+          },
+          {
+            "risk_id": "ai_unemployment_6pct",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "ai_major_cyber_incident",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "health_ai_enabled_bio_incident",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "ai_bio_mass_casualty",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "energy_us_firm_load_shed",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "ai_state_datacenter_moratorium",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "energy_copper_price_shock",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "economy_ai_capex_bust",
+            "loading": -0.55
+          },
+          {
+            "risk_id": "ai_capex_guide_down",
+            "loading": -0.6
+          },
+          {
+            "risk_id": "ai_nvidia_50pct_drawdown",
+            "loading": -0.5
+          },
+          {
+            "risk_id": "ai_top_lab_fails",
+            "loading": -0.4
+          }
+        ]
+      },
+      {
+        "name": "Biological and health-system fragility",
+        "description": "Unobserved combination of pathogen emergence pressure, surveillance quality, vaccine confidence and outbreak-response funding. Correlates zoonotic emergence, epidemic escalation, vaccine-preventable disease resurgence and AMR independently of any single outbreak's causal chain.",
+        "loadings": [
+          {
+            "risk_id": "health_h5_sustained_human_transmission",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "health_influenza_pandemic_declared",
+            "loading": 0.7
+          },
+          {
+            "risk_id": "health_pandemic_1m_deaths",
+            "loading": 0.65
+          },
+          {
+            "risk_id": "health_new_pheic_declared",
+            "loading": 0.5
+          },
+          {
+            "risk_id": "health_ebola_10k_cases",
+            "loading": 0.55
+          },
+          {
+            "risk_id": "health_ebola_secondary_transmission_outside_africa",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "health_amr_global_emergency",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "health_hiv_resurgence_two_years",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "health_us_measles_5000_cases",
+            "loading": 0.45
+          },
+          {
+            "risk_id": "foodwater_livestock_epizootic_g20",
+            "loading": 0.4
+          },
+          {
+            "risk_id": "health_lab_origin_outbreak_confirmed",
+            "loading": 0.35
+          },
+          {
+            "risk_id": "health_polio_wpv1_interrupted",
+            "loading": -0.45
+          }
+        ]
+      }
+    ],
+    "blocking_pairs": [
+      {
+        "a_id": "energy_oil_price_spike_120",
+        "b_id": "energy_oil_price_collapse_45",
+        "reason": "Brent monthly averages above $120 and below $45 sit at opposite ends of the same price distribution; both occurring in one window requires an extreme boom-bust sequence, so they should be strongly negatively coupled within any period."
+      },
+      {
+        "a_id": "economy_oil_120",
+        "b_id": "energy_oil_price_collapse_45",
+        "reason": "Same underlying oil price state observed at opposite thresholds; a sustained supply-shock regime and a demand-collapse regime substitute for each other."
+      },
+      {
+        "a_id": "geopolitics_ukraine_durable_ceasefire",
+        "b_id": "geopolitics_nato_article5_invoked",
+        "reason": "A durable 180-day Russia-Ukraine ceasefire and an Article 5 invocation against a Russian attack describe incompatible states of the Russia-West relationship in the same period."
+      },
+      {
+        "a_id": "geopolitics_china_taiwan_invasion",
+        "b_id": "ai_us_china_binding_agreement",
+        "reason": "A binding US-China frontier-compute agreement requires a functioning bilateral negotiating relationship that an invasion of Taiwan eliminates entirely."
+      },
+      {
+        "a_id": "geopolitics_us_china_lethal_clash",
+        "b_id": "ai_export_controls_relaxed",
+        "reason": "Licensing flagship datacenter GPUs for general commercial sale to China is politically unavailable once US and PRC forces have exchanged lethal fire; the two policies belong to opposite strategic postures."
+      },
+      {
+        "a_id": "politics_iran_islamic_republic_ends",
+        "b_id": "geopolitics_iran_nuclear_weapon",
+        "reason": "Regime collapse removes the institutional actor pursuing weaponization; a successful test and the end of the governing system are strongly substitutive paths for the Iranian nuclear file."
+      },
+      {
+        "a_id": "economy_hormuz_closure",
+        "b_id": "foodwater_hormuz_fertilizer_normalisation",
+        "reason": "Sustained effective closure of the strait and normalisation of Gulf fertilizer flows through that same strait are directly contradictory states."
+      },
+      {
+        "a_id": "economy_global_recession",
+        "b_id": "energy_global_oil_demand_peak",
+        "reason": "The oil-demand-peak node is explicitly defined as a year-on-year decline occurring outside recession or supply shock, so a global recession year disqualifies the observation by construction."
+      },
+      {
+        "a_id": "health_us_rejoins_who",
+        "b_id": "health_us_routine_vaccine_derecommended",
+        "reason": "Rejoining WHO and federally de-recommending a core childhood vaccine represent opposite directions of the same US public-health governance posture and are unlikely to coexist."
+      },
+      {
+        "a_id": "geopolitics_us_nato_withdrawal",
+        "b_id": "geopolitics_nato_article5_invoked",
+        "reason": "US withdrawal and a functioning collective-defence invocation reflect incompatible states of alliance credibility; the withdrawal path substitutes for the collective-response path."
+      },
+      {
+        "a_id": "climate_fossil_co2_confirmed_peak",
+        "b_id": "climate_srm_unilateral_deployment",
+        "reason": "Substitutive policy worlds: confirmed emissions peaking reduces the desperation premium behind unilateral solar radiation management, while unilateral deployment typically presupposes mitigation failure."
+      },
+      {
+        "a_id": "demographics_g7_immigration_collapse",
+        "b_id": "demographics_us_life_expectancy_80",
+        "reason": "Weak substitution rather than strict exclusion: the political configuration that cuts a G7 country's permanent immigration by three quarters correlates with the public-health disinvestment that keeps US life expectancy short of 80 years."
+      }
+    ],
+    "notes": "Roughly 120 candidate edges were drafted and trimmed to 89 with defensible transmission channels. Things the sampler author needs to know:\n\n(1) DEFINITIONAL NEAR-DUPLICATES. Several catalog pairs measure the same underlying state: economy_oil_120 / energy_oil_price_spike_120; climate_food_price_shock / foodwater_ffpi_above_160 (both FAO index >160); geopolitics_grid_cyberattack_nato / energy_grid_cyber_major_outage; geopolitics_iran_regime_change / politics_iran_islamic_republic_ends; geopolitics_hormuz_major_closure / economy_hormuz_closure / energy_hormuz_reclosure; ai_bio_mass_casualty / health_bioterror_attack_10_deaths; demographics_china_census_downward_revision / demographics_china_population_below_1_4bn; health_us_measles_5000_cases / health_us_measles_elimination_revoked. I encoded these as very high multipliers (15-25) at ~zero lag rather than merging nodes. Note their marginals are mutually inconsistent (Hormuz at 70/34/22%, measles at 42/88%), which signals the definitions differ more than the labels suggest \u2014 either reconcile them or force near-deterministic linkage, otherwise the sim will produce incoherent joint counts.\n\n(2) WHERE THE MASS CONCENTRATES. Four hubs carry most of the correlated tail: (a) Taiwan blockade at 14% is the pivot node \u2014 it propagates into equities, global recession, tariffs, rare earths, Chinese growth and Japan while simultaneously suppressing AI scaling and export-control relaxation; (b) Hormuz at a 70% marginal is the single highest-leverage aggravating source in the whole model, feeding oil, CPI, rates, fertilizer and food; (c) the AI capex chain (capex bust -> guide-down -> Nvidia -> S&P -> private credit -> banks -> global recession) is fully connected and will generate most correlated financial-crisis mass; (d) the food chain (El Nino -> cereal drop -> stocks-to-use -> FAO index -> export bans -> rice, then out into African unrest). Expect a fat compound-shock mode around 2027-28 combining El Nino-driven multi-breadbasket failure, a Hormuz episode, and food-price-driven political instability.\n\n(3) PROTECTIVE EDGES ARE SPARSE BUT LOAD-BEARING. geopolitics_ukraine_durable_ceasefire (78% marginal) is the main risk-off hub; without its four protective edges the model badly overstates European tail risk. economy_ai_capex_bust -> energy_us_firm_load_shed (0.55) and economy_china_sub4_growth -> energy_copper_price_shock (0.5) are the main channels by which one bad outcome reduces another.\n\n(4) LAG CONVENTIONS. Lags are years from source firing to the target's hazard multiplier taking effect. Financial contagion 0.1-0.4y; macro transmission 0.3-0.7y; political/electoral 0.5-1.5y; structural/climatic 0.7-1.5y. Zero-lag edges encode definitional nesting, not causation.\n\n(5) AVOID DOUBLE-COUNTING LATENTS AND EDGES. Several pairs are connected both by an explicit edge and by a shared latent (the Taiwan nodes, the financial cluster, the food-climate cluster). Applying both at full strength will materially overstate tail joint probabilities. Recommend either shrinking loadings ~30% where an explicit edge already exists, or applying latents only to baseline hazard before edge multipliers.\n\n(6) NEGATIVE LOADINGS ENCODE THE GOOD-WORLD DIRECTION. Arms-control deals, a US-China AI agreement, WHO re-entry, pandemic agreement entry into force, methane growth halting, polio interruption and confirmed CO2 peaking all load negatively and should co-occur in benign draws. Without them the simulation is uniformly doom-weighted, which is itself a modelling error.\n\n(7) DELIBERATE OMISSIONS. Demographic nodes (China/Japan births, India census, China population) are near-deterministic at these marginals and essentially exogenous to everything else here \u2014 treat them as slow-moving context, not cascade participants. Same for energy_solar_terawatt_year and energy_hydrogen_scale_milestone. I also declined to wire climate_heat_event_100k_deaths -> climate_srm_unilateral_deployment and several NATO-withdrawal -> EU-politics edges: plausible stories, but the evidence base does not support a specific multiplier."
+  },
   "redteam": [],
   "risk_count": 159
 }
