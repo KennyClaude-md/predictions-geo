@@ -51,7 +51,12 @@ def sig(x: float, n: int = 3) -> float:
 
 def build(fc: dict, seed: int) -> dict:
     agg = fc["aggregate"]
-    cal_pp = max(v["final_error_pp"] for v in fc["calibration"].values())
+    errs = [
+        v["final_error_pp"]
+        for v in fc["calibration"].values()
+        if v.get("final_error_pp") is not None
+    ]
+    cal_pp = max(errs) if errs else 0.0
 
     tiles = [
         {

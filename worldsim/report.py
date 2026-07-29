@@ -99,11 +99,15 @@ class ReportBuilder:
             "noise has been subtracted out, so what remains is real disagreement."
         )
         self.w()
-        cal = self.ctx["calibration"]
+        errs = [
+            v["final_error_pp"]
+            for v in self.ctx["calibration"].values()
+            if v.get("final_error_pp") is not None
+        ]
         self.w(
             f"**Calibration check:** simulated marginals reproduce the elicited "
             f"cumulative probabilities to within "
-            f"{max(v['final_error_pp'] for v in cal.values()):.2f} percentage points "
+            f"{max(errs) if errs else float('nan'):.2f} percentage points "
             f"(worst node, worst worldview). This matters: the dependency network is "
             f"tuned to reshape the *joint* distribution — which events co-occur — "
             f"without inflating any individual probability above what the underlying "
