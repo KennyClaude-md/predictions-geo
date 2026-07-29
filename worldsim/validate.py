@@ -22,6 +22,7 @@ def check(model: WorldModel) -> dict:
     _check_edges(model, issues)
     _check_latents(model, issues)
     _check_severity(model, issues)
+    _check_duplicates(model, issues)
 
     by_sev = {}
     for level in ("error", "warning", "note"):
@@ -191,6 +192,23 @@ def _check_severity(model: WorldModel, issues: list) -> None:
                             f"comparisons are not on a common scale",
                         }
                     )
+
+
+def _check_duplicates(model: WorldModel, issues: list) -> None:
+    """Screen for one event enumerated twice; the decision stays curated."""
+    from .dedupe import find_duplicate_clusters
+
+    for cluster in find_duplicate_clusters(model):
+        issues.append(
+            {
+                "level": "note",
+                "kind": "possible_duplicate",
+                "risk": " ~ ".join(cluster),
+                "detail": "these read as the same event or as nested thresholds on "
+                "one axis; confirm they are handled in params/duplicate_families.json "
+                "or they will be counted separately in aggregates",
+            }
+        )
 
 
 def format_report(result: dict, limit: int = 40) -> str:

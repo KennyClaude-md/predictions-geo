@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Strait of Hormuz disruption",
+    "kind": "nested",
+    "members": [
+      "geopolitics_hormuz_major_closure",
+      "economy_hormuz_closure",
+      "energy_hormuz_reclosure"
+    ],
+    "note": "Different severity bars on one strait: >=30 days below 50% of baseline, sustained effective closure, and a 14-day re-closure.",
+    "representative": "geopolitics_hormuz_major_closure",
+    "suppressed": [
+      "economy_hormuz_closure",
+      "energy_hormuz_reclosure"
+    ]
+  },
+  {
+    "name": "Brent above $120",
+    "kind": "duplicate",
+    "members": [
+      "economy_oil_120",
+      "energy_oil_price_spike_120"
+    ],
+    "note": "Settlement price versus monthly average \u2014 the same oil shock.",
+    "representative": "energy_oil_price_spike_120",
+    "suppressed": [
+      "economy_oil_120"
+    ]
+  },
+  {
+    "name": "FAO Food Price Index above 160",
+    "kind": "duplicate",
+    "members": [
+      "climate_food_price_shock",
+      "foodwater_ffpi_above_160"
+    ],
+    "note": "Identical threshold on the identical index.",
+    "representative": "foodwater_ffpi_above_160",
+    "suppressed": [
+      "climate_food_price_shock"
+    ]
+  },
+  {
+    "name": "Putin leaves power",
+    "kind": "duplicate",
+    "members": [
+      "geopolitics_putin_exit",
+      "politics_russia_leadership_change"
+    ],
+    "note": "Same event, enumerated by the geopolitics and politics analysts.",
+    "representative": "politics_russia_leadership_change",
+    "suppressed": [
+      "geopolitics_putin_exit"
+    ]
+  },
+  {
+    "name": "The Islamic Republic falls",
+    "kind": "duplicate",
+    "members": [
+      "geopolitics_iran_regime_change",
+      "politics_iran_islamic_republic_ends"
+    ],
+    "note": "Same event under two ids.",
+    "representative": "politics_iran_islamic_republic_ends",
+    "suppressed": [
+      "geopolitics_iran_regime_change"
+    ]
+  },
+  {
+    "name": "State cyberattack takes down a grid",
+    "kind": "duplicate",
+    "members": [
+      "energy_grid_cyber_major_outage",
+      "geopolitics_grid_cyberattack_nato"
+    ],
+    "note": "Major OECD outage versus >=24h loss to >=1m people in NATO \u2014 the same class of incident at near-identical scale.",
+    "representative": "geopolitics_grid_cyberattack_nato",
+    "suppressed": [
+      "energy_grid_cyber_major_outage"
+    ]
+  },
+  {
+    "name": "Mass-casualty biological attack",
+    "kind": "nested",
+    "members": [
+      "health_bioterror_attack_10_deaths",
+      "ai_bio_mass_casualty",
+      "health_ai_enabled_bio_incident"
+    ],
+    "note": "Any deliberate attack killing >=10, the AI-assisted subset of that, and any acknowledged AI-enabled bio incident.",
+    "representative": "ai_bio_mass_casualty",
+    "suppressed": [
+      "health_bioterror_attack_10_deaths",
+      "health_ai_enabled_bio_incident"
+    ]
+  }
+]

@@ -188,3 +188,29 @@ def test_auditor_added_risks_reach_every_worldview():
         r = views[0][0].risks["a_missed"]
         assert r.p2027 < r.p2031 < r.p2036
         assert r.p2031 == pytest.approx(25.0, abs=0.01)
+
+
+def test_duplicate_screen_separates_same_event_from_opposite_events():
+    """Two bars on one axis pointing opposite ways are not the same event."""
+    from worldsim.dedupe import find_duplicate_clusters, representatives
+
+    model = WorldModel(
+        "m",
+        {
+            "a_oil_high": Risk("a_oil_high", "Brent above $120", "economy",
+                               "Brent crude settles above 120 USD per barrel", 5, 20, 35, 6.0),
+            "b_oil_high": Risk("b_oil_high", "Brent above $120", "energy",
+                               "Brent crude monthly average above 120 USD per barrel", 6, 22, 37, 5.0),
+            "c_oil_low": Risk("c_oil_low", "Brent below $45", "energy",
+                              "Brent crude monthly average below 45 USD per barrel", 5, 18, 30, 4.0),
+        },
+        {}, [], [], [],
+    )
+    clusters = find_duplicate_clusters(model)
+    flat = {tuple(sorted(c)) for c in clusters}
+    assert ("a_oil_high", "b_oil_high") in flat, "the same event under two ids must group"
+    assert not any("c_oil_low" in c for c in clusters), "opposite thresholds must not group"
+
+    # The representative is the higher-impact member; the other is suppressed.
+    drop = representatives(model, clusters)
+    assert drop == {"b_oil_high"}

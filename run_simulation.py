@@ -17,7 +17,7 @@ from pathlib import Path
 
 import numpy as np
 
-from worldsim import analysis, continuous, labelling, report, validate
+from worldsim import analysis, continuous, dedupe, labelling, report, validate
 from worldsim.engine import CompiledModel, SimConfig, calibrate_marginals, simulate
 from worldsim.params import build_worldviews, load_base_model
 from worldsim.timeline import ANCHOR_QUARTERS
@@ -98,7 +98,21 @@ def main() -> None:
             lookup.setdefault(rid, r)
     severity = np.array([lookup[r].severity for r in risk_ids], dtype=np.float32)
     valence = np.array([lookup[r].valence for r in risk_ids], dtype=np.float32)
-    signed = severity * valence
+
+    # Nine analysts wrote their registers independently, so one shock can appear
+    # under several ids. Suppressed members keep their own marginals in the
+    # per-node tables — the distinct thresholds are worth reporting — but they
+    # are excluded from aggregates so a single crisis is not tallied three times.
+    fam_path = PARAMS / "duplicate_families.json"
+    families = json.loads(fam_path.read_text()) if fam_path.exists() else []
+    suppressed = {m for f in families for m in f.get("suppressed", [])}
+    counted = np.array([r not in suppressed for r in risk_ids])
+    if suppressed:
+        print(
+            f"duplicate families: {len(families)}, "
+            f"{int((~counted).sum())} nodes excluded from aggregates"
+        )
+    signed = severity * valence * counted
     names = [lookup[r].name for r in risk_ids]
     domains = [lookup[r].domain for r in risk_ids]
 
@@ -107,7 +121,7 @@ def main() -> None:
 
     ctx = _assemble(
         raw, cfg, meta, results, weights, pooled, marg, gssi, severity, valence,
-        names, domains, risk_ids, lookup, calib_report, base, rng,
+        counted, names, domains, risk_ids, lookup, calib_report, base, rng, families,
     )
     report.write_outputs(ctx, OUTPUT)
     print(f"\nwrote {OUTPUT/'forecast_report.md'} and {OUTPUT/'forecast.json'}")
@@ -135,7 +149,7 @@ def _align(results: list[dict]) -> list[dict]:
 
 def _assemble(
     raw, cfg, meta, results, weights, pooled, marg, gssi, severity, valence,
-    names, domains, risk_ids, lookup, calib_report, base, rng,
+    counted, names, domains, risk_ids, lookup, calib_report, base, rng, families,
 ) -> dict:
     R = len(risk_ids)
     p27, p31, p36 = marg[Q27]["mean"], marg[Q31]["mean"], marg[Q36]["mean"]
@@ -165,24 +179,27 @@ def _assemble(
     impact = p36 * severity
     # Ranking "most impactful" by unsigned severity would put an outbreak of
     # peace at the top of a risk table.
-    destab_impact = np.where(valence > 0, impact, -np.inf)
+    destab_impact = np.where((valence > 0) & counted, impact, -np.inf)
     headline = [all_rows[i] for i in np.argsort(destab_impact)[::-1][:22]]
 
     by_domain: dict[str, list[dict]] = {}
     for r in sorted(all_rows, key=lambda r: -r["p2036"] * r["severity"]):
         by_domain.setdefault(r["domain"], []).append(r)
 
-    agg = analysis.aggregate_stats(ft, severity * (valence > 0), gssi, Q36)
+    agg = analysis.aggregate_stats(ft, severity * (valence > 0) * counted, gssi, Q36)
 
     # --- archetypes -------------------------------------------------------
-    feature_idx = list(np.argsort(impact)[::-1][:26])
+    feature_idx = list(np.argsort(np.where(counted, impact, -np.inf))[::-1][:26])
     arch = analysis.archetypes(ft, gssi, feature_idx, k=5, seed=cfg.seed)
     labelled = labelling.label_clusters(
         arch["clusters"], feature_idx, names, domains, arch["overall_rates"], valence
     )
 
     # --- cascades ---------------------------------------------------------
-    severe_idx = [i for i in range(R) if severity[i] >= 6 and valence[i] > 0][:40]
+    severe_idx = [
+        i for i in range(R)
+        if severity[i] >= 6 and valence[i] > 0 and counted[i]
+    ][:40]
     chains_raw = analysis.first_chains(ft, severe_idx, depth=3, top=12)
     n_paths = ft.shape[0]
     chains = [
@@ -271,6 +288,7 @@ def _assemble(
         "stress_trajectory": analysis.stress_trajectory(gssi),
         "limits": limits,
         "calendar": calendar,
+        "duplicate_families": families,
     }
 
 

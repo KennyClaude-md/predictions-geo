@@ -801,7 +801,307 @@
           "Metaculus nuclear-risk question set (Retaliation/Next Offensive Nuclear Detonation; nuclear detonation in war by 2050) \u2014 https://www.metaculus.com/questions/4779/at-least-1-nuclear-detonation-in-war-by-2050/"
         ]
       },
-      "calibration": null
+      "calibration": {
+        "domain": "Great-power conflict, war, and geopolitical order",
+        "verdict": "major_issues",
+        "adjustments": [
+          {
+            "risk_id": "geopolitics_hormuz_major_closure",
+            "field": "p_by_2027_pct",
+            "original_pct": 58,
+            "revised_pct": 75,
+            "justification": "UNDER-forecast, and internally contradicted. The model's own continuous variable puts current Hormuz crude flow at 8 mb/d against a ~20 mb/d baseline - i.e. 40% of baseline, already BELOW the 50% threshold the discrete risk asks about. I verified corroborating reporting: CNBC (13 Jul 2026) treats ~8m bbl transiting under military escort as news, and Kpler shows transits pinned at ~3 vessels/day 22-24 July with Brent back near $100. So the analyst is pricing 58% on an event substantially occurring at the moment of forecast. The only thing between this and near-certainty is the 'episode beginning on or after 1 Aug 2026' clause - a scope trap he never addresses. Even on a strict re-start reading, with an unresolved war, an active US blockade since 14 July, mining/insurance withdrawal and the failed 60-day MoU deadline landing in August, 17 months without any 30-day sub-50% window is the unlikely branch. His contrarian case ('I am 25 points too high') points the wrong way."
+          },
+          {
+            "risk_id": "geopolitics_hormuz_major_closure",
+            "field": "p_by_2031_pct",
+            "original_pct": 70,
+            "revised_pct": 84,
+            "justification": "Follows from the 2027 revision and fixes a hazard-shape defect: 58-70-76 implies ~25%/yr to 2027, then ~4%/yr in 2027-31 and ~1.5%/yr in 2031-36. That decay is far steeper than any plausible normalisation path for a Gulf with a decapitated Iranian leadership, no IAEA access and an established US blockade precedent. The coherent shape is a high near-term hazard decaying to a structurally elevated 4-5%/yr floor."
+          },
+          {
+            "risk_id": "geopolitics_hormuz_major_closure",
+            "field": "p_by_2036_pct",
+            "original_pct": 76,
+            "revised_pct": 88,
+            "justification": "Same correction. A 2031-36 hazard of ~1.5%/yr sits below the analyst's own stated unconditional base rate (1-2%/yr) for a decade in which he explicitly assumes the Iran file remains unresolved."
+          },
+          {
+            "risk_id": "geopolitics_ukraine_durable_ceasefire",
+            "field": "p_by_2027_pct",
+            "original_pct": 42,
+            "revised_pct": 32,
+            "justification": "SCOPE INSENSITIVITY. The bar is severe - 180 consecutive days, entire land front, no sustained offensives AND no systematic long-range strikes on cities. The reasoning argues the vibe ('the file is closing'), not the wording. His own evidence cuts against the criterion: Ukrainian officials publicly favour a PARTIAL ceasefire, which does not resolve YES, and the most likely 2026-27 outcome - a line freeze with continued deep-strike exchange - also does not resolve YES. A ceasefire must additionally START by roughly early July 2027 to bank 180 days. Historically, wars of this length rarely produce a clean 180-day stop at the first attempt. His contrarian ('I could easily be 15 points too high') is right and should have moved the number."
+          },
+          {
+            "risk_id": "geopolitics_ukraine_durable_ceasefire",
+            "field": "p_by_2031_pct",
+            "original_pct": 78,
+            "revised_pct": 70,
+            "justification": "78% is inconsistent with the model's own continuous variables. geo_ukraine_monthly_territory_change gives p50_2031 = +8 km2/month and p90 = 175 - a median world with active Russian advance - and geo_battle_deaths_annual carries a drift of only -5k/yr while Ukraine is named the dominant fatality contributor. The notes gesture at regime-switching, but the stated quantiles are what a downstream model would use. 70% reconciles them at least cost."
+          },
+          {
+            "risk_id": "geopolitics_dprk_nuclear_test",
+            "field": "p_by_2027_pct",
+            "original_pct": 17,
+            "revised_pct": 10,
+            "justification": "BASE RATE VIOLATION against his own model. He specifies an ~8%/yr hazard in the 'postured but restrained' state; 17% by end-2027 over ~1.4 years implies ~13%/yr, 60% above his own parameter. Nine years of restraint through more provocative periods (2019 summit collapse, the 2022 record missile year, Russian alignment) is strong evidence for the low-hazard regime, and he notes Moscow does not want a test and then does not price it."
+          },
+          {
+            "risk_id": "geopolitics_dprk_nuclear_test",
+            "field": "p_by_2031_pct",
+            "original_pct": 42,
+            "revised_pct": 28,
+            "justification": "42% implies a sustained ~9%/yr against a nine-year observed drought - a posterior that essentially ignores the drought. Splitting his 8%/yr model and his own contrarian 3%/yr gives 4-5%/yr and ~25-30% by 2031. The deterrence-signalling substitution argument (ICBM flight tests deliver most of the signal at a fraction of the cost to the China relationship) is raised in his contrarian paragraph and then discarded."
+          },
+          {
+            "risk_id": "geopolitics_dprk_nuclear_test",
+            "field": "p_by_2036_pct",
+            "original_pct": 55,
+            "revised_pct": 42,
+            "justification": "Rescaled to a ~4%/yr long-run hazard. Preserves the correct declining-hazard shape while removing the level inflation."
+          },
+          {
+            "risk_id": "geopolitics_iran_nuclear_weapon",
+            "field": "p_by_2027_pct",
+            "original_pct": 5,
+            "revised_pct": 3,
+            "justification": "COHERENCE. Iran-has-a-bomb is a strict subset of geopolitics_new_nuclear_weapons_state (6% by 2027). At 5 vs 6, only 1 point remains for ROK, Japan, Poland, Saudi Arabia and Taiwan combined - while the superset's own reasoning names ROK as the second-likeliest candidate, cites 75-80% ROK support, and the model runs a proliferation-cascade loop at strength 0.55. That is a near-conjunction violation. On the merits, 5% by end-2027 is also too high: the criterion needs a test, a declaration, or a public IAEA/USIC assessment of an ASSEMBLED weapon, from a state whose conversion and metallurgy infrastructure was destroyed twice and whose detected dash invites immediate re-strike - the ~2.5-year estimate he himself calls more credible."
+          },
+          {
+            "risk_id": "geopolitics_iran_nuclear_weapon",
+            "field": "p_by_2031_pct",
+            "original_pct": 15,
+            "revised_pct": 12,
+            "justification": "Same nesting problem, less acute: 15 of 21 leaves 6 points for every other candidate over five years, thin given his own guarantor-withdrawal cascade. Cutting Iran to 12 leaves ~9 for the ROK/Poland/Saudi/Japan branch, matching the stated mechanism. Note also that the superset's base-rate arithmetic is wrong - he writes '~0.036/yr... I am pricing roughly 3-4x the recent base rate', but 0.036/yr over the 10 years to 2036 is ~30%, so 36% is ~1.2x. The superset levels are defensible; I leave them. It is the stated multiplier that is wrong, which means he does not know how much uplift he is applying."
+          },
+          {
+            "risk_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+            "field": "p_by_2027_pct",
+            "original_pct": 5,
+            "revised_pct": 6,
+            "justification": "Mild upward nudge for consistency with the revised 2031/2036 path. The November 2026 tariff-truce expiry is an identified forcing point inside this window, and the model's own text calls quarantine 'the option that maximises coercive effect while minimising the chance of triggering a US shooting response'."
+          },
+          {
+            "risk_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+            "field": "p_by_2031_pct",
+            "original_pct": 14,
+            "revised_pct": 19,
+            "justification": "INTERNAL RATIO INCOHERENCE. Invasion 6% vs quarantine 14% by 2031 is a 0.43 ratio: it says the hardest amphibious operation in military history is nearly half as likely as the cheap, reversible, repeatedly-rehearsed option the model's own text says Beijing prefers. If quarantine really dominates on cost-benefit, 0.20-0.30 is the coherent range. The Jan-2028 Taiwan election and the Oct-2027 Party Congress both fall inside this window, and the 2026 Venezuela/Iran precedents lower Beijing's estimate of the cost of unilateral coercion via his own imitation loop. His contrarian says '25% is defensible'; 19% is the conservative version of acting on it."
+          },
+          {
+            "risk_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+            "field": "p_by_2036_pct",
+            "original_pct": 22,
+            "revised_pct": 28,
+            "justification": "HAZARD SHAPE. 14 to 22 over 2031-36 implies ~1.9%/yr, LOWER than the ~2.4%/yr implied for 2027-31, despite every structural driver (PLA capability accretion, Taiwanese identity trend, US burden-shifting) pointing the other way over the longer horizon. A flat-to-rising 2.5-3%/yr gives ~28%."
+          },
+          {
+            "risk_id": "geopolitics_china_taiwan_invasion",
+            "field": "p_by_2027_pct",
+            "original_pct": 1.5,
+            "revised_pct": 2.5,
+            "justification": "I checked Polymarket directly: 'China invade Taiwan by 31 Dec 2027' trades around 12% and 'by 30 Jun 2027' around 12.5%, against the model's 1.5% (the model's cited 14.5% is also slightly stale). Longshot bias plus the looser Polymarket resolution language - which many traders read as covering blockade or major military action rather than strictly an opposed landing of 1,000+ troops - explains most of an 8x gap, but not all of it. A 40-60% discount off 12% for criteria-tightening and longshot bias lands at 3-5%; 2.5% is a conservative move that still respects the ODNI 'no 2027 invasion plan' assessment while not sitting an order of magnitude under a well-capitalised market. The 2031 (6%) and 2036 (13%) figures are defensible and I leave them alone."
+          },
+          {
+            "risk_id": "geopolitics_us_china_lethal_clash",
+            "field": "p_by_2027_pct",
+            "original_pct": 3,
+            "revised_pct": 2,
+            "justification": "SCOPE INSENSITIVITY running opposite to the reasoning. The criterion requires 'an exchange of fire (kinetic, including missile, air, naval or ground fire)' producing a death. The reasoning then says the likely pathway is 'a fatal collision or water-cannon death' - neither is an exchange of fire and neither resolves YES. Strip the non-qualifying pathways and the number must fall. Base rate is zero force-on-force lethal exchanges in 47 years of continuous close contact, including the 2001 EP-3 fatality that he correctly notes would not have counted."
+          },
+          {
+            "risk_id": "geopolitics_us_china_lethal_clash",
+            "field": "p_by_2031_pct",
+            "original_pct": 11,
+            "revised_pct": 7,
+            "justification": "11% is ~2.3%/yr against an observed rate of zero in 47 years, justified by a mechanism that does not satisfy the wording. He also notes H1 2026 moved the wrong way for this risk in the good sense - Beijing summit, purchase commitments, both sides wanting the truce extended - and then leaves the number unchanged. 7% (~1.4%/yr) still prices a large uplift over base."
+          },
+          {
+            "risk_id": "geopolitics_us_china_lethal_clash",
+            "field": "p_by_2036_pct",
+            "original_pct": 19,
+            "revised_pct": 13,
+            "justification": "Proportional rescale, preserving the reasonable mildly-declining hazard shape while correcting the level for the exchange-of-fire wording. Note the resulting oddity in the original: US-PRC (11) and PRC-Japan (10) are priced almost identically at 2031 despite the Japan criterion explicitly including deliberate ramming - a materially broader trigger set. I leave the Japan numbers alone; they are defensible."
+          },
+          {
+            "risk_id": "geopolitics_nato_article5_invoked",
+            "field": "p_by_2031_pct",
+            "original_pct": 9,
+            "revised_pct": 7,
+            "justification": "The reasoning makes the case for a lower number and then does not use it. NATO's revealed preference across 2014-2026 - Crimea, MH17, Salisbury, cable cuts, airport-closing drone incursions, Sandworm wipers on ~30 Polish energy sites - has been Article 4 every single time without exception, and Russian operations are engineered to stay under the threshold. Compounding this, invocation requires consensus, and a US administration mid-drawdown is the least likely in NATO's history to grant it. 9% implies ~1.9%/yr against a 77-year record of one invocation, and that one not against a state."
+          },
+          {
+            "risk_id": "geopolitics_nato_article5_invoked",
+            "field": "p_by_2036_pct",
+            "original_pct": 14,
+            "revised_pct": 11,
+            "justification": "Proportional rescale, and consistent with his own claim that a Ukraine settlement (70-78% by 2031) reduces the Russia-NATO pretext - which should bend the 2031-36 hazard down more than 9-to-14 does."
+          },
+          {
+            "risk_id": "geopolitics_nato_article5_invoked",
+            "field": "severity_0_10",
+            "original_pct": 10,
+            "revised_pct": 8,
+            "justification": "Severity 10 encodes 'Article 5 means general war', which his own reasoning explicitly rejects: 'a formal invocation does not require war - it could be invoked for a limited response, which makes it cheaper and thus more likely.' He cannot have it both ways. If the probability is raised because invocation can be cheap and narrow, the severity conditional on invocation must fall to a mixture of narrow-response and general-war branches."
+          },
+          {
+            "risk_id": "geopolitics_us_russia_strategic_arms_deal",
+            "field": "p_by_2027_pct",
+            "original_pct": 11,
+            "revised_pct": 20,
+            "justification": "UNDER-forecast via scope insensitivity in the permissive direction - the clearest case in the model of a slow institutional move being under-rated. The criterion counts a 'formal reciprocal political commitment announced by both heads of state' setting a numerical ceiling: no ratification, no verification, no Senate. Putin has already publicly floated one-year reciprocal adherence to New START central limits, and Trump has repeatedly advertised personal interest in a denuclearisation headline. That is exactly the low-cost, summit-friendly instrument this wording catches, and it requires solving neither Golden Dome nor Chinese trilateralisation - those block a real treaty, not a communique. His own contrarian says 'my 2027 number could be double.'"
+          },
+          {
+            "risk_id": "geopolitics_us_russia_strategic_arms_deal",
+            "field": "p_by_2031_pct",
+            "original_pct": 30,
+            "revised_pct": 40,
+            "justification": "Over five and a half years spanning a probable Ukraine settlement (his own near-necessary precondition, priced at 70-78%), a US presidential election, and mutual fiscal pressure against an uncapped race, 30% is low for an instrument this cheap to sign. Conditional on detente onset, the historical pattern is that strategic arms talks conclude within 2-4 years (1969-72, 1985-87, 1989-91 all fit)."
+          },
+          {
+            "risk_id": "geopolitics_us_russia_strategic_arms_deal",
+            "field": "p_by_2036_pct",
+            "original_pct": 43,
+            "revised_pct": 52,
+            "justification": "Six agreements in 54 years is about one per nine years unconditional. A full decade with zero cap of any kind, including a mere political commitment, would be the longest such gap since 1972 and should not be the modal outcome at 57%."
+          },
+          {
+            "risk_id": "geopolitics_grid_cyberattack_nato",
+            "field": "p_by_2027_pct",
+            "original_pct": 6,
+            "revised_pct": 3,
+            "justification": "BASE RATE VIOLATION - the worst offender in the model. The threshold is one million people for 24 consecutive hours. The entire historical record of cyber-caused blackouts is Ukraine 2015 (~230k customers, ~6 hours) and Kyiv 2016 (~1 hour): two to three orders of magnitude short on the population-times-duration product, achieved against the most exposed large grid in Europe after years of pre-positioned access. Nothing in the cited 2025-26 evidence (Sandworm wipers on IT systems at Polish energy firms, CISA PLC advisories, Volt Typhoon pre-positioning) has produced a single sustained outage anywhere. He identifies the binding constraint - restoration is manual and Western operators drill it - and then prices 6% in 17 months anyway."
+          },
+          {
+            "risk_id": "geopolitics_grid_cyberattack_nato",
+            "field": "p_by_2031_pct",
+            "original_pct": 20,
+            "revised_pct": 11,
+            "justification": "20% is ~4%/yr against an unconditional rate he himself puts at 'well under 1%/yr', with no intermediate-scale precedent to interpolate from. The missing intermediate observation is decisive: at a true 4%/yr hazard for the 1M/24h event we should already have seen multiple 100k-people/6h events in NATO states, and we have seen zero. 11% still embeds a large uplift for a Russia-NATO or Iran-endgame decision to cross the threshold."
+          },
+          {
+            "risk_id": "geopolitics_grid_cyberattack_nato",
+            "field": "p_by_2036_pct",
+            "original_pct": 33,
+            "revised_pct": 20,
+            "justification": "33% is a one-in-three claim about an event class with zero instances anywhere on earth at that scale in the ~11 years since the capability was first demonstrated. Omitted offsets: grid operators are hardening at roughly the rate attackers improve, NIS2 and NERC CIP requirements bind, and adversaries destroy irreplaceable access by using it - a point he raises and then does not price."
+          },
+          {
+            "risk_id": "geopolitics_iran_regime_change",
+            "field": "p_by_2027_pct",
+            "original_pct": 11,
+            "revised_pct": 8,
+            "justification": "The criterion is strict - abolition of the office, vacancy over 90 days, or a non-clerical/non-IRGC government controlling Tehran. The single likeliest 'change' scenario, an IRGC-dominated hollowing-out with Mojtaba as figurehead, resolves NO. His own base-rate note says almost no comparable regime fell within 18 months absent an occupying ground force, and there is none; his own consolidation feedback loop is balancing on a 1-2 year horizon; and he writes that instability should peak in 2027-2029. All three arguments point below 11% for the near date."
+          },
+          {
+            "risk_id": "geopolitics_iran_regime_change",
+            "field": "p_by_2031_pct",
+            "original_pct": 26,
+            "revised_pct": 22,
+            "justification": "Modest trim for criterion strictness and the absence of an organised successor coalition, which he correctly identifies as the usual binding constraint. The direction and shape of this forecast are among the better ones in the model and I leave most of it intact."
+          },
+          {
+            "risk_id": "geopolitics_iran_regime_change",
+            "field": "p_by_2036_pct",
+            "original_pct": 36,
+            "revised_pct": 32,
+            "justification": "Proportional trim. The 2031-36 implied hazard (~2%/yr) is already reasonable and is one of the few well-shaped curves here."
+          },
+          {
+            "risk_id": "geopolitics_unsc_permanent_expansion",
+            "field": "p_by_2031_pct",
+            "original_pct": 2.5,
+            "revised_pct": 1.2,
+            "justification": "This requires a Charter amendment ratified by two-thirds of members INCLUDING all five permanent members - China ratifying India's or Japan's permanent seat, and Russia ratifying a Western-aligned addition, during the most acute great-power confrontation since 1983. In 81 years, Council composition has been amended once (1965, non-permanent seats only) and permanent membership has never changed except by state succession. 2.5% over 5.5 years is ~0.45%/yr, roughly 4x the historical rate for a strictly easier amendment, at the moment of minimum comity."
+          },
+          {
+            "risk_id": "geopolitics_unsc_permanent_expansion",
+            "field": "p_by_2036_pct",
+            "original_pct": 6,
+            "revised_pct": 2.5,
+            "justification": "6% implies ~0.7%/yr and would make this decade roughly as likely to deliver expansion as the entire post-war period combined. His own reasoning says the 2026 environment 'increases the rhetorical demand for reform while decreasing the great-power comity needed to deliver it' - an argument for going below the historical base rate, not four times above it. The one legitimate upward consideration he raises (a resolver counting veto-less permanent seats as YES) is a wording ambiguity to fix in the criterion, not something to pay for with probability."
+          }
+        ],
+        "coherence_violations": [
+          "NESTING / NEAR-CONJUNCTION VIOLATION: geopolitics_iran_nuclear_weapon (5 / 15 / 23) is a strict subset of geopolitics_new_nuclear_weapons_state (6 / 21 / 36). At 2027 that leaves 1 percentage point for ROK, Japan, Poland, Saudi Arabia and Taiwan combined - while the superset's own reasoning names ROK as the second-most-likely candidate, cites 75-80% ROK public support and a Polish presidential endorsement, and the model carries a 'guarantor-withdrawal to proliferation cascade' loop at strength 0.55. As written the model asserts that essentially all near-term proliferation risk is Iranian, contradicting its own narrative.",
+          "DISCRETE/CONTINUOUS CONTRADICTION ON HORMUZ: geo_hormuz_crude_flow sets current_value = 8 mb/d against a stated ~20 mb/d baseline - 40% of baseline, i.e. already below the 50% threshold that geopolitics_hormuz_major_closure asks about - yet that risk is priced at 58% for a qualifying 30-day episode over the following 17 months. The model simultaneously asserts the event is happening now and that its recurrence is a coin flip. Externally corroborated: CNBC 13 Jul 2026 treats ~8m bbl/day transiting under military escort as news, and Kpler shows transits at ~3 vessels/day on 22-24 July with Brent back near $100 - which also contradicts the state_of_play's claim that markets are pricing normalisation.",
+          "UNADDRESSED SCOPE TRAP IN THE SAME RISK: the criterion requires 'an episode beginning on or after 1 August 2026'. If the current disruption runs continuously across 1 August, a strict resolver scores it NO no matter how bad flows get; a loose resolver scores it YES immediately. That is a swing of more than 50 points hiding in one clause, and the reasoning never mentions it.",
+          "CEASEFIRE PROBABILITY vs CONTINUOUS VARIABLES: geopolitics_ukraine_durable_ceasefire at 78% by 2031 is inconsistent with geo_ukraine_monthly_territory_change (p50_2031 = +8 km2/month, p90 = 175 km2/month - a median world with an advancing Russian army) and with geo_battle_deaths_annual carrying a drift of only -5k/yr while Ukraine is named the dominant fatality contributor. The notes fields wave at 'regime-switching' but the stated quantiles are what any downstream model consumes.",
+          "STATED BASE-RATE ARITHMETIC CONTRADICTS THE STATED NUMBER: geopolitics_new_nuclear_weapons_state says 'only one in the last 28 years (~0.036/yr). I am pricing roughly 3-4x the recent base rate.' 0.036/yr compounded over the 10 years to 2036 is ~30%; the model's 36% is ~1.2x, not 3-4x. The forecast is defensible but the justification is numerically wrong, meaning the analyst does not know how much uplift he is actually applying - and the same loose arithmetic recurs in the DPRK and Article 5 anchors.",
+          "RESOLUTION-CRITERION vs MECHANISM MISMATCH (geopolitics_us_china_lethal_clash): the criterion requires 'an exchange of fire' producing a death; the reasoning's primary pathways are 'a fatal collision or water-cannon death' and Chinese coast guard ramming, none of which is an exchange of fire. The probability is being set by scenarios that cannot resolve the question YES. The mirror defect: geopolitics_china_japan_lethal_clash DOES include deliberate ramming in its criterion, yet the two are priced almost identically (11 vs 10 at 2031) despite one having a materially broader trigger set.",
+          "IMPLAUSIBLE INTERNAL RATIO ON TAIWAN: invasion 6% vs quarantine 14% by 2031 = 0.43. The model argues at length that quarantine is cheap, reversible, rehearsed and dominant, and that an opposed landing is 'the hardest military operation in the world'. A dominance argument that strong is incompatible with a 0.43 ratio; 0.20-0.30 is coherent. Compounding it, no rung is modelled between the two (offshore-island seizure), so both numbers are absorbing probability mass belonging to an unmodelled middle option.",
+          "SYSTEMATIC HAZARD-SHAPE DEFECT: across at least six risks the implied 2031-36 annual hazard falls sharply below the 2027-31 hazard for no stated reason - Hormuz (25%/yr, then 4%/yr, then 1.5%/yr), DPRK test (13%, 8.7%, 5%), Taiwan quarantine (2.4% then 1.9%). Some decay is defensible where a named crisis resolves, but applying it near-uniformly is the signature of choosing cumulative numbers that 'look spaced' rather than integrating a hazard function - especially for events whose drivers (PLA capability, DPRK fissile output, uncapped post-New START arsenals) are structurally RISING. UNSC expansion is the lone case where the implied hazard rises (0.45%/yr to 0.7%/yr), and it is the one where the argument for decay is strongest.",
+          "MISSING PROBABILITY MASS ACROSS BRANCHES: for the Iran file the model prices regime change (26% by 2031) and weapon acquisition (15%) but has no risk for the far likelier intermediate outcomes - NPT withdrawal, a renewed strike campaign, or restored inspections. The branches sum to well under 100% with the residual undefined, so nothing disciplines the level of any single branch. The same absence of a shared driver means Hormuz closure, oil price, Russian sanctions revenue and Iranian regime survival are reported as independent marginals when they are one joint distribution."
+        ],
+        "missing_risks": [
+          {
+            "id": "geopolitics_p5_nuclear_explosive_test",
+            "name": "A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test",
+            "resolution_criteria": "The United States, Russia or China conducts a supercritical nuclear explosive test (yield above zero, excluding subcritical and hydrodynamic experiments), confirmed by the testing state or by CTBTO/national technical means.",
+            "p_by_2031_pct": 45,
+            "severity_0_10": 8,
+            "reasoning": "The single largest omission, and astonishing given the model's own framing. The analyst builds his narrative around New START's expiry and the death of arms control, prices a seventh DPRK test at 42% by 2031, and then omits the live, verified, mainstream 2026 question. I confirmed by search: Trump publicly directed resumption of nuclear testing in Oct-Nov 2025; Putin ordered the Security Council to prepare proposals in response; the Novaya Zemlya site director has declared the site 'fully ready' and imagery shows construction and logistics activity; Russia has de-ratified the CTBT; and CSIS, the Cipher Brief and Russia Matters have all published on whether the moratorium survives the year. A US or Russian test is a larger discontinuity than a DPRK test - it ends a 34-year US and 36-year Russian moratorium, effectively kills the CTBT, and hands Beijing and Pyongyang immediate cover. I put ~20% by end-2027, 45% by 2031, ~55% by 2036, weighted toward the US moving first and Russia reciprocating within months."
+          },
+          {
+            "id": "geopolitics_iran_npt_withdrawal",
+            "name": "Iran formally withdraws from the Nuclear Non-Proliferation Treaty",
+            "resolution_criteria": "Iran deposits formal notice of withdrawal under NPT Article X with the depositary governments and the UN Security Council, or that withdrawal takes effect.",
+            "p_by_2031_pct": 45,
+            "severity_0_10": 6,
+            "reasoning": "The model notes NPT-withdrawal legislation is live in the Majlis and that IAEA monitoring is near-totally lost, then prices only the terminal event (an assembled weapon, 15% by 2031). Withdrawal is a far cheaper and far likelier intermediate step: it is a political decision available tomorrow, requires no centrifuges, and is the natural response of a regime bombed while nominally compliant. It is also the highest-information single observable for the weapon track and the most plausible trigger for the cascade the model's own feedback loop describes. Without it the model has no rung between 'monitoring lost' and 'bomb confirmed'. ~25% by end-2027, 45% by 2031, ~50% by 2036."
+          },
+          {
+            "id": "geopolitics_us_second_regime_decapitation",
+            "name": "A second US kinetic operation to remove or kill a sitting foreign head of state or government",
+            "resolution_criteria": "US forces, after 1 August 2026, conduct a military operation that captures, kills, or directly precipitates within 30 days the removal from power of the sitting head of state or government of a UN member state, excluding the January 2026 Venezuela and February 2026 Iran operations.",
+            "p_by_2031_pct": 40,
+            "severity_0_10": 7,
+            "reasoning": "The model builds a 'successful-coercion imitation' loop (strength 0.45) explicitly around two US operations in six months that cost zero US casualties and drew condemnation only from states with no enforcement capacity - and then prices no discrete risk for the obvious implication that Washington does it again. Two instances in seven months is an observed rate that, even discounted hard for target availability and post-midterm congressional constraint, gives a substantial multi-year probability, and candidate targets are not hypothetical. This risk also carries most of the model's cross-risk correlation, which structural_uncertainties concedes is 'high and unmodelled' - an argument for modelling it, not for a prose caveat. ~15% by end-2027, 40% by 2031, ~50% by 2036."
+          },
+          {
+            "id": "geopolitics_prc_philippines_lethal_incident",
+            "name": "PRC forces cause the death of a Philippine serviceman or coast guardsman",
+            "resolution_criteria": "An action by PLA, PLAN, China Coast Guard or maritime-militia units (including ramming, water cannon, boarding or fire) directly causes at least one death among Philippine armed forces, coast guard or government-chartered personnel, confirmed by the Philippine government.",
+            "p_by_2031_pct": 38,
+            "severity_0_10": 7,
+            "reasoning": "The model treats the Philippines only as a sub-pathway inside geopolitics_us_china_lethal_clash and never prices the node that actually matters. A PRC-caused Filipino death is perhaps an order of magnitude likelier than a US-PRC exchange of fire - Second Thomas Shoal and Scarborough incidents have already produced a severed finger, blinded crews and rammed hulls, with rising tempo over four years - and it is the specific event that triggers the Mutual Defense Treaty consultations Washington has repeatedly said cover armed attacks on Philippine public vessels. Without it the model's Asia escalation ladder has no realistic bottom rung, which is why its US-PRC number ends up doing work its own wording forbids. ~15% by end-2027, 38% by 2031, ~50% by 2036."
+          },
+          {
+            "id": "geopolitics_taiwan_offshore_island_seizure",
+            "name": "PRC seizes or occupies a Taiwan-administered offshore island",
+            "resolution_criteria": "PLA, PAP or China Coast Guard forces land on and establish administrative or military control over Pratas (Dongsha), Taiping (Itu Aba), Kinmen, Matsu or Wuqiu, maintained for at least 72 consecutive hours, confirmed by Taiwan MND or US government statement.",
+            "p_by_2031_pct": 13,
+            "severity_0_10": 7,
+            "reasoning": "The model's Taiwan ladder jumps from ADIZ sorties straight to a declared 7-day quarantine and then to a 1,000-man opposed landing, with nothing in between. Offshore-island seizure is the cheapest available fait accompli: Pratas sits 450 km from Taiwan proper, is garrisoned by a few hundred marines, is militarily indefensible, and is legally ambiguous enough that a US kinetic response is genuinely doubtful. Most war-gaming communities rate it the likeliest first PLA use of force. Its absence means the model cannot represent the scenario where Beijing tests the alliance at minimal risk - precisely the scenario its own imitation loop makes more likely after Caracas and Tehran. ~4% by end-2027, 13% by 2031, ~20% by 2036."
+          },
+          {
+            "id": "geopolitics_putin_exit",
+            "name": "Vladimir Putin ceases to hold effective power in Russia",
+            "resolution_criteria": "Putin ceases to serve as President of the Russian Federation, or is assessed by consensus of major-power governments no longer to exercise effective control over Russian state decision-making, for any reason including death, incapacity, resignation or removal.",
+            "p_by_2031_pct": 32,
+            "severity_0_10": 8,
+            "reasoning": "The model names this in structural_uncertainties as 'the largest single discontinuity risk for the Russia-Ukraine and Russia-NATO tracks' and lists the March 2030 election as a scheduled event, then declines to price it - exactly backwards for a risk that is both quantifiable and conditioning on nearly everything else in the domain. The actuarial baseline alone for a 73-year-old Russian male over 5.5 years is roughly 15-20%; adding non-trivial coup, incapacity and negotiated-exit hazard for a wartime personalist leader gives ~30-35% by 2031. It should be a conditioning variable on the Ukraine ceasefire, Article 5, arms-control and grid-cyber risks rather than a paragraph of prose. ~10% by end-2027, 32% by 2031, ~52% by 2036."
+          },
+          {
+            "id": "geopolitics_renewed_iran_strike_campaign",
+            "name": "Renewed major US and/or Israeli air campaign against Iran",
+            "resolution_criteria": "At least 100 US and/or Israeli strikes on targets inside Iran within any 30-day window beginning on or after 1 August 2026, per credible multi-source reporting or US/Israeli government statement.",
+            "p_by_2031_pct": 55,
+            "severity_0_10": 7,
+            "reasoning": "The whole state_of_play describes a war that has not ended: the 14 June MoU's 60-day deadline falls in August 2026, the US has paused rather than stopped strikes, Iran struck three commercial vessels in July, a naval blockade is in force, and with IAEA access gone any reconstitution is undetectable until it is large - which is itself a strike trigger. The model prices three downstream consequences (Hormuz closure, Iranian regime change, Iranian weapon) but never the proximate military event that drives all three, leaving them without a shared driver and almost certainly understating their correlation in any Monte Carlo. ~35% by end-2027, 55% by 2031, ~62% by 2036."
+          },
+          {
+            "id": "geopolitics_dprk_rok_lethal_exchange",
+            "name": "Lethal DPRK-ROK military exchange",
+            "resolution_criteria": "An exchange of fire or attack between DPRK and ROK forces causing at least five combined military or civilian deaths, confirmed by either government or by the UN Command.",
+            "p_by_2031_pct": 30,
+            "severity_0_10": 6,
+            "reasoning": "The model prices a DPRK nuclear test but carries no Korean conventional risk at all, despite Korea having the richest recent base rate of lethal state-on-state incidents of any dyad it covers: Cheonan and Yeonpyeong (2010, ~50 deaths), the 2015 DMZ mine and artillery exchange, the 2020 liaison-office demolition, and repeated 2024-25 border-wall and GPS-jamming incidents. Roughly one qualifying event in 20 years plus the collapse of the 2018 inter-Korean military agreement gives ~5-6%/yr. It also matters structurally: the model names a pro-nuclear ROK president (2030 election) as 'the most likely proliferation trigger of the decade', and a lethal Northern provocation is the most plausible thing that elects one - so omitting it leaves the proliferation forecast without its main causal pathway. ~9% by end-2027, 30% by 2031, ~45% by 2036."
+          }
+        ],
+        "overall_bias": "The model is NOT uniformly over-forecasting drama. It over-forecasts the shocks it has recently read about and under-forecasts the slow institutional moves - the classic availability signature dressed up as base-rate discipline. The tell is structural: almost every risk carries a well-written base_rate_anchor whose implied rate is then multiplied by 3-10x on a one-line narrative justification, while the contrarian_case paragraphs repeatedly state the correct lower number ('a flat 3%/yr is defensible', 'I could easily be 15 points too high', 'I am 25 points too high') without the headline ever moving. He even names the bias in structural_uncertainties ('I may be systematically anchored on the last six months... my 2031 and 2036 cumulative numbers are collectively too high') and then does not act on it. Writing the self-critique is not the same as applying it; a reader should treat those contrarian paragraphs as the better-calibrated forecast roughly 30% of the time.\n\nRecommended shrink is NON-UNIFORM. Applied to the odds ratio against the stated base rate, not to the probability:\n\n(1) NARRATIVE-SHOCK CLUSTER - shrink 0.60. geopolitics_grid_cyberattack_nato (a 1M-person/24-hour outage has never occurred anywhere on earth, priced at 33% by 2036), geopolitics_dprk_nuclear_test (13%/yr implied against his own 8%/yr model and a nine-year drought), geopolitics_us_china_lethal_clash (priced off mechanisms its own wording excludes), geopolitics_unsc_permanent_expansion (4x the historical rate for an easier amendment, at minimum P5 comity).\n\n(2) STRICT-CRITERION CLUSTER - shrink 0.80. Where the number reflects the vibe and the wording is harder than the vibe: geopolitics_ukraine_durable_ceasefire (180 clean days, whole front, no city strikes, while his own evidence points at a partial freeze with continued deep strikes), geopolitics_iran_regime_change (an IRGC-dominated Mojtaba consolidation resolves NO), geopolitics_iran_nuclear_weapon (assembled, confirmed, publicly assessed).\n\n(3) SLOW-INSTITUTIONAL CLUSTER - EXPAND 1.35. The mirror image of (1): unglamorous, negotiable, reversible things get under-rated because they do not generate headlines. geopolitics_us_russia_strategic_arms_deal is the clearest case - the criterion admits a bare reciprocal political commitment announced by two heads of state, an instrument both leaders have already publicly floated, priced at 11% for 17 months. geopolitics_china_taiwan_quarantine_or_blockade is second - he argues quarantine dominates invasion and then prices it at only 2.3x invasion.\n\n(4) ALREADY-HAPPENING CLUSTER - EXPAND 1.4. geopolitics_hormuz_major_closure is priced at 58% for an event his own continuous variable says is occurring now, corroborated by external July 2026 flow and transit data. When a discrete risk and its own continuous variable disagree about the present, the discrete risk is the one anchored to a stale narrative.\n\nNet across the 18 discrete risks my revisions lower 11 figures and raise 8, so aggregate probability mass barely moves - a naive global shrink of about 0.95. That scalar is misleading and should not be applied. The real defect is dispersion and allocation, not level: the model spreads similar probability across wildly dissimilar evidence quality, over-weighting six months of news flow and under-weighting anything that requires a signature rather than a shooting. If a single figure is required for the shock cluster - which is what the question is really asking - use 0.70. Two further global points. First, the model has no correlation structure at all: the Iran campaign, Hormuz flow, Brent, Russian sanctions revenue, EU coalition cohesion and Iranian regime survival are one joint distribution reported as six independent marginals, which will badly understate tails in any simulation built on it. Second, the two genuinely first-order omissions - P5 nuclear-testing resumption and Putin succession - are both events the analyst demonstrably knows about, since one is implicit in his own New START narrative and the other is written verbatim into his structural_uncertainties. Knowing about a risk and pricing it are different acts, and this model consistently performs only the first. One credit where due: geopolitics_nuclear_use_in_anger (1 / 3.5 / 6, implying a near-constant ~0.65%/yr) is well-placed - above the superforecaster ~1%-by-2045 anchor and below the Metaculus community's implied ~1.2%/yr for detonation-in-war by 2050 - and I recommend no change to it. The Japan-China, Sahel, and US-NATO-withdrawal risks are likewise defensible as stated.\""
+      }
     },
     {
       "domain": "climate",
@@ -1600,7 +1900,320 @@
           "CBD COP17 Yerevan, 19-30 October 2026 (https://sdg.iisd.org/events/2026-un-biodiversity-conference-cbd-cop-17/)"
         ]
       },
-      "calibration": null
+      "calibration": {
+        "adjustments": [
+          {
+            "risk_id": "climate_arctic_practically_ice_free",
+            "field": "p_by_2036_pct",
+            "original_pct": 21,
+            "revised_pct": 7,
+            "justification": "This is the single worst internal inconsistency in the model. Their own continuous variable arctic_sept_ice_min has current_value 4.3, annual_drift -0.06, annual_vol 0.42, p10_2031 3.35. Propagating to 2036 gives central ~3.7 with sd ~0.45. Reaching <1.0 million km2 is therefore a ~6-sigma excursion under their own stochastic specification, yet they assign 21%. Even generous allowance for volume-driven nonlinearity (thin-ice preconditioning, a jump process rather than a trend crossing) and the earliest-tail literature (Jahn et al. first-ice-free-day work) supports at most high-single-digits by 2036; SSP2-4.5 medians sit in the 2040s-2050s. Either the continuous block or this risk must move; the continuous block is the better-anchored of the two."
+          },
+          {
+            "risk_id": "climate_arctic_practically_ice_free",
+            "field": "p_by_2031_pct",
+            "original_pct": 4,
+            "revised_pct": 1.5,
+            "justification": "Same inconsistency. Under their own drift/vol, a 2031 minimum below 1.0 is ~7 sigma. 1.5% is already generous and is essentially pure model-error mass, not a distributional estimate."
+          },
+          {
+            "risk_id": "climate_arctic_practically_ice_free",
+            "field": "p_by_2027_pct",
+            "original_pct": 0.4,
+            "revised_pct": 0.15,
+            "justification": "Requires a ~77% single-year drop from a 4.2-4.7 baseline. The largest single-year drop in 47 years of satellite record was 2012 at -18%. 0.4% overstates a physically near-impossible one-year event; 0.15% is the residual mass for catastrophic observational or model error."
+          },
+          {
+            "risk_id": "climate_methane_growth_halts",
+            "field": "p_by_2036_pct",
+            "original_pct": 30,
+            "revised_pct": 15,
+            "justification": "Direct contradiction with their own ch4_global_mean continuous variable (drift 7.5 ppb/yr, annual_vol 3 ppb). Under that spec, P(annual growth <= 0) in any single year is P(z < -2.5) = 0.6%, giving roughly 6% over ten years. The risk block says 30% - a factor of five gap. Even allowing that the drift should itself decline over the decade (Global Methane Pledge, satellite leak abatement, El Nino wetland suppression), the honest reconciliation is mid-teens. The 1999-2006 plateau base rate of ~10% per year is not transferable because, as they themselves note, the mechanism that produced it is not operating."
+          },
+          {
+            "risk_id": "climate_methane_growth_halts",
+            "field": "p_by_2031_pct",
+            "original_pct": 16,
+            "revised_pct": 7,
+            "justification": "Same reconciliation. Going from ~8-10 ppb/yr to <=0 within five years requires a >2.5-sigma downward excursion under their own vol, plus a structural break. 7% preserves room for an OH-sink recovery surprise without contradicting the continuous block."
+          },
+          {
+            "risk_id": "climate_methane_growth_halts",
+            "field": "p_by_2027_pct",
+            "original_pct": 4,
+            "revised_pct": 1.5,
+            "justification": "Only calendar year 2026 (reported early 2027) is in scope, and 2026 growth is already substantially through the year at clearly positive rates. 4% is not achievable given observed year-to-date."
+          },
+          {
+            "risk_id": "climate_fossil_co2_confirmed_peak",
+            "field": "p_by_2031_pct",
+            "original_pct": 52,
+            "revised_pct": 34,
+            "justification": "Coherence violation with their own fossil_co2_emissions variable, whose p50_2031 is 38.3 GtCO2 - ABOVE the 38.1 record. A median 2031 above the record cannot coexist with a coin-flip that emissions have already been below the record for two consecutive confirmed years by 2031. Add the resolution mechanics: two consecutive full calendar years below 38.1 must be published in a Global Carbon Budget by end-2031, so the decline must be underway by 2029-2030. Their own base rate for non-recessionary two-year declines is literally zero since 1950. 34% respects the clean-tech S-curve while honoring both the base rate and their own median."
+          },
+          {
+            "risk_id": "climate_fossil_co2_confirmed_peak",
+            "field": "p_by_2036_pct",
+            "original_pct": 78,
+            "revised_pct": 68,
+            "justification": "78% embeds near-certainty that the plateau converts to sustained decline within a decade, but the counterweights they list (aviation +6.8%, petrochemicals, data-centre load, cooling demand in a warming world, India's post-2030 coal trajectory) are exactly the mechanisms that historically extend plateaus. A 10-year horizon with a positive-drift median is better matched by ~2/3 than by ~4/5."
+          },
+          {
+            "risk_id": "climate_year_ge_1p6c",
+            "field": "p_by_2031_pct",
+            "original_pct": 83,
+            "revised_pct": 91,
+            "justification": "Under-forecast relative to their own stated distribution. They state 2027 central 1.68C with sd 0.09, which alone gives P(>=1.65) = 63%. Adding 2028-2031 with a 0.025 C/yr trend and an ENSO term of sd ~0.09 (so ~20-40% per year), P(no year >= 1.65 across 2027-2031) is roughly 0.37 x 0.8 x 0.8 x 0.65 x 0.55 = 0.085. 83% is internally low by about 8 points."
+          },
+          {
+            "risk_id": "climate_year_ge_1p6c",
+            "field": "p_by_2036_pct",
+            "original_pct": 94,
+            "revised_pct": 97.5,
+            "justification": "By 2036 the forced-trend central value is ~1.72-1.75C under their own 0.025 C/yr drift, so 1.65C becomes the expected value of a NEUTRAL year, not a stretch. Failing to record a single year >= 1.65 in ten years would require the warming trend to halt outright. This is the classic slow-moving-certainty under-rating."
+          },
+          {
+            "risk_id": "climate_year_ge_1p6c",
+            "field": "p_by_2027_pct",
+            "original_pct": 55,
+            "revised_pct": 62,
+            "justification": "Their own stated 2027 distribution (mean 1.68, sd 0.09) gives 63% for 2027 alone, before adding any small probability from 2026. Writing 55% means they applied an unstated El-Nino-bust haircut twice - once in setting the 1.68 central and again in the headline number. Pick one."
+          },
+          {
+            "risk_id": "climate_new_record_year",
+            "field": "p_by_2036_pct",
+            "original_pct": 97,
+            "revised_pct": 99,
+            "justification": "Exceeding 1.60C at least once in eleven years, when the trend alone delivers ~1.72C central by 2036 and their own p50_2031 is already 1.62C. The 3% residual implies a 1-in-33 chance that global warming effectively stops, which is not supportable even under the most aggressive transient-forcing interpretation of the 2023-24 spike."
+          },
+          {
+            "risk_id": "climate_very_strong_elnino_verifies",
+            "field": "p_by_2036_pct",
+            "original_pct": 90,
+            "revised_pct": 72,
+            "justification": "Scope violation. The resolution criterion is explicitly bounded to 'the 2026-27 event' - it cannot accrue probability from later El Ninos, yet the number rises from 74 to 85 to 90 as if it could. The question resolves by mid-2027 and the 2031/2036 values must equal the 2027 value. I set all three near 72 (see the 2027 justification). If the analyst intended 'any very strong El Nino by 2036', the criterion must be rewritten and the base rate re-derived (roughly one >= +2.0C event per 15-19 years since 1950)."
+          },
+          {
+            "risk_id": "climate_very_strong_elnino_verifies",
+            "field": "p_by_2031_pct",
+            "original_pct": 85,
+            "revised_pct": 72,
+            "justification": "Same scope violation - criterion-locked to the 2026-27 event, so this must equal the 2027 number."
+          },
+          {
+            "risk_id": "climate_very_strong_elnino_verifies",
+            "field": "p_by_2027_pct",
+            "original_pct": 74,
+            "revised_pct": 70,
+            "justification": "They cite NOAA's own 63% for 'very strong' and then post 74% without stating why they beat the issuing agency by 11 points. Two of their own listed downward factors go unapplied: the 2014 forecast bust (July-issued super-event forecasts have busted within living memory), and, more importantly, the resolution trap they themselves identify - the ONI's rolling 30-year base period mechanically suppresses modern anomalies, so a physically 1997-class event can score below +2.0C on the operational index. Going modestly above NOAA is defensible given post-spring-barrier skill and 23-of-26 model agreement; going 11 points above is not."
+          },
+          {
+            "risk_id": "climate_global_bleaching_60pct",
+            "field": "p_by_2027_pct",
+            "original_pct": 82,
+            "revised_pct": 89,
+            "justification": "Under-forecast against their own continuous variable. reef_bleaching_stress_pct has current_value 55% for the rolling 12 months to mid-2026 and they explicitly 'expect 75-90% in the 12 months to mid-2027 under peak El Nino'. A distribution centred near 80 with sd ~12 (bounded, logit) gives P(>=60) well above 90%. Alert Level 1+ is a low bar and the fourth global event is still active. 82% is the vibe number; their own model says ~90%."
+          },
+          {
+            "risk_id": "climate_global_bleaching_60pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 96,
+            "revised_pct": 98.5,
+            "justification": "With ocean heat content at a record for nine consecutive years, a positive drift term on the stress baseline, and eleven annual rolls of the dice, failing to exceed 60% even once would require a sustained cooling of the tropical oceans."
+          },
+          {
+            "risk_id": "climate_amazon_net_carbon_source",
+            "field": "p_by_2027_pct",
+            "original_pct": 7,
+            "revised_pct": 1,
+            "justification": "Timing impossibility. Resolution requires peer-reviewed basin-wide inversion or aircraft-profile synthesis establishing three CONSECUTIVE net-source years, accepted by the GCP. To resolve by end-2027 those years would have to be roughly 2025-2027, with the 2027 flux published within months of the year ending. Atmospheric inversion syntheses lag 2-3 years; the aircraft programme has four sites. 7% ignores the publication pipeline entirely - this is a scope-insensitivity error where the probability reflects 'the Amazon might be a source' rather than the actual wording."
+          },
+          {
+            "risk_id": "climate_amazon_net_carbon_source",
+            "field": "p_by_2031_pct",
+            "original_pct": 21,
+            "revised_pct": 12,
+            "justification": "Same publication-lag compression: three consecutive source years must occur by roughly 2028 to be documented by 2031. Working against it: deforestation at an 11-year low, alerts at the lowest six-month reading since 2014, and the base rate of THREE CONSECUTIVE source years being exactly zero in the inversion record (the ~4 source years since 2005 were all isolated El Nino droughts followed by sink recovery). A single super-El-Nino drought produces one or two source years, not three."
+          },
+          {
+            "risk_id": "climate_amazon_net_carbon_source",
+            "field": "p_by_2036_pct",
+            "original_pct": 37,
+            "revised_pct": 25,
+            "justification": "37% implies the basin flips to a persistent multi-year source regime within a decade, which is a savannization-onset claim, not a drought claim. The literature's central savannization window is mid-century. 25% still generously accommodates a Bolsonaro-style land-use reversal after October 2026 plus a multi-year drought."
+          },
+          {
+            "risk_id": "climate_wetbulb_35c_sustained",
+            "field": "p_by_2027_pct",
+            "original_pct": 12,
+            "revised_pct": 5,
+            "justification": "Base-rate violation compounded by scope insensitivity. Their own anchor: zero confirmed 3-hour sustained exceedances in 45 years, out of ~1,000 documented station-hours of any duration. The criterion additionally requires quality control plus peer-reviewed or national-met-service confirmation, which adds a multi-year lag on top of the physical event. 12% within an 18-month window for an event that has never once occurred and would need publication inside the window is roughly triple-counting the El Nino pre-monsoon narrative."
+          },
+          {
+            "risk_id": "climate_wetbulb_35c_sustained",
+            "field": "p_by_2031_pct",
+            "original_pct": 30,
+            "revised_pct": 18,
+            "justification": "Implied hazard from their numbers is ~4.5%/yr for 2028-2031 for an event with zero historical instances. Brief exceedances doubling since 1979 supports a rising hazard, but the persistence barrier (sustained 3h needs high SST plus onshore flow plus light winds plus no convective breakdown) is a genuine physical constraint, not just a detection artefact."
+          },
+          {
+            "risk_id": "climate_wetbulb_35c_sustained",
+            "field": "p_by_2036_pct",
+            "original_pct": 50,
+            "revised_pct": 35,
+            "justification": "A coin flip on a first-ever, formally-confirmed occurrence of a threshold event is the signature of narrative anchoring. Note also that their own contrarian case argues the binding constraint is instrumentation - which lowers the RESOLVABLE probability even if it raises the physical one, and the criterion is about resolution."
+          },
+          {
+            "risk_id": "climate_billion_dollar_climate_judgment",
+            "field": "p_by_2027_pct",
+            "original_pct": 4,
+            "revised_pct": 1.5,
+            "justification": "The criterion requires a court of FINAL instance issuing a NON-APPEALABLE order for >= $1bn in climate damages. No case anywhere is at final instance with a damages quantum of that scale; the ICJ opinion is advisory and creates no payable award. Reaching final instance from where any live case now sits inside 18 months is procedurally near-impossible. 4% prices ICJ momentum rather than docket reality."
+          },
+          {
+            "risk_id": "climate_billion_dollar_climate_judgment",
+            "field": "p_by_2031_pct",
+            "original_pct": 17,
+            "revised_pct": 10,
+            "justification": "Their own analogues (tobacco ~40 years, opioids ~15, asbestos ~25) and their own observation that these resolve by SETTLEMENT rather than judgment both cut against 17%. A settlement scores no under the stated wording. The US channel is also now sharply less likely post-endangerment-repeal with the current Supreme Court."
+          },
+          {
+            "risk_id": "climate_billion_dollar_climate_judgment",
+            "field": "p_by_2036_pct",
+            "original_pct": 34,
+            "revised_pct": 24,
+            "justification": "Same settlement-versus-judgment scope problem applied over a decade. 24% keeps meaningful weight on a Dutch, Brazilian or Colombian apex-court award while respecting that the modal successful outcome in this space is injunctive relief or a negotiated fund, neither of which resolves yes."
+          },
+          {
+            "risk_id": "climate_srm_unilateral_deployment",
+            "field": "p_by_2036_pct",
+            "original_pct": 15,
+            "revised_pct": 10,
+            "justification": "Base rate zero, and the criterion is demanding: a formal national deployment programme, or >0.1 Tg/yr of injected precursor confirmed by independent monitoring. Their own note says the dominant real-world outcome is 'a grey zone of escalating private experiments' that would score no, and that the leading private actor is at best deployment-ready within a decade with 2026 outdoor tests already cancelled. Their CTBT/germline analogues give order 1-3%/yr only AFTER capability exists, and capability does not exist yet for most of the window."
+          },
+          {
+            "risk_id": "climate_srm_unilateral_deployment",
+            "field": "p_by_2027_pct",
+            "original_pct": 1.5,
+            "revised_pct": 0.6,
+            "justification": "Requires a state to stand up and formally announce SAI deployment within 18 months, from a starting point where the leading private developer just backtracked on outdoor experiments and the CBD moratorium was just reinforced by the ICJ opinion. 1.5% over 18 months is a ~1%/yr hazard for a capability that is not yet built."
+          },
+          {
+            "risk_id": "climate_srm_governance_regime",
+            "field": "p_by_2027_pct",
+            "original_pct": 8,
+            "revised_pct": 15,
+            "justification": "UNDER-forecast, and the model contains the evidence against itself. The criterion is deliberately broad - 'a non-use agreement, a research governance regime, OR a moratorium codification' at UNEA, UNFCCC COP, CBD COP 'or a comparable treaty body'. CBD COP17 convenes in Yerevan 19-30 October 2026, inside the window, and the CBD is the one body with a track record of actually adopting geoengineering decisions (2010 X/33, 2016 XIII/14). With SRM funding tripling in 2025 and startup activity normalizing the topic, a CBD COP17 decision that codifies or extends the moratorium is a live possibility, and the US - the historical blocker at UNEA - is not a CBD party. The analyst anchored on the two UNEA failures and ignored the venue actually on the calendar."
+          },
+          {
+            "risk_id": "climate_srm_governance_regime",
+            "field": "p_by_2031_pct",
+            "original_pct": 24,
+            "revised_pct": 32,
+            "justification": "Same broad-criterion argument extended: two more CBD COPs, two more UNEA sessions and five more UNFCCC COPs, against a rising-salience issue. Their own reference class (Montreal ~10yr, Cartagena ~8yr, LC/LP ocean fertilization ~7yr from first commercial ventures) puts an instrument squarely in this window given commercial SRM interest dates from roughly 2023-2025."
+          },
+          {
+            "risk_id": "climate_longterm_1p5_declared",
+            "field": "p_by_2036_pct",
+            "original_pct": 72,
+            "revised_pct": 85,
+            "justification": "UNDER-forecast given the criterion's own escape hatch: it resolves on a 20-year mean OR 'current human-induced warming'. IGCC-style current-human-induced-warming estimates were ~1.36C in 2024 rising ~0.27C/decade, so that metric passes 1.5C around 2029-2031 and is at ~1.63C by 2035 - unambiguous, and WMO reproduces this framing in its annual State of the Global Climate. Requiring that WMO, IPCC (AR7 plus any special report) and the Global Stocktake ALL decline to state it for a further five years after the number is plainly above 1.5 assigns 28% to a coordinated multi-institution silence. 15% residual for definitional dodging is already generous."
+          },
+          {
+            "risk_id": "climate_longterm_1p5_declared",
+            "field": "p_by_2031_pct",
+            "original_pct": 33,
+            "revised_pct": 41,
+            "justification": "Their own central physical crossing is 2029-2031, and two natural declaration venues (AR7 ~2028, second Global Stocktake 2028) sit inside the window, with WMO annual statements every year. A 2-4 year institutional lag from a 2029-2030 crossing lands partly inside 2031."
+          },
+          {
+            "risk_id": "climate_food_price_shock",
+            "field": "p_by_2036_pct",
+            "original_pct": 48,
+            "revised_pct": 62,
+            "justification": "Coherence violation with their own fao_food_price_index variable, which puts p90_2031 at 167 - i.e. a 10% chance the ANNUAL 2031 value alone exceeds 167, well past the 160.0 monthly bar, and monthly maxima exceed annual means. Extending drift 2/yr from 130.3 puts the 2036 central near 150 with right skew, so the 160 line is inside one modest shock by the mid-2030s. Critically, the index is NOMINAL, so ordinary food-price inflation grinds toward the threshold with no climate event required at all. This is scope insensitivity in the conservative direction: they priced 'a 2022-style crisis' when the wording only demands a nominal index print."
+          },
+          {
+            "risk_id": "climate_food_price_shock",
+            "field": "p_by_2027_pct",
+            "original_pct": 17,
+            "revised_pct": 11,
+            "justification": "Requires a 23% rise within 18 months. Their own contrarian case is decisive and they did not apply it: the 2015-16 super El Nino coincided with FALLING food prices, grain stocks are comfortable, and 2026 production is forecast second-highest on record. Every historical crossing of this magnitude involved an energy or war shock alongside weather. Unconditional base rate is ~1-2%/yr; even a 5x El Nino multiplier over 18 months lands near 11%, not 17%."
+          },
+          {
+            "risk_id": "climate_colorado_storage_below_20pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 56,
+            "revised_pct": 66,
+            "justification": "The implied hazard shape is backwards. Their numbers give ~5%/yr for 2028-2031 then ~2.4%/yr for 2032-2036, i.e. a DECLINING hazard, while they simultaneously describe the reference class as non-stationary with a strongly downward trend (95% to 36% storage over 26 years). Unless one believes mandated cuts fully arrest the decline - in which case the 2031 number is too high - the hazard should be flat-to-rising. 66% by 2036 is the coherent reading of their own trend description."
+          },
+          {
+            "risk_id": "climate_colorado_storage_below_20pct",
+            "field": "p_by_2027_pct",
+            "original_pct": 24,
+            "revised_pct": 19,
+            "justification": "Requires combined storage to fall from ~36% to below 20% within about 18 months. The 2021-22 drawdown of comparable speed is the only precedent in the megadrought, and it occurred without today's mandated conservation. Two offsetting factors they identify but do not price: El Nino winters favour above-average precipitation in the Lower Basin and southern Rockies, and deadpool politics create strong incentives to manage storage so it never touches 20%. 19% keeps the event clearly live without pricing the worst-hydrology narrative twice."
+          }
+        ],
+        "coherence_violations": [
+          "climate_very_strong_elnino_verifies escalates 74 -> 85 -> 90 across horizons while its resolution criterion is explicitly locked to 'the 2026-27 event', which resolves by mid-2027. A criterion-bounded event cannot accrue probability after it resolves. Either the three numbers must be identical or the criterion must be rewritten to 'any event through 2036'.",
+          "climate_fossil_co2_confirmed_peak assigns 52% by 2031 to emissions having been below the 38.1 GtCO2 record for two consecutive confirmed years, while the fossil_co2_emissions continuous variable sets p50_2031 = 38.3 GtCO2 - a median ABOVE the record. These two statements cannot both be the analyst's belief.",
+          "climate_methane_growth_halts assigns 30% by 2036 and 16% by 2031 to a calendar year with CH4 growth <= 0, while the ch4_global_mean variable specifies drift 7.5 ppb/yr with annual_vol 3 ppb, under which a single non-positive year is a 2.5-sigma event (~0.6%/yr, ~6% over ten years). The discrete risk is roughly 5x the continuous block.",
+          "climate_arctic_practically_ice_free assigns 21% by 2036 to extent below 1.0 million km2, while arctic_sept_ice_min specifies current 4.3, drift -0.06/yr, vol 0.42, p10_2031 = 3.35. The stated threshold is a ~6-sigma excursion under the analyst's own process. This is the largest single inconsistency in the model.",
+          "climate_global_bleaching_60pct assigns 82% by 2027, but reef_bleaching_stress_pct states the analyst expects 75-90% stress coverage in the 12 months to mid-2027 - a distribution under which clearing 60% is a ~90-95% proposition. The discrete risk is materially below the analyst's own continuous forecast.",
+          "climate_food_price_shock assigns 48% by 2036 to any month above 160.0, while fao_food_price_index puts p90_2031 = 167 for the ANNUAL value - implying a >10% chance of crossing in 2031 alone, before nine other years and before the fact that monthly maxima exceed annual means.",
+          "Resolution-timing mismatch in climate_new_record_year: the criterion resolves 'at the annual announcement in the following January', so a 2027 record is only confirmed in January 2028. Read strictly, p_by_2027 covers only calendar 2026 (announced Jan 2027) and should sit near 33%, matching Carbon Brief's 35% and Polymarket's ~31%, not 78%. The same announcement-lag ambiguity affects climate_year_ge_1p6c. Every horizon-cut probability in this model needs a stated convention on whether the horizon binds the physical event or its publication.",
+          "climate_amazon_net_carbon_source assigns 7% by 2027 to a three-consecutive-year finding that must be established in peer-reviewed basin-wide inversion literature. Given 2-3 year publication lags on inversion syntheses, resolution by end-2027 would require the 2027 flux to be published within months of year-end. The probability describes the physical proposition, not the stated criterion.",
+          "climate_year_ge_1p6c is internally double-discounted: the reasoning states a 2027 central of 1.68C with sd 0.09 (implying 63% for 2027 alone) but the headline p_by_2027 is 55%. The El Nino bust risk is applied once inside the central estimate and again outside it.",
+          "Naming/threshold mismatch: the risk id is climate_year_ge_1p6c but the name, criterion and reasoning all use 1.65C. Harmless to a human reader, fatal to any downstream automated consumer keying on the id.",
+          "climate_amoc_30pct_weakening's base_rate_anchor claims 'zero instances of a sustained 30% departure' with the largest dip 'roughly 10-15%' around 2009-2010. The RAPID 2009/10 excursion was substantially deeper than that - annual-mean transport fell from roughly 18-19 Sv to around 13 Sv, i.e. a ~25-30% departure for about a year. The anchor understates the natural-variability envelope. Notably this error works AGAINST the analyst's own probabilities, so I am leaving 4/11/19 unchanged - they are defensible, arguably slightly low, once the RAPID-array-lapse resolution risk is netted against the corrected base rate."
+        ],
+        "missing_risks": [
+          {
+            "id": "climate_antarctic_seaice_record_low",
+            "name": "New record-low Antarctic sea ice minimum extent",
+            "resolution_criteria": "NSIDC reports an Antarctic daily minimum sea ice extent below the February 2023 record of 1.79 million km2.",
+            "p_by_2031_pct": 45,
+            "severity_0_10": 6,
+            "reasoning": "A conspicuous omission: the state_of_play devotes a paragraph to the 2026 Antarctic rebound (2.58 million km2, 16th lowest) and correctly attributes it to Weddell Sea wind anomalies 'rather than any thermodynamic reprieve', yet no discrete risk tracks the variable. Four of the five years 2022-2026 were record or near-record lows, and the post-2016 regime shift in Southern Ocean sea ice is one of the most consequential unexplained observations in the field. With record ocean heat content and a super El Nino, a return to sub-1.79 within five years is close to a coin flip. Antarctic sea ice loss also carries larger albedo consequences per km2 than Arctic loss because it occurs at lower latitudes with higher insolation."
+          },
+          {
+            "id": "climate_thwaites_shelf_collapse",
+            "name": "Disintegration of the Thwaites Eastern Ice Shelf",
+            "resolution_criteria": "Satellite observation (ESA/NASA, confirmed by NSIDC or a peer-reviewed publication) shows the Thwaites Eastern Ice Shelf has lost at least 50% of its 2020 area through fracture and calving within a three-year period.",
+            "p_by_2031_pct": 38,
+            "severity_0_10": 8,
+            "reasoning": "The model contains two AMOC risks and no West Antarctic risk at all, which is a serious asymmetry: AMOC collapse is a mid-century-to-2100 proposition with contested observational evidence, whereas the Thwaites Eastern Ice Shelf has active rift propagation observed since 2020 and ITGC investigators have publicly given it as little as a decade. This is the highest-probability major cryosphere regime event on a 2036 horizon and it is absent. It also directly conditions the sea-level variable, whose stated p10-p90 spread of 12 mm by 2031 is described as 'the most predictable variable here' - a claim that only holds if no shelf event occurs."
+          },
+          {
+            "id": "climate_major_volcanic_eruption",
+            "name": "VEI 6+ volcanic eruption with measurable global cooling",
+            "resolution_criteria": "A volcanic eruption of VEI 6 or greater (Smithsonian GVP classification) injects sufficient stratospheric sulphate that WMO, NASA GISS or Copernicus attributes at least 0.1C of global mean cooling to it in the following one to two years.",
+            "p_by_2031_pct": 9,
+            "severity_0_10": 5,
+            "reasoning": "The single largest exogenous risk to every temperature-linked forecast in this model, and it is entirely absent. Base rate for VEI 6+ is roughly 4-6 per century (Pinatubo 1991, El Chichon 1982, Novarupta 1912, Santa Maria 1902), giving ~5%/yr for VEI 6 and ~9% over five years for one large enough to register. A Pinatubo-scale event would invalidate climate_new_record_year, climate_year_ge_1p6c, the gmst trajectory, the ocean heat content increment and the reef bleaching series simultaneously - and it is the one thing that could make the analyst's 97% by 2036 on record years look wrong. Its absence is exactly the structural-uncertainty point they make about correlated invalidation, unapplied to their own risk list."
+          },
+          {
+            "id": "climate_insured_cat_losses_200bn",
+            "name": "Global insured natural catastrophe losses exceed $200bn in a calendar year",
+            "resolution_criteria": "Swiss Re sigma or Munich Re NatCatSERVICE reports global insured losses from natural catastrophes above US$200 billion (nominal) for a single calendar year.",
+            "p_by_2031_pct": 40,
+            "severity_0_10": 6,
+            "reasoning": "The model has no financial-system transmission channel at all - no insurance retreat, no mortgage/municipal-credit repricing, no sovereign catastrophe exposure. This is the main pathway by which physical climate change becomes economically and politically salient, and it is the channel with the cleanest data and the most rapid trend. Insured losses have exceeded $100bn in most recent years with a ~5-7%/yr real trend plus nominal inflation; a single Category 4-5 landfall on Miami or Houston, or a repeat California wildfire complex, clears $200bn on its own. Related and equally missing: state-level insurance market failure (FAIR plan insolvency) as a discrete political trigger."
+          },
+          {
+            "id": "climate_second_major_paris_withdrawal",
+            "name": "A second G20 economy formally withdraws from the Paris Agreement",
+            "resolution_criteria": "A G20 member other than the United States deposits formal notification of withdrawal from the Paris Agreement with the UN Secretary-General.",
+            "p_by_2031_pct": 22,
+            "severity_0_10": 7,
+            "reasoning": "The model treats the US withdrawal as a completed fact and prices the 2029 inauguration as a possible reversal, but never prices contagion - the far more consequential branch. Argentina has repeatedly signalled intent, Indonesia has floated conditionality, and a US-shaped hole in climate finance materially raises the defection payoff for mid-income emitters. This is also the most likely single event to break the emissions plateau to the upside and would reshape COP31/COP32 outcomes. Its omission is notable given how much attention the state_of_play gives to the policy bifurcation."
+          }
+        ],
+        "overall_bias": "\"Bidirectional, which is why a single scalar undersells the problem - but the errors are systematically sorted by event type. The domain over-forecasts FIRST-EVER THRESHOLD CROSSINGS by roughly a factor of 2-3 (ice-free Arctic 21% by 2036, sustained 35C wet-bulb 50%, Amazon three-year source 37%, methane growth halt 30%, unilateral SRM 15%, billion-dollar final judgment 34%). Each has a historical base rate of exactly zero, each is narratively vivid, and each is priced well above what the analyst's own continuous variables or base-rate anchors support. Suggested shrink factor for that cluster: 0.55-0.65. Simultaneously the domain UNDER-forecasts SLOW-MOVING CERTAINTIES by roughly 1.1-1.3x (record year by 2036 at 97, year >=1.65C at 83/94, bleaching >=60% at 82/96, nominal FAO index above 160 at 48, formal 1.5C declaration at 72, Colorado below 20% at 56). These are cases where the trend alone delivers the outcome and the analyst reflexively reserved tail mass for a trend halt that their own drift terms contradict. Suggested expansion for that cluster: 1.15. Net global shrink factor across the whole discrete-risk block: 0.85. Two structural fixes matter more than any individual number. First, the discrete-risk block and the continuous-variable block were clearly written independently and disagree by up to 5x on the same underlying quantity in at least five places - reconcile them mechanically by deriving every threshold-crossing probability from the stated drift and vol rather than assigning it by judgement. Second, roughly half the risks price the physical proposition while the criterion demands a measurement, a publication or an institutional declaration; the analyst identifies this problem explicitly in structural_uncertainties ('do not mistake definitional resolution for physical resolution') and then commits it repeatedly. Every criterion involving 'peer-reviewed', 'final instance', 'confirmed by NOAA CPC index' or 'formally declares' needs an explicit resolution-lag haircut applied on top of the physical probability. Credit where due: the ENSO mean-reversion note, the deliberate discounting of the +3.59C multi-model figure, the AMOC numbers, the heat-mortality risk, the Brazilian election two-state Markov framing, and the explicit warning that smooth diffusion cannot generate the highest-severity outcomes are all well-calibrated and should not be touched.\"",
+        "domain": "Climate, environment, and Earth systems",
+        "verdict": "major_issues"
+      }
     },
     {
       "domain": "economy",
