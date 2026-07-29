@@ -123,6 +123,7 @@ def main() -> None:
         "scenarios": an.scenario_clusters(P, cou, k=6),
         "sensitivity": an.sensitivity(P, cou, severe_present),
         "indicators_terminal": an.indicator_terminal(P, cou),
+        "timelines": an.event_timelines(P, cou),
     }
     out["meta"]["runtime_seconds"] = round(time.time() - t0, 1)
 

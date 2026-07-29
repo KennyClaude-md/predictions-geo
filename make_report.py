@@ -35,7 +35,13 @@ def band(r, h):
 
 
 def main() -> None:
-    res = json.loads((ROOT / "results" / "results.json").read_text())
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dir", default=str(ROOT / "results"))
+    ap.add_argument("--out", default=str(ROOT / "REPORT.md"))
+    a = ap.parse_args()
+    res = json.loads((Path(a.dir) / "results.json").read_text())
     m = res["meta"]
     events = res["events"]
     out: list[str] = []
@@ -248,8 +254,8 @@ def main() -> None:
     w(f"Run: {m['paths']:,} paths, seed {m['seed']}, {m['runtime_seconds']}s. "
       "Reproduce with `python run_simulation.py`.")
 
-    (ROOT / "REPORT.md").write_text("\n".join(out))
-    print(f"wrote REPORT.md ({len(out)} lines)")
+    Path(a.out).write_text("\n".join(out))
+    print(f"wrote {a.out} ({len(out)} lines)")
 
 
 if __name__ == "__main__":

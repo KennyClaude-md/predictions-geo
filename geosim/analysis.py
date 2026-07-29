@@ -95,6 +95,25 @@ def indicator_fans(P: CompiledParams, traj: np.ndarray, pct=(5, 10, 25, 50, 75, 
     return out
 
 
+def event_timelines(P: CompiledParams, res: dict) -> dict:
+    """Cumulative probability of each event by quarter.
+
+    Where the risk actually sits in time. A hazard that is flat and one that is
+    back-loaded can quote the same 2036 number and mean very different things
+    for anyone deciding what to do this year.
+    """
+    fq = res["fire_q"]
+    T = int(fq.max()) + 1 if fq.size else 0
+    n = fq.shape[0]
+    out = {}
+    for j, ev in enumerate(P.events):
+        col = fq[:, j]
+        occurred = col[col >= 0]
+        counts = np.bincount(occurred, minlength=T)[:T] if occurred.size else np.zeros(T)
+        out[ev.id] = (np.cumsum(counts) / n).round(5).tolist()
+    return {"quarters": T, "cumulative": out}
+
+
 def conditional_matrix(P: CompiledParams, res: dict, ids: list[str], horizon="2036") -> dict:
     """P(row | column) among a selected set of events, plus lift over marginal."""
     q = _q(HORIZONS[horizon])
