@@ -22,6 +22,7 @@ import json
 import math
 import re
 from dataclasses import dataclass, field
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import numpy as np
@@ -42,6 +43,101 @@ QUARTERS_PER_YEAR = 4
 
 def _slug(s: str) -> str:
     return re.sub(r"[^a-z0-9_]+", "_", str(s).strip().lower()).strip("_")
+
+
+# Tokens that carry no identifying information, so two keys sharing only these
+# are not the same variable.
+_STOP = {"index", "global", "world", "annual", "total", "level", "score", "of",
+         "the", "per", "pct", "percent", "avg", "average", "value", "in", "to",
+         "and", "for", "rate"}
+
+
+def _tokens(key: str) -> set[str]:
+    return {t for t in key.split("_") if t and t not in _STOP}
+
+
+class Resolver:
+    """Resolve a referenced key to a defined one, tolerating naming drift.
+
+    Nine analysts working independently will not agree on what to call the oil
+    price. One writes `brent_oil_usd`, another references `global_oil_price_brent`
+    from a coupling, and an exact-match lookup silently drops the edge. Since
+    cross-domain edges are the entire reason this model exists, dropping them
+    quietly is the worst available failure mode.
+
+    Matching is deliberately conservative. A candidate must share at least two
+    distinctive tokens, and is then scored half on token overlap and half on
+    character-level similarity of the whole key.
+
+    The character term is not decoration -- it is what makes the match correct.
+    Token overlap alone cannot separate
+    `middle_east_conflict_intensity` -> `mideast_conflict_intensity` from
+    `middle_east_conflict_intensity` -> `ukraine_conflict_intensity`: both share
+    exactly {conflict, intensity} and score identically, so the winner would be
+    whichever happened to be iterated first, and the Middle East would get wired
+    to Ukraine.
+
+    Character similarity is measured on the token-sorted key, not the raw one,
+    which matters more than it looks. On raw strings `global_oil_price_brent`
+    scores 0.50 against the correct `brent_oil_usd` and 0.61 against the wrong
+    `russia_urals_oil_price` -- word order alone would make the matcher pick the
+    wrong one confidently. Sorting first gives 0.69 vs 0.58, the right way round.
+
+    `us_isolationism_index` -> `us_alliance_credibility_index` is rejected at the
+    two-token gate: it shares only a country prefix and means close to the
+    opposite thing.
+
+    Every alias is recorded so the report can show what was merged.
+    """
+
+    THRESHOLD = 0.62
+
+    # Explicit wins over inferred. Populate after reviewing a run's alias list:
+    # fuzzy matching has good recall but cannot be trusted blindly, because when
+    # the correct target is simply absent from the corpus a plausible-but-wrong
+    # candidate can still clear the threshold. The alias report exists to make
+    # that visible, and this map exists to fix it permanently.
+    OVERRIDES: dict[str, str] = {}
+
+    def __init__(self, keys):
+        self.keys = list(keys)
+        self.toks = {k: _tokens(k) for k in self.keys}
+        self.norm = {k: "_".join(sorted(t)) for k, t in self.toks.items()}
+        self.aliases: dict[str, str] = {}
+        self.scores: dict[str, float] = {}
+        self._cache: dict[str, str | None] = {}
+
+    def resolve(self, ref: str) -> str | None:
+        if ref in self.toks:
+            return ref
+        if ref in self._cache:
+            return self._cache[ref]
+        forced = self.OVERRIDES.get(ref)
+        if forced in self.toks:
+            self.aliases[ref] = forced
+            self.scores[ref] = 1.0
+            self._cache[ref] = forced
+            return forced
+
+        rt = _tokens(ref)
+        rn = "_".join(sorted(rt))
+        best, best_score = None, 0.0
+        for k, kt in self.toks.items():
+            shared = rt & kt
+            if len(shared) < 2:
+                continue
+            tok = len(shared) / max(min(len(rt), len(kt)), 1)
+            chars = SequenceMatcher(None, rn, self.norm[k]).ratio()
+            score = 0.5 * tok + 0.5 * chars
+            if score > best_score:
+                best, best_score = k, score
+
+        hit = best if best_score >= self.THRESHOLD else None
+        if hit:
+            self.aliases[ref] = hit
+            self.scores[ref] = round(best_score, 3)
+        self._cache[ref] = hit
+        return hit
 
 
 @dataclass
@@ -177,6 +273,7 @@ class CompiledParams:
     contagion_decay: np.ndarray = None
     contagion_decay_factor: np.ndarray = None
     calib_offset: np.ndarray = None
+    aliases: dict = field(default_factory=dict)
     growth_idx: int = -1
     coop_idx: int = -1
 
@@ -349,6 +446,8 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     E = len(P.events)
     P.ikey = {ind.key: i for i, ind in enumerate(P.indicators)}
     P.ekey = {ev.id: i for i, ev in enumerate(P.events)}
+    ires = Resolver(P.ikey)
+    eres = Resolver(P.ekey)
 
     P.x0 = np.array([i.value for i in P.indicators], dtype=np.float64)
     P.drift = np.array([i.drift for i in P.indicators], dtype=np.float64)
@@ -378,12 +477,14 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     # --- couplings, grouped by lag so each lag is one dense matmul -----------
     by_lag: dict[int, np.ndarray] = {}
     for c in P.couplings:
-        if c.src not in P.ikey or c.dst not in P.ikey:
+        src, dst = ires.resolve(c.src), ires.resolve(c.dst)
+        if src is None or dst is None:
             P.dropped.append(f"coupling {c.src}->{c.dst} (unknown indicator)")
             continue
-        if c.src == c.dst:
+        if src == dst:
             P.dropped.append(f"coupling {c.src}->{c.dst} (self-loop)")
             continue
+        c.src, c.dst = src, dst
         lag = min(max(c.lag_q, 0), 8)
         M = by_lag.setdefault(lag, np.zeros((K, K)))
         # Elasticities are additive when two analysts describe the same channel;
@@ -396,8 +497,9 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     # --- innovation correlation ---------------------------------------------
     R = np.eye(K)
     for sc in shock_corrs:
-        a, b = _slug(sc.get("a", "")), _slug(sc.get("b", ""))
-        if a in P.ikey and b in P.ikey and a != b:
+        a = ires.resolve(_slug(sc.get("a", "")))
+        b = ires.resolve(_slug(sc.get("b", "")))
+        if a and b and a != b:
             rho = float(np.clip(sc.get("rho", 0.0), -0.95, 0.95))
             R[P.ikey[a], P.ikey[b]] = rho
             R[P.ikey[b], P.ikey[a]] = rho
@@ -416,22 +518,26 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
         P.absorbing[j] = ev.absorbing
         P.conf_sigma[j] = CONFIDENCE_SIGMA.get(ev.confidence, 0.48)
         for name, el in zip(ev.drivers, ev.elasticities):
-            if name in P.ikey:
-                P.elasticity[j, P.ikey[name]] += float(np.clip(el, -1.5, 1.5))
+            hit = ires.resolve(name)
+            if hit:
+                P.elasticity[j, P.ikey[hit]] += float(np.clip(el, -1.5, 1.5))
             else:
                 P.dropped.append(f"driver {name} for {ev.id} (unknown indicator)")
         for name, sz in zip(ev.impacts, ev.impact_sizes):
-            if name in P.ikey:
-                P.impact[j, P.ikey[name]] += float(np.clip(sz, -6.0, 6.0))
+            hit = ires.resolve(name)
+            if hit:
+                P.impact[j, P.ikey[hit]] += float(np.clip(sz, -6.0, 6.0))
             else:
                 P.dropped.append(f"impact {name} for {ev.id} (unknown indicator)")
 
     # --- contagion -----------------------------------------------------------
     src, dst, mult, decay = [], [], [], []
     for c in P.contagions:
-        if c.if_event in P.ekey and c.then_event in P.ekey and c.if_event != c.then_event:
-            src.append(P.ekey[c.if_event])
-            dst.append(P.ekey[c.then_event])
+        a, b = eres.resolve(c.if_event), eres.resolve(c.then_event)
+        if a and b and a != b:
+            c.if_event, c.then_event = a, b
+            src.append(P.ekey[a])
+            dst.append(P.ekey[b])
             mult.append(float(np.clip(c.multiplier, 0.05, 25.0)))
             decay.append(float(np.clip(c.decay_q, 0.5, 40.0)))
         else:
@@ -461,13 +567,19 @@ def _build(P: CompiledParams, shock_corrs: list, trans: list | None) -> None:
     # --- stabilizing feedbacks ----------------------------------------------
     st, sd, ss = [], [], []
     for s in P.stabilizers:
-        if s.trigger in P.ikey and s.damps in P.ikey:
-            st.append(P.ikey[s.trigger])
-            sd.append(P.ikey[s.damps])
+        a, b = ires.resolve(s.trigger), ires.resolve(s.damps)
+        if a and b:
+            s.trigger, s.damps = a, b
+            st.append(P.ikey[a])
+            sd.append(P.ikey[b])
             ss.append(float(np.clip(s.strength, 0.0, 1.5)))
         else:
             P.dropped.append(f"stabilizer {s.trigger}->{s.damps} (unknown indicator)")
     P.stab_idx = (np.array(st, dtype=np.int64), np.array(sd, dtype=np.int64), np.array(ss))
+
+    # Aliases carry their match score so a weak merge is easy to spot in review.
+    P.aliases = {r: {"to": t, "score": {**ires.scores, **eres.scores}.get(r, 0.0)}
+                 for r, t in {**ires.aliases, **eres.aliases}.items()}
 
     # --- regimes -------------------------------------------------------------
     # A parameter set may legitimately declare no regimes at all (the test

@@ -67,6 +67,12 @@ def main() -> None:
         f"{len(P.couplings)} couplings, {len(P.contagions)} contagion rules, "
         f"{len(P.stabilizers)} stabilizers, {len(P.regimes)} regimes"
     )
+    if P.aliases:
+        weak = sorted(P.aliases.items(), key=lambda kv: kv[1]["score"])
+        print(f"  {len(P.aliases)} cross-references resolved by name matching "
+              f"(review the low scores):")
+        for ref, a in weak:
+            print(f"    {a['score']:.2f}  {ref}  ->  {a['to']}")
     if P.dropped:
         print(f"  {len(P.dropped)} parameter references dropped (unresolved keys)")
         for d in P.dropped[:15]:
@@ -105,6 +111,7 @@ def main() -> None:
             "n_stabilizers": len(P.stabilizers),
             "runtime_seconds": None,
             "dropped_references": P.dropped,
+            "resolved_aliases": P.aliases,
         },
         "events": events,
         "calibration": [
