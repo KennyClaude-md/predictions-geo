@@ -9,7 +9,9 @@ can be edited as a page rather than as Python string concatenation.
 from __future__ import annotations
 
 import json
+import re
 import sys
+from math import floor, isfinite, log10
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,11 +44,16 @@ def q_label(q: float | None) -> str:
 
 
 def sig(x: float, n: int = 3) -> float:
-    if x == 0:
-        return 0.0
-    from math import floor, log10
+    """Round to n significant figures.
 
-    return round(x, max(0, n - 1 - int(floor(log10(abs(x))))))
+    Not clamped at zero decimal places: 3615.7 becomes 3620, not 3616. Carrying a
+    fourth figure on a simulated decile claims precision the forecast does not
+    have.
+    """
+    if x == 0 or not isfinite(x):
+        return 0.0
+    r = round(x, n - 1 - int(floor(log10(abs(x)))))
+    return int(r) if r == int(r) and abs(r) >= 1 else r
 
 
 def build(fc: dict, seed: int) -> dict:
@@ -132,8 +139,8 @@ def build(fc: dict, seed: int) -> dict:
             "seed": seed,
         },
         "tiles": tiles,
-        "topline_note": fc["aggregate_commentary"],
-        "severity_note": fc.get("severity_note", ""),
+        "topline_note": md_inline(fc["aggregate_commentary"]),
+        "severity_note": md_inline(fc.get("severity_note", "")),
         "tiers": [
             {
                 "label": f"{thr}+ / 10",
@@ -148,9 +155,17 @@ def build(fc: dict, seed: int) -> dict:
         ],
         "stress": stress,
         "headline": [row(r) for r in fc["headline"]],
-        "archetypes": fc["archetypes"],
+        "archetypes": [
+            {
+                **a,
+                "label": a["label"],
+                "description": a["description"],
+                "signature": [md_inline(x) for x in a.get("signature", [])],
+            }
+            for a in fc["archetypes"]
+        ],
         "chains": fc["chains"][:10],
-        "chain_note": fc["chain_commentary"],
+        "chain_note": md_inline(fc["chain_commentary"]),
         "pairs": fc["pairs"],
         "sensitivity": fc["sensitivity"],
         "disagreement": fc["disagreement"],
@@ -163,12 +178,32 @@ def build(fc: dict, seed: int) -> dict:
             for c in fc["continuous"]
         ],
         "domains": domains,
-        "limits": fc["limits"],
+        "limits": [md_inline(l) for l in fc["limits"]],
         "calendar": [
             {**e, "domain_label": SHORT.get(e["domain"], e["domain"])}
             for e in (fc.get("calendar") or [])[:45]
         ],
     }
+
+
+def md_inline(text: str) -> str:
+    """Escape HTML, then render **bold** and *italic* only.
+
+    The report layer writes markdown; several of those strings are injected into
+    the page as HTML and were showing their asterisks. Escaping happens first so
+    that analyst-written text — which the research agents produced and which can
+    contain angle brackets — cannot inject markup.
+    """
+    s = (
+        str(text)
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s, flags=re.S)
+    s = re.sub(r"(?<![\*\w])\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", s, flags=re.S)
+    return s
 
 
 def _stress_caption(st: dict) -> str:
