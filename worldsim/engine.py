@@ -200,6 +200,11 @@ def simulate(
             # Parent effects. Looping over edges beats a dense (nb,E)@(E,R) matmul
             # by two orders of magnitude here — E is small and each edge touches
             # exactly one column.
+            #
+            # Fire times for this quarter are written after the draw, so a parent
+            # is only visible to its children from the *following* quarter. That
+            # makes lag=0 mean "next quarter", and — more importantly — removes
+            # any dependence on the order edges happen to be listed in.
             for e in range(cm.E):
                 src = ft[:, cm.edge_src[e]]
                 active = (src >= 0) & ((t - src) >= cm.edge_lag[e])
@@ -247,14 +252,10 @@ def calibrate_marginals(cm: CompiledModel, config: SimConfig, verbose: bool = Tr
     q3 = ANCHOR_QUARTERS["p_by_2036_pct"]
     anchors = [q1, q2, q3]
 
-    target = np.empty((3, cm.R), dtype=np.float64)
-    raw_h = np.empty((N_QUARTERS, cm.R), dtype=np.float64)
-    for rid in cm.risk_ids:
-        j = cm.index[rid]
-        raw_h[:, j] = cm.base_hazard[:, j]
-    target_cdf = 1.0 - np.cumprod(1.0 - raw_h, axis=0)
-    for i, q in enumerate(anchors):
-        target[i] = target_cdf[q - 1]
+    # The target is the elicited CDF itself — the uncorrected baseline hazard,
+    # before any scaling this loop has already applied.
+    target_cdf = 1.0 - np.cumprod(1.0 - cm.base_hazard, axis=0)
+    target = np.stack([target_cdf[q - 1] for q in anchors])
 
     # Segment-conditional cumulative hazards we are trying to match.
     tgt_surv = 1.0 - np.clip(target, 1e-6, 0.999)
