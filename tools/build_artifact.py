@@ -95,12 +95,7 @@ def build(fc: dict, seed: int) -> dict:
         "p50": [round(v, 2) for v in st["p50"]],
         "p75": [round(v, 2) for v in st["p75"]],
         "p95": [round(v, 2) for v in st["p95"]],
-        "caption": (
-            "Index units are severity-weighted and decay-discounted, so the level is only "
-            "meaningful relative to itself. The widening gap between the median and the 95th "
-            "percentile is the model saying the downside is far more variable than the "
-            "central case."
-        ),
+        "caption": _stress_caption(st),
     }
 
     def row(r: dict) -> dict:
@@ -170,6 +165,28 @@ def build(fc: dict, seed: int) -> dict:
         "domains": domains,
         "limits": fc["limits"],
     }
+
+
+def _stress_caption(st: dict) -> str:
+    """Describe the trajectory this run actually produced, not a remembered one."""
+    p50, p95, p5 = st["p50"], st["p95"], st["p5"]
+    peak_i = max(range(len(p50)), key=lambda i: p50[i])
+    peak_q = st["labels"][peak_i].split(" ")[0]
+    spread_early = p95[min(8, len(p95) - 1)] - p5[min(8, len(p5) - 1)]
+    spread_late = p95[-1] - p5[-1]
+    shape = (
+        "widens through the decade, so the further out you look the more the outcome "
+        "depends on which world you are in"
+        if spread_late > spread_early * 1.05
+        else "narrows after the early years — not because the future gets more "
+        "predictable, but because every node fires at most once, so the pool of "
+        "un-fired risk depletes"
+    )
+    return (
+        f"Index units are impact-weighted and decay-discounted, so the level means "
+        f"nothing in isolation — only relative to itself. The median peaks around "
+        f"{peak_q}. The 5th-to-95th spread {shape}."
+    )
 
 
 def _pct(x: float) -> str:

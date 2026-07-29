@@ -349,6 +349,14 @@ def _limits(raw: dict) -> list[str]:
         "**Hazards are conditionally memoryless within each segment.** Real crises have "
         "internal dynamics — mobilisation, negotiation, exhaustion — that a piecewise "
         "exponential cannot represent.",
+        "**Every node fires at most once, which understates the late 2030s.** The "
+        "elicited quantity is P(happens at least once by date T), so the reported "
+        "probabilities are right. But the register mixes one-shot structural events "
+        "(an AMOC tipping point) with recurring ones (a US recession, an oil spike), and "
+        "treating a recession as absorbing means the model cannot have a second one. "
+        "That is why the stress index declines after its late-2020s peak: the pool of "
+        "un-fired risk depletes. Read the trajectory for its early shape and its spread, "
+        "not for its level in 2035.",
     ]
     for dom in raw.get("domains", []):
         for s in (dom.get("research") or {}).get("structural_uncertainties", [])[:1]:
