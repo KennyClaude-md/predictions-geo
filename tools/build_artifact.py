@@ -155,15 +155,7 @@ def build(fc: dict, seed: int) -> dict:
         ],
         "stress": stress,
         "headline": [row(r) for r in fc["headline"]],
-        "archetypes": [
-            {
-                **a,
-                "label": a["label"],
-                "description": a["description"],
-                "signature": [md_inline(x) for x in a.get("signature", [])],
-            }
-            for a in fc["archetypes"]
-        ],
+        "archetypes": _archetypes(fc["archetypes"]),
         "chains": fc["chains"][:10],
         "chain_note": md_inline(fc["chain_commentary"]),
         "pairs": fc["pairs"],
@@ -184,6 +176,27 @@ def build(fc: dict, seed: int) -> dict:
             for e in (fc.get("calendar") or [])[:45]
         ],
     }
+
+
+def _archetypes(items: list[dict]) -> list[dict]:
+    """Attach the ordinal ramp step, ranked by stress rather than by list order.
+
+    The list is sorted by probability mass, so using the position would hand the
+    calmest cluster whichever colour happened to come first. The ramp encodes
+    magnitude, so it has to follow peak stress.
+    """
+    order = sorted(
+        range(len(items)), key=lambda i: items[i].get("peak_stress_pctile") or 0.0
+    )
+    tier = {orig: rank for rank, orig in enumerate(order)}
+    return [
+        {
+            **a,
+            "tier": tier[i] + 1,
+            "signature": [md_inline(x) for x in a.get("signature", [])],
+        }
+        for i, a in enumerate(items)
+    ]
 
 
 def md_inline(text: str) -> str:

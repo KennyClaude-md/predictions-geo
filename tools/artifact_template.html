@@ -811,10 +811,10 @@
       <td class="num lead">${v.q2036[1]}</td></tr>`).join("") + `</tbody>`;
 
   // ---- archetypes --------------------------------------------------------
-  $("arch-list").innerHTML = D.archetypes.map((a, i) => `
+  $("arch-list").innerHTML = D.archetypes.map((a) => `
     <div class="arch">
       <div>
-        <div class="swatch" style="background:var(--ord-${i + 1})"></div>
+        <div class="swatch" style="background:var(--ord-${a.tier})"></div>
         <div class="mass">${pct(a.probability)}</div>
         <div class="masslab">of paths</div>
       </div>
