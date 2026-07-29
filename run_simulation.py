@@ -60,7 +60,9 @@ def main() -> None:
     if args.paths:
         cfg.paths_per_world = max(60, args.paths // cfg.n_worlds)
 
-    worldviews = build_worldviews(base, raw)
+    vmap_path = PARAMS / "valence.json"
+    vmap = json.loads(vmap_path.read_text()) if vmap_path.exists() else {}
+    worldviews = build_worldviews(base, raw, vmap)
     print(
         f"worldviews: "
         + ", ".join(f"{m.name}({w:.0%})" for m, w in worldviews)
@@ -79,8 +81,9 @@ def main() -> None:
         res["name"] = model.name
         results.append(res)
 
-    # All worldviews share the same risk universe only if calibration added none;
-    # align to the intersection so pooling is well defined.
+    # build_worldviews augments the register before splitting, so all five share a
+    # node set. Aligning anyway costs nothing and keeps pooling well defined if a
+    # future worldview ever diverges.
     results = _align(results)
     weights = [w for _, w in worldviews]
 

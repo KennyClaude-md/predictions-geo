@@ -162,3 +162,29 @@ def test_cluster_labels_ignore_stabilising_events_when_naming_the_theme():
     assert "financial and macro stress" in out[0]["label"]
     assert "great-power conflict" not in out[0]["label"]
     assert all("Ceasefire" not in s for s in out[0]["signature"])
+
+
+def test_auditor_added_risks_reach_every_worldview():
+    """A node present in only one worldview falls out of the pooled intersection."""
+    import tempfile, pathlib
+
+    with tempfile.TemporaryDirectory() as td:
+        p = write_model(
+            pathlib.Path(td), [mk("a")],
+            calibration={
+                "domain": "d1", "verdict": "major_issues", "adjustments": [],
+                "coherence_violations": [],
+                "missing_risks": [{
+                    "id": "a_missed", "name": "Missed", "resolution_criteria": "crisp",
+                    "p_by_2031_pct": 25.0, "severity_0_10": 7.0, "reasoning": "omitted",
+                }],
+            },
+        )
+        base, _ = load_base_model(p)
+        assert "a_missed" not in base.risks
+        views = build_worldviews(base, json.loads(p.read_text()), {"a_missed": 1.0})
+        for model, _ in views:
+            assert "a_missed" in model.risks, f"{model.name} is missing the added node"
+        r = views[0][0].risks["a_missed"]
+        assert r.p2027 < r.p2031 < r.p2036
+        assert r.p2031 == pytest.approx(25.0, abs=0.01)

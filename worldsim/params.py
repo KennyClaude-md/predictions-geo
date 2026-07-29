@@ -312,26 +312,23 @@ def _blend(original: float, revised: float) -> float:
     return original + (revised - original) * PARTIAL_STRENGTH
 
 
-def apply_calibration(model: WorldModel, raw: dict) -> WorldModel:
-    """Apply the per-domain calibration auditor's adjustments and added risks."""
-    out = model.copy_with("audited")
-    applied = 0
+def augment_register(model: WorldModel, raw: dict, valence: dict[str, float]) -> WorldModel:
+    """Add the calibration auditors' missing risks to the shared register.
+
+    These belong to *every* worldview, not just the audited one. A node that
+    exists in only some worldviews falls out of the intersection when paths are
+    pooled, so an auditor's best catch would be silently discarded — exactly the
+    finding you least want to lose.
+    """
+    out = model.copy_with(model.name)
+    added = 0
     for dom in raw.get("domains", []):
-        cal = dom.get("calibration") or {}
-        for adj in cal.get("adjustments", []) or []:
-            rid = str(adj.get("risk_id", ""))
-            fld = _FIELD_MAP.get(str(adj.get("field", "")))
-            if rid not in out.risks or not fld:
-                continue
-            cur = getattr(out.risks[rid], fld)
-            setattr(out.risks[rid], fld, _blend(cur, _num(adj.get("revised_pct"), cur)))
-            applied += 1
-        # Risks the auditor thought were missing enter with a single anchor point;
-        # we fan it out to the three horizons on a constant-hazard assumption.
-        for miss in cal.get("missing_risks", []) or []:
+        for miss in ((dom.get("calibration") or {}).get("missing_risks") or []):
             rid = str(miss.get("id", "")).strip()
             if not rid or rid in out.risks:
                 continue
+            # Added risks carry one anchor point; fan it out to the three horizons
+            # on a constant-hazard assumption, which is the maximum-entropy read.
             p31 = _num(miss.get("p_by_2031_pct"))
             out.risks[rid] = Risk(
                 id=rid,
@@ -345,7 +342,27 @@ def apply_calibration(model: WorldModel, raw: dict) -> WorldModel:
                 confidence="low",
                 reasoning=str(miss.get("reasoning", "")),
                 base_rate_anchor="added by calibration audit",
+                valence=valence.get(rid, 1.0),
             )
+            added += 1
+    if added:
+        out.provenance.append(f"risks added by calibration audit: {added}")
+    return out
+
+
+def apply_calibration(model: WorldModel, raw: dict) -> WorldModel:
+    """Apply the per-domain calibration auditor's probability adjustments."""
+    out = model.copy_with("audited")
+    applied = 0
+    for dom in raw.get("domains", []):
+        for adj in ((dom.get("calibration") or {}).get("adjustments") or []):
+            rid = str(adj.get("risk_id", ""))
+            fld = _FIELD_MAP.get(str(adj.get("field", "")))
+            if rid not in out.risks or not fld:
+                continue
+            cur = getattr(out.risks[rid], fld)
+            setattr(out.risks[rid], fld, _blend(cur, _num(adj.get("revised_pct"), cur)))
+            applied += 1
     out.provenance.append(f"calibration adjustments applied: {applied}")
     return out
 
@@ -403,13 +420,21 @@ def _shift_pct(pct: float, delta: float) -> float:
     return float(100.0 / (1.0 + math.exp(-max(min(x, 40.0), -40.0))))
 
 
-def build_worldviews(base: WorldModel, raw: dict) -> list[tuple[WorldModel, float]]:
-    """Return [(model, ensemble weight)] covering the full range of opinion."""
-    audited = apply_calibration(base, raw)
+def build_worldviews(
+    base: WorldModel, raw: dict, valence: dict[str, float] | None = None
+) -> list[tuple[WorldModel, float]]:
+    """Return [(model, ensemble weight)] covering the full range of opinion.
+
+    The register is augmented first so all five worldviews share the same node
+    set; only the probabilities differ between them.
+    """
+    analyst = augment_register(base, raw, valence or {})
+    analyst.name = "analyst"
+    audited = apply_calibration(analyst, raw)
     redteam = raw.get("redteam", []) or []
 
     views = [
-        (base, WORLDVIEW_WEIGHTS["analyst"]),
+        (analyst, WORLDVIEW_WEIGHTS["analyst"]),
         (audited, WORLDVIEW_WEIGHTS["audited"]),
         (apply_redteam(audited, redteam, "outside_view"), WORLDVIEW_WEIGHTS["outside_view"]),
         (apply_redteam(audited, redteam, "structural_break"), WORLDVIEW_WEIGHTS["structural_break"]),
