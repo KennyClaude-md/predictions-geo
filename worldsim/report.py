@@ -124,7 +124,7 @@ class ReportBuilder:
             "something that reorders the world outranks a near-certainty that doesn't."
         )
         self.w()
-        self.w("| # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Sev |")
+        self.w("| # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Impact |")
         self.w("|---|-------|--------:|--------:|--------:|:---------------:|----:|")
         for i, r in enumerate(self.ctx["headline"], 1):
             self.w(
@@ -139,26 +139,33 @@ class ReportBuilder:
         self.w()
         self.w(
             "Individual probabilities are the easy part. The question that actually "
-            "determines whether the 2030s feel survivable is how many serious shocks "
-            "land, and whether they land together."
+            "determines how the 2030s feel is how many high-impact events land, and "
+            "whether they land together."
         )
         self.w()
-        self.w("| Statistic (through 2036) | Value |")
-        self.w("|---|---|")
-        self.w(f"| Expected number of severity ≥ 6 events | **{a['expected_severe_events']:.1f}** |")
-        d = a["severe_event_deciles"]
         self.w(
-            f"| Severe-event count, 10th–90th percentile | {d[0]:.0f} – {d[4]:.0f} "
-            f"(median {d[2]:.0f}) |"
+            "**Read the impact rating carefully.** Analysts were asked for *global "
+            "systemic impact if it occurs*, where 10 is civilization-altering — that is "
+            "a measure of magnitude, not of badness. A transformative AI capability "
+            "milestone legitimately scores 9 on it. These are high-impact events, not a "
+            "count of catastrophes."
         )
-        self.w(f"| P(no severity ≥ 6 event at all) | {pct(a['p_zero_severe'])} |")
-        self.w(f"| P(3 or more severe events) | {pct(a['p_ge_3_severe'])} |")
-        self.w(f"| P(5 or more severe events) | {pct(a['p_ge_5_severe'])} |")
-        self.w(f"| P(at least one severity ≥ 8 event) | **{pct(a['p_any_catastrophic'])}** |")
-        self.w(f"| P(two or more severity ≥ 8 events) | {pct(a['p_two_plus_catastrophic'])} |")
+        self.w()
+        self.w("| Impact tier | Nodes | Expected count | Median | P(none) | P(≥2) | P(≥3) |")
+        self.w("|---|---:|---:|---:|---:|---:|---:|")
+        for thr in (6, 7, 8, 9):
+            t = a["tiers"][f"ge{thr}"]
+            self.w(
+                f"| **{thr}+ / 10** | {t['n_nodes']} | {t['expected']:.1f} | "
+                f"{t['deciles'][2]:.0f} | {pct(t['p_zero'])} | {pct(t['p_ge_2'])} | "
+                f"{pct(t['p_ge_3'])} |"
+            )
         self.w()
         self.w(self.ctx["aggregate_commentary"])
         self.w()
+        if self.ctx.get("severity_note"):
+            self.w(self.ctx["severity_note"])
+            self.w()
 
     def _archetypes(self) -> None:
         self.w("## Scenario archetypes")
@@ -188,7 +195,7 @@ class ReportBuilder:
         for dom, rows in self.ctx["by_domain"].items():
             self.w(f"### {DOMAIN_TITLES.get(dom, dom)}")
             self.w()
-            self.w("| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |")
+            self.w("| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |")
             self.w("|---|---:|---:|---:|:---:|---:|---|")
             for r in rows:
                 timing = (
@@ -278,7 +285,7 @@ class ReportBuilder:
             "else."
         )
         self.w()
-        self.w("| Event | Variance share | P(by 2036) | Severity |")
+        self.w("| Event | Variance share | P(by 2036) | Impact |")
         self.w("|---|---:|---:|---:|")
         for s in self.ctx["sensitivity"]:
             self.w(

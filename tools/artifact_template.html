@@ -348,10 +348,12 @@
   <div class="sec-head">
     <h2>The topline</h2>
     <p class="lede">Individual probabilities are the easy part. What determines how the decade
-      actually feels is how many serious shocks land — and whether they land together.</p>
+      actually feels is how many high-impact events land — and whether they land together.</p>
   </div>
   <div class="tiles" id="tiles"></div>
   <p class="note" id="topline-note"></p>
+  <div class="tbl-wrap" style="margin-top:22px"><table id="tier-table"></table></div>
+  <p class="lede" id="severity-note" style="margin-top:20px"></p>
 </section>
 
 <section id="stress">
@@ -521,8 +523,12 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  const sevClass = (s) => s >= 8 ? "sev-crit" : s >= 6 ? "sev-high" : s >= 4 ? "sev-mod" : "sev-low";
-  const sevLabel = (s) => s >= 8 ? "CRITICAL" : s >= 6 ? "SEVERE" : s >= 4 ? "SERIOUS" : "MODERATE";
+  // Severity is *impact magnitude*, not badness — analysts scored "global systemic
+  // impact if it occurs, 10 = civilization-altering". A word like CRITICAL would
+  // misreport a transformative capability milestone as a disaster, so the chip
+  // carries the number and lets the colour do the ranking.
+  const sevClass = (s) => s >= 9 ? "sev-crit" : s >= 7 ? "sev-high" : s >= 5 ? "sev-mod" : "sev-low";
+  const sevLabel = (s) => `${s.toFixed(0)}/10`;
 
   // ---- tooltip -----------------------------------------------------------
   const tip = $("tip");
@@ -559,6 +565,19 @@
       <span class="sub">${esc(t.sub)}</span>
     </div>`).join("");
   $("topline-note").innerHTML = D.topline_note;
+  $("severity-note").innerHTML = D.severity_note || "";
+
+  $("tier-table").innerHTML =
+    `<thead><tr><th>Impact tier</th><th>Nodes</th><th>Expected</th><th>Median</th>
+      <th>P(none)</th><th>P(2+)</th><th>P(3+)</th></tr></thead><tbody>` +
+    D.tiers.map((t) => `<tr>
+      <td class="name">${esc(t.label)}</td>
+      <td class="num">${t.n_nodes}</td>
+      <td class="num lead">${t.expected.toFixed(1)}</td>
+      <td class="num">${t.median.toFixed(0)}</td>
+      <td class="num">${pct(t.p_zero)}</td>
+      <td class="num">${pct(t.p_ge_2)}</td>
+      <td class="num">${pct(t.p_ge_3)}</td></tr>`).join("") + `</tbody>`;
 
   // ---- fan chart ---------------------------------------------------------
   function fanChart() {
@@ -682,10 +701,13 @@
       // Credible interval whisker, drawn over the bar with a surface-coloured gap.
       const x1 = X(r.lo2036), x2 = X(r.hi2036);
       if (x2 - x1 > 2) {
-        g.appendChild(el("line", { x1, x2, y1: cy, y2: cy,
-          stroke: "var(--ink-3)", "stroke-width": 1 }));
-        [x1, x2].forEach((x) => g.appendChild(el("line", { x1: x, x2: x, y1: cy - 5, y2: cy + 5,
-          stroke: "var(--ink-3)", "stroke-width": 1 })));
+        // Surface ring first, mark on top: the whisker crosses the bar it
+        // annotates, and a bare 1px line disappears into the fill.
+        for (const [w, col] of [[4, "var(--surface)"], [1, "var(--ink-3)"]]) {
+          g.appendChild(el("line", { x1, x2, y1: cy, y2: cy, stroke: col, "stroke-width": w }));
+          [x1, x2].forEach((x) => g.appendChild(el("line", {
+            x1: x, x2: x, y1: cy - 5, y2: cy + 5, stroke: col, "stroke-width": w })));
+        }
       }
 
       g.appendChild(el("text", { x: X(r.p2036) + 9, y: cy + 4, fill: "var(--ink)",
@@ -724,7 +746,7 @@
   // ---- tables ------------------------------------------------------------
   $("headline-table").innerHTML =
     `<thead><tr><th>Event</th><th>Domain</th><th>by 2027</th><th>by 2031</th>
-      <th>by 2036 (90% band)</th><th>Severity</th></tr></thead><tbody>` +
+      <th>by 2036 (90% band)</th><th>Impact</th></tr></thead><tbody>` +
     D.headline.map((r) => `<tr>
       <td class="name">${esc(r.name)}</td>
       <td class="num" style="text-align:left;font-size:11px;color:var(--ink-3)">${esc(r.domain_label)}</td>
@@ -749,7 +771,7 @@
       <td class="num">${pct(p.cond)}</td></tr>`).join("") + `</tbody>`;
 
   $("sens-table").innerHTML =
-    `<thead><tr><th>Event</th><th>Variance share</th><th>P(by 2036)</th><th>Severity</th></tr></thead><tbody>` +
+    `<thead><tr><th>Event</th><th>Variance share</th><th>P(by 2036)</th><th>Impact</th></tr></thead><tbody>` +
     D.sensitivity.map((s) => `<tr><td class="name">${esc(s.name)}</td>
       <td class="num lead">${(s.share * 100).toFixed(1)}%</td>
       <td class="num">${pct(s.p2036)}</td>
@@ -794,7 +816,7 @@
       <summary>${esc(d.label)} — ${d.rows.length} nodes</summary>
       <div class="tbl-wrap"><table>
         <thead><tr><th>Event</th><th>2027</th><th>2031</th><th>by 2036 (90% band)</th>
-          <th>Severity</th><th>Median timing</th></tr></thead>
+          <th>Impact</th><th>Median timing</th></tr></thead>
         <tbody>${d.rows.map((r) => `<tr>
           <td class="name">${esc(r.name)}</td>
           <td class="num">${pct(r.p2027)}</td><td class="num">${pct(r.p2031)}</td>

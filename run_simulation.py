@@ -256,6 +256,7 @@ def _assemble(
         "by_domain": by_domain,
         "aggregate": agg,
         "aggregate_commentary": _agg_commentary(agg),
+        "severity_note": _severity_note(all_rows, valence),
         "archetypes": labelled,
         "chains": chains,
         "chain_commentary": _chain_commentary(chains),
@@ -269,13 +270,48 @@ def _assemble(
 
 
 def _agg_commentary(a: dict) -> str:
+    t6, t9 = a["tiers"]["ge6"], a["tiers"]["ge9"]
     return (
-        f"The modal decade contains {a['severe_event_deciles'][2]:.0f} events the model "
-        f"rates severity 6 or above, and the probability of getting through to 2036 with "
-        f"none is {a['p_zero_severe']*100:.0f}%. That asymmetry is the single most robust "
-        f"finding here: across every worldview and every parameter draw, a decade with no "
-        f"major disruption is a tail outcome, not the base case. The interesting variance "
-        f"is not *whether* shocks arrive but whether they arrive spaced out or together."
+        f"The 6+ band is broad — it contains a US recession alongside a Taiwan "
+        f"contingency — so the headline that the median decade fires "
+        f"{t6['deciles'][2]:.0f} of its {t6['n_nodes']} nodes says less about danger "
+        f"than it first appears. The discriminating number is the tier above: across "
+        f"{t9['n_nodes']} nodes rated 9 or 10 for global impact, the model expects "
+        f"{t9['expected']:.1f} of them this decade, puts {t9['p_ge_1']*100:.0f}% on at "
+        f"least one and {t9['p_ge_2']*100:.0f}% on two or more. That is the finding: a "
+        f"decade with no order-changing event is a minority outcome, and the interesting "
+        f"variance is not *whether* they arrive but whether they arrive spaced out or "
+        f"together."
+    )
+
+
+def _severity_note(rows, valence) -> str:
+    """Surface rater drift in the report rather than only in the validator log."""
+    import collections
+
+    by_dom = collections.defaultdict(list)
+    for r, v in zip(rows, valence):
+        if v > 0:
+            by_dom[r["domain"]].append(r["severity"])
+    if len(by_dom) < 3:
+        return ""
+    means = {d: float(np.mean(s)) for d, s in by_dom.items() if len(s) >= 4}
+    if not means:
+        return ""
+    overall = float(np.mean(list(means.values())))
+    hi = max(means, key=lambda d: means[d])
+    lo = min(means, key=lambda d: means[d])
+    if means[hi] - means[lo] < 1.2:
+        return ""
+    return (
+        f"**A caveat on cross-domain comparison.** Each domain was rated by a different "
+        f"analyst against the same nominal 0–10 scale, and they did not use it "
+        f"identically: *{hi}* averages {means[hi]:.1f} while *{lo}* averages "
+        f"{means[lo]:.1f} (overall {overall:.1f}). Some of that gap is real — great-power "
+        f"conflict genuinely carries more systemic weight than a macro data print — but "
+        f"some of it is rater drift, and it means the impact ranking tilts toward "
+        f"whichever domain scored most generously. Compare probabilities across domains "
+        f"freely; compare severities within a domain."
     )
 
 

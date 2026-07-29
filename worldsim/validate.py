@@ -166,6 +166,32 @@ def _check_severity(model: WorldModel, issues: list) -> None:
             }
         )
 
+    # Rater drift. Each domain was scored by a different analyst against the same
+    # nominal 0-10 scale, and they do not use it the same way. Where one domain
+    # sits well above the rest, its nodes dominate the stress index and the
+    # impact ranking for reasons that are about the rater, not the world.
+    by_dom: dict[str, list[float]] = {}
+    for r in model.risks.values():
+        by_dom.setdefault(r.domain, []).append(r.severity)
+    if len(by_dom) >= 3:
+        means = {d: float(np.mean(v)) for d, v in by_dom.items() if len(v) >= 4}
+        if means:
+            overall = float(np.mean(list(means.values())))
+            for d, m in sorted(means.items(), key=lambda kv: -kv[1]):
+                if abs(m - overall) >= 1.2:
+                    direction = "above" if m > overall else "below"
+                    issues.append(
+                        {
+                            "level": "warning",
+                            "kind": "severity_rater_drift",
+                            "risk": f"domain:{d}",
+                            "detail": f"mean severity {m:.2f} vs {overall:.2f} across "
+                            f"domains — this rater sits {abs(m-overall):.2f} points "
+                            f"{direction} the others, so cross-domain severity "
+                            f"comparisons are not on a common scale",
+                        }
+                    )
+
 
 def format_report(result: dict, limit: int = 40) -> str:
     lines = [

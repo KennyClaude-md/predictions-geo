@@ -19,7 +19,7 @@ Every number below is the output of a survival-process Monte Carlo, not a guess 
 
 Ranked by expected systemic impact — probability by 2036 multiplied by severity — rather than by probability alone, because a 12% chance of something that reorders the world outranks a near-certainty that doesn't.
 
-| # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Sev |
+| # | Event | by 2027 | by 2031 | by 2036 | 90% band (2036) | Impact |
 |---|-------|--------:|--------:|--------:|:---------------:|----:|
 | 1 | **Frontier agent reaches a 1-work-month 50%-reliability task horizon** | 12% | 55% | 76% | [36%–98%] | 9 |
 | 2 | **Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)** | 57% | 69% | 77% | [54%–93%] | 8 |
@@ -46,19 +46,20 @@ Ranked by expected systemic impact — probability by 2036 multiplied by severit
 
 ## The decade in aggregate
 
-Individual probabilities are the easy part. The question that actually determines whether the 2030s feel survivable is how many serious shocks land, and whether they land together.
+Individual probabilities are the easy part. The question that actually determines how the 2030s feel is how many high-impact events land, and whether they land together.
 
-| Statistic (through 2036) | Value |
-|---|---|
-| Expected number of severity ≥ 6 events | **18.8** |
-| Severe-event count, 10th–90th percentile | 15 – 22 (median 19) |
-| P(no severity ≥ 6 event at all) | <0.5% |
-| P(3 or more severe events) | >99% |
-| P(5 or more severe events) | >99% |
-| P(at least one severity ≥ 8 event) | **>99%** |
-| P(two or more severity ≥ 8 events) | 99% |
+**Read the impact rating carefully.** Analysts were asked for *global systemic impact if it occurs*, where 10 is civilization-altering — that is a measure of magnitude, not of badness. A transformative AI capability milestone legitimately scores 9 on it. These are high-impact events, not a count of catastrophes.
 
-The modal decade contains 19 events the model rates severity 6 or above, and the probability of getting through to 2036 with none is 0%. That asymmetry is the single most robust finding here: across every worldview and every parameter draw, a decade with no major disruption is a tail outcome, not the base case. The interesting variance is not *whether* shocks arrive but whether they arrive spaced out or together.
+| Impact tier | Nodes | Expected count | Median | P(none) | P(≥2) | P(≥3) |
+|---|---:|---:|---:|---:|---:|---:|
+| **6+ / 10** | 43 | 18.8 | 19 | <0.5% | >99% | >99% |
+| **7+ / 10** | 29 | 9.6 | 10 | <0.5% | >99% | >99% |
+| **8+ / 10** | 21 | 5.4 | 5 | <0.5% | 99% | 96% |
+| **9+ / 10** | 9 | 1.7 | 2 | 8.7% | 56% | 21% |
+
+The 6+ band is broad — it contains a US recession alongside a Taiwan contingency — so the headline that the median decade fires 19 of its 43 nodes says less about danger than it first appears. The discriminating number is the tier above: across 9 nodes rated 9 or 10 for global impact, the model expects 1.7 of them this decade, puts 91% on at least one and 56% on two or more. That is the finding: a decade with no order-changing event is a minority outcome, and the interesting variance is not *whether* they arrive but whether they arrive spaced out or together.
+
+**A caveat on cross-domain comparison.** Each domain was rated by a different analyst against the same nominal 0–10 scale, and they did not use it identically: *geopolitics* averages 8.1 while *climate* averages 6.1 (overall 6.8). Some of that gap is real — great-power conflict genuinely carries more systemic weight than a macro data print — but some of it is rater drift, and it means the impact ranking tilts toward whichever domain scored most generously. Compare probabilities across domains freely; compare severities within a domain.
 
 ## Scenario archetypes
 
@@ -116,7 +117,7 @@ Distinguishing features (rate within this cluster vs. overall):
 
 ### AI, compute & transformative technology
 
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
 | Frontier agent reaches a 1-work-month 50%-reliability task horizon | 12% | 55% | 76% | [36%–98%] | 9 | 2029Q4 |
 | A top-4 US hyperscaler guides annual capex down year-over-year | 16% | 61% | 81% | [58%–97%] | 6 | 2029Q4 |
@@ -162,7 +163,7 @@ Distinguishing features (rate within this cluster vs. overall):
 
 ### Great-power conflict & geopolitics
 
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
 | Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | 57% | 69% | 77% | [54%–93%] | 8 | 2027Q2 |
 | Durable Russia-Ukraine ceasefire (>=180 consecutive days) | 40% | 77% | 87% | [63%–98%] | 7 | 2028Q1 |
@@ -208,7 +209,7 @@ Distinguishing features (rate within this cluster vs. overall):
 
 ### Climate & Earth systems
 
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
 | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | 82% | 93% | 96% | [89%–99%] | 6 | 2027Q1 |
 | Global fossil CO2 emissions confirmed to have peaked | 8.7% | 50% | 79% | [56%–97%] | 7 | 2030Q3 |
@@ -254,7 +255,7 @@ Distinguishing features (rate within this cluster vs. overall):
 
 ### Global macroeconomy & finance
 
-| Event | 2027 | 2031 | 2036 | 90% band (2036) | Sev | Median timing |
+| Event | 2027 | 2031 | 2036 | 90% band (2036) | Impact | Median timing |
 |---|---:|---:|---:|:---:|---:|---|
 | US recession with NBER-dated peak in the window | 34% | 66% | 85% | [62%–98%] | 6 | 2028Q4 |
 | Global recession (world real GDP growth below 2.0% in a calendar year) | 12% | 38% | 63% | [33%–86%] | 7 | 2030Q4 |
@@ -400,7 +401,7 @@ These evolve on a Gaussian copula driven by each path's own systemic-stress inde
 
 Share of the variance in peak systemic stress attributable to each event firing at all. High-scoring nodes are the ones worth watching, because learning their resolution collapses the most uncertainty about everything else.
 
-| Event | Variance share | P(by 2036) | Severity |
+| Event | Variance share | P(by 2036) | Impact |
 |---|---:|---:|---:|
 | Frontier agent reaches a 1-work-month 50%-reliability task horizon | 2.0% | 76% | 9 |
 | Sustained effective closure of the Strait of Hormuz | 1.8% | 28% | 8 |

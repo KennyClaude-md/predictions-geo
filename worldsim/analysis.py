@@ -275,26 +275,49 @@ def first_order_sensitivity(fire_time: np.ndarray, target: np.ndarray) -> np.nda
 def aggregate_stats(
     fire_time: np.ndarray, severity: np.ndarray, gssi: np.ndarray, quarter: int
 ) -> dict:
-    """Counts of *destabilising* events only — pass signed severity.
+    """Event counts by impact tier — pass severity already zeroed on non-destabilising nodes.
 
-    Counting a durable ceasefire toward "severe events this decade" would make
-    good news raise the alarm level.
+    Reported across several thresholds rather than one, because a single cutoff
+    hides the shape. "Severity >= 6" turns out to be a wide band containing both
+    a US recession and a nuclear detonation, so any single-threshold headline
+    either sounds absurd or buries the tail.
+
+    Note that severity is *impact magnitude*, not badness: analysts were asked
+    "global systemic impact if it occurs, 10 = civilization-altering", so a
+    transformative AI capability milestone can legitimately score 9. Report these
+    as high-impact events, never as catastrophes.
     """
     hit = ((fire_time >= 0) & (fire_time <= quarter))
-    sev6 = severity >= 6
-    sev8 = severity >= 8
-    n_sev6 = hit[:, sev6].sum(axis=1)
-    n_sev8 = hit[:, sev8].sum(axis=1)
     peak = gssi[:, :quarter].max(axis=1)
+
+    tiers: dict[str, dict] = {}
+    counts: dict[int, np.ndarray] = {}
+    for thr in (6, 7, 8, 9):
+        n = hit[:, severity >= thr].sum(axis=1)
+        counts[thr] = n
+        tiers[f"ge{thr}"] = {
+            "n_nodes": int((severity >= thr).sum()),
+            "expected": float(n.mean()),
+            "deciles": np.quantile(n, [0.1, 0.25, 0.5, 0.75, 0.9]).tolist(),
+            "p_zero": float((n == 0).mean()),
+            "p_ge_1": float((n >= 1).mean()),
+            "p_ge_2": float((n >= 2).mean()),
+            "p_ge_3": float((n >= 3).mean()),
+            "p_ge_5": float((n >= 5).mean()),
+        }
+
     return {
-        "expected_severe_events": float(n_sev6.mean()),
-        "severe_event_deciles": np.quantile(n_sev6, [0.1, 0.25, 0.5, 0.75, 0.9]).tolist(),
-        "p_zero_severe": float((n_sev6 == 0).mean()),
-        "p_ge_3_severe": float((n_sev6 >= 3).mean()),
-        "p_ge_5_severe": float((n_sev6 >= 5).mean()),
-        "expected_catastrophic_events": float(n_sev8.mean()),
-        "p_any_catastrophic": float((n_sev8 >= 1).mean()),
-        "p_two_plus_catastrophic": float((n_sev8 >= 2).mean()),
+        "tiers": tiers,
+        # Kept as the primary headline pair: 6+ is the broad "notable disruption"
+        # band, 9+ is the genuinely order-changing tail.
+        "expected_severe_events": float(counts[6].mean()),
+        "severe_event_deciles": np.quantile(counts[6], [0.1, 0.25, 0.5, 0.75, 0.9]).tolist(),
+        "p_zero_severe": float((counts[6] == 0).mean()),
+        "p_ge_3_severe": float((counts[6] >= 3).mean()),
+        "p_ge_5_severe": float((counts[6] >= 5).mean()),
+        "expected_catastrophic_events": float(counts[9].mean()),
+        "p_any_catastrophic": float((counts[9] >= 1).mean()),
+        "p_two_plus_catastrophic": float((counts[9] >= 2).mean()),
         "peak_stress_quantiles": np.quantile(peak, [0.05, 0.25, 0.5, 0.75, 0.95]).tolist(),
     }
 

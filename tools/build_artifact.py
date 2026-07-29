@@ -58,29 +58,32 @@ def build(fc: dict, seed: int) -> dict:
     ]
     cal_pp = max(errs) if errs else 0.0
 
+    t9 = agg["tiers"]["ge9"]
+    t6 = agg["tiers"]["ge6"]
     tiles = [
         {
-            "label": "Severe events expected",
-            "value": f"{agg['expected_severe_events']:.1f}",
-            "sub": f"severity ≥ 6, through 2036 · 10th–90th pct "
-                   f"{agg['severe_event_deciles'][0]:.0f}–{agg['severe_event_deciles'][4]:.0f}",
+            "label": "Order-changing events",
+            "value": f"{t9['expected']:.1f}",
+            "sub": f"expected count through 2036 across the {t9['n_nodes']} nodes rated "
+                   f"9 or 10 out of 10 for global impact",
         },
         {
-            "label": "A decade with none",
-            "value": _pct(agg["p_zero_severe"]),
-            "sub": "probability no severity ≥ 6 event fires at all — the quiet case is a tail, "
-                   "not the base case",
+            "label": "A decade with none of them",
+            "value": _pct(t9["p_zero"]),
+            "sub": "probability nothing in that top tier fires at all — the quiet case is a "
+                   "tail outcome, not the base case",
         },
         {
-            "label": "At least one catastrophic",
-            "value": _pct(agg["p_any_catastrophic"]),
-            "sub": f"severity ≥ 8 · two or more: {_pct(agg['p_two_plus_catastrophic'])}",
+            "label": "Two or more at once",
+            "value": _pct(t9["p_ge_2"]),
+            "sub": f"three or more: {_pct(t9['p_ge_3'])} — the compound case, where the "
+                   f"coupling structure dominates the individual probabilities",
         },
         {
-            "label": "Three or more severe",
-            "value": _pct(agg["p_ge_3_severe"]),
-            "sub": f"five or more: {_pct(agg['p_ge_5_severe'])} — the compound case is where "
-                   f"the coupling structure dominates",
+            "label": "Notable disruptions",
+            "value": f"{t6['expected']:.0f}",
+            "sub": f"the broader 6+/10 band, out of {t6['n_nodes']} nodes — wide enough to "
+                   f"hold both a US recession and a Taiwan contingency",
         },
     ]
 
@@ -135,6 +138,19 @@ def build(fc: dict, seed: int) -> dict:
         },
         "tiles": tiles,
         "topline_note": fc["aggregate_commentary"],
+        "severity_note": fc.get("severity_note", ""),
+        "tiers": [
+            {
+                "label": f"{thr}+ / 10",
+                "n_nodes": agg["tiers"][f"ge{thr}"]["n_nodes"],
+                "expected": agg["tiers"][f"ge{thr}"]["expected"],
+                "median": agg["tiers"][f"ge{thr}"]["deciles"][2],
+                "p_zero": agg["tiers"][f"ge{thr}"]["p_zero"],
+                "p_ge_2": agg["tiers"][f"ge{thr}"]["p_ge_2"],
+                "p_ge_3": agg["tiers"][f"ge{thr}"]["p_ge_3"],
+            }
+            for thr in (6, 7, 8, 9)
+        ],
         "stress": stress,
         "headline": [row(r) for r in fc["headline"]],
         "archetypes": fc["archetypes"],
