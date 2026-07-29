@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .timeline import ANCHOR_LABELS, horizon_label, quarter_at
+from .timeline import quarter_at
 
 DOMAIN_TITLES = {
     "geopolitics": "Great-power conflict & geopolitics",

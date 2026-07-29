@@ -25,10 +25,6 @@ ANCHOR_QUARTERS = {
     "p_by_2031_pct": 22,  # end of 2031
     "p_by_2036_pct": 42,  # end of 2036
 }
-ANCHOR_LABELS = {6: "2027", 22: "2031", 42: "2036"}
-
-# Horizons we report on, beyond the elicitation anchors.
-REPORT_QUARTERS = [2, 6, 10, 14, 22, 30, 42]
 
 
 @dataclass(frozen=True)
@@ -40,10 +36,6 @@ class Quarter:
     def label(self) -> str:
         return f"{self.year}Q{self.q}"
 
-    @property
-    def decimal_year(self) -> float:
-        return self.year + (self.q - 1) * 0.25
-
 
 def quarter_at(index: int) -> Quarter:
     """Quarter reached after `index` steps. index=0 is the pre-simulation state."""
@@ -54,9 +46,6 @@ def quarter_at(index: int) -> Quarter:
 def years_elapsed(index: int) -> float:
     return index * YEARS_PER_QUARTER
 
-
-def all_quarters() -> list[Quarter]:
-    return [quarter_at(i) for i in range(1, N_QUARTERS + 1)]
 
 
 def horizon_label(index: int) -> str:

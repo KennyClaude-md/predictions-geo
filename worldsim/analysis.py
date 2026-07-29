@@ -9,7 +9,6 @@ are uncertain about the world".
 
 from __future__ import annotations
 
-from collections import Counter
 
 import numpy as np
 from scipy.cluster.vq import kmeans2
@@ -126,20 +125,6 @@ def view_disagreement(results: list[dict], quarters: list[int]) -> dict[int, np.
 # Joint structure
 # --------------------------------------------------------------------------
 
-
-def conditional_lift(
-    fire_time: np.ndarray, quarter: int, idx_a: list[int], idx_b: list[int]
-) -> tuple[np.ndarray, np.ndarray]:
-    """P(A by q | B by q) and its lift over the unconditional P(A by q)."""
-    hit = ((fire_time >= 0) & (fire_time <= quarter))
-    base = hit.mean(axis=0)
-    A = hit[:, idx_a].astype(np.float32)
-    B = hit[:, idx_b].astype(np.float32)
-    joint = (B.T @ A) / fire_time.shape[0]  # (|B|, |A|)
-    pb = B.mean(axis=0)
-    cond = joint / np.maximum(pb[:, None], 1e-9)
-    lift = cond / np.maximum(base[idx_a][None, :], 1e-9)
-    return cond, lift
 
 
 def first_chains(

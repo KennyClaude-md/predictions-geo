@@ -28,9 +28,6 @@ P_FLOOR = 0.0005
 P_CEIL = 0.995
 
 
-def clamp_prob(p: float) -> float:
-    return float(np.clip(p / 100.0 if p > 1.0 else p, P_FLOOR, P_CEIL))
-
 
 def _as_fraction(pct: float) -> float:
     return float(np.clip(pct / 100.0, P_FLOOR, P_CEIL))

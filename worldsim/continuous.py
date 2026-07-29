@@ -130,5 +130,3 @@ def simulate_continuous(
     return out
 
 
-def quantile_bands(values: np.ndarray, qs=(0.05, 0.25, 0.5, 0.75, 0.95)) -> dict:
-    return {f"p{int(q*100)}": np.quantile(values, q, axis=0).tolist() for q in qs}

@@ -20,7 +20,7 @@ import numpy as np
 from worldsim import analysis, continuous, labelling, report, validate
 from worldsim.engine import CompiledModel, SimConfig, calibrate_marginals, simulate
 from worldsim.params import build_worldviews, load_base_model
-from worldsim.timeline import ANCHOR_QUARTERS, N_QUARTERS
+from worldsim.timeline import ANCHOR_QUARTERS
 
 ROOT = Path(__file__).parent
 PARAMS = ROOT / "params"
