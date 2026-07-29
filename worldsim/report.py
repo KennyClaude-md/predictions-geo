@@ -281,8 +281,17 @@ class ReportBuilder:
         self.w(
             "Share of the variance in peak systemic stress attributable to each event "
             "firing at all. High-scoring nodes are the ones worth watching, because "
-            "learning their resolution collapses the most uncertainty about everything "
+            "learning how they resolve collapses the most uncertainty about everything "
             "else."
+        )
+        self.w()
+        self.w(
+            "*Read with one caveat:* the stress index is built from these same events, so "
+            "part of any node's score is its own contribution rather than its influence "
+            "on others. The ranking is still informative — it combines probability, "
+            "impact rating and correlation with the rest of the system in one number — "
+            "but it is not a pure causal-influence measure, and a node cannot score high "
+            "here without being either likely or heavy."
         )
         self.w()
         self.w("| Event | Variance share | P(by 2036) | Impact |")
