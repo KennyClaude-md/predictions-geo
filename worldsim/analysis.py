@@ -196,16 +196,13 @@ def archetypes(
     rng = np.random.default_rng(seed)
     sub = rng.choice(n, size=min(sample, n), replace=False)
     centroids, _ = kmeans2(Xs[sub], k, minit="++", seed=seed, iter=60)
-    d = ((Xs[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2) if n < 20000 else None
-    if d is None:
-        labels = np.empty(n, dtype=np.int32)
-        step = 50_000
-        for s in range(0, n, step):
-            block = Xs[s : s + step]
-            dd = ((block[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2)
-            labels[s : s + step] = dd.argmin(axis=1)
-    else:
-        labels = d.argmin(axis=1)
+
+    # Assign in blocks: the (n, k, features) intermediate is too big to materialise.
+    labels = np.empty(n, dtype=np.int32)
+    for s in range(0, n, 50_000):
+        block = Xs[s : s + 50_000]
+        dd = ((block[:, None, :] - centroids[None, :, :]) ** 2).sum(axis=2)
+        labels[s : s + 50_000] = dd.argmin(axis=1)
 
     clusters = []
     for c in range(k):

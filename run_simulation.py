@@ -17,7 +17,7 @@ from pathlib import Path
 
 import numpy as np
 
-from worldsim import analysis, continuous, labelling, report
+from worldsim import analysis, continuous, labelling, report, validate
 from worldsim.engine import CompiledModel, SimConfig, calibrate_marginals, simulate
 from worldsim.params import build_worldviews, load_base_model
 from worldsim.timeline import ANCHOR_QUARTERS, N_QUARTERS
@@ -37,12 +37,18 @@ def main() -> None:
     ap.add_argument("--paths", type=int, default=None, help="paths per worldview")
     ap.add_argument("--seed", type=int, default=20260729)
     ap.add_argument("--model", default=str(PARAMS / "world_model.json"))
+    ap.add_argument("--force", action="store_true", help="run despite validation errors")
     args = ap.parse_args()
 
     t0 = time.time()
     raw = json.loads(Path(args.model).read_text())
     base, meta = load_base_model(args.model)
     print(f"loaded model: {meta}")
+
+    vres = validate.check(base)
+    print(validate.format_report(vres))
+    if not vres["ok"] and not args.force:
+        raise SystemExit("validation errors present; pass --force to run anyway")
 
     if args.quick:
         cfg = SimConfig(
@@ -161,7 +167,7 @@ def _assemble(
 
     # --- archetypes -------------------------------------------------------
     feature_idx = list(np.argsort(impact)[::-1][:26])
-    arch = analysis.archetypes(ft, gssi, feature_idx, k=6, seed=cfg.seed)
+    arch = analysis.archetypes(ft, gssi, feature_idx, k=5, seed=cfg.seed)
     overall_rates = (ft[:, feature_idx] >= 0).mean(axis=0)
     labelled = labelling.label_clusters(
         arch["clusters"], feature_idx, names, domains, overall_rates
