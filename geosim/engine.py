@@ -187,6 +187,17 @@ class Simulator:
 
             # --- 2. continuous dynamics -------------------------------------
             target = P.attractor[None, :] + pd["drift"] * (t * DT)
+
+            # Regimes shift what growth and cooperation revert *toward*, rather
+            # than nudging their drift. A systemic-crisis regime does not mean
+            # growth falls forever; it means growth reverts to a lower level for
+            # as long as the regime lasts, and recovers when it ends.
+            if R and coupled:
+                if P.growth_idx >= 0:
+                    target[:, P.growth_idx] += P.regime_growth[regime]
+                if P.coop_idx >= 0:
+                    target[:, P.coop_idx] += P.regime_coop[regime] * P.scale[P.coop_idx]
+
             dx = pd["kappa"] * (target - x) * DT + pd["drift"] * DT
 
             if coupled and P.coupling_by_lag:

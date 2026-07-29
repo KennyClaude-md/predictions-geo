@@ -224,11 +224,55 @@ def test_uncertainty_decomposition():
           f"{su / sk:.2f}x")
 
 
+def test_regime_effects():
+    """Regime hazard/vol multipliers and level offsets must all bite.
+
+    The offsets are easy to load and forget to use, so this pins them: a world
+    that spends time in a crisis regime must end up with materially lower growth
+    and more events than one that never leaves the benign regime.
+    """
+    print("\n[11] regime multipliers and level offsets")
+    inds = [ind("global_gdp_growth", value=3.0, vol=1.0, mr=0.5),
+            ind("multilateral_cooperation_index", value=50.0, vol=5.0, mr=0.3)]
+    evs = [ev("e", 0.05)]
+
+    def regimes(crisis_share):
+        benign = {"name": "benign", "description": "", "initial_probability": 1 - crisis_share,
+                  "annual_persistence": 0.99, "hazard_multiplier": 1.0, "vol_multiplier": 1.0,
+                  "growth_offset": 0.0, "cooperation_offset": 0.0}
+        crisis = {"name": "crisis", "description": "", "initial_probability": crisis_share,
+                  "annual_persistence": 0.99, "hazard_multiplier": 4.0, "vol_multiplier": 2.0,
+                  "growth_offset": -3.0, "cooperation_offset": -1.5}
+        return {"regimes": [benign, crisis],
+                "regime_transition_matrix": [[0.99, 0.01], [0.01, 0.99]]}
+
+    calm = Simulator(build(inds, evs, coupling=regimes(0.02)), horizon_years=10.0, seed=11,
+                     param_uncertainty=False).run(n_paths=30_000, chunk=15_000, coupled=True,
+                                                  record_paths=0, verbose=False)
+    rough = Simulator(build(inds, evs, coupling=regimes(0.98)), horizon_years=10.0, seed=11,
+                      param_uncertainty=False).run(n_paths=30_000, chunk=15_000, coupled=True,
+                                                   record_paths=0, verbose=False)
+    g_calm = float(calm["x_final"][:, 0].mean())
+    g_rough = float(rough["x_final"][:, 0].mean())
+    check(f"growth offset bites: {g_rough:.2f} vs {g_calm:.2f}", g_rough < g_calm - 1.5,
+          f"delta {g_rough - g_calm:+.2f}pp")
+    c_calm = float(calm["x_final"][:, 1].mean())
+    c_rough = float(rough["x_final"][:, 1].mean())
+    check(f"cooperation offset bites: {c_rough:.1f} vs {c_calm:.1f}", c_rough < c_calm - 2.0)
+    e_calm = float(calm["fired"][:, 0].mean())
+    e_rough = float(rough["fired"][:, 0].mean())
+    check(f"hazard multiplier bites: {e_rough:.3f} vs {e_calm:.3f}", e_rough > e_calm + 0.1)
+    v_calm = float(calm["x_final"][:, 1].std())
+    v_rough = float(rough["x_final"][:, 1].std())
+    check(f"vol multiplier bites: sd {v_rough:.2f} vs {v_calm:.2f}", v_rough > v_calm * 1.3)
+
+
 if __name__ == "__main__":
     print("GEO-SIM engine validation")
     for fn in (test_hazard_recovery, test_absorbing, test_ou_variance, test_fat_tails,
                test_calibration, test_contagion, test_coupling_transmission, test_stabilizers,
-               test_monotonicity_and_determinism, test_uncertainty_decomposition):
+               test_monotonicity_and_determinism, test_uncertainty_decomposition,
+               test_regime_effects):
         fn()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
