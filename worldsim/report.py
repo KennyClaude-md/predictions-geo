@@ -58,6 +58,7 @@ class ReportBuilder:
         self._continuous()
         self._sensitivity()
         self._disagreement()
+        self._critiques()
         self._calendar()
         self._limits()
         return "\n".join(self.lines)
@@ -320,6 +321,41 @@ class ReportBuilder:
             vals = " | ".join(pct(v) for v in d["by_view"])
             self.w(f"| {d['name']} | {vals} | {d['spread']*100:.0f}pp |")
         self.w()
+
+    def _critiques(self) -> None:
+        crits = self.ctx.get("critiques") or []
+        if not crits:
+            return
+        self.w("## What the red team said")
+        self.w()
+        word = {1: "One lens", 2: "Two lenses", 3: "Three lenses"}.get(
+            len(crits), f"{len(crits)} lenses"
+        )
+        verb = "attacked" if len(crits) != 1 else "attacked"
+        self.w(
+            f"{word} {verb} the parameter set from different directions. Their numeric "
+            "corrections are already in the forecast, carried by their own worldviews. "
+            "Their reasoning is reproduced here because some of it is more useful than "
+            "the numbers — and because a reader deserves to see the case against the "
+            "model alongside its output."
+        )
+        self.w()
+        for c in crits:
+            self.w(f"### {c['lens']}")
+            self.w()
+            self.w(f"*{c['n_corrections']} specific corrections proposed.*")
+            self.w()
+            self.w(c["critique"])
+            self.w()
+            if c["bias"]:
+                self.w(f"**Systematic bias estimate.** {c['bias']}")
+                self.w()
+            if c["missing_scenarios"]:
+                self.w("**Scenarios it says are missing entirely:**")
+                self.w()
+                for m in c["missing_scenarios"][:8]:
+                    self.w(f"- {m}")
+                self.w()
 
     def _calendar(self) -> None:
         cal = self.ctx.get("calendar") or []

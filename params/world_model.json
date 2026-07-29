@@ -11088,6 +11088,367 @@
     ],
     "notes": "Roughly 120 candidate edges were drafted and trimmed to 89 with defensible transmission channels. Things the sampler author needs to know:\n\n(1) DEFINITIONAL NEAR-DUPLICATES. Several catalog pairs measure the same underlying state: economy_oil_120 / energy_oil_price_spike_120; climate_food_price_shock / foodwater_ffpi_above_160 (both FAO index >160); geopolitics_grid_cyberattack_nato / energy_grid_cyber_major_outage; geopolitics_iran_regime_change / politics_iran_islamic_republic_ends; geopolitics_hormuz_major_closure / economy_hormuz_closure / energy_hormuz_reclosure; ai_bio_mass_casualty / health_bioterror_attack_10_deaths; demographics_china_census_downward_revision / demographics_china_population_below_1_4bn; health_us_measles_5000_cases / health_us_measles_elimination_revoked. I encoded these as very high multipliers (15-25) at ~zero lag rather than merging nodes. Note their marginals are mutually inconsistent (Hormuz at 70/34/22%, measles at 42/88%), which signals the definitions differ more than the labels suggest \u2014 either reconcile them or force near-deterministic linkage, otherwise the sim will produce incoherent joint counts.\n\n(2) WHERE THE MASS CONCENTRATES. Four hubs carry most of the correlated tail: (a) Taiwan blockade at 14% is the pivot node \u2014 it propagates into equities, global recession, tariffs, rare earths, Chinese growth and Japan while simultaneously suppressing AI scaling and export-control relaxation; (b) Hormuz at a 70% marginal is the single highest-leverage aggravating source in the whole model, feeding oil, CPI, rates, fertilizer and food; (c) the AI capex chain (capex bust -> guide-down -> Nvidia -> S&P -> private credit -> banks -> global recession) is fully connected and will generate most correlated financial-crisis mass; (d) the food chain (El Nino -> cereal drop -> stocks-to-use -> FAO index -> export bans -> rice, then out into African unrest). Expect a fat compound-shock mode around 2027-28 combining El Nino-driven multi-breadbasket failure, a Hormuz episode, and food-price-driven political instability.\n\n(3) PROTECTIVE EDGES ARE SPARSE BUT LOAD-BEARING. geopolitics_ukraine_durable_ceasefire (78% marginal) is the main risk-off hub; without its four protective edges the model badly overstates European tail risk. economy_ai_capex_bust -> energy_us_firm_load_shed (0.55) and economy_china_sub4_growth -> energy_copper_price_shock (0.5) are the main channels by which one bad outcome reduces another.\n\n(4) LAG CONVENTIONS. Lags are years from source firing to the target's hazard multiplier taking effect. Financial contagion 0.1-0.4y; macro transmission 0.3-0.7y; political/electoral 0.5-1.5y; structural/climatic 0.7-1.5y. Zero-lag edges encode definitional nesting, not causation.\n\n(5) AVOID DOUBLE-COUNTING LATENTS AND EDGES. Several pairs are connected both by an explicit edge and by a shared latent (the Taiwan nodes, the financial cluster, the food-climate cluster). Applying both at full strength will materially overstate tail joint probabilities. Recommend either shrinking loadings ~30% where an explicit edge already exists, or applying latents only to baseline hazard before edge multipliers.\n\n(6) NEGATIVE LOADINGS ENCODE THE GOOD-WORLD DIRECTION. Arms-control deals, a US-China AI agreement, WHO re-entry, pandemic agreement entry into force, methane growth halting, polio interruption and confirmed CO2 peaking all load negatively and should co-occur in benign draws. Without them the simulation is uniformly doom-weighted, which is itself a modelling error.\n\n(7) DELIBERATE OMISSIONS. Demographic nodes (China/Japan births, India census, China population) are near-deterministic at these marginals and essentially exogenous to everything else here \u2014 treat them as slow-moving context, not cascade participants. Same for energy_solar_terawatt_year and energy_hydrogen_scale_milestone. I also declined to wire climate_heat_event_100k_deaths -> climate_srm_unilateral_deployment and several NATO-withdrawal -> EU-politics edges: plausible stories, but the evidence base does not support a specific multiplier."
   },
-  "redteam": [],
+  "redteam": [
+    {
+      "lens": "Structural-break / inside-view: where the 1950-2025 generating process is dead and the model is still sampling from it",
+      "headline_critique": "This parameter set has one systematic, diagnosable failure, and it is not \"too dramatic.\" It is that **threshold events on already-trending variables are priced as surprises rather than as trend arrivals.** Wherever a discrete risk sits on top of a continuous generator in `params/world_model.json`, the discrete node sits below what the model's own drift and quantiles imply \u2014 12 of 12 cases I checked, all in the same direction. That is a bias, not noise.\n\nThe clearest instance: `frontier_train_flop_log10` has `p10_2031 = 28.0`, sitting exactly on the 1e28 threshold. The model's own generator therefore says ~93% by 2031. The discrete node says 58%. Same pattern on `metr_horizon_log2_hours` (generator 63% terminal, node 55%, and the node is a ratchet so it should exceed terminal), `global_tfr` (39% terminal, node 20%), `china_gdp_growth` (71% for the 2031 print alone, node 52% cumulative \u2014 a cumulative below a single in-window year is a hard incoherence).\n\nThe mechanism is double-discounting. The analyst bends the trend once when setting the continuous drift (METR: naive drift 1.3 gives 8.62 by 2031, they wrote 8.1), then applies the same \"exponentials bend, base rates rule\" haircut again at the discrete node. The reference class is invoked twice against evidence it has already been charged for.\n\nWhere the regime is genuinely broken, this bites hardest. Fertility: the UN transition model assumes convergence to ~1.8 and a floor. Observed global TFR fell 2.72\u21922.25 in nine years (\u22120.05/yr) against the model's assumed \u22120.022/yr, and every WPP/IHME revision since 2015 has moved down \u2014 serially correlated revisions are the signature of a prior the data keeps breaking. China growth: \"Beijing prints within 0.3pp of target\" was generated by land finance and property, which have ended; the target now follows the economy, and the model's own \u22120.24pp/yr drift concedes it.\n\nConversely, the pure-shock geopolitical nodes (Article 5, Taiwan invasion, nuclear use, grid cyber) are defensible or mildly high. The catalog is well-calibrated on things that go bang and badly complacent on things that arrive on schedule.",
+      "specific_corrections": [
+        {
+          "risk_id": "ai_1e28_flop_run",
+          "claim": "58% by 2031 that a single training run of >=1e28 FLOP is publicly reported",
+          "direction": "too_low",
+          "suggested_pct": 85,
+          "evidence": "Largest generator contradiction in the set. The model's own continuous node frontier_train_flop_log10 has current_value 26.7, annual_drift 0.42, and p10_2031 = 28.0 \u2014 the 10th percentile world in 2031 sits EXACTLY on the 1e28 threshold. Terminal-2031 exceedance under the stated p50=28.8/p90=29.5 (implied sd 0.55) is 92.8%. Central crossing is (28.0-26.7)/0.42 = 3.1 years, i.e. late 2029. This is also a ratchet event, so path probability >= terminal probability. Corroborating own nodes: hyperscaler_capex_usd_b p50_2031=980bn, global_dc_electricity_twh p50_2031=1030. The only legitimate haircut is the 'publicly reported' clause, since labs stopped disclosing compute post-2023 \u2014 but Epoch-style capex/GPU-hour reconstruction is routinely treated as public reporting. An ~8pp disclosure discount off 93% gives 85%. 58% is the pre-2023 disclosure regime being applied to a post-2023 world."
+        },
+        {
+          "risk_id": "demographics_global_tfr_below_replacement",
+          "claim": "20% by 2031 that best-available global TFR falls below 2.1",
+          "direction": "too_low",
+          "suggested_pct": 45,
+          "evidence": "Double structural break, and the model's own generator already contradicts the node. global_tfr: current 2.23, p50_2031 = 2.12, p10_2031 = 2.03, giving implied sd 0.070 and terminal P(<2.10) = 38.8%. Because drift is downward, the path minimum is below terminal, so first-passage is ~43-46%. The node says 20% \u2014 under by a factor of 2.2 against the analyst's own numbers. Separately, the assumed drift of -0.022/yr is itself a dead-regime parameter: observed global TFR fell 2.72 (2015) to ~2.25 (2024), i.e. -0.05/yr, more than double. At -0.04/yr the threshold is crossed around 2029, inside the window. The UN demographic-transition prior assumes convergence to ~1.8 with a floor; the actual middle-income data (Thailand 0.95, Chile 1.03, Colombia 1.06, China ~1.0) show no floor and were predicted by no pre-2015 model. Serially-correlated downward WPP/IHME revisions since 2015 are the diagnostic that the prior, not the data, is wrong."
+        },
+        {
+          "risk_id": "economy_china_sub4_growth",
+          "claim": "52% by 2031 that China reports annual real GDP growth below 4.0%",
+          "direction": "too_low",
+          "suggested_pct": 78,
+          "evidence": "Hard incoherence: a cumulative any-year probability cannot sit below the probability of a single year inside the window. china_gdp_growth has p50_2031 = 3.4 and p90_2031 = 4.8 (implied sd 1.09), so P(the 2031 print alone is below 4.0) = 70.9%. I simulated the any-year-through-2031 event on the model's own declining mean path (4.36, 4.12, 3.88, 3.64, 3.40) with a common-factor correlation structure: 79% at rho=0.8, 86% at rho=0.6, 98% independent. Even at implausibly high persistence the answer is ~79%, not 52%. The base rate being defended ('two sub-4 prints in 35 years; Beijing hits target') was generated by land finance, property and export-led investment, all of which the model's own -0.24pp/yr drift concedes have ended. Beijing has already published 2.2% (2020) and 3.0% (2022), and the target now follows the economy \u2014 once the announced target is 'around 4%', a 3.8% print is politically routine."
+        },
+        {
+          "risk_id": "ai_metr_month_horizon",
+          "claim": "55% by 2031 that a frontier agent reaches a 167-hour 50%-reliability horizon",
+          "direction": "too_low",
+          "suggested_pct": 68,
+          "evidence": "Double-discounting, verifiable against the model's own numbers. metr_horizon_log2_hours: current 1.6, drift 1.3, p50_2031 = 8.1, p90_2031 = 10.8. The threshold is log2(167) = 7.38, so terminal-2031 exceedance is 63.3% on the stated quantiles alone \u2014 and this is a ratchet (published horizons do not regress), so the by-2031 probability must EXCEED terminal exceedance, putting it at 68-72%. The analyst already bent the trend once inside the generator: naive drift 1.3 over 5.4 years gives 8.62, but they wrote p50 = 8.1, an explicit deceleration haircut. Applying the 'exponentials saturate in 5-8 years' reference class again at the discrete node charges the same evidence twice. Note also their own p10_2031 = 5.4 log2 = 42 hours, meaning the stall scenario is already priced at 10%. The one legitimate residual is METR ceasing to be able to run the eval at that length, which is a resolution-infrastructure risk worth a few points, not 13."
+        },
+        {
+          "risk_id": "demographics_us_tfr_below_1_5",
+          "claim": "34% by 2031 that US total fertility rate falls below 1.50",
+          "direction": "too_low",
+          "suggested_pct": 48,
+          "evidence": "us_total_fertility_rate: current 1.585, drift -0.012, p50_2031 = 1.51, p10_2031 = 1.44, implied sd 0.055. Terminal P(<1.50) = 42.7%, and with downward drift the path minimum makes first-passage ~48-52%. The node says 34%. Beyond the arithmetic, there is a specific mechanical channel the model has in its own parameters but does not connect: us_net_international_migration has p10_2031 = -150 (negative net migration). A negative-NIM regime shrinks the 20-34 female population that forms the denominator of age-specific rates, while Hispanic-origin TFR has already converged toward non-Hispanic white levels far faster than any Census projection assumed. US TFR has fallen in every year since 2007 except 2014 and the 2021 blip; the mean-reverting post-recession-recovery prior that supports 34% belongs to the 1976-2007 regime."
+        },
+        {
+          "risk_id": "climate_year_ge_1p6c",
+          "claim": "83% by 2031 that a calendar year reaches 1.65C above pre-industrial",
+          "direction": "too_low",
+          "suggested_pct": 92,
+          "evidence": "Computed directly from the analyst's own stated distributions. Their 2027 central is 1.68C with sd 0.09 (P = 63% for that year alone); subsequent years follow the model's gmst_anomaly_era5 drift of 0.025/yr from 1.47 with sd 0.10. Multiplying the miss probabilities across 2027-2031 gives P(no year >= 1.65) = 6.6%, i.e. 93.4%. The model's own gmst p50_2031 = 1.62 with p90_2031 = 1.78 independently makes 1.65 an ordinary rather than extreme outcome by the end of the window. Structurally, the 0.025C/yr drift is itself the 1970-2020 trend applied to a post-2020 forcing regime: the 2015-2024 decadal rate ran ~0.31C/decade against the assumed 0.25, because IMO 2020 shipping-sulphur cuts and Chinese SO2 controls unmasked forcing the historical trend had suppressed. The committed-forcing break argues the generator is also under-drifted, but 92% follows from the analyst's numbers as written without needing that."
+        },
+        {
+          "risk_id": "geopolitics_new_nuclear_weapons_state",
+          "claim": "21% by 2031 that a new state tests or is confirmed to possess a nuclear weapon",
+          "direction": "too_low",
+          "suggested_pct": 28,
+          "evidence": "The 1970-2025 nonproliferation record was generated by three things that are simultaneously broken in this model's own world: a credible US extended deterrent (geo_us_milex_pct_gdp drift +0.02 while geo_europe_nato_milex_pct_gdp drifts +0.13 \u2014 the model itself encodes burden-shifting), a functioning NPT/IAEA monitoring regime (Iranian monitoring collapsed, NPT-withdrawal legislation live), and bilateral cap norms (New START expired Feb 2026; geo_deployed_strategic_warheads drift +95/yr with p50_2031 = 3720, the first sustained increase since 1986). Add the demonstration effect: a non-nuclear NPT signatory was decapitated by air campaign. Libya 2003 took eight years to teach the same lesson; this one is immediate. The brake is real and is why I move only 7 points \u2014 weaponisation has multi-year observable lead time and the criterion requires a test, declaration or public IAEA/USIC assessment. The larger error is the 2036 figure of 36%, which implies ~0.045/yr, only 1.25x the 1998-2026 rate, in a world where every restraint has been removed; 2036 should be ~46%."
+        },
+        {
+          "risk_id": "energy_global_oil_demand_peak",
+          "claim": "42% by 2031 that global oil demand declines year-on-year outside recession or supply shock",
+          "direction": "too_low",
+          "suggested_pct": 55,
+          "evidence": "Internal contradiction where the CONTINUOUS node is the dead-regime one. global_oil_demand_mbd carries drift +0.35/yr with p50_2031 = 106.3, a straight-line extrapolation. But the same parameter file has global_ev_share_pct going 22.4 to p50_2031 = 40 (drift +3.5/yr), global_solar_additions_gw p50_2031 = 880, and battery_pack_price_usd_kwh falling to 72. A 40% EV sales share compounding into the fleet subtracts roughly 1.5-2.5 mb/d of gasoline demand by 2031 relative to trend; that is not compatible with +0.35 mb/d/yr growth. The S-curve adoption regime has no analogue in the 1965-2020 oil-demand reference class the +0.35 drift is drawn from, and China \u2014 the entire source of marginal demand growth in that reference class \u2014 is now the fastest EV adopter. Either the continuous or the discrete node must move; the continuous one is anchored on the dead regime. The same critique applies to fossil_co2_emissions (drift +0.05, p50_2031 = 38.3, above the record) versus climate_fossil_co2_confirmed_peak at 52%."
+        },
+        {
+          "risk_id": "demographics_china_births_below_7m",
+          "claim": "92% by 2031 that China annual births fall below 7.0 million",
+          "direction": "too_low",
+          "suggested_pct": 96,
+          "evidence": "Slow-moving certainty under-rated \u2014 the mild version of the same bias. china_annual_births: current 7.92, drift -0.34/yr, p50_2031 = 5.9, p90_2031 = 7.4. The MEDIAN 2031 world is 2.0 million births below the threshold, and even the 90th-percentile world (7.4) is only one year of drift above it. Central crossing is (7.92-7.0)/0.34 = 2.7 years, i.e. 2029, with four subsequent years of draws. Resolving NO requires births to flatten essentially immediately and stay flat, against a cohort effect already locked in: the number of women aged 20-34 falls ~20% over the window regardless of any TFR recovery, and the model's own china_share_60_plus drift of +0.85/yr encodes that age structure. The 8pp of residual probability at 92% is doing no work the age pyramid has not already removed."
+        },
+        {
+          "risk_id": "geopolitics_us_nato_withdrawal",
+          "claim": "5% by 2031 for US initiating Article 13 withdrawal, used as the alliance-commitment node",
+          "direction": "ill_defined",
+          "suggested_pct": 4,
+          "evidence": "The number is fine; the node is measuring a dead variable. Article 13 is a treaty-membership formality never invoked in 77 years and requiring Senate consent or an act of Congress under the FY2024 NDAA. Meanwhile the actual structural break \u2014 the credibility of the guarantee \u2014 is happening entirely in continuous space the discrete catalog does not read: geo_us_milex_pct_gdp flat at drift +0.02 while geo_europe_nato_milex_pct_gdp drifts +0.13, force reductions in Germany, an explicit posture review, and a guarantee publicly conditioned on spending. A US that has withdrawn its conventional forces and conditioned Article 5 is fully hollowed out at Article 13 = 0%. Every downstream node that should depend on alliance credibility \u2014 new_nuclear_weapons_state, nato_article5_invoked, china_taiwan_quarantine_or_blockade \u2014 is therefore reading a parent that cannot fire. The fix is a replacement node: 'US formally conditions or qualifies its Article 5 commitment in an official strategy document, or withdraws >50% of permanently stationed European ground forces', which I would put at ~35% by 2031."
+        }
+      ],
+      "systematic_bias_estimate": "TOO COMPLACENT, and specifically so \u2014 not uniformly. The bias is concentrated in one identifiable node class and is close to absent elsewhere.\n\nMeasured: across the 12 nodes where a discrete threshold risk sits on top of a continuous generator in the model's own parameter file, the discrete node understates the generator-implied probability in 12 of 12 cases. Mean gap is +16.1 percentage points; mean log-odds gap is 0.87, i.e. the affected nodes run at roughly 1/2.4 of the odds their own generators imply (median 1/1.9). Directional unanimity at n=12 has a null probability of 2^-12 = 0.024%, so this is a bias, not sampling noise.\n\nDiagnosis: double-discounting. The analyst bends the trend once when eliciting the continuous drift (METR naive 8.62 written as 8.1; global TFR observed -0.05/yr written as -0.022), then applies the same base-rate/reference-class haircut again at the discrete threshold. The reference class is charged twice against evidence it has already been paid for. Because the engine calibrates baselines to reproduce the elicited discrete marginals (README: \"coupling reshapes the joint distribution, not the marginals\"), this bias survives calibration untouched \u2014 the simulation faithfully reproduces the understatement, and the continuous variables and the discrete risks can disagree by a factor of two without any test failing. That is a structural gap in the engine, not just in the parameters: there is no consistency check binding a threshold node to its own generator.\n\nScope: I would apply a +1.9x to +2.4x odds correction to roughly 25-35 of the 159 nodes \u2014 the trend-arrival class (AI compute and capability, fertility, China growth, committed climate forcing, JGB/UST/reserve-share duration nodes, EV and oil demand). Median correction for those: +12 to +25pp.\n\nFor the pure-shock class \u2014 Article 5, Taiwan invasion, nuclear use in anger, grid cyberattack, AMOC tipping, unilateral SRM, UNSC expansion \u2014 the parameters are defensible or mildly too dramatic, and I would not move them upward on structural-break grounds. Several (grid_cyberattack_nato 20%, wetbulb_35c 30%, arctic_practically_ice_free 4%) are too high against zero-instance records.\n\nNet verdict: too complacent by roughly 1.5x in odds on the affected subset, approximately unbiased on the shock subset, therefore mildly too complacent overall. The catalog is well-calibrated on things that go bang and poorly calibrated on things that arrive on schedule \u2014 exactly backwards for a decade in which the arriving things are the ones whose generating processes have changed.",
+      "missing_scenarios": [
+        "Nuclear uploading with no discrete node. The model forecasts geo_deployed_strategic_warheads rising +95/yr to a 2031 median of 3720, yet there is no risk for 'US or Russia publicly exceeds the former New START ceiling of 1,550 deployed strategic warheads.' That is the most legible, most likely-to-fire post-arms-control event in the window (~55% by 2031), and the natural parent for new_nuclear_weapons_state, us_russia_strategic_arms_deal and dprk_nuclear_test. Its absence means the proliferation cascade runs off Iran and ROK narratives rather than off the arms-race variable the model already tracks.",
+        "Taiwan semiconductor disruption decoupled from military action. The catalog prices invasion (6%) and quarantine (14%) but has no node for 'TSMC advanced-node (<=5nm) output falls >=50% for >=3 months for any cause.' The transmission channel that makes Taiwan matter to the economy and AI domains can fire without a shot: a Hualien-class earthquake, grid instability under AI load, a cyber incident, or an export-control action on Taiwan-fabbed Chinese-designed silicon. Conditioning the semiconductor shock exclusively on PLA action understates it substantially; I would put the disruption node at ~18% by 2031 against a ~20% union of the military nodes.",
+        "State capture or requisition of frontier compute. The catalog has ai_state_datacenter_moratorium (58%) and ai_export_controls_relaxed (42%) but nothing in the seizure direction: a US Defense Production Act invocation over datacenter capacity or GPU allocation, a sovereign taking an equity or golden-share position in a frontier lab, or a national-security review blocking a training run. With hyperscaler_capex_usd_b at a 2031 median of 980bn and frontier_lab_arr_usd_b at 350bn, compute becomes strategically indistinguishable from enrichment capacity, and the historical analogue (uranium, telecoms, 1980s semiconductors) is state intervention, not laissez-faire. ~30% by 2031.",
+        "Extended-deterrence intermediate step. Between the status quo and geopolitics_new_nuclear_weapons_state there is a far more likely observable that is absent: 'a US ally formally requests, or the US agrees to, forward-deployment of US nuclear weapons or a NATO-style nuclear-sharing arrangement in ROK, Poland, or Japan.' This is the step that either relieves or confirms proliferation pressure, has live political support in two of the three, and fires years before any indigenous programme would. ~30% by 2031. Without it the proliferation node has no early-warning parent and the cascade is all-or-nothing.",
+        "Upward revision of committed warming. Every climate node treats the forcing as known and asks only whether thresholds are crossed. There is no node for 'IPCC AR7, WMO, or an equivalent assessment formally revises equilibrium climate sensitivity, the aerosol-masking term, or the remaining 1.5C carbon budget materially upward.' The 2023-2024 anomaly the analyst repeatedly calls partly unexplained is precisely the observation that would force such a revision, and AR7 lands inside the window. This is the climate analogue of a parameter-world shift and would move a dozen downstream nodes at once. ~35% by 2031.",
+        "Demographic repricing event. The catalog covers births and TFR thresholds but not the institutional consequence that makes them matter: 'UN WPP or a G7 sovereign officially revises its long-run population or dependency-ratio projection down enough to trigger a pension or sovereign-debt reassessment (a rating action, or a statutory retirement-age change of >=2 years in a G7 country).' Fertility collapse transmits to the economy domain through fiscal projections, not birth counts, and no node currently carries that edge. ~40% by 2031.",
+        "Collapse of the AI evaluation and disclosure regime. Several AI nodes (ai_metr_month_horizon, ai_1e28_flop_run, ai_china_leaderboard_top) depend on third parties continuing to measure and publish. There is no node for 'frontier labs collectively cease providing pre-deployment access to independent evaluators, or compute ceases to be reconstructable from public data.' This is a resolution-infrastructure risk that would render multiple nodes permanently NO regardless of underlying capability \u2014 a systematic downward bias on the whole AI block currently smuggled into the capability estimates rather than modelled explicitly. ~25% by 2031."
+      ]
+    },
+    {
+      "lens": "Outside-view / base-rate hazard audit: implied per-year hazards recomputed from each p2031 and compared against the model's own stated reference classes and the 75-year historical record",
+      "headline_critique": "Converting every p2031 to a per-year hazard (window = 5.42 years, h = -ln(1-p)/5.42) and comparing it to the base_rate_anchor the model itself wrote produces one clean, quantified finding: **the catalog discounts what it has counted and inflates what it has not.**\n\nFor nodes whose reference class contains zero or one historical instance, the implied hazard runs 2-8x the model's own stated base rate. politics_us_open_defiance_supreme_court: anchor \"under 0.5%/yr\", implied 4.1%/yr (8.2x). politics_us_armed_federal_state_confrontation: anchor \"well under 0.5%/yr\", implied 2.6%/yr \u2014 above even the rule-of-three 95% upper bound (3/150 = 2.0%/yr) for 150 years of zeros. geopolitics_grid_cyberattack_nato: anchor \"well under 1%/yr\", implied 4.1%/yr, for an event two-to-three orders of magnitude beyond anything ever achieved (Ukraine 2015: 230k customers, 6 hours). climate_wetbulb_35c_sustained implies 6.6%/yr for a three-hour exceedance with zero confirmed instances in 45 years.\n\nFor nodes whose reference class is well populated, the implied hazard runs 0.5-0.75x the stated base rate. foodwater_livestock_epizootic_g20: anchor 50-55%/yr, implied 26%/yr \u2014 the model halved its own number. economy_large_bank_failure: anchor ~10%/yr, implied 5.5%/yr. health_pandemic_1m_deaths: anchor post-1970 3.6%/yr, implied 2.36%/yr, discounted for \"improved countermeasures\" that COVID already falsified. politics_us_federal_official_assassinated: anchor ~3%/yr, implied 2.35%/yr, in a scenario the model elsewhere describes as the most violent US political environment in decades. politics_xi_departure rests on a base-rate anchor that counts only Hua Guofeng, omitting Hu Yaobang (1987) and Zhao Ziyang (1989) \u2014 both sitting General Secretaries removed, which is exactly what the criterion asks \u2014 understating the political-removal hazard by roughly an order of magnitude.\n\nMedian ratio (implied hazard \u00f7 own anchor): ~3.5x for zero-instance classes, ~0.65x for populated classes. That ~5x divergence is the signature of narrative-driven rather than frequency-driven parameterization. Separately, the duplicate-family resolver picks geopolitics_hormuz_major_closure (70%) as representative over economy_hormuz_closure (22%) and energy_hormuz_reclosure (34%) \u2014 selecting the member with the *strictest* bar and the *highest* probability, a logical nesting inversion that propagates the most dramatic member into the simulation.",
+      "specific_corrections": [
+        {
+          "risk_id": "politics_us_open_defiance_supreme_court",
+          "claim": "20% by 2031 that the executive openly defies a final, non-stayed SCOTUS order for 30+ days",
+          "direction": "too_high",
+          "suggested_pct": 8,
+          "evidence": "Implied hazard 4.1%/yr against the model's OWN stated anchor of 'under 0.5%/yr' \u2014 an 8.2x uplift with no explicit evidence budget. Zero clean instances in 235 years (Jackson 1832: no order existed; Merryman 1861: circuit court; Nixon 1974: complied). The criterion additionally excludes 'slow-walking with a colorable legal argument', which is the modal real-world behaviour and the only thing observed to date. 8% still prices a 3x uplift over the historical rate."
+        },
+        {
+          "risk_id": "politics_us_armed_federal_state_confrontation",
+          "claim": "13% by 2031 of an armed state-vs-federal confrontation producing a death or a gunpoint detention",
+          "direction": "too_high",
+          "suggested_pct": 4,
+          "evidence": "Implied 2.6%/yr against zero fatal state-vs-federal armed clashes in ~150 years. Rule of three on 0 events in 150 years gives a 95% upper bound of 3/150 = 2.0%/yr \u2014 the model's implied hazard exceeds the upper confidence bound of its own reference class. Little Rock 1957 and Ole Miss 1962-63 are the nearest analogues and both terminated via federalization without an exchange of fire, i.e. the historical resolution mechanism is de-escalation."
+        },
+        {
+          "risk_id": "geopolitics_grid_cyberattack_nato",
+          "claim": "20% by 2031 of a state-attributed cyberattack cutting power to 1m+ people for 24h+ in NATO/OECD",
+          "direction": "too_high",
+          "suggested_pct": 8,
+          "evidence": "Implied 4.1%/yr against the model's own anchor of 'well under 1%/yr'. The entire world record is Ukraine Dec-2015 (230k customers, ~6h) and Kyiv Dec-2016 (~1h): the population x duration product is 2-3 orders of magnitude short, achieved against the most exposed grid in Europe after years of pre-positioned access. Decisive missing evidence: no intermediate event (100k people, 6h) has ever occurred in a NATO state. A true 4%/yr hazard at the 1M/24h level would imply multiple observed intermediate events; observed count is zero in 11 years of demonstrated capability."
+        },
+        {
+          "risk_id": "energy_grid_physical_sabotage_major",
+          "claim": "20% by 2031 of physical sabotage cutting 500k+ customers for 24h+ in an OECD country",
+          "direction": "too_high",
+          "suggested_pct": 8,
+          "evidence": "Implied 4.1%/yr against the model's own anchor: 5-8 notable attacks in 13 years, largest outage 45,000 customers (Moore County 2022), 'zero at the 500k threshold, base rate under 1%/yr'. That is a 4x uplift over a self-stated rate. Also note this node and geopolitics_grid_cyberattack_nato jointly assign ~36% to a major OECD grid-down event by 2031 by adversarial means, while the catalog contains no node at all for the better-evidenced natural pathway (geomagnetic storm)."
+        },
+        {
+          "risk_id": "geopolitics_hormuz_major_closure",
+          "claim": "70% by 2031 of a 30+ day episode with Hormuz crude transit below 50% of baseline",
+          "direction": "too_high",
+          "suggested_pct": 42,
+          "evidence": "Nesting inversion: this is the STRICTEST of three Hormuz nodes (>=30 days sub-50%) yet carries the HIGHEST probability \u2014 70% versus economy_hormuz_closure at 22% (same 50% threshold, only 14 days) and energy_hormuz_reclosure at 34% (14 days). P(30-day) must be <= P(14-day) by construction. Worse, params/duplicate_families.json elects this node as the family representative and suppresses the other two, so the most dramatic and least logically coherent member is what the simulation actually consumes. Historical anchor: never closed at this threshold in 60 years, including 450 ships hit during the 1984-88 Tanker War. 42% reconciles the family upward from the 14-day nodes while respecting the ordering."
+        },
+        {
+          "risk_id": "climate_wetbulb_35c_sustained",
+          "claim": "30% by 2031 of a verified 3-hour sustained wet-bulb 35C observation",
+          "direction": "too_high",
+          "suggested_pct": 15,
+          "evidence": "Implied 6.6%/yr for an event with zero confirmed instances in 45 years, out of roughly 1,000 documented station-hours of brief (1-2h) exceedance. The criterion also requires quality control plus peer-reviewed or national-met-service confirmation, which adds a multi-year publication lag on top of the physical event. The model's own contrarian case notes the binding constraint may be instrumentation \u2014 which lowers the RESOLVABLE probability even where it raises the physical one."
+        },
+        {
+          "risk_id": "climate_arctic_practically_ice_free",
+          "claim": "4% by 2031 of NSIDC daily extent below 1.0 million km2",
+          "direction": "too_high",
+          "suggested_pct": 1,
+          "evidence": "Requires a ~77% single-year collapse from a 4.2-4.7 million km2 September minimum. The largest single-year drop in 47 years of satellite record is 2012 at -18%. The 1979-2026 trend of -0.08 million km2/yr places the central crossing in the 2050s-2060s; even the earliest-tail literature clusters in the 2030s. Under the model's own continuous arctic node (drift -0.06, vol 0.42) this is roughly a 7-sigma excursion by 2031."
+        },
+        {
+          "risk_id": "ai_china_domestic_euv",
+          "claim": "42% by 2031 that China demonstrates a domestic EUV scanner patterning wafers in a production fab",
+          "direction": "too_high",
+          "suggested_pct": 25,
+          "evidence": "The model's own anchor: ASML took ~17 years from program start to HVM with an unsanctioned global supply chain (Zeiss optics, Cymer sources, TRUMPF lasers), and Soviet/Chinese replication of monopoly capital equipment historically ran 10-20 years behind. China's program is 6-8 years old, so by 2031 it is 11-13 years old under export controls that deny precisely the subsystems ASML did not have to build alone. Base rate of a second national entrant to EUV in 20 years: zero, including Japan and South Korea, who were not sanctioned. The criterion further requires a commercial production fab, not a lab demonstration."
+        },
+        {
+          "risk_id": "demographics_g7_immigration_collapse",
+          "claim": "15% by 2031 that a G7 country cuts permanent immigration by three quarters",
+          "direction": "too_high",
+          "suggested_pct": 7,
+          "evidence": "The model's own anchor gives 1-2% per country-decade, i.e. 4-8% across 7 countries over the 0.54-decade window before any adjustment \u2014 the posted 15% is a 2-3x uplift stated without an evidence budget. Only two clean precedents in a century (Johnson-Reed 1924, the 1930s administrative shutdown). Observed current moves are an order of magnitude smaller: Canada's PR target cut is ~21%, and the deepest modern US single-year fall (FY2020, a pandemic year with consulates closed) was ~40%, not 75%."
+        },
+        {
+          "risk_id": "demographics_africa_youth_uprisings",
+          "claim": "33% by 2031 that youth-led protests topple 3+ SSA governments in a 36-month window",
+          "direction": "too_high",
+          "suggested_pct": 20,
+          "evidence": "The model's own anchor is 0.19 qualifying removals/yr continent-wide (Burkina 2014, Sudan 2019, Madagascar 2025). Poisson at that rate gives P(>=3 in a 36-month window) = 2.1%. Reaching 33% cumulative over 5.4 years requires sustaining roughly 3x the historical rate for the entire window \u2014 a contagion assumption the reasoning asserts but does not evidence beyond one recent cluster. 20% already embeds a 2.5x contagion multiplier."
+        },
+        {
+          "risk_id": "foodwater_livestock_epizootic_g20",
+          "claim": "76% by 2031 of a 10%+ epizootic-driven drop in a G20 poultry or pig inventory",
+          "direction": "too_low",
+          "suggested_pct": 92,
+          "evidence": "The model's own anchor says '6-7 events in 12 years across the G20, roughly 50-55%/yr'. At 52%/yr, P(at least one in 5.42 years) = 1 - exp(-0.52*5.42) = 94%. The posted 76% implies 26%/yr \u2014 the model halved its own stated frequency with no justification. Qualifying events have occurred in 2015, 2019, 2021, 2022 and 2024-25; the HPAI panzootic is currently active in wild birds on every continent."
+        },
+        {
+          "risk_id": "health_pandemic_1m_deaths",
+          "claim": "12% by 2031 that a newly emerged pathogen causes 1m+ cumulative deaths",
+          "direction": "too_low",
+          "suggested_pct": 18,
+          "evidence": "Implied 2.36%/yr against the model's own post-1970 anchor of 3.6%/yr (HIV, COVID in 56 years), which gives 17.9% over 5.42 years. The stated haircut is 'improved countermeasures' \u2014 an adjustment COVID directly falsified, having killed ~7m with modern countermeasures inside the post-1970 window that generated the anchor. This is the highest-severity node in the health domain (sev 10) and it is priced below its own reference class."
+        },
+        {
+          "risk_id": "health_influenza_pandemic_declared",
+          "claim": "19% by 2031 that WHO declares an influenza pandemic",
+          "direction": "too_low",
+          "suggested_pct": 26,
+          "evidence": "The 19% reproduces a Poisson lambda of 0.04/yr derived from 4-5 recognized pandemics in 108 years. But the criterion is strictly broader than 'recognized pandemic': it also fires on a PHEIC for a novel influenza A with sustained transmission in two WHO regions \u2014 a lower bar than the reference class that generated lambda. WHO's post-2009 declaration threshold is also demonstrably lower (8 PHEICs in 17 years across all pathogens). Conditioning on an unprecedented H5N1 panzootic in dairy cattle and poultry, 26% (5.5%/yr) is the coherent number."
+        },
+        {
+          "risk_id": "economy_large_bank_failure",
+          "claim": "26% by 2031 of failure or extraordinary rescue of a >$250bn bank",
+          "direction": "too_low",
+          "suggested_pct": 36,
+          "evidence": "Implied 5.5%/yr against the model's own anchor of 'roughly 10% per year unconditionally' (two clusters in 20 years: 2008, 2023), which compounds to 42% over 5.42 years. The stated discount is post-2023 capital and HQLA \u2014 but the criterion explicitly counts state-brokered mergers, extraordinary capital injections and bespoke central bank facilities, which is exactly what stronger, faster authorities produce. Better capitalization shifts mass from the 'failure' branch to the 'rescue' branch that the criterion also captures; it does not remove it."
+        },
+        {
+          "risk_id": "politics_us_federal_official_assassinated",
+          "claim": "12% by 2031 of a successful assassination of a sitting senior US federal official",
+          "direction": "too_low",
+          "suggested_pct": 17,
+          "evidence": "Implied 2.35%/yr against the model's own anchor of ~3%/yr (JFK 1963, Rep. Leo Ryan 1978 in 63 years), which gives 15.7% over the window. The model then discounts below its own base rate while simultaneously listing an escalating attempt series (Giffords 2011, Scalise 2017, Trump 2024 x2) and pricing politics_us_mass_casualty_political_attack at 60%. Attempt frequency is the leading indicator and it is rising, so the correct adjustment from 3%/yr is upward, not downward."
+        },
+        {
+          "risk_id": "politics_xi_departure",
+          "claim": "15% by 2031 that Xi ceases to be CCP General Secretary for 60+ days",
+          "direction": "too_low",
+          "suggested_pct": 22,
+          "evidence": "The base_rate_anchor is defective: it counts 'irregular removal of a sitting CCP paramount leader \u2014 Hua Guofeng is the only clean post-1949 case, ~1.4%/decade'. But the criterion asks about the General Secretary post, and Hu Yaobang (1987) and Zhao Ziyang (1989) were both sitting General Secretaries removed mid-term. Three removals in 76 years is ~3.9%/yr, not 0.14%/yr \u2014 a ~28x understatement of the political term. Adding actuarial mortality for a 73-year-old male with elite care (~2%/yr) gives a combined 4-6%/yr, i.e. 20-28% over 5.42 years. Note the current 15% is barely above pure actuarial death risk (~10%), implying ~5% for all political removal over five years."
+        },
+        {
+          "risk_id": "politics_us_mass_casualty_political_attack",
+          "claim": "60% by 2031 of a single US ideologically motivated attack killing 10+",
+          "direction": "too_low",
+          "suggested_pct": 70,
+          "evidence": "The model's own anchor lists 8 events in 31 years = ~26%/yr, which gives 76% over 5.42 years; it then adopts the lower recent-five-year rate (~15%/yr) to justify 60%. Selecting the low sub-sample is unjustified in a scenario the same catalog describes as containing rising political violence, an Insurrection Act fight (42%) and an assassination environment. Even a blended 22%/yr gives 70%."
+        },
+        {
+          "risk_id": "energy_nuclear_accident_ines5",
+          "claim": "11% by 2031 of an INES Level 5+ event at a civil reactor or spent fuel facility",
+          "direction": "too_low",
+          "suggested_pct": 16,
+          "evidence": "Implied 2.15%/yr, which is below the model's own stated post-1990 rate of 2.8%/yr (1 event in 36 years) \u2014 before the upward adjustment for war risk that the anchor says it applies. Full-record rate is 4 events in ~70 years = 5.7%/yr. Global reactor count has grown roughly tenfold since the early record, Zaporizhzhia sits in an active war zone with repeated offsite-power losses, and a large newbuild and life-extension wave is underway. 16% corresponds to ~3.2%/yr, i.e. the post-1990 rate plus the war-risk adjustment the model claimed but did not make."
+        },
+        {
+          "risk_id": "geopolitics_us_russia_strategic_arms_deal",
+          "claim": "30% by 2031 of a new US-Russia deployed-warhead cap",
+          "direction": "too_low",
+          "suggested_pct": 40,
+          "evidence": "Six agreements in 54 years is ~11%/yr unconditional, giving 45% over 5.42 years. The criterion is deliberately permissive \u2014 it counts a 'formal reciprocal political commitment announced by both heads of state', requiring no ratification and no verification, which is a far cheaper instrument than the treaties that generated the base rate. The window also contains the model's own near-necessary precondition (Ukraine ceasefire at 78%) and a US presidential election. A full decade with no cap of any kind, including a communique, would be the longest gap since 1972."
+        },
+        {
+          "risk_id": "climate_food_price_shock",
+          "claim": "33% by 2031 that FAO FPI exceeds 160 in any month, versus foodwater_ffpi_above_160 at 42% for the identical threshold on the identical index",
+          "direction": "ill_defined",
+          "suggested_pct": 38,
+          "evidence": "params/duplicate_families.json itself flags these as a 'duplicate' family with the note 'Identical threshold on the identical index', yet the two nodes carry a 9-point spread and the resolver simply elects the higher one (42%) and suppresses the lower. Two analysts pricing the same measurable at 33% and 42% is a direct calibration test the model fails; the spread also indicates neither number was derived from the index's own distribution. Note further that the index is NOMINAL, so ordinary food-price inflation grinds toward 160 with no climate event at all \u2014 an argument neither node prices. Reconcile at ~38% and record the disagreement as model uncertainty rather than discarding it."
+        }
+      ],
+      "systematic_bias_estimate": "Too dramatic, but modestly and unevenly \u2014 and mis-shaped far more than it is mis-levelled.\n\nQuantified: for the ten nodes I checked whose reference class contains zero or one historical instance, the median ratio of implied per-year hazard to the model's OWN stated base rate is ~3.5x (range 1.9x to 8.2x, plus two nodes with an infinite ratio against zero-instance classes). For the six nodes whose reference class contains three or more instances, the median ratio is ~0.65x (range 0.50x to 0.77x). The divergence between the two regimes is therefore roughly 5x. This is the classic forecasting-tournament signature: over-prediction of novel change, under-prediction of boring recurrence.\n\nNet effect on aggregate severity-weighted mass is smaller than that sounds. Summing (delta_p x severity) over my twenty corrections gives roughly -880 points from the over-stated set and +560 from the under-stated set, a net of about -320 pct-points x severity against a catalog total on the order of 35,000-40,000. Extrapolating the two regime multipliers across the full catalog (roughly 60 zero-instance-class nodes, roughly 45 well-populated-class nodes), I estimate the catalog is about 1.10-1.20x too dramatic in total expected severity-weighted harm \u2014 i.e. correct to within about 15%.\n\nThe structural problems are worse than the level problem and matter more for a simulation:\n1. Mis-allocation. Probability mass sits on unprecedented adversarial and institutional-rupture events and is missing from recurring natural, epidemiological, financial and actuarial hazards. A simulation run on these parameters will generate futures whose failure modes are cyberattacks, constitutional crises and blockades, and almost never epizootics, reactor accidents, bank rescues or leaders simply dying.\n2. Duplicate-family representative selection. Where families disagree, the resolver has in several cases elected the more dramatic member (Hormuz 70% over 22%/34%; FFPI 42% over 33%), which converts analyst disagreement into an upward bias rather than into uncertainty.\n3. Hazard-shape inversion. Numerous nodes imply a DECLINING per-year hazard from 2027-2031 to 2032-2036 (Taiwan quarantine, UST 6%, Colorado storage, US CPI) while their own reasoning describes rising structural drivers. The 2027 column is the most inflated throughout \u2014 near-term narrative salience is being priced as probability.\n4. Self-contradiction is the dominant error type, not disagreement with me. In at least twelve of the twenty corrections above, the correct number is recoverable from the base_rate_anchor the model itself wrote. A cheap and high-yield fix: mechanically recompute every p2031 from its own stated anchor hazard and require an explicit, evidenced multiplier wherever the posted number diverges by more than 1.5x in either direction.",
+      "missing_scenarios": [
+        "Geophysical hazards are entirely absent. No node for an M8.5+ earthquake striking a megacity (base rate ~1 per 10-15 years globally for M8.5+, with Tokyo/Istanbul/Tehran/Lima exposure), no VEI-6+ eruption (~1 per 50-100 years, i.e. 5-10% by 2031, with a Pinatubo-scale climate signal that would directly contaminate the climate domain's temperature nodes), no Tohoku-class tsunami. These have the best-characterized base rates in the entire problem space and carry zero probability mass.",
+        "Extreme space weather. A Carrington/May-1921-class geomagnetic storm is estimated at roughly 0.7-1.9%/yr (4-10% by 2031), and we are near solar maximum. This is glaring because the catalog contains TWO adversarial grid-down nodes (geopolitics_grid_cyberattack_nato 20%, energy_grid_physical_sabotage_major 20%) and zero natural ones \u2014 it models the pathway with no historical instances and omits the pathway with several.",
+        "Actuarial leadership mortality as a first-class node. All-cause mortality for an 80-year-old male is ~4-6%/yr, i.e. ~25% over the window, yet the catalog prices only politics_us_federal_official_assassinated (12%). Presidential incapacity or death in office is both more likely than assassination and has different downstream dynamics. The same gap applies to any leader-transition node priced without a life-table term.",
+        "A new interstate war outside the five enumerated dyads. The catalog names Russia-Ukraine, China-Taiwan, US-China, China-Japan and India-Pakistan, implicitly assigning zero to everything else. New interstate conflicts with 1,000+ battle deaths onset roughly once per 3-5 years globally; live candidates include Venezuela-Guyana, Algeria-Morocco, Ethiopia-Eritrea, Cambodia-Thailand, Azerbaijan-Armenia and Serbia-Kosovo. A 'some other dyad' residual node at ~35-50% by 2031 is required for the enumeration to be exhaustive.",
+        "Mass-casualty terrorism in Western Europe. The catalog covers US political violence in detail and Sahel jihadism, but has no node for a 50+ death attack in Western Europe \u2014 a class with roughly one event per 3-4 years from 2004 to 2017 and roughly zero since 2020, which is exactly the kind of genuinely two-sided uncertainty a simulation should carry.",
+        "Financial market-structure failure. There are nodes for yields, bank failure and private credit, but none for Treasury market dysfunction, a failed auction, or a central counterparty (CCP) failure. The 2019 repo squeeze and the March 2020 dash-for-cash give a real base rate of roughly one plumbing crisis per 5-7 years, and the stablecoin node's own reasoning identifies the T-bill market as the transmission channel without a node to transmit into.",
+        "Non-influenza pandemic emergence. health_influenza_pandemic_declared covers flu and health_pandemic_1m_deaths is the only catch-all. There is no node for a coronavirus, paramyxovirus (Nipah) or arbovirus emergence with sustained transmission below the 1m-death bar \u2014 which is where most of the actual probability mass sits, and which is what a PHEIC node at 92% is implicitly absorbing without structure.",
+        "A biosafety recurrence with better historical grounding. health_lab_origin_outbreak_confirmed sits at 6%, but the 2019-20 Lanzhou brucellosis leak (10,000+ officially attributed human infections, official attribution to a vaccine plant) would have resolved that criterion YES within the last decade. Including it in the reference class roughly doubles the anchor. Its omission is a further instance of the pattern above: a populated reference class treated as empty.",
+        "An explicit 'boring decade' anchor. Several families lack a resolvable non-event counterfactual, so the parameter set cannot be scored against the single most likely world \u2014 one in which nothing on this list of unprecedented events happens and the realized harm comes from recurring hazards the catalog under-prices."
+      ]
+    },
+    {
+      "lens": "Market / consensus-calibration red team: node-by-node comparison against live Polymarket, Kalshi, Metaculus prices and published institutional forecasts (NOAA/CPC, IMF, FAO, PAHO, METR), as of 29 July 2026.",
+      "headline_critique": "Judged against actual prices, this parameter set is not uniformly \"too dramatic.\" It is bimodally miscalibrated, and the split falls almost exactly along the line of whether a tradeable contract exists.\n\nWhere a liquid market or an issuing agency publishes a number, the set is systematically BELOW it. Polymarket prices \"China blockade Taiwan in 2026\" at 8% for five remaining months; the model prices 5% for seventeen (geopolitics_china_taiwan_quarantine_or_blockade). Polymarket prices \"Iran Nuke before 2027\" at 22-35%; the model says 5%. Polymarket prices Taiwan invasion by 30 Jun 2027 at 10%; the model says 1.5% through end-2027. NOAA/CPC's July 2026 discussion gives 81% for a very strong El Nino in OND; the model says 74% and then illegally accrues it to 85/90 on a criterion locked to the 2026-27 event. Kalshi has 2027 recession at 41% on top of 17.5% for 2026; the model says 33% for a window covering both. Metaculus implies ~5% for a non-test nuclear detonation by 2030; the model says 3.5% by 2031. The 10y JGB closed at 2.76% on 28 July and printed 2.901% mid-month; the model's own reasoning text still says \"from ~2% to 3%\" and prices 26%/50%.\n\nWhere no market exists, the set runs hot on vivid, unprecedented events: a 1M-people/24h state cyber-blackout at 20%, a practically ice-free Arctic at 4%/21%, a sustained 35C wet-bulb at 30%, UNSC expansion at 2.5%.\n\nWorse than either is an outright axiom violation. economy_hormuz_closure (>50% below baseline for 14+ days) is strictly implied by geopolitics_hormuz_major_closure (same threshold, 30+ days) yet is priced 22% against 70% \u2014 a 48-point coherence break, with energy_hormuz_reclosure at 34% as a third inconsistent copy. climate_food_price_shock (FFPI >160) sits at 33% while the strictly harder foodwater_ffpi_above_160 (all-time high >160.3) sits at 42%. Any aggregation over this catalog is currently summing incoherent and double-counted mass.",
+      "specific_corrections": [
+        {
+          "risk_id": "economy_jgb_3pct",
+          "claim": "p2027=26% / p2031=50% for the 10y JGB touching 3.00%; the reasoning text still describes the move as 'from ~2% to 3%'",
+          "direction": "too_low",
+          "suggested_pct": 93,
+          "evidence": "The 10y JGB closed at 2.76% on Mon 28 July 2026 and printed 2.901% mid-July, the highest since Oct 1996 (TradingEconomics; CNBC, 'Japan's bond market is back in play', 14 Jul 2026). The barrier is 24bp above spot and 10bp above the July high, not 100bp. With ~50-60bp/yr realised JGB 10y vol, a driftless first-passage over 17 months gives ~75-80%; adding the acknowledged BOJ-to-1.25% path and Takaichi fiscal expansion, 2027 is ~85% and 2031 ~93%. This is a stale-anchor error of roughly 70 percentage points at the 2031 horizon."
+        },
+        {
+          "risk_id": "geopolitics_iran_nuclear_weapon",
+          "claim": "p2027=5% / p2031=15% for Iran testing or being confirmed to possess an assembled weapon",
+          "direction": "too_low",
+          "suggested_pct": 24,
+          "evidence": "Polymarket 'Iran Nuke before 2027' trades 22-35% (laikalabs prediction-market survey of Polymarket Iran books, 2026; polymarket.com/event/iran-nuke-before-2027). Even applying a 50-60% haircut for longshot bias and for the model's stricter wording (test/declaration/public IAEA-USIC assessment of an ASSEMBLED weapon, versus the market's looser 'obtains'), the market-consistent 2027 figure is 10-14%, not 5%. Carrying that forward with the model's own decapitation/NPT-withdrawal drivers puts 2031 near 24%. Deferring to the market here also relieves the near-conjunction squeeze against geopolitics_new_nuclear_weapons_state at 21%, which must then rise to ~30%."
+        },
+        {
+          "risk_id": "geopolitics_china_taiwan_quarantine_or_blockade",
+          "claim": "p2027=5% / p2031=14% for a declared, enforced quarantine or blockade lasting 7+ days",
+          "direction": "too_low",
+          "suggested_pct": 22,
+          "evidence": "Polymarket 'Will China blockade Taiwan in 2026?' trades 8% (polymarket.com, retrieved 29 Jul 2026) for the five months remaining in 2026, against a rule set \u2014 foreign commercial traffic restricted by threat or use of force, excluding drills \u2014 that is close to the model's. Earlier 2026 prints ran 10-24%. A market at 8% for five months cannot coexist with 5% for seventeen. Even a 50% discount for longshot bias plus the model's added 7-day/10-vessel bar gives ~9% for 2027 and ~22% for 2031. Note the resulting ratio to geopolitics_china_taiwan_invasion also becomes coherent: markets price blockade at roughly 2x invasion, versus the model's 2.3x \u2014 but from a base twice as high."
+        },
+        {
+          "risk_id": "geopolitics_china_taiwan_invasion",
+          "claim": "p2027=1.5% for an amphibious or airborne assault on Taiwan proper",
+          "direction": "too_low",
+          "suggested_pct": 3.5,
+          "evidence": "Polymarket 'Will China invade Taiwan by June 30, 2027?' trades 10% and 'by end of 2026' trades 4% (polymarket.com, retrieved 29 Jul 2026), implying roughly 12-14% by end-2027. The model's own note cites a stale 14.5%. An 8x gap to a well-capitalised book is not defensible on longshot bias alone; the standard longshot correction on a 10% contract is a factor of ~2, and criteria-tightening (opposed landing, 1,000+ personnel, main island only) another ~2. That lands at 3-4%. ODNI's 'no 2027 invasion plan' justifies sitting below the market, not an order of magnitude below it."
+        },
+        {
+          "risk_id": "geopolitics_nuclear_use_in_anger",
+          "claim": "p2031=3.5% for a nuclear detonation in an act of war",
+          "direction": "too_low",
+          "suggested_pct": 5.5,
+          "evidence": "Metaculus 'No Non-Test Nuclear Detonations before 2035' carries community estimates of ~2% for 2027, 3% for 2028 and 5% by 2030 (metaculus.com/questions/3150). That implies ~5.5-6% by end-2031. The model explicitly says it sits 'between the superfor ecaster (~1%) and domain-expert (~5%) anchors' but lands at 3.5%, below the aggregated forecaster community for a shorter horizon. Given the model simultaneously assumes New START lapse, four stressed dyads and a broken decapitation norm, sitting under Metaculus is unjustified. Defer to the community: 5.5%."
+        },
+        {
+          "risk_id": "climate_very_strong_elnino_verifies",
+          "claim": "p2027=74%, then 85% and 90% at 2031/2036, for the 2026-27 event peaking ONI >= +2.0C",
+          "direction": "ill_defined",
+          "suggested_pct": 80,
+          "evidence": "Two separate defects. (1) Level: NOAA CPC's July 2026 ENSO discussion gives an 81% chance of a very strong El Nino during OND 2026, with 23 of 26 models forecasting Nino3.4 >= +2.0C and 97% persistence into spring 2027 (cpc.ncep.noaa.gov ensodisc, Jul 2026; weather.com 9 Jul 2026). The model's 74% is 7 points BELOW the issuing agency after the spring predictability barrier has been crossed \u2014 an unjustified discount, since the ONI base-period trap it cites is already inside NOAA's own index definition. (2) Scope: the criterion is locked to 'the 2026-27 event' and resolves by mid-2027, so 2031 and 2036 must equal the 2027 value. Set all three to 80."
+        },
+        {
+          "risk_id": "economy_oil_120",
+          "claim": "p2027=35% / p2031=50% for Brent settling above $120",
+          "direction": "too_low",
+          "suggested_pct": 68,
+          "evidence": "Brent traded $87.53-$89.08 on 28 July 2026 (TradingEconomics; Fortune oil price 28 Jul 2026), not the $72-84 the reasoning implies. log(120/87)=0.322; with ~40% annualised vol in the current Gulf-conflict regime, driftless first-passage over 17 months is 2*(1-Phi(0.322/0.476)) = ~50% for 2027 and ~68% over 5.4 years. The model's own continuous node puts p90_2031 at $150 for the TERMINAL price, which is arithmetically impossible alongside a 50% running-maximum touch of $120. The 2031-to-2036 increment of only 10 points also implies a near-zero hazard for 2032-36 on a 30-40% vol commodity."
+        },
+        {
+          "risk_id": "economy_us_recession",
+          "claim": "p2027=33% for an NBER-dated peak between Aug 2026 and end-2027",
+          "direction": "too_low",
+          "suggested_pct": 45,
+          "evidence": "Kalshi prices US recession in 2026 at 17.5% and in 2027 at 41% (kalshi.com/tag/recession and KXRECSSNBER, retrieved Jul 2026; earlier 2026 prints ran 28-34%). Even allowing heavy overlap between the two contracts and the NBER-vs-two-quarters definitional gap, the union over the model's window is ~45-50%. The model's own reference-class arithmetic (~21% baseline over 17 months) is being used to justify 33% while the market sits above both. This is the one macro node where the earlier internal red-team's downward revision to 27% moves further away from price, not toward it."
+        },
+        {
+          "risk_id": "health_us_measles_5000_cases",
+          "claim": "p2031=42% for >=5,000 confirmed US measles cases in a single calendar year",
+          "direction": "too_low",
+          "suggested_pct": 68,
+          "evidence": "The US had 2,295 confirmed cases as of 22 July 2026 with 34 outbreaks recorded in 2026 alone, already above the full-year 2025 total of 2,144, itself the worst year in three decades (ASTHO, 2026; KFF; PAHO). Roughly 60% of a calendar year has elapsed, so 2026 alone annualises near 3,500-4,000. Five further rolls of the dice with declining MMR coverage \u2014 and the model's own health_us_routine_vaccine_derecommended at 58% acting as an accelerant it never propagates \u2014 make 5,000 in one year the modal outcome by 2031, not a 42% tail. Note the internal inconsistency: elimination revocation is priced at 88% while the case count that drives revocation is priced at 42%."
+        },
+        {
+          "risk_id": "economy_hormuz_closure",
+          "claim": "p2031=22% for Hormuz transits >50% below the 2025 average for 14+ consecutive days",
+          "direction": "ill_defined",
+          "suggested_pct": 72,
+          "evidence": "Direct probability-axiom violation. geopolitics_hormuz_major_closure uses the identical 50%-of-2025-baseline threshold with a STRICTER 30-day duration and a later start date, and is priced at 70% for 2031. A 14-day breach is strictly implied by a 30-day breach, so P(14-day) must be >= P(30-day). The catalog has 22% against 70%, a 48-point violation, with energy_hormuz_reclosure ('closed again for 14+ consecutive days') as a third inconsistent copy at 34%. Whatever the correct level, these three must be monotone. Set economy_hormuz_closure and energy_hormuz_reclosure to at least the 30-day node's value, and collapse them to a single parameter before any aggregation."
+        },
+        {
+          "risk_id": "climate_food_price_shock",
+          "claim": "p2031=33% for FFPI above 160 in any month, versus foodwater_ffpi_above_160 at 42% for an all-time high above 160",
+          "direction": "ill_defined",
+          "suggested_pct": 30,
+          "evidence": "Second nesting violation. foodwater_ffpi_above_160 requires an all-time high above 160, i.e. exceeding the March 2022 record of 160.3 \u2014 strictly harder than 'above 160.0' \u2014 yet is priced 9 points higher. Both must be reconciled, and reconciled downward against the data: the FAO index averaged 130.3 in June 2026, DOWN 0.3% m/m and easing for a second consecutive month, with cereals -3.5% m/m and the index 18.7% below the March 2022 peak (FAO Food Price Index release, 3 Jul 2026). Reaching 160 needs +23% from a falling base. The model's own contrarian note \u2014 the 2015-16 super El Nino coincided with falling food prices \u2014 is decisive and unapplied. Set both nodes to ~30% at 2031."
+        },
+        {
+          "risk_id": "ai_metr_month_horizon",
+          "claim": "p2031=55% for a published METR 50%-reliability horizon of >=167 hours",
+          "direction": "too_low",
+          "suggested_pct": 72,
+          "evidence": "METR's own published trend is a 7-month doubling for 2019-2024 and roughly 4 months (89 days) from 2024 onward, characterised as ~10x/year (metr.org/time-horizons; LessWrong 'METR Time Horizons: Now 10x/Year'). From a 2-15h frontier, 167h is 3.5-6.4 doublings, i.e. 1.0-2.1 years at the recent rate and 2.0-3.7 years even at the older 7-month rate. Both land well inside 2031. A 55% figure implicitly assigns 45% to the trend bending within 1-2 doublings, which is far more aggressive than the model's own stated 50-60% base rate for a 6-year exponential persisting another three. The honest split is ~72% at 2031, with the residual reflecting eval-tractability failure (METR being unable to run 167h tasks) rather than capability failure."
+        },
+        {
+          "risk_id": "geopolitics_grid_cyberattack_nato",
+          "claim": "p2031=20% for a state-attributed cyberattack causing >=24h power loss to >=1 million people in a NATO/OECD state",
+          "direction": "too_high",
+          "suggested_pct": 10,
+          "evidence": "The complete historical record is Ukraine Dec 2015 (~230k customers, ~6 hours) and Kyiv Dec 2016 (~1 hour) \u2014 two to three orders of magnitude short on the people-times-duration product, achieved against the most exposed grid in Europe. Eleven years on there is still no intermediate observation: zero 100k-people/6h cyber outages in any NATO state. At the implied ~4%/yr hazard for the 1M/24h event, multiple intermediate events should already be in the record. This is the clearest example of the set pricing narrative salience (Sandworm wipers on IT systems, Volt Typhoon pre-positioning, CISA PLC advisories) where no market exists to discipline it. 10% still embeds a large uplift over the sub-1%/yr unconditional rate."
+        },
+        {
+          "risk_id": "climate_arctic_practically_ice_free",
+          "claim": "p2031=4% / p2036=21% for NSIDC daily Arctic extent below 1.0 million km2",
+          "direction": "too_high",
+          "suggested_pct": 1.5,
+          "evidence": "September minima have run 4.2-4.7 million km2 with the 2012 record at 3.39; the largest single-year drop in 47 years of satellite record was -18%. Reaching 1.0 requires ~75% further reduction. Under the model's OWN continuous node (drift -0.06/yr, vol 0.42), a sub-1.0 minimum is a ~7-sigma event at 2031 and ~6-sigma at 2036, yet the discrete node says 4% and 21%. Institutional consensus (IPCC AR6 SSP2-4.5) puts the first practically ice-free September in the 2040s-2050s, with the earliest credible tail literature at ~2030 only for a single anomalous day under thin-ice preconditioning. Set 2031 to 1.5% and 2036 to ~7%."
+        }
+      ],
+      "systematic_bias_estimate": "Not uniformly biased \u2014 bimodally biased, with the split determined by whether a price exists.\n\n(A) Market-comparable nodes: systematically TOO COMPLACENT by roughly 2x. Taking the eight nodes above where I could source a live contract or an issuing-agency number and applying a standard longshot/criteria haircut to the market, the model's values average about 0.45-0.55x the defensible market-consistent value. Worst offenders: economy_jgb_3pct (~0.5x at 2027, ~0.54x at 2031, and factually anchored to a stale spot level), geopolitics_iran_nuclear_weapon (~0.4x), geopolitics_china_taiwan_quarantine_or_blockade (~0.55x), geopolitics_china_taiwan_invasion (~0.4x). Even the flagship tail, geopolitics_nuclear_use_in_anger, sits below Metaculus.\n\n(B) Non-market catastrophe nodes: TOO DRAMATIC by roughly 1.8-2.0x. Where the event is vivid, unprecedented and unpriceable \u2014 grid_cyberattack_nato, arctic_practically_ice_free, wetbulb_35c_sustained, amazon_net_carbon_source, climate_billion_dollar_climate_judgment, unsc_permanent_expansion \u2014 the numbers run about double what base rates plus the stated resolution wording support. The tell is that in almost every case the model's own contrarian paragraph contains the correct argument and the headline number ignores it.\n\n(C) Coherence: the catalog is not a probability distribution. Three overlapping Hormuz nodes violate monotonicity by up to 48 points; two FFPI nodes are inverted; Iran regime change is double-listed across domains (26% and 27%) and would be double-counted by any severity aggregation; el_nino accrues probability on a criterion locked to a single 2026-27 event. Fix these before tuning any levels \u2014 they corrupt the aggregate more than any single mis-priced node.\n\nNet effect on a simulation: because the complacent nodes cluster in high-frequency macro/geopolitical drivers and the dramatic nodes cluster in low-frequency terminal states, the parameter set will under-generate ordinary turbulence and over-generate exotic catastrophe. The world it simulates is too quiet on the way to being too apocalyptic. The single highest-value fix is economy_jgb_3pct; the single highest-value structural fix is the Hormuz monotonicity violation.",
+      "missing_scenarios": [
+        "US-Venezuela / Western Hemisphere escalation. The catalog's reasoning text repeatedly cites 'the Venezuela intervention' and 'the 2026 Venezuela/Iran precedents' as drivers of OTHER risks, but there is no risk_id for it. An active US military operation in the hemisphere is being used as an exogenous input while carrying no probability, no severity and no uncertainty of its own. politics_us_strike_inside_mexico (44%) is the only hemispheric node and covers a different country.",
+        "Taiwan semiconductor supply disruption WITHOUT invasion or blockade. There is no node for a TSMC production halt from earthquake, drought, grid failure, cyber incident, or export-control retaliation. This is plausibly the largest single economic tail in the entire catalog and it is only reachable through two nodes priced at 6% and 14%. The 2024 Hualien quake and Taiwan's recurring water crises are the base-rate evidence.",
+        "Frontier model weight exfiltration by a state actor. The AI domain covers cyberattacks BY AI (ai_major_cyber_incident) and bio-misuse (ai_bio_mass_casualty) but not theft of frontier weights, which is the modal proliferation pathway named in essentially every lab and USG threat model and which would invalidate ai_export_controls_relaxed, ai_china_leaderboard_top and ai_us_china_binding_agreement simultaneously.",
+        "Advanced-economy sovereign funding accident distinct from spread widening. economy_euro_periphery_stress measures a 300bp spread and economy_ust_6pct measures a yield level, but neither captures a failed or tailed auction, a gilt-LDI-style forced-deleveraging spiral, or an emergency central bank intervention in the primary market. The 2022 UK episode resolved NO on both existing criteria while being the closest advanced-economy funding accident in decades.",
+        "Measurement-infrastructure failure as a first-class risk. At least six nodes depend on observing systems that may not survive the window: RAPID (climate_amoc_30pct_weakening, flagged as funding-fragile in the model's own text), METR's ability to run 167-hour evals, IMF COFER continuity, NOAA Coral Reef Watch methodology, PISA participation, and the Global Carbon Project. The catalog treats resolution machinery as exogenous and certain. Several risks should carry an explicit 'unresolvable' branch.",
+        "Climate-driven insurance and mortgage market withdrawal. No node covers a major insurer exiting a US state or an EU country at scale, a state residual-market insolvency, or GSE/lender repricing of coastal and wildfire mortgage risk. This is the transmission channel by which climate becomes a financial-stability event, and it is absent from both the climate and economy domains.",
+        "Undersea cable, GPS and space-segment disruption. The catalog has grid cyber and grid physical sabotage nodes but nothing on subsea telecom/data cables, GNSS jamming or spoofing at scale, or an anti-satellite event or Kessler cascade. Baltic and Red Sea cable incidents in 2024-2026 are the live base rate, and a serious event would hit finance, aviation and energy simultaneously.",
+        "Assassination or sudden incapacity of a major non-US leader. politics_us_federal_official_assassinated (12%) covers the US; politics_russia_leadership_change and politics_xi_departure cover departure generically. There is no node for the violent or sudden removal of a leader in India, Saudi Arabia, Pakistan, Israel, Turkey or a G7 state, despite several of these being single points of failure for other nodes in the catalog.",
+        "A benign macro tail. Every economy and AI node is a downside event except energy nodes coded severity 2-3. There is no node for a sustained productivity boom, a disinflationary AI supply shock, or a global growth surprise above 4%. A parameter set with no upside tails will systematically produce pessimistic path distributions regardless of individual node calibration."
+      ]
+    }
+  ],
   "risk_count": 159
 }

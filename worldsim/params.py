@@ -350,6 +350,57 @@ def augment_register(model: WorldModel, raw: dict, valence: dict[str, float]) ->
     return out
 
 
+def enforce_coherence(model: WorldModel, relations: dict) -> WorldModel:
+    """Repair logical violations between nodes, before any worldview splits.
+
+    These are arithmetic errors, not calibration disagreements, so they are fixed
+    for every worldview rather than left to one lens to argue about.
+
+    Equivalences are pooled in log-odds: identical criteria under two ids, with
+    neither analyst privileged. Implications raise the weaker node to the
+    stronger one and never lower the stronger one — "a 30-day closure entails a
+    14-day closure" constrains the 14-day estimate from below and says nothing
+    about whether the 30-day estimate is too high.
+
+    Equivalences run first: pooling can itself resolve or create an implication
+    violation, so the implication pass has to see the pooled numbers.
+    """
+    out = model.copy_with(model.name)
+    fields = ("p2027", "p2031", "p2036")
+    pooled = enforced = 0
+
+    for rel in relations.get("equivalences", []) or []:
+        members = [m for m in rel.get("members", []) if m in out.risks]
+        if len(members) < 2:
+            continue
+        for f in fields:
+            odds = [_logit_pct(getattr(out.risks[m], f)) for m in members]
+            mean = sum(odds) / len(odds)
+            val = 100.0 / (1.0 + math.exp(-max(min(mean, 40.0), -40.0)))
+            for m in members:
+                setattr(out.risks[m], f, val)
+        pooled += 1
+
+    for rel in relations.get("implications", []) or []:
+        s, w = rel.get("stronger"), rel.get("weaker")
+        if s not in out.risks or w not in out.risks:
+            continue
+        moved = False
+        for f in fields:
+            sv, wv = getattr(out.risks[s], f), getattr(out.risks[w], f)
+            if sv > wv:
+                setattr(out.risks[w], f, sv)
+                moved = True
+        if moved:
+            enforced += 1
+
+    if pooled or enforced:
+        out.provenance.append(
+            f"coherence: {pooled} equivalence(s) pooled, {enforced} implication(s) enforced"
+        )
+    return out
+
+
 def apply_calibration(model: WorldModel, raw: dict) -> WorldModel:
     """Apply the per-domain calibration auditor's probability adjustments."""
     out = model.copy_with("audited")
@@ -387,6 +438,11 @@ def apply_redteam(model: WorldModel, redteam: list[dict], lens_key: str) -> Worl
         if idx is not None and idx < len(redteam):
             lens = redteam[idx]
     if lens is None:
+        # No such lens in this run. The worldview stays a copy of its parent
+        # rather than being dropped, so ensemble weights still sum correctly —
+        # but say so, because two identical worldviews means the parent is
+        # carrying double weight.
+        out.provenance.append(f"{lens_key}: lens absent, unchanged from parent")
         return out
 
     applied = 0
@@ -421,12 +477,16 @@ def _shift_pct(pct: float, delta: float) -> float:
 
 
 def build_worldviews(
-    base: WorldModel, raw: dict, valence: dict[str, float] | None = None
+    base: WorldModel,
+    raw: dict,
+    valence: dict[str, float] | None = None,
+    relations: dict | None = None,
 ) -> list[tuple[WorldModel, float]]:
     """Return [(model, ensemble weight)] covering the full range of opinion.
 
-    The register is augmented first so all five worldviews share the same node
-    set; only the probabilities differ between them.
+    The register is augmented and made coherent first, so all five worldviews
+    share the same node set and the same arithmetic; only judgement differs
+    between them.
     """
     analyst = augment_register(base, raw, valence or {})
     analyst.name = "analyst"
@@ -440,5 +500,15 @@ def build_worldviews(
         (apply_redteam(audited, redteam, "structural_break"), WORLDVIEW_WEIGHTS["structural_break"]),
         (apply_redteam(audited, redteam, "market_check"), WORLDVIEW_WEIGHTS["market_check"]),
     ]
+
+    # Coherence last, and per worldview. Enforcing it once on the shared register
+    # is not enough: the calibration audit and each red-team lens move nodes
+    # independently and pull repaired pairs back apart. An implication is an
+    # invariant every worldview has to satisfy, whatever judgement it applied.
+    if relations:
+        views = [(enforce_coherence(m, relations), w) for m, w in views]
+        for (m, _), (orig, _) in zip(views, views):
+            m.name = orig.name
+
     total = sum(w for _, w in views)
     return [(m, w / total) for m, w in views]

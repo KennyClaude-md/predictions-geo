@@ -20,6 +20,7 @@ STEPS = [
     ("classify_valence.py", "stabilising / ambiguous / destabilising"),
     ("stress_loadings.py", "indicator correlations with systemic stress"),
     ("duplicate_families.py", "one event enumerated across several domains"),
+    ("logical_relations.py", "implications and equivalences between nodes"),
 ]
 
 

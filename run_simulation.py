@@ -62,7 +62,9 @@ def main() -> None:
 
     vmap_path = PARAMS / "valence.json"
     vmap = json.loads(vmap_path.read_text()) if vmap_path.exists() else {}
-    worldviews = build_worldviews(base, raw, vmap)
+    rel_path = PARAMS / "logical_relations.json"
+    relations = json.loads(rel_path.read_text()) if rel_path.exists() else {}
+    worldviews = build_worldviews(base, raw, vmap, relations)
     print(
         f"worldviews: "
         + ", ".join(f"{m.name}({w:.0%})" for m, w in worldviews)
@@ -261,6 +263,7 @@ def _assemble(
 
     limits = _limits(raw)
     calendar = _calendar(raw)
+    critiques = _critiques(raw)
 
     return {
         "as_of": raw.get("as_of", "unknown"),
@@ -289,6 +292,7 @@ def _assemble(
         "limits": limits,
         "calendar": calendar,
         "duplicate_families": families,
+        "critiques": critiques,
     }
 
 
@@ -349,6 +353,30 @@ def _chain_commentary(chains: list[dict]) -> str:
         f"story in which one specific trigger reliably starts the cascade. What recurs is "
         f"the *pattern* — a shock in one domain degrading the capacity to absorb the next."
     )
+
+
+def _critiques(raw: dict) -> list[dict]:
+    """The red-team lenses' own reasoning, not just the numbers they moved.
+
+    Each lens produced a written critique alongside its corrections. The
+    corrections reach the forecast through that lens's worldview; the reasoning
+    reaches the reader only if it is printed. Some of it is the most useful
+    content in the run — one lens found an internal coherence violation between
+    the discrete nodes and the continuous generators in the same parameter file,
+    which no amount of Monte Carlo would have surfaced.
+    """
+    out = []
+    for rt in raw.get("redteam", []) or []:
+        out.append(
+            {
+                "lens": str(rt.get("lens", "")),
+                "critique": str(rt.get("headline_critique", "")),
+                "bias": str(rt.get("systematic_bias_estimate", "")),
+                "n_corrections": len(rt.get("specific_corrections") or []),
+                "missing_scenarios": [str(x) for x in (rt.get("missing_scenarios") or [])],
+            }
+        )
+    return out
 
 
 def _calendar(raw: dict) -> list[dict]:
