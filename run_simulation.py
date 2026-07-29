@@ -243,6 +243,7 @@ def _assemble(
     ]
 
     limits = _limits(raw)
+    calendar = _calendar(raw)
 
     return {
         "as_of": raw.get("as_of", "unknown"),
@@ -269,6 +270,7 @@ def _assemble(
         "disagreement": dis_rows,
         "stress_trajectory": analysis.stress_trajectory(gssi),
         "limits": limits,
+        "calendar": calendar,
     }
 
 
@@ -329,6 +331,33 @@ def _chain_commentary(chains: list[dict]) -> str:
         f"story in which one specific trigger reliably starts the cascade. What recurs is "
         f"the *pattern* — a shock in one domain degrading the capacity to absorb the next."
     )
+
+
+def _calendar(raw: dict) -> list[dict]:
+    """Dated forcing functions the analysts flagged, merged and ordered.
+
+    These are the model's observable inputs, not its outputs: the moments when a
+    hazard is scheduled to be resolved or reset. More actionable than any single
+    probability, because they are the points at which you get to update.
+    """
+    out = []
+    for dom in raw.get("domains", []):
+        dkey = dom.get("domain", "unknown")
+        for e in (dom.get("research") or {}).get("scheduled_events", []) or []:
+            date = str(e.get("date", "")).strip()
+            if not date:
+                continue
+            out.append(
+                {
+                    "date": date,
+                    "domain": dkey,
+                    "name": str(e.get("name", "")),
+                    "why": str(e.get("why_it_matters", "")),
+                }
+            )
+    # Zero-pad partial dates so "2026-09" sorts before "2026-11-03".
+    out.sort(key=lambda e: e["date"] + "-01" * (2 - e["date"].count("-")))
+    return out
 
 
 def _limits(raw: dict) -> list[str]:

@@ -482,6 +482,17 @@
   <div class="tbl-wrap"><table id="cont-table"></table></div>
 </section>
 
+<section id="calendar">
+  <div class="sec-head">
+    <h2>What to watch, and when</h2>
+    <p class="lede">Dated forcing functions the analysts flagged. These are the model's
+      <em>inputs</em>, not its outputs — the scheduled moments when a hazard gets resolved
+      or reset. More actionable than any single probability on this page, because they are
+      the points at which you get to update.</p>
+  </div>
+  <div class="tbl-wrap"><table id="cal-table"></table></div>
+</section>
+
 <section id="limits">
   <div class="sec-head">
     <h2>What this cannot do</h2>
@@ -834,6 +845,14 @@
           `<li><b>${esc(r.name)}</b> — ${esc(r.resolution)}</li>`).join("")}</ul>
       </details>
     </details>`).join("");
+
+  $("cal-table").innerHTML =
+    `<thead><tr><th>Date</th><th>Domain</th><th>Event</th><th>Why it matters</th></tr></thead><tbody>` +
+    (D.calendar || []).map((e) => `<tr>
+      <td class="num" style="text-align:left">${esc(e.date)}</td>
+      <td class="num" style="text-align:left;font-size:11px;color:var(--ink-3)">${esc(e.domain_label)}</td>
+      <td class="name">${esc(e.name)}</td>
+      <td>${esc(e.why)}</td></tr>`).join("") + `</tbody>`;
 
   $("limit-list").innerHTML = D.limits.map((l) => `<li>${l}</li>`).join("");
 

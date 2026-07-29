@@ -164,6 +164,10 @@ def build(fc: dict, seed: int) -> dict:
         ],
         "domains": domains,
         "limits": fc["limits"],
+        "calendar": [
+            {**e, "domain_label": SHORT.get(e["domain"], e["domain"])}
+            for e in (fc.get("calendar") or [])[:45]
+        ],
     }
 
 

@@ -58,6 +58,7 @@ class ReportBuilder:
         self._continuous()
         self._sensitivity()
         self._disagreement()
+        self._calendar()
         self._limits()
         return "\n".join(self.lines)
 
@@ -318,6 +319,27 @@ class ReportBuilder:
         for d in self.ctx["disagreement"]:
             vals = " | ".join(pct(v) for v in d["by_view"])
             self.w(f"| {d['name']} | {vals} | {d['spread']*100:.0f}pp |")
+        self.w()
+
+    def _calendar(self) -> None:
+        cal = self.ctx.get("calendar") or []
+        if not cal:
+            return
+        self.w("## What to watch, and when")
+        self.w()
+        self.w(
+            "Dated forcing functions the analysts flagged. These are the model's "
+            "*inputs*, not its outputs — the scheduled moments when a hazard gets "
+            "resolved or reset. More actionable than any single probability on this "
+            "page, because they are the points at which you get to update."
+        )
+        self.w()
+        self.w("| Date | Domain | Event | Why it matters |")
+        self.w("|---|---|---|---|")
+        for e in cal[:45]:
+            self.w(
+                f"| `{e['date']}` | {e['domain']} | **{e['name']}** | {e['why']} |"
+            )
         self.w()
 
     def _limits(self) -> None:
