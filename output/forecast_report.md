@@ -350,50 +350,50 @@ These evolve on a Gaussian copula driven by each path's own systemic-stress inde
 
 | Indicator | Now | 2031 (p10 / p50 / p90) | 2036 (p10 / p50 / p90) |
 |---|---:|:---:|:---:|
-| World military expenditure as share of global GDP (percent of global GDP) | 2.5 | 2.61 / **2.9** / 3.25 | 2.69 / **3.11** / 3.62 |
-| Global state-based armed conflict battle deaths per year (thousands of deaths per year) | 160 | 52.9 / **134** / 246 | 12.7 / **113** / 272 |
-| Brent crude oil price (USD per barrel (annual average)) | 86 | 44.5 / **71.8** / 140 | 28.1 / **64.3** / 154 |
-| US military expenditure as share of US GDP (percent of GDP) | 3.2 | 2.93 / **3.3** / 3.7 | 2.89 / **3.35** / 3.88 |
-| European NATO members' aggregate defence spending as share of GDP (percent of GDP) | 2.65 | 2.99 / **3.35** / 3.76 | 3.25 / **3.73** / 4.29 |
-| PLA aircraft sorties entering Taiwan's ADIZ per year (sorties per year) | 3600 | 2.45e+03 / **5.03e+03** / 7.9e+03 | 2.11e+03 / **5.69e+03** / 9.56e+03 |
-| US dollar share of allocated global FX reserves (percent) | 58 | 51 / **54** / 57 | 47.6 / **51.8** / 55.9 |
-| Weekly container-ship transits of the Suez Canal (transits per week) | 30 | 21.9 / **62.2** / 87.6 | 24 / **78.5** / 115 |
-| Combined US + Russia deployed strategic nuclear warheads (warheads) | 3200 | 3.15e+03 / **3.73e+03** / 4.35e+03 | 3.19e+03 / **4.01e+03** / 4.86e+03 |
-| Net monthly Russian territorial gain in Ukraine (km2 per month (negative = Ukrainian recapture)) | 104 | -29.4 / **8.99** / 170 | -96 / **-44.4** / 190 |
-| Number of active state-based armed conflicts (>=25 battle deaths/year) (count) | 61 | 47.9 / **57.9** / 68 | 42.4 / **56** / 70.2 |
-| Crude and condensate transiting the Strait of Hormuz (million barrels per day) | 8 | 4.85 / **17.8** / 21 | 5.47 / **23.3** / 27.6 |
-| Annual global mean surface temperature anomaly (ERA5, vs 1850-1900) (C) | 1.47 | 1.48 / **1.63** / 1.78 | 1.51 / **1.7** / 1.92 |
+| World military expenditure as share of global GDP (percent of global GDP) | 2.5 | 2.61 / **2.9** / 3.25 | 2.7 / **3.11** / 3.62 |
+| Global state-based armed conflict battle deaths per year (thousands of deaths per year) | 160 | 53.3 / **132** / 250 | 13.9 / **113** / 270 |
+| Brent crude oil price (USD per barrel (annual average)) | 86 | 44.8 / **73.1** / 139 | 27.3 / **65.1** / 156 |
+| US military expenditure as share of US GDP (percent of GDP) | 3.2 | 2.94 / **3.3** / 3.7 | 2.87 / **3.36** / 3.88 |
+| European NATO members' aggregate defence spending as share of GDP (percent of GDP) | 2.65 | 2.99 / **3.35** / 3.76 | 3.25 / **3.73** / 4.3 |
+| PLA aircraft sorties entering Taiwan's ADIZ per year (sorties per year) | 3600 | 2.44e+03 / **5.04e+03** / 7.85e+03 | 2.14e+03 / **5.72e+03** / 9.6e+03 |
+| US dollar share of allocated global FX reserves (percent) | 58 | 51 / **54** / 56.9 | 47.6 / **51.8** / 56 |
+| Weekly container-ship transits of the Suez Canal (transits per week) | 30 | 22.4 / **61.9** / 87.6 | 23.3 / **78.7** / 115 |
+| Combined US + Russia deployed strategic nuclear warheads (warheads) | 3200 | 3.15e+03 / **3.73e+03** / 4.36e+03 | 3.2e+03 / **4.01e+03** / 4.87e+03 |
+| Net monthly Russian territorial gain in Ukraine (km2 per month (negative = Ukrainian recapture)) | 104 | -29.9 / **8.17** / 168 | -96.8 / **-43** / 191 |
+| Number of active state-based armed conflicts (>=25 battle deaths/year) (count) | 61 | 47.8 / **58** / 68 | 42.6 / **56.2** / 70 |
+| Crude and condensate transiting the Strait of Hormuz (million barrels per day) | 8 | 5.05 / **18** / 21 | 5.2 / **23.5** / 27.6 |
+| Annual global mean surface temperature anomaly (ERA5, vs 1850-1900) (C) | 1.47 | 1.48 / **1.62** / 1.78 | 1.51 / **1.7** / 1.92 |
 | Annual mean CO2 concentration at Mauna Loa (ppm) | 429.4 | 440 / **442** / 445 | 446 / **449** / 452 |
 | NOAA global mean atmospheric methane (ppb) | 1945 | 1.97e+03 / **1.98e+03** / 2e+03 | 1.98e+03 / **2e+03** / 2.02e+03 |
-| Global fossil CO2 emissions (Global Carbon Project) (GtCO2/yr) | 38.1 | 35.6 / **38.2** / 40.1 | 34.7 / **38.4** / 40.9 |
-| Global mean sea level (satellite altimetry, above 1993 baseline) (mm) | 112 | 132 / **138** / 144 | 144 / **152** / 160 |
-| Arctic sea ice September minimum extent (NSIDC) (million km2) | 4.3 | 3.34 / **3.98** / 4.54 | 2.92 / **3.78** / 4.59 |
-| Annual maximum 3-month ONI (Nino3.4) (C) | 2.4 | -0.906 / **0.384** / 1.68 | -2.47 / **-0.671** / 1.08 |
-| Share of global reef area under Alert Level 1+ heat stress, rolling 12 months (% of global reef area) | 55 | 32.4 / **62.2** / 88.4 | 25.4 / **66.4** / 102 |
-| Brazilian Legal Amazon annual deforestation (INPE PRODES) (km2/yr) | 5796 | 3.13e+03 / **5e+03** / 9.94e+03 | 1.99e+03 / **4.58e+03** / 1.12e+04 |
-| FAO Food Price Index (nominal) (index, 2014-2016 = 100) | 130.3 | 121 / **140** / 167 | 119 / **146** / 182 |
-| Annual increase in global 0-2000m ocean heat content (ZJ/yr) | 23 | 12.9 / **25** / 36.6 | 8.77 / **26.2** / 42.5 |
-| Brent crude oil price (USD per barrel) | 84 | 41.4 / **77.3** / 148 | 25 / **75.4** / 174 |
-| US 10-year Treasury yield (percent) | 4.62 | 3.1 / **4.81** / 6.35 | 2.53 / **4.88** / 6.95 |
-| US CPI inflation, year over year (percent) | 3.5 | 1.18 / **2.6** / 4.91 | 0.205 / **2.12** / 5.29 |
-| Federal funds target rate, upper bound (percent) | 3.75 | 1.8 / **3.51** / 5.25 | 0.872 / **3.33** / 5.78 |
-| S&P 500 index level (index points) | 7412 | 6.12e+03 / **1.01e+04** / 1.61e+04 | 6.01e+03 / **1.14e+04** / 1.98e+04 |
-| Global real GDP growth (percent per year) | 3 | 1.62 / **3.21** / 4.18 | 1.13 / **3.28** / 4.67 |
-| China reported real GDP growth (percent per year) | 4.6 | 1.85 / **3.41** / 4.8 | 0.709 / **2.76** / 4.67 |
+| Global fossil CO2 emissions (Global Carbon Project) (GtCO2/yr) | 38.1 | 35.6 / **38.2** / 40.1 | 34.7 / **38.4** / 40.8 |
+| Global mean sea level (satellite altimetry, above 1993 baseline) (mm) | 112 | 132 / **138** / 144 | 144 / **152** / 161 |
+| Arctic sea ice September minimum extent (NSIDC) (million km2) | 4.3 | 3.34 / **3.98** / 4.53 | 2.94 / **3.79** / 4.57 |
+| Annual maximum 3-month ONI (Nino3.4) (C) | 2.4 | -0.916 / **0.392** / 1.66 | -2.47 / **-0.689** / 1.09 |
+| Share of global reef area under Alert Level 1+ heat stress, rolling 12 months (% of global reef area) | 55 | 32.1 / **62.1** / 88.4 | 25.4 / **66.2** / 103 |
+| Brazilian Legal Amazon annual deforestation (INPE PRODES) (km2/yr) | 5796 | 3.12e+03 / **5e+03** / 9.79e+03 | 2e+03 / **4.58e+03** / 1.12e+04 |
+| FAO Food Price Index (nominal) (index, 2014-2016 = 100) | 130.3 | 121 / **140** / 167 | 120 / **146** / 182 |
+| Annual increase in global 0-2000m ocean heat content (ZJ/yr) | 23 | 12.7 / **25.1** / 36.7 | 9.06 / **26.1** / 42.5 |
+| Brent crude oil price (USD per barrel) | 84 | 41.4 / **76.9** / 149 | 24 / **75.9** / 174 |
+| US 10-year Treasury yield (percent) | 4.62 | 3.08 / **4.81** / 6.34 | 2.48 / **4.87** / 6.99 |
+| US CPI inflation, year over year (percent) | 3.5 | 1.19 / **2.6** / 4.88 | 0.181 / **2.13** / 5.3 |
+| Federal funds target rate, upper bound (percent) | 3.75 | 1.79 / **3.51** / 5.26 | 0.902 / **3.33** / 5.77 |
+| S&P 500 index level (index points) | 7412 | 6.19e+03 / **1e+04** / 1.6e+04 | 6.12e+03 / **1.14e+04** / 1.99e+04 |
+| Global real GDP growth (percent per year) | 3 | 1.59 / **3.2** / 4.21 | 1.17 / **3.27** / 4.69 |
+| China reported real GDP growth (percent per year) | 4.6 | 1.87 / **3.4** / 4.8 | 0.697 / **2.76** / 4.65 |
 | US federal debt held by the public / GDP (percent) | 100 | 106 / **111** / 119 | 110 / **117** / 128 |
-| USD share of allocated FX reserves (IMF COFER) (percent) | 56.5 | 47.1 / **51.9** / 56.9 | 42.7 / **49.6** / 56.5 |
-| Gold price (USD per troy ounce) | 4040 | 3.1e+03 / **4.69e+03** / 7.23e+03 | 2.8e+03 / **5.03e+03** / 8.67e+03 |
+| USD share of allocated FX reserves (IMF COFER) (percent) | 56.5 | 47.1 / **51.9** / 56.9 | 42.6 / **49.7** / 56.5 |
+| Gold price (USD per troy ounce) | 4040 | 3.1e+03 / **4.71e+03** / 7.21e+03 | 2.85e+03 / **5.05e+03** / 8.57e+03 |
 | USD/JPY exchange rate (yen per dollar) | 163.6 | 119 / **153** / 194 | 98.5 / **145** / 203 |
-| US average effective tariff rate on all imports (percent) | 6 | 3.14 / **8.09** / 18 | 2.26 / **9** / 22.4 |
+| US average effective tariff rate on all imports (percent) | 6 | 3.02 / **7.99** / 18.2 | 2.15 / **9.03** / 22.6 |
 | Log10 of training compute for the largest publicly-known training run (log10(FLOP)) | 26.7 | 28 / **28.8** / 29.5 | 28.8 / **29.9** / 30.9 |
-| Global data center electricity consumption (TWh per year) | 590 | 827 / **1.03e+03** / 1.34e+03 | 1e+03 / **1.27e+03** / 1.71e+03 |
-| Combined annual capex, Microsoft + Alphabet + Amazon + Meta (USD billions per year) | 700 | 484 / **984** / 1.5e+03 | 441 / **1.14e+03** / 1.87e+03 |
-| Nvidia annual data center revenue (USD billions per year) | 330 | 245 / **552** / 884 | 233 / **661** / 1.11e+03 |
-| Combined annualized revenue run-rate, OpenAI + Anthropic (USD billions) | 72 | 166 / **354** / 617 | 245 / **501** / 879 |
-| Log2 of METR 50%-reliability task time horizon (log2(hours of human-expert task time)) | 1.6 | 5.42 / **8.05** / 10.8 | 7.86 / **11.7** / 15.3 |
+| Global data center electricity consumption (TWh per year) | 590 | 827 / **1.03e+03** / 1.34e+03 | 1.01e+03 / **1.27e+03** / 1.72e+03 |
+| Combined annual capex, Microsoft + Alphabet + Amazon + Meta (USD billions per year) | 700 | 487 / **989** / 1.5e+03 | 435 / **1.14e+03** / 1.86e+03 |
+| Nvidia annual data center revenue (USD billions per year) | 330 | 243 / **550** / 880 | 224 / **660** / 1.12e+03 |
+| Combined annualized revenue run-rate, OpenAI + Anthropic (USD billions) | 72 | 161 / **356** / 613 | 242 / **505** / 870 |
+| Log2 of METR 50%-reliability task time horizon (log2(hours of human-expert task time)) | 1.6 | 5.37 / **8.08** / 10.7 | 7.91 / **11.7** / 15.3 |
 | Log10 of API price for GPT-4-class capability (log10(USD per million input tokens)) | -0.4 | -2.2 / **-1.8** / -1.4 | -3.13 / **-2.57** / -2 |
-| Chinese open-weight models' share of OpenRouter tokens (percent) | 61 | 32.3 / **60.6** / 83.3 | 20.8 / **59.7** / 90.8 |
-| Log10 of US paid fully-driverless rides per week (millions) (log10(millions of rides per week)) | -0.3 | 0.202 / **0.886** / 1.39 | 0.594 / **1.54** / 2.24 |
+| Chinese open-weight models' share of OpenRouter tokens (percent) | 61 | 32.4 / **60.4** / 83.2 | 21.3 / **59.6** / 90.6 |
+| Log10 of US paid fully-driverless rides per week (millions) (log10(millions of rides per week)) | -0.3 | 0.204 / **0.886** / 1.4 | 0.591 / **1.55** / 2.24 |
 | US AI adoption in production, employment-weighted (Census BTOS) (percent of employment at AI-using firms) | 32 | 44.5 / **56** / 68.1 | 53.9 / **68.9** / 85.5 |
 
 ## What drives the outcome
