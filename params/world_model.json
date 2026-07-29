@@ -5558,9 +5558,835 @@
         ]
       },
       "calibration": null
+    },
+    {
+      "domain": "politics",
+      "title": "Domestic political stability, governance, and social cohesion",
+      "research": {
+        "domain": "Domestic political stability, governance, and social cohesion",
+        "state_of_play": "As of late July 2026 the dominant fact in this domain is bidirectionality: the aggregate indices keep falling while several high-salience incumbents have been beaten at the ballot box. VERIFIED via search: V-Dem's Democracy Report 2026 (10th ed., \"Unraveling the Democratic Era?\") codes 44 countries as autocratizing (up from 42), covering 41% of world population \u2014 a record for this wave \u2014 with ten new autocratizers added for 2025 including the United States, United Kingdom, Italy, Slovakia, Slovenia and Croatia; the global average democracy level is back at roughly 1978. Freedom House's Freedom in the World 2026 (\"The Growing Shadow of Autocracy\") records a 20th consecutive year of decline: 54 countries deteriorated vs 35 improved, only 21% of humanity lives in Free countries (46% two decades ago), and the US fell 3 points to 81 and out of the global top 20.\n\nAgainst that, H1 2026 delivered two large reversals in Europe. On 12 April 2026 P\u00e9ter Magyar's Tisza won Hungary's election in a landslide \u2014 141 of 199 seats, a constitutional supermajority, on ~80% turnout \u2014 ending Viktor Orb\u00e1n's 16 years and removing the EU's most reliable veto player. And in the UK, Keir Starmer announced his resignation on 22 June after catastrophic May local elections and an open confidence crisis; Andy Burnham was acclaimed Labour leader on 17 July and became prime minister on 20 July \u2014 Britain's 7th PM in 10 years. Labour has closed to roughly level with Reform UK (Survation had both at 24%; Opinium had Reform 29% in early June).\n\nElsewhere in Europe the trend is the other way. Germany's AfD is polling ~27-28%, ahead of Merz's CDU/CSU (~23%) and at record highs; Merz's approval has slid from 38% to the low 30s. In the March 2026 Land elections the Greens held Baden-W\u00fcrttemberg (30.2%) and the CDU took Rhineland-Palatinate (31.0%) while the AfD doubled to 19.5% \u2014 its best-ever western German result. In France, Lecornu's minority government survives budget to budget; Bardella leads 2027 presidential polling at 34-37.5%, with Le Pen's ineligibility appeal a live variable (a Paris appeal ruling was expected 7 July 2026 \u2014 I could NOT verify the outcome). Slovakia's Fico was the only EU leader at Moscow's 9 May Victory Day and is transactionally blocking Ukraine accession.\n\nIn the US, institutional stress is high but courts have so far held. By the end of the 2025-26 term the Supreme Court had blocked four flagship administration initiatives \u2014 ending birthright citizenship, worldwide tariffs, firing Fed governor Lisa Cook, and (6-3 on 23 December, with Barrett and Kavanaugh joining) federalizing National Guard forces for Chicago/Portland. Trump threatened but as of my searches has not invoked the Insurrection Act, most prominently in January over Minneapolis after an ICE agent killed Renee Macklin Good amid a 2,400-agent DHS surge. Politicized prosecution is now routine enough to be tracked institutionally (Comey indictment; May 2026 SWAT raid on Virginia Senate leader Louise Lucas). Mid-decade redistricting has become a permanent war: six states (TX, CA, MO, NC, OH, UT) will use new maps in November; SCOTUS stayed a ruling that Texas's map was a racial gerrymander and declined California's Prop 50 challenge in February. Trump's net approval is roughly -19 (39/58), Democrats lead the generic ballot by up to 11, and Polymarket prices Democratic House control at ~86%. Institutional confidence remains near record lows: Gallup's nine-institution average is 27% (fifth straight year below 30%), Supreme Court approval 33% (a new low), Congress in the teens. The 28 March \"No Kings\" protests drew ~8 million across 3,300+ sites \u2014 the largest single-day mobilization in US history \u2014 while political-violence event counts are up roughly 40% year-on-year with mass-casualty attacks up sharply.\n\nOutside the OECD: the Sahel/West Africa coup belt continues (Guinea-Bissau, 26 November 2025, was Africa's 11th successful coup since 2020, after Madagascar in October; a Benin attempt was thwarted in December), and the 2025-26 \"Gen Z\" protest wave has already toppled governments in Nepal, Madagascar, Peru and Bulgaria and continues in Iran and Tanzania. Two personalist regimes were decapitated from outside: Maduro was captured in a US strike on Caracas on 3 January 2026 (Delcy Rodr\u00edguez acting president), and Khamenei was killed in the 2026 US-Israeli air campaign, leaving Iran in an unresolved succession crisis. Mexico's CJNG fragmented after El Mencho was killed on 22 February 2026 (25 National Guard dead in the ensuing unrest) with Trump openly threatening land strikes; Ecuador is under rolling states of emergency after its most violent year ever; Haiti has held no election in a decade. ACLED logged ~185,000 violent political events in 2025, with state forces party to 74%.",
+        "indicators": [
+          {
+            "name": "V-Dem countries currently autocratizing",
+            "value": "44",
+            "unit": "countries",
+            "as_of": "2026-03",
+            "trend": "rising",
+            "source": "V-Dem Democracy Report 2026 (10th ed.)",
+            "verified": true
+          },
+          {
+            "name": "Share of world population living in autocratizing countries",
+            "value": "41",
+            "unit": "percent",
+            "as_of": "2026-03",
+            "trend": "rising",
+            "source": "V-Dem Democracy Report 2026",
+            "verified": true
+          },
+          {
+            "name": "New autocratizers identified for 2025 (incl. US, UK, Italy, Slovakia)",
+            "value": "10",
+            "unit": "countries",
+            "as_of": "2026-03",
+            "trend": "rising",
+            "source": "V-Dem Democracy Report 2026",
+            "verified": true
+          },
+          {
+            "name": "Freedom House: consecutive years of global freedom decline",
+            "value": "20",
+            "unit": "years",
+            "as_of": "2026-03",
+            "trend": "rising",
+            "source": "Freedom in the World 2026, 'The Growing Shadow of Autocracy'",
+            "verified": true
+          },
+          {
+            "name": "Countries with net freedom decline vs improvement (2025)",
+            "value": "54 declined / 35 improved",
+            "unit": "countries",
+            "as_of": "2026-03",
+            "trend": "flat",
+            "source": "Freedom in the World 2026",
+            "verified": true
+          },
+          {
+            "name": "Share of world population in 'Free' countries",
+            "value": "21",
+            "unit": "percent",
+            "as_of": "2026-03",
+            "trend": "falling",
+            "source": "Freedom in the World 2026 (was 46% two decades ago)",
+            "verified": true
+          },
+          {
+            "name": "US Freedom House aggregate score",
+            "value": "81",
+            "unit": "points (0-100)",
+            "as_of": "2026-03",
+            "trend": "falling",
+            "source": "Freedom in the World 2026 (down 3 pts; sharpest decline among Free countries)",
+            "verified": true
+          },
+          {
+            "name": "Trump net approval",
+            "value": "-19 (39% approve / 58% disapprove)",
+            "unit": "percentage points",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "Aggregators: Silver Bulletin -17.4; FiftyPlusOne -23; CNN poll 34%",
+            "verified": true
+          },
+          {
+            "name": "Gallup average confidence in nine US institutions",
+            "value": "27",
+            "unit": "percent",
+            "as_of": "2026-07",
+            "trend": "flat",
+            "source": "Gallup, 'Confidence in U.S. Institutions Remains Near All-Time Low'",
+            "verified": true
+          },
+          {
+            "name": "US Supreme Court job approval",
+            "value": "33",
+            "unit": "percent",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "Gallup (Jul 1-19, 2026); down 6 pts from prior record low",
+            "verified": true
+          },
+          {
+            "name": "US Congress job approval",
+            "value": "13.5",
+            "unit": "percent",
+            "as_of": "2026-07",
+            "trend": "falling",
+            "source": "YouGov via Statista (was 23.2% Jul 2025)",
+            "verified": true
+          },
+          {
+            "name": "Polymarket probability Democrats win US House",
+            "value": "86",
+            "unit": "percent",
+            "as_of": "2026-07-25",
+            "trend": "rising",
+            "source": "Polymarket 'Which party will win the House in 2026'",
+            "verified": true
+          },
+          {
+            "name": "US generic congressional ballot, Democratic margin",
+            "value": "+11",
+            "unit": "percentage points",
+            "as_of": "2026-07",
+            "trend": "rising",
+            "source": "Polling aggregate cited in midterm market commentary",
+            "verified": true
+          },
+          {
+            "name": "Largest single-day US protest turnout ('No Kings', 28 Mar 2026)",
+            "value": "~8,000,000 across 3,300+ sites",
+            "unit": "participants",
+            "as_of": "2026-03-28",
+            "trend": "rising",
+            "source": "Britannica / TIME / Democracy Now (5m Jun 2025, 7m Oct 2025, 8m Mar 2026)",
+            "verified": true
+          },
+          {
+            "name": "US terrorism and targeted-violence incidents, first half of year",
+            "value": "520+ (H1 2025), ~+40% YoY",
+            "unit": "incidents",
+            "as_of": "2025-06",
+            "trend": "rising",
+            "source": "START/BDI; Bridging Divides says risk 'continued to worsen' in 2026",
+            "verified": true
+          },
+          {
+            "name": "Active threats against members of Congress tracked by USCP",
+            "value": "~7,500 (threats +58% YoY)",
+            "unit": "threats",
+            "as_of": "2025-12",
+            "trend": "rising",
+            "source": "US Capitol Police via Bridging Divides Initiative",
+            "verified": true
+          },
+          {
+            "name": "AfD federal voting intention",
+            "value": "27-28",
+            "unit": "percent",
+            "as_of": "2026-07",
+            "trend": "rising",
+            "source": "Statista / ynet; CDU/CSU ~23%",
+            "verified": true
+          },
+          {
+            "name": "AfD vote share, Rhineland-Palatinate state election",
+            "value": "19.5",
+            "unit": "percent",
+            "as_of": "2026-03-22",
+            "trend": "rising",
+            "source": "2026 Rhineland-Palatinate state election results (roughly doubled; best-ever western Land result)",
+            "verified": true
+          },
+          {
+            "name": "Bardella 2027 French presidential first-round polling",
+            "value": "34-37.5",
+            "unit": "percent",
+            "as_of": "2026-06",
+            "trend": "rising",
+            "source": "Connexion France / Hungarian Conservative poll roundups",
+            "verified": true
+          },
+          {
+            "name": "Reform UK voting intention",
+            "value": "24-29",
+            "unit": "percent",
+            "as_of": "2026-06",
+            "trend": "falling",
+            "source": "Opinium 3 Jun 2026 (29%); Survation (24%, tied with Labour)",
+            "verified": true
+          },
+          {
+            "name": "Tisza seats won in Hungarian election",
+            "value": "141 of 199 (two-thirds supermajority), ~80% turnout",
+            "unit": "seats",
+            "as_of": "2026-04-12",
+            "trend": "rising",
+            "source": "CNN / Al Jazeera coverage of 2026 Hungarian parliamentary election",
+            "verified": true
+          },
+          {
+            "name": "Successful coups in Africa since 2020",
+            "value": "11",
+            "unit": "coups",
+            "as_of": "2025-11",
+            "trend": "rising",
+            "source": "The Conversation / Punch, on Guinea-Bissau takeover 26 Nov 2025",
+            "verified": true
+          },
+          {
+            "name": "Global political violence events recorded by ACLED (2025)",
+            "value": "185,000 (state forces party to 74%)",
+            "unit": "events",
+            "as_of": "2025-12",
+            "trend": "rising",
+            "source": "ACLED Conflict Index & 2026 Watchlist",
+            "verified": true
+          },
+          {
+            "name": "Share of world population within 5km of violent conflict",
+            "value": "~1 in 6",
+            "unit": "ratio",
+            "as_of": "2025-12",
+            "trend": "rising",
+            "source": "ACLED Conflict Exposure Calculator",
+            "verified": true
+          },
+          {
+            "name": "US states with election-deepfake statutes",
+            "value": "31",
+            "unit": "states",
+            "as_of": "2026-07",
+            "trend": "rising",
+            "source": "Arizona Capitol Times, 21 Jul 2026",
+            "verified": true
+          }
+        ],
+        "scheduled_events": [
+          {
+            "name": "EU AI Act Article 50 transparency/labelling obligations become enforceable",
+            "date": "2026-08",
+            "why_it_matters": "First binding regime requiring disclosure of AI-generated content, fines to 6% of global revenue; sets the global template for synthetic-media governance and will be stress-tested against the 2026-27 European election cycle."
+          },
+          {
+            "name": "German Land elections: Saxony-Anhalt, Mecklenburg-Vorpommern, Berlin",
+            "date": "2026-09",
+            "why_it_matters": "AfD is favoured or near-first in both eastern states; a first-place finish with no available coalition partner is the most likely trigger for a formal crisis over the CDU 'firewall'."
+          },
+          {
+            "name": "Swedish general election",
+            "date": "2026-09-13",
+            "why_it_matters": "Tests whether Sweden Democrats convert confidence-and-supply into cabinet seats - a bellwether for Nordic normalization of the radical right."
+          },
+          {
+            "name": "Russian State Duma election",
+            "date": "2026-09",
+            "why_it_matters": "Managed election, but seat allocation and any United Russia weakness are the main public signal about elite cohesion and post-Putin positioning."
+          },
+          {
+            "name": "Brazilian general election (presidential first round)",
+            "date": "2026-10-04",
+            "why_it_matters": "Largest Latin American democracy; determines whether the 2022-23 institutional crisis was resolved or merely deferred, and shapes the regional bloc's posture toward US intervention in Venezuela."
+          },
+          {
+            "name": "Israeli Knesset election (legally due)",
+            "date": "2026-10",
+            "why_it_matters": "Post-war coalition realignment; outcome drives regional escalation risk and the durability of judicial-overhaul-era institutional damage."
+          },
+          {
+            "name": "US midterm elections",
+            "date": "2026-11-03",
+            "why_it_matters": "The single biggest forcing function in this domain. Divided government would restore subpoena power and appropriations leverage; disputes over the six redrawn state maps create the most plausible near-term certification crisis."
+          },
+          {
+            "name": "Guinea-Bissau elections promised by junta",
+            "date": "2026-12",
+            "why_it_matters": "Test case for whether the West African coup belt's 'transitional' timetables are ever honoured; ECOWAS credibility rides on it."
+          },
+          {
+            "name": "New US Congress sworn in; contested seatings and speakership resolved",
+            "date": "2027-01-03",
+            "why_it_matters": "The formal moment at which any refusal to seat certified members, or competing state certifications, would become a live constitutional crisis."
+          },
+          {
+            "name": "Nigerian general election",
+            "date": "2027-02",
+            "why_it_matters": "Africa's largest democracy and the anchor of ECOWAS; a disputed or violent outcome would remove the main regional counterweight to Sahel juntas."
+          },
+          {
+            "name": "French presidential election (two rounds)",
+            "date": "2027-04",
+            "why_it_matters": "Highest-consequence single election in Europe before 2029. An RN presidency would reorder EU decision-making, NATO burden-sharing and eurozone risk premia simultaneously."
+          },
+          {
+            "name": "French legislative elections",
+            "date": "2027-06",
+            "why_it_matters": "Determines whether a new president governs or cohabits; the pathway by which RN could convert the presidency into actual legislative power."
+          },
+          {
+            "name": "Kenyan general election",
+            "date": "2027-08",
+            "why_it_matters": "East Africa's bellwether after the 2024-25 Gen Z protest cycle; tests whether youth mobilization converts into electoral turnover or into repression."
+          },
+          {
+            "name": "21st CCP National Congress",
+            "date": "2027-10",
+            "why_it_matters": "Xi Jinping turns 74; the Congress is the only scheduled node at which succession signals (a designated heir, Politburo Standing Committee composition) would surface."
+          },
+          {
+            "name": "Taiwan presidential and legislative elections",
+            "date": "2028-01",
+            "why_it_matters": "Cross-strait risk gate; also a live case study in AI-enabled foreign electoral interference at scale."
+          },
+          {
+            "name": "Russian presidential election",
+            "date": "2028-03",
+            "why_it_matters": "Putin would be 75; a scheduled succession-management moment even if the outcome is preordained, and the point at which an incapacity scenario becomes procedurally visible."
+          },
+          {
+            "name": "US presidential and congressional elections",
+            "date": "2028-11-07",
+            "why_it_matters": "First presidential contest for which Trump is constitutionally ineligible; the definitive test of whether US electoral machinery, certification and peaceful transfer survive intact."
+          },
+          {
+            "name": "European Parliament elections",
+            "date": "2029-06",
+            "why_it_matters": "Determines whether the nationalist-right bloc can command a blocking or governing majority in EU legislation, including enlargement and rule-of-law conditionality."
+          },
+          {
+            "name": "UK general election (latest constitutional date)",
+            "date": "2029-08",
+            "why_it_matters": "Burnham must call it by then; the main route by which Reform UK could reach government."
+          },
+          {
+            "name": "German federal election",
+            "date": "2029-09",
+            "why_it_matters": "If the AfD is still polling near 30%, coalition arithmetic may make a firewall-preserving majority impossible for the first time."
+          }
+        ],
+        "discrete_risks": [
+          {
+            "id": "politics_us_insurrection_act_invoked",
+            "name": "US President formally invokes the Insurrection Act over a state's objection",
+            "resolution_criteria": "A presidential proclamation expressly invoking 10 U.S.C. sections 251-255 (the Insurrection Act) to deploy federal troops or federalized National Guard for domestic law enforcement inside a US state whose governor has publicly objected, confirmed by the Federal Register and major wire services.",
+            "p_by_2027_pct": 30,
+            "p_by_2031_pct": 42,
+            "p_by_2036_pct": 48,
+            "reasoning": "Trump explicitly threatened invocation in January 2026 over Minneapolis after an ICE shooting, and again for other cities. Critically, the Supreme Court's 23 December 6-3 ruling closed the Title 10 section 12406 federalization route, which raises rather than lowers the incentive to reach for the Insurrection Act as the remaining legal instrument. Countervailing: Republican legislators publicly urged against it, DoD leadership is reportedly reluctant, and threats have so far functioned as leverage rather than commitment.",
+            "base_rate_anchor": "Reference class: US presidential Insurrection Act invocations, 1957-2025 (68 years). Roughly 5 invocations (Little Rock 1957, Ole Miss 1962, Alabama 1963, Detroit 1967, LA 1992) = ~7%/yr unconditional; only ~3 were over a governor's objection = ~4.5%/yr. Current conditions are far above the base rate - repeated explicit threats within 12 months.",
+            "severity_0_10": 6,
+            "confidence": "medium",
+            "contrarian_case": "Threatening is strategically superior to doing: invocation would trigger immediate litigation, military-legal friction, and would hand Democrats a mobilizing symbol weeks before an election Republicans are already losing. Trump has threatened and not invoked repeatedly since 2020 - the revealed preference is bluff, and I may be over-weighting salience. If Democrats take the House in November, the political cost rises further."
+          },
+          {
+            "id": "politics_us_open_defiance_supreme_court",
+            "name": "US executive branch openly defies a final Supreme Court order",
+            "resolution_criteria": "The executive branch publicly and knowingly fails to comply with a final, non-stayed order of the US Supreme Court for more than 30 days, and this non-compliance is (a) asserted in a filing or opinion by the Court or a lower court on remand, or (b) reported as such by at least three of AP/Reuters/NYT/WSJ/WaPo. Slow-walking with a colorable legal argument does not count.",
+            "p_by_2027_pct": 12,
+            "p_by_2031_pct": 20,
+            "p_by_2036_pct": 24,
+            "reasoning": "The Court blocked four flagship initiatives in the 2025-26 term (birthright citizenship, global tariffs, the Cook firing, Guard federalization). The administration has complied grudgingly each time, typically by re-litigating on narrower grounds. The realistic mechanism is not a declaration of defiance but a compliance dispute the Court itself characterizes as evasion - which is why the resolution criterion includes judicial assertion.",
+            "base_rate_anchor": "Reference class: episodes of open presidential defiance of a final SCOTUS order in US history. Contested candidates: Jackson/Worcester 1832 (no order to defy), Lincoln/Merryman 1861 (circuit, not SCOTUS), Nixon/US v. Nixon 1974 (complied). Zero clean instances in 235 years, i.e. base rate under 0.5%/yr. Upward adjustment is large but must stay bounded.",
+            "severity_0_10": 9,
+            "confidence": "low",
+            "contrarian_case": "Compliance is cheap and defiance is expensive: the administration has won more than it has lost at this Court, and destroying the institution that keeps ruling partly in your favour is self-defeating. Most 'defiance' claims to date have been aggressive-but-colorable relitigation, which is normal executive behaviour. The 12% may be several times too high; note how often this has been predicted and not happened since 2017."
+          },
+          {
+            "id": "politics_dem_control_a_chamber_2027",
+            "name": "Democrats control at least one chamber of Congress from January 2027",
+            "resolution_criteria": "Following the 3 November 2026 elections, Democrats (including caucusing independents) hold a majority of seats in the US House and/or Senate when the new Congress convenes on 3 January 2027.",
+            "p_by_2027_pct": 88,
+            "p_by_2031_pct": 90,
+            "p_by_2036_pct": 92,
+            "reasoning": "Polymarket ~86% for the House; generic ballot D+5 to D+11 through mid-2026; presidential net approval ~-19. Republicans hold a very narrow House majority and Democrats need only a modest net pickup. Mid-decade redistricting in six states partly offsets this but CA's Prop 50 was cleared by SCOTUS in February, neutralizing much of the Texas gain. Post-2027 increments reflect small additional chances at 2028/2030 if 2026 somehow fails.",
+            "base_rate_anchor": "Reference class: 20 midterms since 1946. The president's party lost House seats in 18 of 20 (exceptions 1998, 2002). Average loss ~26 seats; with net approval below 45% the average loss exceeds 35. Republicans' current margin is single digits.",
+            "severity_0_10": 5,
+            "confidence": "high",
+            "contrarian_case": "Modern House maps are unusually inelastic, and after six states' mid-decade redraws the number of genuinely competitive seats is smaller than the national environment implies. Aggressive voter-roll and mail-ballot changes, DOJ involvement in election administration, and low-propensity Democratic turnout in a midterm are all real risks. Polymarket has historically been Republican-biased on US races, so 86% may understate rather than overstate - but the tail where Republicans hold both chambers is not negligible at ~10-12%."
+          },
+          {
+            "id": "politics_us_federal_official_assassinated",
+            "name": "Successful assassination of a sitting US President, VP, member of Congress, cabinet secretary or Supreme Court justice",
+            "resolution_criteria": "A sitting US president, vice president, member of the House or Senate, Senate-confirmed cabinet secretary, or Supreme Court justice is killed in an attack determined by federal law enforcement to be politically, ideologically or personally-grievance motivated. Natural death, accident and ordinary criminal robbery excluded.",
+            "p_by_2027_pct": 5,
+            "p_by_2031_pct": 12,
+            "p_by_2036_pct": 19,
+            "reasoning": "Two attempts on Trump in 2024, the June 2025 killing of Minnesota House Speaker emerita Melissa Hortman and her husband, ~7,500 active threats tracked by Capitol Police and a 58% year-on-year rise in threats, plus a documented ~40% rise in targeted-violence events. State-level officials have already been killed; the barrier between state and federal targets is thin. Protective resourcing for members of Congress remains far below what threat volume implies.",
+            "base_rate_anchor": "Reference class: successful assassinations of sitting US federal officials at this level, 1963-2025 (63 years): JFK 1963, Rep. Leo Ryan 1978 (Judge John Wood 1979 is below threshold). Roughly 2 qualifying events in 63 years = ~3%/yr. Attempts are far more common (Wallace 1972, Ford 1975 x2, Reagan 1981, Giffords 2011, Scalise 2017, Trump 2024 x2).",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "Protective detail quality for the executive is the best it has ever been, and the observed pattern is that attempts overwhelmingly fail. The 2025 Hortman killing targeted a state official with essentially no security - a different reference class from federally protected principals. Rising threat counts mostly measure rising reporting and online bravado, not rising capability; conflating volume with lethality is the classic error here."
+          },
+          {
+            "id": "politics_us_armed_federal_state_confrontation",
+            "name": "Armed confrontation between US state-controlled forces and federal forces",
+            "resolution_criteria": "A US governor issues an order directing state law enforcement or state-controlled National Guard to physically block or detain federal agents/troops, AND an armed confrontation occurs producing at least one death or at least one state officer detaining a federal officer (or vice versa) at gunpoint. Litigation, non-cooperation policies and protest-line scuffles do not count.",
+            "p_by_2027_pct": 7,
+            "p_by_2031_pct": 13,
+            "p_by_2036_pct": 16,
+            "reasoning": "The January 2026 Minneapolis sequence - a 2,400-agent DHS surge, an ICE agent killing a resident, mass protests and an Insurrection Act threat - is the closest approach in living memory. Blue-state governors have escalated rhetorically. But every actor's revealed strategy has been to litigate, and the Supreme Court gave states a win in December, which strongly rewards the courtroom over the street.",
+            "base_rate_anchor": "Reference class: US federal-state armed standoffs since Reconstruction. Little Rock 1957 and the 1962-63 university desegregation cases involved state defiance, but federal escalation ended them without an exchange of fire. Zero fatal state-vs-federal armed clashes in ~150 years. Base rate well under 0.5%/yr.",
+            "severity_0_10": 8,
+            "confidence": "low",
+            "contrarian_case": "State officials have overwhelming incentives to be the visibly lawful party - the entire blue-state legal strategy depends on it, and it has been winning. Governors control Guard units simultaneously subject to federal call-up, so ordering them into confrontation risks fracturing their own chain of command. Chaotic bystander violence at protests is far likelier than organized state-federal combat, and I should be careful not to score the former as the latter."
+          },
+          {
+            "id": "politics_trump_third_term_bid",
+            "name": "Trump formally pursues a third presidential term",
+            "resolution_criteria": "Donald Trump files FEC paperwork as a candidate for president in 2028, is placed on a primary ballot in any state as a presidential candidate, or is formally nominated as the Republican presidential or vice-presidential candidate for 2028.",
+            "p_by_2027_pct": 5,
+            "p_by_2031_pct": 10,
+            "p_by_2036_pct": 10,
+            "reasoning": "Trump has repeatedly floated it and merchandised it, but as of mid-2026 has told CNBC he would 'probably not', has ruled out the VP workaround, and has publicly said Vance would be favoured for the nomination. Vance leads GOP primary polling at 35-46% with prediction markets near 44%. Age (82 in 2028) and the 22nd Amendment's plain text are hard constraints; a bid would require state election officials in dozens of states to accept the filing.",
+            "base_rate_anchor": "Reference class: US presidents since the 22nd Amendment's 1951 ratification who sought a third term: zero. Pre-amendment, FDR is the sole instance in 150 years. Base rate essentially nil; the adjustment here is entirely inside-view.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "He is 80, his net approval is -19, and the party has already coalesced around a loyal successor - the succession is being managed, not contested. Third-term talk is best modelled as attention-maintenance and lame-duck-avoidance, exactly as 'we'll see what happens' functioned in 2019-20. 5% by 2027 may still be too generous given that Vance's coronation is already underway."
+          },
+          {
+            "id": "politics_rn_holds_french_presidency",
+            "name": "National Rally (or RN-aligned candidate) wins the French presidency",
+            "resolution_criteria": "A candidate endorsed by, or a member of, Rassemblement National (or its formal successor) is elected President of France in the 2027 or 2032 presidential election and inaugurated.",
+            "p_by_2027_pct": 45,
+            "p_by_2031_pct": 45,
+            "p_by_2036_pct": 62,
+            "reasoning": "Bardella leads first-round polling at 34-37.5%, historically unprecedented for the RN, with Philippe at 13-14.5% and Attal at 8.5-9.5% - a fragmented field that makes an RN first-round win near-certain. The open question is the second round: the republican front has held in every runoff since 1974, but its margin has collapsed from 82-18 (2002) to 58-42 (2022). Le Pen's ineligibility appeal (ruling expected 7 July 2026 - outcome NOT verified) matters mainly for which RN candidate runs; Bardella polls better than Le Pen.",
+            "base_rate_anchor": "Reference class: French second-round runoffs featuring a far-right candidate - 2002 (lost with 18%), 2017 (34%), 2022 (41.5%). Zero wins in three attempts, but a monotone +12pt-per-cycle trend reaches ~53% in 2027. Broader class: radical-right parties winning national executive office in Western Europe - Italy 2022, Netherlands 2023, plus junior-partner cases in Austria, Finland, Sweden.",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "The RN has lost every runoff and lost the 2024 legislative second round badly when tactical withdrawal was coordinated. Bardella is 30, has never held executive office, and RN's economic programme is incoherent enough to be shredded in a two-week runoff campaign. Also plausible: an RN presidency proves far less consequential than modelled, because cohabitation with a hostile Assembly and EU treaty obligations bind. My 45% may be the most over-narrativized number in this set."
+          },
+          {
+            "id": "politics_afd_enters_government",
+            "name": "AfD enters government at German federal or Land level",
+            "resolution_criteria": "The AfD holds at least one ministerial post in a German federal or state (Land) government, or formally signs a written toleration/confidence-and-supply agreement supporting such a government. Issue-by-issue parliamentary cooperation does not count.",
+            "p_by_2027_pct": 16,
+            "p_by_2031_pct": 48,
+            "p_by_2036_pct": 65,
+            "reasoning": "AfD leads federal polling at 27-28% and took 19.5% in Rhineland-Palatinate in March 2026, its best western result. September 2026 elections in Saxony-Anhalt and Mecklenburg-Vorpommern are the first genuine test: a large AfD first place could make any firewall-compliant majority arithmetically impossible. But the 2024 Thuringia/Saxony precedent showed CDU/SPD/BSW will build maximally awkward coalitions to avoid it, and Merz has staked his leadership on the firewall.",
+            "base_rate_anchor": "Reference class: Western European radical-right parties polling above 20% nationally that eventually entered government - Austria FPO (1999, 2017), Italy Lega/FdI, Netherlands PVV (2024), Finns Party, Sweden Democrats (support agreement), France RN (never). Roughly 6 of 8 crossed within 15 years of first passing 20%. Germany's institutional and historical constraints are genuinely stronger than the class average.",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "Germany's firewall is not just norm but partly law - the AfD is under Verfassungsschutz observation as a confirmed right-wing extremist organisation, and a ban proceeding is live in the Bundestag. A ban attempt, even a failed one, would reset the dynamic entirely. Conversely, the firewall could break faster than 48% by 2031: if eastern CDU state parties face a choice between AfD and permanent opposition, one defection cascades."
+          },
+          {
+            "id": "politics_eu_exit_process_initiated",
+            "name": "An EU member state initiates exit from the EU",
+            "resolution_criteria": "An EU member state's government formally notifies the European Council under Article 50 TEU, or a nationally binding referendum on EU membership is held in a member state.",
+            "p_by_2027_pct": 2,
+            "p_by_2031_pct": 6,
+            "p_by_2036_pct": 11,
+            "reasoning": "The most likely candidate, Hungary, just replaced Orban with the emphatically pro-EU Magyar on an April 2026 supermajority - this risk fell sharply in H1 2026. Slovakia's Fico is transactional (blocking Ukraine accession over the Druzhba pipeline) but has never proposed exit; Slovak public opinion is strongly pro-membership. Even the RN abandoned Frexit after 2017. Net fiscal recipients have overwhelming material reasons to stay.",
+            "base_rate_anchor": "Reference class: 68 years of EEC/EU membership across ~28 member states, one Article 50 notification (UK 2016) plus Greenland 1982 (sub-national). Roughly 1 exit process per ~1,000 member-years, ~2.8%/yr union-wide - and the UK case was uniquely enabled by an opt-out-heavy, non-euro, island membership no current member replicates.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "Brexit's observed cost is the strongest anti-exit propaganda in Europe and every radical-right party has read the polling. The real risk is not exit but hollowing-out from within - permanent Article 7 stalemates, unanimity vetoes and non-compliance - which this question does not capture and which would do more damage than a small member leaving. If anything, 11% by 2036 may be too high."
+          },
+          {
+            "id": "politics_coup_cluster_year",
+            "name": "A calendar year with three or more successful coups d'etat worldwide",
+            "resolution_criteria": "In any single calendar year from 2026 onward, at least three successful coups d'etat occur globally, where 'successful' means the coup leadership holds effective power for at least seven days, per Powell-Thyne / Cline Center coding.",
+            "p_by_2027_pct": 52,
+            "p_by_2031_pct": 80,
+            "p_by_2036_pct": 89,
+            "reasoning": "Guinea-Bissau (Nov 2025) was Africa's 11th successful coup since 2020, following Madagascar (Oct 2025) and a thwarted Benin attempt (Dec 2025). Nearly three-quarters of global coup attempts since 2020 have been in West Africa/the Sahel, where the junta bloc (Mali, Burkina Faso, Niger, Guinea, now Guinea-Bissau) has left ECOWAS and removed the main external deterrent. Coup contagion within regions is well documented; the structural drivers are unchanged.",
+            "base_rate_anchor": "Reference class: successful coups per year globally, 2015-2025. 2015-2019 averaged ~1/yr; 2020: 2, 2021: 6, 2022: 3, 2023: 4, 2024: ~1, 2025: 2. So 3 of the last 6 years (50%) hit the threshold of 3+, while the longer-run rate is ~25%. I use ~35%/yr forward, reflecting a partially mean-reverting wave.",
+            "severity_0_10": 5,
+            "confidence": "medium",
+            "contrarian_case": "The 2021-23 spike may already be over: 2024-25 averaged 1.5/yr, well below wave peak, and the remaining Sahel candidates have mostly already been couped - you cannot coup a junta twice and have it count the same way. Coup waves historically exhaust when the supply of vulnerable civilian governments in the affected region runs out, which is close to true for West Africa now. Junta-on-junta palace reshuffles may also fall outside strict coding."
+          },
+          {
+            "id": "politics_established_democracy_downgraded",
+            "name": "A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem",
+            "resolution_criteria": "In any V-Dem annual Democracy Report from 2027 through 2037, a NATO or EU member state that was coded as a liberal or electoral democracy in the 2026 report is coded as an electoral autocracy or closed autocracy. Turkey's and Hungary's pre-2026 coding do not qualify.",
+            "p_by_2027_pct": 22,
+            "p_by_2031_pct": 42,
+            "p_by_2036_pct": 52,
+            "reasoning": "V-Dem's 2026 report already lists the US, UK, Italy, Slovakia, Slovenia and Croatia as new autocratizers and calls the US decline 'unprecedented' among Western democracies. Freedom House cut the US 3 points to 81, out of the global top 20. The specific mechanisms V-Dem weights - executive control of prosecution (Comey indictment, the Lucas raid), Schedule F politicization of the civil service, media and academic coercion, mid-decade gerrymandering - all worsened in H1 2026. Slovakia under Fico is the other live candidate.",
+            "base_rate_anchor": "Reference class: consolidated OECD/NATO democracies downgraded to electoral autocracy by V-Dem since 1990 - Hungary (2018) and Turkey (2014). Two cases in ~35 years across ~35 member states = ~0.16%/country-year, i.e. ~5%/yr union-wide. Current conditions justify a large multiple, but the coding threshold (elections must actually cease to be free and fair, not merely be threatened) is high.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "V-Dem's Regimes-of-the-World threshold requires that national elections cease to be free and fair - and the 2026 US midterms look likely to be conducted normally and lost by the incumbent party, which is precisely the evidence against a downgrade. Courts blocked four flagship executive actions; 8 million people protested unimpeded in March; Hungary and the UK both just changed governments peacefully. There is also a real possibility that V-Dem's expert-coder panel is partly registering elite sentiment about Trump rather than measurable institutional change - a known methodological criticism."
+          },
+          {
+            "id": "politics_russia_leadership_change",
+            "name": "Vladimir Putin ceases to be Russia's paramount leader",
+            "resolution_criteria": "Putin is no longer president of Russia (or, if the office is restructured, no longer the recognized paramount decision-maker) for a continuous period exceeding 60 days, through death, incapacity, resignation, removal or coup.",
+            "p_by_2027_pct": 5,
+            "p_by_2031_pct": 19,
+            "p_by_2036_pct": 39,
+            "reasoning": "Putin turns 74 in October 2026. His current term runs to 2030 with constitutional permission to serve to 2036. No designated successor exists and the elite structure is built around his personal arbitration, which is exactly the configuration that makes actuarial risk the dominant channel. Wartime and postwar elite friction plus the Prigozhin precedent add a small removal hazard on top.",
+            "base_rate_anchor": "Reference class: (a) actuarial - a 74-year-old male with elite medical care, ~2-2.5%/yr mortality; (b) irregular exit - personalist autocrats in power over 20 years leave irregularly at roughly 1-2%/yr (Ceausescu, Mubarak, Ben Ali, Bouteflika, Mugabe, Assad 2024). Combined ~3.5-4%/yr, compounding to ~19% over 5 years and ~39% over 10.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "Putin has outlived a decade of health rumours and every predicted coup, including the one that actually happened in 2023 and collapsed in 36 hours. Autocrats who survive to 74 in office have already selected for robustness, so the conditional hazard is below the unconditional actuarial table. In the other direction: a succession could be pre-arranged and managed, resolving this 'yes' with no instability at all - so the probability of disorderly succession is much lower than 39%."
+          },
+          {
+            "id": "politics_xi_departure",
+            "name": "Xi Jinping ceases to be CCP General Secretary",
+            "resolution_criteria": "Xi Jinping is no longer General Secretary of the Chinese Communist Party for a continuous period exceeding 60 days, for any reason.",
+            "p_by_2027_pct": 4,
+            "p_by_2031_pct": 15,
+            "p_by_2036_pct": 33,
+            "reasoning": "Xi is 73. The 21st Party Congress in autumn 2027 is the only scheduled node; he abolished term limits in 2018 and secured a third term in 2022 with no heir apparent, so the base case is continuation. The risk is almost entirely actuarial plus a thin tail of elite removal following military purges. The missing succession mechanism makes any exit maximally consequential.",
+            "base_rate_anchor": "Reference class: (a) actuarial for a 73-year-old Chinese male with elite care, ~2%/yr; (b) irregular removal of a sitting CCP paramount leader - Hua Guofeng (1980-81) is the only clean post-1949 case, ~1.4%/decade. Combined ~2.5%/yr.",
+            "severity_0_10": 9,
+            "confidence": "low",
+            "contrarian_case": "Xi's purges of the PLA Rocket Force and defence ministry have been read as weakness by outside observers for three years running, and each time the simpler explanation - he is consolidating, not losing - has been right. Opacity cuts both ways: China-watchers have almost no ability to observe true health or elite-support conditions, so any number here, mine included, is close to an actuarial table with decoration."
+          },
+          {
+            "id": "politics_iran_islamic_republic_ends",
+            "name": "The Islamic Republic of Iran ceases to exist as a governing system",
+            "resolution_criteria": "A government controls Tehran that does not derive its authority from velayat-e faqih - the office of Supreme Leader is abolished, left vacant for more than 12 months with no successor, or subordinated to a non-clerical executive - sustained for at least 90 days.",
+            "p_by_2027_pct": 14,
+            "p_by_2031_pct": 27,
+            "p_by_2036_pct": 37,
+            "reasoning": "Khamenei was killed in the 2026 US-Israeli air campaign along with 40+ senior officials, producing an unresolved succession question at the Assembly of Experts. Mass protests ran December 2025 to February 2026 with violent crackdown, and Gen Z-linked unrest continues. Analysts note wartime conditions favour consensus or collective arrangements in the short run, with suppressed factional rivalries re-emerging once the external crisis eases - so the risk window is 2027-2029, not now. The IRGC's institutional interest in regime survival is the main stabilizer.",
+            "base_rate_anchor": "Reference class: revolutionary/ideological regimes surviving the violent death of a founding-generation supreme leader. Most survive (Cuba post-Fidel, USSR post-Stalin, China post-Mao, DPRK twice); collapse usually requires simultaneous military defeat and elite defection (Iraq 2003, Syria 2024). Roughly 3-4 collapses in ~20 comparable transitions = 15-20% per transition, spread over a decade.",
+            "severity_0_10": 9,
+            "confidence": "low",
+            "contrarian_case": "Predictions of Iranian regime collapse have failed continuously since 1979 - through the Iran-Iraq war, 2009, 2017-18, 2019 and 2022-23 - and the security apparatus has repeatedly demonstrated it will kill enough people to survive. External attack historically produces rally effects and hardening, not collapse; the 2026 decapitation may have made the IRGC more, not less, dominant. The modal outcome may be a more militarized, less clerical, but entirely intact Islamic Republic - which resolves this 'no' while representing enormous change."
+          },
+          {
+            "id": "politics_us_strike_inside_mexico",
+            "name": "Overt US military strike inside Mexican territory without Mexican consent",
+            "resolution_criteria": "The US government publicly acknowledges, or three major wire services confirm, a US military kinetic strike (manned aircraft, drone, missile or ground raid) on a target inside Mexican sovereign territory that the Mexican federal government publicly states it did not consent to.",
+            "p_by_2027_pct": 33,
+            "p_by_2031_pct": 44,
+            "p_by_2036_pct": 49,
+            "reasoning": "Trump has stated the US would 'start now hitting land with regard to the cartels' and that 'the cartels are running Mexico'; the Venezuela precedent (3 January 2026 strikes on Caracas, Maduro captured) demonstrates both willingness and a template. Sheinbaum has publicly ruled out intervention and is pre-empting by escalating her own operations - El Mencho killed 22 February 2026, at the cost of 25 National Guard dead in the ensuing CJNG unrest. Her cooperation strategy is the main thing keeping this below 50%.",
+            "base_rate_anchor": "Reference class: overt, acknowledged US military strikes inside Mexico without consent. Zero since the 1916-17 Pershing expedition - ~110 years. Covert or consented operations are common; overt non-consented ones are not. The base rate is essentially zero and the entire probability is inside-view, driven by a demonstrated 2026 willingness to strike in the hemisphere.",
+            "severity_0_10": 7,
+            "confidence": "medium",
+            "contrarian_case": "Mexico is not Venezuela: it is the US's largest trading partner, shares a 2,000-mile border, and Sheinbaum is actively cooperating (extraditing cartel figures, killing El Mencho, accepting a 'sovereign decision' framing that gives Washington what it wants without a strike). A unilateral strike would collapse that cooperation, wreck USMCA politics and hand Morena a nationalist landslide. Threats here have a clear extractive function - they are producing Mexican action - which argues they will keep being threats."
+          },
+          {
+            "id": "politics_large_country_civil_war_onset",
+            "name": "Civil war onset in a country of 50 million or more that was at peace in mid-2026",
+            "resolution_criteria": "A country with population of at least 50 million, not experiencing an armed conflict with at least 1,000 battle-related deaths in 2025, records at least 1,000 battle-related deaths in a single calendar year in an internal armed conflict, per UCDP/PRIO coding.",
+            "p_by_2027_pct": 42,
+            "p_by_2031_pct": 75,
+            "p_by_2036_pct": 87,
+            "reasoning": "Roughly 28-30 countries qualify by population. ACLED logged ~185,000 violent political events in 2025 with state forces party to 74%, and identified proliferating armed groups across Africa and Latin America as a defining trend. Candidate large states with live escalation pathways include Ethiopia, Nigeria, Pakistan, Iran, Egypt, Bangladesh and Turkey. Mexico's cartel conflict is coded inconsistently and could cross the threshold on a coding change alone.",
+            "base_rate_anchor": "Reference class: civil war onsets in countries with 50m+ population, 2010-2025 (16 years): Ethiopia 2020, Myanmar 2021, Sudan 2023 (pop ~48m, borderline), Ukraine 2014 (internationalized). Roughly 3 clean onsets in 16 years across ~28 eligible states = ~0.7%/country-year = ~18%/yr of at least one. I adjust up to ~25%/yr for the elevated conflict environment and Iran's post-decapitation fragility.",
+            "severity_0_10": 8,
+            "confidence": "medium",
+            "contrarian_case": "Large states are precisely the ones with the coercive capacity to prevent civil war - the historical onset rate is heavily concentrated in small, poor, ethnically segmented states. UCDP battle-death coding is conservative and lags 12-18 months, so 'yes' events resolve slowly and near-misses never get coded. My 42% by 2027 may double-count the same handful of candidates whose individual probabilities are each modest."
+          },
+          {
+            "id": "politics_reform_uk_leads_government",
+            "name": "Reform UK leads a UK government",
+            "resolution_criteria": "A Reform UK MP is appointed Prime Minister of the United Kingdom.",
+            "p_by_2027_pct": 3,
+            "p_by_2031_pct": 28,
+            "p_by_2036_pct": 35,
+            "reasoning": "Reform led polling for most of 2025-26 (29% in Opinium's June 2026 read) but Labour has closed to level (24-24 in Survation) following Starmer's exit and Burnham's accession on 20 July. The next election must be held by August 2029 and Burnham has no incentive to go early. FPTP is genuinely unpredictable with four parties in the 15-28% band - Reform could win a majority on ~30% of the vote, or be squeezed to 60 seats.",
+            "base_rate_anchor": "Reference class: new British parties reaching No. 10. Labour 1924 is the only successful case in 200 years; the SDP (1983, 25% of vote) and UKIP (2015, 12.6%) both failed to convert. But the friendlier reference class - parties leading national polls three years before an election that then win - runs roughly 40-50% across post-war UK cycles.",
+            "severity_0_10": 6,
+            "confidence": "low",
+            "contrarian_case": "Mid-term poll leads are the least predictive thing in British politics - Labour led by 20+ in 2012 and lost in 2015; UKIP's 2014 surge produced one MP. Reform's fall from 29% to 24% within weeks of a Labour leadership change is evidence its support is a protest deposit, not a coalition. Burnham is a genuinely different proposition on exactly Reform's terrain (northern, anti-establishment, preferred as PM over Farage in Ipsos polling). 28% by 2031 may be too high."
+          },
+          {
+            "id": "politics_us_mass_casualty_political_attack",
+            "name": "Single US political-violence attack killing ten or more people",
+            "resolution_criteria": "A single attack on US soil kills at least 10 people (excluding perpetrators) and is officially determined by federal law enforcement, or coded by START/GTD, as politically, religiously, racially or ideologically motivated. Ordinary criminal and non-ideological mass shootings excluded.",
+            "p_by_2027_pct": 27,
+            "p_by_2031_pct": 60,
+            "p_by_2036_pct": 76,
+            "reasoning": "START recorded a 34.5% increase in terrorism and targeted-violence events in the first eight months of 2025 versus 2024, with mass-casualty attacks up 187.5% in H1 2025 (23 events vs 8). Bridging Divides states the risk 'continued to worsen' into 2026. The mobilization environment - 8 million-person protests, a 2,400-agent federal surge in one metro, an ICE shooting death, armed counter-mobilization - is the classic precondition set for a lone-actor mass-casualty attack from either direction.",
+            "base_rate_anchor": "Reference class: US ideologically motivated attacks killing 10 or more, 1995-2025 (31 years): Oklahoma City 1995 (168), 9/11 2001, Fort Hood 2009 (13), San Bernardino 2015 (14), Orlando 2016 (49), Pittsburgh 2018 (11), El Paso 2019 (23), Buffalo 2022 (10). Eight events in 31 years = ~26%/yr of at least one; the recent five-year rate is lower (~15%/yr).",
+            "severity_0_10": 6,
+            "confidence": "medium",
+            "contrarian_case": "Most of the rise in event counts is in low-lethality incidents - vandalism, arson, threats - and lethality has not tracked frequency. The US went 2022-2025 without a clean 10-fatality ideological attack despite constant warnings. Federal counterterrorism disruption of plots remains highly effective, and the 2025 shift of DHS/FBI resources toward immigration enforcement, while a real degradation, mostly affects the ideological categories the administration deprioritizes rather than all of them."
+          }
+        ],
+        "continuous_variables": [
+          {
+            "id": "us_presidential_net_approval",
+            "name": "US presidential net approval (approve minus disapprove, aggregate)",
+            "unit": "percentage points",
+            "current_value": -19,
+            "annual_drift": 1.8,
+            "annual_vol": 7,
+            "p10_2031": -29,
+            "p50_2031": -10,
+            "p90_2031": 6,
+            "notes": "July 2026 aggregators: Silver Bulletin -17.4, FiftyPlusOne -23, average ~39/58. Strongly mean-reverting toward roughly -8 for the modern polarized era; a new president in Jan 2029 injects a honeymoon that widens the upper tail. The drift shown is the net effect of mean reversion plus the 2029 administration change; effective 5-year sd under the implied OU process is ~12 pts, not 7*sqrt(5)."
+          },
+          {
+            "id": "vdem_autocratizing_countries",
+            "name": "Number of countries coded as currently autocratizing by V-Dem",
+            "unit": "countries",
+            "current_value": 44,
+            "annual_drift": 0.3,
+            "annual_vol": 3,
+            "p10_2031": 37,
+            "p50_2031": 45,
+            "p90_2031": 54,
+            "notes": "44 in DR2026, up from 42 in DR2025; ten new autocratizers added for 2025. The series has risen almost monotonically for 15 years but is decelerating, and Hungary's April 2026 turnover plus possible Polish and Brazilian consolidation argue for near-flat drift with fat tails both ways. V-Dem revises the whole back-series annually, so realized changes are partly methodological."
+          },
+          {
+            "id": "freedom_house_declining_countries",
+            "name": "Countries with net decline in Freedom House score in a given year",
+            "unit": "countries",
+            "current_value": 54,
+            "annual_drift": -0.5,
+            "annual_vol": 5,
+            "p10_2031": 40,
+            "p50_2031": 51,
+            "p90_2031": 63,
+            "notes": "FIW2026: 54 declined, 35 improved - the 20th consecutive year in which decliners outnumbered improvers. The decliner count has oscillated in the 50-70 band since 2016; treat as mean-reverting around ~55 rather than trending. A crossover (improvers exceeding decliners) is the key regime-change signal and sits at roughly p20 by 2031."
+          },
+          {
+            "id": "share_world_pop_free",
+            "name": "Share of world population living in Freedom House 'Free' countries",
+            "unit": "percent",
+            "current_value": 21,
+            "annual_drift": -0.3,
+            "annual_vol": 1.4,
+            "p10_2031": 15,
+            "p50_2031": 20,
+            "p90_2031": 24,
+            "notes": "Down from 46% two decades ago to 21% in FIW2026. This series is dominated by a handful of very large countries crossing thresholds (India's 2021 downgrade moved it ~18 pts), so it is lumpy rather than smooth - the vol figure understates jump risk. A US downgrade from Free would move it ~4 pts alone."
+          },
+          {
+            "id": "afd_federal_poll_share",
+            "name": "AfD federal voting intention",
+            "unit": "percent",
+            "current_value": 27,
+            "annual_drift": 0.2,
+            "annual_vol": 3.5,
+            "p10_2031": 19,
+            "p50_2031": 28,
+            "p90_2031": 36,
+            "notes": "Record high, ahead of CDU/CSU (~23%) as of July 2026; 19.5% in Rhineland-Palatinate in March 2026. Bounded above near 35-38% by the ceiling implied by German attitudinal surveys, and downward by the possibility of a ban proceeding, a party split, or CDU recovery under a post-Merz leader. Mean reversion assumed; 5-year sd ~6 pts."
+          },
+          {
+            "id": "rn_first_round_vote_share",
+            "name": "French RN first-round national vote share (presidential/legislative)",
+            "unit": "percent",
+            "current_value": 35,
+            "annual_drift": 0.4,
+            "annual_vol": 3,
+            "p10_2031": 28,
+            "p50_2031": 36,
+            "p90_2031": 44,
+            "notes": "Bardella polling 34-37.5% for the 2027 first round; RN took 33.2% in the June 2024 legislative first round. Structural trend roughly +2pts/cycle since 2012. Key discontinuity risks: Le Pen's ineligibility appeal (ruling expected 7 Jul 2026, outcome NOT verified) and the incumbency penalty if RN wins in 2027."
+          },
+          {
+            "id": "reform_uk_poll_share",
+            "name": "Reform UK voting intention",
+            "unit": "percent",
+            "current_value": 26,
+            "annual_drift": -0.4,
+            "annual_vol": 4.5,
+            "p10_2031": 14,
+            "p50_2031": 24,
+            "p90_2031": 35,
+            "notes": "Opinium had 29% (3 Jun 2026); Survation had 24%, level with Labour, after Starmer's 22 June resignation and Burnham's 20 July accession. Highest-variance series here - Reform's support is thinly institutionalized, has almost no local government base, and already fell ~5 pts on a single Labour leadership change. Mean-reverting toward ~20."
+          },
+          {
+            "id": "successful_coups_per_year",
+            "name": "Successful coups d'etat worldwide per calendar year",
+            "unit": "coups",
+            "current_value": 2,
+            "annual_drift": -0.05,
+            "annual_vol": 1.6,
+            "p10_2031": 0,
+            "p50_2031": 2,
+            "p90_2031": 5,
+            "notes": "2025 saw 2 (Madagascar, Guinea-Bissau) plus a thwarted Benin attempt; 2021 peaked at ~6. Guinea-Bissau was Africa's 11th since 2020. Poisson-like, floor at 0, right-skewed - treat the Gaussian vol as an approximation and sample from a Poisson with lambda ~2.0-2.3 in implementation."
+          },
+          {
+            "id": "us_targeted_violence_events_annual",
+            "name": "US terrorism and targeted-violence events per year (START/BDI coding)",
+            "unit": "events",
+            "current_value": 1050,
+            "annual_drift": 35,
+            "annual_vol": 180,
+            "p10_2031": 720,
+            "p50_2031": 1230,
+            "p90_2031": 1780,
+            "notes": "Extrapolated from 520+ events in H1 2025 (~+40% YoY), with BDI reporting further worsening into 2026. Highly sensitive to coding rules and to whether property-only incidents are counted; the lethality series is far flatter than the count series, so do not treat this as a proxy for deaths."
+          },
+          {
+            "id": "gallup_institutional_confidence_avg",
+            "name": "Gallup average 'great deal / quite a lot' confidence across nine US institutions",
+            "unit": "percent",
+            "current_value": 27,
+            "annual_drift": -0.15,
+            "annual_vol": 1.8,
+            "p10_2031": 21,
+            "p50_2031": 26,
+            "p90_2031": 31,
+            "notes": "Below 30% for the fifth consecutive year. Components diverge sharply - military 61%, Congress ~9-13%, Supreme Court 33% (record low, -6 YoY). Partisan composition effects mean the average can be stable while both parties' component trust swings violently with who holds power; model fragmentation separately where possible."
+          },
+          {
+            "id": "acled_political_violence_events_annual",
+            "name": "ACLED-recorded political violence events worldwide per year",
+            "unit": "events",
+            "current_value": 185000,
+            "annual_drift": 2500,
+            "annual_vol": 15000,
+            "p10_2031": 150000,
+            "p50_2031": 197000,
+            "p90_2031": 248000,
+            "notes": "185,000 in 2025, described by ACLED as a 'new normal'; state forces party to 74%. Partly reflects genuine escalation (drone and air strikes at all-time highs) and partly ACLED's expanding coverage and coder capacity - a real measurement-inflation problem for long-run trend inference."
+          }
+        ],
+        "feedback_loops": [
+          {
+            "name": "Backsliding-legitimacy spiral",
+            "sign": "reinforcing",
+            "mechanism": "Executive capture of prosecution, civil service and district maps lowers the cost of the next capture and raises the perceived cost of losing power, which increases incentives to capture further. Losers of contested processes rationally treat outcomes as illegitimate, which justifies their own norm-breaking on regaining power. Mid-decade redistricting in six US states is the clean 2026 example of tit-for-tat institutional escalation.",
+            "strength_0_1": 0.7,
+            "timescale_years": 3
+          },
+          {
+            "name": "Electoral accountability correction",
+            "sign": "balancing",
+            "mechanism": "Where elections remain competitive, incumbent unpopularity converts into turnover, resetting the backsliding trajectory. H1 2026 supplied three instances: Orban lost a two-thirds supermajority to Tisza after 16 years, Starmer was removed by his own party after local-election collapse, and US presidential net approval at -19 with an 86% market-implied Democratic House win. This is the single most under-weighted loop in most pessimistic models.",
+            "strength_0_1": 0.65,
+            "timescale_years": 2
+          },
+          {
+            "name": "Repression-mobilization escalation",
+            "sign": "reinforcing",
+            "mechanism": "Aggressive enforcement produces a lethal incident, which produces mass protest, which produces a militarized response and threats of emergency powers, which broadens the protest coalition. The Minneapolis sequence - ICE killing of Renee Macklin Good in January 2026, a 2,400-agent surge, an Insurrection Act threat, nationwide protests culminating in ~8 million on 28 March - traversed the whole loop in ten weeks. Symmetric internationally: Iran and Tanzania in 2026.",
+            "strength_0_1": 0.75,
+            "timescale_years": 0.5
+          },
+          {
+            "name": "Judicial constraint and its erosion",
+            "sign": "balancing",
+            "mechanism": "Courts blocked four flagship US executive initiatives in the 2025-26 term, including a 6-3 ruling against Guard federalization. Each ruling reimposes a constraint, but each also generates pressure to route around the judiciary (the Insurrection Act rather than Title 10), to attack judicial legitimacy, or to change court composition. The balancing force is real and currently binding, but degrades as compliance costs are internalized - and public approval of the Court has fallen to a record-low 33%, weakening its enforcement currency.",
+            "strength_0_1": 0.6,
+            "timescale_years": 2
+          },
+          {
+            "name": "Coup contagion in the Sahel-West Africa belt",
+            "sign": "reinforcing",
+            "mechanism": "Each successful coup demonstrates survivability to neighbouring officer corps, degrades the regional deterrent (the junta bloc's ECOWAS exit removed sanctions credibility), and worsens the jihadist security situation that supplied the original grievance. Eleven successful African coups since 2020 with ~75% of global attempts concentrated in this region; Guinea-Bissau (Nov 2025) and Madagascar (Oct 2025) are the latest nodes.",
+            "strength_0_1": 0.7,
+            "timescale_years": 2
+          },
+          {
+            "name": "Thermostatic public opinion",
+            "sign": "balancing",
+            "mechanism": "Publics move against the policy direction of the incumbent government regardless of its ideology. Aggressive immigration enforcement raises pro-immigration sentiment; austerity raises redistributive sentiment. This is why radical-right parties peak in opposition and decay in office (the Dutch PVV 2023-25, the AfD's western ceiling), and why Reform UK shed ~5 points on a Labour leadership change alone.",
+            "strength_0_1": 0.55,
+            "timescale_years": 3
+          },
+          {
+            "name": "Information fragmentation and epistemic polarization",
+            "sign": "reinforcing",
+            "mechanism": "Cheap synthetic media plus algorithmic sorting lowers the cost of manufacturing tailored realities; the resulting inability to establish shared facts raises demand for identity-confirming sources, which raises supply. Trust becomes fragmented rather than uniformly low. Regulation lags: 31 US states have deepfake statutes with no federal rule and a deadlocked FEC, while the EU AI Act's Article 50 only bites from August 2026.",
+            "strength_0_1": 0.65,
+            "timescale_years": 5
+          },
+          {
+            "name": "Criminal governance and state-capacity vacuum",
+            "sign": "reinforcing",
+            "mechanism": "Armed groups fill enforcement vacuums, which delegitimizes the state, which drives voters toward militarized crackdowns, which fragment cartels into more numerous and more violent successors, deepening the vacuum. Mexico after El Mencho's killing (February 2026), Ecuador's rolling states of emergency after its most violent year, and Haiti's decade without an election are three stages of the same loop.",
+            "strength_0_1": 0.7,
+            "timescale_years": 4
+          },
+          {
+            "name": "Federal-state polarization ratchet",
+            "sign": "reinforcing",
+            "mechanism": "Federal action against opposition-controlled states (enforcement surges, prosecutions of state officials such as the May 2026 raid on Virginia's Senate president pro tempore) provokes state non-cooperation and counter-litigation, which is read federally as obstruction warranting escalation. Each cycle transfers more governance disputes from legislative bargaining to a coercive federal-state axis with no bargaining equilibrium.",
+            "strength_0_1": 0.6,
+            "timescale_years": 3
+          }
+        ],
+        "structural_uncertainties": [
+          "Index construction is doing much of the work. V-Dem's expert-coder panels and Freedom House's analyst scoring both revise back-series annually and both added the US, UK and Italy as 'autocratizers' in the same edition. Some of the measured global decline is real institutional change; an unknown but non-trivial share is coder sentiment about a small number of high-salience leaders, plus coverage expansion. If the indices partly measure elite mood, a simulation that treats them as ground truth will mistake a measurement regime shift for a world-state shift - and will also miss backsliding where no panel is watching closely.",
+          "The 2026 reversals may be the signal rather than the noise. Orban lost after 16 years despite a captured media environment and a gerrymandered map; Starmer was removed by his own MPs; the US incumbent party is heading into likely defeat; four flagship executive initiatives were struck down by a Court its critics called captured. A model calibrated on 2016-2025 monotone decline will systematically under-predict reversion. The honest possibility is that we are at or past the peak of this autocratization wave.",
+          "Personalist succession is both unforecastable and correlated. Putin (74), Xi (73), Khamenei (killed 2026, successor unresolved), Kim, and the Saudi transition are five regimes where the paramount leader's exit is modelled here as five roughly independent actuarial draws. In reality one succession crisis materially raises the probability of opportunistic action against the others, and observable information about elite health and cohesion in these systems is near zero. These probabilities are dressed-up mortality tables.",
+          "AI could restructure the cleavage space rather than just the information environment. Every model in this domain assumes politics is organized along an economic left/right axis crossed with a cosmopolitan/nationalist axis. Rapid labour displacement, or conversely rapid AI-driven growth, could produce a cleavage (owners of capital and compute versus everyone else; accelerationists versus restrictionists) that scrambles existing party systems within a single electoral cycle. The Gen Z protest wave, explicitly framed around AI, robots and inequality, may be the leading edge of this rather than a variant of ordinary anti-corruption protest.",
+          "Threshold and cascade dynamics are not Gaussian. Elite defection, military non-compliance, firewall collapse and coup contagion are all preference-falsification phenomena in which nothing visible happens until almost everything happens at once. The continuous variables here are specified with smooth drift and vol; the actual generating process for regime-relevant outcomes is closer to a percolation threshold. Simulations built on these parameters will produce too few sudden discontinuities and too many gradual slides.",
+          "Exogenous shocks dominate the domain's variance. A great-power war, a severe financial crisis, a pandemic, or a large energy or food shock would explain more of the 2026-2036 variation in political stability than anything endogenous listed here - the 2020-22 sequence moved democracy indices more than any deliberate strategy did. Treat this domain model as conditional on 'no shock', and downweight it when other domains fire.",
+          "My picture of H1 2026 is search-mediated and shallow. Several load-bearing facts (the Iranian leadership crisis and Khamenei's death, the Venezuela strikes and Maduro's capture, the state of Le Pen's July 2026 appeal, the Ecuadorian electoral timeline) came from single retrievals I could not cross-check, and some search results are low-quality aggregators or synthetic content. Encyclopedia articles on very recent events are unstable. Treat any single-sourced 2026 claim here as roughly 80% reliable, and the Iran and Venezuela details in particular as needing independent confirmation.",
+          "Federalism and sub-national variation may be where the real action is, and it is nearly invisible in national-level indices. US states are diverging sharply on election administration, policing, reproductive rights and civil liberties; German Lander, Italian regions and Indian states likewise. A country can hold a stable national democracy score while half its territory experiences a materially different governance regime - meaning 'US backsliding' and 'US resilience' can both be true, and neither aggregates to a number that means much."
+        ],
+        "sources": [
+          "V-Dem Institute, Democracy Report 2026: 'Unraveling The Democratic Era?' (10th ed., March 2026) - https://www.v-dem.net/documents/75/V-Dem_Institute_Democracy_Report_2026_lowres.pdf",
+          "V-Dem press release, 'Democratic Backsliding Reaches Western Democracies, with U.S. Decline Unprecedented' (March 2026) - https://www.v-dem.net/news/press-release-democratic-backsliding-reaches-western-democracies-with-us-decline-unprecedented/",
+          "Freedom House, Freedom in the World 2026: 'The Growing Shadow of Autocracy' (March 2026) - https://freedomhouse.org/report/freedom-world/2026/growing-shadow-autocracy",
+          "Freedom House, 'Global Freedom Declined for 20th Consecutive Year in 2025' - https://freedomhouse.org/article/new-report-global-freedom-declined-20th-consecutive-year-2025",
+          "ACLED, Conflict Index & 2026 Watchlist (December 2025) - https://acleddata.com/conflict-index-2026-watchlist",
+          "ACLED, Latin America and the Caribbean Overview: July 2026 - https://acleddata.com/update/latin-america-and-caribbean-overview-july-2026",
+          "Gallup, 'Confidence in U.S. Institutions Remains Near All-Time Low' (July 2026) - https://news.gallup.com/poll/712436/confidence-institutions-remains-near-time-low.aspx",
+          "Axios, 'Supreme Court joins Trump, Congress in job approval slump' (29 July 2026) - https://www.axios.com/2026/07/29/supreme-court-congress-trump-approval-ratings",
+          "Silver Bulletin, Trump approval rating tracker (July 2026) - https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
+          "Polymarket, 'Which party will win the House in 2026' (86% Democrats, 25 July 2026) - https://polymarket.com/event/which-party-will-win-the-house-in-2026",
+          "Metaculus, 2026 US Midterm Elections hub and Democracy Threat Index questions - https://www.metaculus.com/midterms-2026/",
+          "CNN, Hungary election 2026 live coverage: Peter Magyar wins, Orban concedes (12 April 2026) - https://www.cnn.com/2026/04/12/world/live-news/hungary-election-orban-magyar",
+          "Al Jazeera, 'Peter Magyar wins Hungary election, unseating Viktor Orban after 16 years' (12 April 2026) - https://www.aljazeera.com/news/2026/4/12/hungary-election-early-results-show-magyars-tisza-ahead-of-orbans-fidesz",
+          "NPR, 'Andy Burnham succeeds Keir Starmer as the U.K.'s 7th prime minister in 10 years' (19-20 July 2026) - https://www.npr.org/2026/07/19/nx-s1-5895993/andy-burnham-prime-minister-keir-starmer",
+          "Wikipedia, 2026 Labour Party leadership election and 2026 Labour Party leadership crisis - https://en.wikipedia.org/wiki/2026_Labour_Party_leadership_election",
+          "Opinium, UK voting intention, 3 June 2026 - https://www.opinium.com/resource-center/voting-intention-3rd-june-2026/",
+          "Statista, German federal voting intention 2026 (AfD 27%, CDU 23%) - https://www.statista.com/statistics/1257178/voting-intention-in-germany/",
+          "Wikipedia, 2026 Baden-Wurttemberg state election and 2026 Rhineland-Palatinate state election (8 and 22 March 2026)",
+          "France 24, 'France's 2027 presidential election: Can the far-right National Rally win without Le Pen?' (29 June 2026) - https://www.france24.com/en/france/20260629-french-2027-presidential-election-can-the-rn-win-without-le-pen-bardella",
+          "Connexion France, 'French far right well ahead in new poll for 2027 presidential election' - https://www.connexionfrance.com/news/french-far-right-well-ahead-in-new-poll-for-2027-presidential-election/781486",
+          "Just Security, 'Trump v. Illinois: A Narrow Supreme Court Decision with Broad Implications' (23 Dec 2025 ruling, 6-3) - https://www.justsecurity.org/128371/trump-v-illinois-supreme-court/",
+          "SCOTUSblog, 'Looking back at 2025: the Supreme Court and the Trump administration' (January 2026) - https://www.scotusblog.com/2026/01/looking-back-at-2025-the-supreme-court-and-the-trump-administration/",
+          "NPR, 'Trump threatens to use the Insurrection Act to stop anti-ICE protests in Minneapolis' (16 January 2026) - https://www.npr.org/2026/01/16/nx-s1-5678625/trump-threatens-to-use-the-insurrection-act-to-stop-anti-ice-protests-in-minneapolis",
+          "Washington Post, ICE shooting and Minneapolis protests (15 January 2026) - https://www.washingtonpost.com/nation/2026/01/15/ice-minnesota-minneapolis-venezuela-man-shooting/",
+          "Protect Democracy, Retaliatory Action Tracker - https://protectdemocracy.org/work/retaliatory-action-tracker/",
+          "MultiState, 'State Redistricting Legal Challenges Intensify Ahead of 2026 Elections' (9 March 2026) - https://www.multistate.us/insider/2026/3/9/state-redistricting-legal-challenges-intensify-ahead-of-2026-elections",
+          "CBS News, 'What happens to California's redistricting after Texas' congressional maps were struck down in court?' - https://www.cbsnews.com/news/texas-redistricting-court-ruling-california-prop-50/",
+          "Britannica, 'No Kings protests: 2026, Meaning, Turnout, Numbers' (~8 million, 28 March 2026) - https://www.britannica.com/event/No-Kings-protests",
+          "Bridging Divides Initiative (Princeton), 'Key Political Violence and Resilience Trends From 2025' - https://bridgingdivides.princeton.edu/key-political-violence-and-resilience-trends-2025",
+          "Association of Health Care Journalists, 'Political violence in US is rising' (March 2026) - https://healthjournalism.org/blog/2026/03/political-violence-in-us-rising/",
+          "The Conversation, 'Guinea-Bissau's military takeover highlights the nation's sorry history of coups' (11th African coup since 2020) - https://theconversation.com/guinea-bissaus-military-takeover-highlights-the-nations-sorry-history-of-coups-and-a-deepening-crisis-across-the-region-270958",
+          "CIVICUS, 2026 State of Civil Society Report: 'Gen Z Protests: New Resistance Rises' - https://publications.civicus.org/publications/2026-state-of-civil-society-report/gen-z-protests-new-resistance-rises/",
+          "Chatham House, 'US to run Venezuela after Maduro captured' (January 2026) - https://www.chathamhouse.org/2026/01/us-attacks-venezuela-and-maduro-captured-early-analysis-chatham-house-experts",
+          "Iran International, 'Post-Khamenei Iran: Succession race widens as decentralized system sustains war' (2 March 2026) - https://www.iranintl.com/en/202603020285",
+          "International Crisis Group, 'Sinaloa's War of the Splinters: Fighting Crime in Mexico under U.S. Threat' - https://www.crisisgroup.org/rpt/latin-america-caribbean/mexico-united-states/112-sinaloas-war-splinters",
+          "Wikipedia, 2026 Mexico cartel unrest and 2026 Jalisco operation (El Mencho killed 22 February 2026)",
+          "UN News, 'Haiti explained: why the crisis is deepening - and what comes next' (January 2026) - https://news.un.org/en/story/2026/01/1166801",
+          "Arizona Capitol Times, 'State AI deepfake laws face first big test in 2026 midterm elections' (21 July 2026) - https://azcapitoltimes.com/news/2026/07/21/state-ai-deepfake-laws-face-first-big-test-in-2026-midterm-elections/",
+          "Pew Research Center, 'Right-Wing Populism in the Decade Since Brexit' (28 May 2026) - https://www.pewresearch.org/global/2026/05/28/right-wing-populism-in-the-decade-since-brexit/",
+          "Euronews, 'Robert Fico will back Ukraine's EU membership after call, Zelenskyy says' (2 May 2026) - https://www.euronews.com/my-europe/2026/05/02/robert-fico-will-back-ukraines-eu-membership-after-call-zelenskyy-says",
+          "Marquette Law School Poll, institutional trust survey (June 2026) - https://today.marquette.edu/2026/06/marquette-law-school-poll-finds-most-americans-are-somewhat-skeptical-of-trusting-government/"
+        ]
+      },
+      "calibration": null
     }
   ],
   "coupling": {},
   "redteam": [],
-  "risk_count": 124
+  "risk_count": 142
 }

@@ -109,6 +109,20 @@ LOADINGS: dict[str, float] = {
     # Chronic-disease measures move on their own clock, not the crisis cycle.
     "us_adults_glp1_weight_loss_pct": 0.0,
     "us_adult_obesity_pct": 0.0,
+
+    # --- political stability: violence and autocratisation track stress ---
+    "acled_political_violence_events_annual": 0.60,
+    "vdem_autocratizing_countries": 0.50,
+    "successful_coups_per_year": 0.50,
+    "freedom_house_declining_countries": 0.50,
+    "us_targeted_violence_events_annual": 0.45,
+    "share_world_pop_free": -0.45,
+    "gallup_institutional_confidence_avg": -0.45,
+    "us_presidential_net_approval": -0.35,
+    # Populist vote shares rise with strain, but national politics dominates.
+    "afd_federal_poll_share": 0.25,
+    "rn_first_round_vote_share": 0.25,
+    "reform_uk_poll_share": 0.25,
 }
 
 # Fallback for variables added by domains that ran after this file was written.

@@ -63,7 +63,16 @@ AMBIGUOUS = {
     "ai_robotaxi_5m_weekly",
     "ai_china_leaderboard_top",
     "ai_state_datacenter_moratorium",
-    "politics_democratic_recovery_wave",
+    # Governance outcomes that are contested rather than good-or-bad. These are
+    # electoral and succession events: which way they cut is a political
+    # judgement the model has no business encoding as systemic stress.
+    "politics_dem_control_a_chamber_2027",
+    "politics_rn_holds_french_presidency",
+    "politics_afd_enters_government",
+    "politics_reform_uk_leads_government",
+    "politics_russia_leadership_change",
+    "politics_xi_departure",
+    "politics_iran_islamic_republic_ends",
     # Cheap oil helps consumers, hurts producers and the transition's economics.
     "energy_oil_price_collapse_45",
     # Policy responses to strain: they signal the strain as much as they relieve it.
