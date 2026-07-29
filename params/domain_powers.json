@@ -1,0 +1,929 @@
+{
+  "domain": "powers",
+  "current_state_summary": "As of 29 July 2026 US-China relations sit in a managed-detente phase layered over structural decoupling. Trump and Xi met in Beijing 14-15 May 2026 and agreed to 'constructive strategic stability'; outputs were thin (200 Boeing aircraft, two bilateral boards, agricultural purchase framework, no joint communique, no Taiwan progress). Xi explicitly warned Trump of 'clashes and even conflicts' over Taiwan. Three more leader meetings are planned, including a Xi state visit to the US in September 2026. Tariffs: Penn Wharton put the US effective tariff on Chinese goods at 23.4% (May 2026), far below the April-2025 145% peak; USTR added a 12.5% forced-labor tariff on all Chinese goods on 23 July 2026, raising the overall burden ~2.5pp to roughly 26%. Tech controls tightened even as trade eased: Nvidia H200 moved to case-by-case licensing (Jan 2026) with US pre-testing, a 50%-of-US-domestic-sales volume cap and a 25% shipment tariff; Blackwell remains banned; on 1 June 2026 Commerce asserted the AI-chip ban applies to Chinese firms operating outside China. China's October-2025 rare-earth licensing regime is suspended until 10 November 2026 (April-2025 heavy rare-earth controls remain active) - that expiry is the single most predictable escalation node of 2026. Beijing separately banned military-end-use dual-use exports to Japan (6 Jan 2026) and listed 40 Japanese firms (24 Feb 2026) in retaliation for PM Takaichi's 7 Nov 2025 statement that a Taiwan contingency could be a survival-threatening situation for Japan; the seafood ban persists. Taiwan: PLA air tempo has fallen sharply - 270 sorties in Jan, 190 in Feb, ~172 in Mar 2026 (a ~60% YoY drop, lowest since Aug 2022) - while naval and coast-guard presence is unchanged; analysts read this as a shift in coercion method plus PLA disruption from purges, not de-escalation. On 4 July 2026 Beijing declared CCG patrols east of Taiwan 'routine' and the CCG has hailed merchant ships in international waters near eastern Taiwan; a PLA helicopter crossed the median line on 21 July 2026, the first since Aug 2022. Taiwan's 2026 defense budget is 3.32% of GDP (NT$949.5bn); the LY passed only NT$780bn of Lai's NT$1.25tn eight-year special budget on 8 May 2026, a ~40% cut. South China Sea: Second Thomas Shoal melee 20 July (two Filipino sailors injured) and Scarborough water-cannon incidents 23-24 July involving 12 CCG plus 3 militia vessels; Wang Yi warned of 'bitter consequences'. PLA: 2026 defense budget 1.91tn yuan (+7%, slowest since 2021); Fujian in service with EM catapults; J-35 now flying from all three carriers; warhead stockpile in the low 600s heading to >1,000 by 2030; a nuclear Type-004 is under construction at Dalian. Xi purged CMC Vice-Chair He Weidong and eight others (Oct 2025) then Zhang Youxia and Liu Zhenli (24 Jan 2026), leaving the CMC with Xi and Zhang Shengmin. China's economy is weak: Q2 2026 GDP +4.3% YoY (slowest since 2022), H1 +4.7%, below the 4.5-5% target band; ten quarters of deflationary pressure; youth unemployment 16.3%; property starts -72% from 2021. Overhanging everything: the US-Israel-Iran war since 28 Feb 2026 (Khamenei killed, Hormuz declared closed 4 Mar, US naval blockade from 13 Apr) has pulled US naval assets toward CENTCOM and struck semiconductor inputs via the Ras Laffan LNG hub. US domestically, SCOTUS ruled against Trump on National Guard deployments, birthright citizenship, worldwide tariffs and the Cook firing in Dec 2025-Jan 2026 and the administration complied; midterms fall on 3 Nov 2026 with Democrats ~60% to take the House and Republicans ~60% to hold the Senate.",
+  "indicators": [
+    {
+      "key": "us_china_tension_index",
+      "label": "US-China strategic tension index (0-100 composite: diplomatic hostility, coercive economic actions in force, military-incident tempo, state of mil-mil channels)",
+      "value": 56,
+      "unit": "index 0-100 (anchors: 2015 Obama-Xi state visit = 25; 2018 trade-war onset = 45; Nov 2023 Woodside summit = 42; Feb 2023 balloon = 68; Aug 2022 Pelosi visit + PLA encirclement = 72; Apr 2025 145% tariff peak = 82; Nov 2025 Busan truce = 52)",
+      "as_of": "2026-07-29",
+      "source": "Analyst composite built from USCC China Bulletin (uscc.gov/trade-bulletins), CFR Global Conflict Tracker, MOFCOM/USTR action logs, Taiwan MND daily PLA reports",
+      "annual_drift": 1.0,
+      "annual_vol": 11.0,
+      "floor": 15,
+      "ceiling": 100,
+      "mean_reversion": 0.22,
+      "attractor": 57
+    },
+    {
+      "key": "taiwan_strait_military_activity",
+      "label": "PLA aircraft sorties detected around Taiwan per month (Taiwan MND daily reporting)",
+      "value": 190,
+      "unit": "sorties/month",
+      "as_of": "2026-07-29",
+      "source": "Taiwan Ministry of National Defense daily PLA activity releases (air.mnd.gov.tw); Taiwan Security Monitor Strait Snapshot; AEI China-Taiwan Update. 2024 total ~3,070 (256/mo); Jan 2026 270, Feb 190, Mar ~172; Aug 2022 peak month 800",
+      "annual_drift": 12.0,
+      "annual_vol": 95.0,
+      "floor": 0,
+      "ceiling": 1500,
+      "mean_reversion": 0.28,
+      "attractor": 300
+    },
+    {
+      "key": "us_political_polarization",
+      "label": "US political polarization / institutional stress index (0-100: DW-NOMINATE party distance, cross-party threat perception, political-violence incident rate)",
+      "value": 84,
+      "unit": "index 0-100 (anchors: 1970 = 20; 2000 = 45; 2016 = 65; Jan 2021 = 82; Sept 2025 Kirk assassination + Guard deployments = 87)",
+      "as_of": "2026-07-29",
+      "source": "Voteview DW-NOMINATE; Princeton Bridging Divides Initiative threat/violence tracking; Pew partisan-antipathy series; More in Common",
+      "annual_drift": 0.7,
+      "annual_vol": 4.5,
+      "floor": 30,
+      "ceiling": 100,
+      "mean_reversion": 0.05,
+      "attractor": 82
+    },
+    {
+      "key": "china_gdp_growth",
+      "label": "China official real GDP growth, four-quarter",
+      "value": 4.4,
+      "unit": "% YoY",
+      "as_of": "2026-07-29",
+      "source": "PRC National Bureau of Statistics (stats.gov.cn): Q1 2026 +5.0%, Q2 2026 +4.3%, H1 +4.7%; official 2026 target band 4.5-5%",
+      "annual_drift": -0.15,
+      "annual_vol": 0.85,
+      "floor": -3.0,
+      "ceiling": 9.0,
+      "mean_reversion": 0.12,
+      "attractor": 3.0
+    },
+    {
+      "key": "pla_capability_index",
+      "label": "PLA joint capability to prosecute a Taiwan campaign (0-100, where 100 = the CMC's 2035 'fully modernized' benchmark)",
+      "value": 63,
+      "unit": "index 0-100 (anchors: 1996 Strait crisis = 12; 2010 = 30; 2020 = 52)",
+      "as_of": "2026-07-29",
+      "source": "DoD China Military Power Report; IISS Military Balance 2026; ONI/CSIS ChinaPower. Markers: Fujian (EM catapults) in service, J-35 on all three carriers, warheads low-600s to >1,000 by 2030, Type-004 nuclear carrier under construction at Dalian, 2026 budget 1.91tn yuan (+7%)",
+      "annual_drift": 2.5,
+      "annual_vol": 1.3,
+      "floor": 55,
+      "ceiling": 100,
+      "mean_reversion": 0.03,
+      "attractor": 100
+    },
+    {
+      "key": "semiconductor_supply_concentration",
+      "label": "Share of global leading-edge (<=5nm) logic wafer capacity located in Taiwan",
+      "value": 87,
+      "unit": "% of global <=5nm capacity",
+      "as_of": "2026-07-29",
+      "source": "TrendForce / SEMI capacity data; TSMC Q2 2026 results (16 Jul 2026, capex guidance raised to $60-64bn); TSMC Arizona commitment now $265bn, ultimately ~30% of TSMC's <=2nm capacity",
+      "annual_drift": -2.2,
+      "annual_vol": 1.6,
+      "floor": 40,
+      "ceiling": 95,
+      "mean_reversion": 0.08,
+      "attractor": 62
+    },
+    {
+      "key": "us_china_effective_tariff_rate",
+      "label": "US average effective tariff rate on imports from China",
+      "value": 25.9,
+      "unit": "%",
+      "as_of": "2026-07-29",
+      "source": "Penn Wharton Budget Model effective tariff series (13 Jul 2026 update: 23.4% for China as of May 2026) plus USTR 23 Jul 2026 forced-labor action adding ~2.5pp",
+      "annual_drift": -0.8,
+      "annual_vol": 9.0,
+      "floor": 8,
+      "ceiling": 145,
+      "mean_reversion": 0.25,
+      "attractor": 22
+    },
+    {
+      "key": "tech_export_control_stringency",
+      "label": "US/allied technology export-control stringency against China (0-100)",
+      "value": 74,
+      "unit": "index 0-100 (anchors: 2018 ZTE = 20; Oct 2022 BIS rules = 55; Dec 2024 HBM + 140 entities = 70; Jan 2025 AI diffusion rule = 78)",
+      "as_of": "2026-07-29",
+      "source": "BIS Entity List / FDPR actions; CRS R48642 'U.S. Export Controls and China: Advanced Semiconductors'. 2026 state: H200 case-by-case with 50% volume cap and 25% shipment tariff, Blackwell banned, 1 Jun 2026 extraterritorial application to Chinese firms abroad",
+      "annual_drift": 1.5,
+      "annual_vol": 7.0,
+      "floor": 40,
+      "ceiling": 100,
+      "mean_reversion": 0.15,
+      "attractor": 80
+    },
+    {
+      "key": "taiwan_defense_spending_gdp",
+      "label": "Taiwan defense spending (incl. veterans affairs and coast guard) as share of GDP",
+      "value": 3.32,
+      "unit": "% of GDP",
+      "as_of": "2026-07-29",
+      "source": "Taiwan Executive Yuan 2026 budget (NT$949.5bn / US$31.1bn); Legislative Yuan passed NT$780bn 8-year special budget on 8 May 2026, cut ~40% from Lai's NT$1.25tn request; Lai target 5% of GDP by 2030",
+      "annual_drift": 0.24,
+      "annual_vol": 0.28,
+      "floor": 2.0,
+      "ceiling": 6.0,
+      "mean_reversion": 0.1,
+      "attractor": 4.4
+    },
+    {
+      "key": "japan_defense_spending_gdp",
+      "label": "Japan security-related spending as share of GDP",
+      "value": 1.9,
+      "unit": "% of GDP",
+      "as_of": "2026-07-29",
+      "source": "Japan MoD FY2026 budget: main defense budget Y9.04tn (~$58bn), total security-related ~Y10.6tn; Takaichi government committed to 2% by 2027",
+      "annual_drift": 0.13,
+      "annual_vol": 0.12,
+      "floor": 0.9,
+      "ceiling": 3.5,
+      "mean_reversion": 0.08,
+      "attractor": 2.6
+    },
+    {
+      "key": "scs_incident_rate",
+      "label": "Publicly reported China-Philippines coercive maritime incidents per quarter (water cannon, ramming, blocking, laser, boarding)",
+      "value": 9,
+      "unit": "incidents/quarter",
+      "as_of": "2026-07-29",
+      "source": "AMTI/CSIS South China Sea tracker; Philippine Coast Guard and NTF-WPS statements; July 2026 cluster (Second Thomas Shoal 20 Jul, Scarborough 23-24 Jul with 12 CCG + 3 militia vessels)",
+      "annual_drift": 0.4,
+      "annual_vol": 3.6,
+      "floor": 0,
+      "ceiling": 40,
+      "mean_reversion": 0.3,
+      "attractor": 8
+    },
+    {
+      "key": "xi_position_index",
+      "label": "Xi Jinping's degree of unchallenged personal control over party and military (0-100)",
+      "value": 84,
+      "unit": "index 0-100 (anchors: 2013 = 75; Mar 2018 term-limit removal = 92; Oct 2022 20th Congress = 95; 2024 Miao Hua purge = 89)",
+      "as_of": "2026-07-29",
+      "source": "China Leadership Monitor; Jamestown China Brief; CSIS purge tracking. Oct 2025: He Weidong + Miao Hua + 9 generals expelled; 24 Jan 2026: Zhang Youxia and Liu Zhenli placed under investigation, leaving CMC with only Xi and Zhang Shengmin",
+      "annual_drift": -0.6,
+      "annual_vol": 5.0,
+      "floor": 20,
+      "ceiling": 100,
+      "mean_reversion": 0.1,
+      "attractor": 78
+    },
+    {
+      "key": "us_alliance_credibility_index",
+      "label": "Allied confidence in US Indo-Pacific security commitments (0-100 composite of Lowy Poll, Genron NPO, Pew, and observed burden-sharing friction)",
+      "value": 51,
+      "unit": "index 0-100 (anchors: 2016 = 72; 2020 = 55; 2022 = 71; 2025 ally tariffs + territorial rhetoric = 53)",
+      "as_of": "2026-07-29",
+      "source": "Lowy Institute Poll; Genron NPO Japan-US survey; Pew Global Attitudes; 2026 signals: Trump declining to say whether he would defend Taiwan, discussing Taiwan arms sales with Xi, versus F-15EX permanent basing at Kadena and the ROK nuclear-submarine agreement",
+      "annual_drift": -0.7,
+      "annual_vol": 7.0,
+      "floor": 15,
+      "ceiling": 90,
+      "mean_reversion": 0.18,
+      "attractor": 56
+    },
+    {
+      "key": "us_carrier_presence_indopacific",
+      "label": "Average number of US carrier strike groups deployed in the INDOPACOM area of responsibility",
+      "value": 1.0,
+      "unit": "CSGs (rolling 90-day average)",
+      "as_of": "2026-07-29",
+      "source": "USNI News Fleet and Marine Tracker; INDOPACOM posture statements. Depressed from a 1.6-2.0 norm by CENTCOM demands of the Iran war (US naval blockade of Iran from 13 Apr 2026)",
+      "annual_drift": 0.2,
+      "annual_vol": 0.5,
+      "floor": 0,
+      "ceiling": 4,
+      "mean_reversion": 0.4,
+      "attractor": 1.7
+    },
+    {
+      "key": "korea_tension_index",
+      "label": "Korean Peninsula tension index (0-100: DPRK test tempo, inter-Korean channels, USFK alert posture, rhetoric)",
+      "value": 58,
+      "unit": "index 0-100 (anchors: 2017 'fire and fury' = 82; Jun 2018 Singapore = 35; 2020 liaison-office demolition = 62; 2024 'two hostile states' doctrine = 64)",
+      "as_of": "2026-07-29",
+      "source": "38 North; CSIS Beyond Parallel; ROK MND. 2026: DPRK first missile test 4 Jan, major weapons tests June, Kim inspects new fissile-material plant 4 Jun pledging 'exponential' expansion; Hwasong-20 unveiled Oct 2025 but not flight-tested; ROK Lee Jae-myung pursuing engagement",
+      "annual_drift": 0.4,
+      "annual_vol": 9.0,
+      "floor": 20,
+      "ceiling": 100,
+      "mean_reversion": 0.25,
+      "attractor": 58
+    }
+  ],
+  "events": [
+    {
+      "id": "taiwan_blockade_or_quarantine",
+      "statement": "The PRC imposes a declared blockade or customs 'quarantine' of Taiwan, enforcing inspection or interdiction of Taiwan-bound shipping and/or aviation for at least 72 consecutive hours.",
+      "resolution_criteria": "PRC state organs (PLA, China Coast Guard, MSA or Customs) publicly announce a regime of inspection, escort, interdiction or closure applying to shipping or air traffic to/from Taiwan, and that regime is physically enforced against at least three non-Chinese-flag vessels or aircraft over a period of >=72 consecutive hours, as confirmed by Taiwan MND/MOTC and at least two of Reuters, AP, FT.",
+      "reference_class": "PRC coercion of Taiwan 1949-2026 (77 years): zero enforced blockades or quarantines. Six large encirclement exercises that stopped short of interdiction (1995-96, Aug 2022, Apr 2023, May 2024, Oct 2024, Dec 2025). Great-power blockades/quarantines of a functioning economy since 1945: Berlin 1948, Cuba 1962 - roughly one per 40 years globally.",
+      "base_rate_annual": 0.022,
+      "hazard_multiplier_now": 2.1,
+      "p_by_2027": 0.06,
+      "p_by_2030": 0.19,
+      "p_by_2036": 0.37,
+      "drivers": [
+        "us_china_tension_index",
+        "pla_capability_index",
+        "taiwan_strait_military_activity",
+        "us_alliance_credibility_index",
+        "us_carrier_presence_indopacific",
+        "china_gdp_growth"
+      ],
+      "driver_elasticities": [
+        0.42,
+        0.5,
+        0.28,
+        -0.33,
+        -0.24,
+        -0.18
+      ],
+      "impacts": [
+        "us_china_tension_index",
+        "taiwan_strait_military_activity",
+        "china_gdp_growth",
+        "us_china_effective_tariff_rate",
+        "semiconductor_supply_concentration"
+      ],
+      "impact_sizes": [
+        2.4,
+        2.8,
+        -1.2,
+        1.8,
+        -0.9
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: 0 in 77 years, so the raw frequency is not directly estimable; treating an enforced quarantine as roughly a 1-in-45-year event under modern conditions gives base_rate_annual 0.022. Upward adjustment: Beijing declared CCG patrols east of Taiwan 'routine' on 4 Jul 2026 and the CCG has begun hailing merchant ships in international waters near eastern Taiwan - that is the observable precursor to a law-enforcement-led quarantine; US carrier presence in INDOPACOM is depressed to ~1 CSG by the Iran war; Taiwan's legislature cut Lai's special defense budget ~40%; US declaratory commitment is deliberately ambiguous. Downward adjustment: the PLA's top command has been decapitated (He Weidong Oct 2025, Zhang Youxia and Liu Zhenli Jan 2026, CMC down to two members), air sortie tempo has actually fallen ~60% YoY, China's economy is weak and import-dependent, and the May 2026 summit plus Xi's September 2026 state visit create near-term restraint. Net 2.1x, giving an effective annual hazard of ~0.046. 1-(1-0.046)^1.42 = 0.064; I shade the near term down to 0.06 for summit-window restraint and shade the outer years up modestly for the post-2027 (PLA centennial, 21st Party Congress) rise, giving 0.19 by 2030 and 0.37 by 2036 - implying an average hazard of ~4.4%/yr, consistent with the stated base rate times the multiplier. Sanity check against Swift Centre forecasters, who put blockade-by-mid-2027 at 9% (range 4.9-15%); my 6% by end-2027 is somewhat lower, reflecting the 2026 tempo decline and PLA command disruption they may under-weight."
+    },
+    {
+      "id": "taiwan_invasion",
+      "statement": "The PLA conducts an amphibious and/or airborne assault on Taiwan's main island with the intent to seize and hold it.",
+      "resolution_criteria": "PLA ground forces (marines, army amphibious brigades, or airborne) land on the main island of Taiwan and engage ROC forces, confirmed by Taiwan MND and at least two major international wire services.",
+      "reference_class": "PRC attempts to invade Taiwan's main island, 1949-2026: 0 in 77 years. Opposed amphibious assaults against a defended island backed by a great-power partner, globally since 1945: Inchon 1950, Falklands 1982 - approximately 2 in 80 years worldwide, none across a 130km strait against a 400k-strong defender.",
+      "base_rate_annual": 0.009,
+      "hazard_multiplier_now": 1.5,
+      "p_by_2027": 0.014,
+      "p_by_2030": 0.055,
+      "p_by_2036": 0.14,
+      "drivers": [
+        "pla_capability_index",
+        "us_alliance_credibility_index",
+        "us_carrier_presence_indopacific",
+        "us_china_tension_index",
+        "xi_position_index",
+        "taiwan_defense_spending_gdp"
+      ],
+      "driver_elasticities": [
+        0.75,
+        -0.4,
+        -0.28,
+        0.3,
+        0.25,
+        -0.22
+      ],
+      "impacts": [
+        "us_china_tension_index",
+        "china_gdp_growth",
+        "semiconductor_supply_concentration",
+        "us_carrier_presence_indopacific",
+        "japan_defense_spending_gdp"
+      ],
+      "impact_sizes": [
+        4.0,
+        -3.0,
+        -2.5,
+        2.5,
+        2.5
+      ],
+      "absorbing": true,
+      "confidence": "medium",
+      "reasoning": "Outside view: 0/77 PRC-years, so I use a Laplace-style prior of roughly 1 per 110 years given that the capability did not exist for most of that span: 0.009/yr. Adjustment upward is warranted by capability (pla_capability_index 63 vs 30 in 2010; Fujian in service, three carriers with J-35, warheads low-600s), by the 2027 CMC readiness milestone, and by depressed US presence. Adjustment downward is substantial: US intelligence publicly assesses China is not planning to invade in 2027; there is no observed mobilization of the civilian shipping, blood-supply, or reserve-callup indicators that would precede an assault; the PLA's joint command has been purged twice in nine months, which is the opposite of pre-war consolidation; China's economy is deflationary with 16.3% youth unemployment; and Xi at 73 faces an unresolved succession. Net 1.5x gives 0.0135/yr. 1-(1-0.0135)^1.42 = 0.019, but I shade to 0.014 because the immediate 18 months are the most clearly ruled-out window (summit sequence, Xi's September state visit, no mobilization). Outer years use a rising hazard: 0.055 by 2030 and 0.14 by 2036, implying an average ~1.4%/yr over the decade. This sits below the 12.5% by end-2027 figure circulating in some prediction markets, which I judge to be conflating 'major crisis' with 'invasion', and roughly in line with the modal superforecaster view of 1-2%/yr. Marked absorbing: an invasion attempt is a one-shot regime change in the system."
+    },
+    {
+      "id": "us_china_direct_armed_clash",
+      "statement": "A direct armed engagement between US and PRC military forces that is lethal or materially destructive - shots exchanged, a manned platform downed or sunk, or at least one death attributable to hostile action by the other side's forces.",
+      "resolution_criteria": "DoD or the PLA confirms that US and PRC forces exchanged fire, or that one side destroyed, downed or sank the other's manned platform, or that at least one service member died as a result of the other's hostile action. Accidental collisions with no hostile intent (e.g. EP-3 2001) do NOT resolve this yes unless followed by an exchange of fire.",
+      "reference_class": "Direct lethal US-PRC military engagements since the 1953 Korean armistice: 0 in 73 years. Near-misses: EP-3 collision 2001 (1 PLA fatality, accident), USS Cowpens 2013, USS Decatur 2018, ~180 coercive PLA intercepts of US aircraft 2021-23 per DoD, Feb 2026 Yellow Sea F-16/PLAAF standoff. Roughly one serious near-miss every 3-4 years, none escalating.",
+      "base_rate_annual": 0.014,
+      "hazard_multiplier_now": 1.9,
+      "p_by_2027": 0.036,
+      "p_by_2030": 0.115,
+      "p_by_2036": 0.25,
+      "drivers": [
+        "us_china_tension_index",
+        "scs_incident_rate",
+        "taiwan_strait_military_activity",
+        "pla_capability_index",
+        "us_carrier_presence_indopacific"
+      ],
+      "driver_elasticities": [
+        0.5,
+        0.42,
+        0.3,
+        0.18,
+        0.2
+      ],
+      "impacts": [
+        "us_china_tension_index",
+        "us_china_effective_tariff_rate",
+        "us_alliance_credibility_index",
+        "semiconductor_supply_concentration"
+      ],
+      "impact_sizes": [
+        2.6,
+        1.2,
+        0.6,
+        -0.7
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: 0 lethal exchanges in 73 years, but roughly 1 accident-with-fatality (2001) and ~20 documented near-misses, so the pathway is real and accident-dominated. I set base_rate_annual at 0.014, i.e. roughly a 1-in-70-year event. Upward: the February 2026 Yellow Sea standoff involving ~10 USAF F-16s and PLAAF fighters was an unusually large-scale confrontation; Beijing has repeatedly declined or slow-walked mil-mil crisis channels (the 'crisis waiting to happen' problem); the CCG is now operating routinely east of Taiwan where US and allied ISR fly; and Chinese forces are physically clashing with a US treaty ally (two Philippine sailors injured 20 Jul 2026), which is the most plausible route to a US platform being drawn in. Note that elasticity to carrier presence is positive here (more US platforms means more contact opportunities), unlike the blockade event where absence invites coercion. Downward: both leaderships are actively invested in the 'constructive strategic stability' framing, and 73 years of successful crisis avoidance is strong evidence of mutual restraint. Net 1.9x gives 0.027/yr. 1-(1-0.027)^1.42 = 0.037 -> 0.036; ^4.42 = 0.113 -> 0.115; ^10.42 = 0.247 -> 0.25. Internally consistent with a flat ~2.7% hazard."
+    },
+    {
+      "id": "taiwan_chip_supply_shock",
+      "statement": "A disruption originating in Taiwan removes at least 25% of global leading-edge (<=7nm) logic wafer output for at least one month, from any cause: conflict, quarantine, earthquake, grid or water failure, or cyberattack.",
+      "resolution_criteria": "TSMC disclosure and/or TrendForce/SEMI confirm that monthly Taiwan-sited <=7nm wafer output fell at least 25% versus the prior three-month average and remained below that threshold for >=30 consecutive days.",
+      "reference_class": "Events cutting >=25% of leading-edge output for >=1 month, 1995-2026: 0 in 31 years. Largest observed: Chi-Chi earthquake Sept 1999 (M7.7, fabs down ~1 week), Tainan Feb 2016, drought 2021 (no output loss at threshold), Hualien Apr 2024 (8-15 hour halt, $92.4m net loss). Taiwan experiences an M7+ event roughly once per 8-10 years but rarely with the epicentre near Hsinchu or Tainan.",
+      "base_rate_annual": 0.012,
+      "hazard_multiplier_now": 2.3,
+      "p_by_2027": 0.038,
+      "p_by_2030": 0.12,
+      "p_by_2036": 0.26,
+      "drivers": [
+        "us_china_tension_index",
+        "taiwan_strait_military_activity",
+        "semiconductor_supply_concentration",
+        "pla_capability_index"
+      ],
+      "driver_elasticities": [
+        0.35,
+        0.3,
+        0.4,
+        0.15
+      ],
+      "impacts": [
+        "semiconductor_supply_concentration",
+        "us_china_tension_index",
+        "china_gdp_growth",
+        "us_china_effective_tariff_rate"
+      ],
+      "impact_sizes": [
+        -1.6,
+        1.3,
+        -0.9,
+        0.5
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: the natural-hazard pathway alone gives roughly 0.6%/yr (an M7+ near Hsinchu/Tainan severe enough to idle fabs for a month has never happened in 31 years of leading-edge production) plus ~0.3%/yr for grid, water and cyber, plus a small residual - call it 1.2%/yr unconditional. Adjustment upward for 2026 conditions: Taiwan's grid margin is thin post-nuclear-phaseout and heavily gas-fired, and the Iran war's strike on Qatar's Ras Laffan hub in March 2026 removed ~20% of global LNG supply, driving fab electricity costs sharply higher; fabs in Taiwan and Korea are rationing helium; and the conflict pathway (quarantine/blockade/invasion, which would satisfy this threshold with near-certainty) has itself risen. That conflict channel is the largest single component of the multiplier. Net 2.3x gives ~0.028/yr. 1-(1-0.028)^1.42 = 0.039 -> 0.038; ^4.42 = 0.117 -> 0.12; ^10.42 = 0.256 -> 0.26. Note the mitigating structural trend built into the indicator: Taiwan's share of <=5nm capacity is falling ~2.2pp/yr as TSMC Arizona (now a $265bn commitment, ultimately ~30% of TSMC's <=2nm capacity) and Kumamoto ramp, so the same physical disruption clears the 25%-of-global threshold less easily each year - one reason the 2036 figure is not much more than double the 2030 figure."
+    },
+    {
+      "id": "korea_major_conflict",
+      "statement": "Armed conflict on the Korean Peninsula causing at least 100 combat deaths within a rolling 12 months, or any nuclear detonation used in anger.",
+      "resolution_criteria": "At least 100 fatalities among DPRK, ROK, US or allied forces or civilians attributable to cross-border hostilities within any rolling 12-month window, per ACLED/UCDP or official ROK/US government statements; or confirmed detonation of a nuclear weapon against a target.",
+      "reference_class": "Korean Peninsula since the July 1953 armistice (73 years): zero episodes reaching 100 deaths in 12 months. Deadly incidents: 1968 Blue House raid and Pueblo seizure, 1976 axe murders, 1983 Rangoon bombing (21 dead), 1987 KAL 858 (115 dead, terrorism), 2010 Cheonan sinking (46) plus Yeonpyeong shelling (4). So roughly one borderline-qualifying event in 73 years.",
+      "base_rate_annual": 0.01,
+      "hazard_multiplier_now": 1.4,
+      "p_by_2027": 0.02,
+      "p_by_2030": 0.06,
+      "p_by_2036": 0.135,
+      "drivers": [
+        "korea_tension_index",
+        "us_alliance_credibility_index",
+        "us_china_tension_index",
+        "us_carrier_presence_indopacific"
+      ],
+      "driver_elasticities": [
+        0.7,
+        -0.3,
+        0.2,
+        -0.15
+      ],
+      "impacts": [
+        "korea_tension_index",
+        "us_china_tension_index",
+        "japan_defense_spending_gdp",
+        "semiconductor_supply_concentration"
+      ],
+      "impact_sizes": [
+        2.5,
+        1.4,
+        1.2,
+        0.8
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: ~1 qualifying event in 73 armistice-years gives 0.014/yr, but the 1987 case was airline terrorism rather than combat, so I use 0.010/yr for the combat-deaths definition. Upward adjustment: Kim has abandoned unification, declared the ROK a hostile state, is expanding fissile production 'exponentially' (new plant inspected 4 Jun 2026, capacity more than doubled in five years), has fortified the DMZ with mine-laying and wall construction that has produced repeated line-crossing incidents, and enjoys Russian diplomatic cover that has ended meaningful UNSC cost. Downward adjustment: the Lee Jae-myung government is deliberately de-escalatory, Pyongyang is receiving substantial Russian payment for troops and munitions which reduces the incentive for extortive provocation, and 73 years of deterrence stability is a very strong prior. Net 1.4x gives 0.014/yr. 1-(1-0.014)^1.42 = 0.0198 -> 0.020; ^4.42 = 0.060; ^10.42 = 0.136 -> 0.135. Note this is the escalation event; the separate 7th-nuclear-test event is far more likely and does not resolve this one."
+    },
+    {
+      "id": "us_alliance_rupture",
+      "statement": "A formal rupture in a core US Indo-Pacific alliance: US or allied notice of withdrawal from, or suspension of, a mutual defense treaty (Japan, ROK, Philippines, Australia, Thailand), or a US withdrawal of at least 50% of permanently forward-stationed forces from Japan or the Republic of Korea.",
+      "resolution_criteria": "Formal notice of termination or suspension is delivered under the relevant treaty article by either party, and is not withdrawn within 90 days; OR DoD-confirmed reduction of permanently stationed US military personnel in Japan or the ROK by >=50% relative to the July 2026 baseline, completed within any 24-month window.",
+      "reference_class": "Ruptures in US alliances since 1949: New Zealand suspended from ANZUS 1986; Philippine Senate evicted US bases 1991-92 (bases, not the treaty); France left NATO integrated command 1966. Two Indo-Pacific-relevant ruptures in 77 years across five treaty relationships. Major force withdrawals: US forces in Korea fell from ~62k to ~37k across 1969-71 (Nixon Doctrine) and to ~28.5k in 2004-08 - i.e. one >=50% multi-year drawdown in 77 years.",
+      "base_rate_annual": 0.014,
+      "hazard_multiplier_now": 1.7,
+      "p_by_2027": 0.031,
+      "p_by_2030": 0.098,
+      "p_by_2036": 0.21,
+      "drivers": [
+        "us_political_polarization",
+        "us_alliance_credibility_index",
+        "us_china_tension_index",
+        "us_china_effective_tariff_rate"
+      ],
+      "driver_elasticities": [
+        0.35,
+        -0.65,
+        -0.2,
+        0.25
+      ],
+      "impacts": [
+        "us_alliance_credibility_index",
+        "japan_defense_spending_gdp",
+        "taiwan_defense_spending_gdp",
+        "us_china_tension_index",
+        "taiwan_strait_military_activity"
+      ],
+      "impact_sizes": [
+        -2.6,
+        1.6,
+        1.4,
+        -0.5,
+        0.9
+      ],
+      "absorbing": false,
+      "confidence": "low",
+      "reasoning": "Outside view: two Indo-Pacific alliance ruptures plus one >=50% Korea drawdown across 77 years gives roughly 0.039 rupture-events/year in the loosest counting, but my resolution bar is strict (treaty notice or 50% force cut, not merely friction or base disputes), so I use 0.014/yr. Upward: transactional burden-sharing demands, tariffs applied to treaty allies, Trump's refusal in 2026 to say whether he would defend Taiwan and his willingness to discuss Taiwan arms sales with Xi (which allies read as bargaining away partners), and an alliance-credibility index at 51 versus 72 in 2016. Downward, and this is the stronger empirical evidence: in the actual 2025-26 record allies are moving toward Washington, not away - Takaichi's coalition won decisively in February 2026 and is raising security spending to 2% of GDP by 2027, the US agreed to support ROK nuclear-submarine construction alongside a 15% tariff and $350bn investment package, 36 F-15EX are being permanently based at Kadena, and the Philippines is holding trilateral drills with the US and Japan. Net 1.7x gives 0.024/yr. 1-(1-0.024)^1.42 = 0.034 -> 0.031 (near-term rupture is least likely given the current cooperative sequence); ^4.42 = 0.101 -> 0.098; ^10.42 = 0.223 -> 0.21, with the outer window covering at least one and possibly two changes of US administration. Confidence low: this event is definitionally brittle and heavily dependent on how one counts partial drawdowns."
+    },
+    {
+      "id": "us_constitutional_crisis",
+      "statement": "An overt, sustained refusal by the US executive branch to comply with a final Supreme Court order; or the postponement or cancellation of a scheduled federal election by federal action; or a president remaining in office beyond a constitutionally mandated term.",
+      "resolution_criteria": "The Supreme Court, or a majority of its Justices in a published opinion or order, states that the executive is not complying with a final order of the Court, and non-compliance persists for >=30 days; OR a scheduled federal general election is postponed or cancelled by federal executive or legislative action; OR an incumbent president remains in office past 20 January following the end of a constitutional term.",
+      "reference_class": "United States 1789-2026 (237 years): arguable instances of overt sustained presidential defiance of a final Supreme Court ruling: Jackson/Worcester v. Georgia 1832 and Lincoln/Ex parte Merryman 1861 (a circuit ruling by Chief Justice Taney) - roughly 2. Federal elections have never been postponed, including in 1864 and 1944. No president has overstayed a term. Approximately 2 qualifying events in 237 years.",
+      "base_rate_annual": 0.008,
+      "hazard_multiplier_now": 2.8,
+      "p_by_2027": 0.038,
+      "p_by_2030": 0.105,
+      "p_by_2036": 0.16,
+      "drivers": [
+        "us_political_polarization"
+      ],
+      "driver_elasticities": [
+        0.85
+      ],
+      "impacts": [
+        "us_political_polarization",
+        "us_alliance_credibility_index",
+        "us_china_tension_index",
+        "us_carrier_presence_indopacific"
+      ],
+      "impact_sizes": [
+        1.8,
+        -2.2,
+        0.5,
+        -0.6
+      ],
+      "absorbing": false,
+      "confidence": "low",
+      "reasoning": "Outside view: 2 events in 237 years = 0.008/yr. This is one of the few places where a multiplier near 3x is arguable, and journalism would push for 10x, so the 2026 evidence deserves careful weighing - and it cuts both ways. Against elevation, and decisively: between December 2025 and January 2026 the Supreme Court ruled against the administration on four maximal-stress questions - National Guard federalization in Illinois (with Los Angeles and Portland implicated), birthright citizenship, worldwide tariffs, and the attempted firing of Fed Governor Lisa Cook - and the administration complied, announcing the Guard withdrawal from Chicago, Los Angeles and Portland on 31 December 2025. That is a live, recent, high-stakes observation of the compliance norm holding, and it should dominate priors formed from rhetoric. For elevation: senior advisers publicly characterized adverse rulings as 'legal insurrection' and demanded defiance; the 'appellate void' tactic of non-compliance with district courts while avoiding a final SCOTUS confrontation is documented and in use; political violence is at levels not seen since the 1970s per Princeton's Bridging Divides Initiative; and the 3 November 2026 midterms plus their certification are a concentrated risk node inside the p_by_2027 window. Net 2.8x gives 0.022/yr. Flat-hazard arithmetic gives 0.031/0.093/0.207; I raise the near term to 0.038 for the midterm-certification node, raise 2030 slightly to 0.105, and cut 2036 to 0.16 because the hazard is concentrated in this presidential term (ending January 2029) and reverts toward the historical base rate afterward - so the curve is deliberately front-loaded rather than flat."
+    },
+    {
+      "id": "us_china_trade_war_reescalation",
+      "statement": "Severe re-escalation of US-China economic conflict: the US average effective tariff on Chinese goods exceeds 60% for at least 60 days, or China reactivates its suspended October-2025 rare-earth licensing regime against US-linked end users for at least 60 days.",
+      "resolution_criteria": "Penn Wharton Budget Model or USITC data show a China-specific effective tariff rate above 60% sustained for >=60 days; OR MOFCOM formally reactivates or replaces the 9 October 2025 rare-earth and related export-control measures (currently suspended to 10 November 2026) with a denial-presumption licensing regime applied to US or US-linked end users, in force >=60 days.",
+      "reference_class": "US-China economic conflict 2018-2026 (8 years): three escalation spirals (2018-19 Section 301 rounds, 2024 Section 301 review, April 2025 escalation to 145%) and three truces. Episodes reaching the severe threshold defined here: April 2025 (tariffs >60%) and October 2025 (rare-earth regime) = 2 in 8 years.",
+      "base_rate_annual": 0.19,
+      "hazard_multiplier_now": 0.8,
+      "p_by_2027": 0.22,
+      "p_by_2030": 0.5,
+      "p_by_2036": 0.78,
+      "drivers": [
+        "us_china_tension_index",
+        "tech_export_control_stringency",
+        "us_political_polarization",
+        "china_gdp_growth"
+      ],
+      "driver_elasticities": [
+        0.6,
+        0.35,
+        0.2,
+        -0.15
+      ],
+      "impacts": [
+        "us_china_effective_tariff_rate",
+        "us_china_tension_index",
+        "china_gdp_growth",
+        "tech_export_control_stringency",
+        "semiconductor_supply_concentration"
+      ],
+      "impact_sizes": [
+        2.5,
+        1.6,
+        -0.7,
+        1.0,
+        -0.3
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: 2 severe-threshold episodes in the 8 years since the trade war began = 0.19/yr (broader escalation spirals run at ~0.375/yr but most do not clear this bar). This is a genuinely high-frequency reference class and I resist the instinct to smooth it down. Adjustment for current conditions is below 1.0, which is unusual: the 14-15 May 2026 Beijing summit produced a 'constructive strategic stability' framework, purchase agreements and two bilateral boards; three further leader meetings are scheduled including Xi's state visit to the US in September 2026; and both sides are visibly invested in predictability, with the effective tariff having fallen from 145% to ~26%. Against that, the 10 November 2026 expiry of China's rare-earth suspension is a hard, dated cliff sitting squarely inside the p_by_2027 window, and the 23 July 2026 forced-labor tariff shows the ratchet still turning. Net 0.8x gives 0.152/yr. 1-(1-0.152)^1.42 = 0.204; I raise to 0.22 for the November cliff. ^4.42 = 0.505 -> 0.50. ^10.42 = 0.816 -> shaded down to 0.78, because over a decade the instruments of conflict migrate away from tariffs and rare earths toward investment screening, data and standards, making these specific thresholds progressively less representative."
+    },
+    {
+      "id": "scs_lethal_incident_philippines",
+      "statement": "A China-Philippines maritime confrontation causes at least one death, or PRC forces take physical control of a Philippine-occupied feature, or Manila formally invokes the US-Philippines Mutual Defense Treaty.",
+      "resolution_criteria": "Confirmed death of Philippine or Chinese personnel arising directly from a China-Philippines maritime confrontation; OR PRC forces establish and hold physical control of a feature previously occupied or garrisoned by the Philippines (including Second Thomas Shoal's BRP Sierra Madre); OR the Philippine government publicly invokes Article IV or V of the 1951 Mutual Defense Treaty.",
+      "reference_class": "China-Philippines maritime confrontation since the 2012 Scarborough standoff (14 years): 60+ documented coercive incidents including water-cannon use, ramming, blocking, lasers and boarding; injuries including a severed thumb at Second Thomas Shoal in June 2024 and two injured sailors on 20 July 2026; zero deaths; one de facto feature seizure (Scarborough Shoal, 2012). So one qualifying event in 14 years.",
+      "base_rate_annual": 0.071,
+      "hazard_multiplier_now": 1.7,
+      "p_by_2027": 0.16,
+      "p_by_2030": 0.42,
+      "p_by_2036": 0.68,
+      "drivers": [
+        "scs_incident_rate",
+        "us_carrier_presence_indopacific",
+        "us_china_tension_index",
+        "us_alliance_credibility_index"
+      ],
+      "driver_elasticities": [
+        0.75,
+        -0.3,
+        0.3,
+        -0.25
+      ],
+      "impacts": [
+        "us_china_tension_index",
+        "scs_incident_rate",
+        "us_alliance_credibility_index",
+        "japan_defense_spending_gdp"
+      ],
+      "impact_sizes": [
+        1.5,
+        1.8,
+        -0.5,
+        0.6
+      ],
+      "absorbing": false,
+      "confidence": "medium",
+      "reasoning": "Outside view: 1 qualifying event (Scarborough 2012) in 14 years of active confrontation = 0.071/yr. The striking feature of this reference class is how many injuries have occurred with zero deaths - both coast guards are visibly managing lethality, using water cannon, batons and hull-bumping rather than firearms. Upward adjustment for July 2026: two clashes in five days, two Philippine sailors injured at Second Thomas Shoal on 20 July, water cannon at Scarborough on 23 and 24 July with 12 CCG and 3 maritime-militia vessels committed, Wang Yi warning of 'bitter consequences', a Chinese 2025 CCG/PLAN collision showing the CCG's own operational aggressiveness, and US carrier presence in the region at roughly one CSG because of CENTCOM demands. Downward: Manila has consistently avoided invoking the MDT even after injuries, and the July 2024 provisional resupply arrangement showed both sides can throttle back. Net 1.7x gives 0.12/yr. 1-(1-0.12)^1.42 = 0.163 -> 0.16; ^4.42 = 0.43 -> 0.42; ^10.42 = 0.735 -> shaded to 0.68 for eventual routinization and possible modus vivendi. This is by design the most likely violent-escalation event in the domain and the most plausible trigger path for us_china_direct_armed_clash."
+    },
+    {
+      "id": "taiwan_offshore_island_seizure",
+      "statement": "PRC forces seize and hold an ROC-administered offshore island or feature - Kinmen, Matsu, Wuqiu, Dongyin, Pratas/Dongsha, or Taiping/Itu Aba - without assaulting Taiwan's main island.",
+      "resolution_criteria": "PRC military, coast guard or militia personnel establish physical control of an ROC-garrisoned island or feature and retain it for >=7 days, confirmed by Taiwan MND and at least two major wire services.",
+      "reference_class": "PRC attempts to take ROC-held offshore islands: Kinmen/Guningtou 1949 (failed), Yijiangshan and the Dachen evacuation 1955 (succeeded), the 1958 Kinmen blockade and shelling (failed). Three attempts and one success in 77 years, but zero attempts in the 68 years since 1958.",
+      "base_rate_annual": 0.012,
+      "hazard_multiplier_now": 2.2,
+      "p_by_2027": 0.036,
+      "p_by_2030": 0.105,
+      "p_by_2036": 0.23,
+      "drivers": [
+        "us_china_tension_index",
+        "pla_capability_index",
+        "us_carrier_presence_indopacific",
+        "us_alliance_credibility_index",
+        "taiwan_strait_military_activity"
+      ],
+      "driver_elasticities": [
+        0.4,
+        0.3,
+        -0.3,
+        -0.35,
+        0.25
+      ],
+      "impacts": [
+        "us_china_tension_index",
+        "taiwan_strait_military_activity",
+        "taiwan_defense_spending_gdp",
+        "us_alliance_credibility_index",
+        "japan_defense_spending_gdp"
+      ],
+      "impact_sizes": [
+        2.2,
+        1.5,
+        1.5,
+        -0.8,
+        1.2
+      ],
+      "absorbing": false,
+      "confidence": "low",
+      "reasoning": "Outside view: zero attempts in 68 years, so I set base_rate_annual at 0.012, a 1-in-83-year rate, reflecting that the modern-era frequency is indistinguishable from zero. Upward adjustment: this is the cheapest available way for Beijing to change facts on the ground - Pratas is 400km from Taiwan and essentially indefensible; Kinmen is 10km from Xiamen and already subject to routine CCG patrols in what Taipei calls restricted waters, with a precedent of CCG boarding a Taiwanese tourist boat in February 2024; a seizure at that scale would probably not trigger a US military response given the ambiguity of the US commitment even to the main island; and US carrier presence is depressed. Downward: the strategic gain is small, the cost is very large - it would collapse the KMT's cross-strait platform, vindicate Lai's defense budget, likely push Japan formally into a Taiwan contingency posture and trigger sanctions - and Beijing's theory of victory is political absorption, which a seizure would set back badly. Net 2.2x gives 0.026/yr. 1-(1-0.026)^1.42 = 0.036; ^4.42 = 0.109 -> 0.105; ^10.42 = 0.240 -> 0.23. Confidence low: this is the event with the thinnest empirical base in the set, and the reference class is genuinely ambiguous between 'nothing in 68 years' and 'a live, rehearsed option'."
+    },
+    {
+      "id": "xi_loses_power",
+      "statement": "Xi Jinping ceases to hold both the post of CCP General Secretary and the chairmanship of the Central Military Commission, for any reason - death, incapacity, removal, or retirement.",
+      "resolution_criteria": "PRC official announcement, or confirmation by at least three of Reuters, AP, AFP, Xinhua and the CCP Central Committee, that Xi Jinping no longer holds the offices of General Secretary and CMC Chairman.",
+      "reference_class": "PRC paramount leaders 1949-2026: Mao (died in office after 27 years), Hua Guofeng (removed after ~4 years - the only involuntary removal of a sitting paramount leader in 77 years), Deng (retired from the CMC after ~11 years), Jiang (12 years as GS, ~13 as CMC chair), Hu (10 years), Xi (13 years and counting). One death in office and one involuntary removal in 77 years. Actuarial baseline: Chinese male life tables give ~2.5%/yr mortality at age 73 rising to ~7%/yr by 83.",
+      "base_rate_annual": 0.038,
+      "hazard_multiplier_now": 1.2,
+      "p_by_2027": 0.075,
+      "p_by_2030": 0.2,
+      "p_by_2036": 0.48,
+      "drivers": [
+        "xi_position_index",
+        "china_gdp_growth"
+      ],
+      "driver_elasticities": [
+        -0.55,
+        -0.2
+      ],
+      "impacts": [
+        "xi_position_index",
+        "us_china_tension_index",
+        "taiwan_strait_military_activity",
+        "china_gdp_growth"
+      ],
+      "impact_sizes": [
+        -3.0,
+        -0.4,
+        -0.6,
+        -0.5
+      ],
+      "absorbing": true,
+      "confidence": "medium",
+      "reasoning": "Outside view is dominated by actuarial mortality rather than politics. Xi turned 73 in June 2026; Chinese male mortality at 73-83 averages roughly 3.8%/yr over that span with excellent healthcare shading it down and the age-gradient shading it up. Political removal adds roughly 0.7%/yr (1 removal in 77 leader-years, and Xi is far more consolidated than Hua Guofeng was). Voluntary retirement is near-zero except at a Party Congress node. Combined base_rate_annual 0.038. Multiplier 1.2 rather than something larger: the January 2026 purges of Zhang Youxia and Liu Zhenli left the CMC with only Xi and Zhang Shengmin, which analysts read in two opposite ways - as evidence of total dominance or as evidence of chronic insecurity - and I decline to treat one reading as established. Effective hazard 0.046/yr. Flat arithmetic gives 0.064/0.186/0.386. I raise p_by_2027 to 0.075 because the 21st Party Congress in October 2027 sits inside that window and is the one scheduled institutional moment where a negotiated handover or partial retirement could occur; I raise p_by_2030 to 0.20 for the same node; and I raise p_by_2036 to 0.48 because mortality is strongly age-increasing and Xi would be 83 by then. Absorbing: yes, by construction."
+    },
+    {
+      "id": "dprk_seventh_nuclear_test",
+      "statement": "North Korea conducts at least one further nuclear explosive test (its seventh).",
+      "resolution_criteria": "CTBTO or USGS detect a seismic event at or near Punggye-ri with characteristics consistent with an underground nuclear explosion, plus confirmation by the DPRK, or by the ROK Ministry of National Defense or US government.",
+      "reference_class": "DPRK nuclear tests: 2006, 2009, 2013, January 2016, September 2016, 2017 - six tests in the 20 years 2006-2026, a long-run rate of 0.30/yr. But zero in the 8.7 years since September 2017, and zero in the 4+ years since DIA assessed (2022) that the restored site is 'postured to conduct a seventh test at a time of its choosing'.",
+      "base_rate_annual": 0.13,
+      "hazard_multiplier_now": 1.3,
+      "p_by_2027": 0.21,
+      "p_by_2030": 0.52,
+      "p_by_2036": 0.78,
+      "drivers": [
+        "korea_tension_index",
+        "us_china_tension_index",
+        "us_alliance_credibility_index"
+      ],
+      "driver_elasticities": [
+        0.55,
+        0.25,
+        -0.15
+      ],
+      "impacts": [
+        "korea_tension_index",
+        "us_china_tension_index",
+        "japan_defense_spending_gdp"
+      ],
+      "impact_sizes": [
+        1.6,
+        0.5,
+        0.7
+      ],
+      "absorbing": true,
+      "confidence": "medium",
+      "reasoning": "Outside view requires blending two regimes: the 2006-2017 testing regime at 0.55/yr and the 2018-2026 restraint regime at 0.00/yr over 8.7 years. Weighting toward the current regime but allowing that the restraint was diplomatically contingent and that diplomacy is now dead, I take base_rate_annual 0.13. Upward adjustment: Kim inspected a new fissile-material production plant on 4 June 2026 and pledged to expand nuclear forces 'at an exponential rate', stating that weapons-grade material capacity has more than doubled in five years; the Hwasong-20 solid-fuel ICBM was unveiled in October 2025 but has not been flight-tested, and MIRV and tactical warhead designs would benefit from validation; Russian protection has removed any meaningful UNSC penalty. Downward: Beijing's objection remains the binding constraint and China has more leverage over Pyongyang now that it competes with Moscow for influence, Kim gains little from a test he can substitute with missile displays, and eight years of forecasters wrongly predicting an imminent seventh test is itself evidence. Net 1.3x gives 0.17/yr. 1-(1-0.17)^1.42 = 0.226 -> 0.21; ^4.42 = 0.552 -> 0.52; ^10.42 = 0.862 -> shaded to 0.78 for the possibility that the DPRK permanently substitutes other demonstrations. Absorbing: defined as at least one further test, so it fires once."
+    },
+    {
+      "id": "china_growth_shock",
+      "statement": "China suffers an acknowledged severe macro-financial shock: official four-quarter real GDP growth below 2.5%, or a state recapitalization of systemically important banks of at least RMB 2 trillion.",
+      "resolution_criteria": "NBS-reported cumulative four-quarter real GDP growth below 2.5%; OR PBOC/MOF/CBIRC announce capital injections totalling >=RMB 2 trillion into two or more of the Big Six commercial banks or into the LGFV/AMC system within any 12-month period.",
+      "reference_class": "PRC official real growth below 2.5% over four quarters since 1978 (48 years): 1990 (3.9% - did not clear the bar) and 2020 (2.2%, pandemic) - so one, arguably zero non-pandemic instances. Systemic bank recapitalizations: the 1998-2005 AMC carve-outs, one episode in 48 years. Combined roughly 0.045/yr.",
+      "base_rate_annual": 0.045,
+      "hazard_multiplier_now": 2.0,
+      "p_by_2027": 0.12,
+      "p_by_2030": 0.31,
+      "p_by_2036": 0.55,
+      "drivers": [
+        "china_gdp_growth",
+        "us_china_effective_tariff_rate",
+        "tech_export_control_stringency"
+      ],
+      "driver_elasticities": [
+        -0.6,
+        0.3,
+        0.2
+      ],
+      "impacts": [
+        "china_gdp_growth",
+        "us_china_tension_index",
+        "pla_capability_index",
+        "taiwan_strait_military_activity"
+      ],
+      "impact_sizes": [
+        -2.2,
+        0.6,
+        -0.5,
+        -0.4
+      ],
+      "absorbing": false,
+      "confidence": "low",
+      "reasoning": "Outside view: roughly one qualifying macro episode and one systemic recapitalization in 48 reform-era years = 0.045/yr. Upward adjustment for 2026: ten consecutive quarters of deflationary pressure, the longest since the late 1970s; Q2 2026 growth of 4.3% is the slowest since 2022 and below the 4.5-5% target band; property starts remain ~72% below their 2021 peak with investment down 50-80%; youth unemployment at 16.3%; unresolved LGFV debt; a ~26% US effective tariff; and the Iran war raising energy import costs for an economy that sources 45-50% of crude through Hormuz. Downward, and this is why I stop at 2.0x rather than going higher: Beijing has enormous unused policy space, closed capital account, a state-owned banking system that can absorb losses off-balance-sheet indefinitely, 1.39bn barrels of strategic crude cover as of March 2026, and - critically for the resolution criteria - a demonstrated capacity to smooth reported statistics, which makes the official <2.5% threshold far harder to hit than the underlying economic reality. Net 2.0x gives 0.09/yr. 1-(1-0.09)^1.42 = 0.123 -> 0.12; ^4.42 = 0.339 -> 0.31 (shaded for near-term policy support); ^10.42 = 0.625 -> 0.55 (shaded because after a decade of gradual adjustment the acute-shock hazard falls). Confidence low: the binding uncertainty is measurement and disclosure policy, not economics."
+    }
+  ],
+  "couplings": [
+    {
+      "from": "us_china_tension_index",
+      "to": "us_china_effective_tariff_rate",
+      "strength": 0.55,
+      "lag_quarters": 2,
+      "mechanism": "Political tension converts into tariff and Section 301/232 action with a policy-formulation and comment-period lag; the 23 July 2026 forced-labor tariff followed months of legislative and regulatory pressure that ran independently of the leader-level detente."
+    },
+    {
+      "from": "us_china_tension_index",
+      "to": "tech_export_control_stringency",
+      "strength": 0.45,
+      "lag_quarters": 3,
+      "mechanism": "BIS rulemaking, Entity List additions and FDPR extensions are the slower but stickier expression of tension; the ratchet has held even through trade truces, e.g. the 1 June 2026 extraterritorial application of the AI-chip ban to Chinese firms abroad."
+    },
+    {
+      "from": "us_china_effective_tariff_rate",
+      "to": "china_gdp_growth",
+      "strength": -0.3,
+      "lag_quarters": 3,
+      "mechanism": "Tariffs compress Chinese export volumes and manufacturing investment with a two-to-three quarter pass-through, partly offset by ASEAN transshipment and RMB depreciation; Q2 2026 secondary-industry growth fell to 3.0% from 4.9% as front-loaded shipments unwound."
+    },
+    {
+      "from": "tech_export_control_stringency",
+      "to": "china_gdp_growth",
+      "strength": -0.12,
+      "lag_quarters": 8,
+      "mechanism": "Denial of leading-edge compute and lithography tooling constrains AI and semiconductor productivity growth, but the effect is small and slow because China substitutes with SMIC N+2/N+3 output, domestic accelerators and stockpiles."
+    },
+    {
+      "from": "tech_export_control_stringency",
+      "to": "us_china_tension_index",
+      "strength": 0.4,
+      "lag_quarters": 1,
+      "mechanism": "Each control action draws a rapid MOFCOM countermeasure - rare-earth licensing, unreliable-entity listings, port fees - producing a fast reciprocal tension loop."
+    },
+    {
+      "from": "pla_capability_index",
+      "to": "taiwan_strait_military_activity",
+      "strength": 0.45,
+      "lag_quarters": 2,
+      "mechanism": "Airframes, hulls, tankers and maintenance depth mechanically set the sustainable sortie-generation ceiling; the 2026 fall in sorties despite rising capability shows this is a ceiling, not a floor."
+    },
+    {
+      "from": "taiwan_strait_military_activity",
+      "to": "us_china_tension_index",
+      "strength": 0.35,
+      "lag_quarters": 1,
+      "mechanism": "High-tempo operations and median-line crossings trigger US and allied statements, transits and arms-package announcements within weeks."
+    },
+    {
+      "from": "xi_position_index",
+      "to": "taiwan_strait_military_activity",
+      "strength": 0.22,
+      "lag_quarters": 4,
+      "mechanism": "Sustained high-tempo joint operations require an intact and confident theatre command; the 2025-26 purges of He Weidong, Miao Hua, Zhang Youxia and Liu Zhenli coincide with a ~60% year-on-year fall in PLA air sorties around Taiwan."
+    },
+    {
+      "from": "china_gdp_growth",
+      "to": "pla_capability_index",
+      "strength": 0.15,
+      "lag_quarters": 8,
+      "mechanism": "Fiscal capacity constrains procurement with long lags; the 2026 defense budget rose 7%, the slowest since 2021, against a backdrop of falling land-sale revenue and LGFV stress."
+    },
+    {
+      "from": "china_gdp_growth",
+      "to": "taiwan_strait_military_activity",
+      "strength": -0.16,
+      "lag_quarters": 4,
+      "mechanism": "Weak growth creates a modest diversionary and nationalist-legitimation incentive for external pressure. The effect is small, contested in the literature, and partly offset by the resource constraint above - hence the low magnitude."
+    },
+    {
+      "from": "us_political_polarization",
+      "to": "us_alliance_credibility_index",
+      "strength": -0.32,
+      "lag_quarters": 4,
+      "mechanism": "Domestic institutional stress and four-year policy discontinuity erode allied confidence in the durability of US commitments; Lowy and Genron series moved sharply after 2016 and again after 2025."
+    },
+    {
+      "from": "us_political_polarization",
+      "to": "us_china_tension_index",
+      "strength": 0.18,
+      "lag_quarters": 3,
+      "mechanism": "China hawkishness is one of the few remaining bipartisan outlets in Congress, so polarization ratchets restrictive legislation upward regardless of executive-level detente - the 'bifurcated' 2026 pattern of leader-level dealmaking alongside legislative tightening."
+    },
+    {
+      "from": "us_alliance_credibility_index",
+      "to": "japan_defense_spending_gdp",
+      "strength": -0.28,
+      "lag_quarters": 6,
+      "mechanism": "Hedging: lower confidence in the US commitment raises allied self-help spending. Negative sign means falling credibility raises spending. Takaichi's acceleration to 2% of GDP by 2027 followed a period of falling credibility scores."
+    },
+    {
+      "from": "us_alliance_credibility_index",
+      "to": "taiwan_defense_spending_gdp",
+      "strength": -0.2,
+      "lag_quarters": 6,
+      "mechanism": "Same hedging logic, but weaker and noisier because Taiwan's spending is gated by a KMT/TPP-controlled legislature that cut Lai's special budget by ~40% in May 2026; ambiguity about US support cuts both ways in Taipei's domestic debate."
+    },
+    {
+      "from": "us_carrier_presence_indopacific",
+      "to": "scs_incident_rate",
+      "strength": -0.25,
+      "lag_quarters": 1,
+      "mechanism": "Reduced US naval presence lowers the perceived cost to the China Coast Guard of coercive action against Philippine vessels; the July 2026 cluster of incidents coincided with the lowest INDOPACOM carrier availability in years due to the Iran war."
+    },
+    {
+      "from": "scs_incident_rate",
+      "to": "us_china_tension_index",
+      "strength": 0.22,
+      "lag_quarters": 1,
+      "mechanism": "Incidents involving a US treaty ally draw State Department MDT reaffirmations and trilateral exercises, feeding the tension composite quickly."
+    },
+    {
+      "from": "us_china_tension_index",
+      "to": "semiconductor_supply_concentration",
+      "strength": -0.2,
+      "lag_quarters": 8,
+      "mechanism": "Sustained tension accelerates fab reshoring subsidies and customer dual-sourcing, slowly reducing Taiwan's share of leading-edge capacity; TSMC's Arizona commitment reached $265bn by 2026, but capacity moves on a five-to-eight year lag."
+    },
+    {
+      "from": "korea_tension_index",
+      "to": "us_china_tension_index",
+      "strength": 0.15,
+      "lag_quarters": 2,
+      "mechanism": "DPRK provocations pull US assets and missile-defense deployments into Northeast Asia, which Beijing treats as directed at China; the February 2026 Yellow Sea F-16/PLAAF standoff arose from a Korea-based mission."
+    },
+    {
+      "from": "korea_tension_index",
+      "to": "japan_defense_spending_gdp",
+      "strength": 0.18,
+      "lag_quarters": 5,
+      "mechanism": "DPRK missile overflights and nuclear expansion are the most politically legible driver of Japanese counterstrike and BMD budgets, historically more so than China itself."
+    },
+    {
+      "from": "oil_price_brent",
+      "to": "china_gdp_growth",
+      "strength": -0.16,
+      "lag_quarters": 2,
+      "mechanism": "Cross-domain: China imports ~11m b/d with 45-50% transiting Hormuz, so the 2026 Iran war's price and freight-insurance shock is a direct terms-of-trade drag, partly buffered by 1.39bn barrels of strategic and commercial storage (~120 days of net imports). Include only if an energy-domain Brent key exists."
+    }
+  ],
+  "key_uncertainties": [
+    "Whether the 2026 collapse in PLA air sorties around Taiwan (from ~330/month in 2025 to ~180/month) reflects genuine operational degradation from the Zhang Youxia/Liu Zhenli purges, a deliberate shift to coast-guard-led lawfare, or a deliberate pre-summit lull. These imply very different hazards: the first lowers near-term conflict risk substantially, the second raises quarantine risk while lowering war risk, the third means the tempo simply resumes.",
+    "Whether China lets the October-2025 rare-earth licensing suspension lapse on 10 November 2026, extends it, or replaces it with a narrower regime. This is the single most predictable branch point in the domain within the forecast's first 18 months.",
+    "Whether the US-Iran war (ongoing since 28 February 2026, with a US naval blockade since 13 April) ends in 2026 or persists. Continued CENTCOM demand keeps INDOPACOM carrier presence near one CSG, which materially raises the payoff to Chinese and DPRK probing; conclusion of the war restores presence within roughly two quarters.",
+    "Whether the November 2026 US midterms produce a divided government that constrains executive trade and force-posture discretion, and whether certification proceeds without a constitutional confrontation.",
+    "How to read the CMC being reduced to Xi and Zhang Shengmin: maximal consolidation, or a leader who cannot trust his own military. The correct reading flips the sign of the purges' effect on Taiwan-contingency hazard.",
+    "Whether Beijing's declaration that CCG patrols east of Taiwan are 'routine' (4 July 2026), plus the hailing of merchant ships in international waters, is incrementalism with no terminal point or a deliberate legal predicate for a future quarantine.",
+    "Whether the reported China GDP series remains a usable indicator at all, given ten quarters of deflation, a 72% collapse in property starts and an official print that has stayed inside a narrow band throughout.",
+    "Whether Trump's ambiguity on Taiwan (declining to say whether he would defend it; discussing arms sales with Xi) is a bargaining posture or a genuine willingness to trade Taiwan's security for economic terms - allies price these very differently.",
+    "The true elasticity of Chinese decision-making to US carrier presence: the deterrence literature assumes it is high, but the 2012 Scarborough seizure and the 2024-26 Philippine incidents occurred with substantial US presence nearby."
+  ],
+  "surprises_2026": [
+    "A US-Israel-Iran war began on 28 February 2026 with strikes that killed Supreme Leader Ali Khamenei; Iran declared the Strait of Hormuz closed on 4 March and the US imposed a naval blockade on 13 April. Strikes were still ongoing in mid-July 2026. This is the single largest input a May-2026-cutoff model would misjudge, and it depresses US Indo-Pacific naval presence to roughly one carrier strike group.",
+    "Trump travelled to Beijing for a summit with Xi on 14-15 May 2026 - the first such visit of the term. Outcome was modest: 'constructive strategic stability' framing (a Chinese formulation the US adopted), 200 Boeing aircraft, two bilateral boards, no joint communique, no Taiwan or Iran breakthrough. Xi explicitly warned Trump of 'clashes and even conflicts' over Taiwan. Xi is due to make a state visit to the US in September 2026.",
+    "PLA air activity around Taiwan fell sharply rather than rising: 270 sorties in January, 190 in February, ~172 in March 2026 - a ~60% year-on-year decline and the lowest monthly figure since August 2022 - while naval and coast guard presence held steady.",
+    "On 24 January 2026 China announced investigations into CMC Vice Chairman Zhang Youxia and Joint Staff chief Liu Zhenli, following the October 2025 expulsion of He Weidong, Miao Hua and seven other generals. The Central Military Commission is now down to Xi Jinping and Zhang Shengmin.",
+    "On 4 July 2026 Beijing declared China Coast Guard patrols in waters east of Taiwan to be 'routine', and the CCG has hailed merchant ships in international waters near eastern Taiwan demanding origin and destination. On 21 July a PLA helicopter crossed the median line in the narrow section of the strait, the first such helicopter crossing since August 2022.",
+    "In response to PM Takaichi's 7 November 2025 statement that a Taiwan contingency could be a survival-threatening situation for Japan, China banned military-end-use dual-use exports to Japan on 6 January 2026 and listed 40 Japanese firms on 24 February 2026, alongside a reimposed seafood ban and flight cuts. Takaichi's coalition then won a decisive election victory in February 2026.",
+    "Nvidia's H200 moved to case-by-case export licensing for China in January 2026 under unusual conditions: US pre-export testing, a cap at 50% of US domestic sales volume, and a 25% tariff per shipment. On 1 June 2026 Washington extended the AI-chip ban extraterritorially to Chinese firms operating outside China.",
+    "The US effective tariff on Chinese goods fell to 23.4% by May 2026 from the April 2025 peak of 145%, then rose ~2.5pp on 23 July 2026 when USTR imposed a 12.5% forced-labor tariff on all Chinese goods.",
+    "Between December 2025 and January 2026 the Supreme Court ruled against the Trump administration on National Guard federalization, birthright citizenship, worldwide tariffs and the firing of Fed Governor Lisa Cook - and the administration complied, withdrawing the Guard from Chicago, Los Angeles and Portland from 31 December 2025.",
+    "Taiwan's Legislative Yuan passed only NT$780bn of Lai Ching-te's NT$1.25tn eight-year special defense budget on 8 May 2026, a ~40% cut, after blocking it roughly ten times; the final bill excluded most domestic defense-industrial programmes.",
+    "China's Q2 2026 GDP grew 4.3% year on year, the slowest quarterly print since 2022 and below the official 4.5-5% target band, with secondary-industry growth collapsing to 3.0% from 4.9% in Q1.",
+    "A March 2026 missile and drone strike on Qatar's Ras Laffan LNG hub removed roughly 20% of global LNG supply, driving fab electricity costs sharply higher in Taiwan and South Korea; fabs in both are now rationing helium.",
+    "China's 2026 defense budget rose 7% to RMB 1.91tn (~$277bn), the slowest increase since 2021, announced on 5 March amid the general-officer purges.",
+    "China and Russia conducted 'Joint Sea-2026' naval drills near Qingdao with Pacific patrols; the PLA Navy now operates J-35 stealth fighters from all three carriers including the Fujian, and a nuclear-powered Type-004 is under construction at Dalian.",
+    "On 18 February 2026 roughly ten USAF F-16s from Osan and an unknown number of PLAAF fighters had a rare standoff over the Yellow Sea near China's ADIZ - the most significant direct US-PRC air confrontation in years."
+  ],
+  "sources": [
+    "Taiwan Ministry of National Defense, daily PLA activity reports - https://air.mnd.gov.tw/EN/News/",
+    "Taiwan Security Monitor (George Mason Schar School), Strait Snapshot March 2026 Update - https://tsm.schar.gmu.edu/strait-snapshot-march-2026-update/",
+    "AEI China & Taiwan Update, 2 July 2026 - https://www.aei.org/articles/china-taiwan-update-july-2-2026/",
+    "Penn Wharton Budget Model, Effective Tariff Rates and Revenues, updated 13 July 2026 - https://budgetmodel.wharton.upenn.edu/p/2026-07-13-effective-tariff-rates-and-revenues-updated-july-13-2026/",
+    "Mayer Brown, US China Trade Monthly July 2026 - https://www.mayerbrown.com/en/insights/publications/2026/07/us-china-trade-monthly-july-2026",
+    "US-China Economic and Security Review Commission, China Bulletin 23 July 2026 - https://www.uscc.gov/trade-bulletins/china-bulletin-july-23-2026",
+    "CRS R48642, U.S. Export Controls and China: Advanced Semiconductors - https://www.congress.gov/crs-product/R48642",
+    "CRS R48877, U.S.-South Korea Alliance: Background and Issues for Congress - https://www.congress.gov/crs-product/R48877",
+    "PRC National Bureau of Statistics, Q1 and Q2 2026 releases - https://www.stats.gov.cn/english/PressRelease/",
+    "CNBC, China posts slowest quarterly GDP growth since 2022, 15 July 2026 - https://www.cnbc.com/2026/07/15/china-gdp-retail-sales-investment-june-.html",
+    "MERICS, China's economy in Q2 2026 - https://merics.org/en/tracker/chinas-economy-q2-domestic-woes-dampen-growth-imbalances-intensify",
+    "East Asia Forum, The Xi-Trump summit lived up to modest expectations, 30 May 2026 - https://eastasiaforum.org/2026/05/30/the-xi-trump-summit-lived-up-to-modest-expectations/",
+    "NBC News, Xi warns Trump of possible conflict over Taiwan at Beijing summit - https://www.nbcnews.com/world/china/xi-warns-trump-taiwan-conflict-summit-beijing-china-us-rcna345069",
+    "CNN, Chinese ship shoots water cannon at Philippine vessel near Scarborough Shoal, 24 July 2026 - https://www.cnn.com/2026/07/24/asia/china-philippines-south-china-sea-scarborough-intl-hnk",
+    "Al Jazeera, Philippines accuses China of using water cannon for second day, 24 July 2026 - https://www.aljazeera.com/news/2026/7/24/philippines-accuses-china-of-using-water-cannon-on-vessels-for-second-day",
+    "Taipei Times, PLA helicopter crosses median line in new gray zone tactic, 21-22 July 2026 - https://www.taipeitimes.com/News/taiwan/archives/2026/07/21/2003861130",
+    "CSIS, Assessing Xi's Unprecedented Purges of China's Military - https://www.csis.org/analysis/assessing-xis-unprecedented-purges-chinas-military-key-developments-and-potential",
+    "The Diplomat, The Purge of Zhang Youxia and Liu Zhenli, January 2026 - https://thediplomat.com/2026/01/the-purge-of-zhang-youxia-and-liu-zhenli-why-and-whats-next-for-chinas-military/",
+    "Defense News, China amps up its 2026 defense budget by 7% amid purge of generals, 10 March 2026 - https://www.defensenews.com/global/asia-pacific/2026/03/10/china-amps-up-its-2026-defense-budget-by-7-amid-purge-of-generals/",
+    "IISS Military Balance blog, China's NPC 2026: defence remains a priority amid fiscal challenges - https://www.iiss.org/online-analysis/military-balance/2026/03/chinas-national-party-congress-2026-defence-remains-a-priority-amid-fiscal-challenges/",
+    "Global Taiwan Institute, The Contents and Controversies of Taiwan's Special Defense Budget, March 2026 - https://globaltaiwan.org/2026/03/the-contents-and-controversies-of-taiwans-special-defense-budget/",
+    "FAPA, Taiwan's Legislature Passes Reduced Special Defense Budget, 11 May 2026 - https://fapa.org/2026-0511-taiwans-legislature-passes-reduced-special-defense-budget-senate-resolution-highlights-prc-threats-rightscon-2026-canceled-after-chinese-pressure-to-exclude-taiwanese-activists/",
+    "Swift Centre, China, Taiwan, and TSMC Risks to 2027 - https://www.swiftcentre.org/publicforecasts/china-taiwan-and-tsmc-risks-to-2027",
+    "Recorded Future Insikt Group, The Risk of a Taiwan Invasion Is Rising Fast - https://www.recordedfuture.com/research/risk-taiwan-invasion-rising",
+    "CSIS ChinaPower, How Is the Iran War Impacting China's Economy? - https://chinapower.csis.org/china-economic-impacts-iran-war/",
+    "CNBC, Iran ships oil to China through Strait of Hormuz, 11 March 2026 - https://www.cnbc.com/2026/03/11/iran-ships-oil-china-strait-hormuz-closure-.html",
+    "CNN, US-Iran war live news, 18 July 2026 - https://www.cnn.com/2026/07/18/world/live-news/iran-war-trump",
+    "CNN Business, Japanese PM's Taiwan comments prompt China to ban certain exports to Japan, 6 January 2026 - https://www.cnn.com/2026/01/06/business/china-japan-export-controls-intl-hnk",
+    "Mining Technology, China rare earth export pause nears expiry - https://www.mining-technology.com/news/china-rare-earth-export-pause-nears-expiry-amid-persistent-supply-concentration/",
+    "Al Jazeera, US says ban on AI chip shipments applies to Chinese firms outside China, 1 June 2026 - https://www.aljazeera.com/economy/2026/6/1/us-says-ban-on-ai-chip-shipments-applies-to-chinese-firms-outside-china",
+    "Engineering News-Record, TSMC Arizona Megaproject Grows to $265 Billion - https://www.enr.com/articles/63349-tsmc-arizona-megaproject-grows-to-265-billion",
+    "NBC News / SCOTUSblog, Supreme Court rejects Trump's bid to deploy National Guard in Illinois - https://www.nbcnews.com/politics/supreme-court/supreme-court-rejects-trump-bid-deploy-national-guard-illinois-rcna238630",
+    "The Hill, Democrats favored to win House, underdogs in Senate 100 days out - https://thehill.com/homenews/campaign/5987178-midterm-forecast-house-senate/",
+    "CNN, Kim Jong Un inspects new nuclear plant, plans exponential weapons production ramp-up, 4 June 2026 - https://www.cnn.com/2026/06/04/asia/north-korea-nuclear-plant-kim-intl-hnk-ml",
+    "Korea Times, Korea, US open talks on nuclear subs and investment pledge, 2 June 2026 - https://www.koreatimes.co.kr/foreignaffairs/20260602/korea-us-open-talks-on-nuclear-subs-investment-pledge-from-lee-trump-summit",
+    "CFR, Japan's 2026 Election: National Security - https://www.cfr.org/articles/japans-2026-election-national-security",
+    "Foreign Affairs, The U.S.-China Crisis Waiting to Happen - https://www.foreignaffairs.com/united-states/us-china-crisis-waiting-happen",
+    "Interesting Engineering, US and Chinese jets engage in rare standoff over Yellow Sea, February 2026 - https://interestingengineering.com/innovation/us-chinese-jets-engage-over-yellow-sea",
+    "RealClearDefense, Losing the Ambiguity, Missing the Strategy: US Policy Towards Taiwan in Flux, 27 July 2026 - https://www.realcleardefense.com/articles/2026/07/27/losing_the_ambiguity_missing_the_strategy_us_policy_towards_taiwan_in_flux_1196673.html"
+  ]
+}
