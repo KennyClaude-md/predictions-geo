@@ -31,13 +31,22 @@ STABILISING = {
     "climate_srm_governance_regime",
     # Governance of frontier technology
     "ai_us_china_binding_agreement",
-    # Energy / materials
-    "energy_fossil_demand_peak_confirmed",
-    "energy_grid_buildout_accelerates",
-    # Health
-    "health_pandemic_treaty_in_force",
-    "health_amr_pipeline_breakthrough",
-    # Food and water
+    # Energy transition milestones — these are the good-news nodes of the set
+    "energy_global_coal_demand_structural_decline",
+    "energy_china_emissions_sustained_decline",
+    "energy_global_oil_demand_peak",
+    "energy_solar_terawatt_year",
+    "energy_western_smr_first_power",
+    "energy_hydrogen_scale_milestone",
+    # Health governance and disease-control wins
+    "health_pandemic_agreement_in_force",
+    "health_pabs_annex_adopted",
+    "health_polio_wpv1_interrupted",
+    "health_us_rejoins_who",
+    # Demography: a fertility floor being escaped, and lifespan recovering
+    "demographics_korea_tfr_reaches_1",
+    "demographics_us_life_expectancy_80",
+    # Food and water (ids provisional until that domain lands)
     "foodwater_transboundary_water_treaty",
     "foodwater_famine_declarations_end",
 }
@@ -54,9 +63,14 @@ AMBIGUOUS = {
     "ai_robotaxi_5m_weekly",
     "ai_china_leaderboard_top",
     "ai_state_datacenter_moratorium",
-    "demographics_migration_policy_liberalisation",
     "politics_democratic_recovery_wave",
-    "energy_smr_commercial_scale",
+    # Cheap oil helps consumers, hurts producers and the transition's economics.
+    "energy_oil_price_collapse_45",
+    # Policy responses to strain: they signal the strain as much as they relieve it.
+    "demographics_eu_third_country_return_hubs",
+    "demographics_major_pronatalist_spending_surge",
+    # A scheduled statistical release, not an event.
+    "demographics_india_census_provisional_totals",
 }
 
 # Substring rules for nodes the explicit lists miss — the research pipeline names

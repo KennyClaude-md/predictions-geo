@@ -80,6 +80,35 @@ LOADINGS: dict[str, float] = {
     "driverless_rides_log10_m_wk": -0.15,
     "gpt4_class_cost_log10": 0.0,
     "btos_ai_adoption_emp_wt": 0.0,
+
+    # --- energy: prices up, deployment and capacity down under stress ---
+    "eu_wholesale_power_eur_mwh": 0.55,
+    "henry_hub_usd_mmbtu": 0.40,
+    "uranium_spot_usd_lb": 0.30,
+    "china_ree_refining_share_pct": 0.25,
+    "global_coal_demand_mt": 0.35,
+    "us_datacenter_electricity_twh": 0.10,
+    "global_oil_demand_mbd": -0.40,
+    "global_solar_additions_gw": -0.25,
+    "global_ev_share_pct": -0.30,
+    "battery_pack_price_usd_kwh": 0.25,
+
+    # --- demography: displacement and asylum track conflict directly ---
+    "eu_asylum_applications": 0.55,
+    # Births fall in bad decades, but the decade-scale trend swamps the cycle.
+    "china_annual_births": -0.15,
+    "japan_annual_births": -0.15,
+
+    # --- health: outbreak counts up, capacity and financing down ---
+    "h5n1_us_dairy_herds_cumulative": 0.35,
+    "h5_human_cases_global_annual": 0.40,
+    "us_measles_annual_cases": 0.35,
+    "international_hiv_financing_usd_bn": -0.40,
+    "who_programme_budget_usd_bn_biennium": -0.35,
+    "cdc_full_time_workforce_thousands": -0.35,
+    # Chronic-disease measures move on their own clock, not the crisis cycle.
+    "us_adults_glp1_weight_loss_pct": 0.0,
+    "us_adult_obesity_pct": 0.0,
 }
 
 # Fallback for variables added by domains that ran after this file was written.
