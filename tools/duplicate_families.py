@@ -75,6 +75,12 @@ FAMILIES: list[dict] = [
                 "same class of incident at near-identical scale.",
     },
     {
+        "name": "Taiwan semiconductor supply shock",
+        "kind": "duplicate",
+        "members": ["ai_taiwan_supply_shock", "economy_taiwan_chip_shock"],
+        "note": "Both auditors added the same contingency to their own domain.",
+    },
+    {
         "name": "Mass-casualty biological attack",
         "kind": "nested",
         "members": [

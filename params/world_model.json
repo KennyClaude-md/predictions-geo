@@ -3015,7 +3015,306 @@
           "Polymarket, Kalshi and PredictionHunt US recession markets, March-July 2026 (Kalshi peak 39.2% in late March, ~11-22% by mid-year)"
         ]
       },
-      "calibration": null
+      "calibration": {
+        "domain": "Global macroeconomy and financial system",
+        "verdict": "major_issues",
+        "adjustments": [
+          {
+            "risk_id": "economy_jgb_3pct",
+            "field": "p_by_2027_pct",
+            "original_pct": 26,
+            "revised_pct": 78,
+            "justification": "STALE ANCHOR \u2014 the single largest error in the model. The reasoning says 'getting the 10-year from ~2% to 3%'. The 10y JGB is at 2.75% as of 29 July 2026 and touched ~2.805% on 7 July (highest since October 1996). The barrier is 25bp away, not 100bp. With realised JGB 10y vol of roughly 50-60bp/yr, a driftless first-passage calculation over 17 months gives 2*(1-Phi(0.25/(0.55*1.18))) = ~70%, before adding the acknowledged upward drift (BOJ to 1.25% priced by 86% of economists, Takaichi fiscal expansion, yen at 163). 78% is the honest number."
+          },
+          {
+            "risk_id": "economy_jgb_3pct",
+            "field": "p_by_2031_pct",
+            "original_pct": 50,
+            "revised_pct": 91,
+            "justification": "Conditional on not touching 3.00% by end-2027 from 2.75%, four more years of a normalising BOJ and a 236.7% debt/GDP fiscal path leaves very little probability mass below the barrier. Even a mean-reverting specification anchored at 2.5% gives >85% touch probability over 5.4 years."
+          },
+          {
+            "risk_id": "economy_jgb_3pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 61,
+            "revised_pct": 94,
+            "justification": "Ceiling follows mechanically once the 2027 and 2031 numbers are corrected. The residual 6% is the scenario where the BOJ reimposes explicit yield control or Japan relapses into deflation."
+          },
+          {
+            "risk_id": "economy_oil_120",
+            "field": "p_by_2031_pct",
+            "original_pct": 50,
+            "revised_pct": 58,
+            "justification": "COHERENCE with own continuous variable. brent_crude has p90_2031 = 150, i.e. a 10% chance the TERMINAL 2031 price is at or above $150. A running-maximum (touch-once) barrier at $120 must be far above the terminal exceedance of $120. Log-normal first passage from $84 with the model's own ~30% relative vol over 5.4 years gives 2*(1-Phi(0.357/0.70)) = ~61%. 50% is internally inconsistent."
+          },
+          {
+            "risk_id": "economy_oil_120",
+            "field": "p_by_2036_pct",
+            "original_pct": 60,
+            "revised_pct": 72,
+            "justification": "Same first-passage arithmetic over 9.4 years gives ~70%, and the analyst's own contrarian case concedes that $120 nominal in 2036 is a much lower real price. The 2031-to-2036 increment of only 10pp implies a near-zero per-year hazard in the 2032-2036 block, which is not defensible for a commodity with 30% annual vol regardless of the structural bear case."
+          },
+          {
+            "risk_id": "economy_ust_6pct",
+            "field": "p_by_2031_pct",
+            "original_pct": 19,
+            "revised_pct": 25,
+            "justification": "COHERENCE with own continuous variable. ust_10y has p90_2031 = 6.3, so terminal-2031 exceedance of 6.00% is roughly 12-13% on its own. A barrier-touch probability over the whole 2026-2031 path must be materially higher than terminal exceedance \u2014 typically 1.8-2.2x for a near-driftless process. 19% is barely above the terminal number and therefore too low."
+          },
+          {
+            "risk_id": "economy_ust_6pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 30,
+            "revised_pct": 38,
+            "justification": "The model's own drift assumption (+0.06/yr) and CBO's net-interest-to-4.6%-of-GDP path raise the anchor through 2036, yet the implied 2032-2036 hazard is only ~2.2%/yr versus ~2.6%/yr in 2028-2031 \u2014 a declining hazard on a rising anchor. Inverted hazard shape."
+          },
+          {
+            "risk_id": "economy_china_sub4_growth",
+            "field": "p_by_2031_pct",
+            "original_pct": 52,
+            "revised_pct": 66,
+            "justification": "COHERENCE with own continuous variable. china_gdp_growth has p50_2031 = 3.4 and p90_2031 = 4.8, which implies P(the single 2031 print is below 4.0) is roughly 60-70%. A cumulative 'any year through 2031' probability cannot be 52% when one year inside the window alone carries ~65%. Either the continuous node is too bearish or the discrete node is too low; the discrete node is the one anchored on a stale 'Beijing always hits target' prior."
+          },
+          {
+            "risk_id": "economy_china_sub4_growth",
+            "field": "p_by_2036_pct",
+            "original_pct": 71,
+            "revised_pct": 82,
+            "justification": "Follows from the corrected 2031 figure plus the model's own -0.24pp/yr drift, which puts the central reported print near 3.0% by 2036. At that trend the question is not whether Beijing publishes a sub-4 number but when."
+          },
+          {
+            "risk_id": "economy_usd_reserve_below_50",
+            "field": "p_by_2031_pct",
+            "original_pct": 17,
+            "revised_pct": 24,
+            "justification": "COHERENCE with own continuous variable. usd_reserve_share has current 56.5, drift -0.9/yr and p10_2031 = 47, p50_2031 = 52. That distribution puts P(share below 50 in 2031) at roughly 25-30%, and since the criterion resolves on ANY quarter it should be higher still. 17% contradicts the analyst's own generator."
+          },
+          {
+            "risk_id": "economy_usd_reserve_below_50",
+            "field": "p_by_2036_pct",
+            "original_pct": 38,
+            "revised_pct": 46,
+            "justification": "The stated -0.9pp/yr drift extrapolates to ~48% by 2036, making YES more likely than not; the analyst discounts to 38% for trend-extrapolation risk, which is right in spirit but overdone given the criterion resolves on a single quarterly print anywhere in a ten-year window. Note the drift itself is aggressive versus the 0.6pp/yr 24-year average \u2014 I would fix the continuous node to -0.6 and set this at 46."
+          },
+          {
+            "risk_id": "economy_usd_reserve_below_50",
+            "field": "severity_0_10",
+            "original_pct": 6,
+            "revised_pct": 4,
+            "justification": "SEVERITY INFLATION. COFER allocated-reserve share is an accounting measure heavily distorted by gold valuation effects, which the analyst concedes. Dollar dominance in trade invoicing, funding and derivatives has barely moved. A 50% reserve share with unchanged invoicing and eurodollar funding is a headline, not a macro shock; severity 6 puts it level with a global recession's transmission, which is not supportable."
+          },
+          {
+            "risk_id": "economy_us_cpi_5pct",
+            "field": "p_by_2031_pct",
+            "original_pct": 37,
+            "revised_pct": 44,
+            "justification": "BASE RATE UNDER-APPLIED. The analyst's own reference class is ~10%/yr unconditionally, which compounds to ~43% over 5.4 years even before conditioning on an active oil shock, an IMF headline global inflation figure of 4.7%, and a tariff regime being rebuilt on Section 232. The criterion is a single month of headline CPI-U at 5.0%, which is much easier than a sustained inflation episode."
+          },
+          {
+            "risk_id": "economy_us_cpi_5pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 48,
+            "revised_pct": 58,
+            "justification": "Unconditional base rate over 10.4 years is ~66%; the implied 2032-2036 hazard in the stated numbers is only ~2.2%/yr, i.e. one-fifth of the historical rate, which would require assuming the 1970s-2020s oil-shock generator has been switched off. The analyst's own structural uncertainty section argues the opposite."
+          },
+          {
+            "risk_id": "economy_private_credit_gate",
+            "field": "p_by_2027_pct",
+            "original_pct": 26,
+            "revised_pct": 14,
+            "justification": "SCOPE INSENSITIVITY. The criterion explicitly excludes pro-rating within stated quarterly limits \u2014 which is precisely the observed behaviour (BCRED's $6.5bn Q1 requests were absorbed by design) and precisely what every manager will do instead of gating. It requires a FULL suspension for a month at a $20bn+ NAV vehicle, of which perhaps four or five exist globally, and the analyst concedes this has never happened in credit at that scale. 26% in 17 months prices the narrative (rising defaults, FSB report, BIS warning) rather than the wording."
+          },
+          {
+            "risk_id": "economy_private_credit_gate",
+            "field": "p_by_2031_pct",
+            "original_pct": 45,
+            "revised_pct": 34,
+            "justification": "Same scope problem carried forward. Mark-to-model and PIK conversion are loss-deferral mechanisms that suppress exactly the discontinuous event the criterion requires; the modal bad outcome is a decade of poor LP returns, which resolves NO."
+          },
+          {
+            "risk_id": "economy_tariff_reescalation",
+            "field": "p_by_2027_pct",
+            "original_pct": 29,
+            "revised_pct": 16,
+            "justification": "The effective rate is ~6-7% after IEEPA was struck 6-3 and Section 122 expired 24 July. Reaching 15% requires more than doubling within 17 months through sector-by-sector Section 232 investigations. Pharma, steel/aluminium/copper and medtech together cover well under a quarter of the import base; even punitive rates on all of them add roughly 3-5pp. Congressional grant of blanket authority before 2028 is the only fast path and it is not the modal post-midterm outcome. The 29% is anchored on the salience of 2025's 14.9% peak."
+          },
+          {
+            "risk_id": "economy_euro_periphery_stress",
+            "field": "p_by_2027_pct",
+            "original_pct": 8,
+            "revised_pct": 4,
+            "justification": "BASE RATE plus VERIFIED LEVELS the analyst could not obtain. BTP-Bund closed at 83bp on 22 July 2026 and OAT-Bund was ~69bp in May with the OAT 10y at ~3.75% in mid-July. 300bp for five consecutive sessions is a 3.6-4x widening. Since the 2012 OMT commitment there have been zero occurrences in 14 years and one intraday near-miss. 8% in 17 months implies a ~5.5%/yr hazard against a realised post-2012 rate near zero."
+          },
+          {
+            "risk_id": "economy_euro_periphery_stress",
+            "field": "p_by_2031_pct",
+            "original_pct": 20,
+            "revised_pct": 14,
+            "justification": "Same recalibration to verified spread levels. The France-specific TPI-eligibility argument is real and is why this should not go below ~14%, but the starting point is 70-85bp, not the 150-200bp the 20% figure implicitly assumes."
+          },
+          {
+            "risk_id": "economy_euro_periphery_stress",
+            "field": "p_by_2036_pct",
+            "original_pct": 29,
+            "revised_pct": 23,
+            "justification": "Proportional adjustment; the Lagarde succession in October 2027 and a French fiscal impasse are genuine hazard sources that justify a rising path, just from a lower base."
+          },
+          {
+            "risk_id": "economy_china_mega_bailout",
+            "field": "p_by_2027_pct",
+            "original_pct": 20,
+            "revised_pct": 12,
+            "justification": "The criterion requires RMB 5trn announced as ONE program. Beijing's revealed preference across four years of property deterioration has been tranching \u2014 the 2024 package was RMB 6trn spread over three years and would itself have failed a single-year test. The analyst identifies this definitional false-negative risk in the contrarian case and then does not price it. Base rate is two single-announcement packages at this scale in 18 years, ~11%/yr, and the current leadership is the least likely of the modern era to do it."
+          },
+          {
+            "risk_id": "economy_china_mega_bailout",
+            "field": "p_by_2031_pct",
+            "original_pct": 40,
+            "revised_pct": 32,
+            "justification": "Same definitional discount applied over the longer window; the 21st Party Congress in October 2027 is a genuine forcing event which is why this stays well above the pure base rate."
+          },
+          {
+            "risk_id": "economy_us_recession",
+            "field": "p_by_2027_pct",
+            "original_pct": 33,
+            "revised_pct": 27,
+            "justification": "The analyst's own reference class gives ~21% over a 17-month window. The 12pp uplift rests on one weak payroll print and a hypothesised hiking cycle that the September SEP has not yet validated. Prediction markets are in the low teens for 2026; unemployment is 4.2% and flat; the analyst's own contrarian case (collapsed immigration lowering breakeven payroll growth to roughly 50k) is strong enough that a 57% premium over base rate is not earned. 27% preserves a real uplift for the Fed-tightening-into-supply-shock configuration."
+          },
+          {
+            "risk_id": "economy_us_recession",
+            "field": "p_by_2031_pct",
+            "original_pct": 66,
+            "revised_pct": 61,
+            "justification": "Once the near-window number comes down, the 2031 figure should track the base rate (~58%) with a small uplift rather than sitting 8pp above it. The excess in the original reflects double-counting the same stall-speed evidence in both windows."
+          },
+          {
+            "risk_id": "economy_hormuz_closure",
+            "field": "p_by_2027_pct",
+            "original_pct": 15,
+            "revised_pct": 19,
+            "justification": "BASE RATE MISUSE, in the under-forecasting direction. The stated anchor is 'zero events in roughly 45 years', but the model's own state-of-play describes an initial ~10 mb/d disruption in Feb-Apr 2026 against Hormuz throughput of ~17-20 mb/d \u2014 that is above the 50% threshold. Either the reference class fired this year or the state-of-play overstates the disruption; the analyst cannot rely on both. With an unresolved conflict and Brent re-spiking to $94 in July, the near-window hazard is higher than a 45-year-of-zeros prior implies."
+          },
+          {
+            "risk_id": "economy_hormuz_closure",
+            "field": "p_by_2031_pct",
+            "original_pct": 22,
+            "revised_pct": 27,
+            "justification": "Carries the corrected 2027 level forward; the post-settlement hazard decay argument is accepted and the 2031-2036 increment is left thin."
+          },
+          {
+            "risk_id": "economy_em_default_wave",
+            "field": "p_by_2027_pct",
+            "original_pct": 24,
+            "revised_pct": 32,
+            "justification": "SCOPE INSENSITIVITY in the permissive direction. The name says 'wave of defaults' but the criterion also counts a new IMF Extended Fund Facility of $3bn+ for any sovereign with $10bn+ external public debt. EFFs at that size are routine \u2014 Egypt 2024 ($8bn), Argentina 2025 (~$20bn), Ethiopia, Pakistan, Sri Lanka, Kenya are all recent qualifiers. Three such events in a 17-month window, with IMF credit outstanding at a record SDR 110bn and the peak LMIC refinancing wall in 2026-27, is well above the analyst's 'uncommon but not rare' framing."
+          },
+          {
+            "risk_id": "economy_em_default_wave",
+            "field": "p_by_2031_pct",
+            "original_pct": 48,
+            "revised_pct": 62,
+            "justification": "Over 5.4 years the IMF signs a large multiple of three $3bn+ EFFs with qualifying sovereigns even in benign conditions. The stated probability is pricing the headline 'default wave', not the disjunctive criterion actually written."
+          },
+          {
+            "risk_id": "economy_em_default_wave",
+            "field": "p_by_2036_pct",
+            "original_pct": 63,
+            "revised_pct": 78,
+            "justification": "Same. Over ten years the criterion is close to a slow-moving certainty absent a sustained global easing cycle; the only path to NO is a rapid fall in global rates plus a sustained commodity windfall for the whole distressed universe."
+          },
+          {
+            "risk_id": "economy_large_bank_failure",
+            "field": "p_by_2036_pct",
+            "original_pct": 39,
+            "revised_pct": 47,
+            "justification": "UNDER-FORECAST at the long horizon. The analyst's own anchor is two clusters in 20 years, i.e. ~10%/yr of a cluster starting, which compounds to ~65% over 10.4 years; they discount to 39% for post-2023 capital and HQLA. That discount is too large given the criterion counts 'extraordinary rescue' and 'central bank facility created specifically for it' \u2014 which is exactly what stronger authorities produce. Better capital lowers the probability of failure but raises the probability of the rescue branch the criterion also captures."
+          },
+          {
+            "risk_id": "economy_stablecoin_run",
+            "field": "p_by_2027_pct",
+            "original_pct": 14,
+            "revised_pct": 17,
+            "justification": "Only two to four issuers clear $20bn, and the largest by far is the one least covered by GENIUS compliance. Base rate at that scale is two events in six years (~30%/yr pre-regulation); a 17-month figure of 14% implies regulation cuts the hazard by roughly two-thirds, which is generous given enforcement only begins January 2027 and the offshore residual is the bulk of the market cap."
+          },
+          {
+            "risk_id": "economy_stablecoin_run",
+            "field": "severity_0_10",
+            "original_pct": 4,
+            "revised_pct": 6,
+            "justification": "The analyst's own contrarian case argues severity is understated and then leaves the number at 4. A ~$320bn sector forced fully into T-bills means a run is a forced-seller event in the front end of the Treasury curve, concentrated in two or three issuers. That is a money-market-fund-2008 transmission channel, not a crypto-sector event; severity 4 (below the tariff node) is not defensible."
+          }
+        ],
+        "coherence_violations": [
+          "STALE ANCHOR, economy_jgb_3pct: the reasoning computes the distance to the barrier from '~2%' when the 10y JGB is at 2.75% (29 July 2026) and printed ~2.805% on 7 July, the highest since October 1996. The probability is anchored on a level 75bp out of date, which is why 26% is roughly a third of what it should be.",
+          "economy_oil_120 vs the brent_crude continuous node: p90_2031 = 150 implies a 10% chance the terminal 2031 price is at or above $150, yet the running-maximum probability of merely touching $120 at any point by 2031 is stated at 50%. A barrier-touch probability must dominate terminal exceedance by a wide margin.",
+          "economy_ust_6pct vs the ust_10y continuous node: p90_2031 = 6.3 puts terminal-2031 exceedance of 6.00% at ~12-13%, but the touch-anywhere-by-2031 probability is stated at only 19% \u2014 implausibly close to the terminal figure.",
+          "economy_china_sub4_growth vs the china_gdp_growth continuous node: p50_2031 = 3.4 and p90_2031 = 4.8 imply the single 2031 print is more likely than not below 4.0, which is irreconcilable with a cumulative any-year-through-2031 probability of 52%.",
+          "economy_usd_reserve_below_50 vs the usd_reserve_share continuous node: current 56.5 with drift -0.9/yr and p10_2031 = 47 implies P(below 50 in 2031) of roughly 25-30%, versus a stated cumulative-any-quarter probability of 17%.",
+          "economy_hormuz_closure: the base-rate anchor asserts 'zero events in roughly 45 years' while the state_of_play asserts an initial ~10 mb/d disruption in 2026 against Hormuz throughput of ~17-20 mb/d, i.e. above the node's own 50% threshold. Both cannot be true; the model relies on each in a different place.",
+          "INVERTED HAZARD SHAPE across four nodes. Implied per-year hazards in the 2032-2036 block are consistently far below the 2028-2031 block on nodes with rising or drifting anchors: economy_ust_6pct (~2.6%/yr then ~2.2%/yr despite a rising equilibrium term premium), economy_us_cpi_5pct (~3.4%/yr then ~2.7%/yr, versus a ~10%/yr base rate), economy_oil_120 (~3.2%/yr then ~2.3%/yr on a nominal threshold being eroded by inflation), economy_ai_capex_bust (~9.5%/yr then ~4.0%/yr). Decaying hazard is only justified where the shock is a one-off conflict (Hormuz); it is not justified for nominal thresholds that inflation walks toward you.",
+          "SEVERITY ORDERING: economy_stablecoin_run at severity 4 sits below economy_tariff_reescalation at 5, despite the analyst's own note that a stablecoin run is now a forced-seller event in the T-bill market. Conversely economy_usd_reserve_below_50 at severity 6 rates a valuation-distorted accounting share level with the equity bear and US recession nodes.",
+          "GENERATOR MISMATCH: several discrete nodes are threshold-crossing (first-passage) events but are priced as if they were terminal-distribution events. This is the systematic mechanism behind the oil, UST, JGB, CPI and China errors and should be fixed structurally, not node by node."
+        ],
+        "missing_risks": [
+          {
+            "id": "economy_treasury_market_dysfunction",
+            "name": "US Treasury market dysfunction requiring emergency Fed intervention",
+            "resolution_criteria": "The Federal Reserve announces unscheduled purchases of Treasury securities, a new or expanded standing repo/dealer facility, or explicit market-functioning operations (not policy QE and not routine reserve management) in response to disorderly conditions in the Treasury or repo market, at any point in the window.",
+            "p_by_2031_pct": 32,
+            "severity_0_10": 8,
+            "reasoning": "This is the most conspicuous omission. The model has a US-yield-level node and a fiscal-doom-loop feedback but no node for the Treasury market breaking mechanically. Base rate is high and rising: October 2014 flash rally, September 2019 repo spike, March 2020 dash-for-cash, and the April 2025 basis-trade stress \u2014 roughly four episodes in twelve years. Hedge-fund cash-futures basis positions, a shrinking dealer balance sheet under a Fed chair who has publicly favoured a smaller balance sheet, $1.9trn of annual issuance, and (from January 2027) $320bn of stablecoin reserves as a new run-prone T-bill holder all raise it. This is also the node through which the stablecoin, private credit and sovereign risks jointly transmit."
+          },
+          {
+            "id": "economy_fed_independence_breach",
+            "name": "Formal breach of Federal Reserve independence",
+            "resolution_criteria": "A sitting US president attempts to remove or demote a Federal Reserve governor or the chair for policy reasons, issues a directive on the policy rate that the Board acts on, or legislation altering the FOMC's control of the policy rate is enacted \u2014 any one, in the window.",
+            "p_by_2031_pct": 24,
+            "severity_0_10": 7,
+            "reasoning": "The model names Fed reaction-function regime break as a structural uncertainty and lists Warsh's 2030 term expiry as a scheduled event, but assigns no probability to the institutional break itself. Given a 54-45 confirmation, interest expense above $1trn, a 2028 presidential election, and an explicit fiscal-dominance tail the analyst says is 'not representable in my continuous variables', this belongs as a discrete node. It is the single change that would invert the sign on real rates, the dollar and gold simultaneously \u2014 the exact correlation-structure problem the model flags and then leaves unpriced."
+          },
+          {
+            "id": "economy_disorderly_dollar_decline",
+            "name": "Disorderly broad dollar depreciation",
+            "resolution_criteria": "The Fed's broad nominal trade-weighted dollar index falls 20% or more from its trailing 24-month high within any 24-month period in the window.",
+            "p_by_2031_pct": 30,
+            "severity_0_10": 6,
+            "reasoning": "The model prices the dollar's reserve SHARE and USD/JPY but has no node for the dollar's broad exchange value, which is the variable that actually transmits to EM debt service, global trade prices and US import inflation. Historical base rate: 1985-87 (Plaza, ~30%), 2002-04 (~25%), 2020-21 (~12%, near-miss) \u2014 roughly two clear episodes in 40 years unconditionally, but conditional on twin deficits near 6% of GDP, a tariff-driven current-account adjustment, record central-bank gold buying and Fed-independence risk, the conditional probability is far above the 5%/yr unconditional rate."
+          },
+          {
+            "id": "economy_deflation_undershoot",
+            "name": "US inflation undershoot / deflation scare",
+            "resolution_criteria": "US core PCE inflation prints below 1.0% year over year for three consecutive months, or headline CPI-U prints negative year over year for any month, in the window.",
+            "p_by_2031_pct": 20,
+            "severity_0_10": 4,
+            "reasoning": "The model contains an upside inflation node and no downside one \u2014 a clean asymmetry that will bias any simulation. Yet the model's own components point at it: China exporting deflation into its tenth consecutive quarter, a hawkish new Fed chair hiking into a supply shock, an AI productivity shock the analyst says could be a genuine TFP event, and a 20%+ hyperscaler capex reversal. Base rate: sub-1% core PCE occurred in 2009-10, 2015 and 2020 \u2014 roughly three episodes in 20 years, ~13%/yr of being in such a state, so 20% over 5.4 years is if anything conservative."
+          },
+          {
+            "id": "economy_fmi_cyber_outage",
+            "name": "Systemic financial market infrastructure outage",
+            "resolution_criteria": "A systemically important FMI \u2014 a major CCP, CLS, DTCC, Fedwire, TARGET2, SWIFT, or a top-three custodian \u2014 suffers an outage or compromise preventing settlement for more than 24 hours, or a central bank extends emergency liquidity explicitly because of it.",
+            "p_by_2031_pct": 16,
+            "severity_0_10": 7,
+            "reasoning": "The BIS, FSB and every major central bank list operational and cyber resilience alongside the credit risks the model does include, and the model includes none of it. Near-misses are frequent (ICBC Financial Services ransomware November 2023 disrupting Treasury clearing; the 2024 CrowdStrike outage; repeated exchange halts). This is the one risk in the domain with essentially zero mean reversion and no policy backstop, and it correlates with the geopolitical generator the analyst correctly identifies as dominant."
+          },
+          {
+            "id": "economy_taiwan_chip_shock",
+            "name": "Taiwan semiconductor supply disruption with global market resolution",
+            "resolution_criteria": "Monthly semiconductor exports from Taiwan fall more than 40% below the trailing twelve-month average for two consecutive months, for any reason (blockade, quarantine, conflict, or major natural disaster), in the window.",
+            "p_by_2031_pct": 11,
+            "severity_0_10": 9,
+            "reasoning": "The analyst explicitly says a Taiwan contingency 'would make every variable in this model second-order within days' and then declines to give it a number on the grounds that it sits outside the domain. That is a scoping error, not a forecasting judgement: the model already includes an oil-supply node driven by a war, so excluding the semiconductor-supply node driven by a different war is inconsistent. A market-resolving criterion keeps it in-domain and forces the correlation structure to be explicit. Note this also dominates the AI capex node \u2014 a Taiwan event resolves economy_ai_capex_bust YES through supply, not demand."
+          },
+          {
+            "id": "economy_yen_crisis",
+            "name": "Disorderly yen move",
+            "resolution_criteria": "USD/JPY closes above 180, or moves more than 15 yen in either direction within any 20 trading days, in the window.",
+            "p_by_2031_pct": 34,
+            "severity_0_10": 6,
+            "reasoning": "The model has USD/JPY only as a continuous variable with 14 yen of annual vol, which understates a currency at a 40-year low after 11.73trn yen of intervention, with the BOJ hiking into a fiscally expansionary government and the largest carry-trade stock in the world. The August 2024 unwind demonstrated that this node transmits to global equity vol within 48 hours. Given the corrected JGB node (78% chance of a 3% 10y by end-2027) and the analyst's own statement that a 3% JGB implies 'a disorderly carry unwind and a sharp move below 130', a discrete disorderly-move node is required for internal consistency \u2014 the model currently asserts the mechanism in a footnote and prices it nowhere."
+          }
+        ],
+        "overall_bias": "Not a uniform drama bias \u2014 the error is in SHAPE, not level, and a single global shrink factor would make the model worse. Aggregate probability mass is roughly right (suggested global factor 0.95-1.00), but it is misallocated in two systematic ways. (1) NEAR-WINDOW SHOCK INFLATION, factor ~0.6-0.7 on 2027 numbers for narrative-salient discontinuous events: private credit gating 26 to 14, tariff re-escalation 29 to 16, China mega-bailout 20 to 12, euro periphery 8 to 4, US recession 33 to 27. Each of these prices the availability of a 2025-26 headline rather than the wording of its own criterion, and three of the five have criteria that explicitly exclude the observed behaviour (pro-rating, multi-tranche packages, TPI-suppressed spreads). (2) FAR-WINDOW THRESHOLD UNDER-FORECASTING, factor ~1.2-1.35 on 2031 and 2036 numbers for barrier-crossing events: oil $120, UST 6%, CPI 5%, China sub-4%, USD reserve share, large bank rescue, EM default wave. The mechanism is a generator mismatch \u2014 these are first-passage (touch-once-ever) events being priced as if they were terminal-distribution events, which systematically understates them, and it is diagnosable because in five cases the discrete node contradicts the analyst's own continuous-variable deciles. A secondary and larger issue is a single stale anchor: the JGB node is priced off a 2% starting yield when the actual level is 2.75%, producing a roughly 3x error on what the analyst himself calls 'the most under-priced global duration risk' \u2014 he was right about the direction and then failed to update the number. Finally the risk set is skewed to credit and valuation and omits the institutional and operational channels entirely: no Treasury market dysfunction node, no Fed independence node, no FMI outage node, no downside inflation node, and no dollar-level node. That omission pattern, combined with the analyst's own admission that node correlation is state-dependent and unmodelled, means joint tail outcomes are understated by more than any individual marginal."
+      }
     },
     {
       "domain": "ai",
@@ -3773,7 +4072,334 @@
           "Moody's / CreditSights / Futurum hyperscaler 2026 capex compilations: https://know.creditsights.com/insights/technology-hyperscaler-capex-2026-estimates/ ; https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/"
         ]
       },
-      "calibration": null
+      "calibration": {
+        "adjustments": [
+          {
+            "risk_id": "ai_1e28_flop_run",
+            "field": "p_by_2031_pct",
+            "original_pct": 58,
+            "revised_pct": 70,
+            "justification": "Direct contradiction with the author's own continuous variable. frontier_train_flop_log10 has current 26.7, drift 0.42, vol 0.28, and an explicitly stated p10_2031 = 28.0 \u2014 i.e. the author asserts a 90% chance the 2031 value is at or above 1e28. Even the parametric check agrees: mean 2031 = 26.7 + 0.42*5.4 = 28.97, sd = 0.28*sqrt(5.4) = 0.65, P(>=28) = 93% terminal, higher still as a first-passage question. Applying the author's own stated 25-30% disclosure-opacity discount to ~92% gives ~68-70%. 58% is unreachable from their own parameters."
+          },
+          {
+            "risk_id": "ai_1e28_flop_run",
+            "field": "p_by_2027_pct",
+            "original_pct": 13,
+            "revised_pct": 7,
+            "justification": "Same parameters run to end-2027 (1.4y): mean 27.29, sd 0.33, P(>=28) = 1.6% physically, before any disclosure haircut. Even using the historical 4.7x/yr (0.67 log10/yr) rather than the author's chosen 2.6x/yr drift, mean 2027 = 27.6 and P(>=28) is ~11% physical, ~8% after the disclosure discount. 13% only survives if you assume the top of the stated 1e26-1e27 current range AND historical growth AND full disclosure \u2014 a conjunction the author elsewhere argues against."
+          },
+          {
+            "risk_id": "ai_1e28_flop_run",
+            "field": "p_by_2036_pct",
+            "original_pct": 74,
+            "revised_pct": 82,
+            "justification": "Follows mechanically from raising 2031; the residual 18% is the disclosure-failure / paradigm-shift scenario the contrarian case describes, which is a persistent structural condition rather than something that decays with time, so the 2031->2036 increment should be small but the level should be high."
+          },
+          {
+            "risk_id": "ai_metr_month_horizon",
+            "field": "p_by_2031_pct",
+            "original_pct": 55,
+            "revised_pct": 64,
+            "justification": "Coherence: the threshold is 167h = log2 7.38. The author's metr_horizon_log2_hours has p50_2031 = 8.1 with p10 5.4 / p90 10.8 (implied sd ~2.1). P(terminal 2031 value >= 7.38) = P(z >= -0.34) = 63%. A 'by 2031' question is first-passage and must be >= the terminal probability, so the floor implied by their own continuous variable is ~63-70%. Setting 64 keeps a haircut for METR ceasing to publish the eval, which the terminal calculation does not capture."
+          },
+          {
+            "risk_id": "ai_metr_month_horizon",
+            "field": "p_by_2027_pct",
+            "original_pct": 14,
+            "revised_pct": 7,
+            "justification": "From ~3h (the author's own compromise current value) to 167h is 5.8 doublings. At their chosen 9-month doubling that is 4.3 years; at the aggressive 4-month doubling it is 1.9 years \u2014 still past end-2027 from a mid-2026 start, and that pace is the tail case they explicitly discount. 14% by end-2027 requires both the fastest doubling claim AND the highest current-value claim (~14.5h) to be true simultaneously, a conjunction the author flags as unreconciled."
+          },
+          {
+            "risk_id": "ai_nvidia_50pct_drawdown",
+            "field": "p_by_2036_pct",
+            "original_pct": 68,
+            "revised_pct": 85,
+            "justification": "Hazard-shape failure. The stated unconditional base rate is 4 episodes in 24 years (~17%/yr) for a high-beta semi. 28% by end-2027 implies ~22%/yr; 55% by 2031 implies ~6.5%/yr over 2027-2031; 68% by 2036 implies ~5.4%/yr over 2031-2036. There is no mechanism offered for a 4x permanent decay in Nvidia's drawdown hazard. A naive constant 15%/yr (below their own base rate, crediting the earnings-cushion argument) gives 1-0.85^10.4 = 82%. Note also the criterion measures from a ratcheting all-time high, which makes long windows nearly base-rate-certain."
+          },
+          {
+            "risk_id": "ai_nvidia_50pct_drawdown",
+            "field": "p_by_2031_pct",
+            "original_pct": 55,
+            "revised_pct": 66,
+            "justification": "1-0.85^5.4 = 59% at a hazard below their own stated base rate, and current conditions (Nasdaq 100 in correction, >$1.3T sector drawdown in June, ~90% YoY comps to lap, customer concentration with circular financing) are unambiguously above-base-rate. 55% is below an unconditional base rate in a conditionally elevated environment."
+          },
+          {
+            "risk_id": "ai_capex_guide_down",
+            "field": "p_by_2031_pct",
+            "original_pct": 62,
+            "revised_pct": 76,
+            "justification": "Scope insensitivity in the conservative direction. The criterion fires on ANY ONE of four companies in ANY fiscal year through 2031 \u2014 roughly 20 company-years of exposure. Their own reference class gives ~1 in 6 years for capital-intensive tech per company; at even 6%/company/yr independent that is 1-(0.94)^20 = 71%. And the current setup is far above base rate: capex at 45-57% of revenue, roughly 2x YoY, with the 2025-26 asset vintage hitting depreciation in 2027-28. The only serious offset is the reclassification-into-leases loophole they correctly flag, which justifies a haircut from ~85% to ~76%, not to 62%."
+          },
+          {
+            "risk_id": "ai_capex_guide_down",
+            "field": "p_by_2027_pct",
+            "original_pct": 16,
+            "revised_pct": 22,
+            "justification": "The window includes the January 2027 initial-FY2027-guidance event (which the author names as the highest-leverage scheduled data point in the whole domain) plus four quarters of revision opportunity across four companies, during an active equity drawdown driven by exactly this line item. 16% under-weights that four-firm exposure."
+          },
+          {
+            "risk_id": "ai_capex_guide_down",
+            "field": "severity_0_10",
+            "original_pct": 6,
+            "revised_pct": 7,
+            "justification": "This node is the transmission mechanism for most other financial risks in the domain (Nvidia drawdown, lab failure, datacenter electricity, compute scaling, unemployment). A severity equal to the Nvidia drawdown understates that it is upstream of it."
+          },
+          {
+            "risk_id": "ai_state_datacenter_moratorium",
+            "field": "p_by_2027_pct",
+            "original_pct": 28,
+            "revised_pct": 12,
+            "justification": "Base-rate violation driven by availability. The author's own anchor is '~1 state in 50 acts within 2-4 years of peak salience' and they concede zero states have enacted a statewide hard moratorium while all observed action is rate-class reform and tax-incentive restriction \u2014 the economically rational substitute, which is a competing hazard, not a precursor. Bills introduced is a very weak predictor of enactment (typical introduced-to-enacted conversion in state legislatures is well under 20%, and lower for measures opposed by an industry offering capital investment). 28% in 1.4 years is roughly 8x the stated base rate."
+          },
+          {
+            "risk_id": "ai_state_datacenter_moratorium",
+            "field": "p_by_2031_pct",
+            "original_pct": 58,
+            "revised_pct": 35,
+            "justification": "The NY fracking and NY crypto-mining analogues are 1-2 states out of 50 over multi-year windows, and both involved industries with no in-state jobs constituency and no counter-lobby. Datacenters have both. Rate-class reform actively drains the political pressure that would produce a moratorium, so the two outcomes are substitutes rather than complements \u2014 the hazard should decay after the first wave of rate reforms lands, not compound."
+          },
+          {
+            "risk_id": "ai_state_datacenter_moratorium",
+            "field": "p_by_2036_pct",
+            "original_pct": 66,
+            "revised_pct": 48,
+            "justification": "Rescaled consistently with the lower 2031 value; retains a meaningful long-run hazard for a post-blackout or post-bill-shock political shock, which is the realistic pathway."
+          },
+          {
+            "risk_id": "ai_china_domestic_euv",
+            "field": "p_by_2031_pct",
+            "original_pct": 42,
+            "revised_pct": 27,
+            "justification": "Base-rate violation. The author's own evidence is that China reached immersion DUV mass production in 2026, a tool ASML shipped in 2004 \u2014 a 22-year lag. ASML's own path from EUV alpha demo tool (2006) to HVM wafer exposure (2019) was 13 years with the Zeiss/Trumpf/Cymer supply chain intact and no sanctions. China's program is 6-8 years old and at prototype. Reaching production-fab exposure in 5 more years would require beating ASML's sanctioned-free timeline. 'State funding is unlimited' did not compress Soviet or Chinese jet-engine replication below 10-20 years. 27% already generously credits a face-saving token tool at SMIC."
+          },
+          {
+            "risk_id": "ai_china_domestic_euv",
+            "field": "p_by_2027_pct",
+            "original_pct": 8,
+            "revised_pct": 3,
+            "justification": "8% in 17 months for a technology at prototype stage, when the domestic DUV milestone it just cleared is two decades behind, implies a per-year hazard inconsistent with the 2031 number under any smooth or accelerating shape. Their own contrarian case (repeated announced 'breakthroughs' that never reached fabs) argues the near-term term should be dominated by announcement risk, which the criterion explicitly excludes."
+          },
+          {
+            "risk_id": "ai_china_domestic_euv",
+            "field": "p_by_2036_pct",
+            "original_pct": 66,
+            "revised_pct": 58,
+            "justification": "Retains a high long-run level \u2014 10 years is within the historical 10-20 year replication band and state commitment is real \u2014 while rescaling the near/mid terms. This preserves a rising hazard shape, which is correct here (capability accumulates), unlike the original's front-loaded shape."
+          },
+          {
+            "risk_id": "ai_federal_preemption_enacted",
+            "field": "p_by_2027_pct",
+            "original_pct": 20,
+            "revised_pct": 11,
+            "justification": "The single most informative datum is that the Senate stripped the AI moratorium from OBBBA 99-1 \u2014 not a close vote, a unanimous-minus-one rejection. Preemption needs 60 Senate votes and splits both coalitions. The closest analogue (federal privacy preemption) has failed continuously for ~20 years despite unified industry support and multiple trifectas. 20% inside 17 months, with a midterm consuming the legislative calendar, is roughly triple what the reference class supports."
+          },
+          {
+            "risk_id": "ai_federal_preemption_enacted",
+            "field": "p_by_2031_pct",
+            "original_pct": 42,
+            "revised_pct": 33,
+            "justification": "Federal privacy preemption's ~20-year failure implies a per-Congress success rate under 10%; 2.5 Congresses to 2031 gives ~22-25%. Uprating to 33% credits the genuinely stronger industry constituency and supportive executive the author cites, but 42% overweights executive-branch preference, which is not a vote."
+          },
+          {
+            "risk_id": "ai_mega_layoff_attributed",
+            "field": "p_by_2027_pct",
+            "original_pct": 34,
+            "revised_pct": 22,
+            "justification": "Scope insensitivity: the criterion requires AI named as the PRIMARY stated cause, 'not merely one factor among several' \u2014 the narrowest reading of the most commonly hedged corporate statement in existence. The ~49,000 H1-2026 AI-attributed cuts cited are an aggregate across many small announcements, not evidence of a single >=10,000 announcement with primary attribution. WARN exposure and disparate-impact litigation risk push general counsels toward 'restructuring' precisely at the >=10,000 scale where the legal stakes are largest. The probability reflects the vibe (AI-attributed layoffs are in the news) rather than the wording."
+          },
+          {
+            "risk_id": "ai_mega_layoff_attributed",
+            "field": "p_by_2031_pct",
+            "original_pct": 72,
+            "revised_pct": 62,
+            "justification": "Rescaled for the attribution bar. Even at 5-15 qualifying-size announcements per year and a primary-AI-attribution rate rising to 10-15% of them by the late 2020s, the accumulation to 2031 lands in the low 60s, not low 70s."
+          },
+          {
+            "risk_id": "ai_unemployment_6pct",
+            "field": "p_by_2027_pct",
+            "original_pct": 20,
+            "revised_pct": 13,
+            "justification": "From mid-4s, reaching 6.0% and holding it for three consecutive monthly releases by end-2027 requires a recession that has effectively already begun. U-3 has risen 1.5pp within ~15 months only around actual recession onsets. At a ~14%/yr recession hazard over 1.4 years (~18%), times ~70% conditional on producing three consecutive months at >=6.0% inside the window rather than after it, gives ~13%."
+          },
+          {
+            "risk_id": "ai_unemployment_6pct",
+            "field": "p_by_2036_pct",
+            "original_pct": 74,
+            "revised_pct": 83,
+            "justification": "Under-forecast at the long horizon. Since 1948 essentially every 10-year window contains a >=6.0% three-month stretch; the longest sub-6.0% runs are ~7 years (1994-2001), ~5.5 years (2014-2020), and the current ~5 years. A 10.4-year window containing one has a historical frequency near 90%; 83% is a defensible shade down for the secular decline in NAIRU and demographic tightening."
+          },
+          {
+            "risk_id": "ai_robotaxi_5m_weekly",
+            "field": "p_by_2027_pct",
+            "original_pct": 10,
+            "revised_pct": 5,
+            "justification": "The author's own continuous variable has drift 0.24 log10/yr (1.7x) from -0.3, giving ~0.9M/week at end-2027 against a 5M threshold \u2014 more than 2 doublings short. Even at the stated 2x/yr and hitting the 1M end-2026 target, 5M arrives late 2028 at the earliest. 10% requires ~4x/yr sustained, which the author explicitly argues against when setting the drift."
+          },
+          {
+            "risk_id": "ai_robotaxi_5m_weekly",
+            "field": "p_by_2031_pct",
+            "original_pct": 60,
+            "revised_pct": 68,
+            "justification": "Coherence: threshold 5M = log10 0.7. Continuous variable gives p50_2031 = 0.9, p10 = 0.2, p90 = 1.4 (sd ~0.47), so P(terminal >= 0.7) = P(z >= -0.43) = 67%. A 'by 2031' question is first-passage and must be at least the terminal probability. 60% is below the floor implied by their own distribution."
+          },
+          {
+            "risk_id": "ai_ai_theorem_top_journal",
+            "field": "p_by_2027_pct",
+            "original_pct": 22,
+            "revised_pct": 10,
+            "justification": "Scope insensitivity. The criterion conjoins four narrow conditions: (i) one of exactly five journals, (ii) the PRINCIPAL new theorem, (iii) an explicit authorial statement that AI rather than the humans discovered or proved it, (iv) within 17 months. The author's own note that top-5 referee cycles run 1-3 years nearly forecloses (iv) for work not already in the pipeline, and their own contrarian case identifies (iii) as the binding constraint with incentives running the wrong way. The Erdos-problem corpus is conceded to be non-top-5 material. 22% prices 'AI does real mathematics', not the resolution text."
+          },
+          {
+            "risk_id": "ai_ai_theorem_top_journal",
+            "field": "p_by_2031_pct",
+            "original_pct": 60,
+            "revised_pct": 50,
+            "justification": "The attribution-norm barrier is a persistent institutional condition, not a delay. Kepler took ~7 years from proof to Annals publication with no attribution controversy at all. 50% appropriately splits between 'norms flip fast because a lab publishes directly with the system credited' and 'humans always describe it as a tool'."
+          },
+          {
+            "risk_id": "ai_china_leaderboard_top",
+            "field": "p_by_2031_pct",
+            "original_pct": 46,
+            "revised_pct": 56,
+            "justification": "Under-forecast given the criterion's breadth: EITHER Artificial Analysis Intelligence Index OR LMArena overall text, for 30 continuous days, at any point in 5.4 years. LMArena is preference-based and demonstrably style-gameable, and the author concedes Chinese labs optimize hard for leaderboards and already sit within single digits on engineering suites while consuming ~61% of OpenRouter tokens. Two independent shots at a gameable target over 5+ years, with only a ~30-day persistence requirement, is a much lower bar than the reasoning (which argues about genuine frontier parity) treats it as."
+          },
+          {
+            "risk_id": "ai_china_leaderboard_top",
+            "field": "p_by_2036_pct",
+            "original_pct": 58,
+            "revised_pct": 70,
+            "justification": "Hazard shape: 46->58 over the final five years implies the hazard falls by roughly half with no stated mechanism, while the author's own DUV/Ascend substitution loop is described as strengthening over exactly that period. The compute-control bite argument justifies a decaying hazard only if controls tighten, which is the opposite of the direction their export-controls node assigns 40%+ probability to."
+          },
+          {
+            "risk_id": "ai_export_controls_relaxed",
+            "field": "p_by_2027_pct",
+            "original_pct": 22,
+            "revised_pct": 12,
+            "justification": "22% by end-2027 implies ~17%/yr, versus ~5%/yr implied for 2027-2031 and ~4%/yr for 2031-2036 \u2014 a front-loaded hazard with no forcing event scheduled in the window. The criterion requires general (not case-by-case) licensing of the then-current flagship or one generation back, i.e. Blackwell/Rubin-class. H200 is two generations back and was case-by-case with a surcharge, so the observed policy move is not within one step of the criterion. The author also notes Beijing's refusal to buy reduces the US incentive to go further, which cuts the near-term term specifically."
+          },
+          {
+            "risk_id": "ai_major_cyber_incident",
+            "field": "p_by_2031_pct",
+            "original_pct": 48,
+            "revised_pct": 58,
+            "justification": "Under-forecast on the attribution conditional. The author treats AI-autonomy attribution as the hard part, but the GTG-1002 precedent shows the reporting party is the model provider itself, which has telemetry, an incentive to disclose, and already published a quantitative autonomy share (80-90%). The criterion also accepts EITHER >=$1B damage OR a >1M-person/>6h infrastructure disruption. With a base rate of ~1 qualifying-damage event per 1-1.5 years and an AI-autonomy share rising from the stated 10-25%, the accumulation to 2031 is ~55-62%, not 48%."
+          },
+          {
+            "risk_id": "ai_major_cyber_incident",
+            "field": "p_by_2036_pct",
+            "original_pct": 66,
+            "revised_pct": 76,
+            "justification": "By the mid-2030s essentially all sophisticated intrusion tooling is agentic; the conditional attribution rate should approach the majority, making the binding constraint just the base rate of billion-dollar incidents, which alone gives near-certainty over 10 years. 76% retains a substantial haircut for the 'perpetually unresolvable rather than clearly NO' failure mode they correctly identify."
+          },
+          {
+            "risk_id": "ai_rsa2048_broken",
+            "field": "p_by_2036_pct",
+            "original_pct": 11,
+            "revised_pct": 6,
+            "justification": "Overweights the algorithmic-improvement tail. Expert elicitation (Global Risk Institute annual quantum threat timeline) has consistently placed the probability of a cryptographically relevant quantum computer within ~10 years in the low single digits to low teens, and the criterion here is strictly harder than 'CRQC exists': it requires a public, independently verified factorization of a genuine 2048-bit modulus with no special structure. The author's own anchor \u2014 roadmap slippage of 2-5 years on nearly every multi-year target since 2018, plus a constant 10-20-year horizon since 1999 \u2014 argues for the low end of that range."
+          },
+          {
+            "risk_id": "ai_rsa2048_broken",
+            "field": "p_by_2031_pct",
+            "original_pct": 2.5,
+            "revised_pct": 1.2,
+            "justification": "IBM Starling's 2029 target of 200 logical qubits is 1-2 orders of magnitude short in logical qubits and 3+ in gate depth, and the roadmap itself has a documented slippage prior. Hitting the criterion by 2031 requires Starling to land on time AND a further order-of-magnitude scale-up AND another large algorithmic reduction within two years of it \u2014 a triple conjunction that does not support 2.5%."
+          },
+          {
+            "risk_id": "ai_bio_mass_casualty",
+            "field": "p_by_2036_pct",
+            "original_pct": 9,
+            "revised_pct": 6,
+            "justification": "9% over 10.4 years implies ~0.9%/yr against a reference class with zero qualifying events ever (2001 anthrax killed 5, below threshold; Aum's biological program killed 0 with a PhD team and ~$1B) \u2014 a 20-50x uplift over the historical rate. The criterion additionally requires an official body to affirmatively state AI materially assisted, an attribution step governments have strong classification incentives to avoid. RAND-measured knowledge uplift of 1.0-1.2x does not support that multiple; the screening-evasion uplift is real but screening improved from ~40-70% to ~97% post-patch, i.e. the defense adapted within months. 6% still embeds a large uplift premium."
+          },
+          {
+            "risk_id": "ai_top_lab_fails",
+            "field": "p_by_2036_pct",
+            "original_pct": 54,
+            "revised_pct": 68,
+            "justification": "Under-forecast against the author's own reference classes, which are stronger than they credit: of the 1999 top-5 search engines, 3 exited within a decade; of the 2008 top-5 smartphone OSes, 3 exited within 8 years; of the 1998 top-5 GPU vendors, 3 exited within 5 years. That is closer to 'a top-5 cohort loses at least one member per decade' at 75-90%, not 40-60%. The criterion is also broad \u2014 acquisition alone resolves YES, and xAI (thinnest revenue) and Meta Superintelligence Labs (repeatedly restructured) are both plausible via absorption rather than failure."
+          },
+          {
+            "risk_id": "ai_top_lab_fails",
+            "field": "p_by_2031_pct",
+            "original_pct": 38,
+            "revised_pct": 46,
+            "justification": "Rescaled for the same cohort-attrition evidence, and for the fact that the 2027-2029 window contains the specific stress they identify (Oracle-OpenAI cash obligations beginning Jan 2027, $1-3B training runs, and a live equity drawdown) \u2014 the highest-hazard segment of the whole period sits inside this window, not after it."
+          }
+        ],
+        "coherence_violations": [
+          "ai_1e28_flop_run vs frontier_train_flop_log10: the continuous variable states p10_2031 = 28.0, which is an explicit assertion of a 90% probability that 2031 frontier compute is at or above 1e28 FLOP. The discrete risk assigns 58% to the same threshold by the same date. Even after the author's own stated 25-30% disclosure-opacity discount, the floor is ~65-68%. The two objects cannot both be right.",
+          "ai_1e28_flop_run p_by_2027 = 13% is unreachable from the author's own drift: with current 26.7, drift 0.42, vol 0.28, P(>=28.0) by end-2027 is ~1.6% physically and lower after the disclosure discount. The 2027 and 2031 entries are drawn from two different implicit growth models (historical 4.7x/yr for the near term, the chosen 2.6x/yr for the far term).",
+          "ai_metr_month_horizon vs metr_horizon_log2_hours: threshold 167h = log2 7.38; continuous p50_2031 = 8.1 with implied sd ~2.1 gives P(terminal >= threshold) = 63%. A cumulative 'by 2031' question is a first-passage event and is mathematically >= the terminal probability. The stated 55% sits below its own floor.",
+          "ai_robotaxi_5m_weekly vs driverless_rides_log10_m_wk: threshold 5M/week = log10 0.7; continuous p50_2031 = 0.9, sd ~0.47 gives P(terminal >= 0.7) = 67%. Discrete first-passage value of 60% is again below the terminal floor implied by the same author's own distribution.",
+          "Systematic hazard decay across the 2031->2036 column with no stated mechanism. ai_nvidia_50pct_drawdown implies ~22%/yr to 2027, then ~6.5%/yr, then ~5.4%/yr \u2014 a 4x permanent hazard collapse for a question whose base rate is explicitly given as a constant ~17%/yr. ai_china_leaderboard_top (46->58) and ai_state_datacenter_moratorium (58->66) show the same shape. For open-ended questions with no expiry date and no saturating mechanism, near-constant hazard is the default and these forecasts violate it.",
+          "Mirror-image inflation across the 2027 column. ai_ai_theorem_top_journal 22%, ai_mega_layoff_attributed 34%, ai_state_datacenter_moratorium 28%, ai_export_controls_relaxed 22%, ai_federal_preemption_enacted 20%, ai_metr_month_horizon 14%, ai_1e28_flop_run 13% \u2014 a 17-month window carrying 13-34% on seven separate first-of-their-kind events, none of which has ever occurred once. Summed as an expectation that is ~1.5 unprecedented firsts inside 17 months, which is not consistent with the individual base rates cited for each.",
+          "ai_state_datacenter_moratorium treats rate-class reform and moratoria as complements when the reasoning text correctly identifies them as substitutes ('states are choosing rate-class reform and cost-allocation instead, which is the economically smarter tool'). A competing-hazard structure requires the moratorium probability to FALL as rate reform spreads, yet the numbers rise monotonically with the salience that drives rate reform.",
+          "frontier_lab_arr_usd_b current_value = 72 is built on Anthropic at $47B, the higher of two figures the model itself flags as unresolved and 35% uncertain, while the narrative says Anthropic 'overtook' OpenAI \u2014 a 1.9x lead is not 'overtook'. Using $30B gives a base of ~55, i.e. the anchor for the entire revenue trajectory is ~30% too high on the author's own less-likely input.",
+          "ai_export_controls_relaxed and ai_china_leaderboard_top are treated as independent, but they are strongly negatively coupled through compute access: the 42% relaxation scenario is precisely the scenario in which Chinese labs stop being compute-constrained, which is the author's stated reason for the low Chinese-#1 probability. The joint distribution is not internally consistent with independent marginals."
+        ],
+        "missing_risks": [
+          {
+            "id": "ai_taiwan_supply_shock",
+            "name": "Taiwan Strait event materially disrupts advanced-node or CoWoS output",
+            "reasoning": "The model explicitly excludes this and then concedes in its own structural uncertainties that it 'dominates the joint distribution.' Excluding the dominant term from a domain model because it is filed under another domain is a modeling error, not a scoping decision: every capex, compute, Nvidia-revenue, and cost-decline number here is conditional on it not happening, and none of them are marked as conditional. At minimum it needs a probability so downstream consumers can condition. Base rate: a blockade/quarantine/major exercise-with-interdiction has not occurred, but PLA coercion tempo has risen monotonically since 2022 and multiple USINDOPACOM assessments flag 2027 as a readiness milestone. A quarantine or customs-inspection regime is far likelier than invasion and clears this bar.",
+            "resolution_criteria": "TSMC publicly suspends or reduces N3/N2 or CoWoS output for >=30 consecutive days, or advanced-node/HBM/CoWoS exports from Taiwan fall >=25% month-over-month, as a direct result of military action, blockade, quarantine, or interdiction by the PRC.",
+            "p_by_2031_pct": 9,
+            "severity_0_10": 10
+          },
+          {
+            "id": "ai_datacenter_credit_event",
+            "name": "Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt",
+            "reasoning": "The model names this as 'the fastest-acting unmodeled channel' and cites Moody's ~$662B of signed-but-not-commenced leases and heavy private-credit/SPV financing, then assigns it no probability. It is strictly more likely and faster-acting than several risks that DID get entries (e.g. a statewide datacenter moratorium at 58%). Base rate: leveraged buildouts financed by private credit against single-tenant offtake have a high default rate when the offtaker's own funding is equity-market-dependent \u2014 telecom 2001-02 saw multiple >$5B defaults within 24 months of the capex peak. The relevant borrowers here are neoclouds and SPVs, not the hyperscalers, and they carry the thinnest coverage.",
+            "resolution_criteria": "A company or SPV whose primary business is AI/datacenter compute defaults on, or completes a distressed exchange of, >=$5B (2026 USD) of debt or lease obligations; or a rating agency downgrades >=$5B of AI-datacenter-backed debt to below investment grade.",
+            "p_by_2031_pct": 45,
+            "severity_0_10": 7
+          },
+          {
+            "id": "ai_copyright_liability_shock",
+            "name": "Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora",
+            "reasoning": "Completely absent from the model despite being the single most active legal front against frontier labs and having an existing nine-figure-to-billion-dollar precedent (the Anthropic authors' settlement, 2025). It is also asymmetric: an injunction is one of the few mechanisms that could halt a frontier training run outright, which no other node in this model captures. The governance section covers EU AI Act, preemption, and export controls but not the liability channel, which is where actual money has already moved.",
+            "resolution_criteria": "A US or EU court enters final judgment, or a lab announces a settlement, of >=$5B (2026 USD) arising from training-data copyright/IP claims; OR a court issues an injunction (not stayed within 90 days) barring a frontier lab from training on a major copyrighted corpus.",
+            "p_by_2031_pct": 30,
+            "severity_0_10": 6
+          },
+          {
+            "id": "ai_capability_plateau",
+            "name": "Frontier capability plateau: 24 months with no material aggregate benchmark advance",
+            "reasoning": "The model lists 'symmetric plateau risk' as a structural uncertainty but assigns no probability, which means every drift term (compute, METR horizon, lab revenue, adoption) is silently conditioned on no plateau. This is the largest single unmodeled downside for the domain and the direct complement to the recursive-self-improvement risk, which also has no node. Base rate for a 6-year exponential in a specific AI capability metric bending within the next 5 years is substantial \u2014 the model's own reasoning cites chess Elo and ALE scores bending within 5-8 years. Defining it on a composite index rather than a single benchmark avoids the saturation artifact.",
+            "resolution_criteria": "The top score on Artificial Analysis's Intelligence Index (or an endorsed successor composite) increases by less than 5 index points over any 24-consecutive-month period beginning after 2027-01-01.",
+            "p_by_2031_pct": 25,
+            "severity_0_10": 8
+          },
+          {
+            "id": "ai_weights_exfiltration_confirmed",
+            "name": "Confirmed theft or leak of frontier model weights",
+            "reasoning": "The model states that 'all diffusion assumptions here collapse' if this happens, and that the June 2026 BIS action implies the USG already treats weights as controllable artifacts \u2014 then gives it no probability. It is upstream of the China-gap node, the open-vs-closed node, and both misuse nodes, so leaving it unquantified propagates unpriced correlation through the discrete risks. Base rate: state-actor exfiltration of crown-jewel IP from US tech firms is common (Operation Aurora, APT10/Cloud Hopper, SolarWinds); the only novel constraint is weight file size, which is a logistics problem rather than a barrier.",
+            "resolution_criteria": "A frontier lab, a government agency, or two independent major outlets confirm that the full weights of a model within one generation of a Western frontier release were exfiltrated by an unauthorized party or publicly leaked.",
+            "p_by_2031_pct": 22,
+            "severity_0_10": 8
+          },
+          {
+            "id": "ai_federal_predeployment_regime",
+            "name": "US enacts binding federal pre-deployment evaluation or licensing requirements for frontier models",
+            "reasoning": "The model includes federal preemption (deregulatory ratchet) but omits its mirror image, the regulatory ratchet. This makes the governance branch one-sided: it can only get looser at the federal level. The incident->regulation feedback loop is described and given strength 0.35 with the note that it 'strengthens sharply after any event with visible casualties,' yet no node exists for the output of that loop. Given that the model assigns 48-58% to a major AI-attributed cyber incident by 2031, the conditional pathway is well populated.",
+            "resolution_criteria": "Federal legislation or a binding rule with statutory authority is enacted requiring pre-deployment safety evaluation, reporting, or licensing for models above a compute or capability threshold, applicable to private-sector deployment (not merely federal procurement).",
+            "p_by_2031_pct": 24,
+            "severity_0_10": 6
+          },
+          {
+            "id": "ai_power_reliability_event",
+            "name": "Grid emergency or load-shed event officially attributed in part to datacenter demand",
+            "reasoning": "The model identifies power as the binding physical constraint and the grid/ratepayer backlash as 'the most underrated brake,' but the only discrete node it offers on that axis is a statewide moratorium \u2014 a low-base-rate legislative outcome. The higher-probability, higher-impact event is an operational one: a NERC/RTO emergency action where datacenter load is named as a contributing factor, which is what would actually trigger the political response the moratorium node is trying to capture. PJM clearing at the cap is a direct signal that reserve margins are thinning.",
+            "resolution_criteria": "A US RTO/ISO, NERC, or a state utility commission issues an official finding that a load-shed event, EEA-2/EEA-3 emergency, or rolling blackout affecting >100,000 customers was caused in part by datacenter load growth.",
+            "p_by_2031_pct": 38,
+            "severity_0_10": 5
+          }
+        ],
+        "overall_bias": "Not uniformly over- or under-forecasting \u2014 the model has a specific, correctable SHAPE bias rather than a level bias, and applying a single global shrink factor would make it worse.\n\nTwo opposing errors:\n\n(1) OVER-forecasting on politically salient, first-of-their-kind institutional events, concentrated almost entirely in the 2027 column. Suggested shrink 0.6-0.7 on the p_by_2027 values for ai_state_datacenter_moratorium (0.43), ai_ai_theorem_top_journal (0.45), ai_export_controls_relaxed (0.55), ai_federal_preemption_enacted (0.55), ai_china_domestic_euv (0.38), ai_mega_layoff_attributed (0.65), ai_unemployment_6pct (0.65). Across the seven, the model implies ~1.5 unprecedented institutional firsts inside 17 months. The mechanism is availability: each of these has a vivid recent news hook (moratorium bills introduced, Erdos problems solved, H200 licensing, EO 14365, DUV mass production, AI-attributed layoff trackers) and the forecast prices the hook rather than the resolution text.\n\n(2) UNDER-forecasting on mechanical extrapolation and long-horizon accumulation. Suggested expansion 1.15-1.3 on ai_1e28_flop_run/2031 (1.21), ai_capex_guide_down/2031 (1.23), ai_nvidia_50pct_drawdown/2036 (1.25), ai_top_lab_fails/2036 (1.26), ai_unemployment_6pct/2036 (1.12), ai_china_leaderboard_top/2036 (1.21), ai_major_cyber_incident/2036 (1.15). Three distinct mechanisms are at work: (a) the author built careful continuous distributions and then failed to read the discrete thresholds off them, leaving four discrete values below the floor implied by their own parameters; (b) unwarranted hazard decay in the 2031->2036 segment on questions with no expiry and no saturating mechanism; (c) scope insensitivity in the conservative direction on disjunctive criteria (four companies for capex guide-down, two leaderboards for Chinese #1, damage OR infrastructure for the cyber node, five members for lab failure), where the reasoning argues about the central case while the criterion fires on any of several.\n\nTail events (bio, RSA-2048, US-China treaty) are the best-calibrated part of the model \u2014 the author clearly applied deliberate discipline there, and the corrections I propose are small (0.67, 0.55, none). The discipline was not carried over to the mid-probability institutional questions, where the same base-rate reasoning would have cut the numbers by a third.\n\nIf forced to a single number: 0.9 applied to the entire p_by_2027 column and 1.15 applied to the entire p_by_2036 column, leaving p_by_2031 near unchanged in aggregate but with large offsetting individual revisions. The residual after that global correction is the four continuous/discrete coherence breaks, which must be fixed item-by-item because they are arithmetic errors, not judgment calls.",
+        "verdict": "major_issues",
+        "domain": "AI, compute, and transformative technology"
+      }
     },
     {
       "domain": "demographics",

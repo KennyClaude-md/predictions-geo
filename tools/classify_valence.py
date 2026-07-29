@@ -31,6 +31,7 @@ STABILISING = {
     "climate_srm_governance_regime",
     # Governance of frontier technology
     "ai_us_china_binding_agreement",
+    "ai_federal_predeployment_regime",
     # Energy transition milestones — these are the good-news nodes of the set
     "energy_global_coal_demand_structural_decline",
     "energy_china_emissions_sustained_decline",
@@ -62,6 +63,11 @@ AMBIGUOUS = {
     "ai_robotaxi_5m_weekly",
     "ai_china_leaderboard_top",
     "ai_state_datacenter_moratorium",
+    # A capability plateau lowers disruption risk and lowers the growth case with
+    # it; which one dominates is exactly what is unknown.
+    "ai_capability_plateau",
+    # Leadership succession: contested, not good or bad on its face.
+    "geopolitics_putin_exit",
     # Governance outcomes that are contested rather than good-or-bad. These are
     # electoral and succession events: which way they cut is a political
     # judgement the model has no business encoding as systemic stress.

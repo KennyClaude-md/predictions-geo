@@ -80,6 +80,19 @@
     ]
   },
   {
+    "name": "Taiwan semiconductor supply shock",
+    "kind": "duplicate",
+    "members": [
+      "ai_taiwan_supply_shock",
+      "economy_taiwan_chip_shock"
+    ],
+    "note": "Both auditors added the same contingency to their own domain.",
+    "representative": "ai_taiwan_supply_shock",
+    "suppressed": [
+      "economy_taiwan_chip_shock"
+    ]
+  },
+  {
     "name": "Mass-casualty biological attack",
     "kind": "nested",
     "members": [
