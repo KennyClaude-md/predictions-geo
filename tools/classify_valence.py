@@ -47,6 +47,7 @@ STABILISING = {
     # Demography: a fertility floor being escaped, and lifespan recovering
     "demographics_korea_tfr_reaches_1",
     "demographics_us_life_expectancy_80",
+    "demographics_ukraine_refugee_return",
     # Food and water: the analysts flagged exactly one risk-off node
     "foodwater_hormuz_fertilizer_normalisation",
 }
@@ -85,6 +86,19 @@ AMBIGUOUS = {
     "demographics_major_pronatalist_spending_surge",
     # A scheduled statistical release, not an event.
     "demographics_india_census_provisional_totals",
+    # Constitutional and succession questions whose valence is a political
+    # judgement, handled the same way as the electoral nodes above.
+    "demographics_india_delimitation",
+    "demographics_us_removals_exceed_1m",
+    "politics_saudi_succession",
+    # A lower population peak eases resource pressure and worsens ageing.
+    "demographics_wpp_peak_revised_below_10bn",
+    # A census that diverges from projections is an information shock, not a
+    # deterioration in the world it measures.
+    "demographics_nigeria_census_shock",
+    # Datacentre demand growth collapsing relieves the grid and signals an AI
+    # bust at the same time.
+    "energy_ai_capex_retrenchment",
 }
 
 # Substring rules for nodes the explicit lists miss — the research pipeline names
