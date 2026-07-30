@@ -19,6 +19,7 @@ DOMAIN_TITLES = {
     "health": "Pandemics, biosecurity & global health",
     "politics": "Political stability & governance",
     "foodwater": "Food, water & agriculture",
+    "israel": "Israel, the Levant & the Red Sea",
 }
 
 
@@ -87,7 +88,7 @@ class ReportBuilder:
         self.w()
         self.w(
             "Every number below is the output of a survival-process Monte Carlo, not a "
-            "guess written directly. Nine domains were parameterised against current "
+            "guess written directly. Ten domains were parameterised against current "
             "sources, audited for base-rate discipline, then red-teamed from three "
             "directions. Each of those opinions is run as a separate worldview and the "
             "results are pooled by weight."

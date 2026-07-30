@@ -19,6 +19,7 @@ DOMAIN_WORDS = {
     "health": "health emergency",
     "politics": "institutional breakdown",
     "foodwater": "food and water stress",
+    "israel": "Middle East conflict",
 }
 
 # Tiers are keyed to where the cluster's typical peak stress sits in the

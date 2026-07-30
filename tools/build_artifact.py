@@ -27,11 +27,13 @@ DOMAIN_LABELS = {
     "health": "Pandemics, biosecurity & global health",
     "politics": "Political stability & governance",
     "foodwater": "Food, water & agriculture",
+    "israel": "Israel, the Levant & the Red Sea",
 }
 SHORT = {
     "geopolitics": "Geopolitics", "climate": "Climate", "economy": "Economy",
     "ai": "AI & tech", "energy": "Energy", "demographics": "Demography",
     "health": "Health", "politics": "Politics", "foodwater": "Food & water",
+    "israel": "Israel/Levant",
 }
 
 
