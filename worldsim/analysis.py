@@ -29,22 +29,27 @@ def pool_worldviews(results: list[dict], weights: list[float], n_target: int, rn
     Each path keeps a `group` label identifying (worldview, parameter world), so
     downstream code can decompose variance into epistemic and Monte Carlo parts.
     """
-    fires, groups, views = [], [], []
+    fires, groups, views, occs = [], [], [], []
     offset = 0
     for vi, (res, w) in enumerate(zip(results, weights)):
         take = int(round(n_target * w))
         n_avail = res["fire_time"].shape[0]
         idx = rng.choice(n_avail, size=min(take, n_avail), replace=take > n_avail)
         fires.append(res["fire_time"][idx])
+        if "n_fires" in res:
+            occs.append(res["n_fires"][idx])
         groups.append(res["world_id"][idx].astype(np.int64) + offset)
         views.append(np.full(len(idx), vi, dtype=np.int8))
         offset += int(res["world_id"].max()) + 1
-    return {
+    out = {
         "fire_time": np.concatenate(fires, axis=0),
         "group": np.concatenate(groups),
         "view": np.concatenate(views),
         "risk_ids": results[0]["risk_ids"],
     }
+    if occs and len(occs) == len(results):
+        out["n_fires"] = np.concatenate(occs, axis=0)
+    return out
 
 
 # --------------------------------------------------------------------------
@@ -258,7 +263,11 @@ def first_order_sensitivity(fire_time: np.ndarray, target: np.ndarray) -> np.nda
 
 
 def aggregate_stats(
-    fire_time: np.ndarray, severity: np.ndarray, gssi: np.ndarray, quarter: int
+    fire_time: np.ndarray,
+    severity: np.ndarray,
+    gssi: np.ndarray,
+    quarter: int,
+    occurrences: np.ndarray | None = None,
 ) -> dict:
     """Event counts by impact tier — pass severity already zeroed on non-destabilising nodes.
 
@@ -271,6 +280,11 @@ def aggregate_stats(
     "global systemic impact if it occurs, 10 = civilization-altering", so a
     transformative AI capability milestone can legitimately score 9. Report these
     as high-impact events, never as catastrophes.
+
+    Pass `occurrences` (an (n, R) count) to tally repeat firings of recurrent
+    nodes. Without it every node contributes at most one event however many times
+    it actually happened, which understates any horizon long enough for a
+    recession or an oil spike to come round again.
     """
     hit = ((fire_time >= 0) & (fire_time <= quarter))
     peak = gssi[:, :quarter].max(axis=1)
@@ -278,7 +292,15 @@ def aggregate_stats(
     tiers: dict[str, dict] = {}
     counts: dict[int, np.ndarray] = {}
     for thr in (6, 7, 8, 9):
-        n = hit[:, severity >= thr].sum(axis=1)
+        mask = severity >= thr
+        if occurrences is None:
+            n = hit[:, mask].sum(axis=1)
+        else:
+            # Count occurrences, not distinct nodes. With recurrence a node can
+            # fire several times, and counting only the first turns "four
+            # recessions" into "one recession" — the whole point of modelling
+            # recurrence at a long horizon.
+            n = np.where(hit[:, mask], occurrences[:, mask], 0).sum(axis=1)
         counts[thr] = n
         tiers[f"ge{thr}"] = {
             "n_nodes": int((severity >= thr).sum()),

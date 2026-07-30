@@ -247,3 +247,49 @@ def test_interval_stays_bounded_and_asymmetric_near_certainty():
     # one has room to fall a long way. The lower arm must therefore be longer —
     # a symmetric interval would have overflowed the ceiling instead.
     assert (mean - lo) > (hi - mean)
+
+
+def test_recurrent_nodes_fire_repeatedly_and_counts_see_it():
+    """Recurrence has to reach the aggregates, not just the stress index.
+
+    Counting only first occurrences turns "four recessions this window" into
+    "one recession", which is the whole reason recurrence exists.
+    """
+    from worldsim.analysis import aggregate_stats
+
+    c = cfg()
+    risks = {
+        "rec": Risk("rec", "Recurring", "d", "x", 40.0, 80.0, 92.0, 7.0, "medium",
+                    recurrent=True),
+        "once": Risk("once", "One-shot", "d", "x", 40.0, 80.0, 92.0, 7.0, "medium",
+                     recurrent=False),
+    }
+    cm = CompiledModel(make_model(risks=risks), c)
+    res = simulate(cm, 80, 250, np.random.default_rng(21), c.batch_paths, with_stress=True)
+
+    nf = res["n_fires"]
+    ir, io = cm.index["rec"], cm.index["once"]
+    assert nf[:, io].max() <= 1, "a non-recurrent node must never fire twice"
+    assert nf[:, ir].max() >= 2, "a recurrent node must be able to fire twice"
+    assert nf[:, ir].mean() > nf[:, io].mean()
+
+    sev = np.array([7.0, 7.0], dtype=np.float32)
+    gssi = np.zeros((res["fire_time"].shape[0], cm.T), dtype=np.float32)
+    without = aggregate_stats(res["fire_time"], sev, gssi, Q36)
+    with_reps = aggregate_stats(res["fire_time"], sev, gssi, Q36, occurrences=nf)
+    assert with_reps["tiers"]["ge6"]["expected"] > without["tiers"]["ge6"]["expected"]
+
+
+def test_horizon_capped_node_cannot_fire_after_its_last_resolvable_quarter():
+    c = cfg()
+    with use_horizon(HORIZON_2056):
+        risks = {
+            "locked": Risk("locked", "El Nino 2026-27", "d", "x", 60.0, 70.0, 74.0, 5.0,
+                           "medium", horizon_coherent=False),
+        }
+        cm = CompiledModel(make_model(risks=risks), c)
+        res = simulate(cm, 60, 200, np.random.default_rng(22), c.batch_paths)
+        ft = res["fire_time"][:, cm.index["locked"]]
+        fired = ft[ft >= 0]
+        assert fired.size > 0
+        assert fired.max() <= 42, "a 2027-locked criterion fired after 2036"

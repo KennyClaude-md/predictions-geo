@@ -20,15 +20,14 @@ import numpy as np
 from worldsim import analysis, continuous, dedupe, labelling, report, validate
 from worldsim.engine import CompiledModel, SimConfig, calibrate_marginals, simulate
 from worldsim.params import build_worldviews, load_base_model
-from worldsim.timeline import ANCHOR_QUARTERS
+from worldsim.timeline import HORIZON_2036, HORIZON_2056, anchor_quarters, set_horizon
 
 ROOT = Path(__file__).parent
 PARAMS = ROOT / "params"
 OUTPUT = ROOT / "output"
 
-Q27 = ANCHOR_QUARTERS["p_by_2027_pct"]
-Q31 = ANCHOR_QUARTERS["p_by_2031_pct"]
-Q36 = ANCHOR_QUARTERS["p_by_2036_pct"]
+# Resolved at run start, after the horizon is chosen.
+Q27 = Q31 = Q36 = 0
 
 
 def main() -> None:
@@ -38,7 +37,15 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=20260729)
     ap.add_argument("--model", default=str(PARAMS / "world_model.json"))
     ap.add_argument("--force", action="store_true", help="run despite validation errors")
+    ap.add_argument(
+        "--horizon", choices=["2036", "2056"], default="2036",
+        help="2056 requires elicited 2046/2056 anchors; see the horizon audit before using it",
+    )
     args = ap.parse_args()
+
+    global Q27, Q31, Q36
+    set_horizon(HORIZON_2056 if args.horizon == "2056" else HORIZON_2036)
+    Q27, Q31, Q36 = anchor_quarters()[:3]
 
     t0 = time.time()
     raw = json.loads(Path(args.model).read_text())
@@ -188,7 +195,10 @@ def _assemble(
     for r in sorted(all_rows, key=lambda r: -r["p2036"] * r["severity"]):
         by_domain.setdefault(r["domain"], []).append(r)
 
-    agg = analysis.aggregate_stats(ft, severity * (valence > 0) * counted, gssi, Q36)
+    agg = analysis.aggregate_stats(
+        ft, severity * (valence > 0) * counted, gssi, Q36,
+        occurrences=pooled.get("n_fires"),
+    )
 
     # --- archetypes -------------------------------------------------------
     # Stratify features across domains. Ranking purely by impact fills the list

@@ -118,8 +118,12 @@ class Risk:
                 continue
             extrapolated = True
             if not vals:
-                vals.append(1.0)
-                continue
+                # No earlier anchor to extrapolate from. Fabricating one here
+                # silently drove the whole curve; refuse instead.
+                raise ValueError(
+                    f"risk {self.id!r}: no anchor at or before {f} to extend from — "
+                    "the first horizon anchor must be elicited or derived upstream"
+                )
             # Continue the previous segment's per-quarter hazard forward.
             prev_q = quarters[i - 1]
             prev_s = max(1.0 - vals[-1] / 100.0, 1e-6)

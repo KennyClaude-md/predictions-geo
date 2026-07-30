@@ -138,6 +138,18 @@ LOADINGS: dict[str, float] = {
     "lake_mead_elevation": -0.30,
     # Fisheries decline on a slow structural clock, only weakly on the crisis cycle.
     "sustainable_fish_stocks": -0.20,
+
+    # --- Israel / Levant ---
+    "israel_iran_direct_exchange_days": 0.65,
+    "israel_west_bank_annual_fatalities": 0.55,
+    "israel_bab_el_mandeb_transit_index": -0.55,
+    "israel_defense_spending_pct_gdp": 0.45,
+    "israel_hezbollah_rocket_inventory": 0.35,
+    "israel_gaza_reconstruction_disbursed": -0.45,
+    # Settler population grows on a political clock of its own, only loosely on
+    # the crisis cycle; net migration flips sign with security and so nets small.
+    "israel_west_bank_settler_population": 0.20,
+    "israel_net_migration_balance": -0.30,
 }
 
 # Fallback for variables added by domains that ran after this file was written.

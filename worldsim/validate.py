@@ -9,6 +9,8 @@ just quietly degrade it. This module surfaces them before a run rather than afte
 
 from __future__ import annotations
 
+import math
+
 import numpy as np
 
 from .params import WorldModel
@@ -23,6 +25,7 @@ def check(model: WorldModel) -> dict:
     _check_latents(model, issues)
     _check_severity(model, issues)
     _check_duplicates(model, issues)
+    _check_recurrence(model, issues)
 
     by_sev = {}
     for level in ("error", "warning", "note"):
@@ -35,17 +38,34 @@ def check(model: WorldModel) -> dict:
 
 
 def _check_monotone(model: WorldModel, issues: list) -> None:
+    """Every elicited anchor, not just the first three.
+
+    Checking only p2027/p2031/p2036 let long-horizon violations through silently:
+    a lens could write p2046 below p2036, isotonic repair would pool the run, and
+    the node would end up with zero hazard across a whole segment with nothing
+    reported.
+    """
     for r in model.risks.values():
-        if not (r.p2027 <= r.p2031 <= r.p2036):
-            issues.append(
-                {
-                    "level": "warning",
-                    "kind": "non_monotone_cumulative",
-                    "risk": r.id,
-                    "detail": f"{r.p2027:.1f} -> {r.p2031:.1f} -> {r.p2036:.1f}; "
-                    "isotonic repair will pool the violating pair",
-                }
-            )
+        seq = [("2027", r.p2027), ("2031", r.p2031), ("2036", r.p2036)]
+        if r.p2046 is not None:
+            seq.append(("2046", r.p2046))
+        if r.p2056 is not None:
+            seq.append(("2056", r.p2056))
+
+        for (la, a), (lb, b) in zip(seq, seq[1:]):
+            if a > b + 1e-9:
+                issues.append(
+                    {
+                        "level": "warning",
+                        "kind": "non_monotone_cumulative",
+                        "risk": r.id,
+                        "detail": f"{la}={a:.1f} > {lb}={b:.1f} in "
+                        + " -> ".join(f"{l}:{v:.1f}" for l, v in seq)
+                        + "; isotonic repair will pool the violating run, which can "
+                        "zero a whole segment's hazard",
+                    }
+                )
+                break
 
 
 def _check_degenerate(model: WorldModel, issues: list) -> None:
@@ -192,6 +212,36 @@ def _check_severity(model: WorldModel, issues: list) -> None:
                             f"comparisons are not on a common scale",
                         }
                     )
+
+
+def _check_recurrence(model: WorldModel, issues: list) -> None:
+    """Flag recurrent nodes whose stated rate contradicts their stated cumulative.
+
+    A recurrent node carries two elicited constraints on one hazard: P(at least
+    once by T), and an expected count per decade. For a memoryless process those
+    imply each other, so when they disagree materially one of them is wrong.
+    Calibration targets the cumulative — that is the number the audit and the
+    red-team lenses actually reviewed — so a disagreement means the reported
+    occurrence *count* will not match what the analyst said.
+    """
+    for r in model.risks.values():
+        if not r.recurrent or r.expected_per_decade <= 0:
+            continue
+        # P(>=1 in ten years) implied by the stated rate, memoryless.
+        implied = (1.0 - math.exp(-r.expected_per_decade)) * 100.0
+        stated = r.p2036  # ~10.5 years, close enough for a coherence screen
+        if abs(implied - stated) > 25.0:
+            issues.append(
+                {
+                    "level": "note",
+                    "kind": "recurrence_rate_conflict",
+                    "risk": r.id,
+                    "detail": f"stated {r.expected_per_decade:.2f}/decade implies "
+                    f"P(>=1)~{implied:.0f}% but the cumulative says {stated:.0f}%; "
+                    "calibration follows the cumulative, so occurrence counts will "
+                    "not match the stated rate",
+                }
+            )
 
 
 def _check_duplicates(model: WorldModel, issues: list) -> None:

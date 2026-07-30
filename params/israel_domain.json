@@ -1,0 +1,1107 @@
+{
+ "domain": "Israel / Levant regional security",
+ "state_of_play": "Verified by search, 29-30 July 2026. The organising fact is the war that began 28 February 2026, when the US and Israel opened a joint air campaign against Iran and killed Supreme Leader Ali Khamenei; the Assembly of Experts named his son Mojtaba Khamenei supreme leader on 8 March. Iran retaliated against Israel with roughly 650 ballistic missiles over the spring, including cluster-warhead rounds; verified Israeli casualties are 24-28 killed (nearly all civilians, most not in shelters) and about 4,292 injured, with 5,500+ Israelis displaced by home damage. Israel's own strike tempo was an order of magnitude larger (~10,800 strikes reported).\n\nThe war is in a broken-truce phase, not a settled one. Trump and Pezeshkian signed a 14-point Memorandum of Understanding on 17 June 2026 \u2014 a 60-day ceasefire on all fronts (explicitly including Lebanon), toll-free reopening of Hormuz with demining in 30 days, on-site downblending of Iran's enriched-uranium stockpile under IAEA supervision, no new US sanctions, and Treasury waivers for Iranian crude exports. That window expires around mid-August 2026, which is the single most load-bearing near-term date. It has already been violated: the IRGC fired on commercial vessels including three on 6-7 July, the US struck 85 targets in response, and on 14 July the US reimposed a naval blockade of Iranian ports (a reinstatement of an April-June blockade), enforced by 15+ warships out of 20+ in theatre. Hormuz remains open to non-Iranian destinations but transits are depressed (six commodity vessels on 13 July; 8.5 mb/d on a better day). Brent topped $100-102 around 23 July and had fallen back to ~$84 by 28 July on renewed diplomacy \u2014 a large risk premium, not a supply cut. Iran rejected an Omani 50-50 Hormuz condominium proposal. IAEA has no access to any of Iran's four declared enrichment plants and cannot verify the HEU stockpile; US and Iranian officials both say enrichment has not resumed; an NPT-withdrawal bill is live in the Majlis but not enacted. Netanyahu met Trump at the White House on 28 July (Iran, the Lebanon framework, Abraham Accords expansion).\n\nGaza: the October 2025 ceasefire broadly holds with the IDF on the \"yellow line,\" punctuated by near-daily lethal strikes concentrated on Shujaiyya, al-Maghazi, Bani Suheila and al-Mawasi. Reported cumulative Palestinian deaths exceed 69,000. All Israeli hostages and remains were returned by 26 January 2026. Hamas dissolved its Emergency Committee on 6 July and nominally handed administration to the 15-member technocratic National Committee for the Administration of Gaza (chair Ali Shaath) reporting to Board of Peace director-general Nikolay Mladenov \u2014 but NCAG members still cannot physically enter Gaza because of Israeli objections. The Board of Peace has cut its ambition from territory-wide reconstruction to a single southern pilot not expected to start before end-2026. Israel's cabinet approved ISF entry on 26 July, initially up to 200 troops (Morocco signed a participating-country agreement 16 July; Kosovo, Albania, possibly Kazakhstan). Famine was confirmed in August 2025 and de-classified on 19 December 2025, with ~100,000 still in catastrophic conditions.\n\nLebanon: the 2024 ceasefire lapsed 2 March 2026 and a new war ran through the spring (2,000+ killed in Lebanon, 1M+ displaced by mid-April), with truces on 16 April and 19 June. On 26 June the US, Israel and Lebanon signed a Trilateral Framework \u2014 a 14-point end-of-conflict document with mutual recognition language and phased IDF withdrawal coordinated with the LAF. Hezbollah rejects it and warns of civil war. The LAF declared phase 1 (south of the Litani) of disarmament complete in January 2026; phase 2 north of the river was given four extendable months. UNIFIL's mandate terminates by December 2026. Lebanese public support for normalisation is ~30%.\n\nSyria: al-Sharaa said on 26-27 July that Damascus is negotiating a security agreement with Israel covering IDF withdrawal from the post-Assad buffer zone, explicitly without conceding the Golan, and ruled out intervention in Lebanon.\n\nWest Bank: settler violence is at an all-time recorded high \u2014 1,000+ attacks so far in 2026, about six a day, 18 Palestinians killed in settler-linked incidents; 1,988 Palestinians displaced in the first four months of 2026 (20% above all of 2025). E1/Ma'ale Adumim expansion (3,401 units) is approved. A sovereignty bill passed a 25-24 preliminary vote in October 2025 and was then frozen; annexation-adjacent legislation (a civilian antiquities authority) advanced in February 2026. De jure annexation has not happened.\n\nDomestic: elections are set for 27 October 2026; Netanyahu faces Eisenkot's Yashar and a Bennett-Lapid list, with polls showing the bloc under strain. In mid-July the coalition passed a law making the attorney general a political appointee whose opinions are non-binding; High Court petitions are pending. The Haredi conscription bill remains the coalition's fault line. Defence spending is near 8% of GDP inside a NIS 699bn budget; Moody's holds Baa1/stable. Houthis resumed Red Sea attacks on 23 July, hit Saudi tankers, declared a maritime embargo on Saudi Arabia; Saudi Arabia struck Yemen on 25 July.\n\nCould not verify: current Israeli force levels inside Lebanon/Syria, Hezbollah's actual munition inventory, ICJ merits scheduling, and whether any post-July Israeli strike on Iran is ongoing as of today.",
+ "indicators": [
+  {
+   "name": "Brent crude spot",
+   "value": "84 (peaked 100-102 on 23 Jul)",
+   "unit": "USD/bbl",
+   "as_of": "2026-07-28",
+   "trend": "volatile",
+   "source": "TradingEconomics / CNBC oil coverage",
+   "verified": true
+  },
+  {
+   "name": "Commodity vessels transiting Strait of Hormuz",
+   "value": "6 in one day (vs ~50 normal); 8.5 mb/d crude on a good day",
+   "unit": "vessels/day",
+   "as_of": "2026-07-13",
+   "trend": "falling",
+   "source": "CNBC / USNI News; US DOE",
+   "verified": true
+  },
+  {
+   "name": "US warships enforcing blockade of Iranian ports",
+   "value": "15+ (of 20+ in theatre)",
+   "unit": "warships",
+   "as_of": "2026-07-15",
+   "trend": "rising",
+   "source": "Al Jazeera / Gulf News / LIGA",
+   "verified": true
+  },
+  {
+   "name": "Iranian ballistic missiles fired at Israel since 28 Feb 2026",
+   "value": "~650",
+   "unit": "missiles",
+   "as_of": "2026-07-01",
+   "trend": "volatile",
+   "source": "Times of Israel war-in-numbers",
+   "verified": true
+  },
+  {
+   "name": "Israeli fatalities from Iranian strikes, 2026",
+   "value": "24-28 (all civilians); 4,292 injured",
+   "unit": "persons",
+   "as_of": "2026-07-01",
+   "trend": "rising",
+   "source": "Times of Israel; Wikipedia 2026 Iranian strikes on Israel",
+   "verified": true
+  },
+  {
+   "name": "IAEA access to Iran's declared enrichment facilities",
+   "value": "0 of 4; stockpile unverified",
+   "unit": "facilities",
+   "as_of": "2026-06-30",
+   "trend": "flat",
+   "source": "IAEA GOV/2026/8; ISIS June 2026 analysis",
+   "verified": true
+  },
+  {
+   "name": "Cumulative reported Palestinian fatalities, Gaza, since Oct 2023",
+   "value": ">69,187",
+   "unit": "persons",
+   "as_of": "2026-02-01",
+   "trend": "rising",
+   "source": "Gaza MoH via PBS",
+   "verified": true
+  },
+  {
+   "name": "Israeli hostages/remains held in Gaza",
+   "value": "0 (last remains returned 26 Jan 2026)",
+   "unit": "persons",
+   "as_of": "2026-01-26",
+   "trend": "flat",
+   "source": "PBS / IDF Spokesperson",
+   "verified": true
+  },
+  {
+   "name": "International Stabilization Force troops authorised into Gaza",
+   "value": "up to 200 (initial tranche)",
+   "unit": "troops",
+   "as_of": "2026-07-26",
+   "trend": "rising",
+   "source": "FDD Long War Journal; UNSCR 2803",
+   "verified": true
+  },
+  {
+   "name": "Gaza reconstruction scope under Board of Peace",
+   "value": "one southern pilot project, start not before end-2026",
+   "unit": "programme scope",
+   "as_of": "2026-07-27",
+   "trend": "falling",
+   "source": "Detroit News / Board of Peace",
+   "verified": true
+  },
+  {
+   "name": "Gaza IPC famine classification",
+   "value": "none since 19 Dec 2025; ~100,000 in Phase 5 conditions",
+   "unit": "IPC phase",
+   "as_of": "2025-12-19",
+   "trend": "unknown",
+   "source": "IPC / Wikipedia Gaza Strip famine",
+   "verified": true
+  },
+  {
+   "name": "Lebanese fatalities in 2026 Lebanon war",
+   "value": ">2,000; >1,000,000 displaced",
+   "unit": "persons",
+   "as_of": "2026-04-16",
+   "trend": "rising",
+   "source": "Wikipedia Timeline of the 2026 Lebanon war",
+   "verified": true
+  },
+  {
+   "name": "LAF Hezbollah-disarmament phases completed",
+   "value": "1 of 3 (south of Litani); phase 2 given 4 extendable months",
+   "unit": "phases",
+   "as_of": "2026-01-08",
+   "trend": "rising",
+   "source": "Al Jazeera / Times of Israel",
+   "verified": true
+  },
+  {
+   "name": "Recorded settler attacks in West Bank, 2026 YTD",
+   "value": ">1,000 (~6/day); 18 Palestinians killed",
+   "unit": "incidents",
+   "as_of": "2026-07-29",
+   "trend": "rising",
+   "source": "UN OCHA / OHCHR / UN News",
+   "verified": true
+  },
+  {
+   "name": "Palestinians displaced in West Bank, Jan-Apr 2026",
+   "value": "1,988 (20% above full-year 2025)",
+   "unit": "persons",
+   "as_of": "2026-04-30",
+   "trend": "rising",
+   "source": "OCHA / Al Jazeera mapping",
+   "verified": true
+  },
+  {
+   "name": "E1 / Ma'ale Adumim housing units approved",
+   "value": "3,401",
+   "unit": "housing units",
+   "as_of": "2026-03-01",
+   "trend": "rising",
+   "source": "OHCHR March 2026 report; MEI backgrounder",
+   "verified": true
+  },
+  {
+   "name": "Israeli defence spending",
+   "value": "~8 (NIS 144bn) vs 4.2 in 2022",
+   "unit": "% of GDP",
+   "as_of": "2026-06-30",
+   "trend": "rising",
+   "source": "IDI; Ynet; Statista",
+   "verified": true
+  },
+  {
+   "name": "Israeli general government deficit",
+   "value": "target 4.9, projected ~5.9; debt/GDP ~70",
+   "unit": "% of GDP",
+   "as_of": "2026-06-30",
+   "trend": "rising",
+   "source": "IDI; Moody's via Ynet",
+   "verified": true
+  },
+  {
+   "name": "Israel sovereign rating",
+   "value": "Baa1, stable outlook",
+   "unit": "rating",
+   "as_of": "2026-06-30",
+   "trend": "flat",
+   "source": "Moody's via Ynet",
+   "verified": true
+  },
+  {
+   "name": "Abraham Accords signatories/accessions beyond Israel",
+   "value": "5 (UAE, Bahrain, Morocco, Sudan nominal, Kazakhstan); Saudi not a member",
+   "unit": "states",
+   "as_of": "2026-07-23",
+   "trend": "rising",
+   "source": "US State Dept report to Congress; CNN",
+   "verified": true
+  },
+  {
+   "name": "ICC arrest warrant against Netanyahu",
+   "value": "outstanding, unexecuted",
+   "unit": "status",
+   "as_of": "2026-07-29",
+   "trend": "flat",
+   "source": "ICC case page; Just Security tracker",
+   "verified": true
+  },
+  {
+   "name": "Lebanese public support for normalisation with Israel",
+   "value": "~30",
+   "unit": "% of respondents",
+   "as_of": "2026-05-31",
+   "trend": "unknown",
+   "source": "Washington Institute / FDD analyses of framework",
+   "verified": true
+  }
+ ],
+ "scheduled_events": [
+  {
+   "name": "Expiry of the 60-day US-Iran MoU ceasefire window",
+   "date": "2026-08-16",
+   "why_it_matters": "The MoU's ceasefire, Hormuz demining and downblending commitments all run on this clock; lapse without a successor deal is the most likely trigger for a renewed strike campaign and a fresh oil spike."
+  },
+  {
+   "name": "Phase 2 of LAF disarmament of Hezbollah north of the Litani",
+   "date": "2026-09-30",
+   "why_it_matters": "Four extendable months from mid-2026; an Israeli assessment that phase 2 has failed is the stated predicate for resuming operations in Lebanon."
+  },
+  {
+   "name": "Israeli Knesset election",
+   "date": "2026-10-27",
+   "why_it_matters": "Determines whether the next government pursues de jure annexation and further judicial legislation, or trades territory for Saudi normalisation; also decides the Haredi conscription settlement."
+  },
+  {
+   "name": "US midterm elections",
+   "date": "2026-11-03",
+   "why_it_matters": "Sets congressional appetite for arms packages, a Saudi 123 Agreement, and continued US enforcement of the Iran blockade."
+  },
+  {
+   "name": "Termination of UNIFIL's mandate",
+   "date": "2026-12-31",
+   "why_it_matters": "Removes the only third-party monitoring layer in south Lebanon just as the IDF phased-withdrawal schedule is meant to run; raises misperception risk on the Blue Line."
+  },
+  {
+   "name": "High Court of Justice hearings on the attorney-general law petitions",
+   "date": "2026-12-31",
+   "why_it_matters": "If the court strikes the law and the government refuses to comply, this is the concrete pathway to an open constitutional crisis."
+  },
+  {
+   "name": "Israeli 2027 state budget passage deadline",
+   "date": "2027-03-31",
+   "why_it_matters": "A post-election coalition must pass a budget carrying ~8%-of-GDP defence spending; failure automatically triggers another election."
+  },
+  {
+   "name": "Palestinian general elections pledged by Abbas at the Fatah conference",
+   "date": "2027-05-31",
+   "why_it_matters": "First Palestinian national vote since 2006 if held; non-holding hardens the PA legitimacy deficit and the succession problem."
+  },
+  {
+   "name": "Next NPT PrepCom cycle after the 2026 Review Conference",
+   "date": "2027-05-31",
+   "why_it_matters": "Where an Iranian NPT withdrawal, or a formal challenge to Israeli non-membership, would surface as a treaty-order question rather than a regional one."
+  },
+  {
+   "name": "Saudi-US civil nuclear (123) Agreement submission to Congress",
+   "date": "2027-06-30",
+   "why_it_matters": "Trump has conditioned it on Saudi accession to the Abraham Accords, making it the mechanical link between normalisation and the regional enrichment question."
+  },
+  {
+   "name": "UNSCR 2803 Board of Peace / ISF authorisation horizon",
+   "date": "2027-12-31",
+   "why_it_matters": "The current international mandate for Gaza's transitional governance and stabilisation force expires; renewal requires Russian and Chinese abstention again."
+  },
+  {
+   "name": "Netanyahu corruption trial (Cases 1000/2000/4000) verdict window",
+   "date": "2028-06-30",
+   "why_it_matters": "A conviction or plea with a public-life ban would remove the central variable in Israeli coalition arithmetic; timing is uncertain and has repeatedly slipped."
+  }
+ ],
+ "discrete_risks": [
+  {
+   "id": "israel_gaza_major_hostilities_resumption",
+   "name": "Resumption of major Israeli hostilities in Gaza",
+   "resolution_criteria": "After 1 Aug 2026, either (a) \u22651,000 Palestinian fatalities recorded in Gaza in any rolling 90-day window (Gaza MoH or OCHA), or (b) Israeli ground forces advance beyond the yellow line and hold new territory in \u22652 Gaza governorates for \u226514 consecutive days.",
+   "p_by_2027_pct": 30,
+   "p_by_2031_pct": 58,
+   "p_by_2036_pct": 70,
+   "p_by_2046_pct": 83,
+   "p_by_2056_pct": 88,
+   "reasoning": "Outside view: five discrete major Gaza escalations in 18 years (2008-09, 2012, 2014, 2021, 2023-25) \u2248 0.28/yr, and threshold (b) is easier than a full war. Adjust up near-term for a ceasefire being enforced by daily lethal strikes, an unarmed NCAG that cannot enter, undisarmed Hamas, an ISF of 200 rather than 20,000, and an Israeli election that rewards toughness. Long horizons flatten only because ISF/BoP institutionalisation, if it happens at all, happens in the 2030s.",
+   "base_rate_anchor": "Five major Israel-Gaza escalation rounds 2008-2025 over 18 years of Hamas control.",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "Hostage recovery is complete, which removed Israel's main operational motive; Trump has personally staked prestige on the Board of Peace; and Hamas has already surrendered nominal administration. A frozen, Israeli-policed enclave with 300-800 deaths a year could persist for a decade without crossing either threshold.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_gaza_phase2_implemented",
+   "name": "Gaza peace-plan phase 2 substantively implemented",
+   "resolution_criteria": "By the horizon date, \u22655,000 ISF personnel deployed inside Gaza simultaneously AND the Board of Peace or ISF command publicly certifies that decommissioning of Hamas heavy weapons (crew-served and above) has begun.",
+   "p_by_2027_pct": 12,
+   "p_by_2031_pct": 33,
+   "p_by_2036_pct": 43,
+   "p_by_2046_pct": 52,
+   "p_by_2056_pct": 57,
+   "reasoning": "Base class: internationally mandated stabilisation forces reaching planned strength alongside insurgent decommissioning \u2014 UNIFIL II, KFOR, MINUSMA, Northern Ireland, Aceh \u2014 succeed roughly a third of the time and take 2-7 years. Current state is 200 authorised troops, four small contributors, and an NCAG that cannot enter, so 2027 is near zero plus a tail. Thirty years allows several attempts, but each requires a permissive Israeli government and a funded mandate simultaneously.",
+   "base_rate_anchor": "Roughly 4 of 12 post-2000 UN/coalition stabilisation deployments reached authorised strength with a functioning DDR track.",
+   "severity_0_10": 4,
+   "confidence": "low",
+   "contrarian_case": "Gulf money plus Trump's personal ownership of the plan could force Israeli acquiescence quickly; Morocco's participating-country agreement shows the legal machinery works, and force generation can scale within months once Israel stops vetoing entry.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_gaza_reconstruction_10bn_disbursed",
+   "name": "Ten billion dollars of Gaza reconstruction actually disbursed",
+   "resolution_criteria": "Cumulative external reconstruction and recovery financing disbursed (not pledged) for Gaza reaches US$10bn in 2026 dollars, per World Bank, Board of Peace or Palestine Donor Group reporting.",
+   "p_by_2027_pct": 4,
+   "p_by_2031_pct": 24,
+   "p_by_2036_pct": 39,
+   "p_by_2046_pct": 53,
+   "p_by_2056_pct": 60,
+   "reasoning": "Damage estimates are $50-70bn. Reference class: post-conflict reconstruction disbursement runs 20-40% of pledges over a decade (Gaza 2014, Lebanon 2006, Iraq). The BoP has just cut scope to a single southern pilot and Gulf funders have tied money to a political horizon. Slow drift up as any ceasefire ages; hard ceiling from donor fatigue and Israeli control of dual-use materials.",
+   "base_rate_anchor": "Gaza 2014 Cairo conference: $3.5bn pledged, roughly half disbursed over six years; Lebanon 2006: ~$1bn within two years.",
+   "severity_0_10": 4,
+   "confidence": "low",
+   "contrarian_case": "A Saudi normalisation package could bundle $20-30bn of Gulf reconstruction money as its Palestinian deliverable, disbursing fast through a special-purpose vehicle that bypasses both the PA and Hamas.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_gaza_famine_redeclared",
+   "name": "New IPC Famine classification in Gaza",
+   "resolution_criteria": "The IPC (or its Famine Review Committee) classifies any Gaza governorate in Phase 5 Famine at any point after 1 Aug 2026.",
+   "p_by_2027_pct": 14,
+   "p_by_2031_pct": 30,
+   "p_by_2036_pct": 37,
+   "p_by_2046_pct": 46,
+   "p_by_2056_pct": 50,
+   "reasoning": "It happened once already (Aug 2025) and was de-classified in Dec 2025 with ~100,000 still in catastrophic conditions, so the system sits one aid-interruption away. Conditional on major hostilities resuming, probability of a famine classification within 12 months is perhaps 40-45%; unconditionally that yields roughly these numbers. Long-horizon growth is capped because reconstruction or a permanent aid architecture eventually raises the floor.",
+   "base_rate_anchor": "One IPC Famine declaration in Gaza in the 2023-2026 war; globally about five Famine classifications (Somalia 2011, South Sudan 2017, Sudan 2024, Gaza 2025) in 15 years.",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "The commercial and UN pipeline built since October 2025 is far larger than the 2025 GHF-era mechanism, and the IPC's Gaza methodology has been publicly contested, which raises the political bar for a new declaration.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_gaza_mass_outmigration_100k",
+   "name": "Mass permanent departure of Gazans",
+   "resolution_criteria": "UN, IOM or receiving-state records show \u2265100,000 people who resided in Gaza in 2023 living outside Gaza and the West Bank for \u226512 continuous months.",
+   "p_by_2027_pct": 5,
+   "p_by_2031_pct": 14,
+   "p_by_2036_pct": 19,
+   "p_by_2046_pct": 26,
+   "p_by_2056_pct": 31,
+   "reasoning": "Requires a receiving state, and Egypt has made blocking this an existential red line (roughly 40,000 troops in Sinai, the Badr 2026 exercise). Base class: mass Palestinian displacement happens when borders open, which is precisely what Cairo and Amman prevent. Voluntary emigration of the educated could reach six figures over 30 years even without a border event, which is most of the long-horizon mass.",
+   "base_rate_anchor": "Two forced Palestinian mass displacements (1948, 1967) in 78 years; roughly 110,000 Gazans left via Rafah in 2023-24 before closure.",
+   "severity_0_10": 6,
+   "confidence": "low",
+   "contrarian_case": "If reconstruction stalls into the 2030s, a paid, individually 'voluntary' emigration scheme with third-country destinations is exactly the policy this Israeli right and this US administration have already floated; the threshold then falls quickly.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_west_bank_dejure_annexation",
+   "name": "De jure Israeli annexation of West Bank territory",
+   "resolution_criteria": "The Knesset enacts in third reading, and the government brings into force, legislation applying Israeli sovereignty, law and administration to territory in the West Bank beyond the 1967 East Jerusalem municipal boundary.",
+   "p_by_2027_pct": 8,
+   "p_by_2031_pct": 21,
+   "p_by_2036_pct": 29,
+   "p_by_2046_pct": 38,
+   "p_by_2056_pct": 43,
+   "reasoning": "Outside view: Israel has formally annexed twice in 59 years (East Jerusalem 1967/1980, Golan 1981) \u2248 0.034/yr, and it has repeatedly walked to the line and stopped (2020 Trump plan, the frozen 25-24 preliminary vote of Oct 2025). The binding constraint is American: Washington has vetoed it every time, and the price would be the Saudi track plus Egyptian and Jordanian treaty risk. The 27 Oct 2026 election is the near-term gate; incremental de facto annexation via civil-administration transfers is the more likely path and would not resolve this node.",
+   "base_rate_anchor": "Two de jure Israeli annexations since 1967; four serious near-misses (1990s Greater Jerusalem, 2020, 2023, 2025-26).",
+   "severity_0_10": 6,
+   "confidence": "medium",
+   "contrarian_case": "Sovereignty legislation only needs 61 votes and one permissive US president. If the October election returns a Likud-Otzma-Smotrich coalition and the Saudi track is already dead, the marginal cost collapses and this could pass within a year.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_west_bank_uprising_1000_deaths",
+   "name": "Third-Intifada-scale violence in the West Bank",
+   "resolution_criteria": "\u22651,000 combined Israeli and Palestinian conflict fatalities in the West Bank, East Jerusalem and inside Israel from Israeli-Palestinian violence (excluding Gaza operations and state-on-state missile exchanges) within any rolling 12-month window, per ACLED or OCHA.",
+   "p_by_2027_pct": 7,
+   "p_by_2031_pct": 21,
+   "p_by_2036_pct": 30,
+   "p_by_2046_pct": 42,
+   "p_by_2056_pct": 49,
+   "reasoning": "Outside view: only the Second Intifada crossed this bar for the West Bank/Israel theatre, once in about 40 years (~0.025/yr). Current run-rate is roughly 300-400 fatalities a year with record settler violence (1,000+ attacks in seven months) \u2014 elevated but a factor of three below threshold. Multiply the base rate by about three for present conditions and add conditional mass from the annexation and PA-collapse pathways.",
+   "base_rate_anchor": "One occurrence (Second Intifada, 2000-2005) in the 40 years since the First Intifada began.",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "The West Bank's capacity for organised uprising has been systematically dismantled \u2014 Israeli operational freedom in Jenin and Tulkarem, PA security cooperation, and a population that watched Gaza's fate. High-friction attrition without mass mobilisation is the more likely equilibrium.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_pa_functional_collapse",
+   "name": "Functional collapse of the Palestinian Authority",
+   "resolution_criteria": "The PA either formally dissolves, or fails to pay \u22652 consecutive months of civil-service salaries while losing effective security control of \u22652 governorate capitals to non-PA armed actors, sustained \u226590 days.",
+   "p_by_2027_pct": 8,
+   "p_by_2031_pct": 24,
+   "p_by_2036_pct": 33,
+   "p_by_2046_pct": 45,
+   "p_by_2056_pct": 52,
+   "reasoning": "The PA has survived 32 years including three fiscal near-deaths (2006-07, 2019, 2024-25 clearance-revenue withholding) without crossing this bar, so the naive rate is low. But the structural picture is worse than ever: a designated successor with under 2% approval, no elections since 2006, a partially paid payroll, and Israeli revenue leverage. Treat as one-shot; the hazard rises sharply around succession and again if annexation removes the PA's remaining rationale.",
+   "base_rate_anchor": "Zero collapses in 32 years of PA existence, against three severe fiscal crises.",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "Everyone with power wants the PA to exist: Israel outsources policing to it, Jordan needs it, the Gulf funds it, and the ISF/BoP construct needs a Palestinian address. Managed insolvency without collapse is the 30-year default.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_intra_palestinian_armed_conflict",
+   "name": "Major intra-Palestinian armed conflict",
+   "resolution_criteria": "\u2265100 Palestinian fatalities from fighting between Palestinian factions, clans or ISF-aligned militias (Gaza or West Bank) within any rolling 12-month window, per ACLED.",
+   "p_by_2027_pct": 33,
+   "p_by_2031_pct": 57,
+   "p_by_2036_pct": 65,
+   "p_by_2046_pct": 75,
+   "p_by_2056_pct": 79,
+   "reasoning": "Outside view: 2006-07 Fatah-Hamas fighting (~600 dead), recurrent Gaza clan and collaborator violence in 2025-26, Hamas executions of rivals. The 100-death threshold in a 12-month window is modest and may already be near-satisfied. Any DDR process plus a vetted police force plus armed anti-Hamas militias is a textbook recipe for factional war, and Abbas succession adds an independent channel.",
+   "base_rate_anchor": "One full intra-Palestinian civil conflict (2007) plus at least three sub-threshold episodes (2024-2026 clan and militia violence) in 20 years.",
+   "severity_0_10": 4,
+   "confidence": "medium",
+   "contrarian_case": "Hamas's remaining coercive monopoly in the Gaza interior is still strong enough to keep rivals sub-lethal, and West Bank factions have no appetite for civil war under occupation; incidents may stay in the tens rather than hundreds.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_lebanon_major_war_round",
+   "name": "New major Israel-Hezbollah war round",
+   "resolution_criteria": "After a \u2265180-day lull, \u2265500 fatalities in Lebanon from Israeli military operations within any 90-day window, or an Israeli ground advance north of the Litani held \u226514 days.",
+   "p_by_2027_pct": 22,
+   "p_by_2031_pct": 48,
+   "p_by_2036_pct": 60,
+   "p_by_2046_pct": 74,
+   "p_by_2056_pct": 80,
+   "reasoning": "Outside view: 1978, 1982, 1993, 1996, 2006, 2024, 2026 \u2014 seven qualifying rounds in 48 years \u2248 0.15/yr, with shortening intervals. The June 2026 Trilateral Framework is the strongest de-escalatory instrument ever signed on this border, which argues for a genuine reduction; but Hezbollah rejects it, UNIFIL leaves in December 2026, and phase 2 disarmament north of the Litani is the stated Israeli trigger. The 180-day lull requirement holds 2027 below raw hazard.",
+   "base_rate_anchor": "Seven Israeli major operations or wars in Lebanon since 1978 (48 years).",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "Hezbollah has lost its leadership, its Syrian land bridge, its patron's freedom of action, and Lebanese public tolerance for another war. A Lebanese state that actually completes disarmament under a US-guaranteed framework could end the 48-year pattern, which is exactly what the framework is designed to do.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_lebanon_full_peace_treaty",
+   "name": "Israel-Lebanon peace treaty with diplomatic relations",
+   "resolution_criteria": "Israel and Lebanon sign, and both ratify or bring into force, a treaty establishing diplomatic relations (embassies or accredited ambassadors), going beyond the June 2026 security framework.",
+   "p_by_2027_pct": 4,
+   "p_by_2031_pct": 15,
+   "p_by_2036_pct": 22,
+   "p_by_2046_pct": 32,
+   "p_by_2056_pct": 38,
+   "reasoning": "Outside view: one prior Israel-Lebanon agreement (17 May 1983) was signed and then abrogated within a year under Syrian and militia pressure \u2014 the single most direct precedent, and it failed. Normalisation polls at ~30% in Lebanon; Aoun and Salam explicitly limit themselves to 'peace' meaning non-aggression, and defer normalisation to the Arab Peace Initiative. Therefore mass accumulates only through the Saudi-normalisation and Iranian-retrenchment branches.",
+   "base_rate_anchor": "One signed Israel-Lebanon agreement in 78 years (1983), abrogated in 1984; zero ratified treaties.",
+   "severity_0_10": 5,
+   "confidence": "low",
+   "contrarian_case": "The 26 June framework already contains Lebanese recognition-of-legitimacy language that would have been unthinkable in 2023, and a Christian-Sunni-Druze majority freed of Hezbollah's veto plus Gulf reconstruction money could convert it faster than Lebanese polling implies.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_hezbollah_disarmament_completed",
+   "name": "Hezbollah disarmament certified complete",
+   "resolution_criteria": "The Lebanese government declares completion of disarmament of all non-state armed groups nationwide AND the United States or the UN Security Council formally endorses that assessment.",
+   "p_by_2027_pct": 8,
+   "p_by_2031_pct": 19,
+   "p_by_2036_pct": 26,
+   "p_by_2046_pct": 34,
+   "p_by_2056_pct": 39,
+   "reasoning": "Reference class: militia disarmament following state-brokered agreements \u2014 Taif 1989, IRA 2005, FARC 2017, Aceh 2005 \u2014 succeeds maybe 40% of the time, but almost never for a movement that is simultaneously a governing party with a foreign patron. Phase 1 south of the Litani is done; phase 2 is where the actual arsenal and the political identity live. Long-horizon mass comes from Iranian retrenchment rather than Lebanese enforcement.",
+   "base_rate_anchor": "Lebanon has attempted nationwide militia disarmament twice (Taif 1990-91, UNSCR 1559/2004) and completed it for every group except Hezbollah.",
+   "severity_0_10": 4,
+   "confidence": "low",
+   "contrarian_case": "Iran under blockade with a junior supreme leader may not be able to pay or resupply Hezbollah at all; a bankrupt militia facing an LAF with US money and Gulf reconstruction leverage could accept cantonment faster than anyone expects.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_syria_israel_security_agreement",
+   "name": "Israel-Syria security agreement signed",
+   "resolution_criteria": "Israel and Syria sign a publicly acknowledged written security or non-belligerency agreement that includes Israeli withdrawal from at least part of the positions taken after December 2024.",
+   "p_by_2027_pct": 35,
+   "p_by_2031_pct": 54,
+   "p_by_2036_pct": 61,
+   "p_by_2046_pct": 68,
+   "p_by_2056_pct": 72,
+   "reasoning": "Al-Sharaa publicly confirmed active multi-party negotiations on 26-27 July 2026 and explicitly decoupled the deal from Golan sovereignty, which is the historical dealbreaker. Reference class: Israeli disengagement and security agreements get signed when the Arab side is militarily incapable and needs sanctions relief \u2014 1974 Syria disengagement, 1974-75 Sinai interims, 2026 Lebanon framework \u2014 which describes Syria now. Discount for Israeli reluctance to leave high ground and for al-Sharaa's own coup and fragmentation risk.",
+   "base_rate_anchor": "Israel has signed security or disengagement instruments with Arab states in 1949, 1974 (x2), 1975, 1979, 1994 and 2026 \u2014 seven in 77 years, concentrated in post-war windows.",
+   "severity_0_10": 5,
+   "confidence": "medium",
+   "contrarian_case": "Israeli doctrine after 7 October is that no Syrian government can be trusted with the south; the Sweida and Druze files give Israel a standing pretext to keep striking, and any deal legitimising an Islamist government in Damascus is a hard sell in Jerusalem.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_iran_direct_major_exchange_new_round",
+   "name": "New round of major direct Israel-Iran exchange",
+   "resolution_criteria": "After 1 Jan 2027, any 30-day window containing \u226550 Iranian missiles or one-way drones launched at Israeli territory, or \u226550 Israeli strike sorties against targets on Iranian territory.",
+   "p_by_2027_pct": 52,
+   "p_by_2031_pct": 76,
+   "p_by_2036_pct": 83,
+   "p_by_2046_pct": 89,
+   "p_by_2056_pct": 92,
+   "reasoning": "The taboo on direct state-to-state exchange broke in April 2024 and has been crossed four times since (Apr 2024, Oct 2024, Jun 2025, Feb-Jul 2026): roughly 1.6 events per year over 27 months. The MoU expires mid-August 2026 with Hormuz control unresolved, the blockade in force, and enrichment unverifiable. Adjust down modestly for Iranian magazine depletion and launcher attrition and for the chance a final deal locks in a multi-year pause; but 30 years with an unresolved nuclear file and demonstrated mutual willingness makes the far horizons near-certain.",
+   "base_rate_anchor": "Four direct Israel-Iran exchange episodes in the 27 months from April 2024 to July 2026, versus zero in the preceding 45 years.",
+   "severity_0_10": 7,
+   "confidence": "medium",
+   "contrarian_case": "A completed downblending-plus-sanctions-relief deal, an Iran that has lost its supreme leader, its air defences and its proxy ring, and an Israeli government that has achieved its stated objectives could produce a decade of quiet. Iran's remaining launcher inventory may not support another 50-missile salvo.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_declares_nuclear_arsenal",
+   "name": "Israel abandons nuclear opacity",
+   "resolution_criteria": "The Israeli government officially acknowledges possession of nuclear weapons, or a nuclear explosive test is attributed to Israel by the CTBTO or by \u22652 of the P5.",
+   "p_by_2027_pct": 1,
+   "p_by_2031_pct": 3,
+   "p_by_2036_pct": 5,
+   "p_by_2046_pct": 9,
+   "p_by_2056_pct": 13,
+   "reasoning": "Outside view: zero events in about 60 years of deliberate amimut, sustained through 1973, 1991, 2024 and 2026 existential scares and through the 1979 Vela incident. Opacity is load-bearing for US law (Symington/Glenn), for Egyptian and Turkish restraint, and for the NPT's regional fiction. Declaration would only follow either an Iranian or Saudi weapon (making opacity pointless) or a collapse of the US relationship (making it unaffordable), so almost all mass sits in the 2040s-50s conditional branches.",
+   "base_rate_anchor": "Zero Israeli acknowledgements in ~58 years of assumed possession; of nine nuclear-armed states, only Israel has never declared.",
+   "severity_0_10": 8,
+   "confidence": "medium",
+   "contrarian_case": "An overt Iranian arsenal plus a Saudi hedge could make declared deterrence more valuable than ambiguity within a few years, and an Israeli far-right government might treat declaration as a legitimacy asset rather than a cost. Individual Israeli ministers have nearly done it already.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_saudi_normalization",
+   "name": "Full Israel-Saudi normalisation",
+   "resolution_criteria": "Saudi Arabia and Israel establish full diplomatic relations (ambassadors accredited or embassies opened), or Saudi Arabia signs an accession instrument to the Abraham Accords.",
+   "p_by_2027_pct": 15,
+   "p_by_2031_pct": 43,
+   "p_by_2036_pct": 55,
+   "p_by_2046_pct": 68,
+   "p_by_2056_pct": 73,
+   "reasoning": "Outside view on Arab-Israeli normalisation: Egypt 1979, Jordan 1994, UAE/Bahrain/Morocco/Sudan 2020, Kazakhstan 2025 \u2014 bursts driven by US package deals, roughly 0.1/yr but heavily conditional. Trump has hard-linked the Saudi 123 Agreement to accession (23 July 2026), which is real leverage, and Riyadh says normalisation 'remains on the table'. Against that: Saudi opinion post-Gaza, the stated requirement of a credible path to Palestinian statehood, and the fact this deal has been 'six months away' since 2022. MBS is young, so 20-30 year horizons carry high cumulative probability.",
+   "base_rate_anchor": "Six Arab or Muslim-majority states normalised or acceded in 47 years (1979, 1994, 2020 x4, 2025).",
+   "severity_0_10": 6,
+   "confidence": "medium",
+   "contrarian_case": "Saudi Arabia extracted a US defence agreement and civil nuclear cooperation in 2025-26 without normalising; the price of normalisation has risen (statehood, not gestures) while its value to Riyadh has fallen. It may simply never be worth it while Gaza is unresolved.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_turkey_direct_military_clash",
+   "name": "Direct Israel-Turkey military clash",
+   "resolution_criteria": "A kinetic engagement between Turkish and Israeli state forces (including strikes on the other's forces, aircraft, vessels or territory) causing \u22651 death or \u22651 aircraft or vessel loss, acknowledged by either government or confirmed by \u22652 major wire services.",
+   "p_by_2027_pct": 6,
+   "p_by_2031_pct": 15,
+   "p_by_2036_pct": 20,
+   "p_by_2046_pct": 27,
+   "p_by_2056_pct": 31,
+   "reasoning": "Outside view: zero state-on-state clashes in 77 years, including through the 2010 Mavi Marmara rupture and the 2018-24 deep freeze; deconfliction in Syria has held since 2024 with forces operating tens of kilometres apart. Raise modestly because Erdogan now frames Israeli operations as a direct threat to Turkey, Turkish-backed units are embedded with Damascus, and both states contest the same southern-Syrian and Lebanese space. The US-NATO overlay is the strongest suppressant and would survive most scenarios.",
+   "base_rate_anchor": "Zero direct Turkey-Israel military engagements in 77 years of relations; one lethal state-versus-civilian incident (2010).",
+   "severity_0_10": 6,
+   "confidence": "low",
+   "contrarian_case": "Both are US security partners with dense economic ties and no territorial dispute; Erdogan's escalation is domestic-audience management, and Turkish deployments in Syria would be positioned precisely to avoid contact. Deconfliction channels have never failed.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_egypt_or_jordan_treaty_rupture",
+   "name": "Rupture of the Egyptian or Jordanian peace treaty",
+   "resolution_criteria": "Egypt or Jordan formally suspends, abrogates or declares void its peace treaty with Israel, or severs diplomatic relations with the Israeli mission closed for \u226512 continuous months.",
+   "p_by_2027_pct": 4,
+   "p_by_2031_pct": 12,
+   "p_by_2036_pct": 17,
+   "p_by_2046_pct": 26,
+   "p_by_2056_pct": 32,
+   "reasoning": "Outside view: two treaties, 47 and 32 state-years, zero abrogations, despite 1982, 2000-05, 2008-09, 2014, 2021 and 2023-26 \u2014 six severe stress episodes. Both regimes are structurally dependent on US aid and Israeli security cooperation and have preferred ambassadorial downgrades (Egypt 1982-86) to rupture. Raise for the Sinai militarisation dispute (~40,000 troops, Badr 2026) and for displacement scenarios that would make treaty maintenance untenable in Amman. Mostly conditional on annexation or a Gaza expulsion event.",
+   "base_rate_anchor": "Zero abrogations across 79 combined treaty-years and six major stress episodes.",
+   "severity_0_10": 6,
+   "confidence": "medium",
+   "contrarian_case": "Regime survival in both capitals runs through Washington, and neither could absorb the aid and IMF consequences. Even during the worst of 2024-26 both kept ambassadors and gas contracts in place; the treaties are load-bearing for the regimes, not favours to Israel.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_us_major_arms_suspension",
+   "name": "US suspension of a major arms category to Israel",
+   "resolution_criteria": "The US government publicly suspends, withholds or blocks delivery of a major weapons category or an approved FMS package to Israel for \u226590 continuous days, acknowledged by the administration or confirmed by congressional notification.",
+   "p_by_2027_pct": 8,
+   "p_by_2031_pct": 28,
+   "p_by_2036_pct": 40,
+   "p_by_2046_pct": 55,
+   "p_by_2056_pct": 62,
+   "reasoning": "Outside view: Reagan's 1981-82 F-16 suspension, Bush's 1991-92 loan-guarantee leverage, Biden's 2024 2,000-lb bomb pause \u2014 roughly three episodes in 45 years, of which perhaps two met a 90-day bar (~0.045/yr). Near-term probability is low because the current administration is maximally supportive and jointly at war alongside Israel. Raise substantially from 2029 for US political realignment: Democratic-coalition opinion has shifted hard, and annexation or a renewed Gaza offensive would be the proximate trigger.",
+   "base_rate_anchor": "Two to three US arms-transfer suspensions to Israel in 45 years.",
+   "severity_0_10": 6,
+   "confidence": "medium",
+   "contrarian_case": "The relationship is institutionalised through the 10-year MoU, co-production and a war fought together against Iran; Congress appropriates and both party leaderships protect it. Symbolic short pauses are far more likely than a 90-day withholding of a major category.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_icj_genocide_adverse_merits_ruling",
+   "name": "Adverse ICJ merits ruling on the Genocide Convention",
+   "resolution_criteria": "The ICJ issues a final judgment on the merits in South Africa v. Israel finding Israel in breach of one or more obligations under the Genocide Convention.",
+   "p_by_2027_pct": 2,
+   "p_by_2031_pct": 18,
+   "p_by_2036_pct": 37,
+   "p_by_2046_pct": 46,
+   "p_by_2056_pct": 49,
+   "reasoning": "Two-stage estimate. Timing: Bosnia v. Serbia took 14 years (1993-2007), Croatia v. Serbia 16, The Gambia v. Myanmar is nine years in with no merits judgment \u2014 so P(merits judgment by 2031) \u2248 30-35%, by 2036 \u2248 65-70%, by 2046 \u2248 90%. Conditional on judgment, P(some breach found) \u2248 50-55%: the Bosnia precedent found failure to prevent and punish rather than commission, which is the most likely landing zone given the provisional-measures record and the incitement evidence.",
+   "base_rate_anchor": "Three Genocide Convention merits cases in ICJ history: one breach finding (Serbia 2007), one dismissal on the merits (Croatia 2015), one pending after nine years.",
+   "severity_0_10": 5,
+   "confidence": "low",
+   "contrarian_case": "The Court may find jurisdiction but no dolus specialis and may take until the 2040s; a no-breach ruling would be read globally as vindication. Israel could also decline to participate in the merits phase, complicating but not preventing judgment.",
+   "recurrent": false,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_bab_el_mandeb_major_disruption",
+   "name": "Sustained Bab el-Mandeb / Red Sea shipping disruption",
+   "resolution_criteria": "Monthly transit volumes through Bab el-Mandeb fall \u226550% below the 2023 monthly average for \u226590 consecutive days after 1 Aug 2026, per IMF PortWatch or Lloyd's List Intelligence.",
+   "p_by_2027_pct": 55,
+   "p_by_2031_pct": 72,
+   "p_by_2036_pct": 79,
+   "p_by_2046_pct": 86,
+   "p_by_2056_pct": 89,
+   "reasoning": "This has already happened once and lasted more than a year (Dec 2023 through 2025), and the Houthis resumed attacks on 23 July 2026, declared a maritime embargo on Saudi Arabia, hit Saudi tankers and drew Saudi airstrikes on 25 July. Transits were still well below baseline before this round. Near-term probability therefore depends mainly on whether the current round persists 90 days, not whether it starts. Long run: the Houthis are an entrenched state-like actor with demonstrated capability and no disarmament pathway.",
+   "base_rate_anchor": "One qualifying multi-month disruption (2023-25) in the roughly three years since Houthi maritime capability emerged; zero in the preceding 30.",
+   "severity_0_10": 6,
+   "confidence": "medium",
+   "contrarian_case": "Carriers already rerouted and absorbed the cost with modest global inflation impact, so 'disruption' may not recur as a discrete 90-day collapse from an already-depressed base; and an Iran deal that switches off Houthi resupply could end the campaign quickly, as the November 2025 pullback showed.",
+   "recurrent": true,
+   "horizon_coherent": true
+  },
+  {
+   "id": "israel_constitutional_crisis_court_defiance",
+   "name": "Israeli constitutional crisis over defiance of the High Court",
+   "resolution_criteria": "The Israeli government formally announces non-compliance with a binding High Court of Justice ruling, or removes the Attorney General or a Supreme Court justice in defiance of a court injunction, with the non-compliance persisting \u226560 days.",
+   "p_by_2027_pct": 19,
+   "p_by_2031_pct": 33,
+   "p_by_2036_pct": 40,
+   "p_by_2046_pct": 51,
+   "p_by_2056_pct": 57,
+   "reasoning": "Outside view: zero formal defiances in 78 years, though 2023-2026 produced several near-misses (Deri appointments, the Judicial Selection Committee law, the Shin Bet chief dismissal, the July 2026 attorney-general law). The proximate trigger is identifiable and dated: petitions against the mid-July 2026 AG law will be heard within months and the coalition has pre-committed rhetorically to rejecting an adverse ruling. Post-election composition is the main variable; a centrist government would zero out the near-term hazard, which is why 2027 is not higher.",
+   "base_rate_anchor": "Zero formal Israeli government defiances of a High Court ruling in 78 years; four to five documented near-misses since 2023.",
+   "severity_0_10": 4,
+   "confidence": "medium",
+   "contrarian_case": "Israel's institutional muscle memory \u2014 mass protest, reservist non-compliance, IDF and Shin Bet professional resistance, and Likud's own legalism \u2014 has stopped every previous attempt at the brink, and an election is more likely to resolve this than a rupture.",
+   "recurrent": true,
+   "horizon_coherent": true
+  }
+ ],
+ "continuous_variables": [
+  {
+   "id": "israel_defense_spending_pct_gdp",
+   "name": "Israeli defence spending as share of GDP",
+   "unit": "% of GDP",
+   "current_value": 7.9,
+   "annual_drift": -0.3,
+   "annual_vol": 1.1,
+   "p10_2031": 4.6,
+   "p50_2031": 6.1,
+   "p90_2031": 8.8,
+   "notes": "Verified at roughly 8% in 2026 (NIS 144bn) versus 4.2% in 2022. Mean-reverting toward a structurally higher post-2023 floor of 5.5-6.5% rather than the pre-war 4-4.5%. Upside tail is a renewed multi-front war; the downside requires both the Iran and Lebanon files to close. Drift and vol are percentage points per year."
+  },
+  {
+   "id": "israel_west_bank_settler_population",
+   "name": "Israeli settler population in the West Bank (excl. East Jerusalem)",
+   "unit": "thousands of persons",
+   "current_value": 530,
+   "annual_drift": 15,
+   "annual_vol": 6,
+   "p10_2031": 585,
+   "p50_2031": 613,
+   "p90_2031": 648,
+   "notes": "Roughly 3% per year compound growth from natural increase plus the largest approval wave in decades (E1's 3,401 units among them). The most predictable variable in the domain: it has grown every year since 1968 regardless of government or peace process. The low case is a settlement freeze under US pressure, which historically slows starts but not population."
+  },
+  {
+   "id": "israel_gaza_reconstruction_disbursed",
+   "name": "Cumulative external reconstruction financing disbursed for Gaza",
+   "unit": "USD billions (2026)",
+   "current_value": 1.2,
+   "annual_drift": 1.3,
+   "annual_vol": 1.8,
+   "p10_2031": 1.8,
+   "p50_2031": 7.5,
+   "p90_2031": 28,
+   "notes": "Against $50-70bn of assessed damage. Strongly right-skewed and effectively bimodal: the modal path is the current single southern pilot plus humanitarian spend; the upper tail requires a Gulf-funded political package tied to Saudi normalisation. Disbursement, not pledges \u2014 pledges will exceed this by 3-5x."
+  },
+  {
+   "id": "israel_hezbollah_rocket_inventory",
+   "name": "Estimated Hezbollah rocket and missile inventory",
+   "unit": "thousands of units",
+   "current_value": 15,
+   "annual_drift": 1.5,
+   "annual_vol": 8,
+   "p10_2031": 5,
+   "p50_2031": 24,
+   "p90_2031": 68,
+   "notes": "Could not verify \u2014 no reliable public figure exists post-2026 war. Anchored on ~150k pre-October-2023 claims, heavy 2024 and 2026 attrition, and loss of the Syrian land bridge. Reconstitution is essentially a function of Iranian capacity and intent under blockade, hence the enormous spread. Treat as a scenario indicator, not a measurement."
+  },
+  {
+   "id": "israel_bab_el_mandeb_transit_index",
+   "name": "Bab el-Mandeb transit volume relative to 2023 baseline",
+   "unit": "index, 2023 = 100",
+   "current_value": 48,
+   "annual_drift": 4,
+   "annual_vol": 18,
+   "p10_2031": 32,
+   "p50_2031": 72,
+   "p90_2031": 100,
+   "notes": "Verified qualitatively (attacks resumed 23 July 2026, Saudi suspended Red Sea oil shipments, Houthi embargo declaration); the numeric level is my estimate from PortWatch-style reporting rather than a figure I confirmed. Full recovery requires carriers to re-underwrite the route, which historically lags the end of attacks by 6-12 months."
+  },
+  {
+   "id": "israel_west_bank_annual_fatalities",
+   "name": "Annual conflict fatalities in the West Bank and East Jerusalem",
+   "unit": "persons per year",
+   "current_value": 330,
+   "annual_drift": 10,
+   "annual_vol": 180,
+   "p10_2031": 110,
+   "p50_2031": 300,
+   "p90_2031": 1300,
+   "notes": "Verified components: 18 settler-attack deaths year-to-date plus a much larger toll from Israeli operations. Heavy-tailed \u2014 the 90th percentile is the uprising scenario. Annexation legislation, PA insolvency and Ramadan/Al-Aqsa flashpoints are the main upward drivers; a Palestinian election or a Saudi-linked political horizon are the main downward ones."
+  },
+  {
+   "id": "israel_net_migration_balance",
+   "name": "Israeli net migration balance",
+   "unit": "thousands of persons per year",
+   "current_value": -12,
+   "annual_drift": 3,
+   "annual_vol": 25,
+   "p10_2031": -48,
+   "p50_2031": 4,
+   "p90_2031": 38,
+   "notes": "Could not verify a 2026 CBS figure; anchored on the negative balance reported for 2024-25, when emigration exceeded aliyah for the first time in two decades. The best single summary statistic for whether security and constitutional deterioration is becoming self-reinforcing, because it hits exactly the tax-paying, reserve-serving, high-skill cohort."
+  },
+  {
+   "id": "israel_iran_direct_exchange_days",
+   "name": "Days per year with direct Israel-Iran or US-Iran kinetic exchange",
+   "unit": "days per year",
+   "current_value": 110,
+   "annual_drift": -12,
+   "annual_vol": 45,
+   "p10_2031": 0,
+   "p50_2031": 12,
+   "p90_2031": 160,
+   "notes": "2026 to date is unprecedented (campaign from 28 February, blockade from 14 July). The modal path is decay toward the 2024-25 pattern of episodic multi-day exchanges; the fat upper tail is a post-MoU collapse and a return to sustained campaigning. Zero is a live outcome only if a final deal with verified downblending is concluded."
+  }
+ ],
+ "feedback_loops": [
+  {
+   "name": "Degrade-and-reconstitute cycle",
+   "sign": "reinforcing",
+   "mechanism": "Israeli preventive campaigns degrade Iranian and Hezbollah capability but harden the survival imperative behind rebuilding it; rebuilding is detected, which justifies the next preventive campaign at a shorter interval. Each round also lowers Israel's political threshold for initiating the following one.",
+   "strength_0_1": 0.7,
+   "timescale_years": 4
+  },
+  {
+   "name": "Coalition dependence on the annexationist and Haredi right",
+   "sign": "reinforcing",
+   "mechanism": "Narrow Israeli coalitions require settler and Haredi parties, which are paid in settlement approvals, draft exemptions and judicial legislation; the resulting international friction and legal isolation feed a siege narrative that raises those same parties' vote share, reproducing the dependence.",
+   "strength_0_1": 0.6,
+   "timescale_years": 4
+  },
+  {
+   "name": "PA delegitimation spiral",
+   "sign": "reinforcing",
+   "mechanism": "Israeli revenue withholding, settler violence and raids strip the PA of both money and credibility; the PA loses security control; Israel raids more to fill the vacuum, further proving the PA irrelevant. Terminates in PA collapse or direct Israeli administration, both of which raise Jordanian and Egyptian treaty stress.",
+   "strength_0_1": 0.65,
+   "timescale_years": 3
+  },
+  {
+   "name": "Annexation-normalisation veto",
+   "sign": "balancing",
+   "mechanism": "Concrete annexation steps raise the domestic price Gulf rulers must pay for normalisation, which removes the reward Israel is offered for restraint; conversely a live Saudi package gives Washington leverage to freeze annexation. The loop keeps both outcomes suspended rather than resolving either.",
+   "strength_0_1": 0.5,
+   "timescale_years": 2
+  },
+  {
+   "name": "Fiscal and manpower attrition drag",
+   "sign": "balancing",
+   "mechanism": "Defence spending near 8% of GDP plus open-ended reserve mobilisation degrades growth, drives net emigration of the reserve-serving cohort and squeezes civilian budgets \u2014 generating middle-class pressure to close fronts and eventually forcing either Haredi conscription or a smaller war footing.",
+   "strength_0_1": 0.45,
+   "timescale_years": 6
+  },
+  {
+   "name": "Legal-isolation ratchet",
+   "sign": "reinforcing",
+   "mechanism": "ICC warrants and ICJ proceedings trigger European licensing restrictions; Israel substitutes toward US supply and domestic production; reduced European leverage means less external restraint on operations; new operations generate further legal exposure, transmitting into the US relationship with a lag.",
+   "strength_0_1": 0.45,
+   "timescale_years": 6
+  },
+  {
+   "name": "Maritime risk-premium loop",
+   "sign": "reinforcing",
+   "mechanism": "Attacks on shipping raise war-risk premia and trigger naval escort and strike operations; those operations give the Houthis both a target set and a legitimising narrative, expanding the target list to Saudi and Gulf-linked tonnage; higher premia thin traffic further, making remaining transits easier to identify and hit.",
+   "strength_0_1": 0.5,
+   "timescale_years": 1
+  },
+  {
+   "name": "Iranian nuclear opacity trap",
+   "sign": "reinforcing",
+   "mechanism": "Strikes push the programme underground and expel inspectors; absent verification, Israeli intelligence must assume the worst; worst-case assumptions justify further strikes, which further reduce Iranian willingness to readmit inspectors. Verification loss, not enrichment level, becomes the escalation driver.",
+   "strength_0_1": 0.7,
+   "timescale_years": 3
+  }
+ ],
+ "structural_uncertainties": [
+  "Whether the June-2026 US-Iran MoU converts into a durable agreement with verified downblending, or lapses in mid-August 2026 into renewed campaigning. Almost every other node in this sub-domain is conditioned on this branch, and the two branches differ by a factor of two to three in most probabilities.",
+  "Whether the post-Khamenei system under Mojtaba consolidates, fragments, or authorises a weapons dash. Because the IAEA has zero access to all four declared enrichment sites and cannot locate the HEU stockpile, this is genuinely unobservable rather than merely uncertain \u2014 the register is estimating from intent signals, not material accounting.",
+  "Whether the 27 October 2026 Israeli election produces a government that can trade territory for Saudi normalisation, or one committed to de jure annexation and to overriding the courts. This single event flips the sign on annexation, constitutional crisis, Saudi normalisation and US arms-suspension probabilities simultaneously.",
+  "Whether the Board of Peace / ISF construct can acquire actual coercive capacity, or whether Gaza settles into an Israeli-policed enclave with a technocratic facade that cannot enter the territory it nominally governs. The 200-troop authorisation and the shrinking of reconstruction to one southern pilot are evidence for the second.",
+  "Whether Hezbollah's degradation is structural or merely cyclical. There is no reliable public inventory figure, and the difference between a spent movement accepting cantonment and a rebuilding one determines whether the June 2026 Trilateral Framework ends a 48-year pattern or becomes its next interlude.",
+  "Whether US strategic engagement persists past 2028. A retrenching Washington removes both the security guarantee that makes Israeli restraint affordable and the restraint that makes annexation and treaty rupture costly \u2014 the two effects push in opposite directions and their net sign is unknown.",
+  "Whether Turkey's hostility remains rhetorical and legal or acquires a military dimension in Syria and Lebanon, where Turkish-backed and Israeli forces now operate in overlapping space with only informal deconfliction and a departing UNIFIL.",
+  "Whether Egypt's Sinai militarisation is a bargaining posture inside the treaty framework or the start of a genuine security-dilemma dynamic on Israel's only quiet border."
+ ],
+ "coupling_edges": [
+  {
+   "source_id": "geopolitics_renewed_iran_strike_campaign",
+   "target_id": "israel_iran_direct_major_exchange_new_round",
+   "odds_multiplier": 12,
+   "lag_years": 0,
+   "mechanism": "A renewed US-led strike campaign on Iran is in practice the same event class; Israel participates and Iranian retaliation is directed at Israeli territory rather than only at US assets.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_iran_direct_major_exchange_new_round",
+   "target_id": "geopolitics_hormuz_major_closure",
+   "odds_multiplier": 4,
+   "lag_years": 0,
+   "mechanism": "Iran's only strategic escalation lever against a coalition it cannot match in the air is Hormuz; the 2026 pattern of tanker fire, mining and blockade shows the coupling is demonstrated rather than theoretical.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_iran_direct_major_exchange_new_round",
+   "target_id": "energy_oil_price_spike_120",
+   "odds_multiplier": 3.5,
+   "lag_years": 0,
+   "mechanism": "Direct exchange prices a Gulf supply-loss tail into crude within days; Brent moved from about $79 to $100-102 within ten days of the July 2026 escalation on risk premium alone.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_iran_direct_major_exchange_new_round",
+   "target_id": "economy_oil_120",
+   "odds_multiplier": 3,
+   "lag_years": 0,
+   "mechanism": "Same transmission as the price-spike node, via sustained rather than instantaneous pricing of Gulf supply risk and higher war-risk insurance on Gulf loadings.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "geopolitics_hormuz_major_closure",
+   "target_id": "israel_iran_direct_major_exchange_new_round",
+   "odds_multiplier": 5,
+   "lag_years": 0,
+   "mechanism": "Reverse direction: a Hormuz closure attempt guarantees a US-Israeli military response against Iranian territory, and Iran answers with salvos on Israel as the cheapest counter-value target.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "geopolitics_iran_nuclear_weapon",
+   "target_id": "israel_iran_direct_major_exchange_new_round",
+   "odds_multiplier": 6,
+   "lag_years": 1,
+   "mechanism": "Iranian weaponisation is the declared Israeli red line; detection triggers a preventive campaign, and a nuclear-armed Iran also raises conventional exchange frequency under a stability-instability dynamic.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "geopolitics_iran_nuclear_weapon",
+   "target_id": "israel_declares_nuclear_arsenal",
+   "odds_multiplier": 6,
+   "lag_years": 2,
+   "mechanism": "Opacity's main function is to avoid legitimising regional proliferation; once Iran is overtly nuclear that function is void and declared deterrence becomes more valuable than ambiguity.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "geopolitics_new_nuclear_weapons_state",
+   "target_id": "israel_declares_nuclear_arsenal",
+   "odds_multiplier": 4,
+   "lag_years": 3,
+   "mechanism": "A Saudi or Turkish arsenal (the most likely regional additions) collapses the NPT fiction Israeli opacity is built around and removes the US legal reason to sustain it.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_declares_nuclear_arsenal",
+   "target_id": "geopolitics_new_nuclear_weapons_state",
+   "odds_multiplier": 2.5,
+   "lag_years": 5,
+   "mechanism": "Reverse causation: an openly declared Israeli arsenal removes the diplomatic cover for Egyptian, Saudi and Turkish restraint and strengthens domestic proliferation coalitions in each.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "geopolitics_iran_regime_change",
+   "target_id": "israel_hezbollah_disarmament_completed",
+   "odds_multiplier": 4,
+   "lag_years": 2,
+   "mechanism": "Hezbollah's arsenal, salaries and reconstitution capacity are Iranian-funded; a successor Iranian government that abandons forward defence leaves the movement unable to resist LAF cantonment.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "geopolitics_iran_regime_change",
+   "target_id": "israel_saudi_normalization",
+   "odds_multiplier": 2.5,
+   "lag_years": 2,
+   "mechanism": "Removing the Iranian threat unblocks the US package and lowers the regional risk of signature, though it also reduces Riyadh's need for an Israeli security partner; net effect positive but weak.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "geopolitics_iran_regime_change",
+   "target_id": "israel_lebanon_full_peace_treaty",
+   "odds_multiplier": 3,
+   "lag_years": 3,
+   "mechanism": "Lebanese normalisation is blocked by an armed Hezbollah veto that is ultimately an Iranian asset; its removal is the precondition for Beirut converting the 2026 framework into a treaty.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_lebanon_major_war_round",
+   "target_id": "israel_iran_direct_major_exchange_new_round",
+   "odds_multiplier": 3,
+   "lag_years": 0,
+   "mechanism": "Demonstrated in March 2026: Hezbollah escalation triggered Israeli operations that fed directly into the Iran exchange, and Washington has explicitly threatened to strike Iran over Hezbollah's conduct.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_bab_el_mandeb_major_disruption",
+   "target_id": "energy_oil_price_spike_120",
+   "odds_multiplier": 1.8,
+   "lag_years": 0,
+   "mechanism": "Bab el-Mandeb carries roughly 9% of seaborne petroleum; a Houthi embargo on Saudi tonnage plus Saudi suspension of Red Sea loadings lengthens voyages and tightens the crude and products balance.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_bab_el_mandeb_major_disruption",
+   "target_id": "foodwater_ffpi_above_160",
+   "odds_multiplier": 1.6,
+   "lag_years": 1,
+   "mechanism": "Cape rerouting adds 10-14 days and materially raises freight and insurance on grain and edible-oil flows to East Africa, the Levant and South Asia, feeding the FAO index with a lag.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_gaza_major_hostilities_resumption",
+   "target_id": "israel_gaza_famine_redeclared",
+   "odds_multiplier": 8,
+   "lag_years": 0,
+   "mechanism": "Renewed major operations close crossings and displace population faster than the aid pipeline can adapt; this is the exact mechanism that produced the August 2025 Famine classification.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_gaza_major_hostilities_resumption",
+   "target_id": "israel_saudi_normalization",
+   "odds_multiplier": 0.25,
+   "lag_years": 1,
+   "mechanism": "Riyadh has conditioned normalisation on a credible Palestinian political horizon; a resumed offensive makes signature domestically impossible for its duration and for years afterwards.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_gaza_major_hostilities_resumption",
+   "target_id": "israel_us_major_arms_suspension",
+   "odds_multiplier": 3.5,
+   "lag_years": 1,
+   "mechanism": "Both prior US withholding episodes were triggered by munitions use in dense urban operations; a resumed offensive under a less supportive administration is the modal pathway to a 90-day suspension.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_gaza_major_hostilities_resumption",
+   "target_id": "israel_bab_el_mandeb_major_disruption",
+   "odds_multiplier": 2.5,
+   "lag_years": 0,
+   "mechanism": "The Houthis' stated casus belli for maritime attacks is Gaza; the 2023-25 campaign began within seven weeks of the ground offensive and paused when the ceasefire held.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_west_bank_dejure_annexation",
+   "target_id": "israel_saudi_normalization",
+   "odds_multiplier": 0.12,
+   "lag_years": 0,
+   "mechanism": "Formal annexation extinguishes the two-state framing the Saudi condition is written in, and would make accession a direct repudiation of the Arab Peace Initiative Riyadh authored.",
+   "confidence": "high"
+  },
+  {
+   "source_id": "israel_west_bank_dejure_annexation",
+   "target_id": "israel_egypt_or_jordan_treaty_rupture",
+   "odds_multiplier": 5,
+   "lag_years": 1,
+   "mechanism": "Amman has stated that annexation crosses a red line touching the Hashemite custodianship and Jordan's demographic future; Cairo links it to displacement into Sinai. It is the most likely treaty-rupture trigger.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_west_bank_dejure_annexation",
+   "target_id": "israel_west_bank_uprising_1000_deaths",
+   "odds_multiplier": 3.5,
+   "lag_years": 1,
+   "mechanism": "Annexation removes the PA's remaining raison d'\u00eatre and the last procedural horizon for statehood, the classic precondition for mass mobilisation rather than episodic violence.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_west_bank_dejure_annexation",
+   "target_id": "israel_us_major_arms_suspension",
+   "odds_multiplier": 2.5,
+   "lag_years": 2,
+   "mechanism": "Annexation is the scenario most likely to produce congressional conditionality legislation and executive withholding under a future US administration, given existing settler-sanctions precedent.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_west_bank_uprising_1000_deaths",
+   "target_id": "israel_pa_functional_collapse",
+   "odds_multiplier": 3,
+   "lag_years": 1,
+   "mechanism": "Mass uprising forces the PA to choose between suppressing its own constituency and losing Israeli security cooperation and clearance revenue; both branches end in loss of effective control.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_pa_functional_collapse",
+   "target_id": "israel_egypt_or_jordan_treaty_rupture",
+   "odds_multiplier": 2.5,
+   "lag_years": 2,
+   "mechanism": "PA collapse puts direct Israeli administration and westward refugee pressure on Jordan's doorstep, the scenario Amman has repeatedly identified as regime-threatening.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_pa_functional_collapse",
+   "target_id": "israel_intra_palestinian_armed_conflict",
+   "odds_multiplier": 4,
+   "lag_years": 0,
+   "mechanism": "Removing the PA's security apparatus and payroll leaves factions, clans and militias competing for the vacuum, the direct mechanism behind the 2007 precedent.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_saudi_normalization",
+   "target_id": "israel_syria_israel_security_agreement",
+   "odds_multiplier": 2.5,
+   "lag_years": 1,
+   "mechanism": "Saudi signature provides the Sunni political cover and reconstruction money that let Damascus sign with Israel without isolation, consolidating a US-brokered regional architecture.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "israel_saudi_normalization",
+   "target_id": "israel_lebanon_full_peace_treaty",
+   "odds_multiplier": 3,
+   "lag_years": 3,
+   "mechanism": "Beirut's stated position is that normalisation happens under the Arab Peace Initiative; Saudi accession redefines that framework and gives Lebanon's Sunni and Christian blocs cover to proceed.",
+   "confidence": "low"
+  },
+  {
+   "source_id": "israel_gaza_phase2_implemented",
+   "target_id": "israel_saudi_normalization",
+   "odds_multiplier": 3.5,
+   "lag_years": 2,
+   "mechanism": "A functioning ISF plus Hamas decommissioning plus Israeli drawdown is the concrete deliverable Riyadh can present domestically as a credible path, substituting for formal statehood recognition.",
+   "confidence": "medium"
+  },
+  {
+   "source_id": "economy_global_recession",
+   "target_id": "israel_gaza_reconstruction_10bn_disbursed",
+   "odds_multiplier": 0.6,
+   "lag_years": 1,
+   "mechanism": "Gulf reconstruction capacity is oil-revenue dependent and European and Japanese contributions are the first casualty of fiscal consolidation; donor disbursement rates fall sharply in global downturns.",
+   "confidence": "low"
+  }
+ ],
+ "sources": [
+  "https://en.wikipedia.org/wiki/2026_Iran_war",
+  "https://www.aljazeera.com/news/liveblog/2026/7/28/iran-war-live-trump-touts-friendly-talks-netanyahu-arrives-in-us",
+  "https://en.wikipedia.org/wiki/2026_United_States_naval_blockade_of_Iran",
+  "https://www.aljazeera.com/news/2026/7/15/us-resumes-iran-ports-blockade-as-gulf-attacks-continue-whats-the-latest",
+  "https://arabcenterdc.org/resource/memorandum-of-understanding-between-the-united-states-of-america-and-the-islamic-republic-of-iran/",
+  "https://www.cnn.com/2026/06/17/middleeast/us-iran-war-mou-text-intl",
+  "https://commonslibrary.parliament.uk/research-briefings/cbp-10637/",
+  "https://www.aljazeera.com/news/2026/3/8/iran-names-khameneis-son-as-new-supreme-leader-after-fathers-killing-2",
+  "https://isis-online.org/isis-reports/analysis-of-iaea-iran-verification-and-monitoring-and-npt-safeguards-reports-june-2026",
+  "https://www.iaea.org/sites/default/files/gov2026-8.pdf",
+  "https://www.armscontrol.org/act/2026-05/news/iran-threatens-withdraw-npt",
+  "https://www.timesofisrael.com/650-iranian-missiles-fired-24-killed-and-10800-israeli-strikes-the-war-in-numbers/",
+  "https://en.wikipedia.org/wiki/2026_Iranian_strikes_on_Israel",
+  "https://commonslibrary.parliament.uk/research-briefings/cbp-10492/",
+  "https://arabcenterdc.org/resource/hamas-dissolves-its-government-in-gaza-but-the-board-of-peace-remains-the-problem/",
+  "https://www.detroitnews.com/story/news/world/2026/07/27/trumps-board-peace-lowers-ambitions-peace-plan-lags/91062627007/",
+  "https://www.longwarjournal.org/archives/2026/07/israel-approves-entry-of-international-stabilization-force-into-gaza.php",
+  "https://press.un.org/en/2025/sc16225.doc.htm",
+  "https://acleddata.com/update/middle-east-overview-july-2026",
+  "https://www.gov.uk/government/publications/palestine-country-policy-and-information-notes/country-bulletin-security-situation-in-gaza-palestine-june-2026-accessible",
+  "https://www.pbs.org/newshour/world/gaza-death-toll-tops-69000-as-israel-and-hamas-exchange-more-remains",
+  "https://en.wikipedia.org/wiki/Gaza_Strip_famine",
+  "https://en.wikipedia.org/wiki/Timeline_of_the_2026_Lebanon_war",
+  "https://en.wikipedia.org/wiki/2026_Israel%E2%80%93Lebanon_ceasefire",
+  "https://www.state.gov/releases/office-of-the-spokesperson/2026/06/trilateral-framework-between-the-united-states-of-america-the-state-of-israel-and-the-republic-of-lebanon",
+  "https://www.washingtoninstitute.org/policy-analysis/14-points-14-points-assessing-israel-lebanon-framework-agreement",
+  "https://www.fdd.org/analysis/2026/07/13/the-israel-lebanon-framework-agreement-explained/",
+  "https://www.aljazeera.com/news/2026/1/8/lebanons-army-says-phase-one-of-hezbollah-disarmament-in-south-completed",
+  "https://www.aljazeera.com/news/2026/7/26/president-ahmed-al-sharaa-syria-seeking-security-deal-with-israel",
+  "https://news.un.org/en/story/2026/07/1168045",
+  "https://www.ohchr.org/en/press-releases/2026/03/israels-settlement-expansion-drives-mass-displacement-west-bank",
+  "https://www.aljazeera.com/news/2026/7/27/mapping-israeli-settler-violence-in-the-west-bank",
+  "https://www.middleeasteye.net/news/israel-passes-preliminary-bill-annex-occupied-west-bank",
+  "https://fmep.org/resource/settlement-annexation-report-february-13-2026/",
+  "https://www.haaretz.com/israel-news/elections/2026-07-12/ty-article/.premium/israels-2026-election-will-take-place-on-october-27-netanyahu-coalition-says/0000019f-56aa-d9b4-abdf-dfebadd60000",
+  "https://www.timesofisrael.com/coalition-passes-law-gutting-attorney-generals-powers-removing-key-check-on-government/",
+  "https://israelpolicyforum.org/judicial-legislation-tracker/",
+  "https://www.aljazeera.com/news/2026/5/16/how-ultra-orthodox_recruitment_could_unseat_netanyahu_in_israeli_elections",
+  "https://en.idi.org.il/articles/64481",
+  "https://www.ynetnews.com/business/article/rkqzvq4vfe",
+  "https://www.cnn.com/2026/07/23/politics/saudi-arabia-nuclear-deal-trump",
+  "https://www.israelhayom.com/2026/07/29/saudi-official-normalization-with-israel-remains-on-the-table/",
+  "https://www.state.gov/wp-content/uploads/2026/05/Report-A-Strategy-to-Expand-the-Historic-Abraham-Accords-007317-HRC1388700-Accessible-05-1.pdf",
+  "https://news.usni.org/2026/07/24/hormuz-transits-remain-low-houthis-resume-attacks-in-red-sea",
+  "https://www.cnbc.com/2026/07/25/saudi-military-strikes-iran-backed-houthi-targets-yemen.html",
+  "https://tradingeconomics.com/commodity/brent-crude-oil",
+  "https://www.icc-cpi.int/defendant/netanyahu",
+  "https://www.justsecurity.org/105064/arrest-warrants-state-reactions-icc/",
+  "https://www.fdd.org/analysis/2026/04/20/turkey-israel-tensions-deepen-amid-erdogans-confrontational-policy/",
+  "https://www.jpost.com/opinion/article-895290",
+  "https://www.memri.org/reports/egypts-badr-2026-military-exercise-show-force-and-deterrence-against-israel",
+  "https://www.hrw.org/world-report/2026/country-chapters/jordan",
+  "https://www.middleeasteye.net/news/mahmoud-abbas-issues-decree-successor-be-fatah-party",
+  "https://www.inss.org.il/publication/pa-reforms/",
+  "https://www.aljazeera.com/news/2026/5/14/palestinian-president-abbas-pledges-elections-reform-at-fatah-conference"
+ ]
+}

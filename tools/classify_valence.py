@@ -50,6 +50,13 @@ STABILISING = {
     "demographics_ukraine_refugee_return",
     # Food and water: the analysts flagged exactly one risk-off node
     "foodwater_hormuz_fertilizer_normalisation",
+    # Israel / Levant: de-escalation, normalisation and reconstruction
+    "israel_gaza_phase2_implemented",
+    "israel_gaza_reconstruction_10bn_disbursed",
+    "israel_lebanon_full_peace_treaty",
+    "israel_hezbollah_disarmament_completed",
+    "israel_syria_israel_security_agreement",
+    "israel_saudi_normalization",
 }
 
 # 0 : genuinely ambiguous. Contributes no signed stress, still simulated and
@@ -99,6 +106,11 @@ AMBIGUOUS = {
     # Datacentre demand growth collapsing relieves the grid and signals an AI
     # bust at the same time.
     "energy_ai_capex_retrenchment",
+    # A US arms suspension reads as restraint or as alliance rupture depending on
+    # who is describing it; an adverse ICJ merits ruling is accountability and
+    # disruption at once, handled the same way as the climate-damages judgment.
+    "israel_us_major_arms_suspension",
+    "israel_icj_genocide_adverse_merits_ruling",
 }
 
 # Substring rules for nodes the explicit lists miss — the research pipeline names
