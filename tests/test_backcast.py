@@ -114,6 +114,8 @@ def test_summed_index_is_not_comparable_across_register_sizes():
 
 
 def test_worst_active_is_invariant_to_splitting_a_node():
+    from worldsim.backcast import worst_active
+
     b = quarter_index("2030Q1")
     one = [HistoricalEvent("x", b, 9.0)]
     split = [HistoricalEvent("x-a", b, 9.0), HistoricalEvent("x-b", b, 9.0)]
