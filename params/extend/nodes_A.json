@@ -1,0 +1,773 @@
+[
+ {
+  "id": "geopolitics_ukraine_durable_ceasefire",
+  "name": "Durable Russia-Ukraine ceasefire (>=180 consecutive days)",
+  "criteria": "A ceasefire covering the entire land front between Russian and Ukrainian forces holds for at least 180 consecutive days without resumption of sustained offensive ground operations or systematic long-range strikes on cities, as assessed by ISW/OSCE-successor monitoring or equivalent consensus reporting. Short holiday truces (e.g. April/May 2026) do NOT count.",
+  "p_2027": 42,
+  "p_2031": 78,
+  "p_2036": 88,
+  "severity": 7,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_hormuz_major_closure",
+  "name": "Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026)",
+  "criteria": "Crude-plus-condensate transit through Hormuz, per EIA/Vortexa/Kpler monthly data, falls below 50% of the 2025 monthly average for at least 30 consecutive days, in an episode beginning on or after 1 August 2026.",
+  "p_2027": 58,
+  "p_2031": 70,
+  "p_2036": 76,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_dprk_nuclear_test",
+  "name": "North Korea conducts a seventh nuclear explosive test",
+  "criteria": "A nuclear explosive test on DPRK territory confirmed by CTBTO seismic/radionuclide detection or by US/ROK/Japanese government statement.",
+  "p_2027": 17,
+  "p_2031": 42,
+  "p_2036": 55,
+  "severity": 5,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_new_nuclear_weapons_state",
+  "name": "A state that does not now possess nuclear weapons tests a device or is confirmed to possess one",
+  "criteria": "Any state other than the US, Russia, UK, France, China, India, Pakistan, Israel and North Korea either (a) conducts a nuclear explosive test, (b) officially declares possession of an assembled nuclear weapon, or (c) is assessed by the IAEA or by the US intelligence community in a public statement to possess one.",
+  "p_2027": 6,
+  "p_2031": 21,
+  "p_2036": 36,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_iran_nuclear_weapon",
+  "name": "Iran tests or is confirmed to possess an assembled nuclear weapon",
+  "criteria": "Iran conducts a nuclear explosive test, publicly declares possession, or is publicly assessed by the IAEA or the US intelligence community to possess at least one assembled nuclear weapon.",
+  "p_2027": 5,
+  "p_2031": 15,
+  "p_2036": 23,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_china_taiwan_quarantine_or_blockade",
+  "name": "PRC imposes a declared and enforced quarantine or blockade of Taiwan lasting >=7 days",
+  "criteria": "PRC state organs (PLA, Coast Guard or maritime authorities) publicly declare a quarantine, inspection regime or blockade of Taiwan's ports/airspace AND enforce it by boarding, turning back or interdicting at least ten commercial vessels or aircraft, sustained for at least seven consecutive days.",
+  "p_2027": 5,
+  "p_2031": 14,
+  "p_2036": 22,
+  "severity": 9,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_china_taiwan_invasion",
+  "name": "PRC launches an amphibious or airborne assault on Taiwan's main island",
+  "criteria": "PLA forces conduct an opposed landing or airborne insertion on Taiwan proper (not offshore islands) involving at least 1,000 personnel, confirmed by Taiwan MND or US government statement.",
+  "p_2027": 1.5,
+  "p_2031": 6,
+  "p_2036": 13,
+  "severity": 10,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_nato_article5_invoked",
+  "name": "NATO invokes Article 5 in response to a Russian attack",
+  "criteria": "The North Atlantic Council formally invokes Article 5 of the Washington Treaty citing an armed attack attributable to Russia or Belarus.",
+  "p_2027": 3,
+  "p_2031": 9,
+  "p_2036": 14,
+  "severity": 10,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_us_china_lethal_clash",
+  "name": "Direct US-PRC military exchange causing at least one fatality",
+  "criteria": "An exchange of fire (kinetic, including missile, air, naval or ground fire) between US and PLA/PAP/China Coast Guard forces resulting in at least one death on either side, acknowledged by either government or confirmed by credible multi-source reporting.",
+  "p_2027": 3,
+  "p_2031": 11,
+  "p_2036": 19,
+  "severity": 9,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_china_japan_lethal_clash",
+  "name": "Lethal armed clash between Chinese and Japanese state forces",
+  "criteria": "An exchange of fire or deliberate ramming between PLA/CCG and JSDF/JCG units resulting in at least one death, confirmed by either government.",
+  "p_2027": 3,
+  "p_2031": 10,
+  "p_2036": 17,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_india_pakistan_major_conflict",
+  "name": "India-Pakistan fighting causing >=1,000 combined battle deaths in 12 months",
+  "criteria": "Direct state-on-state armed conflict between Indian and Pakistani forces producing at least 1,000 combined military and civilian deaths within any rolling 12-month period, per UCDP or ACLED coding.",
+  "p_2027": 6,
+  "p_2031": 17,
+  "p_2036": 27,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_nuclear_use_in_anger",
+  "name": "A nuclear weapon is detonated in an act of war or hostility anywhere in the world",
+  "criteria": "A nuclear explosive device is detonated with hostile intent against a state, non-state actor or territory (excluding tests, accidents and demonstration detonations over unpopulated own territory), confirmed by the detonating state or by CTBTO/national technical means.",
+  "p_2027": 1,
+  "p_2031": 3.5,
+  "p_2036": 6,
+  "severity": 10,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_us_russia_strategic_arms_deal",
+  "name": "New US-Russia agreement capping deployed strategic nuclear warheads",
+  "criteria": "The US and Russia sign a bilateral agreement (treaty, executive agreement, or formal reciprocal political commitment announced by both heads of state) that establishes a numerical ceiling on deployed strategic nuclear warheads or delivery vehicles.",
+  "p_2027": 11,
+  "p_2031": 30,
+  "p_2036": 43,
+  "severity": 6,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_grid_cyberattack_nato",
+  "name": "State-attributed cyberattack causing >=24h electricity loss to >=1 million people in a NATO or OECD country",
+  "criteria": "A cyberattack publicly attributed by the victim government or by the EU/NATO to a state or state-sponsored actor causes loss of electrical supply to at least one million people for at least 24 consecutive hours in a NATO or OECD member state.",
+  "p_2027": 6,
+  "p_2031": 20,
+  "p_2036": 33,
+  "severity": 7,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_iran_regime_change",
+  "name": "The Islamic Republic ceases to govern Iran",
+  "criteria": "The office of Supreme Leader (Velayat-e Faqih) is abolished, vacated without a successor for more than 90 days, or a government not derived from the clerical/IRGC establishment exercises effective control of Tehran; as assessed by consensus of major-power governments.",
+  "p_2027": 11,
+  "p_2031": 26,
+  "p_2036": 36,
+  "severity": 8,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_sahel_capital_falls",
+  "name": "A jihadist insurgent group controls a Sahelian national capital for >=7 days",
+  "criteria": "JNIM, ISSP/ISWAP or a successor jihadist organisation exercises effective control of Bamako, Ouagadougou or Niamey (including the presidential palace and central districts) for at least seven consecutive days, per ACLED coding or UN/Security Council reporting.",
+  "p_2027": 7,
+  "p_2031": 18,
+  "p_2036": 25,
+  "severity": 5,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_us_nato_withdrawal",
+  "name": "US initiates withdrawal from NATO, or any member formally invokes Article 13",
+  "criteria": "The US President formally notifies the depositary of intent to withdraw under Article 13 of the North Atlantic Treaty, or any other member state does so.",
+  "p_2027": 2,
+  "p_2031": 5,
+  "p_2036": 8,
+  "severity": 9,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_unsc_permanent_expansion",
+  "name": "UN Security Council permanent membership formally expanded",
+  "criteria": "An amendment to the UN Charter expanding the number of permanent Security Council members enters into force following ratification by two-thirds of member states including all five current permanent members.",
+  "p_2027": 0.5,
+  "p_2031": 2.5,
+  "p_2036": 6,
+  "severity": 3,
+  "domain": "geopolitics"
+ },
+ {
+  "id": "geopolitics_p5_nuclear_explosive_test",
+  "name": "A recognised nuclear-weapon state (US, Russia or China) conducts a nuclear explosive test",
+  "criteria": "The United States, Russia or China conducts a supercritical nuclear explosive test (yield above zero, excluding subcritical and hydrodynamic experiments), confirmed by the testing state or by CTBTO/national technical means.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_iran_npt_withdrawal",
+  "name": "Iran formally withdraws from the Nuclear Non-Proliferation Treaty",
+  "criteria": "Iran deposits formal notice of withdrawal under NPT Article X with the depositary governments and the UN Security Council, or that withdrawal takes effect.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_us_second_regime_decapitation",
+  "name": "A second US kinetic operation to remove or kill a sitting foreign head of state or government",
+  "criteria": "US forces, after 1 August 2026, conduct a military operation that captures, kills, or directly precipitates within 30 days the removal from power of the sitting head of state or government of a UN member state, excluding the January 2026 Venezuela and February 2026 Iran operations.",
+  "p_2027": null,
+  "p_2031": 40,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_prc_philippines_lethal_incident",
+  "name": "PRC forces cause the death of a Philippine serviceman or coast guardsman",
+  "criteria": "An action by PLA, PLAN, China Coast Guard or maritime-militia units (including ramming, water cannon, boarding or fire) directly causes at least one death among Philippine armed forces, coast guard or government-chartered personnel, confirmed by the Philippine government.",
+  "p_2027": null,
+  "p_2031": 38,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_taiwan_offshore_island_seizure",
+  "name": "PRC seizes or occupies a Taiwan-administered offshore island",
+  "criteria": "PLA, PAP or China Coast Guard forces land on and establish administrative or military control over Pratas (Dongsha), Taiping (Itu Aba), Kinmen, Matsu or Wuqiu, maintained for at least 72 consecutive hours, confirmed by Taiwan MND or US government statement.",
+  "p_2027": null,
+  "p_2031": 13,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_putin_exit",
+  "name": "Vladimir Putin ceases to hold effective power in Russia",
+  "criteria": "Putin ceases to serve as President of the Russian Federation, or is assessed by consensus of major-power governments no longer to exercise effective control over Russian state decision-making, for any reason including death, incapacity, resignation or removal.",
+  "p_2027": null,
+  "p_2031": 32,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_renewed_iran_strike_campaign",
+  "name": "Renewed major US and/or Israeli air campaign against Iran",
+  "criteria": "At least 100 US and/or Israeli strikes on targets inside Iran within any 30-day window beginning on or after 1 August 2026, per credible multi-source reporting or US/Israeli government statement.",
+  "p_2027": null,
+  "p_2031": 55,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "geopolitics_dprk_rok_lethal_exchange",
+  "name": "Lethal DPRK-ROK military exchange",
+  "criteria": "An exchange of fire or attack between DPRK and ROK forces causing at least five combined military or civilian deaths, confirmed by either government or by the UN Command.",
+  "p_2027": null,
+  "p_2031": 30,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "geopolitics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_capex_guide_down",
+  "name": "A top-4 US hyperscaler guides annual capex down year-over-year",
+  "criteria": "Microsoft, Alphabet, Amazon, or Meta states in an official earnings release or call that its expected full-fiscal-year capital expenditures will be LOWER than the prior fiscal year's actual capex.",
+  "p_2027": 16,
+  "p_2031": 62,
+  "p_2036": 80,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_nvidia_50pct_drawdown",
+  "name": "Nvidia suffers a \u226550% peak-to-trough drawdown",
+  "criteria": "Nvidia's split-adjusted closing share price falls at least 50% below its all-time closing high, at any point in the window.",
+  "p_2027": 28,
+  "p_2031": 55,
+  "p_2036": 68,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_metr_month_horizon",
+  "name": "Frontier agent reaches a 1-work-month 50%-reliability task horizon",
+  "criteria": "METR (or a successor methodology it endorses) publishes a 50%-reliability time horizon of \u2265167 hours of human-expert task time for a publicly deployed or externally evaluated frontier model.",
+  "p_2027": 14,
+  "p_2031": 55,
+  "p_2036": 74,
+  "severity": 9,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_mega_layoff_attributed",
+  "name": "A Fortune 500 firm announces \u226510,000 job cuts explicitly attributed primarily to AI",
+  "criteria": "A Fortune 500 (US) or Fortune Global 500 company announces a workforce reduction of \u226510,000 positions in a single announcement, and its official communications name AI/automation as the primary stated cause (not merely one factor among several).",
+  "p_2027": 34,
+  "p_2031": 72,
+  "p_2036": 84,
+  "severity": 5,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_unemployment_6pct",
+  "name": "US unemployment rate \u22656.0% for three consecutive months",
+  "criteria": "BLS headline U-3 seasonally adjusted unemployment rate is at or above 6.0% in three consecutive monthly releases.",
+  "p_2027": 20,
+  "p_2031": 56,
+  "p_2036": 74,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_china_leaderboard_top",
+  "name": "A Chinese-developed model holds #1 on a major independent aggregate leaderboard for \u22651 month",
+  "criteria": "A model developed by a China-headquartered organization holds the top overall rank on Artificial Analysis's Intelligence Index or LMArena's overall text leaderboard continuously for at least 30 days.",
+  "p_2027": 20,
+  "p_2031": 46,
+  "p_2036": 58,
+  "severity": 5,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_china_domestic_euv",
+  "name": "China demonstrates a domestically built EUV lithography tool patterning wafers in a production fab",
+  "criteria": "Credible public confirmation (company announcement, government statement, or two independent major-outlet reports) that a China-built EUV scanner is exposing wafers in a commercial production fab, not merely a lab or prototype.",
+  "p_2027": 8,
+  "p_2031": 42,
+  "p_2036": 66,
+  "severity": 7,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_export_controls_relaxed",
+  "name": "US licenses its current-flagship datacenter GPU for general commercial sale to China",
+  "criteria": "BIS policy permits general (not narrowly case-by-case) export to Chinese commercial customers of Nvidia's then-current top-of-line datacenter accelerator, within one product generation of the US-available flagship.",
+  "p_2027": 22,
+  "p_2031": 42,
+  "p_2036": 52,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_major_cyber_incident",
+  "name": "AI-orchestrated cyberattack causes \u2265$1B damage or a national-scale critical-infrastructure disruption",
+  "criteria": "A government agency, CERT, or the victim organization publicly confirms an attack in which AI agents autonomously executed the majority of intrusion steps, AND documented direct losses exceed $1B (2026 USD) or the attack disrupted power, water, telecom, or payments service for >1 million people for >6 hours.",
+  "p_2027": 18,
+  "p_2031": 48,
+  "p_2036": 66,
+  "severity": 7,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_bio_mass_casualty",
+  "name": "AI-assisted biological attack causing \u226510 deaths, officially confirmed",
+  "criteria": "A national government, WHO, or equivalent official body confirms a deliberate biological release causing \u226510 human deaths, and officially states that AI tools materially assisted the design, synthesis planning, or acquisition of the agent.",
+  "p_2027": 1.2,
+  "p_2031": 4,
+  "p_2036": 9,
+  "severity": 9,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_federal_preemption_enacted",
+  "name": "US Congress enacts broad federal preemption of state AI laws",
+  "criteria": "A bill preempting state AI regulation across a broad category (beyond a single narrow domain like deepfakes) is signed into law by the President.",
+  "p_2027": 20,
+  "p_2031": 42,
+  "p_2036": 54,
+  "severity": 5,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_us_china_binding_agreement",
+  "name": "Binding US-China agreement on frontier AI compute or model thresholds",
+  "criteria": "The US and China both sign a treaty, executive agreement, or equivalent binding instrument containing specific, verifiable commitments on frontier AI training compute limits, model capability thresholds, or mutual inspection.",
+  "p_2027": 1.5,
+  "p_2031": 8,
+  "p_2036": 16,
+  "severity": 4,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_top_lab_fails",
+  "name": "A top-5 Western frontier lab exits frontier training",
+  "criteria": "One of OpenAI, Anthropic, Google DeepMind, xAI, or Meta Superintelligence Labs is acquired, dissolved, files for bankruptcy protection, or publicly announces it will stop pretraining frontier-scale models.",
+  "p_2027": 11,
+  "p_2031": 38,
+  "p_2036": 54,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_state_datacenter_moratorium",
+  "name": "A US state enacts a statutory moratorium or hard cap on new large datacenter interconnections",
+  "criteria": "A US state enacts into law (governor's signature or veto override) a moratorium, ban, or binding numerical cap on new datacenter grid interconnections above a stated size threshold, applying statewide.",
+  "p_2027": 28,
+  "p_2031": 58,
+  "p_2036": 66,
+  "severity": 4,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_rsa2048_broken",
+  "name": "A quantum computer publicly factors an RSA-2048 modulus",
+  "criteria": "A verifiable public demonstration in which a quantum computer factors a 2048-bit RSA modulus, with the factorization independently confirmed and the computation not reducible to classical pre-processing or special-structure moduli.",
+  "p_2027": 0.3,
+  "p_2031": 2.5,
+  "p_2036": 11,
+  "severity": 8,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_robotaxi_5m_weekly",
+  "name": "US driverless robotaxi services exceed 5 million paid rides per week",
+  "criteria": "Publicly reported paid rides in fully driverless (no human safety operator in vehicle) commercial services in the US total \u22655,000,000 in a single week, summed across all operators.",
+  "p_2027": 10,
+  "p_2031": 60,
+  "p_2036": 80,
+  "severity": 4,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_ai_theorem_top_journal",
+  "name": "A top mathematics journal publishes a paper whose central theorem was found primarily by AI",
+  "criteria": "A paper appears in Annals of Mathematics, JAMS, Inventiones, Acta Mathematica, or Duke Mathematical Journal in which the authors explicitly state that the principal new theorem was discovered or proved primarily by an AI system rather than by the human authors.",
+  "p_2027": 22,
+  "p_2031": 60,
+  "p_2036": 75,
+  "severity": 3,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_1e28_flop_run",
+  "name": "A single training run of \u22651e28 FLOP is publicly reported",
+  "criteria": "Epoch AI, a lab's own technical report, or two independent credible technical analyses attribute \u22651e28 FLOP of training compute to a single model training run.",
+  "p_2027": 13,
+  "p_2031": 58,
+  "p_2036": 74,
+  "severity": 6,
+  "domain": "ai"
+ },
+ {
+  "id": "ai_taiwan_supply_shock",
+  "name": "Taiwan Strait event materially disrupts advanced-node or CoWoS output",
+  "criteria": "TSMC publicly suspends or reduces N3/N2 or CoWoS output for >=30 consecutive days, or advanced-node/HBM/CoWoS exports from Taiwan fall >=25% month-over-month, as a direct result of military action, blockade, quarantine, or interdiction by the PRC.",
+  "p_2027": null,
+  "p_2031": 9,
+  "p_2036": null,
+  "severity": 10,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_datacenter_credit_event",
+  "name": "Major AI-infrastructure credit event: default or distressed restructuring of >=$5B of datacenter/neocloud debt",
+  "criteria": "A company or SPV whose primary business is AI/datacenter compute defaults on, or completes a distressed exchange of, >=$5B (2026 USD) of debt or lease obligations; or a rating agency downgrades >=$5B of AI-datacenter-backed debt to below investment grade.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_copyright_liability_shock",
+  "name": "Court judgment or settlement >=$5B against a frontier lab over training data, or an injunction restricting training on copyrighted corpora",
+  "criteria": "A US or EU court enters final judgment, or a lab announces a settlement, of >=$5B (2026 USD) arising from training-data copyright/IP claims; OR a court issues an injunction (not stayed within 90 days) barring a frontier lab from training on a major copyrighted corpus.",
+  "p_2027": null,
+  "p_2031": 30,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_capability_plateau",
+  "name": "Frontier capability plateau: 24 months with no material aggregate benchmark advance",
+  "criteria": "The top score on Artificial Analysis's Intelligence Index (or an endorsed successor composite) increases by less than 5 index points over any 24-consecutive-month period beginning after 2027-01-01.",
+  "p_2027": null,
+  "p_2031": 25,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_weights_exfiltration_confirmed",
+  "name": "Confirmed theft or leak of frontier model weights",
+  "criteria": "A frontier lab, a government agency, or two independent major outlets confirm that the full weights of a model within one generation of a Western frontier release were exfiltrated by an unauthorized party or publicly leaked.",
+  "p_2027": null,
+  "p_2031": 22,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_federal_predeployment_regime",
+  "name": "US enacts binding federal pre-deployment evaluation or licensing requirements for frontier models",
+  "criteria": "Federal legislation or a binding rule with statutory authority is enacted requiring pre-deployment safety evaluation, reporting, or licensing for models above a compute or capability threshold, applicable to private-sector deployment (not merely federal procurement).",
+  "p_2027": null,
+  "p_2031": 24,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "ai_power_reliability_event",
+  "name": "Grid emergency or load-shed event officially attributed in part to datacenter demand",
+  "criteria": "A US RTO/ISO, NERC, or a state utility commission issues an official finding that a load-shed event, EEA-2/EEA-3 emergency, or rolling blackout affecting >100,000 customers was caused in part by datacenter load growth.",
+  "p_2027": null,
+  "p_2031": 38,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "ai",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_us_insurrection_act_invoked",
+  "name": "US President formally invokes the Insurrection Act over a state's objection",
+  "criteria": "A presidential proclamation expressly invoking 10 U.S.C. sections 251-255 (the Insurrection Act) to deploy federal troops or federalized National Guard for domestic law enforcement inside a US state whose governor has publicly objected, confirmed by the Federal Register and major wire services.",
+  "p_2027": 30,
+  "p_2031": 42,
+  "p_2036": 48,
+  "severity": 6,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_open_defiance_supreme_court",
+  "name": "US executive branch openly defies a final Supreme Court order",
+  "criteria": "The executive branch publicly and knowingly fails to comply with a final, non-stayed order of the US Supreme Court for more than 30 days, and this non-compliance is (a) asserted in a filing or opinion by the Court or a lower court on remand, or (b) reported as such by at least three of AP/Reuters/NYT/WSJ/WaPo. Slow-walking with a colorable legal argument does not count.",
+  "p_2027": 12,
+  "p_2031": 20,
+  "p_2036": 24,
+  "severity": 9,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_dem_control_a_chamber_2027",
+  "name": "Democrats control at least one chamber of Congress from January 2027",
+  "criteria": "Following the 3 November 2026 elections, Democrats (including caucusing independents) hold a majority of seats in the US House and/or Senate when the new Congress convenes on 3 January 2027.",
+  "p_2027": 88,
+  "p_2031": 90,
+  "p_2036": 92,
+  "severity": 5,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_federal_official_assassinated",
+  "name": "Successful assassination of a sitting US President, VP, member of Congress, cabinet secretary or Supreme Court justice",
+  "criteria": "A sitting US president, vice president, member of the House or Senate, Senate-confirmed cabinet secretary, or Supreme Court justice is killed in an attack determined by federal law enforcement to be politically, ideologically or personally-grievance motivated. Natural death, accident and ordinary criminal robbery excluded.",
+  "p_2027": 5,
+  "p_2031": 12,
+  "p_2036": 19,
+  "severity": 7,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_armed_federal_state_confrontation",
+  "name": "Armed confrontation between US state-controlled forces and federal forces",
+  "criteria": "A US governor issues an order directing state law enforcement or state-controlled National Guard to physically block or detain federal agents/troops, AND an armed confrontation occurs producing at least one death or at least one state officer detaining a federal officer (or vice versa) at gunpoint. Litigation, non-cooperation policies and protest-line scuffles do not count.",
+  "p_2027": 7,
+  "p_2031": 13,
+  "p_2036": 16,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_trump_third_term_bid",
+  "name": "Trump formally pursues a third presidential term",
+  "criteria": "Donald Trump files FEC paperwork as a candidate for president in 2028, is placed on a primary ballot in any state as a presidential candidate, or is formally nominated as the Republican presidential or vice-presidential candidate for 2028.",
+  "p_2027": 5,
+  "p_2031": 10,
+  "p_2036": 10,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_rn_holds_french_presidency",
+  "name": "National Rally (or RN-aligned candidate) wins the French presidency",
+  "criteria": "A candidate endorsed by, or a member of, Rassemblement National (or its formal successor) is elected President of France in the 2027 or 2032 presidential election and inaugurated.",
+  "p_2027": 45,
+  "p_2031": 45,
+  "p_2036": 62,
+  "severity": 7,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_afd_enters_government",
+  "name": "AfD enters government at German federal or Land level",
+  "criteria": "The AfD holds at least one ministerial post in a German federal or state (Land) government, or formally signs a written toleration/confidence-and-supply agreement supporting such a government. Issue-by-issue parliamentary cooperation does not count.",
+  "p_2027": 16,
+  "p_2031": 48,
+  "p_2036": 65,
+  "severity": 7,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_eu_exit_process_initiated",
+  "name": "An EU member state initiates exit from the EU",
+  "criteria": "An EU member state's government formally notifies the European Council under Article 50 TEU, or a nationally binding referendum on EU membership is held in a member state.",
+  "p_2027": 2,
+  "p_2031": 6,
+  "p_2036": 11,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_coup_cluster_year",
+  "name": "A calendar year with three or more successful coups d'etat worldwide",
+  "criteria": "In any single calendar year from 2026 onward, at least three successful coups d'etat occur globally, where 'successful' means the coup leadership holds effective power for at least seven days, per Powell-Thyne / Cline Center coding.",
+  "p_2027": 52,
+  "p_2031": 80,
+  "p_2036": 89,
+  "severity": 5,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_established_democracy_downgraded",
+  "name": "A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem",
+  "criteria": "In any V-Dem annual Democracy Report from 2027 through 2037, a NATO or EU member state that was coded as a liberal or electoral democracy in the 2026 report is coded as an electoral autocracy or closed autocracy. Turkey's and Hungary's pre-2026 coding do not qualify.",
+  "p_2027": 22,
+  "p_2031": 42,
+  "p_2036": 52,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_russia_leadership_change",
+  "name": "Vladimir Putin ceases to be Russia's paramount leader",
+  "criteria": "Putin is no longer president of Russia (or, if the office is restructured, no longer the recognized paramount decision-maker) for a continuous period exceeding 60 days, through death, incapacity, resignation, removal or coup.",
+  "p_2027": 5,
+  "p_2031": 19,
+  "p_2036": 39,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_xi_departure",
+  "name": "Xi Jinping ceases to be CCP General Secretary",
+  "criteria": "Xi Jinping is no longer General Secretary of the Chinese Communist Party for a continuous period exceeding 60 days, for any reason.",
+  "p_2027": 4,
+  "p_2031": 15,
+  "p_2036": 33,
+  "severity": 9,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_iran_islamic_republic_ends",
+  "name": "The Islamic Republic of Iran ceases to exist as a governing system",
+  "criteria": "A government controls Tehran that does not derive its authority from velayat-e faqih - the office of Supreme Leader is abolished, left vacant for more than 12 months with no successor, or subordinated to a non-clerical executive - sustained for at least 90 days.",
+  "p_2027": 14,
+  "p_2031": 27,
+  "p_2036": 37,
+  "severity": 9,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_strike_inside_mexico",
+  "name": "Overt US military strike inside Mexican territory without Mexican consent",
+  "criteria": "The US government publicly acknowledges, or three major wire services confirm, a US military kinetic strike (manned aircraft, drone, missile or ground raid) on a target inside Mexican sovereign territory that the Mexican federal government publicly states it did not consent to.",
+  "p_2027": 33,
+  "p_2031": 44,
+  "p_2036": 49,
+  "severity": 7,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_large_country_civil_war_onset",
+  "name": "Civil war onset in a country of 50 million or more that was at peace in mid-2026",
+  "criteria": "A country with population of at least 50 million, not experiencing an armed conflict with at least 1,000 battle-related deaths in 2025, records at least 1,000 battle-related deaths in a single calendar year in an internal armed conflict, per UCDP/PRIO coding.",
+  "p_2027": 42,
+  "p_2031": 75,
+  "p_2036": 87,
+  "severity": 8,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_reform_uk_leads_government",
+  "name": "Reform UK leads a UK government",
+  "criteria": "A Reform UK MP is appointed Prime Minister of the United Kingdom.",
+  "p_2027": 3,
+  "p_2031": 28,
+  "p_2036": 35,
+  "severity": 6,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_mass_casualty_political_attack",
+  "name": "Single US political-violence attack killing ten or more people",
+  "criteria": "A single attack on US soil kills at least 10 people (excluding perpetrators) and is officially determined by federal law enforcement, or coded by START/GTD, as politically, religiously, racially or ideologically motivated. Ordinary criminal and non-ideological mass shootings excluded.",
+  "p_2027": 27,
+  "p_2031": 60,
+  "p_2036": 76,
+  "severity": 6,
+  "domain": "politics"
+ },
+ {
+  "id": "politics_us_2028_electoral_certification_crisis",
+  "name": "Contested certification of the 2028 US presidential election",
+  "criteria": "Following the 7 November 2028 election, at least one state transmits competing slates of presidential electors to Congress, OR a state fails to certify by the Electoral Count Reform Act's safe-harbour deadline and the dispute reaches Congress or the Supreme Court, OR the joint session on 6 January 2029 sustains an objection to a state's electors.",
+  "p_2027": null,
+  "p_2031": 14,
+  "p_2036": null,
+  "severity": 9,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_india_regime_or_communal_rupture",
+  "name": "Major democratic rupture or mass communal violence in India",
+  "criteria": "By end-2031, either (a) V-Dem downgrades India from electoral autocracy to closed autocracy, or (b) India records at least 1,000 deaths in communal, sectarian or state-repression political violence in a single calendar year per ACLED or UCDP coding, or (c) a national election is postponed beyond its constitutional deadline or its result is not accepted by the losing coalition.",
+  "p_2027": null,
+  "p_2031": 17,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_nigeria_2027_election_breakdown",
+  "name": "Nigerian 2027 general election breakdown",
+  "criteria": "The February 2027 Nigerian general election produces at least 500 election-related deaths within 90 days of polling per ACLED, OR the presidential result is annulled or the transfer of power prevented or delayed beyond the 29 May 2027 inauguration date, OR the military intervenes in the transfer of power.",
+  "p_2027": null,
+  "p_2031": 22,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_saudi_succession",
+  "name": "Saudi succession from King Salman",
+  "criteria": "King Salman bin Abdulaziz (b. December 1935) ceases to be King of Saudi Arabia through death, incapacity or abdication, and a successor is proclaimed, by end-2031.",
+  "p_2027": null,
+  "p_2031": 80,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_democratic_recovery_inflection",
+  "name": "Global autocratization wave inflects",
+  "criteria": "In any V-Dem Democracy Report from 2028 through 2032, either the count of countries coded as currently autocratizing falls below 35, OR the number of democratizing countries exceeds the number autocratizing; alternatively, any Freedom in the World edition through 2032 records more countries improving than declining.",
+  "p_2027": null,
+  "p_2031": 30,
+  "p_2036": null,
+  "severity": 2,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "politics_us_politicized_conviction_of_major_figure",
+  "name": "Criminal conviction of a major US opposition figure in a prosecution widely coded as politically motivated",
+  "criteria": "By end-2031, a sitting or former US governor, senator, House member in leadership, cabinet secretary, presidential nominee, or FBI/CIA director is convicted at trial in a federal prosecution that at least three of AP/Reuters/NYT/WSJ/WaPo characterize as politically motivated or retaliatory, or that Protect Democracy's Retaliatory Action Tracker records as such.",
+  "p_2027": null,
+  "p_2031": 26,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "politics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ }
+]

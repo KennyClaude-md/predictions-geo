@@ -19,7 +19,7 @@ import math
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 
-from .timeline import YEARS_PER_QUARTER
+from .timeline import YEARS_PER_QUARTER, active
 
 # Epistemic spread on each risk's baseline log-odds, by the analyst's own stated
 # confidence. These are wide on purpose: stated confidence is itself overconfident.
@@ -58,6 +58,20 @@ class Risk:
     # ceasefire and a nuclear detonation can both score 7. Without a sign the
     # stress index counts good news as stress.
     valence: float = 1.0
+    # Long-horizon anchors. None means "not elicited" — anchor_values() will
+    # extrapolate and say that it did, so a run can report how much of its 30-year
+    # tail rests on elicitation versus on arithmetic.
+    p2046: float | None = None
+    p2056: float | None = None
+    # Can this happen more than once in the window? A recession can; AMOC crossing
+    # a tipping point cannot. Only matters at long horizons, where treating a
+    # recurring event as fire-once loses most of its occurrences.
+    recurrent: bool = False
+    expected_per_decade: float = 0.0
+    # False when the criterion is locked to a near-term context — "the 2026-27
+    # El Nino", "Census 2027", a named living official leaving office — and so
+    # cannot resolve late in a long window.
+    horizon_coherent: bool = True
 
     @property
     def sigma(self) -> float:
@@ -66,6 +80,62 @@ class Risk:
     @property
     def signed_severity(self) -> float:
         return self.severity * self.valence
+
+    def max_quarter(self) -> int | None:
+        """Last quarter this node can still fire, or None for no cap.
+
+        A horizon-incoherent node is capped at the 2036 anchor: that is the last
+        point at which its criterion was written to be resolvable.
+        """
+        if self.horizon_coherent:
+            return None
+        return active().anchors.get("p_by_2036_pct")
+
+    def anchor_values(self) -> tuple[tuple[float, ...], bool]:
+        """Anchor probabilities for the active horizon, and whether any were made up.
+
+        Missing long-horizon anchors are extended by continuing the last observed
+        segment's hazard. That is the maximum-entropy completion, but it is
+        arithmetic rather than judgement, so the flag travels with it.
+        """
+        h = active()
+        have = {
+            "p_by_2027_pct": self.p2027,
+            "p_by_2031_pct": self.p2031,
+            "p_by_2036_pct": self.p2036,
+            "p_by_2046_pct": self.p2046,
+            "p_by_2056_pct": self.p2056,
+        }
+        fields = h.anchor_fields
+        quarters = [h.anchors[f] for f in fields]
+
+        vals: list[float] = []
+        extrapolated = False
+        for i, f in enumerate(fields):
+            v = have.get(f)
+            if v is not None:
+                vals.append(float(v))
+                continue
+            extrapolated = True
+            if not vals:
+                vals.append(1.0)
+                continue
+            # Continue the previous segment's per-quarter hazard forward.
+            prev_q = quarters[i - 1]
+            prev_s = max(1.0 - vals[-1] / 100.0, 1e-6)
+            if i >= 2:
+                base_q = quarters[i - 2]
+                base_s = max(1.0 - vals[-2] / 100.0, 1e-6)
+                seg = max(prev_q - base_q, 1)
+                per_q = (prev_s / base_s) ** (1.0 / seg)
+            else:
+                per_q = prev_s ** (1.0 / max(prev_q, 1))
+            surv = prev_s * per_q ** (quarters[i] - prev_q)
+            vals.append(min((1.0 - surv) * 100.0, 97.0))
+
+        # Monotone by construction after isotonic repair downstream, but clamp
+        # here so an elicited sequence that dips does not fight the extrapolation.
+        return tuple(vals), extrapolated
 
 
 @dataclass
@@ -142,6 +212,17 @@ class WorldModel:
 # --------------------------------------------------------------------------
 
 
+def _opt(x) -> float | None:
+    """Numeric or None — None means the anchor was never elicited."""
+    if x is None:
+        return None
+    try:
+        v = float(x)
+        return v if math.isfinite(v) else None
+    except (TypeError, ValueError):
+        return None
+
+
 def _num(x, default=0.0) -> float:
     try:
         v = float(x)
@@ -197,6 +278,11 @@ def load_base_model(
                 base_rate_anchor=str(r.get("base_rate_anchor", "")),
                 contrarian_case=str(r.get("contrarian_case", "")),
                 valence=valence.get(rid, 1.0),
+                p2046=_opt(r.get("p_by_2046_pct")),
+                p2056=_opt(r.get("p_by_2056_pct")),
+                recurrent=bool(r.get("recurrent", False)),
+                expected_per_decade=_num(r.get("expected_per_decade")),
+                horizon_coherent=bool(r.get("horizon_coherent", True)),
             )
         for c in research.get("continuous_variables", []) or []:
             cid = str(c.get("id", "")).strip()
@@ -343,6 +429,11 @@ def augment_register(model: WorldModel, raw: dict, valence: dict[str, float]) ->
                 reasoning=str(miss.get("reasoning", "")),
                 base_rate_anchor="added by calibration audit",
                 valence=valence.get(rid, 1.0),
+                p2046=_opt(miss.get("p_by_2046_pct")),
+                p2056=_opt(miss.get("p_by_2056_pct")),
+                recurrent=bool(miss.get("recurrent", False)),
+                expected_per_decade=_num(miss.get("expected_per_decade")),
+                horizon_coherent=bool(miss.get("horizon_coherent", True)),
             )
             added += 1
     if added:

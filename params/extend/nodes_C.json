@@ -1,0 +1,753 @@
+[
+ {
+  "id": "economy_global_recession",
+  "name": "Global recession (world real GDP growth below 2.0% in a calendar year)",
+  "criteria": "IMF WEO (October vintage of the following year) reports world real GDP growth at market or PPP weights below 2.0% for any calendar year in the window. Resolves YES on the first such year.",
+  "p_2027": 12,
+  "p_2031": 38,
+  "p_2036": 62,
+  "severity": 7,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_us_recession",
+  "name": "US recession with NBER-dated peak in the window",
+  "criteria": "NBER Business Cycle Dating Committee assigns a business-cycle peak dated between August 2026 and the end of the stated year. Later announcement is fine; the peak date is what counts.",
+  "p_2027": 33,
+  "p_2031": 66,
+  "p_2036": 85,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_ai_capex_bust",
+  "name": "AI capex bust: aggregate hyperscaler capex falls 20%+ year over year",
+  "criteria": "Combined calendar-year capital expenditure of Microsoft, Alphabet, Amazon, Meta and Oracle, as reported in audited annual filings, comes in at least 20% below the prior calendar year's reported total, for any year in the window.",
+  "p_2027": 7,
+  "p_2031": 40,
+  "p_2036": 57,
+  "severity": 7,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_equity_bear_30pct",
+  "name": "S&P 500 falls 30%+ from its all-time closing high",
+  "criteria": "S&P 500 records a daily close at least 30% below its prior all-time closing high, at any point in the window.",
+  "p_2027": 15,
+  "p_2031": 45,
+  "p_2036": 63,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_oil_120",
+  "name": "Brent crude settles above $120/bbl",
+  "criteria": "ICE Brent front-month futures settle at or above $120.00/bbl on any trading day in the window.",
+  "p_2027": 35,
+  "p_2031": 50,
+  "p_2036": 60,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_hormuz_closure",
+  "name": "Sustained effective closure of the Strait of Hormuz",
+  "criteria": "Seaborne crude and condensate transits through the Strait of Hormuz fall more than 50% below the 2025 monthly average for at least 14 consecutive days, per IEA, EIA, Kpler or Vortexa reporting, at any point from August 2026 onward.",
+  "p_2027": 15,
+  "p_2031": 22,
+  "p_2036": 27,
+  "severity": 8,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_ust_6pct",
+  "name": "US 10-year Treasury yield closes at or above 6.00%",
+  "criteria": "The constant-maturity 10-year US Treasury yield (H.15 / Treasury daily par yield curve) closes at or above 6.00% on any day in the window.",
+  "p_2027": 6,
+  "p_2031": 19,
+  "p_2036": 30,
+  "severity": 8,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_us_cpi_5pct",
+  "name": "US CPI inflation returns to 5.0%+ year over year",
+  "criteria": "BLS reports headline CPI-U at or above 5.0% year over year for any single month in the window.",
+  "p_2027": 22,
+  "p_2031": 37,
+  "p_2036": 48,
+  "severity": 5,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_jgb_3pct",
+  "name": "Japan 10-year government bond yield reaches 3.00%",
+  "criteria": "The 10-year JGB benchmark yield closes at or above 3.00% on any day in the window.",
+  "p_2027": 26,
+  "p_2031": 50,
+  "p_2036": 61,
+  "severity": 7,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_euro_periphery_stress",
+  "name": "France or Italy 10-year spread over Bunds exceeds 300bp",
+  "criteria": "The 10-year OAT-Bund or BTP-Bund spread closes above 300 basis points for five consecutive trading days, or the ECB formally activates the Transmission Protection Instrument for either sovereign.",
+  "p_2027": 8,
+  "p_2031": 20,
+  "p_2036": 29,
+  "severity": 7,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_private_credit_gate",
+  "name": "Large private-credit vehicle suspends redemptions or enters wind-down",
+  "criteria": "A private credit fund, BDC or interval fund with at least $20bn NAV fully suspends redemptions (beyond pro-rating within stated quarterly limits) for at least one month, or is placed into wind-down or forced sale, in the US, UK or EU.",
+  "p_2027": 26,
+  "p_2031": 45,
+  "p_2036": 56,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_large_bank_failure",
+  "name": "Failure or extraordinary rescue of a bank with over $250bn in assets",
+  "criteria": "A bank holding company with more than $250bn in total assets in the US, EU, UK, Switzerland, Japan or China fails, is placed into resolution, is forced into a state-brokered merger, or receives an extraordinary government capital injection or central bank emergency liquidity facility created specifically for it.",
+  "p_2027": 10,
+  "p_2031": 26,
+  "p_2036": 39,
+  "severity": 8,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_china_sub4_growth",
+  "name": "China reports annual real GDP growth below 4.0%",
+  "criteria": "China's National Bureau of Statistics reports full-year real GDP growth below 4.0% for any calendar year in the window, in the initial annual release.",
+  "p_2027": 19,
+  "p_2031": 52,
+  "p_2036": 71,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_china_mega_bailout",
+  "name": "China announces a central-government property/LGFV rescue of RMB 5trn or more",
+  "criteria": "China's State Council, MOF or PBOC announces a single package of central-government fiscal support, debt assumption or recapitalization directed at the property sector and/or local government financing vehicles totalling at least RMB 5 trillion, announced as one program.",
+  "p_2027": 20,
+  "p_2031": 40,
+  "p_2036": 51,
+  "severity": 5,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_tariff_reescalation",
+  "name": "US average effective tariff rate exceeds 15%",
+  "criteria": "Penn Wharton Budget Model or Yale Budget Lab reports a US average effective tariff rate on all imports above 15.0% for at least one full month in the window.",
+  "p_2027": 29,
+  "p_2031": 41,
+  "p_2036": 50,
+  "severity": 5,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_stablecoin_run",
+  "name": "Major stablecoin failure or sustained depeg",
+  "criteria": "A stablecoin with at least $20bn market capitalization trades more than 5% below its peg for more than 24 consecutive hours, or its issuer suspends or fails to honor redemptions for more than 24 hours.",
+  "p_2027": 14,
+  "p_2031": 29,
+  "p_2036": 39,
+  "severity": 4,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_em_default_wave",
+  "name": "Wave of emerging-market sovereign defaults or restructurings",
+  "criteria": "At least three additional sovereigns, each with more than $10bn in external public debt, default on external commercial debt or formally enter a comprehensive debt restructuring or a new IMF Extended Fund Facility of at least $3bn, between August 2026 and the end of the stated year.",
+  "p_2027": 24,
+  "p_2031": 48,
+  "p_2036": 63,
+  "severity": 5,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_usd_reserve_below_50",
+  "name": "US dollar share of allocated FX reserves falls below 50%",
+  "criteria": "IMF COFER reports the US dollar share of allocated global foreign exchange reserves below 50.0% for any quarter in the window.",
+  "p_2027": 2,
+  "p_2031": 17,
+  "p_2036": 38,
+  "severity": 6,
+  "domain": "economy"
+ },
+ {
+  "id": "economy_treasury_market_dysfunction",
+  "name": "US Treasury market dysfunction requiring emergency Fed intervention",
+  "criteria": "The Federal Reserve announces unscheduled purchases of Treasury securities, a new or expanded standing repo/dealer facility, or explicit market-functioning operations (not policy QE and not routine reserve management) in response to disorderly conditions in the Treasury or repo market, at any point in the window.",
+  "p_2027": null,
+  "p_2031": 32,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_fed_independence_breach",
+  "name": "Formal breach of Federal Reserve independence",
+  "criteria": "A sitting US president attempts to remove or demote a Federal Reserve governor or the chair for policy reasons, issues a directive on the policy rate that the Board acts on, or legislation altering the FOMC's control of the policy rate is enacted \u2014 any one, in the window.",
+  "p_2027": null,
+  "p_2031": 24,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_disorderly_dollar_decline",
+  "name": "Disorderly broad dollar depreciation",
+  "criteria": "The Fed's broad nominal trade-weighted dollar index falls 20% or more from its trailing 24-month high within any 24-month period in the window.",
+  "p_2027": null,
+  "p_2031": 30,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_deflation_undershoot",
+  "name": "US inflation undershoot / deflation scare",
+  "criteria": "US core PCE inflation prints below 1.0% year over year for three consecutive months, or headline CPI-U prints negative year over year for any month, in the window.",
+  "p_2027": null,
+  "p_2031": 20,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_fmi_cyber_outage",
+  "name": "Systemic financial market infrastructure outage",
+  "criteria": "A systemically important FMI \u2014 a major CCP, CLS, DTCC, Fedwire, TARGET2, SWIFT, or a top-three custodian \u2014 suffers an outage or compromise preventing settlement for more than 24 hours, or a central bank extends emergency liquidity explicitly because of it.",
+  "p_2027": null,
+  "p_2031": 16,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_taiwan_chip_shock",
+  "name": "Taiwan semiconductor supply disruption with global market resolution",
+  "criteria": "Monthly semiconductor exports from Taiwan fall more than 40% below the trailing twelve-month average for two consecutive months, for any reason (blockade, quarantine, conflict, or major natural disaster), in the window.",
+  "p_2027": null,
+  "p_2031": 11,
+  "p_2036": null,
+  "severity": 9,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "economy_yen_crisis",
+  "name": "Disorderly yen move",
+  "criteria": "USD/JPY closes above 180, or moves more than 15 yen in either direction within any 20 trading days, in the window.",
+  "p_2027": null,
+  "p_2031": 34,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "economy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_china_births_below_7m",
+  "name": "China annual births fall below 7.0 million",
+  "criteria": "China's National Bureau of Statistics reports annual births below 7,000,000 for any calendar year, in its regular January statistical communique or the annual Statistical Yearbook.",
+  "p_2027": 45,
+  "p_2031": 92,
+  "p_2036": 97,
+  "severity": 6,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_china_population_below_1_4bn",
+  "name": "China's officially reported population falls below 1.400 billion",
+  "criteria": "NBS reports a year-end national population (mainland, excluding HK/Macau/Taiwan) below 1,400 million.",
+  "p_2027": 58,
+  "p_2031": 96,
+  "p_2036": 98,
+  "severity": 5,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_japan_births_below_600k",
+  "name": "Japan annual births (Japanese nationals) fall below 600,000",
+  "criteria": "Japan's MHLW Vital Statistics report annual births to Japanese nationals below 600,000 for any calendar year, in preliminary or final figures.",
+  "p_2027": 40,
+  "p_2031": 90,
+  "p_2036": 96,
+  "severity": 4,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_us_census_reports_negative_nim",
+  "name": "US Census Bureau officially reports negative net international migration",
+  "criteria": "A Census Bureau Vintage population estimates release (or an official Census Bureau revision) reports negative net international migration for any 12-month estimating period.",
+  "p_2027": 24,
+  "p_2031": 38,
+  "p_2036": 43,
+  "severity": 6,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_us_tfr_below_1_5",
+  "name": "US total fertility rate falls below 1.50",
+  "criteria": "CDC/NCHS reports a US total fertility rate below 1,500 births per 1,000 women (i.e. TFR < 1.50) for any calendar year, provisional or final.",
+  "p_2027": 4,
+  "p_2031": 34,
+  "p_2036": 66,
+  "severity": 5,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_global_tfr_below_replacement",
+  "name": "Best-available global TFR estimate falls below 2.1",
+  "criteria": "A UN DESA World Population Prospects revision (or UN Population Division estimate) reports a global total fertility rate below 2.10 for the then-current year.",
+  "p_2027": 3,
+  "p_2031": 20,
+  "p_2036": 58,
+  "severity": 7,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_korea_tfr_reaches_1",
+  "name": "South Korea total fertility rate reaches 1.00 or above",
+  "criteria": "Statistics Korea reports an annual total fertility rate of 1.00 or higher for any calendar year.",
+  "p_2027": 3,
+  "p_2031": 21,
+  "p_2036": 30,
+  "severity": 4,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_displacement_above_130m",
+  "name": "Global forced displacement exceeds 130 million",
+  "criteria": "UNHCR Global Trends (or Mid-Year Trends) reports total forcibly displaced persons exceeding 130,000,000 at any reporting date.",
+  "p_2027": 11,
+  "p_2031": 33,
+  "p_2036": 45,
+  "severity": 6,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_eu_third_country_return_hubs",
+  "name": "EU return hubs operationalized at scale",
+  "criteria": "At least three EU member states have transferred a cumulative total of 1,000 or more rejected asylum applicants or asylum seekers to designated 'return hubs' or processing centres in non-EU third countries under the Returns Regulation or bilateral arrangements, as documented by the European Commission, EUAA, or a major NGO monitor.",
+  "p_2027": 12,
+  "p_2031": 44,
+  "p_2036": 58,
+  "severity": 5,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_g7_immigration_collapse",
+  "name": "A G7 country cuts permanent immigration by three quarters",
+  "criteria": "A G7 member's official annual permanent-residence/settlement admissions (e.g. US lawful permanent residents, Canada PR admissions, UK settlement grants) fall below 25% of that country's 2024 level for a full fiscal or calendar year, per the responsible national agency.",
+  "p_2027": 5,
+  "p_2031": 15,
+  "p_2036": 21,
+  "severity": 7,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_africa_youth_uprisings",
+  "name": "Youth-led protests topple three or more Sub-Saharan African governments in a three-year window",
+  "criteria": "In any rolling 36-month window, heads of state or heads of government in three or more Sub-Saharan African countries resign, are removed, or flee within 90 days of the onset of mass protests that contemporaneous major-outlet reporting characterizes as youth-led or 'Gen Z' protests.",
+  "p_2027": 11,
+  "p_2031": 33,
+  "p_2036": 47,
+  "severity": 5,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_pisa_no_recovery",
+  "name": "PISA 2025 shows no recovery in OECD-average mathematics",
+  "criteria": "OECD PISA 2025 results report an OECD-average mathematics score equal to or below the PISA 2022 OECD-average mathematics score (472 points).",
+  "p_2027": 58,
+  "p_2031": 58,
+  "p_2036": 58,
+  "severity": 6,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_us_life_expectancy_80",
+  "name": "US life expectancy at birth reaches 80.0 years",
+  "criteria": "NCHS reports US period life expectancy at birth of 80.0 years or more for a single calendar year, in final or provisional mortality reports.",
+  "p_2027": 5,
+  "p_2031": 37,
+  "p_2036": 62,
+  "severity": 4,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_china_census_downward_revision",
+  "name": "China's population is revised down by 15 million or more",
+  "criteria": "An official Chinese government source (NBS communique, the 2030 national census, or a published statistical yearbook revision) reports a national population figure at least 15,000,000 below the previously published estimate for a comparable date.",
+  "p_2027": 3,
+  "p_2031": 24,
+  "p_2036": 30,
+  "severity": 6,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_india_census_provisional_totals",
+  "name": "India publishes provisional Census 2027 population totals",
+  "criteria": "The Registrar General and Census Commissioner of India publishes provisional population totals from Census 2027, covering the population enumeration phase with a reference date of 1 March 2027.",
+  "p_2027": 48,
+  "p_2031": 92,
+  "p_2036": 95,
+  "severity": 4,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_major_pronatalist_spending_surge",
+  "name": "China's direct birth and childcare subsidies reach 0.5% of GDP",
+  "criteria": "Combined central and local government direct cash transfers for childbirth and childcare in China exceed 0.5% of nominal GDP in a single fiscal year, per Ministry of Finance budget documents or credible reporting aggregating central and provincial outlays.",
+  "p_2027": 3,
+  "p_2031": 19,
+  "p_2036": 31,
+  "severity": 4,
+  "domain": "demographics"
+ },
+ {
+  "id": "demographics_wpp_peak_revised_below_10bn",
+  "name": "Next UN WPP revision moves peak world population below 10.0 billion or earlier than 2070",
+  "criteria": "A UN DESA World Population Prospects revision published after July 2026 reports a medium-variant peak world population below 10,000,000,000, or a medium-variant peak year earlier than 2070.",
+  "p_2027": null,
+  "p_2031": 62,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_ukraine_refugee_return",
+  "name": "Two million or more Ukrainian refugees return to Ukraine",
+  "criteria": "UNHCR reports cumulative refugee returns to Ukraine of 2,000,000 or more since the reporting baseline, or reports the Ukrainian refugee population in Europe falling by 2,000,000 or more from its peak.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_us_removals_exceed_1m",
+  "name": "US removals plus returns exceed one million in a fiscal year",
+  "criteria": "DHS Office of Homeland Security Statistics (or ICE/CBP annual reporting) reports combined removals, returns, and expulsions exceeding 1,000,000 for a single fiscal year.",
+  "p_2027": null,
+  "p_2031": 40,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_nigeria_census_shock",
+  "name": "Nigeria completes a national census and the result diverges more than 10% from the prior UN estimate",
+  "criteria": "Nigeria's National Population Commission publishes national population totals from a census conducted after 2006, and the figure differs by more than 10% from the UN WPP estimate for Nigeria published immediately prior.",
+  "p_2027": null,
+  "p_2031": 20,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_remittance_collapse",
+  "name": "Remittances to low- and middle-income countries fall 10% or more year-on-year",
+  "criteria": "World Bank / KNOMAD reports nominal USD remittance flows to low- and middle-income countries declining 10% or more versus the prior year.",
+  "p_2027": null,
+  "p_2031": 28,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_gulf_migrant_stock_contraction",
+  "name": "Gulf Cooperation Council migrant worker stock falls 15% or more from its peak",
+  "criteria": "UN DESA International Migrant Stock estimates, or combined national labour-force statistics for Saudi Arabia, UAE, Qatar, Kuwait, Oman and Bahrain, show the foreign-born or non-national workforce at least 15% below its post-2020 peak.",
+  "p_2027": null,
+  "p_2031": 14,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_global_mortality_shock",
+  "name": "Global life expectancy falls by 0.5 years or more in a single year",
+  "criteria": "UN WPP, IHME GBD, or WHO reports global period life expectancy at birth declining by 0.5 years or more relative to the prior year.",
+  "p_2027": null,
+  "p_2031": 16,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "demographics_india_delimitation",
+  "name": "India enacts reapportionment of Lok Sabha seats on post-2026 census population",
+  "criteria": "India enacts a constitutional amendment or Delimitation Act fixing revised Lok Sabha seat allocations across states based on Census 2027 (or later) population figures.",
+  "p_2027": null,
+  "p_2031": 33,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "demographics",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_h5_sustained_human_transmission",
+  "name": "Sustained human-to-human transmission of an H5 influenza virus",
+  "criteria": "WHO or a national health authority publicly confirms an H5 (any neuraminidase) influenza cluster with at least three sequential generations of human-to-human transmission, or a cluster of at least 10 epidemiologically linked human cases with no plausible animal or environmental exposure for the majority.",
+  "p_2027": 4,
+  "p_2031": 13,
+  "p_2036": 24,
+  "severity": 9,
+  "domain": "health"
+ },
+ {
+  "id": "health_influenza_pandemic_declared",
+  "name": "WHO declares an influenza pandemic (any subtype)",
+  "criteria": "WHO formally declares an influenza pandemic, or declares a PHEIC/pandemic emergency for a novel influenza A virus with confirmed sustained community-level human-to-human transmission in at least two WHO regions.",
+  "p_2027": 6,
+  "p_2031": 19,
+  "p_2036": 33,
+  "severity": 8,
+  "domain": "health"
+ },
+ {
+  "id": "health_pandemic_1m_deaths",
+  "name": "A newly emerged pathogen causes at least 1 million cumulative deaths worldwide",
+  "criteria": "A pathogen not endemically circulating in humans as of 1 Jan 2026 is credibly estimated by WHO, IHME, or a peer-reviewed consensus source to have caused at least 1,000,000 cumulative human deaths (reported or excess) within the stated horizon.",
+  "p_2027": 3,
+  "p_2031": 12,
+  "p_2036": 23,
+  "severity": 10,
+  "domain": "health"
+ },
+ {
+  "id": "health_new_pheic_declared",
+  "name": "WHO declares at least one new PHEIC beyond polio and the current Ebola BDBV emergency",
+  "criteria": "WHO's Director-General determines a new Public Health Emergency of International Concern (or pandemic emergency under the amended IHR) for an event distinct from the standing polio PHEIC and the Ebola Bundibugyo PHEIC declared 17 May 2026, at any point in the window.",
+  "p_2027": 55,
+  "p_2031": 92,
+  "p_2036": 97,
+  "severity": 3,
+  "domain": "health"
+ },
+ {
+  "id": "health_ebola_10k_cases",
+  "name": "Current DRC/Uganda Bundibugyo Ebola epidemic exceeds 10,000 confirmed cases",
+  "criteria": "WHO/AFRO situation reports for the outbreak declared 15 May 2026 (or its recognized continuation) record at least 10,000 cumulative laboratory-confirmed cases across all affected countries.",
+  "p_2027": 50,
+  "p_2031": 52,
+  "p_2036": 52,
+  "severity": 6,
+  "domain": "health"
+ },
+ {
+  "id": "health_ebola_secondary_transmission_outside_africa",
+  "name": "Ebola causes a confirmed secondary transmission chain outside Africa",
+  "criteria": "A national health authority in a country outside the WHO African Region confirms at least one locally acquired Ebola (any species) infection in a person who was not infected in Africa, at any point in the window.",
+  "p_2027": 12,
+  "p_2031": 21,
+  "p_2036": 29,
+  "severity": 4,
+  "domain": "health"
+ },
+ {
+  "id": "health_us_measles_elimination_revoked",
+  "name": "United States formally loses measles elimination status",
+  "criteria": "PAHO's Regional Verification Commission (or WHO) formally announces that the United States no longer meets measles elimination criteria, or the US government/CDC publicly acknowledges loss of elimination status.",
+  "p_2027": 80,
+  "p_2031": 88,
+  "p_2036": 90,
+  "severity": 4,
+  "domain": "health"
+ },
+ {
+  "id": "health_us_measles_5000_cases",
+  "name": "US reports at least 5,000 confirmed measles cases in a single calendar year",
+  "criteria": "CDC's official measles surveillance reports at least 5,000 confirmed cases for any single calendar year within the window.",
+  "p_2027": 14,
+  "p_2031": 42,
+  "p_2036": 58,
+  "severity": 3,
+  "domain": "health"
+ },
+ {
+  "id": "health_us_routine_vaccine_derecommended",
+  "name": "US federal government de-recommends a core routine childhood vaccine and the change survives",
+  "criteria": "CDC's published child and adolescent immunization schedule removes a currently universally-recommended antigen (MMR, DTaP, IPV, Hib, PCV, rotavirus, varicella, or the hepatitis B birth dose) from universal recommendation - moving it to shared clinical decision-making, risk-based, or off-schedule - and that change is in effect and not judicially stayed for at least 6 continuous months.",
+  "p_2027": 45,
+  "p_2031": 58,
+  "p_2036": 63,
+  "severity": 6,
+  "domain": "health"
+ },
+ {
+  "id": "health_pabs_annex_adopted",
+  "name": "PABS annex to the WHO Pandemic Agreement adopted by a World Health Assembly",
+  "criteria": "A World Health Assembly (regular or special session) formally adopts the Pathogen Access and Benefit-Sharing annex to the WHO Pandemic Agreement.",
+  "p_2027": 52,
+  "p_2031": 80,
+  "p_2036": 86,
+  "severity": 3,
+  "domain": "health"
+ },
+ {
+  "id": "health_pandemic_agreement_in_force",
+  "name": "WHO Pandemic Agreement enters into force",
+  "criteria": "The 60th instrument of ratification, acceptance, approval or accession to the WHO Pandemic Agreement is deposited, bringing the Agreement into force.",
+  "p_2027": 2,
+  "p_2031": 52,
+  "p_2036": 76,
+  "severity": 3,
+  "domain": "health"
+ },
+ {
+  "id": "health_polio_wpv1_interrupted",
+  "name": "Global interruption of wild poliovirus type 1 transmission",
+  "criteria": "Zero wild poliovirus type 1 cases with onset in any 12 consecutive calendar months, per GPEI reporting, with the 12-month window closing inside the horizon.",
+  "p_2027": 3,
+  "p_2031": 25,
+  "p_2036": 46,
+  "severity": 3,
+  "domain": "health"
+ },
+ {
+  "id": "health_lab_origin_outbreak_confirmed",
+  "name": "Laboratory accident causes an outbreak of 50+ confirmed human cases with official lab attribution",
+  "criteria": "A national health authority, WHO, or an official government investigation publicly attributes an outbreak of at least 50 laboratory-confirmed human infections to a laboratory-acquired infection or a containment/biosafety breach.",
+  "p_2027": 2,
+  "p_2031": 6,
+  "p_2036": 11,
+  "severity": 7,
+  "domain": "health"
+ },
+ {
+  "id": "health_ai_enabled_bio_incident",
+  "name": "Officially acknowledged incident where AI materially enabled acquisition or design of a dangerous pathogen or toxin",
+  "criteria": "A national government, law enforcement agency, or frontier AI developer publicly confirms a specific incident in which AI systems materially assisted a person or group in designing, acquiring, or synthesizing a pathogen or toxin of biosecurity concern (beyond generic capability-evaluation results or red-team exercises).",
+  "p_2027": 5,
+  "p_2031": 18,
+  "p_2036": 31,
+  "severity": 7,
+  "domain": "health"
+ },
+ {
+  "id": "health_bioterror_attack_10_deaths",
+  "name": "Deliberate biological attack causes at least 10 confirmed human deaths",
+  "criteria": "A government or international body attributes at least 10 human deaths to a deliberate release of a biological agent (state or non-state actor) in a single incident or campaign.",
+  "p_2027": 2,
+  "p_2031": 5,
+  "p_2036": 10,
+  "severity": 8,
+  "domain": "health"
+ },
+ {
+  "id": "health_hiv_resurgence_two_years",
+  "name": "Two consecutive years of rising global new HIV infections",
+  "criteria": "UNAIDS reports annual new HIV infections higher than the preceding year in two consecutive reporting years, reversing the multi-decade decline.",
+  "p_2027": 7,
+  "p_2031": 42,
+  "p_2036": 50,
+  "severity": 6,
+  "domain": "health"
+ },
+ {
+  "id": "health_us_rejoins_who",
+  "name": "United States formally rejoins the World Health Organization",
+  "criteria": "The United States formally notifies WHO of resumption of membership, or deposits an instrument of acceptance of the WHO Constitution, and pays or commits to assessed contributions.",
+  "p_2027": 1,
+  "p_2031": 20,
+  "p_2036": 33,
+  "severity": 4,
+  "domain": "health"
+ },
+ {
+  "id": "health_amr_global_emergency",
+  "name": "WHO declares a global emergency over an antimicrobial-resistant pathogen",
+  "criteria": "WHO declares a PHEIC, pandemic emergency, or equivalent formal global health emergency whose primary basis is an antimicrobial-resistant bacterial or fungal pathogen (for example pan-resistant Klebsiella, XDR typhoid, Candida auris, or drug-resistant gonorrhoea).",
+  "p_2027": 1,
+  "p_2031": 4,
+  "p_2036": 8,
+  "severity": 5,
+  "domain": "health"
+ },
+ {
+  "id": "health_state_school_mandate_repeal",
+  "name": "Multiple US states abolish or gut school-entry vaccine mandates",
+  "criteria": "At least five US states have, via statute or binding regulation in effect, eliminated school-entry immunization requirements for one or more core antigens, or adopted universal opt-out (any-reason philosophical exemption granted on request without documentation), at any point in the window.",
+  "p_2027": null,
+  "p_2031": 55,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_arbovirus_temperate_establishment",
+  "name": "Large autochthonous arbovirus transmission in continental Europe or the continental US",
+  "criteria": "At least 1,000 locally acquired cases of dengue, chikungunya or Oropouche virus disease reported in a single calendar year in continental Europe or the continental United States (excluding territories such as Puerto Rico).",
+  "p_2027": null,
+  "p_2031": 55,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_pepfar_terminated",
+  "name": "PEPFAR terminated, absorbed, or cut by more than half from its FY2024 level",
+  "criteria": "US enacted appropriations or a binding reorganization reduce dedicated PEPFAR/global HIV bilateral funding below 50% of the FY2024 enacted level for a full fiscal year, or the programme is formally dissolved into a successor account with no ring-fenced HIV line.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_cholera_global_escalation",
+  "name": "Cholera resurgence with oral cholera vaccine stockpile failure",
+  "criteria": "WHO reports at least 6,000 cholera deaths globally in a single calendar year, or formally announces that the global OCV stockpile has been unable to meet the single-dose emergency standard for a continuous period of 12 months or more.",
+  "p_2027": null,
+  "p_2031": 50,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_cvdpv_high_income_paralysis",
+  "name": "Paralytic poliomyelitis from circulating vaccine-derived poliovirus in a high-income country",
+  "criteria": "A national health authority in a World Bank high-income country confirms at least one case of paralytic poliomyelitis caused by circulating vaccine-derived poliovirus (any type) with onset within the window.",
+  "p_2027": null,
+  "p_2031": 35,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "health_severe_us_flu_season",
+  "name": "A single US influenza season with at least 50,000 estimated deaths",
+  "criteria": "CDC in-season or final burden estimates put deaths from seasonal influenza at 50,000 or more for a single season within the window.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "health",
+  "note": "auditor-added; only a 2031 anchor exists"
+ }
+]

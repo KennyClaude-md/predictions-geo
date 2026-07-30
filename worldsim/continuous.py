@@ -22,7 +22,7 @@ import numpy as np
 from scipy import stats
 
 from .params import ContinuousVar
-from .timeline import N_QUARTERS
+from .timeline import active, n_quarters
 
 Z90 = 1.2815515655446004
 # Quarters over which a fired event's contribution to systemic stress decays by 1/e.
@@ -30,7 +30,11 @@ STRESS_DECAY_QUARTERS = 11.0
 # Median drift is extrapolated past the 2031 anchor at reduced slope: analysts
 # anchored on 2031 and linear continuation to 2036 usually overshoots.
 POST_ANCHOR_SLOPE_DAMP = 0.6
-ANCHOR_Q = 22  # end-2031
+
+
+def anchor_q() -> int:
+    """Quarter the elicited continuous deciles are pinned to (end-2031)."""
+    return active().anchors.get("p_by_2031_pct", 22)
 
 
 def systemic_stress(fire_time: np.ndarray, severity: np.ndarray) -> np.ndarray:
@@ -46,10 +50,11 @@ def systemic_stress(fire_time: np.ndarray, severity: np.ndarray) -> np.ndarray:
     it. With unsigned severity the index reads good news as a crisis.
     """
     n = fire_time.shape[0]
-    out = np.zeros((n, N_QUARTERS), dtype=np.float32)
+    T = n_quarters()
+    out = np.zeros((n, T), dtype=np.float32)
     ft = fire_time.astype(np.int16)
     sev = severity.astype(np.float32)
-    for t in range(1, N_QUARTERS + 1):
+    for t in range(1, T + 1):
         age = t - ft
         live = (ft >= 0) & (age >= 0)
         decay = np.exp(-np.maximum(age, 0) / STRESS_DECAY_QUARTERS, dtype=np.float32)
@@ -102,6 +107,7 @@ def simulate_continuous(
     n, T = stress_z.shape
     out: dict[str, np.ndarray] = {}
 
+    aq = anchor_q()
     phi = 0.86  # quarterly persistence of the idiosyncratic component
     for var in variables:
         rho = float(np.clip(stress_loadings.get(var.id, 0.0), -0.95, 0.95))
@@ -117,13 +123,13 @@ def simulate_continuous(
         dist = TwoPieceNormal(var.p10, var.p50, var.p90)
         vals = np.empty((n, T), dtype=np.float32)
         for t in range(1, T + 1):
-            # Uncertainty widens diffusively; the elicited deciles pin t = ANCHOR_Q.
-            scale = np.sqrt(t / ANCHOR_Q)
-            if t <= ANCHOR_Q:
-                med = var.current + (dist.median - var.current) * (t / ANCHOR_Q)
+            # Uncertainty widens diffusively; the elicited deciles pin t = anchor_q().
+            scale = np.sqrt(t / aq)
+            if t <= aq:
+                med = var.current + (dist.median - var.current) * (t / aq)
             else:
-                slope = (dist.median - var.current) / ANCHOR_Q
-                med = dist.median + slope * POST_ANCHOR_SLOPE_DAMP * (t - ANCHOR_Q)
+                slope = (dist.median - var.current) / aq
+                med = dist.median + slope * POST_ANCHOR_SLOPE_DAMP * (t - aq)
             shaped = dist.ppf(z[:, t - 1]) - dist.median
             vals[:, t - 1] = med + shaped * scale
         out[var.id] = vals

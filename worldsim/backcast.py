@@ -124,3 +124,86 @@ def contributions(events: list[HistoricalEvent], quarter: str) -> list[tuple[str
     ]
     rows.sort(key=lambda r: -r[1])
     return rows
+
+
+# --------------------------------------------------------------------------
+# Granularity-invariant measures
+# --------------------------------------------------------------------------
+#
+# The summed index is NOT comparable across event sets of different size. It has
+# to be said plainly because the failure is not subtle: the forward register
+# carries 159 destabilising nodes totalling 1011 severity points, while the Second
+# World War at register-matched coarseness is 17 nodes totalling 143. A sum over
+# the former beats a sum over the latter by construction, and the back-cast duly
+# reports that July 2026 is 1.6x WW2 — which is false, and is a fact about the
+# arithmetic rather than about the world.
+#
+# What survives a change of granularity:
+#
+#   worst_active   the single highest decayed severity live at a moment. Splitting
+#                  one node into three does not change it.
+#   concurrent(s)  how many events of severity >= s are still live. Robust as long
+#                  as both sides enumerate at similar coarseness *for that tier*,
+#                  which the high tiers do.
+#   top_k          the summed index restricted to the k highest-severity nodes,
+#                  with k matched across the sets being compared. This is the
+#                  closest thing to a like-for-like sum.
+
+
+def worst_active(events: list[HistoricalEvent], quarter: str) -> float:
+    """Highest decayed severity live at `quarter`. Invariant to node splitting."""
+    q = quarter_index(quarter)
+    vals = [
+        e.severity * float(np.exp(-(q - e.onset_quarter) / STRESS_DECAY_QUARTERS))
+        for e in events
+        if q >= e.onset_quarter
+    ]
+    return max(vals) if vals else 0.0
+
+
+def concurrent_above(
+    events: list[HistoricalEvent], quarter: str, min_severity: float, live_floor: float = 0.5
+) -> int:
+    """Count events of severity >= min_severity still 'live' at `quarter`.
+
+    Live means the decay factor has not yet fallen below `live_floor` — by default
+    within about 7.6 quarters of onset. Counting concurrency rather than summing
+    severity is what makes this comparable across registers of different size.
+    """
+    q = quarter_index(quarter)
+    n = 0
+    for e in events:
+        if e.severity < min_severity or q < e.onset_quarter:
+            continue
+        if np.exp(-(q - e.onset_quarter) / STRESS_DECAY_QUARTERS) >= live_floor:
+            n += 1
+    return n
+
+
+def top_k_events(events: list[HistoricalEvent], k: int) -> list[HistoricalEvent]:
+    """The k highest-severity events, for a count-matched comparison."""
+    return sorted(events, key=lambda e: -e.severity)[:k]
+
+
+def profile(events: list[HistoricalEvent], start: int, end: int, k: int) -> dict:
+    """All four measures over a window, reported at the peak of each."""
+    idx, labels = trajectory(events, start, end)
+    top = top_k_events(events, k)
+    idx_k, _ = trajectory(top, start, end)
+
+    worst = [worst_active(events, lab) for lab in labels]
+    conc8 = [concurrent_above(events, lab, 8.0) for lab in labels]
+    conc9 = [concurrent_above(events, lab, 9.0) for lab in labels]
+
+    i_sum, i_k, i_w, i_c = (
+        int(np.argmax(idx)), int(np.argmax(idx_k)), int(np.argmax(worst)), int(np.argmax(conc8))
+    )
+    return {
+        "sum_peak": float(idx[i_sum]), "sum_peak_at": labels[i_sum],
+        "topk_peak": float(idx_k[i_k]), "topk_peak_at": labels[i_k], "k": k,
+        "worst_active_peak": float(worst[i_w]), "worst_active_at": labels[i_w],
+        "concurrent8_peak": int(max(conc8)), "concurrent8_at": labels[i_c],
+        "concurrent9_peak": int(max(conc9)),
+        "n_events": len(events),
+        "severity_mass": float(sum(e.severity for e in events)),
+    }

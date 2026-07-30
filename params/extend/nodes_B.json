@@ -1,0 +1,719 @@
+[
+ {
+  "id": "climate_new_record_year",
+  "name": "A new record warmest calendar year, exceeding 2024",
+  "criteria": "Copernicus ERA5 (with NASA GISTEMP and NOAA as corroboration) reports a calendar year with a global mean surface temperature anomaly exceeding the 2024 value (1.60C above 1850-1900) at the annual announcement in the following January.",
+  "p_2027": 78,
+  "p_2031": 94,
+  "p_2036": 97,
+  "severity": 3,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_year_ge_1p6c",
+  "name": "A calendar year at or above 1.65C above pre-industrial",
+  "criteria": "ERA5 annual global mean surface temperature anomaly relative to 1850-1900 is >= 1.65C for a full calendar year, as published in the Copernicus Global Climate Highlights.",
+  "p_2027": 55,
+  "p_2031": 83,
+  "p_2036": 94,
+  "severity": 4,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_longterm_1p5_declared",
+  "name": "Long-term (multi-decadal) 1.5C breach formally declared",
+  "criteria": "The WMO, IPCC (in AR7 or a special report), or the UNFCCC Global Stocktake formally states that the long-term global mean temperature increase - defined as a 20-year mean or current human-induced warming - has exceeded 1.5C above 1850-1900.",
+  "p_2027": 5,
+  "p_2031": 33,
+  "p_2036": 72,
+  "severity": 5,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_very_strong_elnino_verifies",
+  "name": "The 2026-27 El Nino verifies as very strong (ONI peak >= +2.0C)",
+  "criteria": "NOAA CPC's Oceanic Nino Index (3-month running mean Nino3.4 anomaly, ERSSTv5 with the operational base period) reaches or exceeds +2.0C for at least one overlapping season during the 2026-27 event.",
+  "p_2027": 74,
+  "p_2031": 85,
+  "p_2036": 90,
+  "severity": 5,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_global_bleaching_60pct",
+  "name": "Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window",
+  "criteria": "NOAA Coral Reef Watch reports that Alert Level 1 or higher bleaching-level heat stress affected at least 60% of the world's coral reef area within any rolling 12-month period.",
+  "p_2027": 82,
+  "p_2031": 93,
+  "p_2036": 96,
+  "severity": 6,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_fossil_co2_confirmed_peak",
+  "name": "Global fossil CO2 emissions confirmed to have peaked",
+  "criteria": "The Global Carbon Project reports global fossil CO2 emissions below the previous all-time high in two consecutive calendar years, with the peak year identified in the published Global Carbon Budget.",
+  "p_2027": 10,
+  "p_2031": 52,
+  "p_2036": 78,
+  "severity": 7,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_amoc_30pct_weakening",
+  "name": "Observed AMOC weakening of >= 30% below the 2004-2023 mean, sustained 12 months",
+  "criteria": "The RAPID-MOCHA-WBTS array at 26N (or a successor observing system accepted as the reference by the AMOC research community) reports a 12-month running mean overturning transport at least 30% below the 2004-2023 mean, confirmed in a peer-reviewed publication.",
+  "p_2027": 4,
+  "p_2031": 11,
+  "p_2036": 19,
+  "severity": 8,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_amoc_tipping_declared",
+  "name": "AMOC declared to have crossed a tipping point",
+  "criteria": "A major assessment body (IPCC, WMO, or a National Academies-equivalent) or a strong majority of the published AMOC literature states that the AMOC has crossed a critical threshold and is on an irreversible trajectory toward collapse (maximum strength below 5 Sv) under current forcing.",
+  "p_2027": 0.5,
+  "p_2031": 2,
+  "p_2036": 5,
+  "severity": 10,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_arctic_practically_ice_free",
+  "name": "Arctic Ocean practically ice-free (extent below 1.0 million km2)",
+  "criteria": "NSIDC daily sea ice extent for the Arctic falls below 1.0 million km2 on at least one day.",
+  "p_2027": 0.4,
+  "p_2031": 4,
+  "p_2036": 21,
+  "severity": 5,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_wetbulb_35c_sustained",
+  "name": "Verified wet-bulb temperature of 35C sustained for three or more hours",
+  "criteria": "A quality-controlled surface station observation (or a national meteorological service's official record) documents a wet-bulb temperature of at least 35.0C sustained for at least three consecutive hours, confirmed in a peer-reviewed publication or by a national met service.",
+  "p_2027": 12,
+  "p_2031": 30,
+  "p_2036": 50,
+  "severity": 6,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_heat_event_100k_deaths",
+  "name": "Single heat event with >= 100,000 attributed excess deaths",
+  "criteria": "A peer-reviewed study or national statistical office attributes at least 100,000 excess deaths to a single heat wave or heat season within one country or contiguous region over a window of 90 days or less.",
+  "p_2027": 9,
+  "p_2031": 26,
+  "p_2036": 44,
+  "severity": 7,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_srm_unilateral_deployment",
+  "name": "State-backed solar radiation management deployment announced or conducted",
+  "criteria": "A national government formally announces a stratospheric aerosol injection deployment programme (as distinct from research), or a state or state-backed entity conducts SAI at a scale exceeding 0.1 Tg of injected aerosol precursor per year, as confirmed by independent monitoring or official statement.",
+  "p_2027": 1.5,
+  "p_2031": 6,
+  "p_2036": 15,
+  "severity": 8,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_srm_governance_regime",
+  "name": "Formal international SRM governance decision adopted",
+  "criteria": "UNEA, the UNFCCC COP, the CBD COP, or a comparable treaty body adopts a formal decision or instrument establishing an international governance framework for solar radiation modification (whether a non-use agreement, a research governance regime, or a moratorium codification), beyond the existing non-binding CBD language.",
+  "p_2027": 8,
+  "p_2031": 24,
+  "p_2036": 40,
+  "severity": 4,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_amazon_net_carbon_source",
+  "name": "Amazon basin becomes a net annual carbon source for three consecutive years",
+  "criteria": "Peer-reviewed literature (atmospheric inversion, aircraft profile, or eddy-covariance synthesis accepted by the Global Carbon Project) establishes that the Amazon basin as a whole was a net annual source of carbon to the atmosphere in three consecutive calendar years.",
+  "p_2027": 7,
+  "p_2031": 21,
+  "p_2036": 37,
+  "severity": 8,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_billion_dollar_climate_judgment",
+  "name": "Final court judgment ordering >= $1bn in climate damages",
+  "criteria": "A court of final instance (highest domestic court, or a binding international tribunal) issues a non-appealable judgment ordering a state or a company to pay at least US$1 billion in damages, compensation, or a compliance fund specifically for climate change harms.",
+  "p_2027": 4,
+  "p_2031": 17,
+  "p_2036": 34,
+  "severity": 6,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_colorado_storage_below_20pct",
+  "name": "Combined Lake Powell + Lake Mead storage falls below 20% of capacity",
+  "criteria": "US Bureau of Reclamation end-of-month reservoir reports show combined active storage in Lake Powell and Lake Mead below 20% of combined live capacity.",
+  "p_2027": 24,
+  "p_2031": 44,
+  "p_2036": 56,
+  "severity": 5,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_food_price_shock",
+  "name": "FAO Food Price Index exceeds 160 in any month",
+  "criteria": "The FAO Food Price Index (nominal, 2014-2016 = 100) records a monthly value above 160.0, exceeding the March 2022 all-time high of 160.3.",
+  "p_2027": 17,
+  "p_2031": 33,
+  "p_2036": 48,
+  "severity": 6,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_methane_growth_halts",
+  "name": "Global mean methane annual growth rate falls to zero or below",
+  "criteria": "NOAA GML reports a global mean CH4 annual increase of 0.0 ppb or less for a calendar year in its published trends series.",
+  "p_2027": 4,
+  "p_2031": 16,
+  "p_2036": 30,
+  "severity": 5,
+  "domain": "climate"
+ },
+ {
+  "id": "climate_antarctic_seaice_record_low",
+  "name": "New record-low Antarctic sea ice minimum extent",
+  "criteria": "NSIDC reports an Antarctic daily minimum sea ice extent below the February 2023 record of 1.79 million km2.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "climate",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "climate_thwaites_shelf_collapse",
+  "name": "Disintegration of the Thwaites Eastern Ice Shelf",
+  "criteria": "Satellite observation (ESA/NASA, confirmed by NSIDC or a peer-reviewed publication) shows the Thwaites Eastern Ice Shelf has lost at least 50% of its 2020 area through fracture and calving within a three-year period.",
+  "p_2027": null,
+  "p_2031": 38,
+  "p_2036": null,
+  "severity": 8,
+  "domain": "climate",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "climate_major_volcanic_eruption",
+  "name": "VEI 6+ volcanic eruption with measurable global cooling",
+  "criteria": "A volcanic eruption of VEI 6 or greater (Smithsonian GVP classification) injects sufficient stratospheric sulphate that WMO, NASA GISS or Copernicus attributes at least 0.1C of global mean cooling to it in the following one to two years.",
+  "p_2027": null,
+  "p_2031": 9,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "climate",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "climate_insured_cat_losses_200bn",
+  "name": "Global insured natural catastrophe losses exceed $200bn in a calendar year",
+  "criteria": "Swiss Re sigma or Munich Re NatCatSERVICE reports global insured losses from natural catastrophes above US$200 billion (nominal) for a single calendar year.",
+  "p_2027": null,
+  "p_2031": 40,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "climate",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "climate_second_major_paris_withdrawal",
+  "name": "A second G20 economy formally withdraws from the Paris Agreement",
+  "criteria": "A G20 member other than the United States deposits formal notification of withdrawal from the Paris Agreement with the UN Secretary-General.",
+  "p_2027": null,
+  "p_2031": 22,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "climate",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_hormuz_reclosure",
+  "name": "Strait of Hormuz closed again for 14+ consecutive days",
+  "criteria": "Commercial tanker transits through the Strait of Hormuz fall below 25% of the 2025 daily average for 14 or more consecutive days, per Lloyd's List / Kpler / IEA Oil Market Report tracking, at any point after 1 Aug 2026.",
+  "p_2027": 24,
+  "p_2031": 34,
+  "p_2036": 41,
+  "severity": 8,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_oil_price_spike_120",
+  "name": "Brent monthly average above $120/bbl",
+  "criteria": "The calendar-month average of front-month Brent futures settlements exceeds $120.00/bbl (nominal USD) in any month after 1 Aug 2026, per ICE settlement data.",
+  "p_2027": 14,
+  "p_2031": 30,
+  "p_2036": 42,
+  "severity": 6,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_oil_price_collapse_45",
+  "name": "Brent monthly average below $45/bbl",
+  "criteria": "The calendar-month average of front-month Brent futures settlements falls below $45.00/bbl (nominal USD) in any month after 1 Aug 2026.",
+  "p_2027": 17,
+  "p_2031": 36,
+  "p_2036": 48,
+  "severity": 4,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_china_ree_extraterritorial_controls",
+  "name": "China's extraterritorial rare-earth export control regime enters into force",
+  "criteria": "The October 2025 expanded rare-earth export control measures (extraterritorial 0.1% de minimis provisions and expanded element list) are in legal force and being applied to licence applications for at least 30 consecutive days, per MOFCOM announcements, at any point before the stated year-end.",
+  "p_2027": 45,
+  "p_2031": 62,
+  "p_2036": 68,
+  "severity": 7,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_ree_supply_cutoff",
+  "name": "Severe rare-earth supply cutoff to the US or EU",
+  "criteria": "Chinese exports of NdPr oxide/metal or heavy rare earths (Dy, Tb) to either the United States or the European Union fall by more than 50% year-on-year for three or more consecutive months, per China customs data.",
+  "p_2027": 15,
+  "p_2031": 27,
+  "p_2036": 33,
+  "severity": 8,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_grid_cyber_major_outage",
+  "name": "Cyberattack causes a major OECD power outage",
+  "criteria": "A cyber intrusion causes loss of electricity supply to 500,000 or more customers for 6 or more hours in an OECD member country, with cyber causation publicly confirmed by the relevant national CERT, regulator or system operator.",
+  "p_2027": 9,
+  "p_2031": 25,
+  "p_2036": 39,
+  "severity": 6,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_us_firm_load_shed",
+  "name": "Firm load shedding in a major US RTO",
+  "criteria": "PJM, ERCOT, MISO or SPP orders involuntary firm load shed (rolling blackouts) affecting 500,000 or more customers during a declared capacity or energy emergency.",
+  "p_2027": 22,
+  "p_2031": 54,
+  "p_2036": 68,
+  "severity": 4,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_global_coal_demand_structural_decline",
+  "name": "Global coal demand falls 3%+ below the 2025 level",
+  "criteria": "IEA reports global coal demand (Mt or Mtce) for some calendar year at or before the stated year at least 3% below the reported 2025 level, confirming structural decline rather than noise.",
+  "p_2027": 12,
+  "p_2031": 54,
+  "p_2036": 78,
+  "severity": 3,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_global_oil_demand_peak",
+  "name": "Global oil demand declines year-on-year outside recession or supply shock",
+  "criteria": "IEA Oil Market Report reports total global oil demand for a calendar year below the preceding calendar year, in a year with positive global real GDP growth above 2% and no Hormuz-class supply disruption. 2026 is excluded from resolution due to the Hormuz shock.",
+  "p_2027": 8,
+  "p_2031": 42,
+  "p_2036": 68,
+  "severity": 5,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_western_smr_first_power",
+  "name": "A Western SMR delivers first commercial grid power",
+  "criteria": "A small modular reactor (nameplate under 300 MWe) in an OECD member country, excluding South Korea's existing SMART-class designs, synchronises to the grid and delivers commercial electricity, confirmed by the national regulator or IAEA PRIS.",
+  "p_2027": 4,
+  "p_2031": 56,
+  "p_2036": 87,
+  "severity": 3,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_europe_gas_price_crisis",
+  "name": "European gas price returns to crisis levels",
+  "criteria": "TTF front-month natural gas futures settle above EUR 100/MWh on any trading day.",
+  "p_2027": 14,
+  "p_2031": 26,
+  "p_2036": 32,
+  "severity": 5,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_lithium_price_spike",
+  "name": "Lithium carbonate price exceeds $40,000/tonne",
+  "criteria": "Battery-grade lithium carbonate, China spot (SMM or Fastmarkets assessment), exceeds $40,000/tonne on a monthly average basis.",
+  "p_2027": 19,
+  "p_2031": 37,
+  "p_2036": 45,
+  "severity": 4,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_solar_terawatt_year",
+  "name": "Annual global solar PV installations exceed 1,000 GW",
+  "criteria": "Global solar PV capacity additions in a calendar year exceed 1,000 GWdc, as reported by BNEF, IEA or SolarPower Europe.",
+  "p_2027": 10,
+  "p_2031": 58,
+  "p_2036": 81,
+  "severity": 2,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_china_emissions_sustained_decline",
+  "name": "China energy-related CO2 emissions decline three consecutive years",
+  "criteria": "IEA or CREA reports China's energy-related CO2 emissions declining year-on-year in three consecutive calendar years, with the third such year at or before the stated year.",
+  "p_2027": 11,
+  "p_2031": 52,
+  "p_2036": 71,
+  "severity": 5,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_copper_price_shock",
+  "name": "LME copper exceeds $15,000/tonne",
+  "criteria": "LME 3-month copper settles above $15,000/tonne (nominal USD) on a monthly average basis.",
+  "p_2027": 12,
+  "p_2031": 38,
+  "p_2036": 53,
+  "severity": 5,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_grid_physical_sabotage_major",
+  "name": "Coordinated physical attack causes a major OECD outage",
+  "criteria": "A deliberate physical attack (sabotage, arson, gunfire, explosive) causes loss of electricity supply to 500,000 or more customers for 24 or more hours in an OECD member country, confirmed as deliberate by law enforcement.",
+  "p_2027": 7,
+  "p_2031": 20,
+  "p_2036": 31,
+  "severity": 5,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_hydrogen_scale_milestone",
+  "name": "Global installed water electrolysis capacity reaches 25 GW",
+  "criteria": "IEA Global Hydrogen Review reports cumulative installed and operating water electrolysis capacity worldwide of 25 GW or more.",
+  "p_2027": 2,
+  "p_2031": 19,
+  "p_2036": 42,
+  "severity": 2,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_nuclear_accident_ines5",
+  "name": "Nuclear accident rated INES Level 5 or above",
+  "criteria": "The IAEA International Nuclear Event Scale assigns a rating of Level 5 (accident with wider consequences) or higher to an event at a civil nuclear power reactor or spent fuel facility anywhere in the world.",
+  "p_2027": 4,
+  "p_2031": 11,
+  "p_2036": 19,
+  "severity": 6,
+  "domain": "energy"
+ },
+ {
+  "id": "energy_russian_enrichment_cutoff",
+  "name": "Loss of Russian uranium enrichment and conversion services to Western utilities",
+  "criteria": "Rosatom/TENEX deliveries of enrichment (SWU) or conversion services to US and EU utilities fall by more than 70% year-on-year for four or more consecutive quarters, whether by sanction, counter-sanction or contract termination, per Euratom Supply Agency and US DOE/EIA reporting.",
+  "p_2027": null,
+  "p_2031": 38,
+  "p_2036": null,
+  "severity": 7,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_ibr_systemic_blackout",
+  "name": "Inverter-driven systemic grid collapse in a major OECD system",
+  "criteria": "A frequency, voltage or oscillation event causes loss of supply to 5 million or more customers for 6 or more hours across a national or multi-national synchronous area in the OECD, with the official investigation identifying inverter-based resource dynamics, insufficient system inertia or protection mis-coordination as a primary or contributing cause.",
+  "p_2027": null,
+  "p_2031": 30,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_ai_capex_retrenchment",
+  "name": "US data-center electricity demand growth collapses",
+  "criteria": "US data-center electricity consumption grows less than 3% year-on-year in any calendar year, or declines, per EIA/LBNL reporting \u2014 versus the 15-20%/yr trend.",
+  "p_2027": null,
+  "p_2031": 33,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_resource_nationalism_shock",
+  "name": "Major producing state imposes an export ban or nationalisation on a critical mineral",
+  "criteria": "A country accounting for 20% or more of global mined supply of lithium, cobalt, nickel, copper or rare earths imposes an export ban, export quota cut of 30%+, or nationalisation/forced-equity measure that removes 15% or more of global supply for 3+ months.",
+  "p_2027": null,
+  "p_2031": 48,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_eu_ets2_gutted",
+  "name": "EU ETS2 delayed, price-capped or materially diluted",
+  "criteria": "The EU formally postpones ETS2's start beyond 2027, or amends the directive to impose a binding price ceiling below EUR 60/tCO2, or exempts a whole covered sector (buildings or road transport), before 31 December 2028.",
+  "p_2027": null,
+  "p_2031": 62,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_qatar_lng_force_majeure",
+  "name": "Qatari LNG force majeure removing 15%+ of global LNG supply for 60+ days",
+  "criteria": "QatarEnergy declares force majeure or otherwise suspends loadings such that Qatari LNG exports fall below 40% of their 2025 monthly average for 60 or more consecutive days, per Kpler/ICIS tracking, at any point after 1 Aug 2026.",
+  "p_2027": null,
+  "p_2031": 55,
+  "p_2036": null,
+  "severity": 6,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "energy_transformer_turbine_supply_failure",
+  "name": "Grid equipment supply chain forces cancellation or multi-year deferral of major interconnection programmes",
+  "criteria": "A G7 transmission system operator or major US RTO publicly defers or cancels 10 GW or more of already-approved interconnection or transmission capacity, citing large power transformer, HVDC converter or gas turbine unavailability as the stated primary cause.",
+  "p_2027": null,
+  "p_2031": 58,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "energy",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "foodwater_new_famine_ipc5",
+  "name": "New IPC/CH Famine (Phase 5) classification anywhere",
+  "criteria": "The IPC Famine Review Committee or a CH equivalent confirms Famine (IPC Phase 5) \u2014 with reasonable evidence or higher \u2014 for at least one geographic area not already so classified as of 2026-07-29, published on ipcinfo.org.",
+  "p_2027": 74,
+  "p_2031": 93,
+  "p_2036": 97,
+  "severity": 5,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_ukraine_export_collapse",
+  "name": "Ukrainian seaborne grain exports fall below 1 Mt in a calendar month",
+  "criteria": "Ukrainian Ministry of Agrarian Policy or UGA monthly data show total seaborne grain and oilseed exports below 1.0 million tonnes in any single calendar month (normal 2024-26 range ~3-5 Mt/month).",
+  "p_2027": 62,
+  "p_2031": 70,
+  "p_2036": 74,
+  "severity": 4,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_urea_above_800",
+  "name": "World Bank monthly urea price exceeds US$800/tonne",
+  "criteria": "World Bank Pink Sheet monthly average urea (Middle East, bulk, f.o.b.) exceeds US$800 per tonne in any month.",
+  "p_2027": 44,
+  "p_2031": 58,
+  "p_2036": 66,
+  "severity": 5,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_ffpi_above_160",
+  "name": "FAO Food Price Index reaches an all-time high above 160",
+  "criteria": "The FAO Food Price Index (2014-2016=100, nominal) monthly value exceeds 160.0, surpassing the March 2022 record of 160.3.",
+  "p_2027": 18,
+  "p_2031": 42,
+  "p_2036": 60,
+  "severity": 6,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_new_staple_export_bans",
+  "name": "Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously",
+  "criteria": "Per the IFPRI Food and Fertilizer Export Restrictions Tracker, at least two countries each ranking in the global top 10 for wheat, maize or rice exports have in force, simultaneously and for at least 60 consecutive days, a new (post-2026-07-29) export ban or quota estimated to cut that country's exports of the staple by 25% or more.",
+  "p_2027": 26,
+  "p_2031": 54,
+  "p_2036": 68,
+  "severity": 6,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_livestock_epizootic_g20",
+  "name": "Animal-disease epizootic cuts a G20 country's poultry or pig inventory by 10%+ in 12 months",
+  "criteria": "USDA, Eurostat, WOAH or the national statistical agency of a G20 member reports a decline of 10% or more, within any rolling 12-month window, in national laying-hen inventory or national pig inventory, attributed principally to an animal disease epizootic (HPAI, ASF, FMD or successor).",
+  "p_2027": 48,
+  "p_2031": 76,
+  "p_2036": 87,
+  "severity": 3,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_grfc_above_300m",
+  "name": "GRFC reports more than 300 million people in acute food insecurity",
+  "criteria": "Any edition of the Global Report on Food Crises published in 2027-2036 reports more than 300.0 million people in IPC/CH Phase 3 or above for its reference year.",
+  "p_2027": 38,
+  "p_2031": 64,
+  "p_2036": 74,
+  "severity": 5,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_global_cereal_drop_4pct",
+  "name": "World cereal production falls 4%+ year-on-year (multi-breadbasket failure)",
+  "criteria": "FAO's Cereal Supply and Demand Brief reports world cereal production for a calendar year at least 4.0% below the prior year's outturn (using FAO's own revised series at the time of the following year's July brief).",
+  "p_2027": 11,
+  "p_2031": 31,
+  "p_2036": 47,
+  "severity": 8,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_stocks_to_use_below_28",
+  "name": "World cereal stocks-to-use ratio falls below 28%",
+  "criteria": "FAO's Cereal Supply and Demand Brief reports a world cereal stocks-to-use ratio below 28.0% for any marketing year.",
+  "p_2027": 7,
+  "p_2031": 24,
+  "p_2036": 36,
+  "severity": 7,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_rice_price_650",
+  "name": "Thai 5% broken rice benchmark exceeds US$650/tonne",
+  "criteria": "FAO GIEWS / Thai Rice Exporters Association monthly average f.o.b. price for Thai white rice 5% broken exceeds US$650 per tonne.",
+  "p_2027": 9,
+  "p_2031": 27,
+  "p_2036": 40,
+  "severity": 7,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_indus_physical_curtailment",
+  "name": "India physically curtails Indus western-river flows to Pakistan",
+  "criteria": "Pakistan's IRSA rim-station data, corroborated by satellite/independent hydrological analysis, show a sustained reduction of 20% or more over at least four consecutive weeks in Chenab or Jhelum inflows attributable to Indian storage operations or diversion, and not to natural hydrology.",
+  "p_2027": 9,
+  "p_2031": 24,
+  "p_2036": 36,
+  "severity": 7,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_nile_armed_incident",
+  "name": "Armed attack on GERD or an Egypt-Ethiopia armed clash over Nile water",
+  "criteria": "ACLED or equivalent records a state-attributed kinetic attack (air, missile, drone or special-forces) on the Grand Ethiopian Renaissance Dam or associated Ethiopian water infrastructure, or a direct armed exchange between Egyptian and Ethiopian forces publicly framed by either government as arising from the Nile water dispute.",
+  "p_2027": 3,
+  "p_2031": 8,
+  "p_2036": 13,
+  "severity": 8,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_colorado_no_deal",
+  "name": "Colorado River enters 2027 without an agreed post-2026 framework",
+  "criteria": "On 1 January 2027, no seven-state consensus agreement and no signed federal Record of Decision governs Lake Powell/Lake Mead operations for calendar 2027, with operations instead running under an interim stopgap, unilateral federal action, or litigation.",
+  "p_2027": 45,
+  "p_2031": 48,
+  "p_2036": 50,
+  "severity": 3,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_wfp_below_5bn",
+  "name": "WFP annual contributions fall below US$5 billion",
+  "criteria": "WFP's published annual contribution total for any calendar year 2026-2036 is below US$5.0 billion (nominal), per wfp.org contributions data.",
+  "p_2027": 34,
+  "p_2031": 56,
+  "p_2036": 64,
+  "severity": 5,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_wheat_rust_south_asia",
+  "name": "Highly virulent wheat rust or blast establishes in the Indian/Pakistani Punjab",
+  "criteria": "CIMMYT, BGRI, FAO or a national plant protection agency confirms establishment of a Ug99-lineage stem rust race, a novel highly virulent stripe rust race defeating deployed resistance, or wheat blast (Magnaporthe oryzae Triticum), in Indian or Pakistani Punjab or Haryana, with documented field-scale infection.",
+  "p_2027": 5,
+  "p_2031": 14,
+  "p_2036": 25,
+  "severity": 8,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_three_concurrent_famines",
+  "name": "Three or more countries/territories in confirmed IPC Famine simultaneously",
+  "criteria": "At any point in a calendar year, IPC/FRC-confirmed Famine (Phase 5) classifications are simultaneously in force for areas in three or more distinct countries or territories.",
+  "p_2027": 10,
+  "p_2031": 25,
+  "p_2036": 34,
+  "severity": 7,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_hormuz_fertilizer_normalisation",
+  "name": "Hormuz fertilizer flows normalise (downside-risk-off event)",
+  "criteria": "World Bank or IFA data show Middle East seaborne urea and ammonia export volumes recovering to 90% or more of their 2024-25 monthly average for three consecutive months.",
+  "p_2027": 58,
+  "p_2031": 85,
+  "p_2036": 92,
+  "severity": 2,
+  "domain": "foodwater"
+ },
+ {
+  "id": "foodwater_us_inland_waterway_disruption",
+  "name": "Mississippi River or Panama Canal low-water event materially disrupts US grain exports",
+  "criteria": "USDA Grain Transportation Report or Army Corps data show either (a) Mississippi barge freight rates above 800% of tariff benchmark, or draft/tow restrictions in force on the Lower Mississippi, for 30+ consecutive days, or (b) Panama Canal transit slots cut 30%+ below normal for 60+ consecutive days.",
+  "p_2027": null,
+  "p_2031": 80,
+  "p_2036": null,
+  "severity": 3,
+  "domain": "foodwater",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "foodwater_screwworm_or_fmd_north_america",
+  "name": "New World screwworm or FMD establishes in the US or EU cattle herd",
+  "criteria": "USDA APHIS, WOAH or the European Commission confirms sustained autochthonous transmission of New World screwworm (Cochliomyia hominivorax) north of the Mexico-US border, or an FMD outbreak in an FMD-free country of the G7, triggering a national movement standstill or export ban of 30+ days.",
+  "p_2027": null,
+  "p_2031": 45,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "foodwater",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "foodwater_agrifood_cyber_or_infra_attack",
+  "name": "Cyberattack or physical sabotage halts a top-5 global agri-food processor or a major water utility",
+  "criteria": "A publicly confirmed cyber or sabotage incident forces a 7+ day shutdown of national-scale operations at a top-5 global meat, grain-trading or fertilizer company, or causes a 7+ day loss of service at a water utility serving 1m+ people, per company disclosure, CISA/ENISA advisory or national regulator.",
+  "p_2027": null,
+  "p_2031": 55,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "foodwater",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "foodwater_desert_locust_upsurge",
+  "name": "FAO declares a desert locust upsurge or plague affecting three or more countries",
+  "criteria": "FAO Desert Locust Watch raises the situation to 'Upsurge' or 'Plague' with swarms reported in three or more countries simultaneously for 60+ days.",
+  "p_2027": null,
+  "p_2031": 40,
+  "p_2036": null,
+  "severity": 4,
+  "domain": "foodwater",
+  "note": "auditor-added; only a 2031 anchor exists"
+ },
+ {
+  "id": "foodwater_phosphate_supply_shock",
+  "name": "DAP/phosphate rock price exceeds US$1,000/tonne on a monthly average",
+  "criteria": "World Bank Pink Sheet monthly average DAP (f.o.b. US Gulf) exceeds US$1,000 per tonne in any month.",
+  "p_2027": null,
+  "p_2031": 38,
+  "p_2036": null,
+  "severity": 5,
+  "domain": "foodwater",
+  "note": "auditor-added; only a 2031 anchor exists"
+ }
+]

@@ -11,9 +11,9 @@ import pytest
 from worldsim.analysis import marginal_with_interval
 from worldsim.engine import CompiledModel, SimConfig, calibrate_marginals, cumulative_marginals, simulate
 from worldsim.params import BlockingPair, ContinuousVar, Edge, LatentFactor, Risk, WorldModel
-from worldsim.timeline import ANCHOR_QUARTERS, N_QUARTERS
+from worldsim.timeline import HORIZON_2056, anchor_quarters, n_quarters, use_horizon
 
-Q27, Q31, Q36 = (ANCHOR_QUARTERS[k] for k in ("p_by_2027_pct", "p_by_2031_pct", "p_by_2036_pct"))
+Q27, Q31, Q36 = anchor_quarters()
 
 
 def make_model(edges=None, latents=None, blocks=None, risks=None) -> WorldModel:
@@ -82,9 +82,11 @@ def test_each_risk_fires_at_most_once():
     res = simulate(cm, 20, 200, np.random.default_rng(2), c.batch_paths)
     ft = res["fire_time"]
     assert ft.min() >= -1
-    assert ft.max() <= N_QUARTERS
-    # int8 storage must not have wrapped
-    assert ft.dtype == np.int8
+    assert ft.max() <= n_quarters()
+    # int16, not int8: 122 quarters at the long horizon would wrap an int8.
+    assert ft.dtype == np.int16
+    # Non-recurrent nodes must fire at most once.
+    assert res["fire_time"].shape == (20 * 200, cm.R)
 
 
 def test_coupling_creates_correlation():

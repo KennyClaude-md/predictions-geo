@@ -13,7 +13,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.cluster.vq import kmeans2
 
-from .timeline import N_QUARTERS, horizon_label
+from .timeline import horizon_label, n_quarters
 
 Z90 = 1.6448536269514722
 
@@ -309,8 +309,8 @@ def aggregate_stats(
 
 def stress_trajectory(gssi: np.ndarray) -> dict:
     return {
-        "quarters": list(range(1, N_QUARTERS + 1)),
-        "labels": [horizon_label(q) for q in range(1, N_QUARTERS + 1)],
+        "quarters": list(range(1, gssi.shape[1] + 1)),
+        "labels": [horizon_label(q) for q in range(1, gssi.shape[1] + 1)],
         **{
             f"p{int(q*100)}": np.quantile(gssi, q, axis=0).tolist()
             for q in (0.05, 0.25, 0.5, 0.75, 0.95)

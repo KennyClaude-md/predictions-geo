@@ -87,3 +87,46 @@ def test_parse_events_skips_unparseable_rows_without_dying():
         {"name": "bad", "onset": "sometime in 1941", "severity_0_10": 10},
     ])
     assert [e.name for e in got] == ["ok"]
+
+
+def test_summed_index_is_not_comparable_across_register_sizes():
+    """The headline failure this module exists to document.
+
+    Splitting one event into many raises the summed index without changing the
+    world. Any cross-register comparison of sums is therefore invalid, and this
+    test pins the fact so nobody later 'fixes' the sum and publishes a ratio.
+    """
+    b = quarter_index("1940Q1")
+    coarse = [HistoricalEvent("one big war", b, 10.0)]
+    # The same contingency, enumerated as five components of severity 8.
+    fine = [HistoricalEvent(f"component {i}", b, 8.0) for i in range(5)]
+
+    p_coarse, _ = peak(coarse, b, b + 40)
+    p_fine, _ = peak(fine, b, b + 40)
+    assert p_fine > p_coarse * 3, "the sum tracks node count, which is the problem"
+
+    # The invariant measures do not move nearly as much.
+    from worldsim.backcast import concurrent_above, worst_active
+
+    assert worst_active(fine, "1940Q1") < worst_active(coarse, "1940Q1")
+    assert concurrent_above(coarse, "1940Q1", 9.0) == 1
+    assert concurrent_above(fine, "1940Q1", 9.0) == 0
+
+
+def test_worst_active_is_invariant_to_splitting_a_node():
+    b = quarter_index("2030Q1")
+    one = [HistoricalEvent("x", b, 9.0)]
+    split = [HistoricalEvent("x-a", b, 9.0), HistoricalEvent("x-b", b, 9.0)]
+    assert worst_active(one, "2030Q2") == pytest.approx(worst_active(split, "2030Q2"))
+
+
+def test_profile_reports_matched_count_and_severity_mass():
+    from worldsim.backcast import profile
+
+    b = quarter_index("1939Q3")
+    evs = [HistoricalEvent(f"e{i}", b + i * 3, 10.0 - i) for i in range(6)]
+    p = profile(evs, b, b + 40, k=3)
+    assert p["n_events"] == 6
+    assert p["severity_mass"] == pytest.approx(10 + 9 + 8 + 7 + 6 + 5)
+    assert p["topk_peak"] <= p["sum_peak"], "a subset cannot exceed the whole"
+    assert p["k"] == 3
