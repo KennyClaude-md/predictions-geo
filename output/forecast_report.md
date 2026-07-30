@@ -65,52 +65,46 @@ The 6+ band is broad — it contains a US recession alongside a Taiwan contingen
 
 Paths were clustered on which major events fired and on the shape of the systemic-stress trajectory. These are not scenarios written in advance and then assigned probabilities — they are the shapes the simulation actually produced, priced by how much of the path mass fell into each.
 
-### Manageable decade — technological discontinuity and financial and macro stress — **31%**
+### Manageable decade — technological discontinuity and great-power conflict — **31%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 31th percentile of all simulated paths.
-
-Distinguishing features (rate within this cluster vs. overall):
-
-- **US unemployment rate ≥6.0% for three consecutive months** — 100% here vs 82% overall
-- **A top-4 US hyperscaler guides annual capex down year-over-year** — 98% here vs 80% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 97% here vs 83% overall
-- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
-
-### Severe decade — technological discontinuity and financial and macro stress — **28%**
-
-Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 81th percentile of all simulated paths.
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by great-power conflict. Typical peak stress sits at the 33th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
-- **US unemployment rate ≥6.0% for three consecutive months** — 98% here vs 82% overall
-- **A top-4 US hyperscaler guides annual capex down year-over-year** — 95% here vs 80% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 96% here vs 83% overall
+- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 100% here vs 76% overall
+- **Renewed major US and/or Israeli air campaign against Iran** — 100% here vs 78% overall
 - **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
 
-### Manageable decade — technological discontinuity and financial and macro stress (variant) — **18%**
+### Severe decade — great-power conflict and technological discontinuity — **26%**
 
-Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 41th percentile of all simulated paths.
+Concurrent failure across domains. Shocks arrive faster than systems absorb them, and the response to one degrades the capacity to answer the next. The distinguishing driver is great-power conflict compounded by technological discontinuity. Typical peak stress sits at the 82th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
+- **Renewed major US and/or Israeli air campaign against Iran** — 96% here vs 78% overall
+- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 93% here vs 76% overall
 - **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
-- **US unemployment rate ≥6.0% for three consecutive months** — 94% here vs 82% overall
-- **Frontier agent reaches a 1-work-month 50%-reliability task horizon** — 87% here vs 76% overall
-- A top-4 US hyperscaler guides annual capex down year-over-year — *suppressed*: 18% here vs 80% overall
-- Nvidia suffers a ≥50% peak-to-trough drawdown — *suppressed*: 35% here vs 83% overall
 
-### Turbulent decade — technological discontinuity and financial and macro stress — **15%**
+### Manageable decade — financial and macro stress — **18%**
 
-Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is technological discontinuity compounded by financial and macro stress. Typical peak stress sits at the 46th percentile of all simulated paths.
+Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. The distinguishing driver is financial and macro stress. Typical peak stress sits at the 40th percentile of all simulated paths.
 
 Distinguishing features (rate within this cluster vs. overall):
 
 - **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
-- **Nvidia suffers a ≥50% peak-to-trough drawdown** — 93% here vs 83% overall
-- **A top-4 US hyperscaler guides annual capex down year-over-year** — 90% here vs 80% overall
-- US unemployment rate ≥6.0% for three consecutive months — *suppressed*: 0% here vs 82% overall
+- Frontier agent reaches a 1-work-month 50%-reliability task horizon — *suppressed*: 0% here vs 76% overall
+- AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption — *suppressed*: 43% here vs 74% overall
 
-### Manageable decade — no dominant driver — **8.7%**
+### Turbulent decade — financial and macro stress — **17%**
+
+Overlapping crises with intact institutions. Response capacity is strained but not exhausted, and recovery between shocks is incomplete. The distinguishing driver is financial and macro stress. Typical peak stress sits at the 46th percentile of all simulated paths.
+
+Distinguishing features (rate within this cluster vs. overall):
+
+- **Japan 10-year government bond yield reaches 3.00%** — 100% here vs 91% overall
+- Renewed major US and/or Israeli air campaign against Iran — *suppressed*: 0% here vs 78% overall
+
+### Manageable decade — no dominant driver — **8.6%**
 
 Serious but sequential. Shocks land, institutions bend, and each one is substantially resolved before the next arrives. Typical peak stress sits at the 40th percentile of all simulated paths.
 
@@ -670,28 +664,28 @@ The most common opening — Bleaching-level heat stress affects >= 60% of global
 
 ## Where the correlations are
 
-Pairs whose joint occurrence most exceeds what independence would predict. *Lift* is P(both) ÷ P(A)·P(B): a lift of 3 means these two show up together three times more often than chance. This is the part of the model that a spreadsheet of independent probabilities cannot produce, and it is where tail risk actually lives.
+The clearest way to read a dependency is the contrast between P(A given B) and P(A given not-B) — how much learning one event would move your estimate of the other. Ranked by odds ratio rather than by lift, because lift is mechanically capped by the base rates: two events at 80% each cannot show a lift above 1.25 however tightly coupled they are, so ranking high-probability nodes by lift returns a table of 1.0× entries and hides every real dependency. This is the part of the model a spreadsheet of independent probabilities cannot produce, and it is where tail risk lives.
 
-| Event A | Event B | P(both) | Lift | P(A given B) |
+| Event A | Event B | P(A given B) | P(A given not-B) | Odds ratio |
 |---|---|---:|---:|---:|
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | 62% | 1.1× | 83% |
-| US recession with NBER-dated peak in the window | Global recession (world real GDP growth below 2.0% in a calendar year) | 56% | 1.1× | 91% |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | A top-4 US hyperscaler guides annual capex down year-over-year | 72% | 1.1× | 91% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 68% | 1.1× | 81% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A single training run of ≥1e28 FLOP is publicly reported | 66% | 1.1× | 80% |
-| FAO Food Price Index reaches an all-time high above 160 | GRFC reports more than 300 million people in acute food insecurity | 64% | 1.1× | 75% |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 65% | 1.0× | 77% |
-| US unemployment rate ≥6.0% for three consecutive months | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 71% | 1.0× | 85% |
-| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A single training run of ≥1e28 FLOP is publicly reported | 63% | 1.0× | 76% |
-| Two or more top-10 staple exporters impose new broad export bans/quotas simultaneously | FAO Food Price Index reaches an all-time high above 160 | 56% | 1.0× | 79% |
-| Strait of Hormuz crude transit below 50% of 2025 baseline for >=30 consecutive days (new episode after 1 Aug 2026) | Global recession (world real GDP growth below 2.0% in a calendar year) | 51% | 1.0× | 82% |
-| A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | Single US political-violence attack killing ten or more people | 48% | 1.0× | 62% |
-| US recession with NBER-dated peak in the window | A top-4 US hyperscaler guides annual capex down year-over-year | 68% | 1.0× | 85% |
-| Frontier agent reaches a 1-work-month 50%-reliability task horizon | US unemployment rate ≥6.0% for three consecutive months | 64% | 1.0× | 78% |
-| Civil war onset in a country of 50 million or more that was at peace in mid-2026 | A NATO or EU member state currently coded as a democracy is downgraded to electoral autocracy by V-Dem | 51% | 1.0× | 84% |
-| China reports annual real GDP growth below 4.0% | Global recession (world real GDP growth below 2.0% in a calendar year) | 52% | 1.0× | 84% |
-| Nvidia suffers a ≥50% peak-to-trough drawdown | Global recession (world real GDP growth below 2.0% in a calendar year) | 53% | 1.0× | 85% |
-| A single training run of ≥1e28 FLOP is publicly reported | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | 71% | 1.0× | 84% |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | A top-4 US hyperscaler guides annual capex down year-over-year | **91%** | 52% | 8.9× |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | **81%** | 49% | 4.5× |
+| US recession with NBER-dated peak in the window | Global recession (world real GDP growth below 2.0% in a calendar year) | **91%** | 70% | 4.2× |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | **83%** | 55% | 4.1× |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | A single training run of ≥1e28 FLOP is publicly reported | **80%** | 56% | 3.1× |
+| FAO Food Price Index reaches an all-time high above 160 | GRFC reports more than 300 million people in acute food insecurity | **75%** | 51% | 2.9× |
+| US unemployment rate ≥6.0% for three consecutive months | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | **85%** | 67% | 2.7× |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | **77%** | 60% | 2.2× |
+| Japan 10-year government bond yield reaches 3.00% | Nvidia suffers a ≥50% peak-to-trough drawdown | **92%** | 86% | 2.0× |
+| Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | Long-term (multi-decadal) 1.5C breach formally declared | **98%** | 97% | 1.9× |
+| A single training run of ≥1e28 FLOP is publicly reported | A Fortune 500 firm announces ≥10,000 job cuts explicitly attributed primarily to AI | **84%** | 74% | 1.9× |
+| US recession with NBER-dated peak in the window | A top-4 US hyperscaler guides annual capex down year-over-year | **85%** | 75% | 1.9× |
+| AI-orchestrated cyberattack causes ≥$1B damage or a national-scale critical-infrastructure disruption | A single training run of ≥1e28 FLOP is publicly reported | **76%** | 64% | 1.8× |
+| Japan 10-year government bond yield reaches 3.00% | China reports annual real GDP growth below 4.0% | **92%** | 87% | 1.7× |
+| Japan 10-year government bond yield reaches 3.00% | China's extraterritorial rare-earth export control regime enters into force | **92%** | 88% | 1.7× |
+| Japan 10-year government bond yield reaches 3.00% | Bleaching-level heat stress affects >= 60% of global reef area within a 12-month window | **91%** | 87% | 1.7× |
+| Frontier agent reaches a 1-work-month 50%-reliability task horizon | US unemployment rate ≥6.0% for three consecutive months | **78%** | 68% | 1.6× |
+| Nvidia suffers a ≥50% peak-to-trough drawdown | US recession with NBER-dated peak in the window | **84%** | 77% | 1.6× |
 
 ## Continuous indicators
 
