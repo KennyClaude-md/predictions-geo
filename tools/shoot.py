@@ -17,8 +17,9 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def main() -> None:
-    page_path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "output" / "forecast.html"
-    outdir = ROOT / "output" / "shots"
+    page_path = (Path(sys.argv[1]).resolve() if len(sys.argv) > 1
+                 else ROOT / "output" / "forecast.html")
+    outdir = ROOT / "output" / "shots" / page_path.stem
     outdir.mkdir(parents=True, exist_ok=True)
 
     problems: list[str] = []
@@ -48,6 +49,8 @@ def main() -> None:
             for name, sel in [
                 ("stress", "#stress"), ("headline", "#headline"),
                 ("archetypes", "#archetypes"), ("pairs", "#pairs"),
+                ("why", "#why"), ("map", "#map"), ("timeline", "#timeline"),
+                ("topline", "#topline"),
             ]:
                 loc = page.locator(sel)
                 if loc.count():

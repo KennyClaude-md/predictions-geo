@@ -1,0 +1,501 @@
+<title>A hundred-year disaster timeline, 2026–2126</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ground:#fbfbfc; --surface:#ffffff; --surface-sunk:#f4f5f8;
+    --ink:#0f1115; --ink-2:#474b55; --ink-3:#767b87;
+    --rule:#e2e4ea; --rule-strong:#c8ccd6;
+    --accent:#2a78d6; --accent-sunk:#eaf1fc; --series:#2a78d6;
+    --band:rgba(42,120,214,0.16); --grid:#e6e8ee;
+    --warn:#fab219; --serious:#ec835a; --critical:#d03b3b; --good:#0ca30c;
+    --shadow:0 1px 2px rgba(15,17,21,.05), 0 8px 24px -16px rgba(15,17,21,.22);
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --ground:#14161a; --surface:#191c21; --surface-sunk:#101215;
+      --ink:#eceef2; --ink-2:#b0b5c0; --ink-3:#7e848f;
+      --rule:#292d34; --rule-strong:#3b414a;
+      --accent:#5c9df0; --accent-sunk:#17253a; --series:#3987e5;
+      --band:rgba(57,135,229,0.20); --grid:#242830;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:#14161a; --surface:#191c21; --surface-sunk:#101215;
+    --ink:#eceef2; --ink-2:#b0b5c0; --ink-3:#7e848f;
+    --rule:#292d34; --rule-strong:#3b414a;
+    --accent:#5c9df0; --accent-sunk:#17253a; --series:#3987e5;
+    --band:rgba(57,135,229,0.20); --grid:#242830;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--serif);
+         font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 28px 96px; }
+
+  header.mast { border-bottom:1px solid var(--rule-strong); padding:56px 0 26px; margin-bottom:40px; }
+  .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+             text-transform:uppercase; color:var(--ink-3); margin:0 0 18px; }
+  h1 { font-family:var(--sans); font-weight:700; letter-spacing:-0.032em;
+       font-size:clamp(2rem,5.4vw,3.2rem); line-height:1.04; text-wrap:balance; margin:0 0 20px; }
+  .standfirst { font-size:1.12rem; color:var(--ink-2); max-width:62ch; margin:0 0 26px; }
+  .runline { font-family:var(--mono); font-size:12px; color:var(--ink-3); display:flex;
+             flex-wrap:wrap; gap:8px 22px; padding-top:20px; border-top:1px solid var(--rule); }
+  .runline b { color:var(--ink-2); font-weight:500; }
+
+  section { margin:0 0 72px; }
+  h2 { font-family:var(--sans); font-weight:650; letter-spacing:-0.022em; font-size:1.6rem;
+       line-height:1.2; margin:0 0 6px; text-wrap:balance; }
+  h3 { font-family:var(--sans); font-weight:600; font-size:1.06rem; letter-spacing:-0.012em; margin:26px 0 8px; }
+  .sec-head { border-top:1px solid var(--rule-strong); padding-top:22px; margin-bottom:26px; }
+  .lede { color:var(--ink-2); margin:10px 0 0; max-width:68ch; }
+  p { margin:0 0 1em; } a { color:var(--accent); } strong { font-weight:600; }
+
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:14px; margin:0 0 20px; }
+  .tile { background:var(--surface); border:1px solid var(--rule); border-radius:3px;
+          padding:20px; box-shadow:var(--shadow); }
+  .tile .lab { font-family:var(--mono); font-size:10.5px; letter-spacing:.11em;
+               text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:12px; }
+  .tile .val { font-family:var(--sans); font-size:2.4rem; font-weight:700; letter-spacing:-0.035em;
+               line-height:1; display:block; }
+  .tile .sub { font-family:var(--mono); font-size:11.5px; color:var(--ink-3); display:block;
+               margin-top:10px; line-height:1.5; }
+
+  figure { margin:0 0 12px; }
+  .panel { background:var(--surface); border:1px solid var(--rule); border-radius:3px;
+           padding:22px 22px 16px; box-shadow:var(--shadow); }
+  .fig-title { font-family:var(--sans); font-weight:600; font-size:.98rem; letter-spacing:-0.01em;
+               display:block; margin-bottom:14px; }
+  figcaption { font-family:var(--mono); font-size:11.5px; color:var(--ink-3); line-height:1.55; margin-top:14px; }
+  svg { display:block; max-width:100%; height:auto; }
+  .scroller { overflow-x:auto; }
+
+  .tbl-wrap { overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; font-family:var(--sans); font-size:13.5px; }
+  th { font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+       color:var(--ink-3); font-weight:500; text-align:left; padding:12px 14px;
+       border-bottom:1px solid var(--rule-strong); white-space:nowrap; background:var(--surface); }
+  td { padding:11px 14px; border-bottom:1px solid var(--rule); vertical-align:middle; color:var(--ink-2); }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover td { background:var(--surface-sunk); }
+  td.name { color:var(--ink); font-weight:500; min-width:230px; }
+  .num { font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+  .num.lead { color:var(--ink); font-weight:600; }
+  .band-t { font-family:var(--mono); font-size:11px; color:var(--ink-3); white-space:nowrap; }
+
+  .chip { font-family:var(--mono); font-size:10px; letter-spacing:.06em; padding:2px 6px;
+          border-radius:2px; white-space:nowrap; border:1px solid currentColor; }
+  .chip.counted { color:var(--good); }
+  .chip.judged { color:var(--serious); }
+  .chip.nested { color:var(--ink-3); }
+
+  details { border-top:1px solid var(--rule); padding:14px 0 2px; }
+  details summary { cursor:pointer; font-family:var(--mono); font-size:11px; letter-spacing:.09em;
+                    text-transform:uppercase; color:var(--ink-3); }
+  details summary:hover { color:var(--ink); }
+  details summary:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  details[open] summary { margin-bottom:14px; }
+  .crit li { margin-bottom:10px; font-size:14px; color:var(--ink-2); }
+  .crit b { color:var(--ink); }
+  .crit em { color:var(--ink-3); font-style:normal; font-family:var(--mono); font-size:11.5px; }
+
+  .note { background:var(--accent-sunk); border-left:2px solid var(--accent); padding:16px 20px;
+          font-size:15px; color:var(--ink-2); margin:0 0 22px; border-radius:0 3px 3px 0; }
+  .note b { color:var(--ink); }
+  ul.caveats { padding-left:20px; color:var(--ink-2); font-size:15.5px; }
+  ul.caveats li { margin-bottom:12px; }
+
+  footer { border-top:1px solid var(--rule-strong); padding-top:22px; font-family:var(--mono);
+           font-size:11.5px; color:var(--ink-3); line-height:1.7; }
+
+  .tip { position:fixed; pointer-events:none; z-index:50; opacity:0; transition:opacity .1s;
+         background:var(--ink); color:var(--ground); font-family:var(--mono); font-size:11.5px;
+         line-height:1.55; padding:8px 10px; border-radius:3px; max-width:300px;
+         box-shadow:0 6px 20px -6px rgba(0,0,0,.5); }
+  .tip.on { opacity:1; }
+  .tip .t-lab { opacity:.65; display:block; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+  @media (max-width:700px) { body { font-size:16px; } .wrap { padding:0 18px 72px; } }
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Rate-based catastrophe taxonomy · compiled <span id="m-asof"></span></p>
+  <h1>A hundred-year disaster timeline</h1>
+  <p class="standfirst">
+    <span id="m-n"></span> hazards — nuclear, geophysical, space, climate, biological,
+    technological, societal — each carrying the mean interval between occurrences rather than
+    a probability. Over a century that distinction is the whole ballgame.
+  </p>
+  <div class="runline">
+    <span><b id="m-counted"></b> rates from a counted record</span>
+    <span><b id="m-judged"></b> judgement with a number attached</span>
+    <span><b id="m-nested"></b> nested, excluded from totals</span>
+    <span>window <b>2026–2126</b></span>
+  </div>
+</header>
+
+<section id="why">
+  <div class="sec-head">
+    <h2>Why rates, not probabilities</h2>
+    <p class="lede">The companion 2026–2036 forecast asks analysts for <em>P(at least once by
+      date T)</em>. That works over a decade and fails over a century — and this project has
+      already measured the failure rather than assuming it.</p>
+  </div>
+  <figure class="panel">
+    <span class="fig-title">What a hundred-year window does to a cumulative probability</span>
+    <svg viewBox="0 0 720 260" role="img" aria-label="Over a ten-year window four hazards of different rarity have distinct cumulative probabilities; over a hundred-year window three of the four saturate near certainty and become indistinguishable, while their recurrence intervals stay distinct.">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <text x="14" y="20" font-family="ui-monospace,monospace" font-size="11" fill="currentColor" opacity=".65">OVER 10 YEARS — P(at least once)</text>
+      <line x1="14" y1="112" x2="300" y2="112" stroke="currentColor" opacity=".3"/>
+      <line x1="14" y1="32" x2="14" y2="112" stroke="currentColor" opacity=".3"/>
+      <rect x="34"  y="44" width="26" height="68" fill="var(--series)"/>
+      <rect x="84"  y="72" width="26" height="40" fill="var(--series)"/>
+      <rect x="134" y="98" width="26" height="14" fill="var(--series)"/>
+      <rect x="184" y="109" width="26" height="3" fill="var(--series)"/>
+      <text x="47"  y="38" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">63%</text>
+      <text x="97"  y="66" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">39%</text>
+      <text x="147" y="92" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">10%</text>
+      <text x="197" y="103" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">1%</text>
+      <text x="120" y="132" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor" opacity=".65">four hazards, clearly different</text>
+
+      <text x="420" y="20" font-family="ui-monospace,monospace" font-size="11" fill="currentColor" opacity=".65">OVER 100 YEARS — P(at least once)</text>
+      <line x1="420" y1="112" x2="706" y2="112" stroke="currentColor" opacity=".3"/>
+      <line x1="420" y1="32" x2="420" y2="112" stroke="currentColor" opacity=".3"/>
+      <rect x="440" y="41" width="26" height="71" fill="var(--critical)"/>
+      <rect x="490" y="41" width="26" height="71" fill="var(--critical)"/>
+      <rect x="540" y="43" width="26" height="69" fill="var(--critical)"/>
+      <rect x="590" y="72" width="26" height="40" fill="var(--series)"/>
+      <text x="453" y="35" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">&gt;99%</text>
+      <text x="503" y="35" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">&gt;99%</text>
+      <text x="553" y="37" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">98%</text>
+      <text x="603" y="66" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor">39%</text>
+      <text x="526" y="132" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="var(--critical)">three now indistinguishable</text>
+
+      <line x1="310" y1="72" x2="410" y2="72" stroke="currentColor" marker-end="url(#ar)" opacity=".55"/>
+      <text x="360" y="64" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor" opacity=".65">widen the</text>
+      <text x="360" y="88" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="currentColor" opacity=".65">window</text>
+
+      <line x1="14" y1="168" x2="706" y2="168" stroke="currentColor" opacity=".18"/>
+      <text x="14" y="192" font-family="ui-monospace,monospace" font-size="11" fill="currentColor" opacity=".65">THE SAME FOUR HAZARDS AS RECURRENCE INTERVALS</text>
+      <text x="34"  y="220" font-family="ui-monospace,monospace" font-size="13" fill="var(--series)">10 yr</text>
+      <text x="204" y="220" font-family="ui-monospace,monospace" font-size="13" fill="var(--series)">20 yr</text>
+      <text x="374" y="220" font-family="ui-monospace,monospace" font-size="13" fill="var(--series)">95 yr</text>
+      <text x="544" y="220" font-family="ui-monospace,monospace" font-size="13" fill="var(--series)">1,000 yr</text>
+      <text x="14" y="246" font-family="ui-monospace,monospace" font-size="10" fill="currentColor" opacity=".65">unchanged by the window — which is why this table is built on them</text>
+    </svg>
+    <figcaption>A rate carries the same information over any window. A cumulative probability
+      does not: stretch the window far enough and everything with a steady hazard reads
+      &gt;99%, and the table stops distinguishing a once-a-decade event from a once-a-century
+      one. Measured on the companion register, discriminating variance <em>fell</em> from 41.9
+      at a 10-year horizon to 35.7 at 30 years.</figcaption>
+  </figure>
+</section>
+
+<section id="topline">
+  <div class="sec-head">
+    <h2>The century in aggregate</h2>
+    <p class="lede">Thresholds are on deaths, not on the 0–10 impact rating, because the rating
+      saturates: a full strategic nuclear exchange and a Taiwan invasion both score 10, and they
+      are not the same event. Deaths do not saturate.</p>
+  </div>
+  <div class="tiles" id="tiles"></div>
+  <div class="tbl-wrap"><table id="tier-table"></table></div>
+  <p class="note" id="nesting-note" style="margin-top:22px"></p>
+</section>
+
+<section id="map">
+  <div class="sec-head">
+    <h2>The frequency–severity map</h2>
+    <p class="lede">Every hazard placed by how often it recurs and how many it kills. Faceted by
+      category rather than coloured by it — eight colours in one scatter cannot be told apart by
+      a colourblind reader, and folding them into panels loses nothing. Filled marks rest on a
+      counted record; hollow marks are judgement.</p>
+  </div>
+  <figure class="panel">
+    <span class="fig-title">Recurrence interval against deaths per occurrence</span>
+    <div class="scroller"><svg id="scatter" role="img" aria-label="Small-multiple scatter plots, one per hazard category, placing each hazard by recurrence interval and expected deaths"></svg></div>
+    <figcaption>Both axes logarithmic. Up is deadlier; right is rarer. The diagonal band running
+      from frequent-and-small to rare-and-enormous is the shape of catastrophe risk — and the
+      hazards sitting above it, rare <em>and</em> enormous, are the ones a century-scale view
+      exists to surface.</figcaption>
+  </figure>
+</section>
+
+<section id="timeline">
+  <div class="sec-head">
+    <h2>Expected occurrences per decade</h2>
+    <p class="lede">Rates are not held constant across the century. Asteroid flux is flat;
+      lethal heat frequency is not. Each hazard ramps its own rate, and this integrates them.</p>
+  </div>
+  <figure class="panel">
+    <span class="fig-title">Expected number of qualifying events, by decade</span>
+    <div class="scroller"><svg id="decades" role="img" aria-label="Expected number of hazard occurrences in each decade from the 2020s to the 2110s"></svg></div>
+    <figcaption id="decade-cap"></figcaption>
+  </figure>
+  <div class="tbl-wrap" style="margin-top:22px"><table id="decade-table"></table></div>
+</section>
+
+<section id="basis">
+  <div class="sec-head">
+    <h2>Counted rates and judged rates</h2>
+    <p class="lede">The single most important distinction on this page. A megathrust interval
+      rests on paleoseismology with a real event count. A nuclear-war interval rests on
+      judgement with a number attached. Both appear below; only one is measurement.</p>
+  </div>
+  <p class="note" id="basis-note"></p>
+</section>
+
+<section id="tables">
+  <div class="sec-head">
+    <h2>Every hazard, by category</h2>
+    <p class="lede">Probability by 2126 derives from the recurrence interval and its uncertainty
+      — a wide band means the interval itself is barely constrained, not that the event is
+      erratic. Rows marked <span class="chip nested">NESTED</span> are subsets of a broader
+      hazard and are excluded from the totals above so one event is not counted twice.</p>
+  </div>
+  <div id="cat-list"></div>
+</section>
+
+<section id="audit">
+  <div class="sec-head">
+    <h2>What the auditor said</h2>
+    <p class="lede">A separate pass checked the rates for double-counting, plausibility against
+      the records they cite, and whether a hundred-year table is defensible at all.</p>
+  </div>
+  <p class="note" id="verdict"></p>
+  <div id="audit-body"></div>
+  <h3>Caveats</h3>
+  <ul class="caveats" id="caveats"></ul>
+</section>
+
+<footer>
+  Rate-based hazard taxonomy · generated by the <b>worldsim</b> century engine ·
+  compiled <span id="f-asof"></span><br>
+  Probabilities are derived from recurrence intervals sampled lognormally across each hazard's
+  elicited range; nesting is resolved to a maximal antichain before any total is taken.
+</footer>
+
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+  const D = JSON.parse(document.getElementById("payload").textContent);
+  const $ = (id) => document.getElementById(id);
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (t, a, x) => { const n = document.createElementNS(NS, t);
+    for (const k in a) n.setAttribute(k, a[k]); if (x != null) n.textContent = x; return n; };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
+    ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+  const pct = (x) => { const v = x*100;
+    if (v >= 99.5) return ">99%"; if (v < 0.1) return "<0.1%";
+    if (v < 10) return v.toFixed(1)+"%"; return Math.round(v)+"%"; };
+
+  const tip = $("tip");
+  function showTip(e, html) {
+    tip.innerHTML = html; tip.classList.add("on");
+    const r = tip.getBoundingClientRect();
+    let x = e.clientX + 14, y = e.clientY - r.height - 10;
+    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
+    if (y < 8) y = e.clientY + 18;
+    tip.style.left = x+"px"; tip.style.top = y+"px";
+  }
+  const hideTip = () => tip.classList.remove("on");
+
+  $("m-asof").textContent = D.as_of;
+  $("f-asof").textContent = D.as_of;
+  $("m-n").textContent = D.hazards.length;
+  $("m-counted").textContent = D.n_counted;
+  $("m-judged").textContent = D.n_judged;
+  $("m-nested").textContent = D.aggregate.n_excluded_as_nested;
+
+  // ---- tiles + tier table ----
+  $("tiles").innerHTML = D.tiles.map((t) => `
+    <div class="tile"><span class="lab">${esc(t.label)}</span>
+      <span class="val">${esc(t.value)}</span><span class="sub">${esc(t.sub)}</span></div>`).join("");
+
+  $("tier-table").innerHTML =
+    `<thead><tr><th>Death threshold</th><th>Hazards</th><th>Expected events</th>
+      <th>P(at least one)</th><th>P(two or more)</th></tr></thead><tbody>` +
+    D.tiers.map((t) => `<tr><td class="name">${esc(t.label)}</td>
+      <td class="num">${t.n_hazards}</td><td class="num lead">${t.expected.toFixed(2)}</td>
+      <td class="num lead">${pct(t.p1)}</td><td class="num">${pct(t.p2)}</td></tr>`).join("") +
+    `</tbody>`;
+  $("nesting-note").innerHTML = D.nesting_note;
+  $("basis-note").innerHTML = D.basis_note;
+
+  // ---- faceted frequency/severity scatter ----
+  function scatter() {
+    const cats = D.categories;
+    const cols = Math.min(4, Math.max(2, Math.floor((innerWidth - 120) / 250)));
+    const rows = Math.ceil(cats.length / cols);
+    const pw = 236, ph = 190, gx = 22, gy = 40;
+    const ml = 46, mt = 46, mr = 12, mb = 34;   // mt clears the axis caption above row 1
+    const W = ml + cols*pw + (cols-1)*gx + mr;
+    const H = mt + rows*ph + (rows-1)*gy + mb;
+    const svg = $("scatter");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    const X = (v, x0) => x0 + (Math.log10(Math.max(v,0.5)) / 7) * pw;   // 0.5yr .. 1e7 yr
+    const Y = (v, y0) => y0 + ph - (v / 10) * ph;                        // log10 deaths 0..10
+
+    cats.forEach((c, i) => {
+      const cx = ml + (i % cols) * (pw + gx);
+      const cy = mt + Math.floor(i / cols) * (ph + gy);
+      const pts = D.hazards.filter((h) => h.category === c);
+
+      svg.appendChild(el("text", { x:cx, y:cy-9, fill:"var(--ink)", "font-size":11.5,
+        "font-family":"var(--sans)", "font-weight":600 },
+        (pts[0] && pts[0].category_label) || c));
+
+      for (let g = 0; g <= 7; g++) {
+        const gxp = cx + (g/7)*pw;
+        svg.appendChild(el("line", { x1:gxp, x2:gxp, y1:cy, y2:cy+ph,
+          stroke:"var(--grid)", "stroke-width":1 }));
+      }
+      for (let g = 0; g <= 10; g += 2) {
+        const gyp = cy + ph - (g/10)*ph;
+        svg.appendChild(el("line", { x1:cx, x2:cx+pw, y1:gyp, y2:gyp,
+          stroke:"var(--grid)", "stroke-width":1 }));
+      }
+
+      pts.forEach((h) => {
+        const px = X(h.recurrence, cx), py = Y(h.deaths_log10, cy);
+        // Surface ring so overlapping marks stay legible.
+        svg.appendChild(el("circle", { cx:px, cy:py, r:6.5, fill:"var(--surface)" }));
+        svg.appendChild(el("circle", { cx:px, cy:py, r:4.5,
+          fill: h.counted ? "var(--series)" : "none",
+          stroke:"var(--series)", "stroke-width":1.6 }));
+        const hit = el("circle", { cx:px, cy:py, r:11, fill:"transparent" });
+        hit.addEventListener("mousemove", (e) => showTip(e,
+          `<span class="t-lab">${esc(h.category_label)}</span><b>${esc(h.name)}</b><br>
+           once per ${esc(h.recurrence_text)}<br>
+           ~10<sup>${h.deaths_log10.toFixed(0)}</sup> deaths per occurrence<br>
+           P by 2126 &nbsp;<b>${pct(h.p_century)}</b> (${pct(h.p_century_lo)}–${pct(h.p_century_hi)})<br>
+           ${h.counted ? "counted record" : "judged estimate"}`));
+        hit.addEventListener("mouseleave", hideTip);
+        svg.appendChild(hit);
+      });
+
+      if (i % cols === 0) {
+        [0,2,4,6,8,10].forEach((g) => svg.appendChild(el("text",
+          { x:cx-9, y:cy+ph-(g/10)*ph+4, "text-anchor":"end", fill:"var(--ink-3)",
+            "font-size":9.5, "font-family":"var(--mono)" }, "1e"+g)));
+      }
+      if (Math.floor(i / cols) === rows - 1 || i >= cats.length - cols) {
+        [[0,"1y"],[2,"100y"],[4,"10ky"],[6,"1My"]].forEach(([g,lab]) =>
+          svg.appendChild(el("text", { x:cx+(g/7)*pw, y:cy+ph+16, "text-anchor":"middle",
+            fill:"var(--ink-3)", "font-size":9.5, "font-family":"var(--mono)" }, lab)));
+      }
+    });
+
+    svg.appendChild(el("text", { x:12, y:16, fill:"var(--ink-3)", "font-size":10,
+      "font-family":"var(--mono)" }, "↑ deaths per occurrence"));
+    svg.appendChild(el("text", { x:W-8, y:H-6, "text-anchor":"end", fill:"var(--ink-3)",
+      "font-size":10, "font-family":"var(--mono)" }, "recurrence interval →"));
+  }
+
+  // ---- decade bars ----
+  function decades() {
+    const rows = D.timeline;
+    const W = Math.max(640, Math.min(1060, innerWidth - 100));
+    const H = 250, ml = 52, mr = 16, mt = 14, mb = 40;
+    const iw = W - ml - mr, ih = H - mt - mb;
+    const ymax = Math.max(...rows.map((r) => r.total)) * 1.15 || 1;
+    const bw = Math.min(46, (iw / rows.length) - 10);
+    const svg = $("decades");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.innerHTML = "";
+
+    for (let t = 0; t <= 4; t++) {
+      const v = (ymax/4)*t, y = mt + ih - (v/ymax)*ih;
+      svg.appendChild(el("line", { x1:ml, x2:ml+iw, y1:y, y2:y, stroke:"var(--grid)", "stroke-width":1 }));
+      svg.appendChild(el("text", { x:ml-9, y:y+4, "text-anchor":"end", fill:"var(--ink-3)",
+        "font-size":10.5, "font-family":"var(--mono)" }, v.toFixed(1)));
+    }
+    rows.forEach((r, i) => {
+      const cx = ml + (i + 0.5) * (iw / rows.length);
+      const h = (r.total / ymax) * ih;
+      const y = mt + ih - h;
+      svg.appendChild(el("path", {
+        d:`M${cx-bw/2} ${mt+ih} V${y+4} a4 4 0 0 1 4 -4 H${cx+bw/2-4} a4 4 0 0 1 4 4 V${mt+ih} Z`,
+        fill:"var(--series)" }));
+      svg.appendChild(el("text", { x:cx, y:H-12, "text-anchor":"middle", fill:"var(--ink-3)",
+        "font-size":10, "font-family":"var(--mono)" }, r.start));
+      const hit = el("rect", { x:cx-iw/rows.length/2, y:mt, width:iw/rows.length, height:ih, fill:"transparent" });
+      hit.addEventListener("mousemove", (e) => {
+        const parts = D.categories.filter((c) => (r[c] || 0) > 0.001)
+          .sort((a,b) => (r[b]||0)-(r[a]||0))
+          .map((c) => `${esc(D.cat_labels[c] || c)} ${(r[c]).toFixed(2)}`).join("<br>");
+        showTip(e, `<span class="t-lab">${r.start}s</span><b>${r.total.toFixed(2)} expected</b><br>${parts}`);
+      });
+      hit.addEventListener("mouseleave", hideTip);
+      svg.appendChild(hit);
+    });
+    $("decade-cap").textContent = D.decade_caption;
+  }
+
+  $("decade-table").innerHTML =
+    `<thead><tr><th>Decade</th>` +
+    D.categories.map((c) => `<th>${esc(D.cat_labels[c] || c)}</th>`).join("") +
+    `<th>Total</th></tr></thead><tbody>` +
+    D.timeline.map((r) => `<tr><td class="name">${r.start}s</td>` +
+      D.categories.map((c) => `<td class="num">${(r[c]||0).toFixed(2)}</td>`).join("") +
+      `<td class="num lead">${r.total.toFixed(2)}</td></tr>`).join("") + `</tbody>`;
+
+  // ---- per-category tables ----
+  $("cat-list").innerHTML = D.categories.map((c) => {
+    const rows = D.hazards.filter((h) => h.category === c)
+      .sort((a,b) => b.p_century - a.p_century);
+    if (!rows.length) return "";
+    return `<details${c === "nuclear" ? " open" : ""}>
+      <summary>${esc(D.cat_labels[c] || c)} — ${rows.length} hazards</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Hazard</th><th>Recurrence</th><th>P by 2126</th><th>90% band</th>
+          <th>Deaths</th><th>Warning</th><th>Basis</th></tr></thead>
+        <tbody>${rows.map((h) => `<tr>
+          <td class="name">${esc(h.name)}${h.nested_under ? ' <span class="chip nested">NESTED</span>' : ""}</td>
+          <td class="num">${esc(h.recurrence_text)}</td>
+          <td class="num lead">${pct(h.p_century)}</td>
+          <td class="band-t">${pct(h.p_century_lo)}–${pct(h.p_century_hi)}</td>
+          <td class="num">10<sup>${h.deaths_log10.toFixed(0)}</sup></td>
+          <td class="num" style="text-align:left">${esc(h.warning)}</td>
+          <td><span class="chip ${h.counted ? "counted" : "judged"}">${h.counted ? "COUNTED" : "JUDGED"}</span></td>
+        </tr>`).join("")}</tbody>
+      </table></div>
+      <details style="border-top:none;margin-top:14px">
+        <summary>Resolution criteria and evidence</summary>
+        <ul class="crit">${rows.map((h) =>
+          `<li><b>${esc(h.name)}</b> — ${esc(h.criteria)}<br><em>${esc(h.evidence)}</em></li>`).join("")}</ul>
+      </details>
+    </details>`;
+  }).join("");
+
+  $("verdict").innerHTML = D.audit.verdict_html;
+  $("audit-body").innerHTML = D.audit.body_html;
+  $("caveats").innerHTML = D.audit.caveats.map((c) => `<li>${c}</li>`).join("");
+
+  scatter(); decades();
+  let rt;
+  addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { scatter(); decades(); }, 160); });
+})();
+</script>

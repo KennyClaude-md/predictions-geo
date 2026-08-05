@@ -198,6 +198,8 @@ def main() -> None:
 
     _report(out, ROOT / "output" / "century_timeline.md")
     print(f"wrote {ROOT / 'output' / 'century_timeline.md'}")
+    _page(out, ROOT / "output" / "century.html")
+    print(f"wrote {ROOT / 'output' / 'century.html'}")
 
     t = agg["tiers"]
     print()
@@ -206,6 +208,84 @@ def main() -> None:
     for k, v in t.items():
         print(f"  {k:22s} P(>=1) {pct(v['p_at_least_one']):>6}  "
               f"E[events] {v['expected_events']:.2f}  ({v['n_hazards']} hazards)")
+
+
+def _md(text: str) -> str:
+    """Escape, then render **bold** and *italic* — the report layer writes markdown."""
+    import re
+
+    t = (str(text).replace("&", "&amp;").replace("<", "&lt;")
+         .replace(">", "&gt;").replace('"', "&quot;"))
+    t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t, flags=re.S)
+    t = re.sub(r"(?<![\*\w])\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", t, flags=re.S)
+    return t
+
+
+def _page(d: dict, path: Path) -> None:
+    """Render the self-contained page from the same computed payload as the report."""
+    a = d["aggregate"]
+    t = a["tiers"]
+    names = {
+        "mass_casualty_1e4": "≥10,000 deaths",
+        "catastrophe_1e6": "≥1 million deaths",
+        "global_1e7": "≥10 million deaths",
+        "civilisational_1e8": "≥100 million deaths",
+    }
+    tiers = [
+        {"label": names[k], "n_hazards": t[k]["n_hazards"], "expected": t[k]["expected_events"],
+         "p1": t[k]["p_at_least_one"], "p2": t[k]["p_two_or_more"]}
+        for k in names
+    ]
+    c6, c8 = t["catastrophe_1e6"], t["civilisational_1e8"]
+    tiles = [
+        {"label": "Events killing 1m+", "value": f"{c6['expected_events']:.1f}",
+         "sub": f"expected count 2026–2126 across {c6['n_hazards']} hazards; "
+                f"P(at least one) {pct(c6['p_at_least_one'])}"},
+        {"label": "A century with none", "value": pct(c6["p_none"]),
+         "sub": "probability nothing in that band fires at all over a hundred years"},
+        {"label": "Events killing 100m+", "value": pct(c8["p_at_least_one"]),
+         "sub": f"P(at least one) across {c8['n_hazards']} hazards; two or more "
+                f"{pct(c8['p_two_or_more'])}"},
+        {"label": "Expected deaths", "value": f"10^{a['expected_deaths_log10']:.1f}",
+         "sub": "order of magnitude, summed linearly across all non-nested hazards — "
+                "dominated by the rare enormous tail, not the common small events"},
+    ]
+
+    payload = {
+        "as_of": d["as_of"],
+        "hazards": d["hazards"],
+        "categories": d["categories"],
+        "cat_labels": {c: CATEGORY_LABEL.get(c, c) for c in d["categories"]},
+        "tiles": tiles,
+        "tiers": tiers,
+        "timeline": d["timeline"],
+        "n_counted": d["n_counted"],
+        "n_judged": d["n_judged"],
+        "aggregate": {"n_excluded_as_nested": a["n_excluded_as_nested"]},
+        "nesting_note": _md(
+            f"**{a['n_excluded_as_nested']} hazards are excluded from these totals** because a "
+            f"broader hazard already contains them. A regional nuclear war is a subset of *any "
+            f"nuclear detonation in anger*, not a separate event; summing them would count one "
+            f"war twice. Excluded hazards keep their own rows further down, marked NESTED."),
+        "basis_note": _md(d["audit"]["counted_vs_judged"] or
+            "The auditor did not return a counted-versus-judged assessment for this run."),
+        "decade_caption": (
+            "Totals rise across the century because several hazard classes carry an explicit "
+            "upward rate trend — climate-driven extremes most of all — and the integral picks "
+            "that up. A flat-rate hazard contributes the same amount to every bar."),
+        "audit": {
+            "verdict_html": _md(
+                f"**Verdict: {d['audit']['verdict'].replace('_', ' ')}.** "
+                + (d["audit"]["headline"].split(". ")[0] + "." if d["audit"]["headline"] else "")),
+            "body_html": "".join(
+                f"<p>{_md(par)}</p>" for par in
+                (d["audit"]["headline"] or "").split("\n\n") if par.strip()),
+            "caveats": [_md(c) for c in d["audit"]["caveats"]],
+        },
+    }
+    tpl = (ROOT / "tools" / "century_template.html").read_text()
+    html = tpl.replace("__DATA__", json.dumps(payload, separators=(",", ":")).replace("</", "<\\/"))
+    path.write_text(html)
 
 
 def _report(d: dict, path: Path) -> None:
