@@ -22,3 +22,4 @@ from .model import (  # noqa: F401
     HeadlinerModel, UndercardModel, backtest, select_undercard,
 )
 from .simulate import simulate  # noqa: F401
+from .days import assign_days  # noqa: F401

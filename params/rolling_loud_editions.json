@@ -1,10 +1,8 @@
 {
   "dataset": "rolling_loud_editions",
   "as_of": "2026-09-16",
-  "provenance": "Web-grounded to September 2026. Edition dates, venues and headline slates from Billboard, Variety, Complex, The FADER, BrooklynVegan, Consequence, SoFi Stadium newsroom, Pollstar, Forbes and local press. Undercard rosters are PARTIAL: they record the names that trade press actually printed, which is biased toward the top ~25 of a 75-100 act bill. Every recurrence statistic derived from them is therefore a statement about the *reported* undercard, not the full bill.",
-
+  "provenance": "Web-grounded to September 2026. Edition dates, venues and headline slates from Billboard, Variety, Complex, The FADER, BrooklynVegan, Consequence, SoFi Stadium newsroom, Pollstar, Forbes and local press. Undercard rosters are PARTIAL: they record the names that trade press actually printed, which is biased toward the top ~25 of a 75-100 act bill. Every recurrence statistic derived from them is therefore a statement about the *reported* undercard, not the full bill. Orlando 2026's roster was later extended with the deep-bill names trade coverage printed from the official alphabetical lineup listing (the A-F stretch plus Loe Shimmy and Plaqueboymax), which is where most of a 78-act Rolling Loud bill actually lives.",
   "brand_note": "Rolling Loud's US flagship is a single franchise that has moved venue: Miami (Hard Rock Stadium) through 2024, California (Hollywood Park) as a second US edition through 2025, and Orlando (Camping World Stadium) as the sole US edition from 2026. The fitting set treats all US flagship editions as draws from one booking process.",
-
   "editions": [
     {
       "key": "cali_2023",
@@ -14,8 +12,18 @@
       "venue": "Hollywood Park, Inglewood CA",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["travis_scott", "playboi_carti", "future", "lil_wayne"],
-      "headliners_performed": ["travis_scott", "playboi_carti", "future", "lil_wayne"],
+      "headliners_booked": [
+        "travis_scott",
+        "playboi_carti",
+        "future",
+        "lil_wayne"
+      ],
+      "headliners_performed": [
+        "travis_scott",
+        "playboi_carti",
+        "future",
+        "lil_wayne"
+      ],
       "undercard_reported": [],
       "notes": "Four billed headliners across three days."
     },
@@ -27,9 +35,23 @@
       "venue": "Hard Rock Stadium, Miami Gardens FL",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["playboi_carti", "travis_scott", "asap_rocky"],
-      "headliners_performed": ["playboi_carti", "travis_scott", "asap_rocky"],
-      "undercard_reported": ["ice_spice", "glorilla", "lil_uzi_vert", "kodak_black", "21_savage"],
+      "headliners_booked": [
+        "playboi_carti",
+        "travis_scott",
+        "asap_rocky"
+      ],
+      "headliners_performed": [
+        "playboi_carti",
+        "travis_scott",
+        "asap_rocky"
+      ],
+      "undercard_reported": [
+        "ice_spice",
+        "glorilla",
+        "lil_uzi_vert",
+        "kodak_black",
+        "21_savage"
+      ],
       "notes": "Carti Fri, Travis Sat, Rocky Sun. Kodak Black, 21 Savage and Lil Uzi Vert billed as day special guests."
     },
     {
@@ -40,9 +62,25 @@
       "venue": "Hollywood Park, Inglewood CA",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["nicki_minaj", "post_malone", "lil_uzi_vert"],
-      "headliners_performed": ["nicki_minaj", "post_malone", "future", "metro_boomin"],
-      "undercard_reported": ["don_toliver", "chief_keef", "big_sean", "sexyy_red", "bryson_tiller", "peso_pluma"],
+      "headliners_booked": [
+        "nicki_minaj",
+        "post_malone",
+        "lil_uzi_vert"
+      ],
+      "headliners_performed": [
+        "nicki_minaj",
+        "post_malone",
+        "future",
+        "metro_boomin"
+      ],
+      "undercard_reported": [
+        "don_toliver",
+        "chief_keef",
+        "big_sean",
+        "sexyy_red",
+        "bryson_tiller",
+        "peso_pluma"
+      ],
       "notes": "Lil Uzi Vert was the booked Sunday headliner and was replaced by Future x Metro Boomin, their first live performance together. Fitting uses the booked slate; the substitution is scored separately as a drop-out event."
     },
     {
@@ -53,9 +91,40 @@
       "venue": "Hard Rock Stadium, Miami Gardens FL",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["future", "travis_scott", "playboi_carti"],
-      "headliners_performed": ["future", "travis_scott", "playboi_carti"],
-      "undercard_reported": ["yeat", "don_toliver", "lil_baby", "metro_boomin", "lil_yachty", "trippie_redd", "tyga", "lil_tecca", "rick_ross", "jt", "sexyy_red", "kodak_black", "ski_mask", "lil_tjay", "nle_choppa", "bryson_tiller", "ken_carson", "polo_g", "shaboozey", "denzel_curry", "destroy_lonely"],
+      "headliners_booked": [
+        "future",
+        "travis_scott",
+        "playboi_carti"
+      ],
+      "headliners_performed": [
+        "future",
+        "travis_scott",
+        "playboi_carti"
+      ],
+      "undercard_reported": [
+        "bryson_tiller",
+        "denzel_curry",
+        "destroy_lonely",
+        "don_toliver",
+        "jt",
+        "ken_carson",
+        "kodak_black",
+        "lil_baby",
+        "lil_tecca",
+        "lil_tjay",
+        "lil_yachty",
+        "metro_boomin",
+        "nle_choppa",
+        "polo_g",
+        "rick_ross",
+        "rob49",
+        "sexyy_red",
+        "shaboozey",
+        "ski_mask",
+        "trippie_redd",
+        "tyga",
+        "yeat"
+      ],
       "notes": "Tenth-anniversary edition and the last Miami edition to date."
     },
     {
@@ -66,9 +135,36 @@
       "venue": "Hollywood Park, Inglewood CA",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["asap_rocky", "playboi_carti"],
-      "headliners_performed": ["asap_rocky", "playboi_carti"],
-      "undercard_reported": ["peso_pluma", "yg", "quavo", "ken_carson", "destroy_lonely", "sexyy_red", "ski_mask", "bossman_dlow", "ian", "osamason", "skaiwater", "1900rugrat", "hurricane_wisdom", "molly_santana", "ab_soul", "03_greedo", "larry_june", "dom_kennedy", "kamaiyah", "blxst"],
+      "headliners_booked": [
+        "asap_rocky",
+        "playboi_carti"
+      ],
+      "headliners_performed": [
+        "asap_rocky",
+        "playboi_carti"
+      ],
+      "undercard_reported": [
+        "peso_pluma",
+        "yg",
+        "quavo",
+        "ken_carson",
+        "destroy_lonely",
+        "sexyy_red",
+        "ski_mask",
+        "bossman_dlow",
+        "ian",
+        "osamason",
+        "skaiwater",
+        "1900rugrat",
+        "hurricane_wisdom",
+        "molly_santana",
+        "ab_soul",
+        "03_greedo",
+        "larry_june",
+        "dom_kennedy",
+        "kamaiyah",
+        "blxst"
+      ],
       "notes": "Cut from three days to two. Peso Pluma billed as special guest rather than headliner."
     },
     {
@@ -79,9 +175,76 @@
       "venue": "Camping World Stadium, Orlando FL",
       "status": "held",
       "us_flagship": true,
-      "headliners_booked": ["don_toliver", "playboi_carti", "nba_youngboy"],
-      "headliners_performed": ["don_toliver", "playboi_carti", "ken_carson"],
-      "undercard_reported": ["sexyy_red", "ken_carson", "quavo", "swae_lee", "bossman_dlow", "esdeekid", "chief_keef", "destroy_lonely", "sahbabii", "pooh_shiesty", "nettspend", "molly_santana", "sorisa", "skrilla", "osamason", "che", "xaviersobased", "fakemink", "homixide_gang", "nocap", "sofaygo", "luh_tyler", "nino_paid", "tiacorine", "skaiwater", "feng", "2slimey", "adamn_killa", "1900rugrat", "babychiefdoit"],
+      "headliners_booked": [
+        "don_toliver",
+        "playboi_carti",
+        "nba_youngboy"
+      ],
+      "headliners_performed": [
+        "don_toliver",
+        "playboi_carti",
+        "ken_carson"
+      ],
+      "undercard_reported": [
+        "1300saint",
+        "1900rugrat",
+        "1k_phew",
+        "1oneam",
+        "2slimey",
+        "adamn_killa",
+        "anike",
+        "apollored1",
+        "b_jacks",
+        "baby_mel",
+        "babychiefdoit",
+        "belly_gang_kushington",
+        "bigso",
+        "bigwest",
+        "bloodhound_q50",
+        "bossman_dlow",
+        "bunnab",
+        "caleb_gordon",
+        "champagne937",
+        "che",
+        "chief_keef",
+        "chow_lee",
+        "chuckyy",
+        "clip",
+        "danny_towers",
+        "dc_chris",
+        "destroy_lonely",
+        "diorysyou",
+        "el_snappo",
+        "esdeekid",
+        "f1lthy",
+        "fakemink",
+        "feng",
+        "ffawty",
+        "fimiguerrero",
+        "flogo",
+        "floor13",
+        "homixide_gang",
+        "ken_carson",
+        "loe_shimmy",
+        "luh_tyler",
+        "molly_santana",
+        "nettspend",
+        "nino_paid",
+        "nocap",
+        "osamason",
+        "plaqueboymax",
+        "pooh_shiesty",
+        "quavo",
+        "sahbabii",
+        "sexyy_red",
+        "skaiwater",
+        "skrilla",
+        "sofaygo",
+        "sorisa",
+        "swae_lee",
+        "tiacorine",
+        "xaviersobased"
+      ],
       "notes": "Only US edition of 2026 and the Orlando debut. Sold out all three days, ~65k/day. NBA YoungBoy withdrew on 7 May citing needing time away from travelling and performing; Ken Carson was elevated from the undercard with one day's notice. Young Thug, Lil Tecca, Playboi Carti and Destroy Lonely appeared as guests."
     },
     {
@@ -92,8 +255,18 @@
       "venue": "Loud Park, Navi Mumbai",
       "status": "held",
       "us_flagship": false,
-      "headliners_booked": ["central_cee", "wiz_khalifa", "don_toliver", "karan_aujla"],
-      "headliners_performed": ["central_cee", "wiz_khalifa", "don_toliver", "karan_aujla"],
+      "headliners_booked": [
+        "central_cee",
+        "wiz_khalifa",
+        "don_toliver",
+        "karan_aujla"
+      ],
+      "headliners_performed": [
+        "central_cee",
+        "wiz_khalifa",
+        "don_toliver",
+        "karan_aujla"
+      ],
       "undercard_reported": [],
       "notes": "Debut edition, 65,000 attendance. Karan Aujla the first Indian artist to headline a Rolling Loud. Not used for US-flagship fitting; the international bill is a structurally different, cheaper booking process."
     },
@@ -105,9 +278,26 @@
       "venue": "Centennial Park Sydney / Flemington Racecourse Melbourne",
       "status": "cancelled",
       "us_flagship": false,
-      "headliners_booked": ["gunna", "ken_carson", "sexyy_red"],
+      "headliners_booked": [
+        "gunna",
+        "ken_carson",
+        "sexyy_red"
+      ],
       "headliners_performed": [],
-      "undercard_reported": ["tyga", "swae_lee", "lil_tjay", "nle_choppa", "quavo", "ian", "ski_mask", "osamason", "rich_amiri", "fimiguerrero", "bunnab", "f1lthy"],
+      "undercard_reported": [
+        "tyga",
+        "swae_lee",
+        "lil_tjay",
+        "nle_choppa",
+        "quavo",
+        "ian",
+        "ski_mask",
+        "osamason",
+        "rich_amiri",
+        "fimiguerrero",
+        "bunnab",
+        "f1lthy"
+      ],
       "notes": "Full lineup announced November 2025, then cancelled outright. The single most important datapoint for execution risk: a fully-announced Rolling Loud edition with a headline slate can still not happen."
     },
     {
@@ -124,7 +314,6 @@
       "notes": "Expected on the calendar as the annual Miami edition; never staged and never given a lineup. Excluded from headliner fitting (no booking decision to learn from) but counted in the edition-attrition base rate."
     }
   ],
-
   "confirmed_forward_calendar": [
     {
       "key": "india_2026",
@@ -147,7 +336,6 @@
       "notes": "Dates confirmed 15 Sep 2026. Layaway from $10 down, 3-day passes from $249, presale 17 Sep 2026. No lineup announced as of 16 Sep 2026. THIS IS THE PREDICTION TARGET."
     }
   ],
-
   "unconfirmed_forward_calendar": [
     {
       "key": "california_2027",
@@ -165,7 +353,6 @@
       "notes": "Rolling Loud posted 'back in europe summer 2026' in April 2025; no European edition was staged in 2026. The brand has run Portugal, Netherlands, Germany and Austria in past years; last confirmed European edition was Austria, July 2024."
     }
   ],
-
   "announcement_lead_times_days": {
     "cali_2024": 120,
     "miami_2024": 124,

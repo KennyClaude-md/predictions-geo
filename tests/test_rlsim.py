@@ -197,6 +197,22 @@ def test_undercard_selection_prefers_draw():
           f"rl_fit={b['rl_fit']:+.3f}")
 
 
+def test_support_tier_is_excluded_from_the_fit():
+    """The roster's support tier was sourced from the 2026 bill, so every one of
+    those acts is a positive and the region carries no information. Fitting over
+    it flips the popularity coefficient negative. Guard the exclusion."""
+    from rlsim.model import UNDERCARD_DRAW_FLOOR, _undercard_transitions
+    r = load()
+    below = [k for k, a in r.artists.items() if a["draw"] < UNDERCARD_DRAW_FLOOR]
+    on_2026 = [e for e in r.editions if e.key == "orlando_2026"][0].bill
+    check("support tier really is selection-on-outcome",
+          all(k in on_2026 for k in below),
+          f"{len(below)} acts below the floor, "
+          f"{sum(k in on_2026 for k in below)} of them on the 2026 bill")
+    n_fit = sum(len(t[2]) for t in _undercard_transitions(r, ["on_prev_bill"]))
+    check("the fit excludes them", n_fit > 0 and len(below) > 0)
+
+
 def main() -> int:
     print("RL-SIM validation")
     for fn in (
@@ -205,7 +221,8 @@ def main() -> int:
         test_design_standardized, test_gumbel_topk_matches_softmax,
         test_availability_gate_is_absolute, test_draw_is_monotone,
         test_probabilities_are_coherent, test_undercard_probabilities_bounded,
-        test_undercard_selection_prefers_draw, test_backtest_beats_baselines,
+        test_undercard_selection_prefers_draw,
+        test_support_tier_is_excluded_from_the_fit, test_backtest_beats_baselines,
     ):
         fn()
     print(f"\n{'ALL PASS' if not FAILS else str(len(FAILS)) + ' FAILED: ' + ', '.join(FAILS)}")

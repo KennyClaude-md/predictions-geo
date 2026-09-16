@@ -1,0 +1,195 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family:'Anton';   src:url('fonts/Anton.ttf') format('truetype'); }
+  @font-face { font-family:'Archivo'; src:url('fonts/ArchivoBlack.ttf') format('truetype'); }
+  @font-face { font-family:'Oswald';  src:url('fonts/Oswald-1.ttf') format('truetype'); font-weight:500; }
+  @font-face { font-family:'Oswald';  src:url('fonts/Oswald-2.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Oswald';  src:url('fonts/Oswald-3.ttf') format('truetype'); font-weight:700; }
+
+  @page { size: 12in 18in; margin: 0; }
+  * { box-sizing:border-box; margin:0; padding:0;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:#000; color:#fff; font-family:'Oswald',sans-serif; }
+
+  .page {
+    width:12in; height:18in; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; page-break-after:always;
+    background:radial-gradient(125% 62% at 50% 0%, #2c0e06 0%, #0a0503 46%, #000 100%);
+  }
+  .page:last-child { page-break-after:auto; }
+  .grain { position:absolute; inset:0; opacity:.05; pointer-events:none;
+    background-image:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 3px),
+                     repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 3px); }
+
+  .strip { background:#FF3B1F; color:#000; font-weight:700; letter-spacing:.20em;
+    font-size:12.5px; text-align:center; padding:8px 0; text-transform:uppercase;
+    position:relative; z-index:3; flex:none; }
+  .strip.bottom { background:#FFC400; }
+
+  .head { flex:none; padding:14px 50px 0; position:relative; z-index:2; text-align:center; }
+  .wordmark { font-family:'Archivo',sans-serif; line-height:.84;
+    letter-spacing:-.024em; text-transform:uppercase; }
+  .wordmark span { display:block; font-size:104px; transform:scaleX(1.07); }
+  .edition { font-family:'Anton',sans-serif; color:#FF3B1F; font-size:44px;
+    letter-spacing:.07em; margin-top:6px; line-height:1; }
+  .datebar { margin-top:10px; font-weight:600; letter-spacing:.15em; font-size:16px;
+    text-transform:uppercase; border-top:3px solid #fff; border-bottom:3px solid #fff;
+    padding:8px 0; }
+  .datebar .dot { color:#FF3B1F; margin:0 10px; }
+
+  .body { flex:1; min-height:0; display:flex; flex-direction:column;
+    justify-content:space-evenly; padding:6px 46px 0; position:relative; z-index:2;
+    text-align:center; }
+
+  .day + .day { margin-top:4px; }
+  .daylabel { display:flex; align-items:center; justify-content:center; gap:14px;
+    margin-bottom:4px; }
+  .daylabel::before, .daylabel::after { content:""; flex:1; height:2px; background:#3d3d3d; }
+  .daylabel span { font-family:'Anton',sans-serif; font-size:30px; letter-spacing:.14em;
+    color:#FFC400; text-transform:uppercase; }
+  .daylabel i { font-style:normal; font-weight:600; font-size:14px; letter-spacing:.16em;
+    color:#8f8f8f; }
+
+  .hl { font-family:'Anton',sans-serif; text-transform:uppercase; font-size:80px;
+    line-height:1.02; letter-spacing:.005em; }
+  .hl div { transform:scaleX(.95); }
+
+  .ta { font-family:'Anton',sans-serif; text-transform:uppercase; font-size:35px;
+    line-height:1.22; letter-spacing:.012em; margin-top:10px; }
+  .tb { font-weight:600; text-transform:uppercase; font-size:17px; line-height:1.5;
+    letter-spacing:.045em; margin-top:10px; color:#dcdcdc; }
+
+  /* names must never break across a line -- that is the tell of a fake poster */
+  .nm { white-space:nowrap; }
+  .sep { color:#FF3B1F; margin:0 .40em; font-size:.55em; vertical-align:.22em; }
+  .ta .sep { font-size:.42em; vertical-align:.28em; }
+
+  .credits { flex:none; text-align:center; font-size:11.5px; letter-spacing:.10em;
+    font-weight:500; color:#8a8a8a; text-transform:uppercase; padding:8px 50px 7px;
+    line-height:1.58; position:relative; z-index:3; }
+  .credits b { color:#d6d6d6; font-weight:700; }
+
+  /* ---- page 2 ---- */
+  .p2 { padding:60px 74px; position:relative; z-index:2; }
+  .p2 h1 { font-family:'Anton',sans-serif; font-size:54px; text-transform:uppercase;
+    letter-spacing:.02em; line-height:1.03; }
+  .p2 h1 span { color:#FF3B1F; }
+  .p2 .sub { color:#9a9a9a; font-size:14.5px; letter-spacing:.05em; margin-top:13px;
+    line-height:1.66; font-weight:500; }
+  .p2 h2 { font-family:'Anton',sans-serif; font-size:24px; text-transform:uppercase;
+    letter-spacing:.05em; margin:32px 0 11px; color:#FFC400; }
+  table { width:100%; border-collapse:collapse; font-size:14px; font-weight:500; }
+  th { text-align:left; font-size:11px; letter-spacing:.13em; color:#8a8a8a;
+    text-transform:uppercase; padding:0 0 7px; border-bottom:2px solid #333; font-weight:700; }
+  td { padding:5.4px 0; border-bottom:1px solid #1d1d1d; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .two { display:flex; gap:40px; } .two > div { flex:1; }
+  .cap { font-size:11.5px; color:#8f8f8f; line-height:1.55; margin:-4px 0 11px;
+    font-weight:500; }
+  .note { margin-top:24px; font-size:12.5px; color:#9a9a9a; line-height:1.7; font-weight:500; }
+  .note b { color:#e4e4e4; }
+</style>
+
+<div class="page">
+  <div class="grain"></div>
+  <div class="strip">Forecast &#9679; not an official Rolling Loud announcement</div>
+  <div class="head">
+    <div class="wordmark"><span>Rolling</span><span>Loud</span></div>
+    <div class="edition">Florida 2027</div>
+    <div class="datebar">Camping World Stadium
+      <span class="dot">&#9679;</span> Orlando, FL
+      <span class="dot">&#9679;</span> May 7&#8211;9, 2027</div>
+  </div>
+  <div class="body">
+    <section class="day">
+      <div class="daylabel"><span>FRIDAY</span><i>MAY 7</i></div>
+      <div class="hl"><div>ROD WAVE</div></div>
+      <div class="ta"><span class='nm'>YOUNGBOY NEVER BROKE AGAIN</span> <span class="sep">&#9679;</span> <span class='nm'>GUNNA</span> <span class="sep">&#9679;</span> <span class='nm'>SEXYY RED</span> <span class="sep">&#9679;</span> <span class='nm'>SWAE LEE</span> <span class="sep">&#9679;</span> <span class='nm'>DENZEL CURRY</span> <span class="sep">&#9679;</span> <span class='nm'>NLE CHOPPA</span> <span class="sep">&#9679;</span> <span class='nm'>TRIPPIE REDD</span> <span class="sep">&#9679;</span> <span class='nm'>NOCAP</span></div>
+      <div class="tb"><span class='nm'>TIACORINE</span> <span class="sep">&#9679;</span> <span class='nm'>HURRICANE WISDOM</span> <span class="sep">&#9679;</span> <span class='nm'>LOE SHIMMY</span> <span class="sep">&#9679;</span> <span class='nm'>MOLLY SANTANA</span> <span class="sep">&#9679;</span> <span class='nm'>SORISA</span> <span class="sep">&#9679;</span> <span class='nm'>ADAMN KILLA</span> <span class="sep">&#9679;</span> <span class='nm'>APOLLORED1</span> <span class="sep">&#9679;</span> <span class='nm'>BABY MEL</span> <span class="sep">&#9679;</span> <span class='nm'>BIGSO</span> <span class="sep">&#9679;</span> <span class='nm'>BLOODHOUND Q50</span> <span class="sep">&#9679;</span> <span class='nm'>CHAMPAGNE937</span> <span class="sep">&#9679;</span> <span class='nm'>DANNY TOWERS</span> <span class="sep">&#9679;</span> <span class='nm'>DIORYSYOU</span> <span class="sep">&#9679;</span> <span class='nm'>FFAWTY</span> <span class="sep">&#9679;</span> <span class='nm'>FLOOR13</span> <span class="sep">&#9679;</span> <span class='nm'>1K PHEW</span> <span class="sep">&#9679;</span> <span class='nm'>2SLIMEY</span></div>
+    </section>
+    <section class="day">
+      <div class="daylabel"><span>SATURDAY</span><i>MAY 8</i></div>
+      <div class="hl"><div>PLAYBOI CARTI</div></div>
+      <div class="ta"><span class='nm'>KEN CARSON</span> <span class="sep">&#9679;</span> <span class='nm'>YEAT</span> <span class="sep">&#9679;</span> <span class='nm'>LIL UZI VERT</span> <span class="sep">&#9679;</span> <span class='nm'>DESTROY LONELY</span> <span class="sep">&#9679;</span> <span class='nm'>CHIEF KEEF</span> <span class="sep">&#9679;</span> <span class='nm'>RICK ROSS</span> <span class="sep">&#9679;</span> <span class='nm'>BOSSMAN DLOW</span> <span class="sep">&#9679;</span> <span class='nm'>OSAMASON</span></div>
+      <div class="tb"><span class='nm'>NETTSPEND</span> <span class="sep">&#9679;</span> <span class='nm'>HOMIXIDE GANG</span> <span class="sep">&#9679;</span> <span class='nm'>XAVIERSOBASED</span> <span class="sep">&#9679;</span> <span class='nm'>CHE</span> <span class="sep">&#9679;</span> <span class='nm'>SKRILLA</span> <span class="sep">&#9679;</span> <span class='nm'>FAKEMINK</span> <span class="sep">&#9679;</span> <span class='nm'>SOFAYGO</span> <span class="sep">&#9679;</span> <span class='nm'>SKAIWATER</span> <span class="sep">&#9679;</span> <span class='nm'>ESDEEKID</span> <span class="sep">&#9679;</span> <span class='nm'>RICH AMIRI</span> <span class="sep">&#9679;</span> <span class='nm'>IAN</span> <span class="sep">&#9679;</span> <span class='nm'>CHOW LEE</span> <span class="sep">&#9679;</span> <span class='nm'>CLIP</span> <span class="sep">&#9679;</span> <span class='nm'>F1LTHY</span> <span class="sep">&#9679;</span> <span class='nm'>FIMIGUERRERO</span> <span class="sep">&#9679;</span> <span class='nm'>PLAQUEBOYMAX</span> <span class="sep">&#9679;</span> <span class='nm'>FENG</span></div>
+    </section>
+    <section class="day">
+      <div class="daylabel"><span>SUNDAY</span><i>MAY 9</i></div>
+      <div class="hl"><div>DON TOLIVER</div></div>
+      <div class="ta"><span class='nm'>FUTURE</span> <span class="sep">&#9679;</span> <span class='nm'>LIL BABY</span> <span class="sep">&#9679;</span> <span class='nm'>QUAVO</span> <span class="sep">&#9679;</span> <span class='nm'>SKI MASK THE SLUMP GOD</span> <span class="sep">&#9679;</span> <span class='nm'>JT</span> <span class="sep">&#9679;</span> <span class='nm'>LIL TECCA</span> <span class="sep">&#9679;</span> <span class='nm'>LUH TYLER</span> <span class="sep">&#9679;</span> <span class='nm'>POOH SHIESTY</span></div>
+      <div class="tb"><span class='nm'>SAHBABII</span> <span class="sep">&#9679;</span> <span class='nm'>ROB49</span> <span class="sep">&#9679;</span> <span class='nm'>BUNNAB</span> <span class="sep">&#9679;</span> <span class='nm'>1900RUGRAT</span> <span class="sep">&#9679;</span> <span class='nm'>BABYCHIEFDOIT</span> <span class="sep">&#9679;</span> <span class='nm'>ANIKE</span> <span class="sep">&#9679;</span> <span class='nm'>B JACK$</span> <span class="sep">&#9679;</span> <span class='nm'>BELLY GANG KUSHINGTON</span> <span class="sep">&#9679;</span> <span class='nm'>BIGWEST</span> <span class="sep">&#9679;</span> <span class='nm'>CALEB GORDON</span> <span class="sep">&#9679;</span> <span class='nm'>CHUCKYY</span> <span class="sep">&#9679;</span> <span class='nm'>DC CHRIS</span> <span class="sep">&#9679;</span> <span class='nm'>EL SNAPPO</span> <span class="sep">&#9679;</span> <span class='nm'>FLOGO</span> <span class="sep">&#9679;</span> <span class='nm'>1300SAINT</span> <span class="sep">&#9679;</span> <span class='nm'>1ONEAM</span> <span class="sep">&#9679;</span> <span class='nm'>NINO PAID</span></div>
+    </section></div>
+  <div class="credits">
+    Predicted bill &#9679; <b>78 acts</b> &#9679; a full Rolling Loud runs ~78<br>
+    Generated by <b>RL-SIM</b> from information as of <b>16 Sep 2026</b>
+    &#9679; 93% the edition is staged as announced<br>
+    Day splits are the least certain part of this &#9679; the real lineup lands early Jan 2027
+  </div>
+  <div class="strip bottom">This is a statistical prediction &#9679; no affiliation with Rolling Loud</div>
+</div>
+
+<div class="page">
+  <div class="grain"></div>
+  <div class="p2">
+    <h1>The numbers<br><span>behind the poster</span></h1>
+    <div class="sub">
+      A Plackett&#8211;Luce conditional logit fitted to the 18 headline bookings across the six
+      US flagship editions staged since 2023, plus a logistic persistence model for the
+      undercard. Feature set and regularisation chosen by held-out likelihood, then
+      integrated forward over coefficient uncertainty and per-artist availability,
+      200,000 paths.<br>
+      Leave-one-edition-out the headline model names <b style="color:#fff">66.7%</b>
+      of held-out slates, against 22.2% for ranking on popularity
+      alone, 16.7% for rebooking the previous edition and
+      7.0% for a uniform draw from the pool.
+    </div>
+
+    <div class="two">
+      <div>
+        <h2>Headline slot</h2>
+        <table>
+          <tr><th>Artist</th><th class="n">Headline</th><th class="n">Any slot</th></tr>
+          <tr><td>Don Toliver</td><td class='n'>69%</td><td class='n'>76%</td></tr><tr><td>Playboi Carti</td><td class='n'>47%</td><td class='n'>62%</td></tr><tr><td>Rod Wave</td><td class='n'>43%</td><td class='n'>51%</td></tr><tr><td>Yeat</td><td class='n'>20%</td><td class='n'>36%</td></tr><tr><td>Travis Scott</td><td class='n'>18%</td><td class='n'>30%</td></tr><tr><td>Ken Carson</td><td class='n'>12%</td><td class='n'>39%</td></tr><tr><td>Drake</td><td class='n'>11%</td><td class='n'>20%</td></tr><tr><td>Gunna</td><td class='n'>11%</td><td class='n'>28%</td></tr><tr><td>Lil Uzi Vert</td><td class='n'>11%</td><td class='n'>24%</td></tr><tr><td>Lil Wayne</td><td class='n'>8%</td><td class='n'>21%</td></tr><tr><td>YoungBoy Never Broke Again</td><td class='n'>6%</td><td class='n'>22%</td></tr><tr><td>J. Cole</td><td class='n'>6%</td><td class='n'>14%</td></tr><tr><td>Future</td><td class='n'>5%</td><td class='n'>22%</td></tr><tr><td>Lil Baby</td><td class='n'>5%</td><td class='n'>22%</td></tr>
+        </table>
+      </div>
+      <div>
+        <h2>Anywhere on the bill</h2>
+        <div class="cap">Support-tier acts outrank marquee names here, and that is the
+        model working rather than failing: Rolling Loud recycles its deep bill and rotates
+        its top of it. The fitted undercard coefficient on draw is &#8722;4.05.</div>
+        <table>
+          <tr><th>Artist</th><th class="n">P</th></tr>
+          <tr><td>Don Toliver</td><td class='n'>76%</td></tr><tr><td>Playboi Carti</td><td class='n'>62%</td></tr><tr><td>Rod Wave</td><td class='n'>51%</td></tr><tr><td>Ken Carson</td><td class='n'>39%</td></tr><tr><td>BossMan Dlow</td><td class='n'>38%</td></tr><tr><td>Luh Tyler</td><td class='n'>37%</td></tr><tr><td>Yeat</td><td class='n'>36%</td></tr><tr><td>OsamaSon</td><td class='n'>35%</td></tr><tr><td>Nettspend</td><td class='n'>33%</td></tr><tr><td>Homixide Gang</td><td class='n'>33%</td></tr><tr><td>Sexyy Red</td><td class='n'>33%</td></tr><tr><td>Destroy Lonely</td><td class='n'>33%</td></tr><tr><td>xaviersobased</td><td class='n'>33%</td></tr><tr><td>Che</td><td class='n'>33%</td></tr><tr><td>Skrilla</td><td class='n'>33%</td></tr><tr><td>fakemink</td><td class='n'>32%</td></tr><tr><td>NoCap</td><td class='n'>32%</td></tr><tr><td>Pooh Shiesty</td><td class='n'>32%</td></tr><tr><td>TiaCorine</td><td class='n'>32%</td></tr><tr><td>SahBabii</td><td class='n'>32%</td></tr><tr><td>SoFaygo</td><td class='n'>32%</td></tr><tr><td>skaiwater</td><td class='n'>31%</td></tr><tr><td>EsDeeKid</td><td class='n'>31%</td></tr><tr><td>Travis Scott</td><td class='n'>30%</td></tr><tr><td>Hurricane Wisdom</td><td class='n'>29%</td></tr><tr><td>Gunna</td><td class='n'>28%</td></tr><tr><td>Quavo</td><td class='n'>28%</td></tr><tr><td>Swae Lee</td><td class='n'>28%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Read this as a forecast, not a leak.</b> All probabilities are conditional on the
+      edition being staged; multiply by 0.93 for unconditional odds. The model is
+      fitted to eighteen headline bookings, so coefficient uncertainty is wide, and because
+      popularity ranks for pre-2026 editions were assigned retrospectively the backtest above
+      is an optimistic bound on out-of-sample skill rather than an estimate of it.<br><br>
+      <b>Acts drawing at stadium scale headline or do not appear.</b> Travis Scott,
+      Drake and Kendrick Lamar are all live candidates for a headline slot &#8212; Travis at
+      18%, Drake at 12% &#8212; but none of them takes a second-line support billing, so
+      when they miss the top three they leave the bill entirely rather than sliding down it.
+      Their probability of being on this poster just is their probability of closing a
+      night.<br><br>
+      <b>The day splits are the weakest claim on the poster.</b> Full headline day-splits are
+      recoverable for two editions and one undercard fragment, which is not enough to fit
+      anything, so they follow an explicit rule: Saturday takes the biggest draw (true of
+      both editions where the split is known), and each day clusters around its headliner's
+      lane (visible in Orlando 2026, where NBA YoungBoy's Sunday carried Sexyy Red, OsamaSon,
+      Che and Skrilla). Treat who is on the bill as the forecast and which day they play as
+      an educated arrangement.<br><br>
+      Where I would bet against the model: <b>Don Toliver</b> is too high (it expects 45% of
+      slots to go to a 2026 headliner against a 29% historical base rate), <b>Drake</b> is too
+      high (eleven years of declining this festival is not a feature the model can see), and
+      <b>Sexyy Red</b> is too low (two usable transitions cannot identify an unbroken streak).
+      <b>Lil Durk</b> is the wildcard: acquitted 11 Sep 2026 but held for a racketeering trial
+      from 5 Oct. Full write-up in ROLLING_LOUD_2027.md.
+    </div>
+  </div>
+</div>

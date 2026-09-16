@@ -263,6 +263,24 @@ UNDERCARD_SETS = {
 }
 UNDERCARD_FEATURES = UNDERCARD_SETS["draw"]
 
+# The support tier of the roster (club/support-level acts) was sourced FROM the
+# Orlando 2026 bill, because that is the only place those names are recorded.
+# Every one of them is therefore a positive, with no comparable set of support
+# acts who were NOT booked -- selection on the dependent variable. Fitting over
+# that region does not estimate anything; it just learns "obscure implies booked"
+# and drags the popularity coefficient negative.
+#
+# So the logistic is fitted only where both classes are actually observed, and
+# the support tier is handled by a stated prior instead of a fitted number.
+UNDERCARD_DRAW_FLOOR = 0.35
+
+# Deep-bill turnover is high -- a festival's support tier is mostly rebuilt each
+# year from that season's risers. Anchored on the 32.6% measured return rate for
+# reported names, nudged down because support acts churn faster than the billed
+# names that rate is measured on. This is a PRIOR, not an estimate, and it is
+# flat across the tier: the data cannot rank these acts against each other.
+SUPPORT_TIER_PRIOR = 0.30
+
 
 @dataclass
 class UndercardModel:
@@ -291,14 +309,23 @@ def undercard_row(roster: Roster, key: str, rank: float, on_prev: bool,
     return [col[f] for f in features]
 
 
+# Real Rolling Loud bills run ~78 acts and most of them sit far down any
+# popularity ranking. A tight cut here would make a full bill unpredictable by
+# construction, so the universe is deliberately wide.
+UNDERCARD_RANK_CUT = 260
+
+
 def _undercard_rows(roster: Roster, target, prev, features,
-                    universe_rank_cut=110):
+                    universe_rank_cut=UNDERCARD_RANK_CUT,
+                    draw_floor=UNDERCARD_DRAW_FLOOR):
     epoch = BOOKING_EPOCH[target.key]
     rows, ys, keys = [], [], []
     for k in roster.artists:
         rank = roster.rank_at(k, epoch)
         if rank is None or rank > universe_rank_cut:
             continue
+        if roster.artists[k]["draw"] < draw_floor:
+            continue          # unidentified region -- see UNDERCARD_DRAW_FLOOR
         rows.append(undercard_row(
             roster, k, rank, k in prev.bill, target.is_florida,
             roster.prior_bill_count(k, target.start), features))

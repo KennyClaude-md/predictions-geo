@@ -27,7 +27,10 @@ from datetime import date
 import numpy as np
 
 from .data import BOOKING_EPOCH, Roster, _heat
-from .model import HeadlinerModel, UndercardModel, undercard_row
+from .model import (
+    SUPPORT_TIER_PRIOR, UNDERCARD_DRAW_FLOOR, UNDERCARD_RANK_CUT,
+    HeadlinerModel, UndercardModel, undercard_row,
+)
 
 
 def simulate(roster: Roster, hm: HeadlinerModel, um: UndercardModel,
@@ -36,7 +39,7 @@ def simulate(roster: Roster, hm: HeadlinerModel, um: UndercardModel,
              is_florida: bool = True,
              n_slots: int = 3,
              paths: int = 200_000,
-             undercard_rank_cut: int = 110,
+             undercard_rank_cut: int = UNDERCARD_RANK_CUT,
              seed: int = 20270507) -> dict:
     rng = np.random.default_rng(seed)
 
@@ -78,9 +81,13 @@ def simulate(roster: Roster, hm: HeadlinerModel, um: UndercardModel,
     prev = max((e for e in roster.editions if e.us_flagship and e.status == "held"),
                key=lambda e: e.start)
     uc_keys, uc_rows, uc_avail = [], [], []
+    support = {}          # acts below the draw floor: prior, not fitted estimate
     for k, a in roster.artists.items():
         rank = roster.rank_at(k, epoch)
         if rank is None or rank > undercard_rank_cut:
+            continue
+        if a["draw"] < UNDERCARD_DRAW_FLOOR:
+            support[k] = SUPPORT_TIER_PRIOR * a["avail_2027"]
             continue
         uc_keys.append(k)
         uc_rows.append(undercard_row(
@@ -99,6 +106,7 @@ def simulate(roster: Roster, hm: HeadlinerModel, um: UndercardModel,
     for k in pool:
         if k not in bill_p:
             bill_p[k] = float(hl_p[hl_index[k]])
+    bill_p.update(support)
 
     se = lambda p: float(np.sqrt(max(p * (1 - p), 0.0) / paths))
 
@@ -115,6 +123,8 @@ def simulate(roster: Roster, hm: HeadlinerModel, um: UndercardModel,
             ([pool[i] for i in t], c / paths)
             for t, c in sorted(slates.items(), key=lambda kv: -kv[1])[:25]
         ],
+        "support_tier_prior": SUPPORT_TIER_PRIOR,
+        "support_tier_keys": sorted(support),
         "expected_returning_share": float(np.mean([
             bill_p[k] for k in bill_p if k in prev.bill
         ])),

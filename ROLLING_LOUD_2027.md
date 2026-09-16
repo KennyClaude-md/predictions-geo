@@ -224,6 +224,31 @@ Lonely and Quavo.
 
 ---
 
+## 6b. Two rules the poster obeys that the table doesn't
+
+Rendering the forecast as an actual lineup poster forced two constraints that a
+probability table lets you ignore.
+
+**Stadium-scale acts headline or they don't appear.** Travis Scott is an 18%
+headline candidate and a 0.95-draw act. What he is *not* is a second-line
+support booking — his three Rolling Loud appearances are three headline slots.
+An early draft of the poster billed him beneath Rod Wave, which is a
+configuration that has never occurred and never will. Acts at draw ≥ 0.90
+(Travis, Drake, Kendrick, and Carti) are now either in the top three or off the
+bill, so their probability of appearing simply *is* their probability of
+closing a night.
+
+**Day splits are an arrangement, not a forecast.** Full headline day-splits are
+recoverable for two editions and one undercard fragment — not enough to fit
+anything — so they follow an explicit rule stated in `rlsim/days.py`: Saturday
+takes the biggest draw (true of both editions where the split is known: Travis
+Scott in Miami 2023, Playboi Carti in Orlando 2026), and each day clusters
+around its headliner's lane (visible in Orlando 2026, where NBA YoungBoy's
+Sunday carried Sexyy Red, OsamaSon, Che and Skrilla). Treat *who is on the bill*
+as the forecast and *which day they play* as an educated arrangement.
+
+---
+
 ## 7. What would move this forecast
 
 - **Lil Durk's racketeering verdict (from 5 Oct 2026).** An acquittal takes him
