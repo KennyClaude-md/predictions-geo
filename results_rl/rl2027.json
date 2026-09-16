@@ -1,0 +1,664 @@
+{
+  "target": "Rolling Loud Florida 2027, Camping World Stadium, 7-9 May 2027",
+  "generated_from_information_as_of": "2026-09-16",
+  "p_staged": 0.93,
+  "backtest": {
+    "grid": {
+      "base|0.25": {
+        "slots": 18,
+        "hit_rate": 0.5555555555555556,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.99456811378834
+      },
+      "base|0.5": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.626141546060495
+      },
+      "base|1.0": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.27781409277601
+      },
+      "base|2.0": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.153588368302465
+      },
+      "base|4.0": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.50032831410689
+      },
+      "base|8.0": {
+        "slots": 18,
+        "hit_rate": 0.5555555555555556,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -49.496343241850155
+      },
+      "draw|0.25": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -38.463706428642745
+      },
+      "draw|0.5": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -39.39226161729909
+      },
+      "draw|1.0": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -40.844198140244174
+      },
+      "draw|2.0": {
+        "slots": 18,
+        "hit_rate": 0.7222222222222222,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -42.55931639373576
+      },
+      "draw|4.0": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -44.37411324516862
+      },
+      "draw|8.0": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -46.343088959258345
+      },
+      "b2b|0.25": {
+        "slots": 18,
+        "hit_rate": 0.4444444444444444,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.85092038878453
+      },
+      "b2b|0.5": {
+        "slots": 18,
+        "hit_rate": 0.5,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.45670428809144
+      },
+      "b2b|1.0": {
+        "slots": 18,
+        "hit_rate": 0.5,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.17865863786157
+      },
+      "b2b|2.0": {
+        "slots": 18,
+        "hit_rate": 0.5555555555555556,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.21450781202105
+      },
+      "b2b|4.0": {
+        "slots": 18,
+        "hit_rate": 0.5555555555555556,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.81613559408953
+      },
+      "b2b|8.0": {
+        "slots": 18,
+        "hit_rate": 0.5,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -50.146312368776826
+      },
+      "full|0.25": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -39.49289015645885
+      },
+      "full|0.5": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -40.29097761481149
+      },
+      "full|1.0": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -41.58249163546058
+      },
+      "full|2.0": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -43.10729386579464
+      },
+      "full|4.0": {
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -44.80197828692468
+      },
+      "full|8.0": {
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -46.84051892305633
+      }
+    },
+    "by_feature_set": {
+      "base": {
+        "ridge": 2.0,
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.153588368302465
+      },
+      "draw": {
+        "ridge": 0.25,
+        "slots": 18,
+        "hit_rate": 0.6666666666666666,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -38.463706428642745
+      },
+      "b2b": {
+        "ridge": 1.0,
+        "slots": 18,
+        "hit_rate": 0.5,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -48.17865863786157
+      },
+      "full": {
+        "ridge": 0.25,
+        "slots": 18,
+        "hit_rate": 0.6111111111111112,
+        "heat_only_hit_rate": 0.2222222222222222,
+        "repeat_last_hit_rate": 0.16666666666666666,
+        "random_hit_rate": 0.07020881694794738,
+        "loo_loglik": -39.49289015645885
+      }
+    },
+    "best_feature_set": "draw",
+    "best_features": [
+      "hl_hist",
+      "heat",
+      "draw",
+      "rl_fit",
+      "fest_avail",
+      "regional_fl"
+    ],
+    "best_ridge": 0.25,
+    "best": {
+      "slots": 18,
+      "hit_rate": 0.6666666666666666,
+      "heat_only_hit_rate": 0.2222222222222222,
+      "repeat_last_hit_rate": 0.16666666666666666,
+      "random_hit_rate": 0.07020881694794738,
+      "loo_loglik": -38.463706428642745
+    }
+  },
+  "selected_feature_set": "draw",
+  "headline_coefficients": {
+    "hl_hist": -0.5290862921011379,
+    "heat": 1.4824113523230646,
+    "draw": 2.579718710431167,
+    "rl_fit": -0.87613364777866,
+    "fest_avail": 2.4724356504773524,
+    "regional_fl": -0.028706437294526297
+  },
+  "headline_coefficient_sd": {
+    "hl_hist": 0.2568694077171671,
+    "heat": 0.38544808944264447,
+    "draw": 0.7601427038941043,
+    "rl_fit": 0.5373128202905715,
+    "fest_avail": 0.7006524018908006,
+    "regional_fl": 0.5919787677670144
+  },
+  "selected_undercard_spec": "draw",
+  "undercard_selection": {
+    "base|0.5": -107.35943154175081,
+    "base|1.0": -104.88294358862566,
+    "base|2.0": -101.96402974874562,
+    "base|4.0": -99.60081338081375,
+    "draw|0.5": -95.4619171933042,
+    "draw|1.0": -97.61432303416305,
+    "draw|2.0": -97.90917580904971,
+    "draw|4.0": -97.45807918932246
+  },
+  "undercard_coefficients": {
+    "intercept": -1.731590655805053,
+    "on_prev_bill": 0.5777198406529165,
+    "heat": 0.45165669588326346,
+    "draw": -4.04876070451888,
+    "rl_fit": 3.191204671191192,
+    "regional_fl": 0.5863040081090481,
+    "prior_bills": 0.010241362417065351
+  },
+  "undercard_observed_return_rate": 0.32608695652173914,
+  "headline_prob": {
+    "21 Savage": 0.018145,
+    "A$AP Rocky": 0.01213,
+    "BigXthaPlug": 0.0122,
+    "BossMan Dlow": 0.00071,
+    "Cardi B": 0.023255,
+    "Central Cee": 0.012085,
+    "Chief Keef": 0.00293,
+    "Denzel Curry": 0.007055,
+    "Destroy Lonely": 0.006385,
+    "Doechii": 0.016235,
+    "Don Toliver": 0.68504,
+    "Drake": 0.1148,
+    "EsDeeKid": 0.001585,
+    "Future": 0.05472,
+    "GloRilla": 0.011695,
+    "Gunna": 0.109895,
+    "J. Cole": 0.058765,
+    "JAY-Z": 0.016665,
+    "Ken Carson": 0.121415,
+    "Kendrick Lamar": 0.007235,
+    "Kodak Black": 0.002605,
+    "Latto": 0.02669,
+    "Lil Baby": 0.045185,
+    "Lil Durk": 0.00426,
+    "Lil Tecca": 0.006045,
+    "Lil Uzi Vert": 0.10856,
+    "Lil Wayne": 0.08006,
+    "Lil Yachty": 0.013585,
+    "Metro Boomin": 0.009845,
+    "YoungBoy Never Broke Again": 0.06352,
+    "Nicki Minaj": 0.001775,
+    "NLE Choppa": 0.00511,
+    "Playboi Carti": 0.468155,
+    "Pooh Shiesty": 0.000495,
+    "Post Malone": 0.01088,
+    "Quavo": 0.005365,
+    "Rod Wave": 0.42681,
+    "Sexyy Red": 0.01833,
+    "Ski Mask the Slump God": 0.00535,
+    "Travis Scott": 0.179645,
+    "Tyler, The Creator": 0.008045,
+    "Ye": 0.001855,
+    "Yeat": 0.20249,
+    "Young Thug": 0.012395
+  },
+  "headline_se": {
+    "21 Savage": 0.0002984607090975293,
+    "A$AP Rocky": 0.00024477400903690736,
+    "BigXthaPlug": 0.0002454705685005842,
+    "BossMan Dlow": 5.9560721117192664e-05,
+    "Cardi B": 0.00033700300425218763,
+    "Central Cee": 0.0002443251192059466,
+    "Chief Keef": 0.00012085973481685288,
+    "Denzel Curry": 0.00018715270469592471,
+    "Destroy Lonely": 0.00017810434827650898,
+    "Doechii": 0.00028259002791146046,
+    "Don Toliver": 0.0010386534513493902,
+    "Drake": 0.0007128147024297409,
+    "EsDeeKid": 8.895189078934747e-05,
+    "Future": 0.0005085554129099403,
+    "GloRilla": 0.00024039786786700086,
+    "Gunna": 0.0006993500159969971,
+    "J. Cole": 0.0005258881762076421,
+    "JAY-Z": 0.0002862453298745675,
+    "Ken Carson": 0.0007303197853509105,
+    "Kendrick Lamar": 0.00018950797839405073,
+    "Kodak Black": 0.00011397837459360438,
+    "Latto": 0.0003604000825471604,
+    "Lil Baby": 0.0004644529888750852,
+    "Lil Durk": 0.00014563400015106363,
+    "Lil Tecca": 0.00017332711811773714,
+    "Lil Uzi Vert": 0.0006956102586937603,
+    "Lil Wayne": 0.0006068376899962625,
+    "Lil Yachty": 0.0002588479068391321,
+    "Metro Boomin": 0.0002207722352901288,
+    "YoungBoy Never Broke Again": 0.0005453678098311267,
+    "Nicki Minaj": 9.412357236633127e-05,
+    "NLE Choppa": 0.0001594347499762834,
+    "Playboi Carti": 0.0011157640789499364,
+    "Pooh Shiesty": 4.9737057361689585e-05,
+    "Post Malone": 0.00023196579058128378,
+    "Quavo": 0.00016334345372557787,
+    "Rod Wave": 0.0011059910123956704,
+    "Sexyy Red": 0.00029995008834804497,
+    "Ski Mask the Slump God": 0.00016311617792236306,
+    "Travis Scott": 0.0008584074614511455,
+    "Tyler, The Creator": 0.00019975332256310532,
+    "Ye": 9.621743540024334e-05,
+    "Yeat": 0.0008985760955534038,
+    "Young Thug": 0.0002474001210084587
+  },
+  "bill_prob": {
+    "Playboi Carti": 0.6659300726929207,
+    "Don Toliver": 0.8058005328001098,
+    "YoungBoy Never Broke Again": 0.2651815712818339,
+    "Ken Carson": 0.4225795499016466,
+    "Rod Wave": 0.5134584242014277,
+    "Travis Scott": 0.2746967679112048,
+    "Yeat": 0.40559162465069487,
+    "Future": 0.19354247747023173,
+    "Lil Uzi Vert": 0.23079805307171494,
+    "Gunna": 0.26635089620612296,
+    "A$AP Rocky": 0.12238859853636162,
+    "Drake": 0.19586835987046097,
+    "Kendrick Lamar": 0.03934986619635647,
+    "J. Cole": 0.10371888701453005,
+    "JAY-Z": 0.033509650054726975,
+    "Ye": 0.03409484657709376,
+    "Lil Baby": 0.16704159118095444,
+    "21 Savage": 0.1248184329610603,
+    "Tyler, The Creator": 0.033001682327728585,
+    "Nicki Minaj": 0.024146063961698973,
+    "Post Malone": 0.023365746784295684,
+    "Lil Wayne": 0.12317560457210551,
+    "Metro Boomin": 0.08439289121860039,
+    "Sexyy Red": 0.39963817989352385,
+    "Chief Keef": 0.2827700030825647,
+    "Kodak Black": 0.19709409264009875,
+    "Lil Durk": 0.039696265621129136,
+    "Central Cee": 0.138004415973999,
+    "GloRilla": 0.1913023659421699,
+    "Cardi B": 0.07695165537837993,
+    "BigXthaPlug": 0.1749784952975501,
+    "Young Thug": 0.10754635657935478,
+    "Lil Yachty": 0.17354285275250775,
+    "Destroy Lonely": 0.42332488698236337,
+    "EsDeeKid": 0.5993420564379274,
+    "Pooh Shiesty": 0.6040111887575078,
+    "BossMan Dlow": 0.6345987771596677,
+    "Quavo": 0.2875780451366728,
+    "Ski Mask the Slump God": 0.2872354904929511,
+    "Denzel Curry": 0.2715788515674724,
+    "Lil Tecca": 0.21045062414494622,
+    "OsamaSon": 0.6026492676620356,
+    "Nettspend": 0.591710338789928,
+    "fakemink": 0.561977034719266,
+    "Skrilla": 0.5511808852899226,
+    "Che": 0.549992581602321,
+    "Luh Tyler": 0.6187361654399576,
+    "SahBabii": 0.5038847772550672,
+    "Homixide Gang": 0.557686565907153,
+    "xaviersobased": 0.5436234340364268,
+    "SoFaygo": 0.49744527395301574,
+    "Molly Santana": 0.6277588875946952,
+    "skaiwater": 0.47725988002865716,
+    "1900Rugrat": 0.6137914729276392,
+    "NoCap": 0.48330870845096385,
+    "Swae Lee": 0.23809683849290977,
+    "Tyga": 0.1401132508519684,
+    "NLE Choppa": 0.18874349103864743,
+    "Trippie Redd": 0.1884215003460307,
+    "Lil Tjay": 0.15655644561870294,
+    "Polo G": 0.15131977838398564,
+    "Rich Amiri": 0.40636884271278584,
+    "ian": 0.3610770736366442,
+    "Hurricane Wisdom": 0.44650729411229717,
+    "Sorisa": 0.6000371485824528,
+    "TiaCorine": 0.45129780395585056,
+    "BabyChiefDoit": 0.6064453477566807,
+    "JT": 0.20727923385228306,
+    "Rick Ross": 0.14053507654635014,
+    "Latto": 0.1524596944891122,
+    "Doechii": 0.12599743200354674
+  },
+  "top_slates": [
+    [
+      [
+        "Don Toliver",
+        "Playboi Carti",
+        "Rod Wave"
+      ],
+      0.088515
+    ],
+    [
+      [
+        "Don Toliver",
+        "Playboi Carti",
+        "Yeat"
+      ],
+      0.031575
+    ],
+    [
+      [
+        "Don Toliver",
+        "Playboi Carti",
+        "Travis Scott"
+      ],
+      0.02842
+    ],
+    [
+      [
+        "Don Toliver",
+        "Rod Wave",
+        "Yeat"
+      ],
+      0.027895
+    ],
+    [
+      [
+        "Don Toliver",
+        "Rod Wave",
+        "Travis Scott"
+      ],
+      0.023885
+    ],
+    [
+      [
+        "Don Toliver",
+        "Drake",
+        "Rod Wave"
+      ],
+      0.01764
+    ],
+    [
+      [
+        "Don Toliver",
+        "Ken Carson",
+        "Playboi Carti"
+      ],
+      0.017005
+    ],
+    [
+      [
+        "Don Toliver",
+        "Drake",
+        "Playboi Carti"
+      ],
+      0.01652
+    ],
+    [
+      [
+        "Don Toliver",
+        "Lil Uzi Vert",
+        "Playboi Carti"
+      ],
+      0.016365
+    ],
+    [
+      [
+        "Don Toliver",
+        "Ken Carson",
+        "Rod Wave"
+      ],
+      0.015545
+    ],
+    [
+      [
+        "Don Toliver",
+        "Gunna",
+        "Rod Wave"
+      ],
+      0.01529
+    ],
+    [
+      [
+        "Don Toliver",
+        "Gunna",
+        "Playboi Carti"
+      ],
+      0.01486
+    ],
+    [
+      [
+        "Don Toliver",
+        "Lil Uzi Vert",
+        "Rod Wave"
+      ],
+      0.01302
+    ],
+    [
+      [
+        "Don Toliver",
+        "Lil Wayne",
+        "Rod Wave"
+      ],
+      0.01235
+    ],
+    [
+      [
+        "Don Toliver",
+        "Lil Wayne",
+        "Playboi Carti"
+      ],
+      0.01104
+    ],
+    [
+      [
+        "Playboi Carti",
+        "Rod Wave",
+        "Travis Scott"
+      ],
+      0.01026
+    ],
+    [
+      [
+        "Playboi Carti",
+        "Rod Wave",
+        "Yeat"
+      ],
+      0.0099
+    ],
+    [
+      [
+        "Don Toliver",
+        "Playboi Carti",
+        "YoungBoy Never Broke Again"
+      ],
+      0.009325
+    ],
+    [
+      [
+        "Don Toliver",
+        "Travis Scott",
+        "Yeat"
+      ],
+      0.00922
+    ],
+    [
+      [
+        "Don Toliver",
+        "Rod Wave",
+        "YoungBoy Never Broke Again"
+      ],
+      0.008755
+    ],
+    [
+      [
+        "Don Toliver",
+        "J. Cole",
+        "Rod Wave"
+      ],
+      0.008055
+    ],
+    [
+      [
+        "Don Toliver",
+        "J. Cole",
+        "Playboi Carti"
+      ],
+      0.00789
+    ],
+    [
+      [
+        "Don Toliver",
+        "Future",
+        "Playboi Carti"
+      ],
+      0.00744
+    ],
+    [
+      [
+        "Don Toliver",
+        "Future",
+        "Rod Wave"
+      ],
+      0.007385
+    ],
+    [
+      [
+        "Don Toliver",
+        "Ken Carson",
+        "Yeat"
+      ],
+      0.006725
+    ]
+  ],
+  "repeat_base_rate_historical": 0.2857142857142857,
+  "repeat_expected_slots_model": 1.33813
+}

@@ -1,0 +1,1450 @@
+{
+  "dataset": "rolling_loud_artists",
+  "as_of": "2026-09-16",
+  "heat_provenance": "heat_rank is a booking-time popularity rank within the rap field, low = hotter. The 2026-09 column is observed: Complex's 100 Hottest Rappers was fully overhauled in September 2026 with a published top five (Drake, Don Toliver, Rod Wave, Jay-Z, Playboi Carti); ranks 6-40 are carried from the same publication's spring-2026 edition with those five removed and the remainder order-preserved. Earlier columns are ANALYST-ASSIGNED retrospectively from documented chart and release facts at each booking moment (roughly five months before doors). Those are the model's weakest input: they are assigned knowing what happened next, so the backtest below is optimistic by an unknown margin. Treat the backtest as an upper bound on out-of-sample skill, not an estimate of it.",
+  "feature_definitions": {
+    "rl_fit": "0-1. Overlap between the artist's core audience and Rolling Loud's (young, trap / rage / Opium-adjacent / underground-internet). Judgement, anchored on who Rolling Loud actually books repeatedly.",
+    "fest_avail": "0-1. STABLE TRAIT: structural propensity to appear on a third-party US festival bill at a price Rolling Loud pays. Low for acts who only headline their own stadium runs, who run a competing festival, or who are effectively unbookable. Must not encode this-year constraints -- those belong in avail_2027, and writing a risk into both multiplies it.",
+    "regional_fl": "0-1. Florida / Deep South draw. Rolling Loud's US edition is now a Florida franchise and its Miami bills were historically ~20% South Florida acts.",
+    "tier": "Billing tier the artist would plausibly occupy at a 2027 US Rolling Loud.",
+    "avail_2027": "0-1. YEAR-SPECIFIC: probability the artist is free and willing for 7-9 May 2027 given known schedule conflicts, legal status and stated intentions. Disjoint from fest_avail by construction.",
+    "draw": "0-1. Headline DRAW, not heat: the scale of room the artist sells out on their own name. Stadium 0.90-0.95, arena 0.80-0.85, theatre 0.65, club 0.40, support 0.25. Assigned from documented own-headline touring history. This is the feature that separates a culturally hot act from one that can close a 65,000-capacity night; without it the model happily promotes buzzing club acts to stadium headliners."
+  },
+  "artists": [
+    {
+      "key": "playboi_carti",
+      "name": "Playboi Carti",
+      "tier": "headline",
+      "rl_fit": 1.0,
+      "fest_avail": 0.9,
+      "regional_fl": 0.45,
+      "heat_rank": {
+        "2022-10": 8,
+        "2023-02": 6,
+        "2023-10": 14,
+        "2024-07": 7,
+        "2024-10": 4,
+        "2025-12": 3,
+        "2026-09": 5
+      },
+      "avail_2027": 0.8,
+      "notes": "Headlined five of the six US flagship editions since 2023 and four consecutively. Unreleased album 'Baby Boi' reported finished by both Swamp Izzo and F1lthy; artistic director and Sunday headliner of ComplexCon 2026 (4 Oct). A Baby Boi cycle running into 2027 argues for availability rather than against it.",
+      "draw": 0.95
+    },
+    {
+      "key": "don_toliver",
+      "name": "Don Toliver",
+      "tier": "headline",
+      "rl_fit": 0.85,
+      "fest_avail": 0.9,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 30,
+        "2023-02": 28,
+        "2023-10": 22,
+        "2024-07": 20,
+        "2024-10": 18,
+        "2025-12": 9,
+        "2026-09": 2
+      },
+      "avail_2027": 0.72,
+      "notes": "Friday headliner in 2026 and the No. 2 hottest rapper as of September 2026. 'Octane' was the top-selling rap album of 2026 for months; 'E85' and 'Body' both charting. Also headlined Rolling Loud India 2025, so the brand relationship is deep. The question is repeat-year fatigue, not heat.",
+      "draw": 0.85
+    },
+    {
+      "key": "nba_youngboy",
+      "name": "YoungBoy Never Broke Again",
+      "tier": "headline",
+      "rl_fit": 0.9,
+      "fest_avail": 0.75,
+      "regional_fl": 0.5,
+      "heat_rank": {
+        "2022-10": 12,
+        "2023-02": 14,
+        "2023-10": 16,
+        "2024-07": 25,
+        "2024-10": 26,
+        "2025-12": 5,
+        "2026-09": 8
+      },
+      "avail_2027": 0.5,
+      "notes": "Booked to close Rolling Loud 2026 and withdrew the day before, saying he needed 'time away from travelling and performing'. Rolling Loud is owed a make-good and he is a top-10 heat act, but the stated reason for withdrawal is exactly the kind that recurs, and he carries a long history of travel and probation constraints. [availability audit] Takes festival bookings -- Rolling Loud had him signed to close 2026. The risk is follow-through, which belongs in avail_2027, not in the structural term.",
+      "draw": 0.85
+    },
+    {
+      "key": "ken_carson",
+      "name": "Ken Carson",
+      "tier": "headline",
+      "rl_fit": 0.98,
+      "fest_avail": 0.95,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 55,
+        "2023-02": 48,
+        "2023-10": 34,
+        "2024-07": 24,
+        "2024-10": 22,
+        "2025-12": 12,
+        "2026-09": 26
+      },
+      "avail_2027": 0.85,
+      "notes": "Did the job on one day's notice in 2026 after a No. 1 album ('More Chaos'), and was the booked Australia headliner before that edition collapsed. Two separate Rolling Loud headline bookings already banked. Heat rank has cooled since the album cycle, which is the main argument against a second straight close.",
+      "draw": 0.8
+    },
+    {
+      "key": "rod_wave",
+      "name": "Rod Wave",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.62,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 26,
+        "2023-02": 24,
+        "2023-10": 20,
+        "2024-07": 12,
+        "2024-10": 16,
+        "2025-12": 28,
+        "2026-09": 3
+      },
+      "avail_2027": 0.6,
+      "notes": "The biggest single momentum swing in the pool: No. 3 hottest as of September 2026 off 'Don't Look Down' (28 Aug 2026) and a 34-date arena tour running to 19 Nov 2026. St. Petersburg native, which is worth real money to a Florida franchise. Against: his audience is melodic and seated rather than mosh-pit, he prefers his own arena runs, and a tour that ends in November 2026 may mean a quiet spring. [availability audit] Has played Rolling Loud before; prefers his own arena runs but is not festival-averse.",
+      "draw": 0.85
+    },
+    {
+      "key": "travis_scott",
+      "name": "Travis Scott",
+      "tier": "headline",
+      "rl_fit": 0.9,
+      "fest_avail": 0.7,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 6,
+        "2023-02": 5,
+        "2023-10": 2,
+        "2024-07": 6,
+        "2024-10": 8,
+        "2025-12": 11,
+        "2026-09": 10
+      },
+      "avail_2027": 0.6,
+      "notes": "Three of six flagship editions. Reliable, expensive, and increasingly routed through his own stadium production rather than other people's fields. [availability audit] Structural preference for his own production stays in fest_avail; no known 2027 blocker.",
+      "draw": 0.95
+    },
+    {
+      "key": "yeat",
+      "name": "Yeat",
+      "tier": "headline",
+      "rl_fit": 0.95,
+      "fest_avail": 0.85,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 18,
+        "2023-02": 20,
+        "2023-10": 24,
+        "2024-07": 18,
+        "2024-10": 20,
+        "2025-12": 14,
+        "2026-09": 9
+      },
+      "avail_2027": 0.75,
+      "notes": "Top-10 heat, double album 'ADL' (27 Mar 2026), LOVE/LYFE tour July-August 2026. Has played Rolling Loud undercards but never closed a US flagship night. The most obvious unpromoted candidate in the pool.",
+      "draw": 0.8
+    },
+    {
+      "key": "future",
+      "name": "Future",
+      "tier": "headline",
+      "rl_fit": 0.85,
+      "fest_avail": 0.75,
+      "regional_fl": 0.6,
+      "heat_rank": {
+        "2022-10": 4,
+        "2023-02": 8,
+        "2023-10": 10,
+        "2024-07": 3,
+        "2024-10": 6,
+        "2025-12": 18,
+        "2026-09": 15
+      },
+      "avail_2027": 0.65,
+      "notes": "Three of six flagship editions, including two of the last four. Perennial fallback the festival trusts.",
+      "draw": 0.85
+    },
+    {
+      "key": "lil_uzi_vert",
+      "name": "Lil Uzi Vert",
+      "tier": "headline",
+      "rl_fit": 0.9,
+      "fest_avail": 0.8,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 10,
+        "2023-02": 12,
+        "2023-10": 6,
+        "2024-07": 22,
+        "2024-10": 24,
+        "2025-12": 16,
+        "2026-09": 14
+      },
+      "avail_2027": 0.6,
+      "notes": "Booked to headline Cali 2024 and pulled out. 'Eternal Atake 2' (2025). Effectively no touring calendar through 2026, which cuts both ways: no conflict, but no active cycle either.",
+      "draw": 0.85
+    },
+    {
+      "key": "gunna",
+      "name": "Gunna",
+      "tier": "headline",
+      "rl_fit": 0.85,
+      "fest_avail": 0.85,
+      "regional_fl": 0.45,
+      "heat_rank": {
+        "2022-10": 16,
+        "2023-02": 40,
+        "2023-10": 32,
+        "2024-07": 16,
+        "2024-10": 14,
+        "2025-12": 10,
+        "2026-09": 20
+      },
+      "avail_2027": 0.8,
+      "notes": "Booked to headline the cancelled Australia edition; 'The Last Wun' hit No. 1 on Top Rap Albums, his sixth. Owed a Rolling Loud headline slot that never happened.",
+      "draw": 0.8
+    },
+    {
+      "key": "asap_rocky",
+      "name": "A$AP Rocky",
+      "tier": "headline",
+      "rl_fit": 0.8,
+      "fest_avail": 0.7,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 20,
+        "2023-02": 16,
+        "2023-10": 26,
+        "2024-07": 26,
+        "2024-10": 10,
+        "2025-12": 22,
+        "2026-09": 18
+      },
+      "avail_2027": 0.6,
+      "notes": "Two of six flagship editions, both in the last four years. Long-delayed album, acquitted February 2025, increasingly fashion- and film-weighted. [availability audit] No known 2027 blocker; his drift toward fashion and film is a structural booking trait.",
+      "draw": 0.8
+    },
+    {
+      "key": "drake",
+      "name": "Drake",
+      "tier": "headline",
+      "rl_fit": 0.55,
+      "fest_avail": 0.15,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 2,
+        "2023-02": 2,
+        "2023-10": 1,
+        "2024-07": 4,
+        "2024-10": 2,
+        "2025-12": 1,
+        "2026-09": 1
+      },
+      "avail_2027": 0.45,
+      "notes": "The hottest rapper alive and has never played a Rolling Loud in eleven years. That is not an accident of scheduling: he tours his own stadium production and does not take third-party US festival slots. Priced as the pool's biggest heat-versus-bookability gap. [availability audit] The reason Drake does not play Rolling Loud is structural, not a 2027 diary clash. Counting it twice was making the model artificially certain.",
+      "draw": 0.9
+    },
+    {
+      "key": "kendrick_lamar",
+      "name": "Kendrick Lamar",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.2,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 3,
+        "2023-02": 4,
+        "2023-10": 8,
+        "2024-07": 1,
+        "2024-10": 3,
+        "2025-12": 2,
+        "2026-09": 7
+      },
+      "avail_2027": 0.3,
+      "notes": "Preparing a 2027 world tour, which is a routing conflict rather than an opportunity. Has never headlined a Rolling Loud. [availability audit] 2027 world tour is a genuine routing conflict, so avail stays low, but the structural aversion is already in fest_avail.",
+      "draw": 0.9
+    },
+    {
+      "key": "j_cole",
+      "name": "J. Cole",
+      "tier": "headline",
+      "rl_fit": 0.5,
+      "fest_avail": 0.4,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 14,
+        "2023-02": 18,
+        "2023-10": 18,
+        "2024-07": 14,
+        "2024-10": 30,
+        "2025-12": 24,
+        "2026-09": 6
+      },
+      "avail_2027": 0.45,
+      "notes": "Topped the spring-2026 heat list on a return-to-form run. Runs his own Dreamville festival, which historically substitutes for other people's bills. [availability audit] Dreamville substitution effect is structural.",
+      "draw": 0.85
+    },
+    {
+      "key": "jay_z",
+      "name": "JAY-Z",
+      "tier": "headline",
+      "rl_fit": 0.25,
+      "fest_avail": 0.1,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 40,
+        "2023-02": 38,
+        "2023-10": 40,
+        "2024-07": 36,
+        "2024-10": 34,
+        "2025-12": 30,
+        "2026-09": 4
+      },
+      "avail_2027": 0.3,
+      "notes": "High heat on a 'Roots Freestyle' run, near-zero bookability for a teen-skewing rap festival. Kept in the pool precisely to test that the model does not confuse heat with fit. [availability audit] Unbookability for a teen-skewing rap festival is the structural term.",
+      "draw": 0.85
+    },
+    {
+      "key": "ye",
+      "name": "Ye",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.2,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 24,
+        "2023-02": 30,
+        "2023-10": 28,
+        "2024-07": 10,
+        "2024-10": 12,
+        "2025-12": 20,
+        "2026-09": 11
+      },
+      "avail_2027": 0.3,
+      "notes": "Sponsor and insurance risk that a stadium-scale festival with a family-facing municipal partner does not take. [availability audit] Sponsor and insurance risk is structural.",
+      "draw": 0.85
+    },
+    {
+      "key": "lil_baby",
+      "name": "Lil Baby",
+      "tier": "headline",
+      "rl_fit": 0.8,
+      "fest_avail": 0.8,
+      "regional_fl": 0.45,
+      "heat_rank": {
+        "2022-10": 5,
+        "2023-02": 10,
+        "2023-10": 12,
+        "2024-07": 28,
+        "2024-10": 28,
+        "2025-12": 26,
+        "2026-09": 29
+      },
+      "avail_2027": 0.75,
+      "notes": "Cooled substantially from his 2022 peak but a dependable upper-bill name the festival keeps returning to.",
+      "draw": 0.8
+    },
+    {
+      "key": "21_savage",
+      "name": "21 Savage",
+      "tier": "headline",
+      "rl_fit": 0.8,
+      "fest_avail": 0.7,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 9,
+        "2023-02": 3,
+        "2023-10": 11,
+        "2024-07": 15,
+        "2024-10": 19,
+        "2025-12": 25,
+        "2026-09": 23
+      },
+      "avail_2027": 0.6,
+      "notes": "Special guest at Miami 2023. Plausible but never a booked Rolling Loud closer.",
+      "draw": 0.8
+    },
+    {
+      "key": "tyler_the_creator",
+      "name": "Tyler, The Creator",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.45,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 15,
+        "2023-02": 22,
+        "2023-10": 25,
+        "2024-07": 21,
+        "2024-10": 21,
+        "2025-12": 15,
+        "2026-09": 19
+      },
+      "avail_2027": 0.3,
+      "notes": "Runs Camp Flog Gnaw; has never been a Rolling Loud act.",
+      "draw": 0.85
+    },
+    {
+      "key": "nicki_minaj",
+      "name": "Nicki Minaj",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.45,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 11,
+        "2023-02": 15,
+        "2023-10": 5,
+        "2024-07": 13,
+        "2024-10": 23,
+        "2025-12": 34,
+        "2026-09": 45
+      },
+      "avail_2027": 0.35,
+      "notes": "Headlined Cali 2024 on the Pink Friday 2 cycle. No comparable cycle in view for 2027.",
+      "draw": 0.85
+    },
+    {
+      "key": "post_malone",
+      "name": "Post Malone",
+      "tier": "headline",
+      "rl_fit": 0.5,
+      "fest_avail": 0.6,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 13,
+        "2023-02": 17,
+        "2023-10": 9,
+        "2024-07": 17,
+        "2024-10": 25,
+        "2025-12": 38,
+        "2026-09": 52
+      },
+      "avail_2027": 0.3,
+      "notes": "Headlined Cali 2024; has since moved fully into country-leaning stadium touring.",
+      "draw": 0.85
+    },
+    {
+      "key": "lil_wayne",
+      "name": "Lil Wayne",
+      "tier": "headline",
+      "rl_fit": 0.6,
+      "fest_avail": 0.75,
+      "regional_fl": 0.55,
+      "heat_rank": {
+        "2022-10": 17,
+        "2023-02": 19,
+        "2023-10": 21,
+        "2024-07": 23,
+        "2024-10": 27,
+        "2025-12": 32,
+        "2026-09": 44
+      },
+      "avail_2027": 0.65,
+      "notes": "Legacy closer, headlined Cali 2023. Cheap relative to draw.",
+      "draw": 0.85
+    },
+    {
+      "key": "metro_boomin",
+      "name": "Metro Boomin",
+      "tier": "headline",
+      "rl_fit": 0.8,
+      "fest_avail": 0.75,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 21,
+        "2023-02": 13,
+        "2023-10": 15,
+        "2024-07": 5,
+        "2024-10": 9,
+        "2025-12": 29,
+        "2026-09": 48
+      },
+      "avail_2027": 0.55,
+      "notes": "Half of the Cali 2024 substitute headline set; producer-led sets have cooled since.",
+      "draw": 0.8
+    },
+    {
+      "key": "sexyy_red",
+      "name": "Sexyy Red",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.95,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 80,
+        "2023-02": 60,
+        "2023-10": 19,
+        "2024-07": 19,
+        "2024-10": 17,
+        "2025-12": 19,
+        "2026-09": 27
+      },
+      "avail_2027": 0.88,
+      "notes": "On every US flagship bill since 2023 and a booked headliner of the cancelled Australia edition. The most reliably recurring non-headline act in the dataset.",
+      "draw": 0.65
+    },
+    {
+      "key": "chief_keef",
+      "name": "Chief Keef",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.85,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 45,
+        "2023-02": 42,
+        "2023-10": 36,
+        "2024-07": 32,
+        "2024-10": 33,
+        "2025-12": 27,
+        "2026-09": 42
+      },
+      "avail_2027": 0.75,
+      "notes": "Institutional Rolling Loud booking; Cali 2024 and Orlando 2026.",
+      "draw": 0.65
+    },
+    {
+      "key": "kodak_black",
+      "name": "Kodak Black",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.8,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 22,
+        "2023-02": 21,
+        "2023-10": 23,
+        "2024-07": 27,
+        "2024-10": 29,
+        "2025-12": 36,
+        "2026-09": 50
+      },
+      "avail_2027": 0.6,
+      "notes": "Pompano Beach. The definitive South Florida Rolling Loud act; legal availability is the recurring question.",
+      "draw": 0.65
+    },
+    {
+      "key": "lil_durk",
+      "name": "Lil Durk",
+      "tier": "headline",
+      "rl_fit": 0.85,
+      "fest_avail": 0.75,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 7,
+        "2023-02": 9,
+        "2023-10": 13,
+        "2024-07": 11,
+        "2024-10": 15,
+        "2025-12": 40,
+        "2026-09": 38
+      },
+      "avail_2027": 0.22,
+      "notes": "Acquitted on all counts in the murder-for-hire trial on 11 September 2026 but held in custody pending a separate federal racketeering trial beginning 5 October 2026. If that also clears he is free by winter with the single best comeback narrative in rap and a Florida festival would pay for it. The gate is the trial, not the booking. [availability audit] Takes festival bookings readily; the gate is the 5 Oct 2026 racketeering trial, which is exactly a year-specific constraint.",
+      "draw": 0.8
+    },
+    {
+      "key": "central_cee",
+      "name": "Central Cee",
+      "tier": "upper",
+      "rl_fit": 0.7,
+      "fest_avail": 0.85,
+      "regional_fl": 0.15,
+      "heat_rank": {
+        "2022-10": 35,
+        "2023-02": 32,
+        "2023-10": 30,
+        "2024-07": 30,
+        "2024-10": 31,
+        "2025-12": 21,
+        "2026-09": 31
+      },
+      "avail_2027": 0.7,
+      "notes": "Headlined Rolling Loud India 2025; the brand's default UK headline name.",
+      "draw": 0.65
+    },
+    {
+      "key": "glorilla",
+      "name": "GloRilla",
+      "tier": "upper",
+      "rl_fit": 0.75,
+      "fest_avail": 0.9,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 33,
+        "2023-02": 29,
+        "2023-10": 33,
+        "2024-07": 29,
+        "2024-10": 13,
+        "2025-12": 23,
+        "2026-09": 33
+      },
+      "avail_2027": 0.8,
+      "notes": "Miami 2023 undercard; steady arena-level draw.",
+      "draw": 0.65
+    },
+    {
+      "key": "cardi_b",
+      "name": "Cardi B",
+      "tier": "headline",
+      "rl_fit": 0.65,
+      "fest_avail": 0.5,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 28,
+        "2023-02": 26,
+        "2023-10": 29,
+        "2024-07": 31,
+        "2024-10": 32,
+        "2025-12": 13,
+        "2026-09": 13
+      },
+      "avail_2027": 0.45,
+      "notes": "'Am I The Drama?' cycle put her back in the top fifteen. Rarely takes festival undercards and has never headlined a Rolling Loud.",
+      "draw": 0.85
+    },
+    {
+      "key": "bigxthaplug",
+      "name": "BigXthaPlug",
+      "tier": "upper",
+      "rl_fit": 0.7,
+      "fest_avail": 0.85,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 90,
+        "2023-02": 85,
+        "2023-10": 60,
+        "2024-07": 40,
+        "2024-10": 35,
+        "2025-12": 17,
+        "2026-09": 28
+      },
+      "avail_2027": 0.8,
+      "notes": "Miami 2025 favourite list; crossover country-rap run has widened the draw.",
+      "draw": 0.65
+    },
+    {
+      "key": "young_thug",
+      "name": "Young Thug",
+      "tier": "headline",
+      "rl_fit": 0.85,
+      "fest_avail": 0.75,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 25,
+        "2023-02": 35,
+        "2023-10": 45,
+        "2024-07": 45,
+        "2024-10": 45,
+        "2025-12": 31,
+        "2026-09": 35
+      },
+      "avail_2027": 0.55,
+      "notes": "Appeared as a guest during Ken Carson's 2026 Orlando set, confirming he is out, performing and Rolling-Loud-adjacent. A first post-RICO headline booking is a live possibility; the probation terms of his plea are the constraint. [availability audit] Performing again -- guested at Orlando 2026. Probation terms are the year-specific constraint.",
+      "draw": 0.8
+    },
+    {
+      "key": "lil_yachty",
+      "name": "Lil Yachty",
+      "tier": "upper",
+      "rl_fit": 0.7,
+      "fest_avail": 0.85,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 36,
+        "2023-02": 25,
+        "2023-10": 35,
+        "2024-07": 34,
+        "2024-10": 36,
+        "2025-12": 33,
+        "2026-09": 25
+      },
+      "avail_2027": 0.75,
+      "notes": "Miami 2024 undercard.",
+      "draw": 0.65
+    },
+    {
+      "key": "destroy_lonely",
+      "name": "Destroy Lonely",
+      "tier": "upper",
+      "rl_fit": 0.95,
+      "fest_avail": 0.95,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 70,
+        "2023-02": 55,
+        "2023-10": 42,
+        "2024-07": 38,
+        "2024-10": 37,
+        "2025-12": 35,
+        "2026-09": 39
+      },
+      "avail_2027": 0.88,
+      "notes": "Opium. On Miami 2024, Cali 2025 and Orlando 2026 \u2014 a three-edition streak.",
+      "draw": 0.65
+    },
+    {
+      "key": "esdeekid",
+      "name": "EsDeeKid",
+      "tier": "upper",
+      "rl_fit": 0.9,
+      "fest_avail": 0.9,
+      "regional_fl": 0.1,
+      "heat_rank": {
+        "2022-10": 120,
+        "2023-02": 118,
+        "2023-10": 110,
+        "2024-07": 90,
+        "2024-10": 75,
+        "2025-12": 30,
+        "2026-09": 16
+      },
+      "avail_2027": 0.82,
+      "notes": "Liverpool. The breakout of the 2026 bill and now a top-20 heat act; the clearest undercard-to-upper-bill promotion candidate.",
+      "draw": 0.4
+    },
+    {
+      "key": "pooh_shiesty",
+      "name": "Pooh Shiesty",
+      "tier": "upper",
+      "rl_fit": 0.9,
+      "fest_avail": 0.85,
+      "regional_fl": 0.55,
+      "heat_rank": {
+        "2022-10": 100,
+        "2023-02": 100,
+        "2023-10": 95,
+        "2024-07": 85,
+        "2024-10": 80,
+        "2025-12": 26,
+        "2026-09": 17
+      },
+      "avail_2027": 0.78,
+      "notes": "Post-release run has put him inside the top twenty; Memphis with heavy South Florida affiliation.",
+      "draw": 0.4
+    },
+    {
+      "key": "bossman_dlow",
+      "name": "BossMan Dlow",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.92,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 120,
+        "2023-02": 110,
+        "2023-10": 70,
+        "2024-07": 36,
+        "2024-10": 38,
+        "2025-12": 37,
+        "2026-09": 41
+      },
+      "avail_2027": 0.88,
+      "notes": "Port Charlotte, Florida. Cali 2025 and Orlando 2026; 'Motion Party' in Billboard's best-of-2026-so-far.",
+      "draw": 0.4
+    },
+    {
+      "key": "quavo",
+      "name": "Quavo",
+      "tier": "upper",
+      "rl_fit": 0.8,
+      "fest_avail": 0.9,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 32,
+        "2023-02": 36,
+        "2023-10": 44,
+        "2024-07": 44,
+        "2024-10": 44,
+        "2025-12": 41,
+        "2026-09": 47
+      },
+      "avail_2027": 0.82,
+      "notes": "Cali 2025, Orlando 2026 and the cancelled Australia bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "ski_mask",
+      "name": "Ski Mask the Slump God",
+      "tier": "upper",
+      "rl_fit": 0.9,
+      "fest_avail": 0.9,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 42,
+        "2023-02": 44,
+        "2023-10": 48,
+        "2024-07": 48,
+        "2024-10": 47,
+        "2025-12": 50,
+        "2026-09": 58
+      },
+      "avail_2027": 0.82,
+      "notes": "Broward County. Institutional Florida Rolling Loud booking; on Miami 2024 and Cali 2025 but absent from Orlando 2026.",
+      "draw": 0.65
+    },
+    {
+      "key": "denzel_curry",
+      "name": "Denzel Curry",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.9,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 44,
+        "2023-02": 46,
+        "2023-10": 50,
+        "2024-07": 50,
+        "2024-10": 49,
+        "2025-12": 52,
+        "2026-09": 55
+      },
+      "avail_2027": 0.85,
+      "notes": "Carol City. Hometown act for a Florida edition.",
+      "draw": 0.65
+    },
+    {
+      "key": "lil_tecca",
+      "name": "Lil Tecca",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.9,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 60,
+        "2023-02": 58,
+        "2023-10": 55,
+        "2024-07": 42,
+        "2024-10": 42,
+        "2025-12": 39,
+        "2026-09": 43
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami 2024 undercard and a 2026 Orlando guest appearance.",
+      "draw": 0.65
+    },
+    {
+      "key": "osamason",
+      "name": "OsamaSon",
+      "tier": "mid",
+      "rl_fit": 0.95,
+      "fest_avail": 0.95,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 130,
+        "2023-02": 125,
+        "2023-10": 105,
+        "2024-07": 80,
+        "2024-10": 65,
+        "2025-12": 45,
+        "2026-09": 46
+      },
+      "avail_2027": 0.88,
+      "notes": "Cali 2025, Orlando 2026 and the cancelled Australia bill.",
+      "draw": 0.4
+    },
+    {
+      "key": "nettspend",
+      "name": "Nettspend",
+      "tier": "mid",
+      "rl_fit": 0.95,
+      "fest_avail": 0.92,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 140,
+        "2023-02": 135,
+        "2023-10": 115,
+        "2024-07": 85,
+        "2024-10": 70,
+        "2025-12": 48,
+        "2026-09": 40
+      },
+      "avail_2027": 0.85,
+      "notes": "Rage-wave act, Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "fakemink",
+      "name": "fakemink",
+      "tier": "mid",
+      "rl_fit": 0.92,
+      "fest_avail": 0.9,
+      "regional_fl": 0.1,
+      "heat_rank": {
+        "2022-10": 150,
+        "2023-02": 148,
+        "2023-10": 140,
+        "2024-07": 120,
+        "2024-10": 100,
+        "2025-12": 55,
+        "2026-09": 38
+      },
+      "avail_2027": 0.85,
+      "notes": "UK bedroom rap with Drake, Carti and Rocky co-signs; rose fast through 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "skrilla",
+      "name": "Skrilla",
+      "tier": "mid",
+      "rl_fit": 0.92,
+      "fest_avail": 0.92,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 160,
+        "2023-02": 155,
+        "2023-10": 140,
+        "2024-07": 110,
+        "2024-10": 85,
+        "2025-12": 47,
+        "2026-09": 49
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "che",
+      "name": "Che",
+      "tier": "mid",
+      "rl_fit": 0.92,
+      "fest_avail": 0.92,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 170,
+        "2023-02": 165,
+        "2023-10": 150,
+        "2024-07": 120,
+        "2024-10": 95,
+        "2025-12": 56,
+        "2026-09": 53
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026; 10K Projects.",
+      "draw": 0.4
+    },
+    {
+      "key": "luh_tyler",
+      "name": "Luh Tyler",
+      "tier": "mid",
+      "rl_fit": 0.88,
+      "fest_avail": 0.92,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 120,
+        "2023-02": 95,
+        "2023-10": 75,
+        "2024-07": 70,
+        "2024-10": 68,
+        "2025-12": 58,
+        "2026-09": 60
+      },
+      "avail_2027": 0.88,
+      "notes": "Tallahassee. Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "sahbabii",
+      "name": "SahBabii",
+      "tier": "mid",
+      "rl_fit": 0.88,
+      "fest_avail": 0.9,
+      "regional_fl": 0.35,
+      "heat_rank": {
+        "2022-10": 110,
+        "2023-02": 105,
+        "2023-10": 100,
+        "2024-07": 90,
+        "2024-10": 88,
+        "2025-12": 60,
+        "2026-09": 62
+      },
+      "avail_2027": 0.82,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "homixide_gang",
+      "name": "Homixide Gang",
+      "tier": "mid",
+      "rl_fit": 0.95,
+      "fest_avail": 0.92,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 125,
+        "2023-02": 115,
+        "2023-10": 95,
+        "2024-07": 82,
+        "2024-10": 78,
+        "2025-12": 62,
+        "2026-09": 64
+      },
+      "avail_2027": 0.85,
+      "notes": "Opium. Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "xaviersobased",
+      "name": "xaviersobased",
+      "tier": "mid",
+      "rl_fit": 0.95,
+      "fest_avail": 0.9,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 180,
+        "2023-02": 175,
+        "2023-10": 160,
+        "2024-07": 130,
+        "2024-10": 105,
+        "2025-12": 65,
+        "2026-09": 66
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "sofaygo",
+      "name": "SoFaygo",
+      "tier": "mid",
+      "rl_fit": 0.9,
+      "fest_avail": 0.9,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 75,
+        "2023-02": 78,
+        "2023-10": 85,
+        "2024-07": 88,
+        "2024-10": 90,
+        "2025-12": 70,
+        "2026-09": 72
+      },
+      "avail_2027": 0.82,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "molly_santana",
+      "name": "Molly Santana",
+      "tier": "rising",
+      "rl_fit": 0.9,
+      "fest_avail": 0.92,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 200,
+        "2023-02": 190,
+        "2023-10": 170,
+        "2024-07": 140,
+        "2024-10": 110,
+        "2025-12": 75,
+        "2026-09": 74
+      },
+      "avail_2027": 0.85,
+      "notes": "Cali 2025 and Orlando 2026.",
+      "draw": 0.25
+    },
+    {
+      "key": "skaiwater",
+      "name": "skaiwater",
+      "tier": "mid",
+      "rl_fit": 0.9,
+      "fest_avail": 0.9,
+      "regional_fl": 0.15,
+      "heat_rank": {
+        "2022-10": 190,
+        "2023-02": 180,
+        "2023-10": 150,
+        "2024-07": 120,
+        "2024-10": 100,
+        "2025-12": 72,
+        "2026-09": 76
+      },
+      "avail_2027": 0.82,
+      "notes": "Cali 2025 and Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "1900rugrat",
+      "name": "1900Rugrat",
+      "tier": "rising",
+      "rl_fit": 0.88,
+      "fest_avail": 0.92,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 220,
+        "2023-02": 210,
+        "2023-10": 190,
+        "2024-07": 150,
+        "2024-10": 120,
+        "2025-12": 85,
+        "2026-09": 88
+      },
+      "avail_2027": 0.85,
+      "notes": "Cali 2025 and Orlando 2026.",
+      "draw": 0.25
+    },
+    {
+      "key": "nocap",
+      "name": "NoCap",
+      "tier": "mid",
+      "rl_fit": 0.85,
+      "fest_avail": 0.88,
+      "regional_fl": 0.55,
+      "heat_rank": {
+        "2022-10": 85,
+        "2023-02": 88,
+        "2023-10": 92,
+        "2024-07": 95,
+        "2024-10": 95,
+        "2025-12": 80,
+        "2026-09": 82
+      },
+      "avail_2027": 0.82,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "swae_lee",
+      "name": "Swae Lee",
+      "tier": "upper",
+      "rl_fit": 0.75,
+      "fest_avail": 0.92,
+      "regional_fl": 0.45,
+      "heat_rank": {
+        "2022-10": 50,
+        "2023-02": 52,
+        "2023-10": 58,
+        "2024-07": 60,
+        "2024-10": 62,
+        "2025-12": 57,
+        "2026-09": 68
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026 and the cancelled Australia bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "tyga",
+      "name": "Tyga",
+      "tier": "upper",
+      "rl_fit": 0.75,
+      "fest_avail": 0.92,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 48,
+        "2023-02": 50,
+        "2023-10": 56,
+        "2024-07": 55,
+        "2024-10": 58,
+        "2025-12": 64,
+        "2026-09": 70
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami 2024 and the cancelled Australia bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "nle_choppa",
+      "name": "NLE Choppa",
+      "tier": "upper",
+      "rl_fit": 0.8,
+      "fest_avail": 0.92,
+      "regional_fl": 0.45,
+      "heat_rank": {
+        "2022-10": 40,
+        "2023-02": 45,
+        "2023-10": 52,
+        "2024-07": 52,
+        "2024-10": 55,
+        "2025-12": 54,
+        "2026-09": 57
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami 2024 and the cancelled Australia bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "trippie_redd",
+      "name": "Trippie Redd",
+      "tier": "upper",
+      "rl_fit": 0.85,
+      "fest_avail": 0.9,
+      "regional_fl": 0.3,
+      "heat_rank": {
+        "2022-10": 38,
+        "2023-02": 41,
+        "2023-10": 47,
+        "2024-07": 47,
+        "2024-10": 52,
+        "2025-12": 59,
+        "2026-09": 63
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami 2024.",
+      "draw": 0.65
+    },
+    {
+      "key": "lil_tjay",
+      "name": "Lil Tjay",
+      "tier": "upper",
+      "rl_fit": 0.8,
+      "fest_avail": 0.9,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 46,
+        "2023-02": 49,
+        "2023-10": 54,
+        "2024-07": 58,
+        "2024-10": 60,
+        "2025-12": 61,
+        "2026-09": 65
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami 2024 and the cancelled Australia bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "polo_g",
+      "name": "Polo G",
+      "tier": "upper",
+      "rl_fit": 0.8,
+      "fest_avail": 0.88,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 34,
+        "2023-02": 39,
+        "2023-10": 46,
+        "2024-07": 54,
+        "2024-10": 56,
+        "2025-12": 66,
+        "2026-09": 69
+      },
+      "avail_2027": 0.82,
+      "notes": "Miami 2024.",
+      "draw": 0.65
+    },
+    {
+      "key": "rich_amiri",
+      "name": "Rich Amiri",
+      "tier": "mid",
+      "rl_fit": 0.92,
+      "fest_avail": 0.92,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 150,
+        "2023-02": 140,
+        "2023-10": 120,
+        "2024-07": 100,
+        "2024-10": 92,
+        "2025-12": 68,
+        "2026-09": 67
+      },
+      "avail_2027": 0.85,
+      "notes": "Cancelled Australia bill; the most obvious 2026 omission to return.",
+      "draw": 0.4
+    },
+    {
+      "key": "ian",
+      "name": "ian",
+      "tier": "mid",
+      "rl_fit": 0.88,
+      "fest_avail": 0.92,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 200,
+        "2023-02": 180,
+        "2023-10": 130,
+        "2024-07": 75,
+        "2024-10": 72,
+        "2025-12": 71,
+        "2026-09": 78
+      },
+      "avail_2027": 0.85,
+      "notes": "Cali 2025 and the cancelled Australia bill; absent from Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "hurricane_wisdom",
+      "name": "Hurricane Wisdom",
+      "tier": "mid",
+      "rl_fit": 0.88,
+      "fest_avail": 0.92,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 180,
+        "2023-02": 160,
+        "2023-10": 130,
+        "2024-07": 105,
+        "2024-10": 98,
+        "2025-12": 88,
+        "2026-09": 90
+      },
+      "avail_2027": 0.85,
+      "notes": "Fort Myers, Florida. Cali 2025.",
+      "draw": 0.4
+    },
+    {
+      "key": "sorisa",
+      "name": "Sorisa",
+      "tier": "rising",
+      "rl_fit": 0.9,
+      "fest_avail": 0.92,
+      "regional_fl": 0.1,
+      "heat_rank": {
+        "2022-10": 250,
+        "2023-02": 240,
+        "2023-10": 220,
+        "2024-07": 190,
+        "2024-10": 160,
+        "2025-12": 95,
+        "2026-09": 80
+      },
+      "avail_2027": 0.85,
+      "notes": "Toronto. Press-designated breakout of the Orlando 2026 bill.",
+      "draw": 0.25
+    },
+    {
+      "key": "tiacorine",
+      "name": "TiaCorine",
+      "tier": "mid",
+      "rl_fit": 0.85,
+      "fest_avail": 0.92,
+      "regional_fl": 0.25,
+      "heat_rank": {
+        "2022-10": 140,
+        "2023-02": 135,
+        "2023-10": 125,
+        "2024-07": 115,
+        "2024-10": 112,
+        "2025-12": 92,
+        "2026-09": 94
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026.",
+      "draw": 0.4
+    },
+    {
+      "key": "babychiefdoit",
+      "name": "BabyChiefDoit",
+      "tier": "mid",
+      "rl_fit": 0.9,
+      "fest_avail": 0.92,
+      "regional_fl": 0.2,
+      "heat_rank": {
+        "2022-10": 220,
+        "2023-02": 205,
+        "2023-10": 175,
+        "2024-07": 135,
+        "2024-10": 115,
+        "2025-12": 86,
+        "2026-09": 84
+      },
+      "avail_2027": 0.85,
+      "notes": "Orlando 2026 and the cancelled Australia bill.",
+      "draw": 0.25
+    },
+    {
+      "key": "jt",
+      "name": "JT",
+      "tier": "upper",
+      "rl_fit": 0.8,
+      "fest_avail": 0.9,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 65,
+        "2023-02": 62,
+        "2023-10": 64,
+        "2024-07": 62,
+        "2024-10": 64,
+        "2025-12": 73,
+        "2026-09": 75
+      },
+      "avail_2027": 0.82,
+      "notes": "Miami, City Girls. Miami 2024.",
+      "draw": 0.65
+    },
+    {
+      "key": "rick_ross",
+      "name": "Rick Ross",
+      "tier": "upper",
+      "rl_fit": 0.65,
+      "fest_avail": 0.88,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 70,
+        "2023-02": 70,
+        "2023-10": 72,
+        "2024-07": 66,
+        "2024-10": 70,
+        "2025-12": 77,
+        "2026-09": 85
+      },
+      "avail_2027": 0.85,
+      "notes": "Miami institution. Miami 2024.",
+      "draw": 0.65
+    },
+    {
+      "key": "latto",
+      "name": "Latto",
+      "tier": "upper",
+      "rl_fit": 0.6,
+      "fest_avail": 0.85,
+      "regional_fl": 0.4,
+      "heat_rank": {
+        "2022-10": 31,
+        "2023-02": 34,
+        "2023-10": 38,
+        "2024-07": 39,
+        "2024-10": 40,
+        "2025-12": 43,
+        "2026-09": 24
+      },
+      "avail_2027": 0.75,
+      "notes": "Top-25 heat with no Rolling Loud US bill since 2022; a standing gap on the bill.",
+      "draw": 0.65
+    },
+    {
+      "key": "doechii",
+      "name": "Doechii",
+      "tier": "upper",
+      "rl_fit": 0.5,
+      "fest_avail": 0.7,
+      "regional_fl": 1.0,
+      "heat_rank": {
+        "2022-10": 95,
+        "2023-02": 90,
+        "2023-10": 88,
+        "2024-07": 72,
+        "2024-10": 50,
+        "2025-12": 8,
+        "2026-09": 21
+      },
+      "avail_2027": 0.6,
+      "notes": "Tampa native, Grammy winner, and 'Girl Get Up' with SZA was a top-ten song of 2026. Her curated, theatrical live show is an awkward fit for a mosh-pit bill, which is the only reason she is not near-certain for a Florida edition. [availability audit] Plays festivals; the mismatch with a mosh-pit bill is captured by rl_fit and draw, not by availability.",
+      "draw": 0.65
+    }
+  ],
+  "structural_composition": {
+    "note": "Slot counts observed on recent US flagship bills, used to size the simulated bill.",
+    "total_acts_orlando_2026": 78,
+    "headline_slots": 3,
+    "upper_billed_slots": 14,
+    "mid_slots": 26,
+    "rising_slots": 35,
+    "observed_shares": {
+      "opium_and_rage_axis": 0.22,
+      "florida_and_south": 0.2,
+      "uk_and_international": 0.12,
+      "women": 0.14,
+      "legacy_pre_2015_debut": 0.08
+    }
+  }
+}
